@@ -9,9 +9,9 @@
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: caja 1.23.2\n"
+"Project-Id-Version: caja 1.25.0\n"
 "Report-Msgid-Bugs-To: https://mate-desktop.org\n"
-"POT-Creation-Date: 2020-01-10 11:11+0100\n"
+"POT-Creation-Date: 2020-06-21 17:16+0200\n"
 "PO-Revision-Date: 2018-03-11 14:48+0000\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>, 2020\n"
 "Language-Team: Serbian (https://www.transifex.com/mate/teams/13566/sr/)\n"
@@ -292,7 +292,7 @@ msgstr "Обриши"
 
 #: data/caja.appdata.xml.in:7 data/caja-browser.desktop.in.in:3
 #: data/caja.desktop.in.in:3 data/caja-folder-handler.desktop.in.in:3
-#: src/caja-spatial-window.c:399 src/caja-window.c:167
+#: src/caja-spatial-window.c:403 src/caja-window.c:167
 #: src/caja-window-menus.c:574
 msgid "Caja"
 msgstr "Цаја"
@@ -325,12 +325,6 @@ msgstr ""
 msgid "Autorun Prompt"
 msgstr "Упит самопокретања"
 
-#. Translators: Do NOT translate or transliterate this text (this is an icon
-#. file name)!
-#: data/caja-autorun-software.desktop.in.in:7
-msgid "application-x-executable"
-msgstr "application-x-executable"
-
 #: data/caja-browser.desktop.in.in:4
 msgid "File Browser"
 msgstr "Разгледач датотека"
@@ -338,13 +332,6 @@ msgstr "Разгледач датотека"
 #: data/caja-browser.desktop.in.in:5
 msgid "Browse the file system with the file manager"
 msgstr "Разгледајте систем датотека помоћу управника датотека"
-
-#. Translators: Do NOT translate or transliterate this text (this is an icon
-#. file name)!
-#: data/caja-browser.desktop.in.in:9 data/caja.desktop.in.in:7
-#: data/caja-file-management-properties.desktop.in.in:7
-msgid "system-file-manager"
-msgstr "system-file-manager"
 
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
@@ -363,12 +350,6 @@ msgid ""
 msgstr ""
 "Разгледајте све месне и удаљене дискове и фасцикле којима се може приступити"
 " са овог рачунара"
-
-#. Translators: Do NOT translate or transliterate this text (this is an icon
-#. file name)!
-#: data/caja-computer.desktop.in.in:8
-msgid "computer"
-msgstr "computer"
 
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
@@ -398,12 +379,6 @@ msgstr "датотека;управник;измени;својства;пона
 msgid "Open Folder"
 msgstr "Отворите фасциклу"
 
-#. Translators: Do NOT translate or transliterate this text (this is an icon
-#. file name)!
-#: data/caja-folder-handler.desktop.in.in:10
-msgid "folder-open"
-msgstr "folder-open"
-
 #: data/caja-home.desktop.in.in:3 src/file-manager/fm-tree-view.c:1421
 msgid "Home Folder"
 msgstr "Лична фасцикла"
@@ -412,12 +387,6 @@ msgstr "Лична фасцикла"
 #: src/caja-window-menus.c:935
 msgid "Open your personal folder"
 msgstr "Отворите вашу личну фасциклу"
-
-#. Translators: Do NOT translate or transliterate this text (this is an icon
-#. file name)!
-#: data/caja-home.desktop.in.in:8
-msgid "user-home"
-msgstr "user-home"
 
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
@@ -436,12 +405,6 @@ msgstr "Мрежа"
 #: data/mate-network-scheme.desktop.in.in:4 src/caja-window-menus.c:945
 msgid "Browse bookmarked and local network locations"
 msgstr "Разгледајте обележена и месна мрежна места"
-
-#. Translators: Do NOT translate or transliterate this text (this is an icon
-#. file name)!
-#: data/mate-network-scheme.desktop.in.in:11
-msgid "network-workgroup"
-msgstr "network-workgroup"
 
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
@@ -800,7 +763,7 @@ msgid "The group of the file."
 msgstr "Група датотеке."
 
 #: libcaja-private/caja-column-utilities.c:108
-#: src/file-manager/fm-properties-window.c:4788
+#: src/file-manager/fm-properties-window.c:4785
 msgid "Permissions"
 msgstr "Овлашћења"
 
@@ -842,7 +805,7 @@ msgid "The location of the file."
 msgstr "Путања до датотеке."
 
 #: libcaja-private/caja-column-utilities.c:148
-#: src/caja-file-management-properties.ui:2551
+#: src/caja-file-management-properties.ui:2542
 msgid "Extension"
 msgstr "Проширење"
 
@@ -1004,209 +967,209 @@ msgstr "Не могу да преименујем иконицу радне по
 msgid "Unable to rename desktop file"
 msgstr "Не могу да преименујем датотеку радне површи"
 
-#: libcaja-private/caja-file.c:4757
+#: libcaja-private/caja-file.c:4769
 msgid "today at 00:00:00 PM"
 msgstr "данас у 14:33:24"
 
-#: libcaja-private/caja-file.c:4758 src/caja-file-management-properties.c:532
+#: libcaja-private/caja-file.c:4770 src/caja-file-management-properties.c:509
 msgid "today at %-I:%M:%S %p"
 msgstr "данас у %-H:%M:%S"
 
-#: libcaja-private/caja-file.c:4760
+#: libcaja-private/caja-file.c:4772
 msgid "today at 00:00 PM"
 msgstr "данас у 14:33"
 
-#: libcaja-private/caja-file.c:4761
+#: libcaja-private/caja-file.c:4773
 msgid "today at %-I:%M %p"
 msgstr "данас у %-H:%M"
 
-#: libcaja-private/caja-file.c:4763
+#: libcaja-private/caja-file.c:4775
 msgid "today, 00:00 PM"
 msgstr "данас, 14:33"
 
-#: libcaja-private/caja-file.c:4764
+#: libcaja-private/caja-file.c:4776
 msgid "today, %-I:%M %p"
 msgstr "данас, %-H:%M"
 
-#: libcaja-private/caja-file.c:4766 libcaja-private/caja-file.c:4767
+#: libcaja-private/caja-file.c:4778 libcaja-private/caja-file.c:4779
 msgid "today"
 msgstr "данас"
 
-#: libcaja-private/caja-file.c:4776
+#: libcaja-private/caja-file.c:4788
 msgid "yesterday at 00:00:00 PM"
 msgstr "јуче у 14:33:24"
 
-#: libcaja-private/caja-file.c:4777
+#: libcaja-private/caja-file.c:4789
 msgid "yesterday at %-I:%M:%S %p"
 msgstr "јуче у %-H:%M:%S"
 
-#: libcaja-private/caja-file.c:4779
+#: libcaja-private/caja-file.c:4791
 msgid "yesterday at 00:00 PM"
 msgstr "јуче у 14:33"
 
-#: libcaja-private/caja-file.c:4780
+#: libcaja-private/caja-file.c:4792
 msgid "yesterday at %-I:%M %p"
 msgstr "јуче у %-H:%M"
 
-#: libcaja-private/caja-file.c:4782
+#: libcaja-private/caja-file.c:4794
 msgid "yesterday, 00:00 PM"
 msgstr "јуче, 14:33"
 
-#: libcaja-private/caja-file.c:4783
+#: libcaja-private/caja-file.c:4795
 msgid "yesterday, %-I:%M %p"
 msgstr "јуче, %-H:%M"
 
-#: libcaja-private/caja-file.c:4785 libcaja-private/caja-file.c:4786
+#: libcaja-private/caja-file.c:4797 libcaja-private/caja-file.c:4798
 msgid "yesterday"
 msgstr "јуче"
 
-#: libcaja-private/caja-file.c:4797
+#: libcaja-private/caja-file.c:4809
 msgid "Wednesday, September 00 0000 at 00:00:00 PM"
 msgstr "петак, 19. децембар 2014. у 14:34:27"
 
-#: libcaja-private/caja-file.c:4798
+#: libcaja-private/caja-file.c:4810
 msgid "%A, %B %-d %Y at %-I:%M:%S %p"
 msgstr "%A, %-d. %B %Y. у %-H:%M:%S"
 
-#: libcaja-private/caja-file.c:4800
+#: libcaja-private/caja-file.c:4812
 msgid "Mon, Oct 00 0000 at 00:00:00 PM"
 msgstr "пет, 19. дец 2014. у 14:34"
 
-#: libcaja-private/caja-file.c:4801
+#: libcaja-private/caja-file.c:4813
 msgid "%a, %b %-d %Y at %-I:%M:%S %p"
 msgstr "%a, %-d. %b %Y. у %-H:%M"
 
-#: libcaja-private/caja-file.c:4803
+#: libcaja-private/caja-file.c:4815
 msgid "Mon, Oct 00 0000 at 00:00 PM"
 msgstr "пет, 19. дец 2014. у 14:34"
 
-#: libcaja-private/caja-file.c:4804
+#: libcaja-private/caja-file.c:4816
 msgid "%a, %b %-d %Y at %-I:%M %p"
 msgstr "%a, %-d. %b %Y. у %-H:%M"
 
-#: libcaja-private/caja-file.c:4806
+#: libcaja-private/caja-file.c:4818
 msgid "Oct 00 0000 at 00:00 PM"
 msgstr "19. дец 2014. у 14:34"
 
-#: libcaja-private/caja-file.c:4807
+#: libcaja-private/caja-file.c:4819
 msgid "%b %-d %Y at %-I:%M %p"
 msgstr "%a, %-d. %b %Y. у %-H:%M"
 
-#: libcaja-private/caja-file.c:4809
+#: libcaja-private/caja-file.c:4821
 msgid "Oct 00 0000, 00:00 PM"
 msgstr "19. дец 2014., 14:34"
 
-#: libcaja-private/caja-file.c:4810
+#: libcaja-private/caja-file.c:4822
 msgid "%b %-d %Y, %-I:%M %p"
 msgstr "%-d. %b %Y., %-H:%M"
 
-#: libcaja-private/caja-file.c:4812
+#: libcaja-private/caja-file.c:4824
 msgid "00/00/00, 00:00 PM"
 msgstr "00.00.00., 00:00"
 
-#: libcaja-private/caja-file.c:4813
+#: libcaja-private/caja-file.c:4825
 msgid "%m/%-d/%y, %-I:%M %p"
 msgstr "%d. %m. %Y., %-H:%M"
 
-#: libcaja-private/caja-file.c:4815
+#: libcaja-private/caja-file.c:4827
 msgid "00/00/00"
 msgstr "00.00.00."
 
-#: libcaja-private/caja-file.c:4816
+#: libcaja-private/caja-file.c:4828
 msgid "%m/%d/%y"
 msgstr "%d.%m.%y."
 
-#: libcaja-private/caja-file.c:5453
+#: libcaja-private/caja-file.c:5465
 msgid "Not allowed to set permissions"
 msgstr "Немате дозволу да поставите овлашћења"
 
-#: libcaja-private/caja-file.c:5747
+#: libcaja-private/caja-file.c:5759
 msgid "Not allowed to set owner"
 msgstr "Немате дозволу да поставите власника"
 
-#: libcaja-private/caja-file.c:5765
+#: libcaja-private/caja-file.c:5777
 #, c-format
 msgid "Specified owner '%s' doesn't exist"
 msgstr "Наведени власник „%s“ не постоји"
 
-#: libcaja-private/caja-file.c:6027
+#: libcaja-private/caja-file.c:6039
 msgid "Not allowed to set group"
 msgstr "Немате дозволу да поставите групу"
 
-#: libcaja-private/caja-file.c:6045
+#: libcaja-private/caja-file.c:6057
 #, c-format
 msgid "Specified group '%s' doesn't exist"
 msgstr "Наведена група „%s“ не постоји"
 
-#: libcaja-private/caja-file.c:6199 src/file-manager/fm-directory-view.c:2397
+#: libcaja-private/caja-file.c:6211 src/file-manager/fm-directory-view.c:2397
 #, c-format
 msgid "%'u item"
 msgid_plural "%'u items"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%'u ставка"
+msgstr[1] "%'u ставке"
+msgstr[2] "%'u ставки"
 
-#: libcaja-private/caja-file.c:6200
+#: libcaja-private/caja-file.c:6212
 #, c-format
 msgid "%'u folder"
 msgid_plural "%'u folders"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%'u фасцикла"
+msgstr[1] "%'u фасцикле"
+msgstr[2] "%'u фасцикли"
 
-#: libcaja-private/caja-file.c:6201
+#: libcaja-private/caja-file.c:6213
 #, c-format
 msgid "%'u file"
 msgid_plural "%'u files"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%'u датотека"
+msgstr[1] "%'u датотеке"
+msgstr[2] "%'u датотека"
 
-#: libcaja-private/caja-file.c:6305
+#: libcaja-private/caja-file.c:6317
 msgid "%"
 msgstr "%"
 
-#: libcaja-private/caja-file.c:6306
+#: libcaja-private/caja-file.c:6318
 #, c-format
 msgid "%s (%s bytes)"
 msgstr "%s (%s бајта)"
 
-#: libcaja-private/caja-file.c:6656 libcaja-private/caja-file.c:6680
+#: libcaja-private/caja-file.c:6668 libcaja-private/caja-file.c:6692
 msgid "? items"
 msgstr "? ставки"
 
-#: libcaja-private/caja-file.c:6662 libcaja-private/caja-file.c:6670
+#: libcaja-private/caja-file.c:6674 libcaja-private/caja-file.c:6682
 msgid "? bytes"
 msgstr "? бајтова"
 
-#: libcaja-private/caja-file.c:6685
+#: libcaja-private/caja-file.c:6697
 msgid "unknown type"
 msgstr "непозната врста"
 
-#: libcaja-private/caja-file.c:6688
+#: libcaja-private/caja-file.c:6700
 msgid "unknown MIME type"
 msgstr "непозната МИМЕ врста"
 
-#: libcaja-private/caja-file.c:6702
-#: src/file-manager/fm-properties-window.c:1302
+#: libcaja-private/caja-file.c:6714
+#: src/file-manager/fm-properties-window.c:1299
 msgid "unknown"
 msgstr "непознато"
 
-#: libcaja-private/caja-file.c:6752
+#: libcaja-private/caja-file.c:6764
 msgid "program"
 msgstr "програм"
 
-#: libcaja-private/caja-file.c:6772
+#: libcaja-private/caja-file.c:6784
 msgid "link"
 msgstr "веза"
 
-#: libcaja-private/caja-file.c:6778 libcaja-private/caja-file-operations.c:406
+#: libcaja-private/caja-file.c:6790 libcaja-private/caja-file-operations.c:406
 #: src/file-manager/fm-directory-view.c:10736
 #, c-format
 msgid "Link to %s"
 msgstr "Веза до ставке „%s“"
 
-#: libcaja-private/caja-file.c:6794
+#: libcaja-private/caja-file.c:6806
 msgid "link (broken)"
 msgstr "веза (неисправна)"
 
@@ -1291,14 +1254,14 @@ msgstr "Изворна датотека"
 
 #: libcaja-private/caja-file-conflict-dialog.c:277
 #: libcaja-private/caja-file-conflict-dialog.c:316
-#: src/file-manager/fm-properties-window.c:3306
+#: src/file-manager/fm-properties-window.c:3303
 msgid "Size:"
 msgstr "Величина:"
 
 #: libcaja-private/caja-file-conflict-dialog.c:282
 #: libcaja-private/caja-file-conflict-dialog.c:321
 #: src/caja-connect-server-dialog.c:927
-#: src/file-manager/fm-properties-window.c:3288
+#: src/file-manager/fm-properties-window.c:3285
 msgid "Type:"
 msgstr "Врста:"
 
@@ -1402,34 +1365,34 @@ msgstr "_Ипак умножи"
 #, c-format
 msgid "%'d second"
 msgid_plural "%'d seconds"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%'d секунда"
+msgstr[1] "%'d секунде"
+msgstr[2] "%'d секунди"
 
 #: libcaja-private/caja-file-operations.c:311
 #: libcaja-private/caja-file-operations.c:323
 #, c-format
 msgid "%'d minute"
 msgid_plural "%'d minutes"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%'d минут"
+msgstr[1] "%'d минута"
+msgstr[2] "%'d минута"
 
 #: libcaja-private/caja-file-operations.c:322
 #, c-format
 msgid "%'d hour"
 msgid_plural "%'d hours"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%'d сат"
+msgstr[1] "%'d сата"
+msgstr[2] "%'d сати"
 
 #: libcaja-private/caja-file-operations.c:330
 #, c-format
 msgid "approximately %'d hour"
 msgid_plural "approximately %'d hours"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "приближно %'d сат"
+msgstr[1] "приближно %'d сата"
+msgstr[2] "приближно %'d сати"
 
 #: libcaja-private/caja-file-operations.c:410
 #, c-format
@@ -1569,8 +1532,11 @@ msgid_plural ""
 "Are you sure you want to permanently delete the %'d selected items from the "
 "trash?"
 msgstr[0] ""
+"Да ли сигурно желите трајно да уклоните %'d изабрану ставку из смећа?"
 msgstr[1] ""
+"Да ли сигурно желите трајно да уклоните %'d изабране ставке из смећа?"
 msgstr[2] ""
+"Да ли сигурно желите трајно да уклоните %'d изабраних ставки из смећа?"
 
 #: libcaja-private/caja-file-operations.c:1383
 #: libcaja-private/caja-file-operations.c:1449
@@ -1600,9 +1566,9 @@ msgstr "Да ли сигурно желите трајно да уклоните
 msgid "Are you sure you want to permanently delete the %'d selected item?"
 msgid_plural ""
 "Are you sure you want to permanently delete the %'d selected items?"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Да ли сигурно желите трајно да обришете %'d изабрану ставку?"
+msgstr[1] "Да ли сигурно желите трајно да обришете %'d изабране ставке?"
+msgstr[2] "Да ли сигурно желите трајно да обришете %'d изабраних ставки?"
 
 #: libcaja-private/caja-file-operations.c:1479
 msgid "Are you sure you want to trash \"%B\"?"
@@ -1612,9 +1578,9 @@ msgstr "Да ли сигурно желите да преместите „%B“
 #, c-format
 msgid "Are you sure you want to trash the %'d selected item?"
 msgid_plural "Are you sure you want to trash the %'d selected items?"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Да ли сигурно желите да преместите у смеће %'d изабрану ставку?"
+msgstr[1] "Да ли сигурно желите да преместите у смеће %'d изабране ставке?"
+msgstr[2] "Да ли сигурно желите да преместите у смеће %'d изабраних ставки?"
 
 #: libcaja-private/caja-file-operations.c:1491
 msgid "Items moved to the trash may be recovered until the trash is emptied."
@@ -1629,9 +1595,9 @@ msgstr "Премести у _смеће"
 #, c-format
 msgid "%'d file left to delete"
 msgid_plural "%'d files left to delete"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Преостала је %'d датотека за брисање"
+msgstr[1] "Преостале су %'d датотеке за брисање"
+msgstr[2] "Преостало је %'d датотека за брисање"
 
 #: libcaja-private/caja-file-operations.c:1530
 msgid "Deleting files"
@@ -1643,9 +1609,9 @@ msgstr "Уклањам датотеке"
 #: libcaja-private/caja-file-operations.c:1547
 msgid "%T left"
 msgid_plural "%T left"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "преостаје %T"
+msgstr[1] "преостају %T"
+msgstr[2] "преостаје %T"
 
 #: libcaja-private/caja-file-operations.c:1614
 #: libcaja-private/caja-file-operations.c:1648
@@ -1703,9 +1669,9 @@ msgstr "Премештам датотеке у смеће"
 #, c-format
 msgid "%'d file left to trash"
 msgid_plural "%'d files left to trash"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "У смећу је остала %'d датотека"
+msgstr[1] "У смећу су остале %'d датотеке"
+msgstr[2] "У смећу је остало %'d датотека"
 
 #: libcaja-private/caja-file-operations.c:1904
 msgid "Cannot move file to trash, do you want to delete immediately?"
@@ -1766,33 +1732,33 @@ msgstr "Не могу да прикачим „%s“"
 #, c-format
 msgid "Preparing to copy %'d file (%S)"
 msgid_plural "Preparing to copy %'d files (%S)"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Припремам за умножавање %'d датотеку (%S)"
+msgstr[1] "Припремам за умножавање %'d датотеке (%S)"
+msgstr[2] "Припремам за умножавање %'d датотека (%S)"
 
 #: libcaja-private/caja-file-operations.c:2546
 #, c-format
 msgid "Preparing to move %'d file (%S)"
 msgid_plural "Preparing to move %'d files (%S)"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Припремам за премештање %'d датотеку (%S)"
+msgstr[1] "Припремам за премештање %'d датотеке (%S)"
+msgstr[2] "Припремам за премештање %'d датотека (%S)"
 
 #: libcaja-private/caja-file-operations.c:2552
 #, c-format
 msgid "Preparing to delete %'d file (%S)"
 msgid_plural "Preparing to delete %'d files (%S)"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Припремам за брисање %'d датотеку (%S)"
+msgstr[1] "Припремам за брисање %'d датотеке (%S)"
+msgstr[2] "Припремам за брисање %'d датотека (%S)"
 
 #: libcaja-private/caja-file-operations.c:2558
 #, c-format
 msgid "Preparing to trash %'d file"
 msgid_plural "Preparing to trash %'d files"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Припремам за слање у смеће %'d датотеку"
+msgstr[1] "Припремам за слање у смеће %'d датотеке"
+msgstr[2] "Припремам за слање у смеће %'d датотека"
 
 #: libcaja-private/caja-file-operations.c:2589
 #: libcaja-private/caja-file-operations.c:3500
@@ -1888,45 +1854,45 @@ msgstr "Удвостручујем „%B“"
 #: libcaja-private/caja-file-operations.c:3048
 msgid "Moving %'d file (in \"%B\") to \"%B\""
 msgid_plural "Moving %'d files (in \"%B\") to \"%B\""
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Премештам %'d датотеку (из „%B“) у „%B“"
+msgstr[1] "Премештам %'d датотеке (из „%B“) у „%B“"
+msgstr[2] "Премештам %'d датотека (из „%B“) у „%B“"
 
 #: libcaja-private/caja-file-operations.c:3052
 msgid "Copying %'d file (in \"%B\") to \"%B\""
 msgid_plural "Copying %'d files (in \"%B\") to \"%B\""
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Умножавам %'d датотеку (из „%B“) у „%B“"
+msgstr[1] "Умножавам %'d датотеке (из „%B“) у „%B“"
+msgstr[2] "Умножавам %'d датотека (из „%B“) у „%B“"
 
 #: libcaja-private/caja-file-operations.c:3060
 msgid "Duplicating %'d file (in \"%B\")"
 msgid_plural "Duplicating %'d files (in \"%B\")"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Удвостручујем %'d датотеку (из „%B“)"
+msgstr[1] "Удвостручујем %'d датотеке (из „%B“)"
+msgstr[2] "Удвостручујем %'d датотека (из „%B“)"
 
 #: libcaja-private/caja-file-operations.c:3070
 msgid "Moving %'d file to \"%B\""
 msgid_plural "Moving %'d files to \"%B\""
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Премештам %'d датотеку у „%B“"
+msgstr[1] "Премештам %'d датотеке у „%B“"
+msgstr[2] "Премештам %'d датотека у „%B“"
 
 #: libcaja-private/caja-file-operations.c:3074
 msgid "Copying %'d file to \"%B\""
 msgid_plural "Copying %'d files to \"%B\""
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Умножавам %'d датотеку у „%B“"
+msgstr[1] "Умножавам %'d датотеке у „%B“"
+msgstr[2] "Умножавам %'d датотека у „%B“"
 
 #: libcaja-private/caja-file-operations.c:3080
 #, c-format
 msgid "Duplicating %'d file"
 msgid_plural "Duplicating %'d files"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Удвостручујем %'d датотеку"
+msgstr[1] "Удвостручујем %'d датотеке"
+msgstr[2] "Удвостручујем %'d датотека"
 
 #. Translators: %S will expand to a size like "2 bytes" or "3 MB", so
 #. something like "4 kb of 4 MB"
@@ -1945,9 +1911,9 @@ msgstr "%S од %S"
 #: libcaja-private/caja-file-operations.c:3113
 msgid "%S of %S — %T left (%S/sec)"
 msgid_plural "%S of %S — %T left (%S/sec)"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%S од %S — преостаје %T (%S/сек)"
+msgstr[1] "%S од %S — преостају %T (%S/sek)"
+msgstr[2] "%S од %S — преостаје %T (%S/сек)"
 
 #: libcaja-private/caja-file-operations.c:3504
 msgid ""
@@ -2053,9 +2019,9 @@ msgstr "Припремам за премештање у „%B“"
 #, c-format
 msgid "Preparing to move %'d file"
 msgid_plural "Preparing to move %'d files"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Припремам за премештање %'d датотеку"
+msgstr[1] "Припремам за премештање %'d датотеке"
+msgstr[2] "Припремам за премештање %'d датотека"
 
 #: libcaja-private/caja-file-operations.c:5030
 #, c-format
@@ -2074,9 +2040,9 @@ msgstr "Правим везе у „%B“"
 #, c-format
 msgid "Making link to %'d file"
 msgid_plural "Making links to %'d files"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Правим везу ка %'d датотеци"
+msgstr[1] "Правим везу ка %'d датотеке"
+msgstr[2] "Правим везу ка %'d датотека"
 
 #: libcaja-private/caja-file-operations.c:5468
 msgid "Error while creating link to %B."
@@ -2205,17 +2171,17 @@ msgstr "Да ли сигурно желите да отворите све да�
 #, c-format
 msgid "This will open %d separate tab."
 msgid_plural "This will open %d separate tabs."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Ово ће отворити %d засебан лист."
+msgstr[1] "Ово ће отворити %d засебна листа."
+msgstr[2] "Ово ће отворити %d засебних листова."
 
 #: libcaja-private/caja-mime-actions.c:1198 src/caja-location-bar.c:194
 #, c-format
 msgid "This will open %d separate window."
 msgid_plural "This will open %d separate windows."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Ово ће отворити %d засебан прозор."
+msgstr[1] "Ово ће отворити %d засебна прозора."
+msgstr[2] "Ово ће отворити %d засебних прозора."
 
 #: libcaja-private/caja-mime-actions.c:1277
 #: src/caja-window-manage-views.c:2134 src/caja-window-manage-views.c:2142
@@ -2296,9 +2262,9 @@ msgstr "Отварам „%s“."
 #, c-format
 msgid "Opening %d item."
 msgid_plural "Opening %d items."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Отварам %d ставку."
+msgstr[1] "Отварам %d ставке."
+msgstr[2] "Отварам %d ставки."
 
 #: libcaja-private/caja-mime-application-chooser.c:164
 #: libcaja-private/caja-open-with-dialog.c:305
@@ -2388,7 +2354,7 @@ msgid "Select an Application"
 msgstr "Изаберите програм"
 
 #: libcaja-private/caja-open-with-dialog.c:868
-#: src/file-manager/fm-properties-window.c:5122
+#: src/file-manager/fm-properties-window.c:5119
 msgid "Open With"
 msgstr "Програм за отварање"
 
@@ -2564,9 +2530,9 @@ msgstr "Настави"
 #, c-format
 msgid "%'d file operation active"
 msgid_plural "%'d file operations active"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "У току је %'d радња над датотекама"
+msgstr[1] "У току су %'d радње над датотекама"
+msgstr[2] "У току је %'d радњи над датотекама"
 
 #: libcaja-private/caja-progress-info.c:631
 msgid "Process completed"
@@ -2594,403 +2560,403 @@ msgstr "Потражи"
 msgid "Search for \"%s\""
 msgstr "Потражи „%s“"
 
-#: libcaja-private/caja-undostack-manager.c:1239
+#: libcaja-private/caja-undostack-manager.c:1212
 #, c-format
 msgid "Delete %d copied items"
 msgstr "Обришите %d умножене ставке"
 
-#: libcaja-private/caja-undostack-manager.c:1242
-#: libcaja-private/caja-undostack-manager.c:1252
-#: libcaja-private/caja-undostack-manager.c:1283
+#: libcaja-private/caja-undostack-manager.c:1215
+#: libcaja-private/caja-undostack-manager.c:1225
+#: libcaja-private/caja-undostack-manager.c:1256
 #, c-format
 msgid "Delete '%s'"
 msgstr "Обришите „%s“"
 
-#: libcaja-private/caja-undostack-manager.c:1249
+#: libcaja-private/caja-undostack-manager.c:1222
 #, c-format
 msgid "Delete %d duplicated items"
 msgstr "Обришите %d удвостручене ставке"
 
-#: libcaja-private/caja-undostack-manager.c:1260
+#: libcaja-private/caja-undostack-manager.c:1233
 #, c-format
 msgid "Move %d items back to '%s'"
 msgstr "Преместите %d ставку назад у „%s“"
 
-#: libcaja-private/caja-undostack-manager.c:1264
+#: libcaja-private/caja-undostack-manager.c:1237
 #, c-format
 msgid "Move '%s' back to '%s'"
 msgstr "Преместите „%s“ назад у „%s“"
 
-#: libcaja-private/caja-undostack-manager.c:1273
-#: libcaja-private/caja-undostack-manager.c:1440
+#: libcaja-private/caja-undostack-manager.c:1246
+#: libcaja-private/caja-undostack-manager.c:1413
 #, c-format
 msgid "Rename '%s' as '%s'"
 msgstr "Преименујте „%s“ у „%s“"
 
-#: libcaja-private/caja-undostack-manager.c:1292
-#: libcaja-private/caja-undostack-manager.c:1487
+#: libcaja-private/caja-undostack-manager.c:1265
+#: libcaja-private/caja-undostack-manager.c:1460
 #, c-format
 msgid "Restore %d items from trash"
 msgstr "Вратите %d ставке из смећа"
 
-#: libcaja-private/caja-undostack-manager.c:1300
+#: libcaja-private/caja-undostack-manager.c:1273
 #, c-format
 msgid "Restore '%s' to '%s'"
 msgstr "Вратите „%s“ у „%s“"
 
-#: libcaja-private/caja-undostack-manager.c:1311
+#: libcaja-private/caja-undostack-manager.c:1284
 #, c-format
 msgid "Move %d items back to trash"
 msgstr "Преместите %d ставку назад у смеће"
 
-#: libcaja-private/caja-undostack-manager.c:1314
+#: libcaja-private/caja-undostack-manager.c:1287
 #, c-format
 msgid "Move '%s' back to trash"
 msgstr "Преместите „%s“ назад у смеће"
 
-#: libcaja-private/caja-undostack-manager.c:1323
+#: libcaja-private/caja-undostack-manager.c:1296
 #, c-format
 msgid "Delete links to %d items"
 msgstr "Обришите везе до %d ставке"
 
-#: libcaja-private/caja-undostack-manager.c:1326
+#: libcaja-private/caja-undostack-manager.c:1299
 #, c-format
 msgid "Delete link to '%s'"
 msgstr "Обришите везу до „%s“"
 
-#: libcaja-private/caja-undostack-manager.c:1336
+#: libcaja-private/caja-undostack-manager.c:1309
 #, c-format
 msgid "Restore original permissions of items enclosed in '%s'"
 msgstr "Вратите првобитна овлашћења ставки садржаних у „%s“"
 
-#: libcaja-private/caja-undostack-manager.c:1344
+#: libcaja-private/caja-undostack-manager.c:1317
 #, c-format
 msgid "Restore original permissions of '%s'"
 msgstr "Вратите првобитна овлашћења за „%s“"
 
-#: libcaja-private/caja-undostack-manager.c:1353
+#: libcaja-private/caja-undostack-manager.c:1326
 #, c-format
 msgid "Restore group of '%s' to '%s'"
 msgstr "Вратите групу „%s“ на „%s“"
 
-#: libcaja-private/caja-undostack-manager.c:1363
+#: libcaja-private/caja-undostack-manager.c:1336
 #, c-format
 msgid "Restore owner of '%s' to '%s'"
 msgstr "Вартите власника „%s“ на „%s“"
 
-#: libcaja-private/caja-undostack-manager.c:1402
+#: libcaja-private/caja-undostack-manager.c:1375
 #, c-format
 msgid "Copy %d items to '%s'"
 msgstr "Умножите %d ставке у „%s“"
 
-#: libcaja-private/caja-undostack-manager.c:1406
+#: libcaja-private/caja-undostack-manager.c:1379
 #, c-format
 msgid "Copy '%s' to '%s'"
 msgstr "Умножите „%s“ у „%s“"
 
-#: libcaja-private/caja-undostack-manager.c:1414
+#: libcaja-private/caja-undostack-manager.c:1387
 #, c-format
 msgid "Duplicate of %d items in '%s'"
 msgstr "Удвостручите %d ставке у „%s“"
 
-#: libcaja-private/caja-undostack-manager.c:1419
+#: libcaja-private/caja-undostack-manager.c:1392
 #, c-format
 msgid "Duplicate '%s' in '%s'"
 msgstr "Удвостручите „%s“ у „%s“"
 
-#: libcaja-private/caja-undostack-manager.c:1427
+#: libcaja-private/caja-undostack-manager.c:1400
 #, c-format
 msgid "Move %d items to '%s'"
 msgstr "Преместите %d ставке у „%s“"
 
-#: libcaja-private/caja-undostack-manager.c:1431
+#: libcaja-private/caja-undostack-manager.c:1404
 #, c-format
 msgid "Move '%s' to '%s'"
 msgstr "Преместите „%s“ у „%s“"
 
-#: libcaja-private/caja-undostack-manager.c:1449
+#: libcaja-private/caja-undostack-manager.c:1422
 #, c-format
 msgid "Create new file '%s' from template "
 msgstr "Направите нову датотеку „%s“ из шаблона "
 
-#: libcaja-private/caja-undostack-manager.c:1456
+#: libcaja-private/caja-undostack-manager.c:1429
 #, c-format
 msgid "Create an empty file '%s'"
 msgstr "Направите празну датотеку „%s“"
 
-#: libcaja-private/caja-undostack-manager.c:1463
+#: libcaja-private/caja-undostack-manager.c:1436
 #, c-format
 msgid "Create a new folder '%s'"
 msgstr "Направите нову фасциклу „%s“"
 
-#: libcaja-private/caja-undostack-manager.c:1471
+#: libcaja-private/caja-undostack-manager.c:1444
 #, c-format
 msgid "Move %d items to trash"
 msgstr "Преместите %d ставке у смеће"
 
-#: libcaja-private/caja-undostack-manager.c:1477
+#: libcaja-private/caja-undostack-manager.c:1450
 #, c-format
 msgid "Move '%s' to trash"
 msgstr "Преместите „%s“ у смеће"
 
-#: libcaja-private/caja-undostack-manager.c:1490
+#: libcaja-private/caja-undostack-manager.c:1463
 #, c-format
 msgid "Restore '%s' from trash"
 msgstr "Вратите „%s“ из смећа"
 
-#: libcaja-private/caja-undostack-manager.c:1499
+#: libcaja-private/caja-undostack-manager.c:1472
 #, c-format
 msgid "Create links to %d items"
 msgstr "Направите везе до %d ставке"
 
-#: libcaja-private/caja-undostack-manager.c:1502
+#: libcaja-private/caja-undostack-manager.c:1475
 #, c-format
 msgid "Create link to '%s'"
 msgstr "Направите везу до „%s“"
 
-#: libcaja-private/caja-undostack-manager.c:1511
+#: libcaja-private/caja-undostack-manager.c:1484
 #, c-format
 msgid "Set permissions of items enclosed in '%s'"
 msgstr "Поставите овлашћења ставки садржаних у „%s“"
 
-#: libcaja-private/caja-undostack-manager.c:1519
+#: libcaja-private/caja-undostack-manager.c:1492
 #, c-format
 msgid "Set permissions of '%s'"
 msgstr "Поставите овлашћења за „%s“"
 
-#: libcaja-private/caja-undostack-manager.c:1528
+#: libcaja-private/caja-undostack-manager.c:1501
 #, c-format
 msgid "Set group of '%s' to '%s'"
 msgstr "Подесите групу „%s“ на „%s“"
 
-#: libcaja-private/caja-undostack-manager.c:1538
+#: libcaja-private/caja-undostack-manager.c:1511
 #, c-format
 msgid "Set owner of '%s' to '%s'"
 msgstr "Подесите власника „%s“ на „%s“"
 
-#: libcaja-private/caja-undostack-manager.c:1570
+#: libcaja-private/caja-undostack-manager.c:1543
 #, c-format
 msgid "_Undo copy of %d item"
 msgid_plural "_Undo copy of %d items"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "_Опозови умножавање %d ставке"
+msgstr[1] "_Опозови умножавање %d ставке"
+msgstr[2] "_Опозови умножавање %d ставки"
 
-#: libcaja-private/caja-undostack-manager.c:1575
+#: libcaja-private/caja-undostack-manager.c:1548
 #, c-format
 msgid "_Undo duplicate of %d item"
 msgid_plural "_Undo duplicate of %d items"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "_Поништи удвостручавање %'d ставке"
+msgstr[1] "_Поништи удвостручавање %'d ставке"
+msgstr[2] "_Поништи удвостручавање %'d ставки"
 
-#: libcaja-private/caja-undostack-manager.c:1580
+#: libcaja-private/caja-undostack-manager.c:1553
 #, c-format
 msgid "_Undo move of %d item"
 msgid_plural "_Undo move of %d items"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "_Опозови премештање %d ставке"
+msgstr[1] "_Опозови премештање %d ставке"
+msgstr[2] "_Опозови премештање %d ставки"
 
-#: libcaja-private/caja-undostack-manager.c:1585
+#: libcaja-private/caja-undostack-manager.c:1558
 #, c-format
 msgid "_Undo rename of %d item"
 msgid_plural "_Undo rename of %d items"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "_Опозови преименовање %d ставке"
+msgstr[1] "_Опозови преименовање %d ставке"
+msgstr[2] "_Опозови преименовање %d ставки"
 
-#: libcaja-private/caja-undostack-manager.c:1589
+#: libcaja-private/caja-undostack-manager.c:1562
 msgid "_Undo creation of an empty file"
 msgstr "_Опозови стварање празне датотеке"
 
-#: libcaja-private/caja-undostack-manager.c:1592
+#: libcaja-private/caja-undostack-manager.c:1565
 msgid "_Undo creation of a file from template"
 msgstr "_Опозови стварање датотеке из шаблона"
 
-#: libcaja-private/caja-undostack-manager.c:1596
+#: libcaja-private/caja-undostack-manager.c:1569
 #, c-format
 msgid "_Undo creation of %d folder"
 msgid_plural "_Undo creation of %d folders"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "_Опозови стварање %d фасцикле"
+msgstr[1] "_Опозови стварање %d фасцикле"
+msgstr[2] "_Опозови стварање %d фасцикли"
 
-#: libcaja-private/caja-undostack-manager.c:1601
+#: libcaja-private/caja-undostack-manager.c:1574
 #, c-format
 msgid "_Undo move to trash of %d item"
 msgid_plural "_Undo move to trash of %d items"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "_Опозови премештање %d ставке у смеће"
+msgstr[1] "_Опозови премештање %d ставке у смеће"
+msgstr[2] "_Опозови премештање %d ставки у смеће"
 
-#: libcaja-private/caja-undostack-manager.c:1606
+#: libcaja-private/caja-undostack-manager.c:1579
 #, c-format
 msgid "_Undo restore from trash of %d item"
 msgid_plural "_Undo restore from trash of %d items"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "_Опозови враћање %d ставке из смећа"
+msgstr[1] "_Опозови враћање %d ставке из смећа"
+msgstr[2] "_Опозови враћање %d ставки из смећа"
 
-#: libcaja-private/caja-undostack-manager.c:1611
+#: libcaja-private/caja-undostack-manager.c:1584
 #, c-format
 msgid "_Undo create link to %d item"
 msgid_plural "_Undo create link to %d items"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "_Опозови стварање везе до %'d ставке"
+msgstr[1] "_Опозови стварање везе до %'d ставке"
+msgstr[2] "_Опозови стварање везе до %'d ставки"
 
-#: libcaja-private/caja-undostack-manager.c:1616
+#: libcaja-private/caja-undostack-manager.c:1589
 #, c-format
 msgid "_Undo delete of %d item"
 msgid_plural "_Undo delete of %d items"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "_Опозови брисање %d ставке"
+msgstr[1] "_Опозови брисање %d ставке"
+msgstr[2] "_Опозови брисање %d ставки"
 
-#: libcaja-private/caja-undostack-manager.c:1621
+#: libcaja-private/caja-undostack-manager.c:1594
 #, c-format
 msgid "Undo recursive change permissions of %d item"
 msgid_plural "Undo recursive change permissions of %d items"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Опозови дубинску промену овлашћења %d ставке"
+msgstr[1] "Опозови дубинску промену овлашћења %d ставке"
+msgstr[2] "Опозови дубинску промену овлашћења %d ставки"
 
-#: libcaja-private/caja-undostack-manager.c:1627
+#: libcaja-private/caja-undostack-manager.c:1600
 #, c-format
 msgid "Undo change permissions of %d item"
 msgid_plural "Undo change permissions of %d items"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Опозови промену овлашћења %d ставке"
+msgstr[1] "Опозови промену овлашћења %d ставке"
+msgstr[2] "Опозови промену овлашћења %d ставки"
 
-#: libcaja-private/caja-undostack-manager.c:1632
+#: libcaja-private/caja-undostack-manager.c:1605
 #, c-format
 msgid "Undo change group of %d item"
 msgid_plural "Undo change group of %d items"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Опозови промену групе %d ставке"
+msgstr[1] "Опозови промену групе %d ставке"
+msgstr[2] "Опозови промену групе %d ставки"
 
-#: libcaja-private/caja-undostack-manager.c:1637
+#: libcaja-private/caja-undostack-manager.c:1610
 #, c-format
 msgid "Undo change owner of %d item"
 msgid_plural "Undo change owner of %d items"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Опозови промену власника %d ставке"
+msgstr[1] "Опозови промену власника %d ставке"
+msgstr[2] "Опозови промену власника %d ставки"
 
-#: libcaja-private/caja-undostack-manager.c:1665
+#: libcaja-private/caja-undostack-manager.c:1638
 #, c-format
 msgid "_Redo copy of %d item"
 msgid_plural "_Redo copy of %d items"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "_Поврати умножавање %d ставке"
+msgstr[1] "_Поврати умножавање %d ставке"
+msgstr[2] "_Поврати умножавање %d ставки"
 
-#: libcaja-private/caja-undostack-manager.c:1670
+#: libcaja-private/caja-undostack-manager.c:1643
 #, c-format
 msgid "_Redo duplicate of %d item"
 msgid_plural "_Redo duplicate of %d items"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "_Поврати удвостручавање %'d ставке"
+msgstr[1] "_Поврати удвостручавање %'d ставке"
+msgstr[2] "_Поврати удвостручавање %'d ставки"
 
-#: libcaja-private/caja-undostack-manager.c:1675
+#: libcaja-private/caja-undostack-manager.c:1648
 #, c-format
 msgid "_Redo move of %d item"
 msgid_plural "_Redo move of %d items"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "_Поврати премештање %d ставке"
+msgstr[1] "_Поврати премештање %d ставке"
+msgstr[2] "_Поврати премештање %d ставки"
 
-#: libcaja-private/caja-undostack-manager.c:1680
+#: libcaja-private/caja-undostack-manager.c:1653
 #, c-format
 msgid "_Redo rename of %d item"
 msgid_plural "_Redo rename of %d items"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "_Поврати преименовање %d ставке"
+msgstr[1] "_Поврати преименовање %d ставке"
+msgstr[2] "_Поврати преименовање %d ставки"
 
-#: libcaja-private/caja-undostack-manager.c:1684
+#: libcaja-private/caja-undostack-manager.c:1657
 msgid "_Redo creation of an empty file"
 msgstr "_Поврати стварање празне датотеке"
 
-#: libcaja-private/caja-undostack-manager.c:1687
+#: libcaja-private/caja-undostack-manager.c:1660
 msgid "_Redo creation of a file from template"
 msgstr "_Поврати стварање датотеке из шаблона"
 
-#: libcaja-private/caja-undostack-manager.c:1691
+#: libcaja-private/caja-undostack-manager.c:1664
 #, c-format
 msgid "_Redo creation of %d folder"
 msgid_plural "_Redo creation of %d folders"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "_Поврати стварање %d фасцикле"
+msgstr[1] "_Поврати стварање %d фасцикле"
+msgstr[2] "_Поврати стварање %d фасцикли"
 
-#: libcaja-private/caja-undostack-manager.c:1696
+#: libcaja-private/caja-undostack-manager.c:1669
 #, c-format
 msgid "_Redo move to trash of %d item"
 msgid_plural "_Redo move to trash of %d items"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "_Поврати премештање %d ставке у смеће"
+msgstr[1] "_Поврати премештање %d ставке у смеће"
+msgstr[2] "_Поврати премештање %d ставки у смеће"
 
-#: libcaja-private/caja-undostack-manager.c:1701
+#: libcaja-private/caja-undostack-manager.c:1674
 #, c-format
 msgid "_Redo restore from trash of %d item"
 msgid_plural "_Redo restore from trash of %d items"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "_Поврати враћање %d ставке из смећа"
+msgstr[1] "_Поврати враћање %d ставке из смећа"
+msgstr[2] "_Поврати враћање %d ставки из смећа"
 
-#: libcaja-private/caja-undostack-manager.c:1706
+#: libcaja-private/caja-undostack-manager.c:1679
 #, c-format
 msgid "_Redo create link to %d item"
 msgid_plural "_Redo create link to %d items"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "_Поврати стварање везе до %'d ставке"
+msgstr[1] "_Поврати стварање везе до %'d ставке"
+msgstr[2] "_Поврати стварање везе до %'d ставки"
 
-#: libcaja-private/caja-undostack-manager.c:1711
+#: libcaja-private/caja-undostack-manager.c:1684
 #, c-format
 msgid "_Redo delete of %d item"
 msgid_plural "_Redo delete of %d items"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "_Поврати брисање %d ставке"
+msgstr[1] "_Поврати брисање %d ставке"
+msgstr[2] "_Поврати брисање %d ставки"
 
-#: libcaja-private/caja-undostack-manager.c:1716
+#: libcaja-private/caja-undostack-manager.c:1689
 #, c-format
 msgid "Redo recursive change permissions of %d item"
 msgid_plural "Redo recursive change permissions of %d items"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Поврати дубинску промену овлашћења %d ставке"
+msgstr[1] "Поврати дубинску промену овлашћења %d ставке"
+msgstr[2] "Поврати дубинску промену овлашћења %d ставки"
 
-#: libcaja-private/caja-undostack-manager.c:1722
+#: libcaja-private/caja-undostack-manager.c:1695
 #, c-format
 msgid "Redo change permissions of %d item"
 msgid_plural "Redo change permissions of %d items"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Поврати промену овлашћења %d ставке"
+msgstr[1] "Поврати промену овлашћења %d ставке"
+msgstr[2] "Поврати промену овлашћења %d ставки"
 
-#: libcaja-private/caja-undostack-manager.c:1727
+#: libcaja-private/caja-undostack-manager.c:1700
 #, c-format
 msgid "Redo change group of %d item"
 msgid_plural "Redo change group of %d items"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Поврати промену групе %d ставке"
+msgstr[1] "Поврати промену групе %d ставке"
+msgstr[2] "Поврати промену групе %d ставки"
 
-#: libcaja-private/caja-undostack-manager.c:1732
+#: libcaja-private/caja-undostack-manager.c:1705
 #, c-format
 msgid "Redo change owner of %d item"
 msgid_plural "Redo change owner of %d items"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Поврати промену власника %d ставке"
+msgstr[1] "Поврати промену власника %d ставке"
+msgstr[2] "Поврати промену власника %d ставки"
 
 #: libcaja-private/org.mate.caja.gschema.xml:76
 msgid "Where to position newly open tabs in browser windows."
@@ -3909,71 +3875,71 @@ msgstr ""
 "поставкама. Након убацивања оваквог медијума биће покренут прозор са његовим"
 " садржајем."
 
-#: libegg/eggdesktopfile.c:166
+#: mate-submodules/libegg/eggdesktopfile.c:168
 msgid "File is not a valid .desktop file"
 msgstr "Ово није исправна „.desktop“ датотека"
 
-#: libegg/eggdesktopfile.c:189
+#: mate-submodules/libegg/eggdesktopfile.c:193
 #, c-format
 msgid "Unrecognized desktop file Version '%s'"
 msgstr "Непозната датотека радне површи издање „%s“"
 
-#: libegg/eggdesktopfile.c:965
+#: mate-submodules/libegg/eggdesktopfile.c:975
 #, c-format
 msgid "Starting %s"
 msgstr "Покрећем „%s“"
 
-#: libegg/eggdesktopfile.c:1107
+#: mate-submodules/libegg/eggdesktopfile.c:1117
 msgid "Application does not accept documents on command line"
 msgstr "Програм не прихвата документе из линије наредби"
 
-#: libegg/eggdesktopfile.c:1175
+#: mate-submodules/libegg/eggdesktopfile.c:1185
 #, c-format
 msgid "Unrecognized launch option: %d"
 msgstr "Непозната опција покретања: %d"
 
-#: libegg/eggdesktopfile.c:1373
+#: mate-submodules/libegg/eggdesktopfile.c:1401
 msgid "Can't pass document URIs to a 'Type=Link' desktop entry"
 msgstr "Не могу да проследим адресе докумената на „Type=Link“ унос"
 
-#: libegg/eggdesktopfile.c:1392
+#: mate-submodules/libegg/eggdesktopfile.c:1422
 msgid "Not a launchable item"
 msgstr "Није ставка за покретање"
 
-#: libegg/eggsmclient.c:233
+#: mate-submodules/libegg/eggsmclient.c:233
 msgid "Disable connection to session manager"
 msgstr "Искључује везу са управником сесије"
 
-#: libegg/eggsmclient.c:238
+#: mate-submodules/libegg/eggsmclient.c:238
 msgid "Specify file containing saved configuration"
 msgstr "Наводи датотеку која садржи сачувана подешавања"
 
-#: libegg/eggsmclient.c:238
+#: mate-submodules/libegg/eggsmclient.c:238
 msgid "FILE"
 msgstr "ДАТОТЕКА"
 
-#: libegg/eggsmclient.c:243
+#: mate-submodules/libegg/eggsmclient.c:243
 msgid "Specify session management ID"
 msgstr "Наводи ИБ управника сесије"
 
-#: libegg/eggsmclient.c:243
+#: mate-submodules/libegg/eggsmclient.c:243
 msgid "ID"
 msgstr "ИБ"
 
-#: libegg/eggsmclient.c:269
+#: mate-submodules/libegg/eggsmclient.c:269
 msgid "Session management options:"
 msgstr "Могућности управљања сесијом:"
 
-#: libegg/eggsmclient.c:270
+#: mate-submodules/libegg/eggsmclient.c:270
 msgid "Show session management options"
 msgstr "Приказује могућности управљања сесијом"
 
-#: src/caja-application.c:554
+#: src/caja-application.c:555
 #, c-format
 msgid "Caja could not create the required folder \"%s\"."
 msgstr "Не могу да направим затражену фасциклу „%s“."
 
-#: src/caja-application.c:556
+#: src/caja-application.c:557
 msgid ""
 "Before running Caja, please create the following folder, or set permissions "
 "such that Caja can create it."
@@ -3981,12 +3947,12 @@ msgstr ""
 "Пре него што покренете Цају, направите ову фасциклу, или поставите овлашћења"
 " тако да може бити направљена."
 
-#: src/caja-application.c:561
+#: src/caja-application.c:562
 #, c-format
 msgid "Caja could not create the following required folders: %s."
 msgstr "Не могу да направим следеће затражене фасцикле: „%s“."
 
-#: src/caja-application.c:563
+#: src/caja-application.c:564
 msgid ""
 "Before running Caja, please create these folders, or set permissions such "
 "that Caja can create them."
@@ -3994,51 +3960,55 @@ msgstr ""
 "Пре него што покренете Цају, направите ове фасцикле, или поставите овлашћења"
 " тако да могу бити направљене."
 
-#: src/caja-application.c:1164 src/caja-places-sidebar.c:2223
+#: src/caja-application.c:1165 src/caja-places-sidebar.c:2223
 #: src/caja-places-sidebar.c:2255 src/caja-places-sidebar.c:2291
 #, c-format
 msgid "Unable to eject %s"
 msgstr "Не могу да избацим „%s“"
 
-#: src/caja-application.c:1792
+#: src/caja-application.c:1794
 msgid "--check cannot be used with other options."
 msgstr "„--check“ се не може користити уз остале опције."
 
-#: src/caja-application.c:1798
+#: src/caja-application.c:1800
 msgid "--quit cannot be used with URIs."
 msgstr "„--quit“ се не може користити са путањама."
 
-#: src/caja-application.c:1805
+#: src/caja-application.c:1807
 msgid "--geometry cannot be used with more than one URI."
 msgstr "„--geometry“ се не може користити са више од једне путање."
 
-#: src/caja-application.c:1869
+#: src/caja-application.c:1813
+msgid "--select must be used with at least an URI."
+msgstr "„--select“ мора да се користити барем са једном путањом."
+
+#: src/caja-application.c:1927
 msgid "Perform a quick set of self-check tests."
 msgstr "Спроводи скуп брзих самопровера."
 
-#: src/caja-application.c:1872
+#: src/caja-application.c:1930
 msgid "Show the version of the program."
 msgstr "Приказује издање програма."
 
-#: src/caja-application.c:1874
+#: src/caja-application.c:1932
 msgid "Create the initial window with the given geometry."
 msgstr "Ствара почетни прозор са датим димензијама и положајем."
 
-#: src/caja-application.c:1874
+#: src/caja-application.c:1932
 msgid "GEOMETRY"
 msgstr "ГЕОМЕТРИЈА"
 
-#: src/caja-application.c:1876
+#: src/caja-application.c:1934
 msgid "Only create windows for explicitly specified URIs."
 msgstr "Ствара прозоре само за изричито наведене путање."
 
-#: src/caja-application.c:1878
+#: src/caja-application.c:1936
 msgid ""
 "Do not manage the desktop (ignore the preference set in the preferences "
 "dialog)."
 msgstr "Не управља радном површи (занемарује поставке подешавања)."
 
-#: src/caja-application.c:1880
+#: src/caja-application.c:1938
 msgid ""
 "Manage the desktop regardless of set preferences or environment (on new "
 "startup only)"
@@ -4046,23 +4016,27 @@ msgstr ""
 "Управља радном површи без обзира на скуп поставки или окружење (само при "
 "новом покретању)"
 
-#: src/caja-application.c:1882
+#: src/caja-application.c:1940
 msgid "Open URIs in tabs."
 msgstr "Отворите путање у језичцима."
 
-#: src/caja-application.c:1884
+#: src/caja-application.c:1942
 msgid "Open a browser window."
 msgstr "Отворите прозор прегледника."
 
-#: src/caja-application.c:1886
+#: src/caja-application.c:1944
 msgid "Quit Caja."
 msgstr "Излази из Цаје."
 
-#: src/caja-application.c:1887
+#: src/caja-application.c:1946
+msgid "Select specified URI in parent folder."
+msgstr "Изаберите наведену путању у полазној фасцикли."
+
+#: src/caja-application.c:1947
 msgid "[URI...]"
 msgstr "[Путања...]"
 
-#: src/caja-application.c:1898
+#: src/caja-application.c:1958
 msgid ""
 "\n"
 "\n"
@@ -4104,7 +4078,7 @@ msgstr ""
 "\n"
 "Уколико се двоумите, изаберите „Откажи“."
 
-#: src/caja-bookmarks-window.c:163 src/caja-file-management-properties.c:249
+#: src/caja-bookmarks-window.c:163 src/caja-file-management-properties.c:226
 #: src/caja-property-browser.c:1688 src/caja-window-menus.c:629
 #, c-format
 msgid ""
@@ -4127,7 +4101,7 @@ msgstr "Уредите обележиваче"
 #: src/caja-file-management-properties.ui:305 src/caja-location-dialog.c:192
 #: src/caja-property-browser.c:389 src/caja-window-menus.c:852
 #: src/file-manager/fm-directory-view.c:1214
-#: src/file-manager/fm-properties-window.c:5233
+#: src/file-manager/fm-properties-window.c:5229
 msgid "_Help"
 msgstr "По_моћ"
 
@@ -4138,7 +4112,7 @@ msgstr "_Иди на"
 #: src/caja-bookmarks-window.ui:93 src/caja-file-management-properties.ui:321
 #: src/caja-property-browser.c:397 src/caja-window-menus.c:854
 #: src/file-manager/fm-list-view.c:2567
-#: src/file-manager/fm-properties-window.c:5238
+#: src/file-manager/fm-properties-window.c:5234
 msgid "_Close"
 msgstr "_Затвори"
 
@@ -4218,7 +4192,7 @@ msgstr "Настави"
 
 #: src/caja-connect-server-dialog.c:717 src/caja-location-dialog.c:105
 #: src/file-manager/fm-directory-view.c:1188
-#: src/file-manager/fm-properties-window.c:5475
+#: src/file-manager/fm-properties-window.c:5471
 msgid "There was an error displaying help."
 msgstr "Дошло је до грешке приказивања помоћи."
 
@@ -4290,7 +4264,7 @@ msgstr ""
 "\n"
 "Додаје везу са прикаченим диском на серверу"
 
-#: src/caja-desktop-window.c:126 src/caja-desktop-window.c:319
+#: src/caja-desktop-window.c:128 src/caja-desktop-window.c:209
 #: src/caja-pathbar.c:1453 src/caja-places-sidebar.c:542
 msgid "Desktop"
 msgstr "Радна површ"
@@ -4370,7 +4344,7 @@ msgstr "Убачена датотека не изгледа да је испра
 msgid "The emblem cannot be added."
 msgstr "Не могу да додам обележје."
 
-#: src/caja-emblem-sidebar.c:1102 src/file-manager/fm-properties-window.c:3463
+#: src/caja-emblem-sidebar.c:1102 src/file-manager/fm-properties-window.c:3460
 msgid "Emblems"
 msgstr "Обележја"
 
@@ -4381,13 +4355,13 @@ msgstr "Прикажи обележја"
 #. Translators: this is referred to captions under icons.
 #. Translators: this is referred to the permissions
 #. * the user has in a directory.
-#: src/caja-file-management-properties.c:342
-#: src/file-manager/fm-properties-window.c:4239
-#: src/file-manager/fm-properties-window.c:4250
+#: src/caja-file-management-properties.c:319
+#: src/file-manager/fm-properties-window.c:4236
+#: src/file-manager/fm-properties-window.c:4247
 msgid "None"
 msgstr "Ништа"
 
-#: src/caja-file-management-properties.c:646
+#: src/caja-file-management-properties.c:623
 msgid "About Extension"
 msgstr "О проширењима"
 
@@ -4576,123 +4550,123 @@ msgstr "_Поређај ставке:"
 msgid "Sort _folders before files"
 msgstr "Поређај _фасцикле пре датотека"
 
-#: src/caja-file-management-properties.ui:493
+#: src/caja-file-management-properties.ui:494
 msgid "Show hidden files"
 msgstr "Прикажи скривене датотеке"
 
-#: src/caja-file-management-properties.ui:508
+#: src/caja-file-management-properties.ui:510
 msgid "Show backup files"
 msgstr "Прикажи резервне датотеке"
 
-#: src/caja-file-management-properties.ui:547
+#: src/caja-file-management-properties.ui:550
 msgid "<b>Icon View Defaults</b>"
 msgstr "<b>Основно за приказ иконицама</b>"
 
-#: src/caja-file-management-properties.ui:577
+#: src/caja-file-management-properties.ui:580
 msgid "Default _zoom level:"
 msgstr "Основно _увећање:"
 
-#: src/caja-file-management-properties.ui:615
+#: src/caja-file-management-properties.ui:618
 msgid "_Use compact layout"
 msgstr "Користи _збијени распоред"
 
-#: src/caja-file-management-properties.ui:630
+#: src/caja-file-management-properties.ui:634
 msgid "_Text beside icons"
 msgstr "_Текст поред иконица"
 
-#: src/caja-file-management-properties.ui:669
+#: src/caja-file-management-properties.ui:674
 msgid "<b>Compact View Defaults</b>"
 msgstr "<b>Основно за збијени приказ</b>"
 
-#: src/caja-file-management-properties.ui:699
+#: src/caja-file-management-properties.ui:704
 msgid "_Default zoom level:"
 msgstr "Основно _увећање:"
 
-#: src/caja-file-management-properties.ui:737
+#: src/caja-file-management-properties.ui:742
 msgid "A_ll columns have the same width"
 msgstr "_Све колоне имају исту ширину"
 
-#: src/caja-file-management-properties.ui:776
+#: src/caja-file-management-properties.ui:782
 msgid "<b>List View Defaults</b>"
 msgstr "<b>Основно за приказ списком</b>"
 
-#: src/caja-file-management-properties.ui:806
+#: src/caja-file-management-properties.ui:812
 msgid "D_efault zoom level:"
 msgstr "Основно _увећање:"
 
-#: src/caja-file-management-properties.ui:844
+#: src/caja-file-management-properties.ui:850
 msgid "_Show icons"
 msgstr "_Прикажи иконице"
 
-#: src/caja-file-management-properties.ui:883
+#: src/caja-file-management-properties.ui:890
 msgid "<b>Tree View Defaults</b>"
 msgstr "<b>Основно за приказ стабла</b>"
 
-#: src/caja-file-management-properties.ui:906
+#: src/caja-file-management-properties.ui:913
 msgid "Show _only folders"
 msgstr "Прикажи _само фасцикле"
 
-#: src/caja-file-management-properties.ui:941
+#: src/caja-file-management-properties.ui:949
 msgid "Views"
 msgstr "Прегледи"
 
-#: src/caja-file-management-properties.ui:964
+#: src/caja-file-management-properties.ui:972
 msgid "<b>Behavior</b>"
 msgstr "<b>Понашање</b>"
 
-#: src/caja-file-management-properties.ui:986
+#: src/caja-file-management-properties.ui:994
 msgid "_Single click to open items"
 msgstr "_Један клик за отварање ставки"
 
-#: src/caja-file-management-properties.ui:1001
+#: src/caja-file-management-properties.ui:1010
 msgid "_Double click to open items"
 msgstr "_Двоклик за отварање ставки"
 
-#: src/caja-file-management-properties.ui:1018
+#: src/caja-file-management-properties.ui:1028
 msgid "Open each _folder in its own window"
 msgstr "Отвори сваку _фасциклу у њеном сопственом прозору"
 
-#: src/caja-file-management-properties.ui:1057
+#: src/caja-file-management-properties.ui:1068
 msgid "<b>Executable Text Files</b>"
 msgstr "<b>Извршне текстуалне датотеке</b>"
 
-#: src/caja-file-management-properties.ui:1080
+#: src/caja-file-management-properties.ui:1091
 msgid "_Run executable text files when they are opened"
 msgstr "П_окрени извршне текстуалне датотеке при отварању"
 
-#: src/caja-file-management-properties.ui:1095
+#: src/caja-file-management-properties.ui:1107
 msgid "_View executable text files when they are opened"
 msgstr "П_регледај извршне текстуалне датотеке при отварању"
 
-#: src/caja-file-management-properties.ui:1111
+#: src/caja-file-management-properties.ui:1124
 msgid "_Ask each time"
 msgstr "_Питај сваки пут"
 
-#: src/caja-file-management-properties.ui:1151
+#: src/caja-file-management-properties.ui:1165
 msgid "<b>Trash</b>"
 msgstr "<b>Смеће</b>"
 
-#: src/caja-file-management-properties.ui:1174
+#: src/caja-file-management-properties.ui:1188
 msgid "Ask before _emptying the Trash or deleting files"
 msgstr "Питај пре _избацивања смећа или брисања датотека"
 
-#: src/caja-file-management-properties.ui:1189
+#: src/caja-file-management-properties.ui:1204
 msgid "Ask before moving files to the _Trash"
 msgstr "Питај пре премештања датотека у _смеће"
 
-#: src/caja-file-management-properties.ui:1204
+#: src/caja-file-management-properties.ui:1220
 msgid "I_nclude a Delete command that bypasses Trash"
 msgstr "_Укључи и наредбу за брисање која заобилази смеће"
 
-#: src/caja-file-management-properties.ui:1242
+#: src/caja-file-management-properties.ui:1259
 msgid "Behavior"
 msgstr "Понашање"
 
-#: src/caja-file-management-properties.ui:1266
+#: src/caja-file-management-properties.ui:1283
 msgid "<b>Icon Captions</b>"
 msgstr "<b>Натписи иконица</b>"
 
-#: src/caja-file-management-properties.ui:1291
+#: src/caja-file-management-properties.ui:1308
 msgid ""
 "Choose the order of information to appear beneath icon names. More "
 "information will appear when zooming in closer."
@@ -4700,155 +4674,155 @@ msgstr ""
 "Изаберите редослед података који се појављују испод назива иконица. Више "
 "података ће бити приказано када увећате."
 
-#: src/caja-file-management-properties.ui:1427
+#: src/caja-file-management-properties.ui:1444
 msgid "<b>Date</b>"
 msgstr "<b>Датум</b>"
 
-#: src/caja-file-management-properties.ui:1451
+#: src/caja-file-management-properties.ui:1468
 msgid "_Format:"
 msgstr "_Запис:"
 
-#: src/caja-file-management-properties.ui:1498
+#: src/caja-file-management-properties.ui:1515
 msgid "<b>Size</b>"
 msgstr "<b>Величина</b>"
 
-#: src/caja-file-management-properties.ui:1515
+#: src/caja-file-management-properties.ui:1532
 msgid "_Show file sizes with IEC units"
 msgstr "_Прикажи величине датотека јединицама ИЕЦ-а"
 
-#: src/caja-file-management-properties.ui:1546
+#: src/caja-file-management-properties.ui:1564
 msgid "Display"
 msgstr "Приказ"
 
-#: src/caja-file-management-properties.ui:1570
+#: src/caja-file-management-properties.ui:1588
 msgid "<b>List Columns</b>"
 msgstr "<b>Колоне списка</b>"
 
-#: src/caja-file-management-properties.ui:1595
+#: src/caja-file-management-properties.ui:1613
 msgid "Choose the order of information to appear in the list view."
 msgstr "Изаберите редослед података приликом приказивања списком."
 
-#: src/caja-file-management-properties.ui:1633
+#: src/caja-file-management-properties.ui:1651
 msgid "List Columns"
 msgstr "Колоне списка"
 
-#: src/caja-file-management-properties.ui:1657
+#: src/caja-file-management-properties.ui:1675
 msgid "<b>Text Files</b>"
 msgstr "<b>Текстуалне датотеке</b>"
 
-#: src/caja-file-management-properties.ui:1687
+#: src/caja-file-management-properties.ui:1705
 msgid "Show te_xt in icons:"
 msgstr "Прикажи _текст са иконицама:"
 
-#: src/caja-file-management-properties.ui:1749
+#: src/caja-file-management-properties.ui:1767
 msgid "<b>Other Previewable Files</b>"
 msgstr "<b>Друге претпрегледљиве датотеке</b>"
 
-#: src/caja-file-management-properties.ui:1779
+#: src/caja-file-management-properties.ui:1797
 msgid "Show _thumbnails:"
 msgstr "_Прикажи сличице:"
 
-#: src/caja-file-management-properties.ui:1824
+#: src/caja-file-management-properties.ui:1842
 msgid "_Only for files smaller than:"
 msgstr "_Само за датотеке мање од:"
 
-#: src/caja-file-management-properties.ui:1886
+#: src/caja-file-management-properties.ui:1904
 msgid "<b>Sound Files</b>"
 msgstr "<b>Звучне датотеке</b>"
 
-#: src/caja-file-management-properties.ui:1916
+#: src/caja-file-management-properties.ui:1934
 msgid "Preview _sound files:"
 msgstr "Пусти _звучне датотеке:"
 
-#: src/caja-file-management-properties.ui:1978
+#: src/caja-file-management-properties.ui:1996
 msgid "<b>Folders</b>"
 msgstr "<b>Фасцикле</b>"
 
-#: src/caja-file-management-properties.ui:2008
+#: src/caja-file-management-properties.ui:2026
 msgid "Count _number of items:"
 msgstr "Пре_број ставке:"
 
-#: src/caja-file-management-properties.ui:2069
+#: src/caja-file-management-properties.ui:2087
 msgid "Preview"
 msgstr "Претпреглед"
 
-#: src/caja-file-management-properties.ui:2099
+#: src/caja-file-management-properties.ui:2117
 msgid "<b>Media Handling</b>"
 msgstr "<b>Рад са медијумима</b>"
 
-#: src/caja-file-management-properties.ui:2124
+#: src/caja-file-management-properties.ui:2142
 msgid ""
 "Choose what happens when inserting media or connecting devices to the system"
 msgstr ""
 "Изаберите шта се дешава по убацивању медијума или повезивања уређаја на "
 "систем"
 
-#: src/caja-file-management-properties.ui:2147
+#: src/caja-file-management-properties.ui:2163
 msgid "CD _Audio:"
 msgstr "_Звучни ЦД:"
 
-#: src/caja-file-management-properties.ui:2161
+#: src/caja-file-management-properties.ui:2188
 msgid "_DVD Video:"
 msgstr "_Видео ДВД:"
 
-#: src/caja-file-management-properties.ui:2202
+#: src/caja-file-management-properties.ui:2213
 msgid "_Music Player:"
 msgstr "_Музичка справица:"
 
-#: src/caja-file-management-properties.ui:2232
+#: src/caja-file-management-properties.ui:2238
 msgid "_Photos:"
 msgstr "_Фотографије:"
 
-#: src/caja-file-management-properties.ui:2262
+#: src/caja-file-management-properties.ui:2263
 msgid "_Software:"
 msgstr "_Софтвер:"
 
-#: src/caja-file-management-properties.ui:2321
+#: src/caja-file-management-properties.ui:2317
 msgid "<b>Other Media</b>"
 msgstr "<b>Остали медији</b>"
 
-#: src/caja-file-management-properties.ui:2346
+#: src/caja-file-management-properties.ui:2342
 msgid "Less common media formats can be configured here"
 msgstr "Овде можете подесити неуобичајене врсте медија"
 
-#: src/caja-file-management-properties.ui:2380
-msgid "Acti_on:"
-msgstr "_Радња:"
-
-#: src/caja-file-management-properties.ui:2410
+#: src/caja-file-management-properties.ui:2363
 msgid "_Type:"
 msgstr "_Врста:"
 
-#: src/caja-file-management-properties.ui:2452
+#: src/caja-file-management-properties.ui:2377
+msgid "Acti_on:"
+msgstr "_Радња:"
+
+#: src/caja-file-management-properties.ui:2441
 msgid "_Never prompt or start programs on media insertion"
 msgstr "_Никада не питај или не покрећи програме након убацивања медија"
 
-#: src/caja-file-management-properties.ui:2467
+#: src/caja-file-management-properties.ui:2457
 msgid "B_rowse media when inserted"
 msgstr "_Разгледај медијум након убацивања"
 
-#: src/caja-file-management-properties.ui:2489
+#: src/caja-file-management-properties.ui:2480
 msgid "Media"
 msgstr "Медиј"
 
-#: src/caja-file-management-properties.ui:2507
+#: src/caja-file-management-properties.ui:2498
 msgid "<b>Available _Extensions:</b>"
 msgstr "<b>Доступна _проширења:</b>"
 
-#: src/caja-file-management-properties.ui:2538
-#: src/caja-file-management-properties.ui:2562
+#: src/caja-file-management-properties.ui:2529
+#: src/caja-file-management-properties.ui:2550
 msgid "column"
 msgstr "колона"
 
-#: src/caja-file-management-properties.ui:2588
+#: src/caja-file-management-properties.ui:2576
 msgid "_About Extension"
 msgstr "_О проширењу"
 
-#: src/caja-file-management-properties.ui:2604
+#: src/caja-file-management-properties.ui:2592
 msgid "C_onfigure Extension"
 msgstr "_Подеси проширење"
 
-#: src/caja-file-management-properties.ui:2634
+#: src/caja-file-management-properties.ui:2622
 msgid "Extensions"
 msgstr "Проширења"
 
@@ -4937,17 +4911,17 @@ msgstr "Врста слике:"
 #, c-format
 msgid "<b>Width:</b> %d pixel"
 msgid_plural "<b>Width:</b> %d pixels"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "<b>Ширина:</b> %d пиксел"
+msgstr[1] "<b>Ширина:</b> %d пиксела"
+msgstr[2] "<b>Ширина:</b> %d пиксела"
 
 #: src/caja-image-properties-page.c:411
 #, c-format
 msgid "<b>Height:</b> %d pixel"
 msgid_plural "<b>Height:</b> %d pixels"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "<b>Висина:</b> %d пиксел"
+msgstr[1] "<b>Висина:</b> %d пиксела"
+msgstr[2] "<b>Висина:</b> %d пиксела"
 
 #: src/caja-image-properties-page.c:430
 msgid "Failed to load image information"
@@ -4978,23 +4952,23 @@ msgid "You cannot assign more than one custom icon at a time."
 msgstr "Не можете у исто време доделити више од једне произвољне иконице."
 
 #: src/caja-information-panel.c:527
-#: src/file-manager/fm-properties-window.c:515
+#: src/file-manager/fm-properties-window.c:512
 msgid "Please drag just one image to set a custom icon."
 msgstr "Превуците само једну слику да поставите произвољну иконицу."
 
 #: src/caja-information-panel.c:554
-#: src/file-manager/fm-properties-window.c:526
+#: src/file-manager/fm-properties-window.c:523
 msgid "The file that you dropped is not local."
 msgstr "Датотека коју сте убацили није месна."
 
 #: src/caja-information-panel.c:555
-#: src/file-manager/fm-properties-window.c:527
-#: src/file-manager/fm-properties-window.c:533
+#: src/file-manager/fm-properties-window.c:524
+#: src/file-manager/fm-properties-window.c:530
 msgid "You can only use local images as custom icons."
 msgstr "Можете користити само месне слике за иконице."
 
 #: src/caja-information-panel.c:562
-#: src/file-manager/fm-properties-window.c:532
+#: src/file-manager/fm-properties-window.c:529
 msgid "The file that you dropped is not an image."
 msgstr "Датотека коју сте убацили није слика."
 
@@ -5007,7 +4981,7 @@ msgstr "Можете користити само слике за иконице.
 msgid "Open With %s"
 msgstr "Отвори програмом „%s“"
 
-#: src/caja-location-bar.c:60 src/file-manager/fm-properties-window.c:3319
+#: src/caja-location-bar.c:60 src/file-manager/fm-properties-window.c:3316
 msgid "Location:"
 msgstr "Место:"
 
@@ -5019,9 +4993,9 @@ msgstr "Иди на:"
 #, c-format
 msgid "Do you want to view %d location?"
 msgid_plural "Do you want to view %d locations?"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Да ли желите да видите %d путању?"
+msgstr[1] "Да ли желите да видите %d путање?"
+msgstr[2] "Да ли желите да видите %d путања?"
 
 #: src/caja-location-dialog.c:160
 msgid "Open Location"
@@ -5101,7 +5075,7 @@ msgstr "Затворите све управљачке прозоре"
 msgid "_Location..."
 msgstr "_Путања..."
 
-#: src/caja-navigation-window-menus.c:847 src/caja-spatial-window.c:923
+#: src/caja-navigation-window-menus.c:847 src/caja-spatial-window.c:927
 msgid "Specify a location to open"
 msgstr "Наведите путању за отварање"
 
@@ -5129,19 +5103,19 @@ msgstr "_Иста путања као додатна површ"
 msgid "Go to the same location as in the extra pane"
 msgstr "Идите на исту путању као у додатној површи"
 
-#: src/caja-navigation-window-menus.c:862 src/caja-spatial-window.c:936
+#: src/caja-navigation-window-menus.c:862 src/caja-spatial-window.c:940
 msgid "_Add Bookmark"
 msgstr "_Додај обележивач"
 
-#: src/caja-navigation-window-menus.c:863 src/caja-spatial-window.c:937
+#: src/caja-navigation-window-menus.c:863 src/caja-spatial-window.c:941
 msgid "Add a bookmark for the current location to this menu"
 msgstr "Додајте обележивач за тренутну путању у овајизборник"
 
-#: src/caja-navigation-window-menus.c:866 src/caja-spatial-window.c:940
+#: src/caja-navigation-window-menus.c:866 src/caja-spatial-window.c:944
 msgid "_Edit Bookmarks..."
 msgstr "_Уреди обележиваче..."
 
-#: src/caja-navigation-window-menus.c:867 src/caja-spatial-window.c:941
+#: src/caja-navigation-window-menus.c:867 src/caja-spatial-window.c:945
 msgid "Display a window that allows editing the bookmarks in this menu"
 msgstr ""
 "Прикажите прозор који омогућава уређивање обележивача у овом изборнику"
@@ -5220,7 +5194,7 @@ msgstr "Трака _стања"
 msgid "Change the visibility of this window's statusbar"
 msgstr "Измените видљивост траке стања у овом прозору"
 
-#: src/caja-navigation-window-menus.c:924 src/caja-spatial-window.c:944
+#: src/caja-navigation-window-menus.c:924 src/caja-spatial-window.c:948
 msgid "_Search for Files..."
 msgstr "_Тражи датотеке..."
 
@@ -5823,31 +5797,31 @@ msgstr "Потражи:"
 msgid "Close the side pane"
 msgstr "Затворите бочну површ"
 
-#: src/caja-spatial-window.c:920
+#: src/caja-spatial-window.c:924
 msgid "_Places"
 msgstr "_Места"
 
-#: src/caja-spatial-window.c:922
+#: src/caja-spatial-window.c:926
 msgid "Open _Location..."
 msgstr "Отвори _путању..."
 
-#: src/caja-spatial-window.c:927
+#: src/caja-spatial-window.c:931
 msgid "Close P_arent Folders"
 msgstr "Затвори _полазну фасциклу"
 
-#: src/caja-spatial-window.c:928
+#: src/caja-spatial-window.c:932
 msgid "Close this folder's parents"
 msgstr "Затворите полазиште ове фасцикле"
 
-#: src/caja-spatial-window.c:932
+#: src/caja-spatial-window.c:936
 msgid "Clos_e All Folders"
 msgstr "Затвори _све фасцикле"
 
-#: src/caja-spatial-window.c:933
+#: src/caja-spatial-window.c:937
 msgid "Close all folder windows"
 msgstr "Затворите све прозоре фасцикли"
 
-#: src/caja-spatial-window.c:945
+#: src/caja-spatial-window.c:949
 msgid "Locate documents and folders on this computer by name or content"
 msgstr ""
 "Пронађите документа и фасцикле на овом рачунару према називу или садржају"
@@ -6010,8 +5984,8 @@ msgid "translator-credits"
 msgstr "Мирослав Николић <miroslavnikolic@rocketmail.com>"
 
 #: src/caja-window-menus.c:589
-msgid "MATE Web Site"
-msgstr "Веб страница Мејта"
+msgid "Website"
+msgstr "Веб страница"
 
 #: src/caja-window-menus.c:849
 msgid "_File"
@@ -6304,17 +6278,17 @@ msgstr "Прикажите ову путању у прегледу радне п
 #, c-format
 msgid "This will open %'d separate tab."
 msgid_plural "This will open %'d separate tabs."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Ово ће отворити %'d засебан лист."
+msgstr[1] "Ово ће отворити %'d засебна листа."
+msgstr[2] "Ово ће отворити %'d засебних листова."
 
 #: src/file-manager/fm-directory-view.c:663
 #, c-format
 msgid "This will open %'d separate window."
 msgid_plural "This will open %'d separate windows."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Ово ће отворити %'d засебан прозор."
+msgstr[1] "Ово ће отворити %'d засебна прозора."
+msgstr[2] "Ово ће отворити %'d засебних прозора."
 
 #: src/file-manager/fm-directory-view.c:1209
 msgid "Select Items Matching"
@@ -6358,17 +6332,17 @@ msgstr "„%s“ је изабрано"
 #, c-format
 msgid "%'d folder selected"
 msgid_plural "%'d folders selected"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Изабрана је %'d фасцикла"
+msgstr[1] "Изабране су %'d фасцикле"
+msgstr[2] "Изабрано је %'d фасцикли"
 
 #: src/file-manager/fm-directory-view.c:2322
 #, c-format
 msgid " (containing %'d item)"
 msgid_plural " (containing %'d items)"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] " (садржи %'d ставку)"
+msgstr[1] " (садржи %'d ставке)"
+msgstr[2] " (садржи %'d ставки)"
 
 #. Translators: this is preceded with a string of form 'N folders' (N more
 #. than 1)
@@ -6376,25 +6350,25 @@ msgstr[2] ""
 #, c-format
 msgid " (containing a total of %'d item)"
 msgid_plural " (containing a total of %'d items)"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] " (садрже укупно %'d ставку)"
+msgstr[1] " (садрже укупно %'d ставке)"
+msgstr[2] " (садрже укупно %'d ставки)"
 
 #: src/file-manager/fm-directory-view.c:2350
 #, c-format
 msgid "%'d item selected"
 msgid_plural "%'d items selected"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Изабрана је %'d ставка"
+msgstr[1] "Изабране су %'d ставке"
+msgstr[2] "Изабрано је %'d ставки"
 
 #: src/file-manager/fm-directory-view.c:2357
 #, c-format
 msgid "%'d other item selected"
 msgid_plural "%'d other items selected"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Изабрана је %'d друга ставка"
+msgstr[1] "Изабране су %'d друге ставке"
+msgstr[2] "Изабрано је %'d других ставки"
 
 #. Translators: This is marked for translation in case a localiser
 #. * needs to use something other than parentheses. The
@@ -6435,9 +6409,9 @@ msgstr "%s%s, %s, %s"
 #, c-format
 msgid "Use \"%s\" to open the selected item"
 msgid_plural "Use \"%s\" to open the selected items"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Користи „%s“ за отварање изабране ставке"
+msgstr[1] "Користи „%s“ за отварање изабране ставке"
+msgstr[2] "Користи „%s“ за отварање изабраних ставки"
 
 #: src/file-manager/fm-directory-view.c:4612
 msgid "Open parent location"
@@ -6529,8 +6503,11 @@ msgid "The %'d selected item will be moved if you select the Paste command"
 msgid_plural ""
 "The %'d selected items will be moved if you select the Paste command"
 msgstr[0] ""
+"%'d изабрана ставка биће премештена уколико изаберете наредбу за убацивање"
 msgstr[1] ""
+"%'d изабране ставке биће премештене уколико изаберете наредбу за убацивање"
 msgstr[2] ""
+"%'d изабраних ставки биће премештено уколико изаберете наредбу за убацивање"
 
 #: src/file-manager/fm-directory-view.c:6098
 #, c-format
@@ -6538,8 +6515,11 @@ msgid "The %'d selected item will be copied if you select the Paste command"
 msgid_plural ""
 "The %'d selected items will be copied if you select the Paste command"
 msgstr[0] ""
+"%'d изабрана ставка биће умножена уколико изаберете наредбу за убацивање"
 msgstr[1] ""
+"%'d изабране ставке биће умножене уколико изаберете наредбу за убацивање"
 msgstr[2] ""
+"%'d изабраних ставки биће умножено уколико изаберете наредбу за убацивање"
 
 #: src/file-manager/fm-directory-view.c:6278
 #: src/file-manager/fm-tree-view.c:1060
@@ -6734,9 +6714,9 @@ msgstr "Удвостручите сваку изабрану ставку"
 #: src/file-manager/fm-directory-view.c:9156
 msgid "Ma_ke Link"
 msgid_plural "Ma_ke Links"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "_Направи везу"
+msgstr[1] "_Направи везе"
+msgstr[2] "_Направи везе"
 
 #: src/file-manager/fm-directory-view.c:7488
 msgid "Create a symbolic link for each selected item"
@@ -6985,46 +6965,46 @@ msgstr "Преместите отворену фасциклу из смећа �
 #, c-format
 msgid "Move the selected folder out of the trash to \"%s\""
 msgid_plural "Move the selected folders out of the trash to \"%s\""
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Премести изабрану фасциклу из смећа у „%s“"
+msgstr[1] "Премести изабране фасцикле из смећа у „%s“"
+msgstr[2] "Премести изабране фасцикле из смећа у „%s“"
 
 #: src/file-manager/fm-directory-view.c:8212
 msgid "Move the selected folder out of the trash"
 msgid_plural "Move the selected folders out of the trash"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Премести изабрану фасциклу из смећа"
+msgstr[1] "Премести изабране фасцикле из смећа"
+msgstr[2] "Премести изабране фасцикле из смећа"
 
 #: src/file-manager/fm-directory-view.c:8218
 #, c-format
 msgid "Move the selected file out of the trash to \"%s\""
 msgid_plural "Move the selected files out of the trash to \"%s\""
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Премести изабрану датотеку из смећа у „%s“"
+msgstr[1] "Премести изабране датотеке из смећа у „%s“"
+msgstr[2] "Премести изабране датотеке из смећа у „%s“"
 
 #: src/file-manager/fm-directory-view.c:8222
 msgid "Move the selected file out of the trash"
 msgid_plural "Move the selected files out of the trash"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Премести изабрану датотеку из смећа"
+msgstr[1] "Премести изабране датотеке из смећа"
+msgstr[2] "Премести изабране датотеке из смећа"
 
 #: src/file-manager/fm-directory-view.c:8228
 #, c-format
 msgid "Move the selected item out of the trash to \"%s\""
 msgid_plural "Move the selected items out of the trash to \"%s\""
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Премести изабрану ставку из смећа у „%s“"
+msgstr[1] "Премести изабране ставке из смећа у „%s“"
+msgstr[2] "Премести изабране ставке из смећа у „%s“"
 
 #: src/file-manager/fm-directory-view.c:8232
 msgid "Move the selected item out of the trash"
 msgid_plural "Move the selected items out of the trash"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Премести изабрану ставку из смећа"
+msgstr[1] "Премести изабране ставке из смећа"
+msgstr[2] "Премести изабране ставке из смећа"
 
 #: src/file-manager/fm-directory-view.c:8361
 #: src/file-manager/fm-directory-view.c:8365
@@ -7141,9 +7121,9 @@ msgstr "Разгледај у новом _прозору"
 #: src/file-manager/fm-directory-view.c:9034
 msgid "_Browse Folder"
 msgid_plural "_Browse Folders"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "_Разгледај фасциклу"
+msgstr[1] "_Разгледај фасцикле"
+msgstr[2] "_Разгледај фасцикле"
 
 #: src/file-manager/fm-directory-view.c:8711
 #: src/file-manager/fm-directory-view.c:9065
@@ -7172,33 +7152,33 @@ msgstr "_Отвори програмом „%s“"
 #, c-format
 msgid "Open in %'d New _Window"
 msgid_plural "Open in %'d New _Windows"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Отвори у %'d новом _прозору"
+msgstr[1] "Отвори у %'d нова _прозора"
+msgstr[2] "Отвори у %'d нових _прозора"
 
 #: src/file-manager/fm-directory-view.c:9026
 #, c-format
 msgid "Browse in %'d New _Window"
 msgid_plural "Browse in %'d New _Windows"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Разгледај у %'d новом _прозору"
+msgstr[1] "Разгледај у %'d нова _прозора"
+msgstr[2] "Разгледај у %'d нових _прозора"
 
 #: src/file-manager/fm-directory-view.c:9058
 #, c-format
 msgid "Open in %'d New _Tab"
 msgid_plural "Open in %'d New _Tabs"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Отвори у %'d новом _листу"
+msgstr[1] "Отвори у %'d нова _листа"
+msgstr[2] "Отвори у %'d нових _листова"
 
 #: src/file-manager/fm-directory-view.c:9067
 #, c-format
 msgid "Browse in %'d New _Tab"
 msgid_plural "Browse in %'d New _Tabs"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Разгледај у %'d новом _листу"
+msgstr[1] "Разгледај у %'d нова _листа"
+msgstr[2] "Разгледај у %'d нових _листова"
 
 #: src/file-manager/fm-directory-view.c:9111
 msgid "Delete all selected items permanently"
@@ -7629,278 +7609,278 @@ msgstr "Преглед списком је наишао на грешку при
 msgid "Display this location with the list view."
 msgstr "Прикажите ову путању у прегледу списком."
 
-#: src/file-manager/fm-properties-window.c:514
+#: src/file-manager/fm-properties-window.c:511
 msgid "You cannot assign more than one custom icon at a time!"
 msgstr "Не можете у исто време доделити више од једне произвољне иконице!"
 
-#: src/file-manager/fm-properties-window.c:648
+#: src/file-manager/fm-properties-window.c:645
 msgid "_Name:"
 msgid_plural "_Names:"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "_Назив:"
+msgstr[1] "_Називи:"
+msgstr[2] "_Називи:"
 
-#: src/file-manager/fm-properties-window.c:1004
+#: src/file-manager/fm-properties-window.c:1001
 msgid "Properties"
 msgstr "Особине"
 
-#: src/file-manager/fm-properties-window.c:1016
+#: src/file-manager/fm-properties-window.c:1013
 #, c-format
 msgid "%s Properties"
 msgstr "Особине за ставку „%s“"
 
-#: src/file-manager/fm-properties-window.c:1346
+#: src/file-manager/fm-properties-window.c:1343
 #, c-format
 msgctxt "MIME type description (MIME type)"
 msgid "%s (%s)"
 msgstr "%s (%s)"
 
-#: src/file-manager/fm-properties-window.c:1554
+#: src/file-manager/fm-properties-window.c:1551
 msgid "Cancel Group Change?"
 msgstr "Да откажем промену групе?"
 
-#: src/file-manager/fm-properties-window.c:1969
+#: src/file-manager/fm-properties-window.c:1966
 msgid "Cancel Owner Change?"
 msgstr "Да откажем промену власника?"
 
-#: src/file-manager/fm-properties-window.c:2296
+#: src/file-manager/fm-properties-window.c:2293
 msgid "nothing"
 msgstr "ништа"
 
-#: src/file-manager/fm-properties-window.c:2298
+#: src/file-manager/fm-properties-window.c:2295
 msgid "unreadable"
 msgstr "нечитљиво"
 
-#: src/file-manager/fm-properties-window.c:2317
+#: src/file-manager/fm-properties-window.c:2314
 #, c-format
 msgid "%'d item, with size %s (%s on disk)"
 msgid_plural "%'d items, totalling %s (%s on disk)"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%'d ставка, величине %s (%s на диску)"
+msgstr[1] "%'d ставке, величине %s (%s на диску)"
+msgstr[2] "%'d ставки, величине %s (%s на диску)"
 
-#: src/file-manager/fm-properties-window.c:2327
+#: src/file-manager/fm-properties-window.c:2324
 msgid "(some contents unreadable)"
 msgstr "(део садржаја је нечитљив)"
 
-#: src/file-manager/fm-properties-window.c:2344
+#: src/file-manager/fm-properties-window.c:2341
 msgid "Contents:"
 msgstr "Садржај:"
 
 #. Translators: "used" refers to the capacity of the filesystem
-#: src/file-manager/fm-properties-window.c:3120
+#: src/file-manager/fm-properties-window.c:3117
 msgid "used"
 msgstr "заузето"
 
 #. Translators: "free" refers to the capacity of the filesystem
-#: src/file-manager/fm-properties-window.c:3131
+#: src/file-manager/fm-properties-window.c:3128
 msgid "free"
 msgstr "слободно"
 
-#: src/file-manager/fm-properties-window.c:3135
+#: src/file-manager/fm-properties-window.c:3132
 msgid "Total capacity:"
 msgstr "Укупан капацитет:"
 
-#: src/file-manager/fm-properties-window.c:3149
+#: src/file-manager/fm-properties-window.c:3146
 msgid "Filesystem type:"
 msgstr "Систем датотека:"
 
-#: src/file-manager/fm-properties-window.c:3234
+#: src/file-manager/fm-properties-window.c:3231
 msgid "Basic"
 msgstr "Основно"
 
-#: src/file-manager/fm-properties-window.c:3296
+#: src/file-manager/fm-properties-window.c:3293
 msgid "Link target:"
 msgstr "Мета везе:"
 
-#: src/file-manager/fm-properties-window.c:3310
+#: src/file-manager/fm-properties-window.c:3307
 msgid "Size on Disk:"
 msgstr "Величина на диску:"
 
-#: src/file-manager/fm-properties-window.c:3325
+#: src/file-manager/fm-properties-window.c:3322
 msgid "Volume:"
 msgstr "Диск:"
 
-#: src/file-manager/fm-properties-window.c:3334
+#: src/file-manager/fm-properties-window.c:3331
 msgid "Accessed:"
 msgstr "Време приступа:"
 
-#: src/file-manager/fm-properties-window.c:3338
+#: src/file-manager/fm-properties-window.c:3335
 msgid "Modified:"
 msgstr "Време измене:"
 
-#: src/file-manager/fm-properties-window.c:3347
+#: src/file-manager/fm-properties-window.c:3344
 msgid "Free space:"
 msgstr "Слободан простор:"
 
-#: src/file-manager/fm-properties-window.c:3875
+#: src/file-manager/fm-properties-window.c:3872
 msgid "_Read"
 msgstr "_Чита"
 
-#: src/file-manager/fm-properties-window.c:3877
+#: src/file-manager/fm-properties-window.c:3874
 msgid "_Write"
 msgstr "_Пише"
 
-#: src/file-manager/fm-properties-window.c:3879
+#: src/file-manager/fm-properties-window.c:3876
 msgid "E_xecute"
 msgstr "_Извршава"
 
 #. Translators: this gets concatenated to "no read",
 #. * "no access", etc. (see following strings)
-#: src/file-manager/fm-properties-window.c:4147
-#: src/file-manager/fm-properties-window.c:4158
-#: src/file-manager/fm-properties-window.c:4170
+#: src/file-manager/fm-properties-window.c:4144
+#: src/file-manager/fm-properties-window.c:4155
+#: src/file-manager/fm-properties-window.c:4167
 msgid "no "
 msgstr "забрањено "
 
-#: src/file-manager/fm-properties-window.c:4150
+#: src/file-manager/fm-properties-window.c:4147
 msgid "list"
 msgstr "листање"
 
-#: src/file-manager/fm-properties-window.c:4152
+#: src/file-manager/fm-properties-window.c:4149
 msgid "read"
 msgstr "читање"
 
-#: src/file-manager/fm-properties-window.c:4161
+#: src/file-manager/fm-properties-window.c:4158
 msgid "create/delete"
 msgstr "стварање/брисање"
 
-#: src/file-manager/fm-properties-window.c:4163
+#: src/file-manager/fm-properties-window.c:4160
 msgid "write"
 msgstr "писање"
 
-#: src/file-manager/fm-properties-window.c:4172
+#: src/file-manager/fm-properties-window.c:4169
 msgid "access"
 msgstr "приступање"
 
-#: src/file-manager/fm-properties-window.c:4220
+#: src/file-manager/fm-properties-window.c:4217
 msgid "Access:"
 msgstr "Дозволе:"
 
-#: src/file-manager/fm-properties-window.c:4222
+#: src/file-manager/fm-properties-window.c:4219
 msgid "Folder access:"
 msgstr "Дозволе за фасциклу:"
 
-#: src/file-manager/fm-properties-window.c:4224
+#: src/file-manager/fm-properties-window.c:4221
 msgid "File access:"
 msgstr "Дозволе за датотеку:"
 
-#: src/file-manager/fm-properties-window.c:4242
+#: src/file-manager/fm-properties-window.c:4239
 msgid "List files only"
 msgstr "Само приказује датотеке"
 
-#: src/file-manager/fm-properties-window.c:4244
+#: src/file-manager/fm-properties-window.c:4241
 msgid "Access files"
 msgstr "Приступа датотекама"
 
-#: src/file-manager/fm-properties-window.c:4246
+#: src/file-manager/fm-properties-window.c:4243
 msgid "Create and delete files"
 msgstr "Ствара и брише датотеке"
 
-#: src/file-manager/fm-properties-window.c:4253
+#: src/file-manager/fm-properties-window.c:4250
 msgid "Read-only"
 msgstr "Чита само"
 
-#: src/file-manager/fm-properties-window.c:4255
+#: src/file-manager/fm-properties-window.c:4252
 msgid "Read and write"
 msgstr "Чита и уписује"
 
-#: src/file-manager/fm-properties-window.c:4320
+#: src/file-manager/fm-properties-window.c:4317
 msgid "Special flags:"
 msgstr "Посебне заставице:"
 
-#: src/file-manager/fm-properties-window.c:4322
+#: src/file-manager/fm-properties-window.c:4319
 msgid "Set _user ID"
 msgstr "Подеси ИБ _корисника"
 
-#: src/file-manager/fm-properties-window.c:4323
+#: src/file-manager/fm-properties-window.c:4320
 msgid "Set gro_up ID"
 msgstr "Подеси ИБ _групе"
 
-#: src/file-manager/fm-properties-window.c:4324
+#: src/file-manager/fm-properties-window.c:4321
 msgid "_Sticky"
 msgstr "_Лепљиво"
 
-#: src/file-manager/fm-properties-window.c:4399
-#: src/file-manager/fm-properties-window.c:4591
+#: src/file-manager/fm-properties-window.c:4396
+#: src/file-manager/fm-properties-window.c:4588
 msgid "_Owner:"
 msgstr "_Власник:"
 
-#: src/file-manager/fm-properties-window.c:4407
-#: src/file-manager/fm-properties-window.c:4497
-#: src/file-manager/fm-properties-window.c:4600
+#: src/file-manager/fm-properties-window.c:4404
+#: src/file-manager/fm-properties-window.c:4494
+#: src/file-manager/fm-properties-window.c:4597
 msgid "Owner:"
 msgstr "Власник:"
 
-#: src/file-manager/fm-properties-window.c:4431
-#: src/file-manager/fm-properties-window.c:4615
+#: src/file-manager/fm-properties-window.c:4428
+#: src/file-manager/fm-properties-window.c:4612
 msgid "_Group:"
 msgstr "_Група:"
 
-#: src/file-manager/fm-properties-window.c:4439
-#: src/file-manager/fm-properties-window.c:4498
-#: src/file-manager/fm-properties-window.c:4623
+#: src/file-manager/fm-properties-window.c:4436
+#: src/file-manager/fm-properties-window.c:4495
+#: src/file-manager/fm-properties-window.c:4620
 msgid "Group:"
 msgstr "Група:"
 
-#: src/file-manager/fm-properties-window.c:4463
+#: src/file-manager/fm-properties-window.c:4460
 msgid "Others"
 msgstr "Остали"
 
-#: src/file-manager/fm-properties-window.c:4478
+#: src/file-manager/fm-properties-window.c:4475
 msgid "Execute:"
 msgstr "Покретање:"
 
-#: src/file-manager/fm-properties-window.c:4481
+#: src/file-manager/fm-properties-window.c:4478
 msgid "Allow _executing file as program"
 msgstr "Дозволи _покретање датотеке као програма"
 
-#: src/file-manager/fm-properties-window.c:4499
+#: src/file-manager/fm-properties-window.c:4496
 msgid "Others:"
 msgstr "Остали:"
 
-#: src/file-manager/fm-properties-window.c:4639
+#: src/file-manager/fm-properties-window.c:4636
 msgid "Folder Permissions:"
 msgstr "Овлашћења за фасциклу:"
 
-#: src/file-manager/fm-properties-window.c:4646
+#: src/file-manager/fm-properties-window.c:4643
 msgid "File Permissions:"
 msgstr "Овлашћења за датотеку:"
 
-#: src/file-manager/fm-properties-window.c:4655
+#: src/file-manager/fm-properties-window.c:4652
 msgid "Text view:"
 msgstr "Текстуални преглед:"
 
-#: src/file-manager/fm-properties-window.c:4803
+#: src/file-manager/fm-properties-window.c:4800
 msgid "You are not the owner, so you cannot change these permissions."
 msgstr "Ви нисте власник, и зато не можете изменити ова овлашћења."
 
-#: src/file-manager/fm-properties-window.c:4823
+#: src/file-manager/fm-properties-window.c:4820
 msgid "SELinux context:"
 msgstr "СЕЛинукс контекст:"
 
-#: src/file-manager/fm-properties-window.c:4828
+#: src/file-manager/fm-properties-window.c:4825
 msgid "Last changed:"
 msgstr "Последња измена:"
 
-#: src/file-manager/fm-properties-window.c:4841
+#: src/file-manager/fm-properties-window.c:4838
 msgid "Apply Permissions to Enclosed Files"
 msgstr "Примени овлашћења за садржане датотеке"
 
-#: src/file-manager/fm-properties-window.c:4855
+#: src/file-manager/fm-properties-window.c:4852
 #, c-format
 msgid "The permissions of \"%s\" could not be determined."
 msgstr "Не могу да утврдим овлашћења за „%s“."
 
-#: src/file-manager/fm-properties-window.c:4858
+#: src/file-manager/fm-properties-window.c:4855
 msgid "The permissions of the selected file could not be determined."
 msgstr "Не могу да утврдим овлашћења за изабрану датотеку."
 
-#: src/file-manager/fm-properties-window.c:5448
+#: src/file-manager/fm-properties-window.c:5444
 msgid "Creating Properties window."
 msgstr "Стварам прозор са особинама."
 
-#: src/file-manager/fm-properties-window.c:5743
+#: src/file-manager/fm-properties-window.c:5740
 msgid "Select Custom Icon"
 msgstr "Изаберите произвољну иконицу"
 

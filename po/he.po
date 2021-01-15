@@ -10,10 +10,10 @@
 # Bar Boko <bokodev@outlook.com>, 2018
 # shoom bala <shoombala@gmail.com>, 2019
 # Stefano Karapetsas <stefano@karapetsas.com>, 2019
-# shy tzedaka <shaytzedaka123@gmail.com>, 2020
 # Yaron Shahrabani <sh.yaron@gmail.com>, 2020
-# Omer I.S., 2020
 # Wolfgang Ulbrich <mate@raveit.de>, 2020
+# shy tzedaka <shaytzedaka123@gmail.com>, 2020
+# Omer I.S. <omeritzicschwartz@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
@@ -21,7 +21,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://mate-desktop.org\n"
 "POT-Creation-Date: 2020-06-21 17:16+0200\n"
 "PO-Revision-Date: 2018-03-11 14:48+0000\n"
-"Last-Translator: Wolfgang Ulbrich <mate@raveit.de>, 2020\n"
+"Last-Translator: Omer I.S. <omeritzicschwartz@gmail.com>, 2020\n"
 "Language-Team: Hebrew (https://www.transifex.com/mate/teams/13566/he/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -35,7 +35,7 @@ msgstr "_דוגמאות"
 
 #: data/browser.xml.in:5
 msgid "Drag a pattern tile to an object to change it"
-msgstr "גרור דוגמה לאובייקט כדי לשנות אותו"
+msgstr "יש לגרור דוגמה לאובייקט כדי לשנות אותו"
 
 #: data/browser.xml.in:6
 msgid "Blue Ridge"
@@ -163,7 +163,7 @@ msgstr "_צבעים"
 
 #: data/browser.xml.in:38
 msgid "Drag a color to an object to change it to that color"
-msgstr "גרור צבע לאובייקט כדי לשנות את צבעו"
+msgstr "יש לגרור צבע לאובייקט כדי לשנות את צבעו"
 
 #: data/browser.xml.in:39
 msgid "Mango"
@@ -335,17 +335,17 @@ msgstr "הפעלה אוטומטית"
 
 #: data/caja-browser.desktop.in.in:4
 msgid "File Browser"
-msgstr "דפדפן קבצים"
+msgstr "סייר קבצים"
 
 #: data/caja-browser.desktop.in.in:5
 msgid "Browse the file system with the file manager"
-msgstr "דפדוף במערכת הקבצים עם מנהל הקבצים"
+msgstr "לסייר במערכת הקבצים עם מנהל הקבצים"
 
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/caja-browser.desktop.in.in:15
 msgid "files;browser;manager;MATE;"
-msgstr "קבצים;דפדפן;מנהל;MATE;"
+msgstr "files;browser;manager;MATE;סייר;דפדפן;מנהל;קבצים;"
 
 #: data/caja-computer.desktop.in.in:3 libcaja-private/caja-desktop-link.c:114
 #: src/caja-places-sidebar.c:513
@@ -366,7 +366,7 @@ msgstr ""
 
 #: data/caja.desktop.in.in:4
 msgid "File Manager"
-msgstr "File Manager"
+msgstr "מנהל קבצים"
 
 #: data/caja-file-management-properties.desktop.in.in:3
 msgid "File Management"
@@ -516,7 +516,7 @@ msgstr "הצג _פרטים נוספים"
 #: src/file-manager/fm-directory-view.c:7099
 #: src/file-manager/fm-directory-view.c:10490
 msgid "_Cancel"
-msgstr "_בטל"
+msgstr "_ביטול"
 
 #: eel/eel-stock-dialogs.c:240 libcaja-private/caja-open-with-dialog.c:988
 #: src/caja-location-dialog.c:202 src/caja-places-sidebar.c:2697
@@ -1119,7 +1119,7 @@ msgstr[3] "%'u פריטים"
 #, c-format
 msgid "%'u folder"
 msgid_plural "%'u folders"
-msgstr[0] "תיקייה אחת"
+msgstr[0] "תיקיה אחת"
 msgstr[1] "%'u תיקיות"
 msgstr[2] "%'u תיקיות"
 msgstr[3] "%'u תיקיות"
@@ -1318,7 +1318,7 @@ msgstr "החלפה"
 
 #: libcaja-private/caja-file-conflict-dialog.c:751
 msgid "Merge Folder"
-msgstr "מזג תיקייה"
+msgstr "מיזוג תיקיה"
 
 #: libcaja-private/caja-file-conflict-dialog.c:751
 #: libcaja-private/caja-file-conflict-dialog.c:756
@@ -1687,7 +1687,7 @@ msgstr[3] ""
 
 #: libcaja-private/caja-file-operations.c:1904
 msgid "Cannot move file to trash, do you want to delete immediately?"
-msgstr "לא ניתן לזרוק קובץ לאשפה. האם ברצונך למחוק אותו מידית?"
+msgstr "לא ניתן להעביר את הקובץ לאשפה, האם ברצונך למחוק אותו מידית?"
 
 #: libcaja-private/caja-file-operations.c:1905
 msgid "The file \"%B\" cannot be moved to the trash."
@@ -1850,7 +1850,7 @@ msgstr "היעד הוא לקריאה בלבד."
 
 #: libcaja-private/caja-file-operations.c:3034
 msgid "Moving \"%B\" to \"%B\""
-msgstr "\"%B\" בהעברה ל־\"%B\"."
+msgstr "בהעברת \"%B\" אל \"%B\""
 
 #: libcaja-private/caja-file-operations.c:3035
 msgid "Copying \"%B\" to \"%B\""
@@ -2081,7 +2081,7 @@ msgstr "קובע הרשאות"
 #. Translators: the initial name of a new folder
 #: libcaja-private/caja-file-operations.c:6054
 msgid "untitled folder"
-msgstr "תיקייה ללא שם"
+msgstr "תיקיה ללא שם"
 
 #. Translators: the initial name of a new empty file
 #: libcaja-private/caja-file-operations.c:6062
@@ -2119,7 +2119,7 @@ msgstr "לא ניתן לקבוע את המיקום המקורי של ״%s״ "
 
 #: libcaja-private/caja-file-utilities.c:1240
 msgid "The item cannot be restored from trash"
-msgstr "לא ניתן לשחזר את הפריט מהאשפה."
+msgstr "לא ניתן להחזיר את הפריט מהאשפה"
 
 #: libcaja-private/caja-icon-container.c:2933
 msgid "The selection rectangle"
@@ -4018,7 +4018,7 @@ msgstr "פתח חלון דפדפן"
 
 #: src/caja-application.c:1944
 msgid "Quit Caja."
-msgstr "Quit Caja."
+msgstr "יציאה מ־Caja."
 
 #: src/caja-application.c:1946
 msgid "Select specified URI in parent folder."
@@ -4163,7 +4163,7 @@ msgstr ""
 #: src/caja-connect-server-dialog.c:298
 #, c-format
 msgid "The folder \"%s\" cannot be opened on \"%s\"."
-msgstr "לא ניתן לפתוח את התיקייה „%s“ שב־„%s“."
+msgstr "לא ניתן לפתוח את תיקיה \"%s\" אשר בתוך \"%s\"."
 
 #: src/caja-connect-server-dialog.c:308
 #, c-format
@@ -4214,7 +4214,7 @@ msgstr "שיתוף:"
 
 #: src/caja-connect-server-dialog.c:1012
 msgid "Folder:"
-msgstr "תיקייה:"
+msgstr "תיקיה:"
 
 #: src/caja-connect-server-dialog.c:1025
 msgid "User Details"
@@ -5426,7 +5426,7 @@ msgstr "רקעים וסמלים"
 
 #: src/caja-property-browser.c:409
 msgid "_Remove..."
-msgstr "ה_סרה…"
+msgstr "_הסרה..."
 
 #: src/caja-property-browser.c:423
 msgid "Add new..."
@@ -5799,7 +5799,7 @@ msgstr "סגירת תיקיות ההו_רים"
 
 #: src/caja-spatial-window.c:932
 msgid "Close this folder's parents"
-msgstr "סגירת ההורים של תיקייה זו"
+msgstr "סגירת תיקיות האם של תיקיה זו"
 
 #: src/caja-spatial-window.c:936
 msgid "Clos_e All Folders"
@@ -6295,7 +6295,7 @@ msgstr "_שם החיפוש:"
 
 #: src/file-manager/fm-directory-view.c:1409
 msgid "_Folder:"
-msgstr "_תיקייה:"
+msgstr "_תיקיה:"
 
 #: src/file-manager/fm-directory-view.c:1414
 msgid "Select Folder to Save Search In"
@@ -6448,11 +6448,11 @@ msgid ""
 "\n"
 "CAJA_SCRIPT_NEXT_PANE_CURRENT_URI: URI for current location in the inactive pane of a split-view window"
 msgstr ""
-"כל קובצי ההפעלה בתיקייה זו יופיעו בתפריט הסקריפטים. בחירת סקריפט מהתפריט תפעיל סקריפט זה.\n"
+"כל קובצי ההפעלה בתיקיה זו יופיעו בתפריט התסריטים. בחירת תסריט מהתפריט תפעיל תסריט זה.\n"
 "\n"
-"בעת הפעלה מתיקייה מקומית, הסקריפטים יקבלו את שמות הקבצים הנבחרים. בעת הפעלה מתיקייה מרוחקת (לדוגמה, תיקייה המציגה תוכן רשת או FTP), התסריטים לא יקבלו אף פרמטר.\n"
+"בעת הפעלה מתיקיה מקומית, התסריטים יקבלו את שמות הקבצים הנבחרים. בעת הפעלה מתיקיה מרוחקת (לדוגמה, תיקיה המציגה תוכן רשת או FTP), התסריטים לא יקבלו אף פרמטר.\n"
 "\n"
-"בכל המקרים, משתני הסביבה הבאים יקבעו על־ידי Caja, ובהם יכולים הסקריפטים להשתמש:\n"
+"בכל המקרים, משתני הסביבה הבאים יקבעו על ידי Caja, ובהם יכולים התסריטים להשתמש:\n"
 "\n"
 "CAJA_SCRIPT_SELECTED_FILE_PATHS: נתיבים המורדים אל שורה חדשה עבור הקבצים הנבחרים (רק אם הם מקומיים)\n"
 "\n"
@@ -6724,7 +6724,7 @@ msgstr "_שחזור"
 
 #: src/file-manager/fm-directory-view.c:7511
 msgid "_Undo"
-msgstr "_בטל"
+msgstr "_ביטול"
 
 #: src/file-manager/fm-directory-view.c:7512
 #: src/file-manager/fm-directory-view.c:11345
@@ -6837,7 +6837,7 @@ msgstr "פתיחת תיקייה זו בחלון ניווט"
 
 #: src/file-manager/fm-directory-view.c:7609
 msgid "Open this folder in a new tab"
-msgstr "פתיחת תיקייה זו בלשונית חדשה"
+msgstr "פתיחת תיקיה זו בלשונית חדשה"
 
 #: src/file-manager/fm-directory-view.c:7614
 msgid "Open this folder in a folder window"
@@ -7104,10 +7104,10 @@ msgstr "עיון ב_חלון חדש"
 #: src/file-manager/fm-directory-view.c:9034
 msgid "_Browse Folder"
 msgid_plural "_Browse Folders"
-msgstr[0] "_סיור בתיקייה"
-msgstr[1] "_סיור בתיקיות"
-msgstr[2] "_סיור בתיקיות"
-msgstr[3] "_סיור בתיקיות"
+msgstr[0] "_עיון בתיקיה"
+msgstr[1] "_עיון בתיקיות"
+msgstr[2] "_עיון בתיקיות"
+msgstr[3] "_עיון בתיקיות"
 
 #: src/file-manager/fm-directory-view.c:8711
 #: src/file-manager/fm-directory-view.c:9065
@@ -7639,10 +7639,10 @@ msgstr "בלתי קריא"
 #, c-format
 msgid "%'d item, with size %s (%s on disk)"
 msgid_plural "%'d items, totalling %s (%s on disk)"
-msgstr[0] "פריט %'d, בסך הכל %s (%s על הדיסק)"
-msgstr[1] "%'d פריטים, בסך הכל %s (%s על הדיסק)"
-msgstr[2] "%'d פריטים, בסך הכל %s (%s על הדיסק)"
-msgstr[3] "%'d פריטים, בסך הכל %s (%s על הדיסק)"
+msgstr[0] "פריט %'d, שגודלו %s ‏(%s בכונן)"
+msgstr[1] "%'d פריטים, בסך הכול %s (%s בכונן)"
+msgstr[2] "%'d פריטים, בסך הכול %s (%s בכונן)"
+msgstr[3] "%'d פריטים, בסך הכול %s (%s בכונן)"
 
 #: src/file-manager/fm-properties-window.c:2324
 msgid "(some contents unreadable)"

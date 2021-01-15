@@ -22,9 +22,9 @@
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: caja 1.23.2\n"
+"Project-Id-Version: caja 1.25.0\n"
 "Report-Msgid-Bugs-To: https://mate-desktop.org\n"
-"POT-Creation-Date: 2020-01-10 11:11+0100\n"
+"POT-Creation-Date: 2020-06-21 17:16+0200\n"
 "PO-Revision-Date: 2018-03-11 14:48+0000\n"
 "Last-Translator: Philip Andersen <renegadevi@codeofmagi.net>, 2020\n"
 "Language-Team: Swedish (https://www.transifex.com/mate/teams/13566/sv/)\n"
@@ -305,7 +305,7 @@ msgstr "Ta bort"
 
 #: data/caja.appdata.xml.in:7 data/caja-browser.desktop.in.in:3
 #: data/caja.desktop.in.in:3 data/caja-folder-handler.desktop.in.in:3
-#: src/caja-spatial-window.c:399 src/caja-window.c:167
+#: src/caja-spatial-window.c:403 src/caja-window.c:167
 #: src/caja-window-menus.c:574
 msgid "Caja"
 msgstr "Caja"
@@ -321,22 +321,23 @@ msgid ""
 " associated with them. It is also responsible for handling the icons on the "
 "MATE desktop. It works on local and remote file systems."
 msgstr ""
+"Caja är den officiella filhanteraren för MATE-skrivbordet. Den möjliggör "
+"navigering i kataloger, så väl som förhandsgranskning av filter och start av"
+" associerade program till dessa filer. Den ansvarar även för hantering av "
+"skrivbordsikoner för MATE-skrivbordet. Den fungerar både för lokala och "
+"fjärranslutna filsystem."
 
 #: data/caja.appdata.xml.in:16
 msgid ""
 "Caja is extensible through a plugin system, similar to that of GNOME "
 "Nautilus, of which Caja is a fork."
 msgstr ""
+"Caja kan utökas med hjälp av ett plugin-system som efterliknar det för GNOME"
+" Nautilus, av vilket Caja är en förgrening."
 
 #: data/caja-autorun-software.desktop.in.in:3
 msgid "Autorun Prompt"
 msgstr "Automatisk körning"
-
-#. Translators: Do NOT translate or transliterate this text (this is an icon
-#. file name)!
-#: data/caja-autorun-software.desktop.in.in:7
-msgid "application-x-executable"
-msgstr ""
 
 #: data/caja-browser.desktop.in.in:4
 msgid "File Browser"
@@ -346,18 +347,11 @@ msgstr "Filbläddrare"
 msgid "Browse the file system with the file manager"
 msgstr "Bläddra i filsystemet med filhanteraren"
 
-#. Translators: Do NOT translate or transliterate this text (this is an icon
-#. file name)!
-#: data/caja-browser.desktop.in.in:9 data/caja.desktop.in.in:7
-#: data/caja-file-management-properties.desktop.in.in:7
-msgid "system-file-manager"
-msgstr ""
-
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/caja-browser.desktop.in.in:15
 msgid "files;browser;manager;MATE;"
-msgstr ""
+msgstr "filer;bläddrare;hanterare;MATE;"
 
 #: data/caja-computer.desktop.in.in:3 libcaja-private/caja-desktop-link.c:114
 #: src/caja-places-sidebar.c:513
@@ -371,17 +365,11 @@ msgstr ""
 "Bläddra bland lokala och fjärrdiskar samt mappar som är åtkomliga från den "
 "här datorn"
 
-#. Translators: Do NOT translate or transliterate this text (this is an icon
-#. file name)!
-#: data/caja-computer.desktop.in.in:8
-msgid "computer"
-msgstr ""
-
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/caja-computer.desktop.in.in:14
 msgid "browse;disks;folders;local;remote;computer;MATE;"
-msgstr ""
+msgstr "bläddra;diskar;mappar;lokalt;fjärr;dator;MATE;"
 
 #: data/caja.desktop.in.in:4
 msgid "File Manager"
@@ -399,17 +387,11 @@ msgstr "Ändra beteendet och utseendet för filhanterarens fönster"
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/caja-file-management-properties.desktop.in.in:13
 msgid "file;manager;change;properties;behaviour;appearance;windows;MATE;"
-msgstr ""
+msgstr "fil;hanterare;ändra;egenskaper;beteende;utseende;fönster;MATE;"
 
 #: data/caja-folder-handler.desktop.in.in:4 libcaja-private/caja-autorun.c:580
 msgid "Open Folder"
 msgstr "Öppna mapp"
-
-#. Translators: Do NOT translate or transliterate this text (this is an icon
-#. file name)!
-#: data/caja-folder-handler.desktop.in.in:10
-msgid "folder-open"
-msgstr ""
 
 #: data/caja-home.desktop.in.in:3 src/file-manager/fm-tree-view.c:1421
 msgid "Home Folder"
@@ -420,17 +402,11 @@ msgstr "Hemkatalog"
 msgid "Open your personal folder"
 msgstr "Öppna din personliga mapp"
 
-#. Translators: Do NOT translate or transliterate this text (this is an icon
-#. file name)!
-#: data/caja-home.desktop.in.in:8
-msgid "user-home"
-msgstr ""
-
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/caja-home.desktop.in.in:14
 msgid "home;personal;folder;open;MATE;"
-msgstr ""
+msgstr "hem;personligt;mapp;öppen;MATE;"
 
 #: data/caja.xml.in:5
 msgid "Saved search"
@@ -444,17 +420,11 @@ msgstr "Nätverk"
 msgid "Browse bookmarked and local network locations"
 msgstr "Bläddra bokmärkta och lokala nätverksplatser"
 
-#. Translators: Do NOT translate or transliterate this text (this is an icon
-#. file name)!
-#: data/mate-network-scheme.desktop.in.in:11
-msgid "network-workgroup"
-msgstr ""
-
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/mate-network-scheme.desktop.in.in:14
 msgid "bookmarks;browse;local;network;locations;MATE;"
-msgstr ""
+msgstr "bokmärken;bläddra;lokalt;nätverk;platser;MATE;"
 
 #: eel/eel-canvas.c:1310 eel/eel-canvas.c:1311
 msgid "X"
@@ -809,7 +779,7 @@ msgid "The group of the file."
 msgstr "Filens grupp."
 
 #: libcaja-private/caja-column-utilities.c:108
-#: src/file-manager/fm-properties-window.c:4788
+#: src/file-manager/fm-properties-window.c:4785
 msgid "Permissions"
 msgstr "Rättigheter"
 
@@ -851,7 +821,7 @@ msgid "The location of the file."
 msgstr "Filens plats."
 
 #: libcaja-private/caja-column-utilities.c:148
-#: src/caja-file-management-properties.ui:2551
+#: src/caja-file-management-properties.ui:2542
 msgid "Extension"
 msgstr "Tillägg"
 
@@ -1015,206 +985,206 @@ msgstr "Kunde inte byta namn på skrivbordsikon"
 msgid "Unable to rename desktop file"
 msgstr "Kunde inte byta namn på skrivbordsfil"
 
-#: libcaja-private/caja-file.c:4757
+#: libcaja-private/caja-file.c:4769
 msgid "today at 00:00:00 PM"
 msgstr "idag klockan 00.00.00"
 
-#: libcaja-private/caja-file.c:4758 src/caja-file-management-properties.c:532
+#: libcaja-private/caja-file.c:4770 src/caja-file-management-properties.c:509
 msgid "today at %-I:%M:%S %p"
 msgstr "idag klockan %H.%M.%S"
 
-#: libcaja-private/caja-file.c:4760
+#: libcaja-private/caja-file.c:4772
 msgid "today at 00:00 PM"
 msgstr "idag klockan 00.00"
 
-#: libcaja-private/caja-file.c:4761
+#: libcaja-private/caja-file.c:4773
 msgid "today at %-I:%M %p"
 msgstr "idag klockan %H.%M"
 
-#: libcaja-private/caja-file.c:4763
+#: libcaja-private/caja-file.c:4775
 msgid "today, 00:00 PM"
 msgstr "idag, 00.00"
 
-#: libcaja-private/caja-file.c:4764
+#: libcaja-private/caja-file.c:4776
 msgid "today, %-I:%M %p"
 msgstr "idag, %H.%M"
 
-#: libcaja-private/caja-file.c:4766 libcaja-private/caja-file.c:4767
+#: libcaja-private/caja-file.c:4778 libcaja-private/caja-file.c:4779
 msgid "today"
 msgstr "idag"
 
-#: libcaja-private/caja-file.c:4776
+#: libcaja-private/caja-file.c:4788
 msgid "yesterday at 00:00:00 PM"
 msgstr "igår klockan 00.00.00"
 
-#: libcaja-private/caja-file.c:4777
+#: libcaja-private/caja-file.c:4789
 msgid "yesterday at %-I:%M:%S %p"
 msgstr "igår klockan %H.%M.%S"
 
-#: libcaja-private/caja-file.c:4779
+#: libcaja-private/caja-file.c:4791
 msgid "yesterday at 00:00 PM"
 msgstr "igår klockan 00.00"
 
-#: libcaja-private/caja-file.c:4780
+#: libcaja-private/caja-file.c:4792
 msgid "yesterday at %-I:%M %p"
 msgstr "igår klockan %H.%M"
 
-#: libcaja-private/caja-file.c:4782
+#: libcaja-private/caja-file.c:4794
 msgid "yesterday, 00:00 PM"
 msgstr "igår, 00.00"
 
-#: libcaja-private/caja-file.c:4783
+#: libcaja-private/caja-file.c:4795
 msgid "yesterday, %-I:%M %p"
 msgstr "igår, %H.%M"
 
-#: libcaja-private/caja-file.c:4785 libcaja-private/caja-file.c:4786
+#: libcaja-private/caja-file.c:4797 libcaja-private/caja-file.c:4798
 msgid "yesterday"
 msgstr "igår"
 
-#: libcaja-private/caja-file.c:4797
+#: libcaja-private/caja-file.c:4809
 msgid "Wednesday, September 00 0000 at 00:00:00 PM"
 msgstr "Torsdagen den 00 september 0000 kl. 00.00.00"
 
-#: libcaja-private/caja-file.c:4798
+#: libcaja-private/caja-file.c:4810
 msgid "%A, %B %-d %Y at %-I:%M:%S %p"
 msgstr "%A %-d %B %Y klockan %H.%M.%S"
 
-#: libcaja-private/caja-file.c:4800
+#: libcaja-private/caja-file.c:4812
 msgid "Mon, Oct 00 0000 at 00:00:00 PM"
 msgstr "Mån 00 okt 0000 kl. 00.00.00"
 
-#: libcaja-private/caja-file.c:4801
+#: libcaja-private/caja-file.c:4813
 msgid "%a, %b %-d %Y at %-I:%M:%S %p"
 msgstr "%a %-d %b %Y kl. %H.%M.%S"
 
-#: libcaja-private/caja-file.c:4803
+#: libcaja-private/caja-file.c:4815
 msgid "Mon, Oct 00 0000 at 00:00 PM"
 msgstr "Mån 00 okt 0000 kl. 00.00"
 
-#: libcaja-private/caja-file.c:4804
+#: libcaja-private/caja-file.c:4816
 msgid "%a, %b %-d %Y at %-I:%M %p"
 msgstr "%a %-d %b %Y kl. %H.%M"
 
-#: libcaja-private/caja-file.c:4806
+#: libcaja-private/caja-file.c:4818
 msgid "Oct 00 0000 at 00:00 PM"
 msgstr "00 okt 0000 kl. 00.00"
 
-#: libcaja-private/caja-file.c:4807
+#: libcaja-private/caja-file.c:4819
 msgid "%b %-d %Y at %-I:%M %p"
 msgstr "%-d %b %Y kl. %H.%M"
 
-#: libcaja-private/caja-file.c:4809
+#: libcaja-private/caja-file.c:4821
 msgid "Oct 00 0000, 00:00 PM"
 msgstr "00 okt 0000, 00.00"
 
-#: libcaja-private/caja-file.c:4810
+#: libcaja-private/caja-file.c:4822
 msgid "%b %-d %Y, %-I:%M %p"
 msgstr "%-d %b %Y, %H.%M"
 
-#: libcaja-private/caja-file.c:4812
+#: libcaja-private/caja-file.c:4824
 msgid "00/00/00, 00:00 PM"
 msgstr "0000-00-00, 00.00"
 
-#: libcaja-private/caja-file.c:4813
+#: libcaja-private/caja-file.c:4825
 msgid "%m/%-d/%y, %-I:%M %p"
 msgstr "%Y-%m-%d, %H.%M"
 
-#: libcaja-private/caja-file.c:4815
+#: libcaja-private/caja-file.c:4827
 msgid "00/00/00"
 msgstr "0000-00-00"
 
-#: libcaja-private/caja-file.c:4816
+#: libcaja-private/caja-file.c:4828
 msgid "%m/%d/%y"
 msgstr "%Y-%m-%d"
 
-#: libcaja-private/caja-file.c:5453
+#: libcaja-private/caja-file.c:5465
 msgid "Not allowed to set permissions"
 msgstr "Inte tillåtet att ställa in rättigheter"
 
-#: libcaja-private/caja-file.c:5747
+#: libcaja-private/caja-file.c:5759
 msgid "Not allowed to set owner"
 msgstr "Inte tillåtet att ställa in ägare"
 
-#: libcaja-private/caja-file.c:5765
+#: libcaja-private/caja-file.c:5777
 #, c-format
 msgid "Specified owner '%s' doesn't exist"
 msgstr "Angivna ägaren \"%s\" finns inte"
 
-#: libcaja-private/caja-file.c:6027
+#: libcaja-private/caja-file.c:6039
 msgid "Not allowed to set group"
 msgstr "Inte tillåtet att ställa in grupp"
 
-#: libcaja-private/caja-file.c:6045
+#: libcaja-private/caja-file.c:6057
 #, c-format
 msgid "Specified group '%s' doesn't exist"
 msgstr "Angivna gruppen \"%s\" finns inte"
 
-#: libcaja-private/caja-file.c:6199 src/file-manager/fm-directory-view.c:2397
+#: libcaja-private/caja-file.c:6211 src/file-manager/fm-directory-view.c:2397
 #, c-format
 msgid "%'u item"
 msgid_plural "%'u items"
 msgstr[0] "%'u objekt"
 msgstr[1] "%'u objekt"
 
-#: libcaja-private/caja-file.c:6200
+#: libcaja-private/caja-file.c:6212
 #, c-format
 msgid "%'u folder"
 msgid_plural "%'u folders"
 msgstr[0] "%'u mapp"
 msgstr[1] "%'u mappar"
 
-#: libcaja-private/caja-file.c:6201
+#: libcaja-private/caja-file.c:6213
 #, c-format
 msgid "%'u file"
 msgid_plural "%'u files"
 msgstr[0] "%'u fil"
 msgstr[1] "%'u filer"
 
-#: libcaja-private/caja-file.c:6305
+#: libcaja-private/caja-file.c:6317
 msgid "%"
 msgstr "%"
 
-#: libcaja-private/caja-file.c:6306
+#: libcaja-private/caja-file.c:6318
 #, c-format
 msgid "%s (%s bytes)"
 msgstr "%s (%s byte)"
 
-#: libcaja-private/caja-file.c:6656 libcaja-private/caja-file.c:6680
+#: libcaja-private/caja-file.c:6668 libcaja-private/caja-file.c:6692
 msgid "? items"
 msgstr "? objekt"
 
-#: libcaja-private/caja-file.c:6662 libcaja-private/caja-file.c:6670
+#: libcaja-private/caja-file.c:6674 libcaja-private/caja-file.c:6682
 msgid "? bytes"
 msgstr "? byte"
 
-#: libcaja-private/caja-file.c:6685
+#: libcaja-private/caja-file.c:6697
 msgid "unknown type"
 msgstr "okänd typ"
 
-#: libcaja-private/caja-file.c:6688
+#: libcaja-private/caja-file.c:6700
 msgid "unknown MIME type"
 msgstr "okänd MIME-typ"
 
-#: libcaja-private/caja-file.c:6702
-#: src/file-manager/fm-properties-window.c:1302
+#: libcaja-private/caja-file.c:6714
+#: src/file-manager/fm-properties-window.c:1299
 msgid "unknown"
 msgstr "okänt"
 
-#: libcaja-private/caja-file.c:6752
+#: libcaja-private/caja-file.c:6764
 msgid "program"
 msgstr "program"
 
-#: libcaja-private/caja-file.c:6772
+#: libcaja-private/caja-file.c:6784
 msgid "link"
 msgstr "länk"
 
-#: libcaja-private/caja-file.c:6778 libcaja-private/caja-file-operations.c:406
+#: libcaja-private/caja-file.c:6790 libcaja-private/caja-file-operations.c:406
 #: src/file-manager/fm-directory-view.c:10736
 #, c-format
 msgid "Link to %s"
 msgstr "Länk till %s"
 
-#: libcaja-private/caja-file.c:6794
+#: libcaja-private/caja-file.c:6806
 msgid "link (broken)"
 msgstr "länk (trasig)"
 
@@ -1299,14 +1269,14 @@ msgstr "Ursprunglig fil"
 
 #: libcaja-private/caja-file-conflict-dialog.c:277
 #: libcaja-private/caja-file-conflict-dialog.c:316
-#: src/file-manager/fm-properties-window.c:3306
+#: src/file-manager/fm-properties-window.c:3303
 msgid "Size:"
 msgstr "Storlek:"
 
 #: libcaja-private/caja-file-conflict-dialog.c:282
 #: libcaja-private/caja-file-conflict-dialog.c:321
 #: src/caja-connect-server-dialog.c:927
-#: src/file-manager/fm-properties-window.c:3288
+#: src/file-manager/fm-properties-window.c:3285
 msgid "Type:"
 msgstr "Typ:"
 
@@ -2382,7 +2352,7 @@ msgid "Select an Application"
 msgstr "Välj ett program"
 
 #: libcaja-private/caja-open-with-dialog.c:868
-#: src/file-manager/fm-properties-window.c:5122
+#: src/file-manager/fm-properties-window.c:5119
 msgid "Open With"
 msgstr "Öppna med"
 
@@ -2547,12 +2517,12 @@ msgstr "köar"
 #: libcaja-private/caja-progress-info.c:415
 #: libcaja-private/caja-progress-info.c:416
 msgid "Pause"
-msgstr ""
+msgstr "Paus"
 
 #: libcaja-private/caja-progress-info.c:421
 #: libcaja-private/caja-progress-info.c:422
 msgid "Resume"
-msgstr ""
+msgstr "Återuppta"
 
 #: libcaja-private/caja-progress-info.c:609
 #, c-format
@@ -2568,7 +2538,7 @@ msgstr "Process slutförd"
 #: libcaja-private/caja-progress-info.c:806
 #: libcaja-private/caja-progress-info.c:807
 msgid "Queue"
-msgstr ""
+msgstr "Kö"
 
 #: libcaja-private/caja-progress-info.c:1007
 #: libcaja-private/caja-progress-info.c:1028
@@ -2587,372 +2557,372 @@ msgstr "Sök"
 msgid "Search for \"%s\""
 msgstr "Sök efter \"%s\""
 
-#: libcaja-private/caja-undostack-manager.c:1239
+#: libcaja-private/caja-undostack-manager.c:1212
 #, c-format
 msgid "Delete %d copied items"
 msgstr "Radera %d kopierade objekt"
 
-#: libcaja-private/caja-undostack-manager.c:1242
-#: libcaja-private/caja-undostack-manager.c:1252
-#: libcaja-private/caja-undostack-manager.c:1283
+#: libcaja-private/caja-undostack-manager.c:1215
+#: libcaja-private/caja-undostack-manager.c:1225
+#: libcaja-private/caja-undostack-manager.c:1256
 #, c-format
 msgid "Delete '%s'"
 msgstr "Ta bort '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1249
+#: libcaja-private/caja-undostack-manager.c:1222
 #, c-format
 msgid "Delete %d duplicated items"
 msgstr "Radera %d duplicerade objekt"
 
-#: libcaja-private/caja-undostack-manager.c:1260
+#: libcaja-private/caja-undostack-manager.c:1233
 #, c-format
 msgid "Move %d items back to '%s'"
 msgstr "Flytta %d objekt tillbaka till '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1264
+#: libcaja-private/caja-undostack-manager.c:1237
 #, c-format
 msgid "Move '%s' back to '%s'"
 msgstr "Flytta '%s' tillbaka till '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1273
-#: libcaja-private/caja-undostack-manager.c:1440
+#: libcaja-private/caja-undostack-manager.c:1246
+#: libcaja-private/caja-undostack-manager.c:1413
 #, c-format
 msgid "Rename '%s' as '%s'"
 msgstr "Döp om '%s' till '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1292
-#: libcaja-private/caja-undostack-manager.c:1487
+#: libcaja-private/caja-undostack-manager.c:1265
+#: libcaja-private/caja-undostack-manager.c:1460
 #, c-format
 msgid "Restore %d items from trash"
 msgstr "Återställ %d objekt från papperskorgen"
 
-#: libcaja-private/caja-undostack-manager.c:1300
+#: libcaja-private/caja-undostack-manager.c:1273
 #, c-format
 msgid "Restore '%s' to '%s'"
 msgstr "Återställ '%s' till '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1311
+#: libcaja-private/caja-undostack-manager.c:1284
 #, c-format
 msgid "Move %d items back to trash"
 msgstr "Flytta %d objekt tillbaka till papperskorgen"
 
-#: libcaja-private/caja-undostack-manager.c:1314
+#: libcaja-private/caja-undostack-manager.c:1287
 #, c-format
 msgid "Move '%s' back to trash"
 msgstr "Flytta tillbaka '%s' till papperskorgen"
 
-#: libcaja-private/caja-undostack-manager.c:1323
+#: libcaja-private/caja-undostack-manager.c:1296
 #, c-format
 msgid "Delete links to %d items"
 msgstr "Radera länkar till %d objekt"
 
-#: libcaja-private/caja-undostack-manager.c:1326
+#: libcaja-private/caja-undostack-manager.c:1299
 #, c-format
 msgid "Delete link to '%s'"
 msgstr "Ta bort länk till '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1336
+#: libcaja-private/caja-undostack-manager.c:1309
 #, c-format
 msgid "Restore original permissions of items enclosed in '%s'"
 msgstr "Återställ ursprungliga rättigheter för objekt slutna i '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1344
+#: libcaja-private/caja-undostack-manager.c:1317
 #, c-format
 msgid "Restore original permissions of '%s'"
 msgstr "Återställ ursprungliga rättigheter för '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1353
+#: libcaja-private/caja-undostack-manager.c:1326
 #, c-format
 msgid "Restore group of '%s' to '%s'"
 msgstr "Återställ grupp för '%s' till '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1363
+#: libcaja-private/caja-undostack-manager.c:1336
 #, c-format
 msgid "Restore owner of '%s' to '%s'"
 msgstr "Återställ ägare av '%s' till '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1402
+#: libcaja-private/caja-undostack-manager.c:1375
 #, c-format
 msgid "Copy %d items to '%s'"
 msgstr "Kopiera %d objekt till '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1406
+#: libcaja-private/caja-undostack-manager.c:1379
 #, c-format
 msgid "Copy '%s' to '%s'"
 msgstr "Kopiera '%s' till '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1414
+#: libcaja-private/caja-undostack-manager.c:1387
 #, c-format
 msgid "Duplicate of %d items in '%s'"
 msgstr "Dubblett av %d objekt i '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1419
+#: libcaja-private/caja-undostack-manager.c:1392
 #, c-format
 msgid "Duplicate '%s' in '%s'"
 msgstr "Skapa kopia av '%s' i '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1427
+#: libcaja-private/caja-undostack-manager.c:1400
 #, c-format
 msgid "Move %d items to '%s'"
 msgstr "Flytta %d objekt till '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1431
+#: libcaja-private/caja-undostack-manager.c:1404
 #, c-format
 msgid "Move '%s' to '%s'"
 msgstr "Flytta '%s' till '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1449
+#: libcaja-private/caja-undostack-manager.c:1422
 #, c-format
 msgid "Create new file '%s' from template "
 msgstr "Skapa ny fil '%s' från mall "
 
-#: libcaja-private/caja-undostack-manager.c:1456
+#: libcaja-private/caja-undostack-manager.c:1429
 #, c-format
 msgid "Create an empty file '%s'"
 msgstr "Skapa tom fil '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1463
+#: libcaja-private/caja-undostack-manager.c:1436
 #, c-format
 msgid "Create a new folder '%s'"
 msgstr "Skapa ny mapp '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1471
+#: libcaja-private/caja-undostack-manager.c:1444
 #, c-format
 msgid "Move %d items to trash"
 msgstr "Flytta %d objekt till papperskorgen"
 
-#: libcaja-private/caja-undostack-manager.c:1477
+#: libcaja-private/caja-undostack-manager.c:1450
 #, c-format
 msgid "Move '%s' to trash"
 msgstr "Flytta '%s' till papperskorgen"
 
-#: libcaja-private/caja-undostack-manager.c:1490
+#: libcaja-private/caja-undostack-manager.c:1463
 #, c-format
 msgid "Restore '%s' from trash"
 msgstr "Återställ '%s' från papperskorgen"
 
-#: libcaja-private/caja-undostack-manager.c:1499
+#: libcaja-private/caja-undostack-manager.c:1472
 #, c-format
 msgid "Create links to %d items"
 msgstr "Skapa länkar till %d objekt"
 
-#: libcaja-private/caja-undostack-manager.c:1502
+#: libcaja-private/caja-undostack-manager.c:1475
 #, c-format
 msgid "Create link to '%s'"
 msgstr "Skapa länk till '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1511
+#: libcaja-private/caja-undostack-manager.c:1484
 #, c-format
 msgid "Set permissions of items enclosed in '%s'"
 msgstr "Ange behörigheter för objekt slutna i '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1519
+#: libcaja-private/caja-undostack-manager.c:1492
 #, c-format
 msgid "Set permissions of '%s'"
 msgstr "Ange behörigheter för '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1528
+#: libcaja-private/caja-undostack-manager.c:1501
 #, c-format
 msgid "Set group of '%s' to '%s'"
 msgstr "Ändra grupp för '%s' till '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1538
+#: libcaja-private/caja-undostack-manager.c:1511
 #, c-format
 msgid "Set owner of '%s' to '%s'"
 msgstr "Ange ägare till '%s' till '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1570
+#: libcaja-private/caja-undostack-manager.c:1543
 #, c-format
 msgid "_Undo copy of %d item"
 msgid_plural "_Undo copy of %d items"
 msgstr[0] "Ångra kopiering av %d objekt"
 msgstr[1] "Ångra kopiering av %d objekt"
 
-#: libcaja-private/caja-undostack-manager.c:1575
+#: libcaja-private/caja-undostack-manager.c:1548
 #, c-format
 msgid "_Undo duplicate of %d item"
 msgid_plural "_Undo duplicate of %d items"
 msgstr[0] "Ångra duplicering av %d objekt"
 msgstr[1] "Ångra duplicering av %d objekt"
 
-#: libcaja-private/caja-undostack-manager.c:1580
+#: libcaja-private/caja-undostack-manager.c:1553
 #, c-format
 msgid "_Undo move of %d item"
 msgid_plural "_Undo move of %d items"
 msgstr[0] "Ångra förflyttning av %d objekt"
 msgstr[1] "Ångra förflyttning av %d objekt"
 
-#: libcaja-private/caja-undostack-manager.c:1585
+#: libcaja-private/caja-undostack-manager.c:1558
 #, c-format
 msgid "_Undo rename of %d item"
 msgid_plural "_Undo rename of %d items"
 msgstr[0] "Ångra namnändring av %d objekt"
 msgstr[1] "Ångra namnändring av %d objekt"
 
-#: libcaja-private/caja-undostack-manager.c:1589
+#: libcaja-private/caja-undostack-manager.c:1562
 msgid "_Undo creation of an empty file"
 msgstr "_Undo skapande av tom fil"
 
-#: libcaja-private/caja-undostack-manager.c:1592
+#: libcaja-private/caja-undostack-manager.c:1565
 msgid "_Undo creation of a file from template"
 msgstr "_Undo skapande av fil från mall"
 
-#: libcaja-private/caja-undostack-manager.c:1596
+#: libcaja-private/caja-undostack-manager.c:1569
 #, c-format
 msgid "_Undo creation of %d folder"
 msgid_plural "_Undo creation of %d folders"
 msgstr[0] "Ångra skapande av %d mapp"
 msgstr[1] "Ångra skapande av %d mappar"
 
-#: libcaja-private/caja-undostack-manager.c:1601
+#: libcaja-private/caja-undostack-manager.c:1574
 #, c-format
 msgid "_Undo move to trash of %d item"
 msgid_plural "_Undo move to trash of %d items"
 msgstr[0] "Ångra flytt av %d objekt till papperskorgen"
 msgstr[1] "Ångra flytt av %d objekt till papperskorgen"
 
-#: libcaja-private/caja-undostack-manager.c:1606
+#: libcaja-private/caja-undostack-manager.c:1579
 #, c-format
 msgid "_Undo restore from trash of %d item"
 msgid_plural "_Undo restore from trash of %d items"
 msgstr[0] "Ångra återskapande av %d objekt från papperskorgen"
 msgstr[1] "Ångra återskapande av %d objekt från papperskorgen"
 
-#: libcaja-private/caja-undostack-manager.c:1611
+#: libcaja-private/caja-undostack-manager.c:1584
 #, c-format
 msgid "_Undo create link to %d item"
 msgid_plural "_Undo create link to %d items"
 msgstr[0] "Ångra skapande av länk till %d objekt"
 msgstr[1] "Ångra skapande av länk till %d objekt"
 
-#: libcaja-private/caja-undostack-manager.c:1616
+#: libcaja-private/caja-undostack-manager.c:1589
 #, c-format
 msgid "_Undo delete of %d item"
 msgid_plural "_Undo delete of %d items"
 msgstr[0] "Ångra borttagning av %d objekt"
 msgstr[1] "Ångra borttagning av %d objekt"
 
-#: libcaja-private/caja-undostack-manager.c:1621
+#: libcaja-private/caja-undostack-manager.c:1594
 #, c-format
 msgid "Undo recursive change permissions of %d item"
 msgid_plural "Undo recursive change permissions of %d items"
 msgstr[0] "Ångra rekursiv ändring av behörighet av %d objekt"
 msgstr[1] "Ångra rekursiv ändring av behörighet av %d objekt"
 
-#: libcaja-private/caja-undostack-manager.c:1627
+#: libcaja-private/caja-undostack-manager.c:1600
 #, c-format
 msgid "Undo change permissions of %d item"
 msgid_plural "Undo change permissions of %d items"
 msgstr[0] "Ångra ändring av behörighet för %d objekt"
 msgstr[1] "Ångra ändring av behörighet för %d objekt"
 
-#: libcaja-private/caja-undostack-manager.c:1632
+#: libcaja-private/caja-undostack-manager.c:1605
 #, c-format
 msgid "Undo change group of %d item"
 msgid_plural "Undo change group of %d items"
 msgstr[0] "Ångra ändring av grupp för %d objekt"
 msgstr[1] "Ångra ändring av grupp för %d objekt"
 
-#: libcaja-private/caja-undostack-manager.c:1637
+#: libcaja-private/caja-undostack-manager.c:1610
 #, c-format
 msgid "Undo change owner of %d item"
 msgid_plural "Undo change owner of %d items"
 msgstr[0] "Ångra ändring av ägare för %d objekt"
 msgstr[1] "Ångra ändring av ägare för %d objekt"
 
-#: libcaja-private/caja-undostack-manager.c:1665
+#: libcaja-private/caja-undostack-manager.c:1638
 #, c-format
 msgid "_Redo copy of %d item"
 msgid_plural "_Redo copy of %d items"
 msgstr[0] "Gör om kopiering av %d objekt"
 msgstr[1] "Gör om kopiering av %d objekt"
 
-#: libcaja-private/caja-undostack-manager.c:1670
+#: libcaja-private/caja-undostack-manager.c:1643
 #, c-format
 msgid "_Redo duplicate of %d item"
 msgid_plural "_Redo duplicate of %d items"
 msgstr[0] "Gör om duplicering av %d objekt"
 msgstr[1] "Gör om duplicering av %d objekt"
 
-#: libcaja-private/caja-undostack-manager.c:1675
+#: libcaja-private/caja-undostack-manager.c:1648
 #, c-format
 msgid "_Redo move of %d item"
 msgid_plural "_Redo move of %d items"
 msgstr[0] "Gör om förflyttning av %d objekt"
 msgstr[1] "Gör om förflyttning av %d objekt"
 
-#: libcaja-private/caja-undostack-manager.c:1680
+#: libcaja-private/caja-undostack-manager.c:1653
 #, c-format
 msgid "_Redo rename of %d item"
 msgid_plural "_Redo rename of %d items"
 msgstr[0] "Gör om namnändring av %d objekt"
 msgstr[1] "Gör om namnändring av %d objekt"
 
-#: libcaja-private/caja-undostack-manager.c:1684
+#: libcaja-private/caja-undostack-manager.c:1657
 msgid "_Redo creation of an empty file"
 msgstr "_Redo skapande av tom fil"
 
-#: libcaja-private/caja-undostack-manager.c:1687
+#: libcaja-private/caja-undostack-manager.c:1660
 msgid "_Redo creation of a file from template"
 msgstr "_Redo skapande av fil från mall"
 
-#: libcaja-private/caja-undostack-manager.c:1691
+#: libcaja-private/caja-undostack-manager.c:1664
 #, c-format
 msgid "_Redo creation of %d folder"
 msgid_plural "_Redo creation of %d folders"
 msgstr[0] "Gör om skapelse av %d mapp"
 msgstr[1] "Gör om skapelse av %d mappar"
 
-#: libcaja-private/caja-undostack-manager.c:1696
+#: libcaja-private/caja-undostack-manager.c:1669
 #, c-format
 msgid "_Redo move to trash of %d item"
 msgid_plural "_Redo move to trash of %d items"
 msgstr[0] "Gör om förflyttning av %d objekt till papperskorgen"
 msgstr[1] "Gör om förflyttning av %d objekt till papperskorgen"
 
-#: libcaja-private/caja-undostack-manager.c:1701
+#: libcaja-private/caja-undostack-manager.c:1674
 #, c-format
 msgid "_Redo restore from trash of %d item"
 msgid_plural "_Redo restore from trash of %d items"
 msgstr[0] "Gör om återställning av %d objekt från papperskorgen"
 msgstr[1] "Gör om återställning av %d objekt från papperskorgen"
 
-#: libcaja-private/caja-undostack-manager.c:1706
+#: libcaja-private/caja-undostack-manager.c:1679
 #, c-format
 msgid "_Redo create link to %d item"
 msgid_plural "_Redo create link to %d items"
 msgstr[0] "Gör om skapande av länkar till %dobjekt"
 msgstr[1] "Gör om skapande av länkar till %dobjekt"
 
-#: libcaja-private/caja-undostack-manager.c:1711
+#: libcaja-private/caja-undostack-manager.c:1684
 #, c-format
 msgid "_Redo delete of %d item"
 msgid_plural "_Redo delete of %d items"
 msgstr[0] "Gör om borttagning av %d objekt"
 msgstr[1] "Gör om borttagning av %d objekt"
 
-#: libcaja-private/caja-undostack-manager.c:1716
+#: libcaja-private/caja-undostack-manager.c:1689
 #, c-format
 msgid "Redo recursive change permissions of %d item"
 msgid_plural "Redo recursive change permissions of %d items"
 msgstr[0] "Gör om rekursiv ändring av behörighet på %d objekt"
 msgstr[1] "Gör om rekursiv ändring av behörighet på %d objekt"
 
-#: libcaja-private/caja-undostack-manager.c:1722
+#: libcaja-private/caja-undostack-manager.c:1695
 #, c-format
 msgid "Redo change permissions of %d item"
 msgid_plural "Redo change permissions of %d items"
 msgstr[0] "Gör om ändring av behörighet för %d objekt"
 msgstr[1] "Gör om ändring av behörighet för %d objekt"
 
-#: libcaja-private/caja-undostack-manager.c:1727
+#: libcaja-private/caja-undostack-manager.c:1700
 #, c-format
 msgid "Redo change group of %d item"
 msgid_plural "Redo change group of %d items"
 msgstr[0] "Gör om ändring av grupp för %d objekt"
 msgstr[1] "Gör om ändring av grupp för %d objekt"
 
-#: libcaja-private/caja-undostack-manager.c:1732
+#: libcaja-private/caja-undostack-manager.c:1705
 #, c-format
 msgid "Redo change owner of %d item"
 msgid_plural "Redo change owner of %d items"
@@ -3423,11 +3393,11 @@ msgstr ""
 
 #: libcaja-private/org.mate.caja.gschema.xml:264
 msgid "Whether to show icons in list view"
-msgstr ""
+msgstr "Huruvida ikoner ska visas i listvy"
 
 #: libcaja-private/org.mate.caja.gschema.xml:265
 msgid "If set to true, show file icons in list view."
-msgstr ""
+msgstr "Om detta är sant, visa filikoner i listvy."
 
 #: libcaja-private/org.mate.caja.gschema.xml:269
 msgid "Whether to show desktop notifications"
@@ -3880,71 +3850,71 @@ msgstr ""
 "inställningarna. Ett mappfönster kommer att öppnas vid inmatning av media "
 "som matchar dessa typer."
 
-#: libegg/eggdesktopfile.c:166
+#: mate-submodules/libegg/eggdesktopfile.c:168
 msgid "File is not a valid .desktop file"
 msgstr "Filen är inte en giltig .desktop-fil"
 
-#: libegg/eggdesktopfile.c:189
+#: mate-submodules/libegg/eggdesktopfile.c:193
 #, c-format
 msgid "Unrecognized desktop file Version '%s'"
 msgstr "Okänd Version \"%s\" i skrivbordsfil"
 
-#: libegg/eggdesktopfile.c:965
+#: mate-submodules/libegg/eggdesktopfile.c:975
 #, c-format
 msgid "Starting %s"
 msgstr "Startar %s"
 
-#: libegg/eggdesktopfile.c:1107
+#: mate-submodules/libegg/eggdesktopfile.c:1117
 msgid "Application does not accept documents on command line"
 msgstr "Programmet tar inte emot några dokument på kommandoraden"
 
-#: libegg/eggdesktopfile.c:1175
+#: mate-submodules/libegg/eggdesktopfile.c:1185
 #, c-format
 msgid "Unrecognized launch option: %d"
 msgstr "Okänd startflagga: %d"
 
-#: libegg/eggdesktopfile.c:1373
+#: mate-submodules/libegg/eggdesktopfile.c:1401
 msgid "Can't pass document URIs to a 'Type=Link' desktop entry"
 msgstr "Kan inte skicka dokument-URI:er till ett \"Type=Link\"-skrivbordsobjekt"
 
-#: libegg/eggdesktopfile.c:1392
+#: mate-submodules/libegg/eggdesktopfile.c:1422
 msgid "Not a launchable item"
 msgstr "Inte ett körbart objekt"
 
-#: libegg/eggsmclient.c:233
+#: mate-submodules/libegg/eggsmclient.c:233
 msgid "Disable connection to session manager"
 msgstr "Inaktivera anslutning till sessionshanterare"
 
-#: libegg/eggsmclient.c:238
+#: mate-submodules/libegg/eggsmclient.c:238
 msgid "Specify file containing saved configuration"
 msgstr "Ange fil som innehåller sparad konfiguration"
 
-#: libegg/eggsmclient.c:238
+#: mate-submodules/libegg/eggsmclient.c:238
 msgid "FILE"
 msgstr "FIL"
 
-#: libegg/eggsmclient.c:243
+#: mate-submodules/libegg/eggsmclient.c:243
 msgid "Specify session management ID"
 msgstr "Ange id för sessionshantering"
 
-#: libegg/eggsmclient.c:243
+#: mate-submodules/libegg/eggsmclient.c:243
 msgid "ID"
 msgstr "ID"
 
-#: libegg/eggsmclient.c:269
+#: mate-submodules/libegg/eggsmclient.c:269
 msgid "Session management options:"
 msgstr "Flaggor för sessionshantering:"
 
-#: libegg/eggsmclient.c:270
+#: mate-submodules/libegg/eggsmclient.c:270
 msgid "Show session management options"
 msgstr "Visa flaggor för sessionshantering"
 
-#: src/caja-application.c:554
+#: src/caja-application.c:555
 #, c-format
 msgid "Caja could not create the required folder \"%s\"."
 msgstr "Caja kunde inte skapa den nödvändiga mappen \"%s\"."
 
-#: src/caja-application.c:556
+#: src/caja-application.c:557
 msgid ""
 "Before running Caja, please create the following folder, or set permissions "
 "such that Caja can create it."
@@ -3952,12 +3922,12 @@ msgstr ""
 "Innan du kör Caja bör du skapa denna mapp, eller ställa in de nödvändiga "
 "rättigheterna för att Caja ska kunna skapa den."
 
-#: src/caja-application.c:561
+#: src/caja-application.c:562
 #, c-format
 msgid "Caja could not create the following required folders: %s."
 msgstr "Caja kunde inte skapa följande nödvändiga mappar: %s."
 
-#: src/caja-application.c:563
+#: src/caja-application.c:564
 msgid ""
 "Before running Caja, please create these folders, or set permissions such "
 "that Caja can create them."
@@ -3965,45 +3935,49 @@ msgstr ""
 "Innan du kör Caja bör du skapa dessa mappar, eller ställa in de nödvändiga "
 "rättigheterna för att Caja ska kunna skapa dem."
 
-#: src/caja-application.c:1164 src/caja-places-sidebar.c:2223
+#: src/caja-application.c:1165 src/caja-places-sidebar.c:2223
 #: src/caja-places-sidebar.c:2255 src/caja-places-sidebar.c:2291
 #, c-format
 msgid "Unable to eject %s"
 msgstr "Kunde inte mata ut %s"
 
-#: src/caja-application.c:1792
+#: src/caja-application.c:1794
 msgid "--check cannot be used with other options."
 msgstr "--check kan ej användas tillsammans med andra alternativ."
 
-#: src/caja-application.c:1798
+#: src/caja-application.c:1800
 msgid "--quit cannot be used with URIs."
 msgstr "-quit kan ej användas med URI:er."
 
-#: src/caja-application.c:1805
+#: src/caja-application.c:1807
 msgid "--geometry cannot be used with more than one URI."
 msgstr "caja: --geometry kan inte användas med mer än en URI."
 
-#: src/caja-application.c:1869
+#: src/caja-application.c:1813
+msgid "--select must be used with at least an URI."
+msgstr "--select måste användas med minst en URI."
+
+#: src/caja-application.c:1927
 msgid "Perform a quick set of self-check tests."
 msgstr "Utför ett antal snabba självtester."
 
-#: src/caja-application.c:1872
+#: src/caja-application.c:1930
 msgid "Show the version of the program."
 msgstr "Visa versionen för programmet."
 
-#: src/caja-application.c:1874
+#: src/caja-application.c:1932
 msgid "Create the initial window with the given geometry."
 msgstr "Skapa det första fönstret med den angivna geometrin."
 
-#: src/caja-application.c:1874
+#: src/caja-application.c:1932
 msgid "GEOMETRY"
 msgstr "GEOMETRI"
 
-#: src/caja-application.c:1876
+#: src/caja-application.c:1934
 msgid "Only create windows for explicitly specified URIs."
 msgstr "Skapa endast fönster för explicit angivna URI:er."
 
-#: src/caja-application.c:1878
+#: src/caja-application.c:1936
 msgid ""
 "Do not manage the desktop (ignore the preference set in the preferences "
 "dialog)."
@@ -4011,7 +3985,7 @@ msgstr ""
 "Hantera inte skrivbordet (ignorera inställningen som är angiven i "
 "dialogfönstret inställningar)."
 
-#: src/caja-application.c:1880
+#: src/caja-application.c:1938
 msgid ""
 "Manage the desktop regardless of set preferences or environment (on new "
 "startup only)"
@@ -4019,23 +3993,27 @@ msgstr ""
 "Hantera skrivbordet oavsett inställningar eller miljö (endast vid ny "
 "uppstart)"
 
-#: src/caja-application.c:1882
+#: src/caja-application.c:1940
 msgid "Open URIs in tabs."
 msgstr "Öppna URI i flikar."
 
-#: src/caja-application.c:1884
+#: src/caja-application.c:1942
 msgid "Open a browser window."
 msgstr "Öppna ett webbläsarfönster."
 
-#: src/caja-application.c:1886
+#: src/caja-application.c:1944
 msgid "Quit Caja."
 msgstr "Avsluta Caja."
 
-#: src/caja-application.c:1887
+#: src/caja-application.c:1946
+msgid "Select specified URI in parent folder."
+msgstr "Välj angiven URI i överordnad mapp."
+
+#: src/caja-application.c:1947
 msgid "[URI...]"
 msgstr "[URI...]"
 
-#: src/caja-application.c:1898
+#: src/caja-application.c:1958
 msgid ""
 "\n"
 "\n"
@@ -4077,7 +4055,7 @@ msgstr ""
 "\n"
 "Tryck på Avbryt om du är osäker."
 
-#: src/caja-bookmarks-window.c:163 src/caja-file-management-properties.c:249
+#: src/caja-bookmarks-window.c:163 src/caja-file-management-properties.c:226
 #: src/caja-property-browser.c:1688 src/caja-window-menus.c:629
 #, c-format
 msgid ""
@@ -4100,7 +4078,7 @@ msgstr "Redigera bokmärken"
 #: src/caja-file-management-properties.ui:305 src/caja-location-dialog.c:192
 #: src/caja-property-browser.c:389 src/caja-window-menus.c:852
 #: src/file-manager/fm-directory-view.c:1214
-#: src/file-manager/fm-properties-window.c:5233
+#: src/file-manager/fm-properties-window.c:5229
 msgid "_Help"
 msgstr "_Hjälp"
 
@@ -4111,7 +4089,7 @@ msgstr "Hoppa till"
 #: src/caja-bookmarks-window.ui:93 src/caja-file-management-properties.ui:321
 #: src/caja-property-browser.c:397 src/caja-window-menus.c:854
 #: src/file-manager/fm-list-view.c:2567
-#: src/file-manager/fm-properties-window.c:5238
+#: src/file-manager/fm-properties-window.c:5234
 msgid "_Close"
 msgstr "_Stäng"
 
@@ -4191,7 +4169,7 @@ msgstr "Fortsätt"
 
 #: src/caja-connect-server-dialog.c:717 src/caja-location-dialog.c:105
 #: src/file-manager/fm-directory-view.c:1188
-#: src/file-manager/fm-properties-window.c:5475
+#: src/file-manager/fm-properties-window.c:5471
 msgid "There was an error displaying help."
 msgstr "Det uppstod ett fel vid visning av hjälp."
 
@@ -4263,7 +4241,7 @@ msgstr ""
 "\n"
 "Lägg till anslutning till servermontering"
 
-#: src/caja-desktop-window.c:126 src/caja-desktop-window.c:319
+#: src/caja-desktop-window.c:128 src/caja-desktop-window.c:209
 #: src/caja-pathbar.c:1453 src/caja-places-sidebar.c:542
 msgid "Desktop"
 msgstr "Skrivbord"
@@ -4343,7 +4321,7 @@ msgstr "Den dragna filen verkar inte vara en giltig bild."
 msgid "The emblem cannot be added."
 msgstr "Emblemet kan inte läggas till."
 
-#: src/caja-emblem-sidebar.c:1102 src/file-manager/fm-properties-window.c:3463
+#: src/caja-emblem-sidebar.c:1102 src/file-manager/fm-properties-window.c:3460
 msgid "Emblems"
 msgstr "Emblem"
 
@@ -4354,13 +4332,13 @@ msgstr "Visa emblem"
 #. Translators: this is referred to captions under icons.
 #. Translators: this is referred to the permissions
 #. * the user has in a directory.
-#: src/caja-file-management-properties.c:342
-#: src/file-manager/fm-properties-window.c:4239
-#: src/file-manager/fm-properties-window.c:4250
+#: src/caja-file-management-properties.c:319
+#: src/file-manager/fm-properties-window.c:4236
+#: src/file-manager/fm-properties-window.c:4247
 msgid "None"
 msgstr "Ingen"
 
-#: src/caja-file-management-properties.c:646
+#: src/caja-file-management-properties.c:623
 msgid "About Extension"
 msgstr "Om tillägg"
 
@@ -4549,123 +4527,123 @@ msgstr "_Ordna objekt:"
 msgid "Sort _folders before files"
 msgstr "Sortera _mappar före filer"
 
-#: src/caja-file-management-properties.ui:493
+#: src/caja-file-management-properties.ui:494
 msgid "Show hidden files"
 msgstr "Visa dolda filer"
 
-#: src/caja-file-management-properties.ui:508
+#: src/caja-file-management-properties.ui:510
 msgid "Show backup files"
 msgstr "Visa backup filer "
 
-#: src/caja-file-management-properties.ui:547
+#: src/caja-file-management-properties.ui:550
 msgid "<b>Icon View Defaults</b>"
 msgstr "<b>Standardalternativ för ikonvyn</b>"
 
-#: src/caja-file-management-properties.ui:577
+#: src/caja-file-management-properties.ui:580
 msgid "Default _zoom level:"
 msgstr "Standardzoom_nivå:"
 
-#: src/caja-file-management-properties.ui:615
+#: src/caja-file-management-properties.ui:618
 msgid "_Use compact layout"
 msgstr "_Använd kompakt layout"
 
-#: src/caja-file-management-properties.ui:630
+#: src/caja-file-management-properties.ui:634
 msgid "_Text beside icons"
 msgstr "_Text bredvid ikoner"
 
-#: src/caja-file-management-properties.ui:669
+#: src/caja-file-management-properties.ui:674
 msgid "<b>Compact View Defaults</b>"
 msgstr "<b>Standardalternativ för kompakt vy</b>"
 
-#: src/caja-file-management-properties.ui:699
+#: src/caja-file-management-properties.ui:704
 msgid "_Default zoom level:"
 msgstr "Standard_zoomnivå:"
 
-#: src/caja-file-management-properties.ui:737
+#: src/caja-file-management-properties.ui:742
 msgid "A_ll columns have the same width"
 msgstr "A_lla kolumner har samma bredd"
 
-#: src/caja-file-management-properties.ui:776
+#: src/caja-file-management-properties.ui:782
 msgid "<b>List View Defaults</b>"
 msgstr "<b>Standardalternativ för listvyn</b>"
 
-#: src/caja-file-management-properties.ui:806
+#: src/caja-file-management-properties.ui:812
 msgid "D_efault zoom level:"
 msgstr "Standardzoomniv_å:"
 
-#: src/caja-file-management-properties.ui:844
+#: src/caja-file-management-properties.ui:850
 msgid "_Show icons"
 msgstr "_Visa ikoner"
 
-#: src/caja-file-management-properties.ui:883
+#: src/caja-file-management-properties.ui:890
 msgid "<b>Tree View Defaults</b>"
 msgstr "<b>Standardalternativ för trädvyn</b>"
 
-#: src/caja-file-management-properties.ui:906
+#: src/caja-file-management-properties.ui:913
 msgid "Show _only folders"
 msgstr "Visa _endast mappar"
 
-#: src/caja-file-management-properties.ui:941
+#: src/caja-file-management-properties.ui:949
 msgid "Views"
 msgstr "Vyer"
 
-#: src/caja-file-management-properties.ui:964
+#: src/caja-file-management-properties.ui:972
 msgid "<b>Behavior</b>"
 msgstr "<b>Beteende</b>"
 
-#: src/caja-file-management-properties.ui:986
+#: src/caja-file-management-properties.ui:994
 msgid "_Single click to open items"
 msgstr "_Enkelklick för att öppna objekt"
 
-#: src/caja-file-management-properties.ui:1001
+#: src/caja-file-management-properties.ui:1010
 msgid "_Double click to open items"
 msgstr "_Dubbelklick för att öppna objekt"
 
-#: src/caja-file-management-properties.ui:1018
+#: src/caja-file-management-properties.ui:1028
 msgid "Open each _folder in its own window"
 msgstr "Öppna varje _mapp i dess egna fönster"
 
-#: src/caja-file-management-properties.ui:1057
+#: src/caja-file-management-properties.ui:1068
 msgid "<b>Executable Text Files</b>"
 msgstr "<b>Körbara textfiler</b>"
 
-#: src/caja-file-management-properties.ui:1080
+#: src/caja-file-management-properties.ui:1091
 msgid "_Run executable text files when they are opened"
 msgstr "_Kör körbara textfiler när de öppnas"
 
-#: src/caja-file-management-properties.ui:1095
+#: src/caja-file-management-properties.ui:1107
 msgid "_View executable text files when they are opened"
 msgstr "_Visa körbara textfiler när de öppnas"
 
-#: src/caja-file-management-properties.ui:1111
+#: src/caja-file-management-properties.ui:1124
 msgid "_Ask each time"
 msgstr "_Fråga varje gång"
 
-#: src/caja-file-management-properties.ui:1151
+#: src/caja-file-management-properties.ui:1165
 msgid "<b>Trash</b>"
 msgstr "<b>Papperskorg</b>"
 
-#: src/caja-file-management-properties.ui:1174
+#: src/caja-file-management-properties.ui:1188
 msgid "Ask before _emptying the Trash or deleting files"
 msgstr "Fråga innan papperskorgen _töms eller filer tas bort"
 
-#: src/caja-file-management-properties.ui:1189
+#: src/caja-file-management-properties.ui:1204
 msgid "Ask before moving files to the _Trash"
 msgstr "Fråga innan flytt av filer till _Papperskorgen"
 
-#: src/caja-file-management-properties.ui:1204
+#: src/caja-file-management-properties.ui:1220
 msgid "I_nclude a Delete command that bypasses Trash"
 msgstr "Ink_ludera kommandot Ta bort som förbigår papperskorgen"
 
-#: src/caja-file-management-properties.ui:1242
+#: src/caja-file-management-properties.ui:1259
 msgid "Behavior"
 msgstr "Beteende"
 
-#: src/caja-file-management-properties.ui:1266
+#: src/caja-file-management-properties.ui:1283
 msgid "<b>Icon Captions</b>"
 msgstr "<b>Ikontexter</b>"
 
-#: src/caja-file-management-properties.ui:1291
+#: src/caja-file-management-properties.ui:1308
 msgid ""
 "Choose the order of information to appear beneath icon names. More "
 "information will appear when zooming in closer."
@@ -4673,155 +4651,155 @@ msgstr ""
 "Välj i vilken ordning informationen ska visas under ikonnamn. Mer "
 "information visas när du zoomar in närmare."
 
-#: src/caja-file-management-properties.ui:1427
+#: src/caja-file-management-properties.ui:1444
 msgid "<b>Date</b>"
 msgstr "<b>Datum</b>"
 
-#: src/caja-file-management-properties.ui:1451
+#: src/caja-file-management-properties.ui:1468
 msgid "_Format:"
 msgstr "_Format:"
 
-#: src/caja-file-management-properties.ui:1498
+#: src/caja-file-management-properties.ui:1515
 msgid "<b>Size</b>"
 msgstr "<b>Storlek</b>"
 
-#: src/caja-file-management-properties.ui:1515
+#: src/caja-file-management-properties.ui:1532
 msgid "_Show file sizes with IEC units"
 msgstr "_Show filstorlekar i IEC-enheter"
 
-#: src/caja-file-management-properties.ui:1546
+#: src/caja-file-management-properties.ui:1564
 msgid "Display"
 msgstr "Skärm"
 
-#: src/caja-file-management-properties.ui:1570
+#: src/caja-file-management-properties.ui:1588
 msgid "<b>List Columns</b>"
 msgstr "<b>Listkolumner</b>"
 
-#: src/caja-file-management-properties.ui:1595
+#: src/caja-file-management-properties.ui:1613
 msgid "Choose the order of information to appear in the list view."
 msgstr "Välj den sortering av information som ska användas i listvyn."
 
-#: src/caja-file-management-properties.ui:1633
+#: src/caja-file-management-properties.ui:1651
 msgid "List Columns"
 msgstr "Listkolumner"
 
-#: src/caja-file-management-properties.ui:1657
+#: src/caja-file-management-properties.ui:1675
 msgid "<b>Text Files</b>"
 msgstr "<b>Textfiler</b>"
 
-#: src/caja-file-management-properties.ui:1687
+#: src/caja-file-management-properties.ui:1705
 msgid "Show te_xt in icons:"
 msgstr "Visa te_xt i ikoner:"
 
-#: src/caja-file-management-properties.ui:1749
+#: src/caja-file-management-properties.ui:1767
 msgid "<b>Other Previewable Files</b>"
 msgstr "<b>Andra förhandsgranskningsbara filer</b>"
 
-#: src/caja-file-management-properties.ui:1779
+#: src/caja-file-management-properties.ui:1797
 msgid "Show _thumbnails:"
 msgstr "Visa _miniatyrbilder:"
 
-#: src/caja-file-management-properties.ui:1824
+#: src/caja-file-management-properties.ui:1842
 msgid "_Only for files smaller than:"
 msgstr "_Endast för filer mindre än:"
 
-#: src/caja-file-management-properties.ui:1886
+#: src/caja-file-management-properties.ui:1904
 msgid "<b>Sound Files</b>"
 msgstr "<b>Ljudfiler</b>"
 
-#: src/caja-file-management-properties.ui:1916
+#: src/caja-file-management-properties.ui:1934
 msgid "Preview _sound files:"
 msgstr "Förhandsgranska _ljudfiler:"
 
-#: src/caja-file-management-properties.ui:1978
+#: src/caja-file-management-properties.ui:1996
 msgid "<b>Folders</b>"
 msgstr "<b>Mappar</b>"
 
-#: src/caja-file-management-properties.ui:2008
+#: src/caja-file-management-properties.ui:2026
 msgid "Count _number of items:"
 msgstr "Räkna _antal objekt:"
 
-#: src/caja-file-management-properties.ui:2069
+#: src/caja-file-management-properties.ui:2087
 msgid "Preview"
 msgstr "Förhandsgranskning"
 
-#: src/caja-file-management-properties.ui:2099
+#: src/caja-file-management-properties.ui:2117
 msgid "<b>Media Handling</b>"
 msgstr "<b>Mediahantering</b>"
 
-#: src/caja-file-management-properties.ui:2124
+#: src/caja-file-management-properties.ui:2142
 msgid ""
 "Choose what happens when inserting media or connecting devices to the system"
 msgstr ""
 "Välj vad som ska hända när media matas in eller enheter ansluts till "
 "systemet"
 
-#: src/caja-file-management-properties.ui:2147
+#: src/caja-file-management-properties.ui:2163
 msgid "CD _Audio:"
 msgstr "Cd-_ljud:"
 
-#: src/caja-file-management-properties.ui:2161
+#: src/caja-file-management-properties.ui:2188
 msgid "_DVD Video:"
 msgstr "_Dvd-video:"
 
-#: src/caja-file-management-properties.ui:2202
+#: src/caja-file-management-properties.ui:2213
 msgid "_Music Player:"
 msgstr "M_usikspelare:"
 
-#: src/caja-file-management-properties.ui:2232
+#: src/caja-file-management-properties.ui:2238
 msgid "_Photos:"
 msgstr "_Foton:"
 
-#: src/caja-file-management-properties.ui:2262
+#: src/caja-file-management-properties.ui:2263
 msgid "_Software:"
 msgstr "_Programvara:"
 
-#: src/caja-file-management-properties.ui:2321
+#: src/caja-file-management-properties.ui:2317
 msgid "<b>Other Media</b>"
 msgstr "<b>Övriga media</b>"
 
-#: src/caja-file-management-properties.ui:2346
+#: src/caja-file-management-properties.ui:2342
 msgid "Less common media formats can be configured here"
 msgstr "Mindre vanliga mediaformat kan konfigureras här"
 
-#: src/caja-file-management-properties.ui:2380
-msgid "Acti_on:"
-msgstr "Åtgä_rd:"
-
-#: src/caja-file-management-properties.ui:2410
+#: src/caja-file-management-properties.ui:2363
 msgid "_Type:"
 msgstr "_Typ:"
 
-#: src/caja-file-management-properties.ui:2452
+#: src/caja-file-management-properties.ui:2377
+msgid "Acti_on:"
+msgstr "Åtgä_rd:"
+
+#: src/caja-file-management-properties.ui:2441
 msgid "_Never prompt or start programs on media insertion"
 msgstr "Fråga eller starta a_ldrig program vid inmatning av media"
 
-#: src/caja-file-management-properties.ui:2467
+#: src/caja-file-management-properties.ui:2457
 msgid "B_rowse media when inserted"
 msgstr "B_läddra i mediet vid inmatning"
 
-#: src/caja-file-management-properties.ui:2489
+#: src/caja-file-management-properties.ui:2480
 msgid "Media"
 msgstr "Media"
 
-#: src/caja-file-management-properties.ui:2507
+#: src/caja-file-management-properties.ui:2498
 msgid "<b>Available _Extensions:</b>"
 msgstr "<b>Tillgängliga _Extensions:</b>"
 
-#: src/caja-file-management-properties.ui:2538
-#: src/caja-file-management-properties.ui:2562
+#: src/caja-file-management-properties.ui:2529
+#: src/caja-file-management-properties.ui:2550
 msgid "column"
 msgstr "kolumn"
 
-#: src/caja-file-management-properties.ui:2588
+#: src/caja-file-management-properties.ui:2576
 msgid "_About Extension"
 msgstr "_Om tillägg"
 
-#: src/caja-file-management-properties.ui:2604
+#: src/caja-file-management-properties.ui:2592
 msgid "C_onfigure Extension"
 msgstr "K_onfigurera Tillägg"
 
-#: src/caja-file-management-properties.ui:2634
+#: src/caja-file-management-properties.ui:2622
 msgid "Extensions"
 msgstr "Tillägg"
 
@@ -4949,23 +4927,23 @@ msgid "You cannot assign more than one custom icon at a time."
 msgstr "Du kan inte tilldela fler än en anpassad ikon åt gången."
 
 #: src/caja-information-panel.c:527
-#: src/file-manager/fm-properties-window.c:515
+#: src/file-manager/fm-properties-window.c:512
 msgid "Please drag just one image to set a custom icon."
 msgstr "Dra endast en bild för att ställa in en anpassad ikon."
 
 #: src/caja-information-panel.c:554
-#: src/file-manager/fm-properties-window.c:526
+#: src/file-manager/fm-properties-window.c:523
 msgid "The file that you dropped is not local."
 msgstr "Filen som du släppte är inte lokal."
 
 #: src/caja-information-panel.c:555
-#: src/file-manager/fm-properties-window.c:527
-#: src/file-manager/fm-properties-window.c:533
+#: src/file-manager/fm-properties-window.c:524
+#: src/file-manager/fm-properties-window.c:530
 msgid "You can only use local images as custom icons."
 msgstr "Du kan endast använda lokala bilder som anpassade ikoner."
 
 #: src/caja-information-panel.c:562
-#: src/file-manager/fm-properties-window.c:532
+#: src/file-manager/fm-properties-window.c:529
 msgid "The file that you dropped is not an image."
 msgstr "Filen som du släppte är inte en bild."
 
@@ -4978,7 +4956,7 @@ msgstr "Du kan endast använda bilder som anpassade ikoner."
 msgid "Open With %s"
 msgstr "Öppna med %s"
 
-#: src/caja-location-bar.c:60 src/file-manager/fm-properties-window.c:3319
+#: src/caja-location-bar.c:60 src/file-manager/fm-properties-window.c:3316
 msgid "Location:"
 msgstr "Plats:"
 
@@ -5072,7 +5050,7 @@ msgstr "Stäng alla navigeringsfönster"
 msgid "_Location..."
 msgstr "Pl_ats..."
 
-#: src/caja-navigation-window-menus.c:847 src/caja-spatial-window.c:923
+#: src/caja-navigation-window-menus.c:847 src/caja-spatial-window.c:927
 msgid "Specify a location to open"
 msgstr "Ange en plats att öppna"
 
@@ -5100,19 +5078,19 @@ msgstr "Sa_mma plats som andra panelen"
 msgid "Go to the same location as in the extra pane"
 msgstr "Gå till samma plats som i extrapanelen"
 
-#: src/caja-navigation-window-menus.c:862 src/caja-spatial-window.c:936
+#: src/caja-navigation-window-menus.c:862 src/caja-spatial-window.c:940
 msgid "_Add Bookmark"
 msgstr "_Lägg till Bokmärke"
 
-#: src/caja-navigation-window-menus.c:863 src/caja-spatial-window.c:937
+#: src/caja-navigation-window-menus.c:863 src/caja-spatial-window.c:941
 msgid "Add a bookmark for the current location to this menu"
 msgstr "Lägg till ett bokmärke för den aktuella platsen till denna meny"
 
-#: src/caja-navigation-window-menus.c:866 src/caja-spatial-window.c:940
+#: src/caja-navigation-window-menus.c:866 src/caja-spatial-window.c:944
 msgid "_Edit Bookmarks..."
 msgstr "R_edigera bokmärken..."
 
-#: src/caja-navigation-window-menus.c:867 src/caja-spatial-window.c:941
+#: src/caja-navigation-window-menus.c:867 src/caja-spatial-window.c:945
 msgid "Display a window that allows editing the bookmarks in this menu"
 msgstr ""
 "Visa ett fönster som tillåter redigering av dina bokmärken i denna meny"
@@ -5191,7 +5169,7 @@ msgstr "St_atusrad"
 msgid "Change the visibility of this window's statusbar"
 msgstr "Ändra synligheten på detta fönsters statusrad"
 
-#: src/caja-navigation-window-menus.c:924 src/caja-spatial-window.c:944
+#: src/caja-navigation-window-menus.c:924 src/caja-spatial-window.c:948
 msgid "_Search for Files..."
 msgstr "_Sök efter filer..."
 
@@ -5597,7 +5575,7 @@ msgstr "Ändringsdatum"
 
 #: src/caja-query-editor.c:206
 msgid "Contained text"
-msgstr ""
+msgstr "Innehållen text"
 
 #: src/caja-query-editor.c:352
 msgid "Select folder to search in"
@@ -5744,7 +5722,7 @@ msgstr "500 MB"
 
 #: src/caja-query-editor.c:1346 src/caja-query-editor.c:1349
 msgid "Matches files that contains specified text."
-msgstr ""
+msgstr "Matchar filer som innehåller specifik text."
 
 #: src/caja-query-editor.c:1503
 msgid "Remove this criterion from the search"
@@ -5794,31 +5772,31 @@ msgstr "Sök:"
 msgid "Close the side pane"
 msgstr "Stäng sidopanelen"
 
-#: src/caja-spatial-window.c:920
+#: src/caja-spatial-window.c:924
 msgid "_Places"
 msgstr "_Platser"
 
-#: src/caja-spatial-window.c:922
+#: src/caja-spatial-window.c:926
 msgid "Open _Location..."
 msgstr "Öppna _plats..."
 
-#: src/caja-spatial-window.c:927
+#: src/caja-spatial-window.c:931
 msgid "Close P_arent Folders"
 msgstr "Stäng _föräldermappar"
 
-#: src/caja-spatial-window.c:928
+#: src/caja-spatial-window.c:932
 msgid "Close this folder's parents"
 msgstr "Stäng föräldrarna till denna mapp"
 
-#: src/caja-spatial-window.c:932
+#: src/caja-spatial-window.c:936
 msgid "Clos_e All Folders"
 msgstr "Stän_g alla mappar"
 
-#: src/caja-spatial-window.c:933
+#: src/caja-spatial-window.c:937
 msgid "Close all folder windows"
 msgstr "Stäng alla mappfönster"
 
-#: src/caja-spatial-window.c:945
+#: src/caja-spatial-window.c:949
 msgid "Locate documents and folders on this computer by name or content"
 msgstr ""
 "Lokalisera dokument och mappar på denna dator efter namn eller innehåll"
@@ -5968,14 +5946,16 @@ msgid ""
 "Copyright © 1999-2009 The Nautilus authors\n"
 "Copyright © 2011-2020 The Caja authors"
 msgstr ""
+"Copyright © 1999-2009 The Nautilus upphovsmännen\n"
+"Copyright © 2011-2020 Caja upphovsmännen"
 
 #: src/caja-window-menus.c:586
 msgid "translator-credits"
 msgstr "Kristoffer Grundström <kristoffer.grundstrom1983@gmail.com>"
 
 #: src/caja-window-menus.c:589
-msgid "MATE Web Site"
-msgstr "MATEs webbplats"
+msgid "Website"
+msgstr "Webbplats"
 
 #: src/caja-window-menus.c:849
 msgid "_File"
@@ -6243,7 +6223,7 @@ msgstr "Töm papperskorgen"
 
 #: src/file-manager/fm-desktop-icon-view.c:886
 msgid "Desktop View"
-msgstr ""
+msgstr "Skrivbordsvy"
 
 #: src/file-manager/fm-desktop-icon-view.c:887
 #: src/file-manager/fm-directory-view.c:7691
@@ -6261,7 +6241,7 @@ msgstr "Skrivbordsvyn råkade ut för ett fel vid uppstarten."
 
 #: src/file-manager/fm-desktop-icon-view.c:890
 msgid "Display this location with the desktop view."
-msgstr ""
+msgstr "Visa denna plats med skrivbordsvyn."
 
 #: src/file-manager/fm-directory-view.c:660
 #, c-format
@@ -7225,7 +7205,7 @@ msgstr "Kommando"
 
 #: src/file-manager/fm-empty-view.c:397 src/file-manager/fm-empty-view.c:399
 msgid "Empty View"
-msgstr ""
+msgstr "Tom vy"
 
 #: src/file-manager/fm-empty-view.c:398
 msgid "_Empty"
@@ -7233,11 +7213,11 @@ msgstr "_Tom"
 
 #: src/file-manager/fm-empty-view.c:400
 msgid "The empty view encountered an error."
-msgstr ""
+msgstr "Den tomma vyn råkade ut för ett fel."
 
 #: src/file-manager/fm-empty-view.c:401
 msgid "Display this location with the empty view."
-msgstr ""
+msgstr "Visa denna plats med den tomma vyn."
 
 #: src/file-manager/fm-error-reporting.c:72
 #, c-format
@@ -7582,276 +7562,276 @@ msgstr "Listvyn råkade ut för ett fel vid uppstarten."
 msgid "Display this location with the list view."
 msgstr "Visa denna plats med listvyn."
 
-#: src/file-manager/fm-properties-window.c:514
+#: src/file-manager/fm-properties-window.c:511
 msgid "You cannot assign more than one custom icon at a time!"
 msgstr "Du kan inte tilldela fler än en anpassad ikon åt gången!"
 
-#: src/file-manager/fm-properties-window.c:648
+#: src/file-manager/fm-properties-window.c:645
 msgid "_Name:"
 msgid_plural "_Names:"
 msgstr[0] "Namn:"
 msgstr[1] "Namn:"
 
-#: src/file-manager/fm-properties-window.c:1004
+#: src/file-manager/fm-properties-window.c:1001
 msgid "Properties"
 msgstr "Egenskaper"
 
-#: src/file-manager/fm-properties-window.c:1016
+#: src/file-manager/fm-properties-window.c:1013
 #, c-format
 msgid "%s Properties"
 msgstr "Egenskaper för %s"
 
-#: src/file-manager/fm-properties-window.c:1346
+#: src/file-manager/fm-properties-window.c:1343
 #, c-format
 msgctxt "MIME type description (MIME type)"
 msgid "%s (%s)"
 msgstr "%s (%s)"
 
-#: src/file-manager/fm-properties-window.c:1554
+#: src/file-manager/fm-properties-window.c:1551
 msgid "Cancel Group Change?"
 msgstr "Avbryt byte av grupp?"
 
-#: src/file-manager/fm-properties-window.c:1969
+#: src/file-manager/fm-properties-window.c:1966
 msgid "Cancel Owner Change?"
 msgstr "Avbryt byte av ägare?"
 
-#: src/file-manager/fm-properties-window.c:2296
+#: src/file-manager/fm-properties-window.c:2293
 msgid "nothing"
 msgstr "ingenting"
 
-#: src/file-manager/fm-properties-window.c:2298
+#: src/file-manager/fm-properties-window.c:2295
 msgid "unreadable"
 msgstr "oläsbar"
 
-#: src/file-manager/fm-properties-window.c:2317
+#: src/file-manager/fm-properties-window.c:2314
 #, c-format
 msgid "%'d item, with size %s (%s on disk)"
 msgid_plural "%'d items, totalling %s (%s on disk)"
 msgstr[0] "%'d objekt, med storlek %s (%s på disk)"
 msgstr[1] "%'d objekt, totalt %s (%s på disk)"
 
-#: src/file-manager/fm-properties-window.c:2327
+#: src/file-manager/fm-properties-window.c:2324
 msgid "(some contents unreadable)"
 msgstr "(en del innehåll är oläsbart)"
 
-#: src/file-manager/fm-properties-window.c:2344
+#: src/file-manager/fm-properties-window.c:2341
 msgid "Contents:"
 msgstr "Innehåll:"
 
 #. Translators: "used" refers to the capacity of the filesystem
-#: src/file-manager/fm-properties-window.c:3120
+#: src/file-manager/fm-properties-window.c:3117
 msgid "used"
 msgstr "använt"
 
 #. Translators: "free" refers to the capacity of the filesystem
-#: src/file-manager/fm-properties-window.c:3131
+#: src/file-manager/fm-properties-window.c:3128
 msgid "free"
 msgstr "ledigt"
 
-#: src/file-manager/fm-properties-window.c:3135
+#: src/file-manager/fm-properties-window.c:3132
 msgid "Total capacity:"
 msgstr "Total kapacitet:"
 
-#: src/file-manager/fm-properties-window.c:3149
+#: src/file-manager/fm-properties-window.c:3146
 msgid "Filesystem type:"
 msgstr "Filsystemstyp:"
 
-#: src/file-manager/fm-properties-window.c:3234
+#: src/file-manager/fm-properties-window.c:3231
 msgid "Basic"
 msgstr "Grundläggande"
 
-#: src/file-manager/fm-properties-window.c:3296
+#: src/file-manager/fm-properties-window.c:3293
 msgid "Link target:"
 msgstr "Länkmål:"
 
-#: src/file-manager/fm-properties-window.c:3310
+#: src/file-manager/fm-properties-window.c:3307
 msgid "Size on Disk:"
 msgstr "Storlek på Disk:"
 
-#: src/file-manager/fm-properties-window.c:3325
+#: src/file-manager/fm-properties-window.c:3322
 msgid "Volume:"
 msgstr "Volym:"
 
-#: src/file-manager/fm-properties-window.c:3334
+#: src/file-manager/fm-properties-window.c:3331
 msgid "Accessed:"
 msgstr "Åtkommen:"
 
-#: src/file-manager/fm-properties-window.c:3338
+#: src/file-manager/fm-properties-window.c:3335
 msgid "Modified:"
 msgstr "Ändrad:"
 
-#: src/file-manager/fm-properties-window.c:3347
+#: src/file-manager/fm-properties-window.c:3344
 msgid "Free space:"
 msgstr "Ledigt utrymme:"
 
-#: src/file-manager/fm-properties-window.c:3875
+#: src/file-manager/fm-properties-window.c:3872
 msgid "_Read"
 msgstr "_Läs"
 
-#: src/file-manager/fm-properties-window.c:3877
+#: src/file-manager/fm-properties-window.c:3874
 msgid "_Write"
 msgstr "_Skriv"
 
-#: src/file-manager/fm-properties-window.c:3879
+#: src/file-manager/fm-properties-window.c:3876
 msgid "E_xecute"
 msgstr "_Kör"
 
 #. Translators: this gets concatenated to "no read",
 #. * "no access", etc. (see following strings)
-#: src/file-manager/fm-properties-window.c:4147
-#: src/file-manager/fm-properties-window.c:4158
-#: src/file-manager/fm-properties-window.c:4170
+#: src/file-manager/fm-properties-window.c:4144
+#: src/file-manager/fm-properties-window.c:4155
+#: src/file-manager/fm-properties-window.c:4167
 msgid "no "
 msgstr "nej "
 
-#: src/file-manager/fm-properties-window.c:4150
+#: src/file-manager/fm-properties-window.c:4147
 msgid "list"
 msgstr "lista"
 
-#: src/file-manager/fm-properties-window.c:4152
+#: src/file-manager/fm-properties-window.c:4149
 msgid "read"
 msgstr "läs"
 
-#: src/file-manager/fm-properties-window.c:4161
+#: src/file-manager/fm-properties-window.c:4158
 msgid "create/delete"
 msgstr "skapa/ta bort"
 
-#: src/file-manager/fm-properties-window.c:4163
+#: src/file-manager/fm-properties-window.c:4160
 msgid "write"
 msgstr "skriv"
 
-#: src/file-manager/fm-properties-window.c:4172
+#: src/file-manager/fm-properties-window.c:4169
 msgid "access"
 msgstr "åtkomst"
 
-#: src/file-manager/fm-properties-window.c:4220
+#: src/file-manager/fm-properties-window.c:4217
 msgid "Access:"
 msgstr "Åtkomst:"
 
-#: src/file-manager/fm-properties-window.c:4222
+#: src/file-manager/fm-properties-window.c:4219
 msgid "Folder access:"
 msgstr "Mappåtkomst:"
 
-#: src/file-manager/fm-properties-window.c:4224
+#: src/file-manager/fm-properties-window.c:4221
 msgid "File access:"
 msgstr "Filåtkomst:"
 
-#: src/file-manager/fm-properties-window.c:4242
+#: src/file-manager/fm-properties-window.c:4239
 msgid "List files only"
 msgstr "Lista endast filer"
 
-#: src/file-manager/fm-properties-window.c:4244
+#: src/file-manager/fm-properties-window.c:4241
 msgid "Access files"
 msgstr "Kom åt filer"
 
-#: src/file-manager/fm-properties-window.c:4246
+#: src/file-manager/fm-properties-window.c:4243
 msgid "Create and delete files"
 msgstr "Skapa och ta bort filer"
 
-#: src/file-manager/fm-properties-window.c:4253
+#: src/file-manager/fm-properties-window.c:4250
 msgid "Read-only"
 msgstr "Skrivskyddad"
 
-#: src/file-manager/fm-properties-window.c:4255
+#: src/file-manager/fm-properties-window.c:4252
 msgid "Read and write"
 msgstr "Läs och skriv"
 
-#: src/file-manager/fm-properties-window.c:4320
+#: src/file-manager/fm-properties-window.c:4317
 msgid "Special flags:"
 msgstr "Specialflaggor:"
 
-#: src/file-manager/fm-properties-window.c:4322
+#: src/file-manager/fm-properties-window.c:4319
 msgid "Set _user ID"
 msgstr "Ställ in _användar-ID"
 
-#: src/file-manager/fm-properties-window.c:4323
+#: src/file-manager/fm-properties-window.c:4320
 msgid "Set gro_up ID"
 msgstr "Ställ in gr_upp-ID"
 
-#: src/file-manager/fm-properties-window.c:4324
+#: src/file-manager/fm-properties-window.c:4321
 msgid "_Sticky"
 msgstr "_Fast"
 
-#: src/file-manager/fm-properties-window.c:4399
-#: src/file-manager/fm-properties-window.c:4591
+#: src/file-manager/fm-properties-window.c:4396
+#: src/file-manager/fm-properties-window.c:4588
 msgid "_Owner:"
 msgstr "_Ägare:"
 
-#: src/file-manager/fm-properties-window.c:4407
-#: src/file-manager/fm-properties-window.c:4497
-#: src/file-manager/fm-properties-window.c:4600
+#: src/file-manager/fm-properties-window.c:4404
+#: src/file-manager/fm-properties-window.c:4494
+#: src/file-manager/fm-properties-window.c:4597
 msgid "Owner:"
 msgstr "Ägare:"
 
-#: src/file-manager/fm-properties-window.c:4431
-#: src/file-manager/fm-properties-window.c:4615
+#: src/file-manager/fm-properties-window.c:4428
+#: src/file-manager/fm-properties-window.c:4612
 msgid "_Group:"
 msgstr "_Grupp:"
 
-#: src/file-manager/fm-properties-window.c:4439
-#: src/file-manager/fm-properties-window.c:4498
-#: src/file-manager/fm-properties-window.c:4623
+#: src/file-manager/fm-properties-window.c:4436
+#: src/file-manager/fm-properties-window.c:4495
+#: src/file-manager/fm-properties-window.c:4620
 msgid "Group:"
 msgstr "Grupp:"
 
-#: src/file-manager/fm-properties-window.c:4463
+#: src/file-manager/fm-properties-window.c:4460
 msgid "Others"
 msgstr "Övriga"
 
-#: src/file-manager/fm-properties-window.c:4478
+#: src/file-manager/fm-properties-window.c:4475
 msgid "Execute:"
 msgstr "Kör:"
 
-#: src/file-manager/fm-properties-window.c:4481
+#: src/file-manager/fm-properties-window.c:4478
 msgid "Allow _executing file as program"
 msgstr "Tillåt _körning av filen som ett program"
 
-#: src/file-manager/fm-properties-window.c:4499
+#: src/file-manager/fm-properties-window.c:4496
 msgid "Others:"
 msgstr "Övriga:"
 
-#: src/file-manager/fm-properties-window.c:4639
+#: src/file-manager/fm-properties-window.c:4636
 msgid "Folder Permissions:"
 msgstr "Mapprättigheter:"
 
-#: src/file-manager/fm-properties-window.c:4646
+#: src/file-manager/fm-properties-window.c:4643
 msgid "File Permissions:"
 msgstr "Filrättigheter:"
 
-#: src/file-manager/fm-properties-window.c:4655
+#: src/file-manager/fm-properties-window.c:4652
 msgid "Text view:"
 msgstr "Textvy:"
 
-#: src/file-manager/fm-properties-window.c:4803
+#: src/file-manager/fm-properties-window.c:4800
 msgid "You are not the owner, so you cannot change these permissions."
 msgstr "Du är inte ägaren så du kan inte ändra dessa rättigheter."
 
-#: src/file-manager/fm-properties-window.c:4823
+#: src/file-manager/fm-properties-window.c:4820
 msgid "SELinux context:"
 msgstr "SELinux-kontext:"
 
-#: src/file-manager/fm-properties-window.c:4828
+#: src/file-manager/fm-properties-window.c:4825
 msgid "Last changed:"
 msgstr "Senast ändrad:"
 
-#: src/file-manager/fm-properties-window.c:4841
+#: src/file-manager/fm-properties-window.c:4838
 msgid "Apply Permissions to Enclosed Files"
 msgstr "Verkställ rättigheter på berörda filer"
 
-#: src/file-manager/fm-properties-window.c:4855
+#: src/file-manager/fm-properties-window.c:4852
 #, c-format
 msgid "The permissions of \"%s\" could not be determined."
 msgstr "Rättigheterna för \"%s\" kunde inte fastställas."
 
-#: src/file-manager/fm-properties-window.c:4858
+#: src/file-manager/fm-properties-window.c:4855
 msgid "The permissions of the selected file could not be determined."
 msgstr "Rättigheterna för den markerade filen kunde inte fastställas."
 
-#: src/file-manager/fm-properties-window.c:5448
+#: src/file-manager/fm-properties-window.c:5444
 msgid "Creating Properties window."
 msgstr "Skapar fönstret Egenskaper."
 
-#: src/file-manager/fm-properties-window.c:5743
+#: src/file-manager/fm-properties-window.c:5740
 msgid "Select Custom Icon"
 msgstr "Välj anpassad ikon"
 
@@ -7865,20 +7845,20 @@ msgstr "Visa träd"
 
 #: src/file-manager/fm-widget-view.c:443
 msgid "Widget View"
-msgstr ""
+msgstr "Widget-vy"
 
 #: src/file-manager/fm-widget-view.c:444
 msgid "_Widget View"
-msgstr ""
+msgstr "_Widget-vy"
 
 #: src/file-manager/fm-widget-view.c:445
 msgid "The widget view encountered an error."
-msgstr ""
+msgstr "Widgeten råkade ut för ett fel."
 
 #: src/file-manager/fm-widget-view.c:446
 msgid "The widget view encountered an error while starting up."
-msgstr ""
+msgstr "Widget-vyn råka ut för ett fel vid uppstart."
 
 #: src/file-manager/fm-widget-view.c:447
 msgid "Display this location with the widget view."
-msgstr ""
+msgstr "Visa denna plats med widget-vyn"
