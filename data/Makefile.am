@@ -37,7 +37,6 @@ org.mate.freedesktop.FileManager1.service: org.mate.freedesktop.FileManager1.ser
 	$(AM_V_GEN) sed -e "s|\@bindir\@|$(bindir)|" $< > $@
 
 cajadatadir = $(datadir)/caja
-cajadata_in_files = browser.xml.in
 cajadata_DATA = \
 	browser.xml \
 	caja-extras.placeholder  \
@@ -61,7 +60,6 @@ $(appdata_DATA): $(appdata_in_files)
 EXTRA_DIST = \
 	$(appdata_in_files) \
 	$(cajadata_DATA) \
-	$(cajadata_in_files) \
 	$(desktop_in_in_files) \
 	$(service_in_files) \
 	$(xml_in_files) \
