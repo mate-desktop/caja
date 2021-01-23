@@ -22,9 +22,13 @@
  *
  */
 
+#ifdef HAVE_CONFIG_H
 #include <config.h>
+#endif
+
+#include <glib/gi18n-lib.h>
+
 #include "caja-menu.h"
-#include "caja-extension-i18n.h"
 
 enum {
     ACTIVATE,
