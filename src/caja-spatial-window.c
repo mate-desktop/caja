@@ -1045,7 +1045,9 @@ caja_spatial_window_init (CajaSpatialWindow *window)
 
     G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
     action_group = gtk_action_group_new ("SpatialActions");
+#ifdef ENABLE_NLS
     gtk_action_group_set_translation_domain (action_group, GETTEXT_PACKAGE);
+#endif /* ENABLE_NLS */
     window->details->spatial_action_group = action_group;
     gtk_action_group_add_actions (action_group,
                                   spatial_entries, G_N_ELEMENTS (spatial_entries),

@@ -495,7 +495,9 @@ initialize_clipboard_component_with_callback_data (GtkEditable *target,
 
     G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
     action_group = gtk_action_group_new ("ClipboardActions");
+#ifdef ENABLE_NLS
     gtk_action_group_set_translation_domain (action_group, GETTEXT_PACKAGE);
+#endif /* ENABLE_NLS */
     gtk_action_group_add_actions (action_group,
                                   clipboard_entries, G_N_ELEMENTS (clipboard_entries),
                                   target);

@@ -22,10 +22,13 @@
  *
  */
 
+#ifdef HAVE_CONFIG_H
 #include <config.h>
-#include "caja-property-page.h"
+#endif
 
-#include "caja-extension-i18n.h"
+#include <glib/gi18n-lib.h>
+
+#include "caja-property-page.h"
 
 enum {
     PROP_0,

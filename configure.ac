@@ -116,8 +116,9 @@ AC_DEFINE([HAVE_GTK_MULTIHEAD], [], [needed for egg-screen-exec functions])
 AH_TEMPLATE([HAVE_STARTUP_NOTIFICATION])
 AH_TEMPLATE([HAVE_EXIF])
 
-AM_GNU_GETTEXT_VERSION([0.19.8])
 AM_GNU_GETTEXT([external])
+AM_GNU_GETTEXT_VERSION([0.19.8])
+AM_CONDITIONAL([USE_NLS], [test "x${USE_NLS}" = "xyes"])
 
 dnl ==========================================================================
 
@@ -313,6 +314,7 @@ Configure summary:
     warning flags:                ${WARN_CFLAGS}
     xmp support:                  $msg_xmp
     PackageKit support:           $msg_packagekit
+    Native Language support:      $USE_NLS
     Self check:                   $msg_self_check
 
     caja-extension documentation: ${enable_gtk_doc}

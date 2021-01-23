@@ -42,7 +42,6 @@ libcaja_extension_la_SOURCES = \
 	caja-column-provider.c \
 	caja-column.c \
 	caja-widget-view-provider.c \
-	caja-extension-i18n.h \
 	caja-extension-types.c \
 	caja-extension-private.h \
 	caja-file-info.c \
