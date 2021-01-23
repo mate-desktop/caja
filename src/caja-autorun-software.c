@@ -273,9 +273,11 @@ main (int argc, char *argv[])
     GFile *file;
     GMount *mount;
 
+#ifdef ENABLE_NLS
     bindtextdomain (GETTEXT_PACKAGE, MATELOCALEDIR);
     bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
     textdomain (GETTEXT_PACKAGE);
+#endif /* ENABLE_NLS */
 
     gtk_init (&argc, &argv);
 

@@ -990,7 +990,9 @@ caja_window_initialize_menus (CajaWindow *window)
 
     G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
     action_group = gtk_action_group_new ("ShellActions");
+#ifdef ENABLE_NLS
     gtk_action_group_set_translation_domain (action_group, GETTEXT_PACKAGE);
+#endif /* ENABLE_NLS */
     window->details->main_action_group = action_group;
     gtk_action_group_add_actions (action_group,
                                   main_entries, G_N_ELEMENTS (main_entries),
@@ -1190,7 +1192,9 @@ caja_window_load_extension_menus (CajaWindow *window)
     G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
     action_group = gtk_action_group_new ("ExtensionsMenuGroup");
     window->details->extensions_menu_action_group = action_group;
+#ifdef ENABLE_NLS
     gtk_action_group_set_translation_domain (action_group, GETTEXT_PACKAGE);
+#endif /* ENABLE_NLS */
     G_GNUC_END_IGNORE_DEPRECATIONS;
     gtk_ui_manager_insert_action_group (window->details->ui_manager, action_group, 0);
     g_object_unref (action_group); /* owned by ui manager */

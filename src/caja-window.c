@@ -1423,7 +1423,9 @@ load_view_as_menu (CajaWindow *window)
     window->details->short_list_merge_id = merge_id;
     G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
     window->details->view_as_action_group = gtk_action_group_new ("ViewAsGroup");
+#ifdef ENABLE_NLS
     gtk_action_group_set_translation_domain (window->details->view_as_action_group, GETTEXT_PACKAGE);
+#endif /* ENABLE_NLS */
     G_GNUC_END_IGNORE_DEPRECATIONS;
     window->details->view_as_radio_action = NULL;
 

@@ -109,15 +109,19 @@ main (int argc, char *argv[])
     GOptionContext *context;
     GError *error;
 
+#ifdef ENABLE_NLS
     bindtextdomain (GETTEXT_PACKAGE, MATELOCALEDIR);
     bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
     textdomain (GETTEXT_PACKAGE);
+#endif /* ENABLE_NLS */
 
     error = NULL;
     /* Translators: This is the --help description for the connect to server app,
        the initial newlines are between the command line arg and the description */
     context = g_option_context_new (N_("\n\nAdd connect to server mount"));
+#ifdef ENABLE_NLS
     g_option_context_set_translation_domain (context, GETTEXT_PACKAGE);
+#endif /* ENABLE_NLS */
     g_option_context_add_group (context, gtk_get_option_group (TRUE));
 
     if (!g_option_context_parse (context, &argc, &argv, &error))

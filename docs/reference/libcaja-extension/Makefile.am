@@ -37,7 +37,6 @@ CFILE_GLOB=$(top_srcdir)/libcaja-extension/*.c
 # Header files to ignore when scanning.
 IGNORE_HFILES = \
 	config.h \
-	caja-extension-i18n.h \
 	$(NULL)
 
 # Images to copy into HTML directory

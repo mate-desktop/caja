@@ -946,7 +946,9 @@ caja_navigation_window_initialize_actions (CajaNavigationWindow *window)
 
     G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
     action_group = gtk_action_group_new ("NavigationActions");
+#ifdef ENABLE_NLS
     gtk_action_group_set_translation_domain (action_group, GETTEXT_PACKAGE);
+#endif /* ENABLE_NLS */
     window->details->navigation_action_group = action_group;
     gtk_action_group_add_actions (action_group,
                                   navigation_entries, G_N_ELEMENTS (navigation_entries),
