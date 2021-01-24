@@ -2295,7 +2295,7 @@ caja_application_startup (GApplication *app)
     menu_provider_init_callback ();
 
     /* Initialize notifications for eject operations */
-    notify_init (GETTEXT_PACKAGE);
+    notify_init (PACKAGE);
 
     /* Watch for unmounts so we can close open windows */
     /* TODO-gio: This should be using the UNMOUNTED feature of GFileMonitor instead */
