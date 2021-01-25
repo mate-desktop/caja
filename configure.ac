@@ -81,7 +81,7 @@ PKG_CHECK_MODULES(ALL, [
 ])
 dnl ==========================================================================
 
-GETTEXT_PACKAGE=caja
+GETTEXT_PACKAGE=AC_PACKAGE_NAME
 AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE",
     [the gettext translation domain])
