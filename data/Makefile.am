@@ -53,13 +53,14 @@ cajadata_DATA = \
 
 # app data file
 appdatadir = $(datadir)/metainfo
-appdata_in_files = caja.appdata.xml.in
+appdata_in_in_files = caja.appdata.xml.in.in
+appdata_in_files = $(appdata_in_in_files:.appdata.xml.in.in=.appdata.xml.in)
 appdata_DATA = $(appdata_in_files:.xml.in=.xml)
 $(appdata_DATA): $(appdata_in_files)
 	$(AM_V_GEN) $(MSGFMT) --xml --template $< -d $(top_srcdir)/po -o $@
 
 EXTRA_DIST = \
-	$(appdata_in_files) \
+	$(appdata_in_in_files) \
 	$(cajadata_DATA) \
 	$(cajadata_in_files) \
 	$(desktop_in_in_files) \
@@ -69,6 +70,7 @@ EXTRA_DIST = \
 	$(NULL)
 
 DISTCLEANFILES = \
+	$(appdata_in_files) \
 	$(desktop_in_files) \
 	$(NULL)
 
