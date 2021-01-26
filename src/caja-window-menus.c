@@ -585,7 +585,7 @@ action_about_caja_callback (GtkAction *action,
                            "documenters", documenters,
                            "translator-credits", _("translator-credits"),
                            "logo-icon-name", "system-file-manager",
-                           "website", "https://mate-desktop.org",
+                           "website", PACKAGE_URL,
                            "website-label", _("Website"),
                            NULL);
 
