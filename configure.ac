@@ -21,7 +21,11 @@ dnl Interface break is not allowed.
 m4_define(caja_extension_current,  5)
 m4_define(caja_extension_revision, 0)
 
-AC_INIT([caja], [1.25.2], [https://mate-desktop.org])
+AC_INIT([caja],
+        [1.25.2],
+        [https://github.com/mate-desktop/caja/issues],
+        [caja],
+        [https://mate-desktop.org])
 
 dnl ---------------------------------------------------------------------------
 
@@ -273,6 +277,7 @@ Makefile
 mate-submodules/Makefile
 mate-submodules/libegg/Makefile
 data/Makefile
+data/caja.appdata.xml.in
 data/icons/Makefile
 data/patterns/Makefile
 docs/Makefile
