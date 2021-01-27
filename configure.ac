@@ -296,7 +296,10 @@ AC_OUTPUT
 dnl ==========================================================================
 
 echo "
-caja-$VERSION:
+Configure summary:
+
+    ${PACKAGE_STRING}
+    `echo $PACKAGE_STRING | sed "s/./=/g"`
 
     prefix:                       ${prefix}
     source code location:         ${srcdir}
