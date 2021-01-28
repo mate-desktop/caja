@@ -58,22 +58,25 @@ appdata_DATA = $(appdata_in_files:.xml.in=.xml)
 $(appdata_DATA): $(appdata_in_files)
 	$(AM_V_GEN) $(MSGFMT) --xml --template $< -d $(top_srcdir)/po -o $@
 
-EXTRA_DIST = $(cajadata_DATA) \
-	caja.css \
-	freedesktop-dbus-interfaces.xml \
-	$(xml_in_files) \
+EXTRA_DIST = \
+	$(appdata_in_files) \
+	$(cajadata_DATA) \
 	$(cajadata_in_files) \
-	$(desktop_in_files) \
 	$(desktop_in_in_files) \
 	$(service_in_files) \
-	$(appdata_in_files) \
+	$(xml_in_files) \
+	freedesktop-dbus-interfaces.xml \
 	$(NULL)
 
-CLEANFILES = $(xml_files) \
-	$(desktop_DATA) \
+DISTCLEANFILES = \
 	$(desktop_in_files) \
+	$(NULL)
+
+CLEANFILES = \
+	$(appdata_DATA) \
+	$(desktop_DATA) \
 	$(service_DATA) \
-	caja.appdata.xml \
+	$(xml_files) \
 	$(NULL)
 
 SUBDIRS = \
