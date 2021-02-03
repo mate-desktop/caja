@@ -459,45 +459,36 @@ format_name_for_display (CajaCustomizationData *data, const char* name)
 static void
 load_name_map_hash_table (CajaCustomizationData *data)
 {
-    char *xml_path;
-
     xmlDocPtr browser_data;
     xmlNodePtr category_node, current_node;
 
     /* allocate the hash table */
     data->name_map_hash = g_hash_table_new_full (g_str_hash, g_str_equal, g_free, g_free);
 
-    /* build the path name to the browser.xml file and load it */
-    xml_path = g_build_filename (CAJA_DATADIR, "browser.xml", NULL);
-    if (xml_path)
+    /* load the browser.xml file */
+    if ((browser_data = xmlParseFile (CAJA_DATADIR "/browser.xml")) != NULL)
     {
-        browser_data = xmlParseFile (xml_path);
-        g_free (xml_path);
+        /* get the category node */
+        category_node = eel_xml_get_root_child_by_name_and_property (browser_data, "category", "name", data->customization_name);
+        current_node = category_node->children;
 
-        if (browser_data)
+        /* loop through the entries, adding a mapping to the hash table */
+        while (current_node != NULL)
         {
-            /* get the category node */
-            category_node = eel_xml_get_root_child_by_name_and_property (browser_data, "category", "name", data->customization_name);
-            current_node = category_node->children;
+            char *filename, *display_name;
 
-            /* loop through the entries, adding a mapping to the hash table */
-            while (current_node != NULL)
+            display_name = xmlGetProp (current_node, "display_name");
+            filename = xmlGetProp (current_node, "filename");
+            if (display_name && filename)
             {
-                char *filename, *display_name;
-
-                display_name = xmlGetProp (current_node, "display_name");
-                filename = xmlGetProp (current_node, "filename");
-                if (display_name && filename)
-                {
-                    g_hash_table_replace (data->name_map_hash, g_strdup (filename), g_strdup (_(display_name)));
-                }
-                xmlFree (filename);
-                xmlFree (display_name);
-                current_node = current_node->next;
+                g_hash_table_replace (data->name_map_hash, g_strdup (filename), g_strdup (_(display_name)));
             }
-
-            /* close the xml file */
-            xmlFreeDoc (browser_data);
+            xmlFree (filename);
+            xmlFree (display_name);
+            current_node = current_node->next;
         }
+
+        /* close the xml file */
+        xmlFreeDoc (browser_data);
     }
 }
