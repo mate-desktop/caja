@@ -251,15 +251,6 @@ istr_set_new (void)
 }
 
 static void
-istr_set_insert (GHashTable *table, const char *istr)
-{
-    char *key;
-
-    key = g_strdup (istr);
-    g_hash_table_replace (table, key, key);
-}
-
-static void
 add_istr_to_list (gpointer key, gpointer value, gpointer callback_data)
 {
     GList **list;
@@ -978,17 +969,15 @@ dequeue_pending_idle_callback (gpointer callback_data)
          * moving this into the actual callback instead of
          * waiting for the idle function.
          */
-        if (dir_load_state &&
-                !should_skip_file (directory, file_info))
+        if (dir_load_state && !should_skip_file (directory, file_info))
         {
             dir_load_state->load_file_count += 1;
 
             /* Add the MIME type to the set. */
-            mimetype = g_file_info_get_content_type (file_info);
-            if (mimetype != NULL)
+            if ((mimetype = g_file_info_get_content_type (file_info)) != NULL)
             {
-                istr_set_insert (dir_load_state->load_mime_list_hash,
-                                 mimetype);
+                g_hash_table_add (dir_load_state->load_mime_list_hash,
+                                  g_strdup (mimetype));
             }
         }
 
@@ -3272,7 +3261,7 @@ mime_list_done (MimeListState *state, gboolean success)
 
 static void
 mime_list_one (MimeListState *state,
-               GFileInfo *info)
+               GFileInfo     *info)
 {
     const char *mime_type;
 
@@ -3282,10 +3271,9 @@ mime_list_one (MimeListState *state,
         return;
     }
 
-    mime_type = g_file_info_get_content_type (info);
-    if (mime_type != NULL)
+    if ((mime_type = g_file_info_get_content_type (info)) != NULL)
     {
-        istr_set_insert (state->mime_list_hash, mime_type);
+        g_hash_table_add (state->mime_list_hash, g_strdup (mime_type));
     }
 }
 
