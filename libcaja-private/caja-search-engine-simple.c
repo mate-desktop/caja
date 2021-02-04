@@ -342,30 +342,31 @@ file_has_all_tags (GFileInfo *info, GList *tags)
 }
 
 static inline gboolean
-check_odt2txt (void) {
-    gboolean rc = TRUE;
-    int exit = 0;
-    gchar *output = NULL;
+check_odt_reader (const char *reader)
+{
+    gboolean rc;
+    gchar *output;
 
-    gboolean cmd_rc = g_spawn_command_line_sync ("odt2txt --version", &output, NULL, &exit, NULL);
-
-    if (!cmd_rc || exit != 0 ||
-        !output || !g_str_has_prefix (output, "odt2txt"))
-    {
-        rc = FALSE;
-    }
-
+    output = g_find_program_in_path (reader);
+    rc = output != NULL;
     g_free (output);
+
     return rc;
 }
 
 static inline gchar *
-read_odt (const char *filepath) {
-    gchar *command = g_strdup_printf ("odt2txt \"%s\"", filepath);
-    gchar *output  = NULL;
+read_odt (const char *filepath, gboolean use_unoconv) {
+    gchar *command;
+    gchar *output = NULL;
     int exit = 0;
+    gboolean rc;
 
-    gboolean rc = g_spawn_command_line_sync (command, &output, NULL, &exit, NULL);
+    if (use_unoconv)
+       command = g_strdup_printf ("unoconv --format=txt --stdout \"%s\"", filepath);
+    else
+       command = g_strdup_printf ("odt2txt \"%s\"", filepath);
+
+    rc = g_spawn_command_line_sync (command, &output, NULL, &exit, NULL);
     if (!rc || exit != 0) {
         g_free (output);
         g_free (command);
@@ -394,6 +395,7 @@ is_file_has_str (
     const char *filepath,
     const char *str,
     const char *mime_type,
+    gboolean unoconv_available,
     gboolean odt2txt_available)
 {
     gboolean rc = TRUE;
@@ -401,22 +403,39 @@ is_file_has_str (
     gchar *lower_contents = NULL;
     gchar *lower_str = NULL;
 
-    if (str[0] == '\0') {
+    if (str[0] == '\0')
         return TRUE;
-    }
 
-    if (g_content_type_is_mime_type (mime_type, "text/plain")) {
+    if (g_content_type_is_mime_type (mime_type, "text/plain"))
         rc = g_file_get_contents (filepath, &contents, NULL, NULL);
-    }
-    else {
-        if (!odt2txt_available) {
-            g_warning ("Can't search in file '%s'. odt2txt not found.", filepath);
-            rc = FALSE;
-        }
-        else {
-            contents = read_odt (filepath);
-            if (!contents)
+    else
+    {
+        if (unoconv_available
+            && (g_content_type_equals (mime_type, "application/msword") ||
+                g_content_type_equals (mime_type, "application/vnd.oasis.opendocument.text") ||
+                g_content_type_equals (mime_type, "application/vnd.oasis.opendocument.text-template")))
+        {
+            if ((contents = read_odt (filepath, TRUE)) == NULL)
                 rc = FALSE;
+        }
+        else
+        {
+            if (odt2txt_available
+                && (g_content_type_equals (mime_type, "application/vnd.oasis.opendocument.text") ||
+                    g_content_type_equals (mime_type, "application/vnd.oasis.opendocument.text-template") ||
+                    g_content_type_equals (mime_type, "application/vnd.oasis.opendocument.spreadsheet") ||
+                    g_content_type_equals (mime_type, "application/vnd.oasis.opendocument.spreadsheet-template") ||
+                    g_content_type_equals (mime_type, "application/vnd.oasis.opendocument.presentation") ||
+                    g_content_type_equals (mime_type, "application/vnd.oasis.opendocument.presentation-template")))
+            {
+                if ((contents = read_odt (filepath, FALSE)) == NULL)
+                    rc = FALSE;
+            }
+            else
+            {
+                g_warning ("Can't search in file '%s'. Neither unoconv nor odt2txt was found.", filepath);
+                rc = FALSE;
+            }
         }
     }
 
@@ -455,6 +474,7 @@ visit_directory (GFile *dir, SearchThreadData *data)
     GString *attr_string;
     gchar *filepath = NULL;
     gboolean odt2txt_available = FALSE;
+    gboolean unoconv_available  = FALSE;
 
     attr_string = g_string_new (STD_ATTRIBUTES);
     if (data->mime_types != NULL || data->contained_text != NULL) {
@@ -472,7 +492,8 @@ visit_directory (GFile *dir, SearchThreadData *data)
     }
 
     if (data->contained_text != NULL) {
-        odt2txt_available = check_odt2txt();
+        odt2txt_available = check_odt_reader ("odt2txt");
+        unoconv_available = check_odt_reader ("unoconv");
     }
 
     attributes = g_string_free (attr_string, FALSE);
@@ -559,22 +580,10 @@ visit_directory (GFile *dir, SearchThreadData *data)
 
         if (hit && data->contained_text) {
             mime_type = g_file_info_get_content_type (info);
-
-            if (g_content_type_is_mime_type (mime_type, "text/plain") ||
-                g_content_type_equals (mime_type, "application/vnd.oasis.opendocument.text") ||
-                g_content_type_equals (mime_type, "application/vnd.oasis.opendocument.text-template") ||
-                g_content_type_equals (mime_type, "application/vnd.oasis.opendocument.spreadsheet") ||
-                g_content_type_equals (mime_type, "application/vnd.oasis.opendocument.spreadsheet-template") ||
-                g_content_type_equals (mime_type, "application/vnd.oasis.opendocument.presentation") ||
-                g_content_type_equals (mime_type, "application/vnd.oasis.opendocument.presentation-template")
-            ) {
-                g_free (filepath);
-                filepath = g_file_get_path (child);
-                hit = is_file_has_str (filepath, data->contained_text, mime_type, odt2txt_available);
-            }
-            else {
-                hit = FALSE;
-            }
+            g_free (filepath);
+            filepath = g_file_get_path (child);
+            hit = is_file_has_str (filepath, data->contained_text, mime_type,
+                                   unoconv_available, odt2txt_available);
         }
 
         if (hit)
