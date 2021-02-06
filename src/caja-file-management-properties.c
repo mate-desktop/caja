@@ -1273,11 +1273,7 @@ caja_file_management_properties_dialog_show (GCallback close_callback, GtkWindow
 {
     GtkBuilder *builder;
 
-    builder = gtk_builder_new ();
-
-    gtk_builder_add_from_file (builder,
-                               UIDIR "/caja-file-management-properties.ui",
-                               NULL);
+    builder = gtk_builder_new_from_file (UIDIR "/caja-file-management-properties.ui");
 
     g_signal_connect (G_OBJECT (gtk_builder_get_object (builder, "file_management_dialog")),
                       "response", close_callback, NULL);
