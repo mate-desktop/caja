@@ -225,8 +225,8 @@ preferences_show_help (GtkWindow *parent,
                                          _("There was an error displaying help: \n%s"),
                                          error->message);
 
-        g_signal_connect (G_OBJECT (dialog),
-                          "response", G_CALLBACK (gtk_widget_destroy),
+        g_signal_connect (dialog, "response",
+                          G_CALLBACK (gtk_widget_destroy),
                           NULL);
         gtk_window_set_resizable (GTK_WINDOW (dialog), FALSE);
         gtk_widget_show (dialog);
@@ -828,8 +828,7 @@ skip:
                                     "text", 1,
                                     NULL);
 
-    g_signal_connect (G_OBJECT (other_type_combo_box),
-                      "changed",
+    g_signal_connect (other_type_combo_box, "changed",
                       G_CALLBACK (other_type_combo_box_changed),
                       gtk_builder_get_object (builder, "media_other_action_combobox"));
 
@@ -1230,7 +1229,7 @@ caja_file_management_properties_dialog_setup (GtkBuilder *builder, GtkWindow *wi
 
     /* UI callbacks */
     dialog = GTK_WIDGET (gtk_builder_get_object (builder, "file_management_dialog"));
-    g_signal_connect_data (G_OBJECT (dialog), "response",
+    g_signal_connect_data (dialog, "response",
                            G_CALLBACK (caja_file_management_properties_dialog_response_cb),
                            g_object_ref (builder),
                            (GClosureNotify)g_object_unref,
@@ -1245,8 +1244,7 @@ caja_file_management_properties_dialog_setup (GtkBuilder *builder, GtkWindow *wi
 
     GtkWidget *notebook = GTK_WIDGET (gtk_builder_get_object (builder, "notebook1"));
     gtk_widget_add_events (notebook, GDK_SCROLL_MASK);
-    g_signal_connect (notebook,
-                      "scroll-event",
+    g_signal_connect (notebook, "scroll-event",
                       G_CALLBACK (eel_notebook_scroll_event_cb),
                       NULL);
 
@@ -1275,10 +1273,10 @@ caja_file_management_properties_dialog_show (GCallback close_callback, GtkWindow
 
     builder = gtk_builder_new_from_file (UIDIR "/caja-file-management-properties.ui");
 
-    g_signal_connect (G_OBJECT (gtk_builder_get_object (builder, "file_management_dialog")),
-                      "response", close_callback, NULL);
-    g_signal_connect (G_OBJECT (gtk_builder_get_object (builder, "file_management_dialog")),
-                      "delete_event", G_CALLBACK (delete_event_callback), close_callback);
+    g_signal_connect (gtk_builder_get_object (builder, "file_management_dialog"), "response",
+                      close_callback, NULL);
+    g_signal_connect (gtk_builder_get_object (builder, "file_management_dialog"), "delete_event",
+                      G_CALLBACK (delete_event_callback), close_callback);
 
     caja_file_management_properties_dialog_setup (builder, window);
 
