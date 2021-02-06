@@ -357,25 +357,18 @@ icon_captions_changed_callback (GtkComboBox *combo_box,
     int i;
 
     builder = GTK_BUILDER (user_data);
-
     captions = g_ptr_array_new ();
 
     for (i = 0; icon_captions_components[i] != NULL; i++)
     {
-        GtkWidget *combo_box;
-        int active;
+        GObject *object;
         GPtrArray *column_names;
-        char *name;
+        int active;
 
-        combo_box = GTK_WIDGET (gtk_builder_get_object
-                                (builder, icon_captions_components[i]));
-        active = gtk_combo_box_get_active (GTK_COMBO_BOX (combo_box));
-
-        column_names = g_object_get_data (G_OBJECT (combo_box),
-                                          "column_names");
-
-        name = g_ptr_array_index (column_names, active);
-        g_ptr_array_add (captions, name);
+        object = gtk_builder_get_object (builder, icon_captions_components[i]);
+        column_names = g_object_get_data (object, "column_names");
+        active = gtk_combo_box_get_active (GTK_COMBO_BOX(object));
+        g_ptr_array_add (captions, g_ptr_array_index (column_names, active));
     }
     g_ptr_array_add (captions, NULL);
 
