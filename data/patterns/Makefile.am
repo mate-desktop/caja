@@ -12,13 +12,13 @@ back_DATA = \
 	chalk.jpg \
 	cork.png \
 	countertop.png \
-	dark-mate.jpg \
+	dark-gnome.jpg \
 	dots.png \
 	fibers.png \
 	fleur_de_lis.png \
 	floral.png \
 	fossil.png \
-	mate.jpg \
+	gnome.jpg \
 	green_weave.png \
 	ice.png \
 	manila_paper.png \
