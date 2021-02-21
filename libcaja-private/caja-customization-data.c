@@ -469,19 +469,24 @@ load_name_map_hash_table (CajaCustomizationData *data)
     if ((browser_data = xmlParseFile (CAJA_DATADIR "/browser.xml")) != NULL)
     {
         /* get the category node */
-        category_node = eel_xml_get_root_child_by_name_and_property (browser_data, "category", "name", data->customization_name);
+        category_node = eel_xml_get_root_child_by_name_and_property (browser_data,
+                                                                     (const xmlChar *) "category",
+                                                                     (const xmlChar *) "name",
+                                                                     (const xmlChar *) data->customization_name);
         current_node = category_node->children;
 
         /* loop through the entries, adding a mapping to the hash table */
         while (current_node != NULL)
         {
-            char *filename, *display_name;
+            xmlChar *filename, *display_name;
 
-            display_name = xmlGetProp (current_node, "display_name");
-            filename = xmlGetProp (current_node, "filename");
+            display_name = xmlGetProp (current_node, (const xmlChar *) "display_name");
+            filename = xmlGetProp (current_node, (const xmlChar *) "filename");
             if (display_name && filename)
             {
-                g_hash_table_insert (data->name_map_hash, g_strdup (filename), g_strdup (_(display_name)));
+                g_hash_table_replace (data->name_map_hash,
+                                      g_strdup ((const char *) filename),
+                                      g_strdup (_((const char *) display_name)));
             }
             xmlFree (filename);
             xmlFree (display_name);
