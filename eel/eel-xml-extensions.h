@@ -28,14 +28,14 @@
 #include <libxml/tree.h>
 #include <glib.h>
 
-xmlNodePtr eel_xml_get_children                        (xmlNodePtr  parent);
-xmlNodePtr eel_xml_get_child_by_name_and_property      (xmlNodePtr  parent,
-        const char *child_name,
-        const char *property_name,
-        const char *property_value);
-xmlNodePtr eel_xml_get_root_child_by_name_and_property (xmlDocPtr   document,
-        const char *child_name,
-        const char *property_name,
-        const char *property_value);
+xmlNodePtr eel_xml_get_children                        (xmlNodePtr       parent);
+xmlNodePtr eel_xml_get_child_by_name_and_property      (xmlNodePtr       parent,
+                                                        const xmlChar   *child_name,
+                                                        const xmlChar   *property_name,
+                                                        const xmlChar   *property_value);
+xmlNodePtr eel_xml_get_root_child_by_name_and_property (xmlDocPtr        document,
+                                                        const xmlChar   *child_name,
+                                                        const xmlChar   *property_name,
+                                                        const xmlChar   *property_value);
 
 #endif /* EEL_XML_EXTENSIONS_H */

@@ -43,25 +43,25 @@ eel_xml_get_children (xmlNodePtr parent)
 }
 
 xmlNodePtr
-eel_xml_get_child_by_name_and_property (xmlNodePtr parent,
-                                        const char *child_name,
-                                        const char *property_name,
-                                        const char *property_value)
+eel_xml_get_child_by_name_and_property (xmlNodePtr     parent,
+                                        const xmlChar *child_name,
+                                        const xmlChar *property_name,
+                                        const xmlChar *property_value)
 {
     xmlNodePtr child;
     xmlChar *property;
     gboolean match;
 
-    if (parent == NULL)
+    if (parent == NULL || property_name == NULL || property_value == NULL)
     {
         return NULL;
     }
-    for (child = eel_xml_get_children (parent); child != NULL; child = child->next)
+    for (child = parent->children; child != NULL; child = child->next)
     {
-        if (strcmp (child->name, child_name) == 0)
+        if (child->name != NULL && xmlStrcmp (child->name, child_name) == 0)
         {
             property = xmlGetProp (child, property_name);
-            match = eel_strcmp (property, property_value) == 0;
+            match = property != NULL && xmlStrcmp (property, property_value) == 0;
             xmlFree (property);
             if (match)
             {
@@ -73,14 +73,13 @@ eel_xml_get_child_by_name_and_property (xmlNodePtr parent,
 }
 
 xmlNodePtr
-eel_xml_get_root_child_by_name_and_property (xmlDocPtr document,
-        const char *child_name,
-        const char *property_name,
-        const char *property_value)
+eel_xml_get_root_child_by_name_and_property (xmlDocPtr      document,
+                                             const xmlChar *child_name,
+                                             const xmlChar *property_name,
+                                             const xmlChar *property_value)
 {
-    return eel_xml_get_child_by_name_and_property
-           (xmlDocGetRootElement (document),
-            child_name,
-            property_name,
-            property_value);
+    return eel_xml_get_child_by_name_and_property (xmlDocGetRootElement (document),
+                                                   child_name,
+                                                   property_name,
+                                                   property_value);
 }
