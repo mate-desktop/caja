@@ -1390,12 +1390,12 @@ caja_application_get_session_data (CajaApplication *self)
     xmlSaveCtxtPtr ctx;
     xmlBufferPtr buffer;
 
-    doc = xmlNewDoc ("1.0");
+    doc = xmlNewDoc ((const xmlChar *) "1.0");
 
-    root_node = xmlNewNode (NULL, "session");
+    root_node = xmlNewNode (NULL, (const xmlChar *) "session");
     xmlDocSetRootElement (doc, root_node);
 
-    history_node = xmlNewChild (root_node, NULL, "history", NULL);
+    history_node = xmlNewChild (root_node, NULL, (const xmlChar *) "history", NULL);
 
     n_processed = 0;
     for (l = caja_get_history_list (); l != NULL; l = l->next) {
@@ -1406,10 +1406,10 @@ caja_application_get_session_data (CajaApplication *self)
 
         bookmark = l->data;
 
-        bookmark_node = xmlNewChild (history_node, NULL, "bookmark", NULL);
+        bookmark_node = xmlNewChild (history_node, NULL, (const xmlChar *) "bookmark", NULL);
 
         tmp = caja_bookmark_get_name (bookmark);
-        xmlNewProp (bookmark_node, "name", tmp);
+        xmlNewProp (bookmark_node, (const xmlChar *) "name", (const xmlChar *) tmp);
         g_free (tmp);
 
         icon = caja_bookmark_get_icon (bookmark);
@@ -1417,16 +1417,16 @@ caja_application_get_session_data (CajaApplication *self)
         tmp = g_icon_to_string (icon);
         g_object_unref (icon);
         if (tmp) {
-            xmlNewProp (bookmark_node, "icon", tmp);
+            xmlNewProp (bookmark_node, (const xmlChar *) "icon", (const xmlChar *) tmp);
             g_free (tmp);
         }
 
         tmp = caja_bookmark_get_uri (bookmark);
-        xmlNewProp (bookmark_node, "uri", tmp);
+        xmlNewProp (bookmark_node, (const xmlChar *) "uri", (const xmlChar *) tmp);
         g_free (tmp);
 
         if (caja_bookmark_get_has_custom_name (bookmark)) {
-            xmlNewProp (bookmark_node, "has_custom_name", "TRUE");
+            xmlNewProp (bookmark_node, (const xmlChar *) "has_custom_name", (const xmlChar *) "TRUE");
         }
 
         if (++n_processed > 50) { /* prevent history list from growing arbitrarily large. */
@@ -1457,49 +1457,49 @@ caja_application_get_session_data (CajaApplication *self)
             continue;
         }
 
-        win_node = xmlNewChild (root_node, NULL, "window", NULL);
+        win_node = xmlNewChild (root_node, NULL, (const xmlChar *) "window", NULL);
 
-        xmlNewProp (win_node, "location", tmp);
+        xmlNewProp (win_node, (const xmlChar *) "location", (const xmlChar *) tmp);
         g_free (tmp);
 
-        xmlNewProp (win_node, "type", CAJA_IS_NAVIGATION_WINDOW (window) ? "navigation" : "spatial");
+        xmlNewProp (win_node, (const xmlChar *) "type", CAJA_IS_NAVIGATION_WINDOW (window) ? (const xmlChar *) "navigation" : (const xmlChar *) "spatial");
 
         if (CAJA_IS_NAVIGATION_WINDOW (window)) { /* spatial windows store their state as file metadata */
             GdkWindow *gdk_window;
 
             tmp = eel_gtk_window_get_geometry_string (GTK_WINDOW (window));
-            xmlNewProp (win_node, "geometry", tmp);
+            xmlNewProp (win_node, (const xmlChar *) "geometry", (const xmlChar *) tmp);
             g_free (tmp);
 
             gdk_window = gtk_widget_get_window (GTK_WIDGET (window));
 
             if (gdk_window &&
                 gdk_window_get_state (gdk_window) & GDK_WINDOW_STATE_MAXIMIZED) {
-                xmlNewProp (win_node, "maximized", "TRUE");
+                xmlNewProp (win_node, (const xmlChar *) "maximized", (const xmlChar *) "TRUE");
             }
 
             if (gdk_window &&
                 gdk_window_get_state (gdk_window) & GDK_WINDOW_STATE_STICKY) {
-                xmlNewProp (win_node, "sticky", "TRUE");
+                xmlNewProp (win_node, (const xmlChar *) "sticky", (const xmlChar *) "TRUE");
             }
 
             if (gdk_window &&
                 gdk_window_get_state (gdk_window) & GDK_WINDOW_STATE_ABOVE) {
-                xmlNewProp (win_node, "keep-above", "TRUE");
+                xmlNewProp (win_node, (const xmlChar *) "keep-above", (const xmlChar *) "TRUE");
             }
         }
 
         for (m = slots; m != NULL; m = m->next) {
             slot = CAJA_WINDOW_SLOT (m->data);
 
-            slot_node = xmlNewChild (win_node, NULL, "slot", NULL);
+            slot_node = xmlNewChild (win_node, NULL, (const xmlChar *) "slot", NULL);
 
             tmp = caja_window_slot_get_location_uri (slot);
-            xmlNewProp (slot_node, "location", tmp);
+            xmlNewProp (slot_node, (const xmlChar *) "location", (const xmlChar *) tmp);
             g_free (tmp);
 
             if (slot == active_slot) {
-                xmlNewProp (slot_node, "active", "TRUE");
+                xmlNewProp (slot_node, (const xmlChar *) "active", (const xmlChar *) "TRUE");
             }
         }
 
@@ -1515,7 +1515,7 @@ caja_application_get_session_data (CajaApplication *self)
     }
 
     xmlSaveClose(ctx);
-    data = g_strndup (buffer->content, buffer->use);
+    data = g_strndup ((const char *) buffer->content, buffer->use);
     xmlBufferFree (buffer);
 
     xmlFreeDoc (doc);
@@ -1564,12 +1564,13 @@ caja_application_load_session (CajaApplication *application)
 
         for (node = root_node->children; node != NULL; node = node->next)
         {
-
-            if (g_strcmp0 (node->name, "text") == 0)
+            if (node->name == NULL || *node->name == '\0' ||
+                xmlStrcmp (node->name, (const xmlChar *) "text") == 0)
             {
                 continue;
             }
-            else if (g_strcmp0 (node->name, "history") == 0)
+
+            if (xmlStrcmp (node->name, (const xmlChar *) "history") == 0)
             {
                 xmlNodePtr bookmark_node;
                 gboolean emit_change;
@@ -1578,29 +1579,31 @@ caja_application_load_session (CajaApplication *application)
 
                 for (bookmark_node = node->children; bookmark_node != NULL; bookmark_node = bookmark_node->next)
                 {
-                    if (g_strcmp0 (bookmark_node->name, "text") == 0)
+                    if (bookmark_node->name == NULL || *bookmark_node->name == '\0' ||
+                        xmlStrcmp (bookmark_node->name, (const xmlChar *) "text") == 0)
                     {
                         continue;
                     }
-                    else if (g_strcmp0 (bookmark_node->name, "bookmark") == 0)
+
+                    if (xmlStrcmp (bookmark_node->name, (const xmlChar *) "bookmark") == 0)
                     {
                         xmlChar *name, *icon_str, *uri;
                         gboolean has_custom_name;
                         GIcon *icon;
                         GFile *location;
 
-                        uri = xmlGetProp (bookmark_node, "uri");
-                        name = xmlGetProp (bookmark_node, "name");
-                        has_custom_name = xmlHasProp (bookmark_node, "has_custom_name") ? TRUE : FALSE;
-                        icon_str = xmlGetProp (bookmark_node, "icon");
+                        uri = xmlGetProp (bookmark_node, (const xmlChar *) "uri");
+                        name = xmlGetProp (bookmark_node, (const xmlChar *) "name");
+                        has_custom_name = xmlHasProp (bookmark_node, (const xmlChar *) "has_custom_name") ? TRUE : FALSE;
+                        icon_str = xmlGetProp (bookmark_node, (const xmlChar *) "icon");
                         icon = NULL;
                         if (icon_str)
                         {
-                            icon = g_icon_new_for_string (icon_str, NULL);
+                            icon = g_icon_new_for_string ((const char *) icon_str, NULL);
                         }
-                        location = g_file_new_for_uri (uri);
+                        location = g_file_new_for_uri ((const char *) uri);
 
-                        emit_change |= caja_add_to_history_list_no_notify (location, name, has_custom_name, icon);
+                        emit_change |= caja_add_to_history_list_no_notify (location, (const char *) name, has_custom_name, icon);
 
                         g_object_unref (location);
 
@@ -1626,7 +1629,7 @@ caja_application_load_session (CajaApplication *application)
                 }
             }
 
-            else if (g_strcmp0 (node->name, "window") == 0)
+            else if (xmlStrcmp (node->name, (const xmlChar *) "window") == 0)
 
             {
                 CajaWindow *window;
@@ -1634,7 +1637,7 @@ caja_application_load_session (CajaApplication *application)
                 xmlNodePtr slot_node;
                 GFile *location;
 
-                type = xmlGetProp (node, "type");
+                type = xmlGetProp (node, (const xmlChar *) "type");
                 if (type == NULL)
                 {
                     g_message ("empty type node while parsing session data");
@@ -1642,7 +1645,7 @@ caja_application_load_session (CajaApplication *application)
                     continue;
                 }
 
-                location_uri = xmlGetProp (node, "location");
+                location_uri = xmlGetProp (node, (const xmlChar *) "location");
                 if (location_uri == NULL)
                 {
                     g_message ("empty location node while parsing session data");
@@ -1651,25 +1654,24 @@ caja_application_load_session (CajaApplication *application)
                     continue;
                 }
 
-                if (g_strcmp0 (type, "navigation") == 0)
+                if (xmlStrcmp (type, (const xmlChar *) "navigation") == 0)
                 {
                     xmlChar *geometry;
                     int i;
 
                     window = caja_application_create_navigation_window (application, gdk_screen_get_default ());
-                    geometry = xmlGetProp (node, "geometry");
-                    if (geometry != NULL)
+                    geometry = xmlGetProp (node, (const xmlChar *) "geometry");
+                    if (geometry != NULL && *geometry != '\0')
                     {
-                        eel_gtk_window_set_initial_geometry_from_string
-                        (GTK_WINDOW (window),
-                         geometry,
-                         CAJA_NAVIGATION_WINDOW_MIN_WIDTH,
-                         CAJA_NAVIGATION_WINDOW_MIN_HEIGHT,
-                         FALSE);
+                        eel_gtk_window_set_initial_geometry_from_string (GTK_WINDOW (window),
+                                                                         (const char *) geometry,
+                                                                         CAJA_NAVIGATION_WINDOW_MIN_WIDTH,
+                                                                         CAJA_NAVIGATION_WINDOW_MIN_HEIGHT,
+                                                                         FALSE);
                     }
                     xmlFree (geometry);
 
-                    if (xmlHasProp (node, "maximized"))
+                    if (xmlHasProp (node, (const xmlChar *) "maximized"))
                     {
                         gtk_window_maximize (GTK_WINDOW (window));
                     }
@@ -1678,7 +1680,7 @@ caja_application_load_session (CajaApplication *application)
                         gtk_window_unmaximize (GTK_WINDOW (window));
                     }
 
-                    if (xmlHasProp (node, "sticky"))
+                    if (xmlHasProp (node, (const xmlChar *) "sticky"))
                     {
                         gtk_window_stick (GTK_WINDOW (window));
                     }
@@ -1687,7 +1689,7 @@ caja_application_load_session (CajaApplication *application)
                         gtk_window_unstick (GTK_WINDOW (window));
                     }
 
-                    if (xmlHasProp (node, "keep-above"))
+                    if (xmlHasProp (node, (const xmlChar *) "keep-above"))
                     {
                         gtk_window_set_keep_above (GTK_WINDOW (window), TRUE);
                     }
@@ -1698,11 +1700,11 @@ caja_application_load_session (CajaApplication *application)
 
                     for (i = 0, slot_node = node->children; slot_node != NULL; slot_node = slot_node->next)
                     {
-                        if (g_strcmp0 (slot_node->name, "slot") == 0)
+                        if (slot_node->name && xmlStrcmp (slot_node->name, (const xmlChar *) "slot") == 0)
                         {
                             xmlChar *slot_uri;
 
-                            slot_uri = xmlGetProp (slot_node, "location");
+                            slot_uri = xmlGetProp (slot_node, (const xmlChar *) "location");
                             if (slot_uri != NULL)
                             {
                                 CajaWindowSlot *slot;
@@ -1716,10 +1718,10 @@ caja_application_load_session (CajaApplication *application)
                                     slot = caja_window_open_slot (window->details->active_pane, CAJA_WINDOW_OPEN_SLOT_APPEND);
                                 }
 
-                                location = g_file_new_for_uri (slot_uri);
+                                location = g_file_new_for_uri ((const char *) slot_uri);
                                 caja_window_slot_open_location (slot, location, FALSE);
 
-                                if (xmlHasProp (slot_node, "active"))
+                                if (xmlHasProp (slot_node, (const xmlChar *) "active"))
                                 {
                                     caja_window_set_active_slot (slot->pane->window, slot);
                                 }
@@ -1733,20 +1735,18 @@ caja_application_load_session (CajaApplication *application)
                     if (i == 0)
                     {
                         /* This may be an old session file */
-                        location = g_file_new_for_uri (location_uri);
+                        location = g_file_new_for_uri ((const char *) location_uri);
                         caja_window_slot_open_location (window->details->active_pane->active_slot, location, FALSE);
                         g_object_unref (location);
                     }
                 }
-                else if (g_strcmp0 (type, "spatial") == 0)
+                else if (xmlStrcmp (type, (const xmlChar *) "spatial") == 0)
                 {
-                    location = g_file_new_for_uri (location_uri);
+                    location = g_file_new_for_uri ((const char *) location_uri);
                     window = caja_application_get_spatial_window (application, NULL, NULL,
-                    											  location, gdk_screen_get_default (),
-                    											  NULL);
-
-					caja_window_go_to (window, location);
-
+                                                                  location, gdk_screen_get_default (),
+                                                                  NULL);
+                    caja_window_go_to (window, location);
                     g_object_unref (location);
                 }
                 else
