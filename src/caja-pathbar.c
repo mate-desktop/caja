@@ -1610,21 +1610,18 @@ setup_file_path_mounted_mount (GFile *location, ButtonData *button_data)
         {
             result = TRUE;
             /* set mount specific details in button_data */
-            if (button_data)
+            icon = g_mount_get_icon (mount);
+            if (icon == NULL)
             {
-                icon = g_mount_get_icon (mount);
-                if (icon == NULL)
-                {
-                    icon = g_themed_icon_new (CAJA_ICON_FOLDER);
-                }
-                info = caja_icon_info_lookup (icon, CAJA_PATH_BAR_ICON_SIZE, scale);
-                g_object_unref (icon);
-                button_data->custom_icon = caja_icon_info_get_surface_at_size (info, CAJA_PATH_BAR_ICON_SIZE);
-                g_object_unref (info);
-                button_data->dir_name = g_mount_get_name (mount);
-                button_data->type = MOUNT_BUTTON;
-                button_data->fake_root = TRUE;
+                icon = g_themed_icon_new (CAJA_ICON_FOLDER);
             }
+            info = caja_icon_info_lookup (icon, CAJA_PATH_BAR_ICON_SIZE, scale);
+            g_object_unref (icon);
+            button_data->custom_icon = caja_icon_info_get_surface_at_size (info, CAJA_PATH_BAR_ICON_SIZE);
+            g_object_unref (info);
+            button_data->dir_name = g_mount_get_name (mount);
+            button_data->type = MOUNT_BUTTON;
+            button_data->fake_root = TRUE;
             g_object_unref (root);
             break;
         }
@@ -1634,20 +1631,17 @@ setup_file_path_mounted_mount (GFile *location, ButtonData *button_data)
         {
             result = TRUE;
             /* set mount specific details in button_data */
-            if (button_data)
+            icon = g_mount_get_icon (mount);
+            if (icon == NULL)
             {
-                icon = g_mount_get_icon (mount);
-                if (icon == NULL)
-                {
-                    icon = g_themed_icon_new (CAJA_ICON_FOLDER);
-                }
-                info = caja_icon_info_lookup (icon, CAJA_PATH_BAR_ICON_SIZE, scale);
-                g_object_unref (icon);
-                button_data->custom_icon = caja_icon_info_get_surface_at_size (info, CAJA_PATH_BAR_ICON_SIZE);
-                g_object_unref (info);
-                button_data->type = DEFAULT_LOCATION_BUTTON;
-                button_data->fake_root = TRUE;
+                icon = g_themed_icon_new (CAJA_ICON_FOLDER);
             }
+            info = caja_icon_info_lookup (icon, CAJA_PATH_BAR_ICON_SIZE, scale);
+            g_object_unref (icon);
+            button_data->custom_icon = caja_icon_info_get_surface_at_size (info, CAJA_PATH_BAR_ICON_SIZE);
+            g_object_unref (info);
+            button_data->type = DEFAULT_LOCATION_BUTTON;
+            button_data->fake_root = TRUE;
             g_object_unref (default_location);
             g_object_unref (root);
             break;
