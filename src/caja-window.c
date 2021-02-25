@@ -1525,12 +1525,8 @@ real_sync_title (CajaWindow *window,
 {
     if (slot == window->details->active_pane->active_slot)
     {
-        char *copy;
-
-        copy = g_strdup (slot->title);
         g_signal_emit_by_name (window, "title_changed",
                                slot->title);
-        g_free (copy);
     }
 }
 
