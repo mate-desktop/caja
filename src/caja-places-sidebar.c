@@ -26,7 +26,6 @@
 #include <cairo-gobject.h>
 
 #include <gdk/gdkkeysyms.h>
-#include <gdk/gdkx.h>
 #include <gtk/gtk.h>
 #include <glib/gi18n.h>
 #include <gio/gio.h>
@@ -2506,8 +2505,6 @@ format_shortcut_cb (GtkMenuItem       *item,
     GAppInfo *app_info;
     char *cmdline;
     char *device_identifier;
-    char *xid_string;
-    gint xid;
     GtkTreeIter iter;
     GVolume *volume;
 
@@ -2521,13 +2518,10 @@ format_shortcut_cb (GtkMenuItem       *item,
                         -1);
 
     device_identifier = g_volume_get_identifier (volume, G_VOLUME_IDENTIFIER_KIND_UNIX_DEVICE);
-    xid = (gint) gdk_x11_window_get_xid (gtk_widget_get_window (GTK_WIDGET (item)));
-    xid_string = g_strdup_printf ("%d", xid);
 
     cmdline = g_strjoin (" ",
                          "gnome-disks", "--format-device",
                          "--block-device", device_identifier,
-                         "--xid", xid_string,
                          NULL);
 
     app_info = g_app_info_create_from_commandline (cmdline, NULL, 0, NULL);
@@ -2535,7 +2529,6 @@ format_shortcut_cb (GtkMenuItem       *item,
 
     g_free (cmdline);
     g_free (device_identifier);
-    g_free (xid_string);
     g_clear_object (&app_info);
 }
 
