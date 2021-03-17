@@ -7386,9 +7386,10 @@ fm_directory_view_init_show_backup_files (FMDirectoryView *view)
 }
 
 static const GtkActionEntry directory_view_entries[] = {
-  /* name, icon name, label */ { "New Documents", "document-new", N_("Create _Document") },
+  /* name, icon name, label */ { "New Documents", "document-new", N_("Create _Document"),
+                                 NULL, NULL, NULL },
   /* name, icon name, label */ { "Open With", NULL, N_("Open Wit_h"),
-                                 NULL, N_("Choose a program with which to open the selected item") },
+                                 NULL, N_("Choose a program with which to open the selected item"), NULL },
   /* name, icon name */        { "Properties", "document-properties",
   /* label, accelerator */       N_("_Properties"), "<alt>Return",
   /* tooltip */                  N_("View or modify the properties of each selected item"),
@@ -7401,7 +7402,7 @@ static const GtkActionEntry directory_view_entries[] = {
   /* label, accelerator */       N_("Create _Folder"), "<control><shift>N",
   /* tooltip */                  N_("Create a new empty folder inside this folder"),
                                  G_CALLBACK (action_new_folder_callback) },
-  /* name, icon name, label */ { "No Templates", NULL, N_("No templates installed") },
+  /* name, icon name, label */ { "No Templates", NULL, N_("No templates installed"), NULL, NULL, NULL },
   /* name, icon name */        { "New Empty File", NULL,
   /* Translators: this is used to indicate that a file doesn't contain anything */
   /* label, accelerator */       N_("_Empty File"), NULL,
@@ -7465,8 +7466,10 @@ static const GtkActionEntry directory_view_entries[] = {
   /* label, accelerator */       N_("_Paste Into Folder"), "",
   /* tooltip */                  N_("Move or copy files previously selected by a Cut or Copy command into the selected folder"),
                                  G_CALLBACK (action_paste_files_into_callback) },
-  /* name, icon name, label */ { "CopyToMenu", NULL, N_("Cop_y to") },
-  /* name, icon name, label */ { "MoveToMenu", NULL, N_("M_ove to") },
+  /* name, icon name, label */ { "CopyToMenu", NULL, N_("Cop_y to"),
+                                 NULL, NULL, NULL },
+  /* name, icon name, label */ { "MoveToMenu", NULL, N_("M_ove to"),
+                                 NULL, NULL, NULL },
   /* name, icon name */        { "Select All", NULL,
   /* label, accelerator */       N_("Select _All"), "<control>A",
   /* tooltip */                  N_("Select all items in this window"),
@@ -7507,14 +7510,14 @@ static const GtkActionEntry directory_view_entries[] = {
   /* label, accelerator */       N_("_Restore"), NULL,
 				 NULL,
                                  G_CALLBACK (action_restore_from_trash_callback) },
-  /* name, icon name */		  { FM_ACTION_UNDO, "edit-undo",
-  /* label, accelerator */		 N_("_Undo"), "<control>Z",
-  /* tooltip */ 				 	 N_("Undo the last action"),
-								 G_CALLBACK (action_undo_callback) },
-  /* name, icon name */		  { FM_ACTION_REDO, "edit-redo",
-  /* label, accelerator */	     N_("_Redo"), "<control>Y",
-  /* tooltip */     			 	 N_("Redo the last undone action"),
-								 G_CALLBACK (action_redo_callback) },
+  /* name, icon name */        { FM_ACTION_UNDO, "edit-undo",
+  /* label, accelerator */       N_("_Undo"), "<control>Z",
+  /* tooltip */                  N_("Undo the last action"),
+                                 G_CALLBACK (action_undo_callback) },
+  /* name, icon name */        { FM_ACTION_REDO, "edit-redo",
+  /* label, accelerator */       N_("_Redo"), "<control>Y",
+  /* tooltip */                  N_("Redo the last undone action"),
+                                 G_CALLBACK (action_redo_callback) },
 
   /*
    * multiview-TODO: decide whether "Reset to Defaults" should
