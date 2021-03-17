@@ -846,10 +846,14 @@ caja_window_initialize_trash_icon_monitor (CajaWindow *window)
 
 static const GtkActionEntry main_entries[] =
 {
-    /* name, icon name, label */ { "File", NULL, N_("_File") },
-    /* name, icon name, label */ { "Edit", NULL, N_("_Edit") },
-    /* name, icon name, label */ { "View", NULL, N_("_View") },
-    /* name, icon name, label */ { "Help", NULL, N_("_Help") },
+    /* name, icon name, label */ { "File", NULL, N_("_File"),
+                                   NULL, NULL, NULL },
+    /* name, icon name, label */ { "Edit", NULL, N_("_Edit"),
+                                   NULL, NULL, NULL },
+    /* name, icon name, label */ { "View", NULL, N_("_View"),
+                                   NULL, NULL, NULL },
+    /* name, icon name, label */ { "Help", NULL, N_("_Help"),
+                                   NULL, NULL, NULL },
     /* name, icon name */        { "Close", "window-close",
         /* label, accelerator */       N_("_Close"), "<control>W",
         /* tooltip */                  N_("Close this folder"),

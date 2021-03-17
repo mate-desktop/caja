@@ -921,7 +921,9 @@ action_search_callback (GtkAction *action,
 
 static const GtkActionEntry spatial_entries[] =
 {
-    /* name, icon name, label */ { SPATIAL_ACTION_PLACES, NULL, N_("_Places") },
+    /* name, icon name, label */ { SPATIAL_ACTION_PLACES, NULL, N_("_Places"),
+        NULL, NULL, NULL
+    },
     /* name, icon name, label */ {
         SPATIAL_ACTION_GO_TO_LOCATION, NULL, N_("Open _Location..."),
         "<control>L", N_("Specify a location to open"),

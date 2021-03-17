@@ -824,9 +824,15 @@ action_tab_change_action_activate_callback (GtkAction *action, gpointer user_dat
 
 static const GtkActionEntry navigation_entries[] =
 {
-    /* name, icon name, label */ { "Go", NULL, N_("_Go") },
-    /* name, icon name, label */ { "Bookmarks", NULL, N_("_Bookmarks") },
-    /* name, icon name, label */ { "Tabs", NULL, N_("_Tabs") },
+    /* name, icon name, label */ { "Go", NULL, N_("_Go"),
+        NULL, NULL, NULL
+    },
+    /* name, icon name, label */ { "Bookmarks", NULL, N_("_Bookmarks"),
+        NULL, NULL, NULL
+    },
+    /* name, icon name, label */ { "Tabs", NULL, N_("_Tabs"),
+        NULL, NULL, NULL
+    },
     /* name, icon name, label */ { "New Window", "window-new", N_("New _Window"),
         "<control>N", N_("Open another Caja window for the displayed location"),
         G_CALLBACK (action_new_window_callback)

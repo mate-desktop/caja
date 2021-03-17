@@ -1706,22 +1706,20 @@ fm_icon_view_start_renaming_file (FMDirectoryView *view,
 
 static const GtkActionEntry icon_view_entries[] =
 {
-    /* name, stock id, label */  { "Arrange Items", NULL, N_("Arran_ge Items") },
+    /* name, stock id, label */  { "Arrange Items", NULL, N_("Arran_ge Items"),
+                                   NULL, NULL, NULL },
     /* name, stock id */         { "Stretch", NULL,
-        /* label, accelerator */       N_("Resize Icon..."), NULL,
-        /* tooltip */                  N_("Make the selected icon resizable"),
-        G_CALLBACK (action_stretch_callback)
-    },
+    /* label, accelerator */       N_("Resize Icon..."), NULL,
+    /* tooltip */                  N_("Make the selected icon resizable"),
+                                   G_CALLBACK (action_stretch_callback) },
     /* name, stock id */         { "Unstretch", NULL,
-        /* label, accelerator */       N_("Restore Icons' Original Si_zes"), NULL,
-        /* tooltip */                  N_("Restore each selected icon to its original size"),
-        G_CALLBACK (action_unstretch_callback)
-    },
+    /* label, accelerator */       N_("Restore Icons' Original Si_zes"), NULL,
+    /* tooltip */                  N_("Restore each selected icon to its original size"),
+                                   G_CALLBACK (action_unstretch_callback) },
     /* name, stock id */         { "Clean Up", NULL,
-        /* label, accelerator */       N_("_Organize by Name"), NULL,
-        /* tooltip */                  N_("Reposition icons to better fit in the window and avoid overlapping"),
-        G_CALLBACK (action_clean_up_callback)
-    },
+    /* label, accelerator */       N_("_Organize by Name"), NULL,
+    /* tooltip */                  N_("Reposition icons to better fit in the window and avoid overlapping"),
+                                   G_CALLBACK (action_clean_up_callback) },
 };
 
 static const GtkToggleActionEntry icon_view_toggle_entries[] =
