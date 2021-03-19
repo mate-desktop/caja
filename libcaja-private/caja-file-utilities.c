@@ -1299,6 +1299,42 @@ caja_restore_files_from_trash (GList *files,
     caja_file_list_unref (unhandled_files);
 }
 
+char *
+caja_get_filesystem_id_by_location (GFile *location, gboolean follow)
+{
+    GFileInfo *info;
+    GFileQueryInfoFlags flags;
+    char *filesystem_id = NULL;
+
+    if (follow) {
+        flags = G_FILE_QUERY_INFO_NONE;
+    } else {
+        flags = G_FILE_QUERY_INFO_NOFOLLOW_SYMLINKS;
+    }
+
+    info = g_file_query_info (location, G_FILE_ATTRIBUTE_ID_FILESYSTEM, flags, NULL, NULL);
+    if (info) {
+        if (g_file_info_has_attribute (info, G_FILE_ATTRIBUTE_ID_FILESYSTEM)) {
+            filesystem_id = g_strdup (
+                g_file_info_get_attribute_string (info, G_FILE_ATTRIBUTE_ID_FILESYSTEM));
+        }
+        g_object_unref (info);
+    }
+    return filesystem_id;
+}
+
+char *
+caja_get_filesystem_id_by_uri (const char *uri, gboolean follow)
+{
+    GFile *location;
+    char *filesystem_id;
+
+    location = g_file_new_for_uri (uri);
+    filesystem_id = caja_get_filesystem_id_by_location (location, follow);
+    g_object_unref (location);
+    return filesystem_id;
+}
+
 #if !defined (CAJA_OMIT_SELF_CHECK)
 
 void

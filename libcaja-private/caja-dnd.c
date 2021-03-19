@@ -374,28 +374,42 @@ caja_drag_default_drop_action_for_netscape_url (GdkDragContext *context)
 }
 
 static gboolean
-check_same_fs (CajaFile *file1,
-               CajaFile *file2)
+check_same_fs (const char *target_uri, 
+               CajaFile *target_file,
+               const char *dropped_uri,
+               CajaFile *dropped_file)
 {
     gboolean result;
 
     result = FALSE;
 
-    if (file1 != NULL && file2 != NULL)
+    char *target_fs = NULL, *dropped_fs = NULL;
+
+    if (target_file != NULL)
     {
-        char *id1, *id2;
-
-        id1 = caja_file_get_filesystem_id (file1);
-        id2 = caja_file_get_filesystem_id (file2);
-
-        if (id1 != NULL && id2 != NULL)
-        {
-            result = (strcmp (id1, id2) == 0);
-        }
-
-        g_free (id1);
-        g_free (id2);
+        target_fs = caja_file_get_filesystem_id (target_file);
     }
+    if (target_fs == NULL)
+    {
+        target_fs = caja_get_filesystem_id_by_uri (target_uri, TRUE);
+    }
+
+    if (dropped_file != NULL && !caja_file_is_symbolic_link (dropped_file))
+    {
+        dropped_fs = caja_file_get_filesystem_id (dropped_file);
+    }
+    if (dropped_fs == NULL)
+    {
+        dropped_fs = caja_get_filesystem_id_by_uri (dropped_uri, FALSE);
+    }
+
+    if (target_fs != NULL && dropped_fs != NULL)
+    {
+        result = (strcmp (target_fs, dropped_fs) == 0);
+    }
+
+    g_free (target_fs);
+    g_free (dropped_fs);
 
     return result;
 }
@@ -519,7 +533,7 @@ caja_drag_default_drop_action_for_icons (GdkDragContext *context,
         target = g_file_new_for_uri (target_uri_string);
     }
 
-    same_fs = check_same_fs (target_file, dropped_file);
+    same_fs = check_same_fs (target_uri_string, target_file, dropped_uri, dropped_file);
 
     caja_file_unref (dropped_file);
     caja_file_unref (target_file);
