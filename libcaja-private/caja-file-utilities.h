@@ -94,5 +94,7 @@ GHashTable * caja_trashed_files_get_original_directories (GList *files,
         GList **unhandled_files);
 void caja_restore_files_from_trash (GList *files,
                                     GtkWindow *parent_window);
+char * caja_get_filesystem_id_by_location (GFile *location, gboolean follow);
+char * caja_get_filesystem_id_by_uri (const char *uri, gboolean follow);
 
 #endif /* CAJA_FILE_UTILITIES_H */
