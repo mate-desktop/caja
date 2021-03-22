@@ -30,9 +30,7 @@
 #include <config.h>
 #include <dlfcn.h>
 #include <signal.h>
-#ifdef HAVE_LOCALE_H
 #include <locale.h>
-#endif
 #ifdef HAVE_MALLOC_H
 #include <malloc.h>
 #endif
