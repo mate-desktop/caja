@@ -101,6 +101,7 @@
 #define FM_ACTION_REVERSED_ORDER "Reversed Order"
 #define FM_ACTION_CLEAN_UP "Clean Up"
 #define FM_ACTION_KEEP_ALIGNED "Keep Aligned"
+#define FM_ACTION_LOCK_ICON_POSITION "Lock Icons Position"
 #define FM_ACTION_ARRANGE_ITEMS "Arrange Items"
 #define FM_ACTION_STRETCH "Stretch"
 #define FM_ACTION_UNSTRETCH "Unstretch"
