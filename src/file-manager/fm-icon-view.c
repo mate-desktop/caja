@@ -801,6 +801,12 @@ update_layout_menus (FMIconView *view)
     gtk_toggle_action_set_active (GTK_TOGGLE_ACTION (action),
                                   caja_icon_container_is_keep_aligned (get_icon_container (view)));
     gtk_action_set_sensitive (action, !is_auto_layout);
+
+    action = gtk_action_group_get_action (view->details->icon_action_group,
+                                          FM_ACTION_LOCK_ICON_POSITION);
+    gtk_action_set_visible (action, !is_auto_layout);
+    gtk_toggle_action_set_active (GTK_TOGGLE_ACTION (action),
+                                  caja_icon_container_is_lock_icons_position (get_icon_container (view)));
     G_GNUC_END_IGNORE_DEPRECATIONS;
 }
 
@@ -988,6 +994,43 @@ fm_icon_view_set_directory_keep_aligned (FMIconView *icon_view,
     (file, CAJA_METADATA_KEY_ICON_VIEW_KEEP_ALIGNED,
      get_default_directory_keep_aligned (),
      keep_aligned);
+}
+
+static gboolean
+get_default_directory_lock_icons_position (void)
+{
+    return FALSE;
+}
+
+static gboolean
+fm_icon_view_get_directory_lock_icons_position (FMIconView *icon_view,
+        CajaFile *file)
+{
+    if (!fm_icon_view_supports_manual_layout (icon_view))
+    {
+        return FALSE;
+    }
+
+    return caja_file_get_boolean_metadata
+            (file,
+             CAJA_METADATA_KEY_ICON_VIEW_LOCK_ICONS_POSITION,
+             get_default_directory_lock_icons_position ());
+}
+
+static void
+fm_icon_view_set_directory_lock_icons_position (FMIconView *icon_view,
+        CajaFile *file,
+        gboolean lock_icons_position)
+{
+    if (!fm_icon_view_supports_manual_layout (icon_view))
+    {
+        return;
+    }
+
+    caja_file_set_boolean_metadata
+    (file, CAJA_METADATA_KEY_ICON_VIEW_LOCK_ICONS_POSITION,
+     get_default_directory_lock_icons_position (),
+     lock_icons_position);
 }
 
 static gboolean
@@ -1350,6 +1393,9 @@ fm_icon_view_begin_loading (FMDirectoryView *view)
     caja_icon_container_set_keep_aligned
     (get_icon_container (icon_view),
      fm_icon_view_get_directory_keep_aligned (icon_view, file));
+    caja_icon_container_set_lock_icons_position
+    (get_icon_container (icon_view),
+     fm_icon_view_get_directory_lock_icons_position (icon_view, file));
     caja_icon_container_set_tighter_layout
     (get_icon_container (icon_view),
      fm_icon_view_get_directory_tighter_layout (icon_view, file));
@@ -1641,6 +1687,27 @@ action_keep_aligned_callback (GtkAction *action,
 }
 
 static void
+action_lock_icons_position_callback (GtkAction *action,
+                                     gpointer user_data)
+{
+    FMIconView *icon_view;
+    CajaFile *file;
+    gboolean lock_icons_position;
+
+    icon_view = FM_ICON_VIEW (user_data);
+
+    lock_icons_position = gtk_toggle_action_get_active (GTK_TOGGLE_ACTION (action));
+
+    file = fm_directory_view_get_directory_as_file (FM_DIRECTORY_VIEW (icon_view));
+    fm_icon_view_set_directory_lock_icons_position (icon_view,
+            file,
+            lock_icons_position);
+
+    caja_icon_container_set_lock_icons_position (get_icon_container (icon_view),
+                                                 lock_icons_position);
+}
+
+static void
 switch_to_manual_layout (FMIconView *icon_view)
 {
     if (!fm_icon_view_using_auto_layout (icon_view))
@@ -1740,6 +1807,12 @@ static const GtkToggleActionEntry icon_view_toggle_entries[] =
         /* label, accelerator */    N_("_Keep Aligned"), NULL,
         /* tooltip */               N_("Keep icons lined up on a grid"),
         G_CALLBACK (action_keep_aligned_callback),
+        0
+    },
+    /* name, stock id */      { "Lock Icons Position", NULL,
+        /* label, accelerator */    N_("_Lock Icons Position"), NULL,
+        /* tooltip */               N_("Prevent repositioning icons"),
+        G_CALLBACK (action_lock_icons_position_callback),
         0
     },
 };
@@ -1963,6 +2036,8 @@ fm_icon_view_reset_to_defaults (FMDirectoryView *view)
     clear_sort_criterion (icon_view);
     caja_icon_container_set_keep_aligned
     (icon_container, get_default_directory_keep_aligned ());
+    caja_icon_container_set_lock_icons_position
+    (icon_container, get_default_directory_lock_icons_position ());
     caja_icon_container_set_tighter_layout
     (icon_container, get_default_directory_tighter_layout ());
 

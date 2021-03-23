@@ -238,6 +238,9 @@ struct CajaIconContainerDetails
     /* Should the container keep icons aligned to a grid */
     gboolean keep_aligned;
 
+    /* Should the container not allow manual icon position */
+    gboolean lock_icons_position;
+
     /* Set to TRUE after first allocation has been done */
     gboolean has_been_allocated;
 

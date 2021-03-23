@@ -45,6 +45,7 @@
 #define CAJA_METADATA_KEY_ICON_VIEW_SORT_BY          	"caja-icon-view-sort-by"
 #define CAJA_METADATA_KEY_ICON_VIEW_SORT_REVERSED    	"caja-icon-view-sort-reversed"
 #define CAJA_METADATA_KEY_ICON_VIEW_KEEP_ALIGNED            "caja-icon-view-keep-aligned"
+#define CAJA_METADATA_KEY_ICON_VIEW_LOCK_ICONS_POSITION	"caja-icon-view-lock-icons-position"
 #define CAJA_METADATA_KEY_ICON_VIEW_LAYOUT_TIMESTAMP	"caja-icon-view-layout-timestamp"
 
 #define CAJA_METADATA_KEY_LIST_VIEW_ZOOM_LEVEL       	"caja-list-view-zoom-level"
