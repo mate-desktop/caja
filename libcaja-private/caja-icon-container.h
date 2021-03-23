@@ -281,6 +281,9 @@ void              caja_icon_container_set_tighter_layout            (CajaIconCon
 gboolean          caja_icon_container_is_keep_aligned               (CajaIconContainer  *container);
 void              caja_icon_container_set_keep_aligned              (CajaIconContainer  *container,
         gboolean                keep_aligned);
+gboolean          caja_icon_container_is_lock_icons_position        (CajaIconContainer  *container);
+void              caja_icon_container_set_lock_icons_position       (CajaIconContainer *container,
+        gboolean lock_icons_position);
 void              caja_icon_container_set_layout_mode               (CajaIconContainer  *container,
         CajaIconLayoutMode  mode);
 void              caja_icon_container_set_label_position            (CajaIconContainer  *container,

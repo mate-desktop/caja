@@ -2610,7 +2610,7 @@ caja_icon_container_move_icon (CajaIconContainer *container,
         }
     }
 
-    if (!details->auto_layout)
+    if (!details->auto_layout && !details->lock_icons_position)
     {
         if (details->keep_aligned && snap)
         {
@@ -8688,6 +8688,12 @@ caja_icon_container_is_keep_aligned (CajaIconContainer *container)
     return container->details->keep_aligned;
 }
 
+gboolean
+caja_icon_container_is_lock_icons_position (CajaIconContainer *container)
+{
+    return container->details->lock_icons_position;
+}
+
 static gboolean
 align_icons_callback (gpointer callback_data)
 {
@@ -8738,6 +8744,15 @@ caja_icon_container_set_keep_aligned (CajaIconContainer *container,
             unschedule_align_icons (container);
         }
     }
+}
+
+void
+caja_icon_container_set_lock_icons_position (CajaIconContainer *container,
+                                             gboolean lock_icons_position)
+{
+    g_return_if_fail (CAJA_IS_ICON_CONTAINER (container));
+
+    container->details->lock_icons_position = lock_icons_position;
 }
 
 void
