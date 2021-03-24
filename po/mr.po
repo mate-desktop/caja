@@ -10,9 +10,9 @@
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: caja 1.23.2\n"
+"Project-Id-Version: caja 1.24.0\n"
 "Report-Msgid-Bugs-To: https://mate-desktop.org\n"
-"POT-Creation-Date: 2020-01-10 11:11+0100\n"
+"POT-Creation-Date: 2021-03-24 10:30+0100\n"
 "PO-Revision-Date: 2020-02-14 11:44+0000\n"
 "Last-Translator: Vaibhav S Dalvi <vaibhav.dlv@gmail.com>, 2020\n"
 "Language-Team: Marathi (https://www.transifex.com/mate/teams/13566/mr/)\n"
@@ -293,7 +293,7 @@ msgstr "खोडा"
 
 #: data/caja.appdata.xml.in:7 data/caja-browser.desktop.in.in:3
 #: data/caja.desktop.in.in:3 data/caja-folder-handler.desktop.in.in:3
-#: src/caja-spatial-window.c:399 src/caja-window.c:167
+#: src/caja-spatial-window.c:403 src/caja-window.c:167
 #: src/caja-window-menus.c:574
 msgid "Caja"
 msgstr "नॉटीलस"
@@ -320,12 +320,6 @@ msgstr ""
 msgid "Autorun Prompt"
 msgstr "प्रॉमप्ट आपोआप चालवा"
 
-#. Translators: Do NOT translate or transliterate this text (this is an icon
-#. file name)!
-#: data/caja-autorun-software.desktop.in.in:7
-msgid "application-x-executable"
-msgstr ""
-
 #: data/caja-browser.desktop.in.in:4
 msgid "File Browser"
 msgstr "फाइल ब्राउजर"
@@ -333,13 +327,6 @@ msgstr "फाइल ब्राउजर"
 #: data/caja-browser.desktop.in.in:5
 msgid "Browse the file system with the file manager"
 msgstr "फाइल व्यवस्थापकाच्या मदतीने फाइल प्रणाली संचार करा"
-
-#. Translators: Do NOT translate or transliterate this text (this is an icon
-#. file name)!
-#: data/caja-browser.desktop.in.in:9 data/caja.desktop.in.in:7
-#: data/caja-file-management-properties.desktop.in.in:7
-msgid "system-file-manager"
-msgstr ""
 
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
@@ -358,12 +345,6 @@ msgid ""
 msgstr ""
 "सर्व स्थानीय व दुरस्थ डीस्क व या संगणकावरील प्रवेश प्राप्तीय संचयीकांचे "
 "संचार करा"
-
-#. Translators: Do NOT translate or transliterate this text (this is an icon
-#. file name)!
-#: data/caja-computer.desktop.in.in:8
-msgid "computer"
-msgstr ""
 
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
@@ -393,12 +374,6 @@ msgstr ""
 msgid "Open Folder"
 msgstr "संचयीका उघडा"
 
-#. Translators: Do NOT translate or transliterate this text (this is an icon
-#. file name)!
-#: data/caja-folder-handler.desktop.in.in:10
-msgid "folder-open"
-msgstr ""
-
 #: data/caja-home.desktop.in.in:3 src/file-manager/fm-tree-view.c:1421
 msgid "Home Folder"
 msgstr "होम फोल्डर"
@@ -407,12 +382,6 @@ msgstr "होम फोल्डर"
 #: src/caja-window-menus.c:935
 msgid "Open your personal folder"
 msgstr "तुमची व्यक्तिगत फोल्डर उघडा"
-
-#. Translators: Do NOT translate or transliterate this text (this is an icon
-#. file name)!
-#: data/caja-home.desktop.in.in:8
-msgid "user-home"
-msgstr ""
 
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
@@ -431,12 +400,6 @@ msgstr "नेटवर्क"
 #: data/mate-network-scheme.desktop.in.in:4 src/caja-window-menus.c:945
 msgid "Browse bookmarked and local network locations"
 msgstr "संचार्ह ओळचिन्हे व स्थानिक नेटवर्क स्थळे"
-
-#. Translators: Do NOT translate or transliterate this text (this is an icon
-#. file name)!
-#: data/mate-network-scheme.desktop.in.in:11
-msgid "network-workgroup"
-msgstr ""
 
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
@@ -795,7 +758,7 @@ msgid "The group of the file."
 msgstr "फाइलचा गट."
 
 #: libcaja-private/caja-column-utilities.c:108
-#: src/file-manager/fm-properties-window.c:4788
+#: src/file-manager/fm-properties-window.c:4785
 msgid "Permissions"
 msgstr "परवानगी"
 
@@ -999,206 +962,206 @@ msgstr "डेस्कटॉप चिन्ह पुन्हनामां�
 msgid "Unable to rename desktop file"
 msgstr "डेस्कटॉप फाइल पुन्हनामांकीत करू शकत नाही"
 
-#: libcaja-private/caja-file.c:4757
+#: libcaja-private/caja-file.c:4760
 msgid "today at 00:00:00 PM"
 msgstr "आज 00:00:00 PM वाजता"
 
-#: libcaja-private/caja-file.c:4758 src/caja-file-management-properties.c:532
+#: libcaja-private/caja-file.c:4761 src/caja-file-management-properties.c:532
 msgid "today at %-I:%M:%S %p"
 msgstr "आज %-I:%M:%S %p योवेळी"
 
-#: libcaja-private/caja-file.c:4760
+#: libcaja-private/caja-file.c:4763
 msgid "today at 00:00 PM"
 msgstr "आज 00:00 PM वाजता"
 
-#: libcaja-private/caja-file.c:4761
+#: libcaja-private/caja-file.c:4764
 msgid "today at %-I:%M %p"
 msgstr "आज येथे %-I:%M %p"
 
-#: libcaja-private/caja-file.c:4763
+#: libcaja-private/caja-file.c:4766
 msgid "today, 00:00 PM"
 msgstr "आज, 00:00 PM"
 
-#: libcaja-private/caja-file.c:4764
+#: libcaja-private/caja-file.c:4767
 msgid "today, %-I:%M %p"
 msgstr "आज, %-I:%M %p"
 
-#: libcaja-private/caja-file.c:4766 libcaja-private/caja-file.c:4767
+#: libcaja-private/caja-file.c:4769 libcaja-private/caja-file.c:4770
 msgid "today"
 msgstr "आज"
 
-#: libcaja-private/caja-file.c:4776
+#: libcaja-private/caja-file.c:4779
 msgid "yesterday at 00:00:00 PM"
 msgstr "काल 00:00:00 PM वाजता"
 
-#: libcaja-private/caja-file.c:4777
+#: libcaja-private/caja-file.c:4780
 msgid "yesterday at %-I:%M:%S %p"
 msgstr "काल %-I:%M:%S %p"
 
-#: libcaja-private/caja-file.c:4779
+#: libcaja-private/caja-file.c:4782
 msgid "yesterday at 00:00 PM"
 msgstr "काल 00:00 PM"
 
-#: libcaja-private/caja-file.c:4780
+#: libcaja-private/caja-file.c:4783
 msgid "yesterday at %-I:%M %p"
 msgstr "काल येथे %-I:%M %p"
 
-#: libcaja-private/caja-file.c:4782
+#: libcaja-private/caja-file.c:4785
 msgid "yesterday, 00:00 PM"
 msgstr "काल, 00:00 PM"
 
-#: libcaja-private/caja-file.c:4783
+#: libcaja-private/caja-file.c:4786
 msgid "yesterday, %-I:%M %p"
 msgstr "काल, %-I:%M %p"
 
-#: libcaja-private/caja-file.c:4785 libcaja-private/caja-file.c:4786
+#: libcaja-private/caja-file.c:4788 libcaja-private/caja-file.c:4789
 msgid "yesterday"
 msgstr "काल"
 
-#: libcaja-private/caja-file.c:4797
+#: libcaja-private/caja-file.c:4800
 msgid "Wednesday, September 00 0000 at 00:00:00 PM"
 msgstr "बुधवार, सप्टेम्बर 00 0000 00:00:00 PM वाजता"
 
-#: libcaja-private/caja-file.c:4798
+#: libcaja-private/caja-file.c:4801
 msgid "%A, %B %-d %Y at %-I:%M:%S %p"
 msgstr "%A, %B %-d %Y येथे %-I:%M:%S %p"
 
-#: libcaja-private/caja-file.c:4800
+#: libcaja-private/caja-file.c:4803
 msgid "Mon, Oct 00 0000 at 00:00:00 PM"
 msgstr "सोम, ऑक्टो 00 0000 00:00:00 PM यावेळी"
 
-#: libcaja-private/caja-file.c:4801
+#: libcaja-private/caja-file.c:4804
 msgid "%a, %b %-d %Y at %-I:%M:%S %p"
 msgstr "%a, %b %-d %Y %-I:%M:%S %p यावेळी"
 
-#: libcaja-private/caja-file.c:4803
+#: libcaja-private/caja-file.c:4806
 msgid "Mon, Oct 00 0000 at 00:00 PM"
 msgstr "सोम, ऑक्ट 00 0000 00:00 PM यावेळी"
 
-#: libcaja-private/caja-file.c:4804
+#: libcaja-private/caja-file.c:4807
 msgid "%a, %b %-d %Y at %-I:%M %p"
 msgstr "%a, %b %-d %Y %-I:%M %p यावेळी"
 
-#: libcaja-private/caja-file.c:4806
+#: libcaja-private/caja-file.c:4809
 msgid "Oct 00 0000 at 00:00 PM"
 msgstr "ऑक्ट 00 0000 00:00 PM यावेळी"
 
-#: libcaja-private/caja-file.c:4807
+#: libcaja-private/caja-file.c:4810
 msgid "%b %-d %Y at %-I:%M %p"
 msgstr "%b %-d %Y %-I:%M %p यावेळी"
 
-#: libcaja-private/caja-file.c:4809
+#: libcaja-private/caja-file.c:4812
 msgid "Oct 00 0000, 00:00 PM"
 msgstr "ऑक्ट 00 0000, 00:00 PM"
 
-#: libcaja-private/caja-file.c:4810
+#: libcaja-private/caja-file.c:4813
 msgid "%b %-d %Y, %-I:%M %p"
 msgstr "%b %-d %Y, %-I:%M %p"
 
-#: libcaja-private/caja-file.c:4812
+#: libcaja-private/caja-file.c:4815
 msgid "00/00/00, 00:00 PM"
 msgstr "00/00/00, 00:00 PM"
 
-#: libcaja-private/caja-file.c:4813
+#: libcaja-private/caja-file.c:4816
 msgid "%m/%-d/%y, %-I:%M %p"
 msgstr "%m/%-d/%y, %-I:%M %p"
 
-#: libcaja-private/caja-file.c:4815
+#: libcaja-private/caja-file.c:4818
 msgid "00/00/00"
 msgstr "00/00/00"
 
-#: libcaja-private/caja-file.c:4816
+#: libcaja-private/caja-file.c:4819
 msgid "%m/%d/%y"
 msgstr "%m/%d/%y"
 
-#: libcaja-private/caja-file.c:5453
+#: libcaja-private/caja-file.c:5456
 msgid "Not allowed to set permissions"
 msgstr "परवानगी निश्चित करण्यास परवानगी नाही"
 
-#: libcaja-private/caja-file.c:5747
+#: libcaja-private/caja-file.c:5750
 msgid "Not allowed to set owner"
 msgstr "मालकी निश्चित करू शकत नाही"
 
-#: libcaja-private/caja-file.c:5765
+#: libcaja-private/caja-file.c:5768
 #, c-format
 msgid "Specified owner '%s' doesn't exist"
 msgstr "निर्धारीत मालक '%s' अस्तित्वात नाही"
 
-#: libcaja-private/caja-file.c:6027
+#: libcaja-private/caja-file.c:6030
 msgid "Not allowed to set group"
 msgstr "समुह निश्चित करण्यास परवानगी नाही"
 
-#: libcaja-private/caja-file.c:6045
+#: libcaja-private/caja-file.c:6048
 #, c-format
 msgid "Specified group '%s' doesn't exist"
 msgstr "निर्धारीत समुह '%s' अस्तित्वात नाही"
 
-#: libcaja-private/caja-file.c:6199 src/file-manager/fm-directory-view.c:2397
+#: libcaja-private/caja-file.c:6202 src/file-manager/fm-directory-view.c:2397
 #, c-format
 msgid "%'u item"
 msgid_plural "%'u items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-file.c:6200
+#: libcaja-private/caja-file.c:6203
 #, c-format
 msgid "%'u folder"
 msgid_plural "%'u folders"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-file.c:6201
+#: libcaja-private/caja-file.c:6204
 #, c-format
 msgid "%'u file"
 msgid_plural "%'u files"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-file.c:6305
+#: libcaja-private/caja-file.c:6308
 msgid "%"
 msgstr "%"
 
-#: libcaja-private/caja-file.c:6306
+#: libcaja-private/caja-file.c:6309
 #, c-format
 msgid "%s (%s bytes)"
 msgstr "%s (%s बाईट्स)"
 
-#: libcaja-private/caja-file.c:6656 libcaja-private/caja-file.c:6680
+#: libcaja-private/caja-file.c:6659 libcaja-private/caja-file.c:6683
 msgid "? items"
 msgstr "? माहिती"
 
-#: libcaja-private/caja-file.c:6662 libcaja-private/caja-file.c:6670
+#: libcaja-private/caja-file.c:6665 libcaja-private/caja-file.c:6673
 msgid "? bytes"
 msgstr "? बाईट्स"
 
-#: libcaja-private/caja-file.c:6685
+#: libcaja-private/caja-file.c:6688
 msgid "unknown type"
 msgstr "अपरिचित प्रकार"
 
-#: libcaja-private/caja-file.c:6688
+#: libcaja-private/caja-file.c:6691
 msgid "unknown MIME type"
 msgstr "अपरिचीत MIME प्रकार"
 
-#: libcaja-private/caja-file.c:6702
-#: src/file-manager/fm-properties-window.c:1302
+#: libcaja-private/caja-file.c:6705
+#: src/file-manager/fm-properties-window.c:1299
 msgid "unknown"
 msgstr "अपरिचीत"
 
-#: libcaja-private/caja-file.c:6752
+#: libcaja-private/caja-file.c:6755
 msgid "program"
 msgstr "कार्यक्रम"
 
-#: libcaja-private/caja-file.c:6772
+#: libcaja-private/caja-file.c:6775
 msgid "link"
 msgstr "लिंक"
 
-#: libcaja-private/caja-file.c:6778 libcaja-private/caja-file-operations.c:406
+#: libcaja-private/caja-file.c:6781 libcaja-private/caja-file-operations.c:406
 #: src/file-manager/fm-directory-view.c:10736
 #, c-format
 msgid "Link to %s"
 msgstr "%s करीता लिंक द्या"
 
-#: libcaja-private/caja-file.c:6794
+#: libcaja-private/caja-file.c:6797
 msgid "link (broken)"
 msgstr "जोडणी (अनिश्चित)"
 
@@ -1283,14 +1246,14 @@ msgstr "मुळची फाईल"
 
 #: libcaja-private/caja-file-conflict-dialog.c:277
 #: libcaja-private/caja-file-conflict-dialog.c:316
-#: src/file-manager/fm-properties-window.c:3306
+#: src/file-manager/fm-properties-window.c:3303
 msgid "Size:"
 msgstr "आकार:"
 
 #: libcaja-private/caja-file-conflict-dialog.c:282
 #: libcaja-private/caja-file-conflict-dialog.c:321
 #: src/caja-connect-server-dialog.c:927
-#: src/file-manager/fm-properties-window.c:3288
+#: src/file-manager/fm-properties-window.c:3285
 msgid "Type:"
 msgstr "प्रकार:"
 
@@ -2347,7 +2310,7 @@ msgid "Select an Application"
 msgstr "अनुप्रयोग निवडा"
 
 #: libcaja-private/caja-open-with-dialog.c:868
-#: src/file-manager/fm-properties-window.c:5122
+#: src/file-manager/fm-properties-window.c:5119
 msgid "Open With"
 msgstr "च्यासह उघडा"
 
@@ -2552,372 +2515,372 @@ msgstr "शोधा"
 msgid "Search for \"%s\""
 msgstr "\"%s\" करीता शोधा"
 
-#: libcaja-private/caja-undostack-manager.c:1239
+#: libcaja-private/caja-undostack-manager.c:1212
 #, c-format
 msgid "Delete %d copied items"
 msgstr "%d प्रत बनवलेले घटक नष्ट करा "
 
-#: libcaja-private/caja-undostack-manager.c:1242
-#: libcaja-private/caja-undostack-manager.c:1252
-#: libcaja-private/caja-undostack-manager.c:1283
+#: libcaja-private/caja-undostack-manager.c:1215
+#: libcaja-private/caja-undostack-manager.c:1225
+#: libcaja-private/caja-undostack-manager.c:1256
 #, c-format
 msgid "Delete '%s'"
 msgstr "'%s' काढून टाका"
 
-#: libcaja-private/caja-undostack-manager.c:1249
+#: libcaja-private/caja-undostack-manager.c:1222
 #, c-format
 msgid "Delete %d duplicated items"
 msgstr "%d नक्कल केलेले घटक नष्ट करा "
 
-#: libcaja-private/caja-undostack-manager.c:1260
+#: libcaja-private/caja-undostack-manager.c:1233
 #, c-format
 msgid "Move %d items back to '%s'"
 msgstr "%d घटक परत '%s' ला न्या "
 
-#: libcaja-private/caja-undostack-manager.c:1264
+#: libcaja-private/caja-undostack-manager.c:1237
 #, c-format
 msgid "Move '%s' back to '%s'"
 msgstr "'%s' ला '%s' परत न्या "
 
-#: libcaja-private/caja-undostack-manager.c:1273
-#: libcaja-private/caja-undostack-manager.c:1440
+#: libcaja-private/caja-undostack-manager.c:1246
+#: libcaja-private/caja-undostack-manager.c:1413
 #, c-format
 msgid "Rename '%s' as '%s'"
 msgstr "'%s' ला '%s' असे नाव द्या"
 
-#: libcaja-private/caja-undostack-manager.c:1292
-#: libcaja-private/caja-undostack-manager.c:1487
+#: libcaja-private/caja-undostack-manager.c:1265
+#: libcaja-private/caja-undostack-manager.c:1460
 #, c-format
 msgid "Restore %d items from trash"
 msgstr "कचऱ्यातून %d घटक पुनःप्रस्थापित करा "
 
-#: libcaja-private/caja-undostack-manager.c:1300
+#: libcaja-private/caja-undostack-manager.c:1273
 #, c-format
 msgid "Restore '%s' to '%s'"
 msgstr "'%s', '%s'ला पुनःप्रस्थापित करा"
 
-#: libcaja-private/caja-undostack-manager.c:1311
+#: libcaja-private/caja-undostack-manager.c:1284
 #, c-format
 msgid "Move %d items back to trash"
 msgstr "%d घटक परत कचऱ्यात टाका"
 
-#: libcaja-private/caja-undostack-manager.c:1314
+#: libcaja-private/caja-undostack-manager.c:1287
 #, c-format
 msgid "Move '%s' back to trash"
 msgstr "'%s' परत कचऱ्यात टाका "
 
-#: libcaja-private/caja-undostack-manager.c:1323
+#: libcaja-private/caja-undostack-manager.c:1296
 #, c-format
 msgid "Delete links to %d items"
 msgstr "%d घटकांकरीता लिंक नष्ट करा"
 
-#: libcaja-private/caja-undostack-manager.c:1326
+#: libcaja-private/caja-undostack-manager.c:1299
 #, c-format
 msgid "Delete link to '%s'"
 msgstr "'%s' ची जोडणी नष्ट करा"
 
-#: libcaja-private/caja-undostack-manager.c:1336
+#: libcaja-private/caja-undostack-manager.c:1309
 #, c-format
 msgid "Restore original permissions of items enclosed in '%s'"
 msgstr "'%s' मधल्या घटकांना मुळच्या परवानग्या पुनर्प्रस्थापित करा"
 
-#: libcaja-private/caja-undostack-manager.c:1344
+#: libcaja-private/caja-undostack-manager.c:1317
 #, c-format
 msgid "Restore original permissions of '%s'"
 msgstr "'%s' च्या मुळच्या परवानग्या पुनर्प्रस्थापित करा"
 
-#: libcaja-private/caja-undostack-manager.c:1353
+#: libcaja-private/caja-undostack-manager.c:1326
 #, c-format
 msgid "Restore group of '%s' to '%s'"
 msgstr "'%s' चा गट '%s'ला पुनःप्रस्थापित करा"
 
-#: libcaja-private/caja-undostack-manager.c:1363
+#: libcaja-private/caja-undostack-manager.c:1336
 #, c-format
 msgid "Restore owner of '%s' to '%s'"
 msgstr "'%s' चा मालक, '%s' ला पुनःप्रस्थापित करा"
 
-#: libcaja-private/caja-undostack-manager.c:1402
+#: libcaja-private/caja-undostack-manager.c:1375
 #, c-format
 msgid "Copy %d items to '%s'"
 msgstr "%d घटक '%s' ला प्रतिलिपी करा "
 
-#: libcaja-private/caja-undostack-manager.c:1406
+#: libcaja-private/caja-undostack-manager.c:1379
 #, c-format
 msgid "Copy '%s' to '%s'"
 msgstr "'%s', '%s' ला प्रतिलिपी करा "
 
-#: libcaja-private/caja-undostack-manager.c:1414
+#: libcaja-private/caja-undostack-manager.c:1387
 #, c-format
 msgid "Duplicate of %d items in '%s'"
-msgstr "'%s' मधील %d घटकांची हुबहू नकल"
+msgstr ""
 
-#: libcaja-private/caja-undostack-manager.c:1419
+#: libcaja-private/caja-undostack-manager.c:1392
 #, c-format
 msgid "Duplicate '%s' in '%s'"
 msgstr "'%s' मध्ये हुबेहू नोंदणी '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1427
+#: libcaja-private/caja-undostack-manager.c:1400
 #, c-format
 msgid "Move %d items to '%s'"
 msgstr "%d घटक '%s' ला न्या "
 
-#: libcaja-private/caja-undostack-manager.c:1431
+#: libcaja-private/caja-undostack-manager.c:1404
 #, c-format
 msgid "Move '%s' to '%s'"
 msgstr "'%s', '%s' ला हलवा"
 
-#: libcaja-private/caja-undostack-manager.c:1449
+#: libcaja-private/caja-undostack-manager.c:1422
 #, c-format
 msgid "Create new file '%s' from template "
 msgstr "नमुन्यातुन नवीन दस्तऐवज \"%s\" निर्माण करा"
 
-#: libcaja-private/caja-undostack-manager.c:1456
+#: libcaja-private/caja-undostack-manager.c:1429
 #, c-format
 msgid "Create an empty file '%s'"
 msgstr "'%s' रिकामी फाईल बनवा "
 
-#: libcaja-private/caja-undostack-manager.c:1463
+#: libcaja-private/caja-undostack-manager.c:1436
 #, c-format
 msgid "Create a new folder '%s'"
 msgstr "'%s' नवीन फोल्डर बनवा "
 
-#: libcaja-private/caja-undostack-manager.c:1471
+#: libcaja-private/caja-undostack-manager.c:1444
 #, c-format
 msgid "Move %d items to trash"
 msgstr "%d घटक कचऱ्यात न्या "
 
-#: libcaja-private/caja-undostack-manager.c:1477
+#: libcaja-private/caja-undostack-manager.c:1450
 #, c-format
 msgid "Move '%s' to trash"
 msgstr "'%s' कचऱ्यात न्या "
 
-#: libcaja-private/caja-undostack-manager.c:1490
+#: libcaja-private/caja-undostack-manager.c:1463
 #, c-format
 msgid "Restore '%s' from trash"
 msgstr "'%s' कचऱ्यातून पुनःप्रस्थापित करा "
 
-#: libcaja-private/caja-undostack-manager.c:1499
+#: libcaja-private/caja-undostack-manager.c:1472
 #, c-format
 msgid "Create links to %d items"
 msgstr "%d घटकांकरीता लिंक निर्माण करत आहे"
 
-#: libcaja-private/caja-undostack-manager.c:1502
+#: libcaja-private/caja-undostack-manager.c:1475
 #, c-format
 msgid "Create link to '%s'"
 msgstr "'%s' ला लिंक तयार करा "
 
-#: libcaja-private/caja-undostack-manager.c:1511
+#: libcaja-private/caja-undostack-manager.c:1484
 #, c-format
 msgid "Set permissions of items enclosed in '%s'"
 msgstr "'%s' मधल्या घटकांना परवानग्या द्या"
 
-#: libcaja-private/caja-undostack-manager.c:1519
+#: libcaja-private/caja-undostack-manager.c:1492
 #, c-format
 msgid "Set permissions of '%s'"
 msgstr "'%s' च्या परवानग्या  द्या "
 
-#: libcaja-private/caja-undostack-manager.c:1528
+#: libcaja-private/caja-undostack-manager.c:1501
 #, c-format
 msgid "Set group of '%s' to '%s'"
 msgstr "'%s' ते '%s' चा गट करा"
 
-#: libcaja-private/caja-undostack-manager.c:1538
+#: libcaja-private/caja-undostack-manager.c:1511
 #, c-format
 msgid "Set owner of '%s' to '%s'"
 msgstr "'%s' चा मालक, '%s' ला बनवा"
 
-#: libcaja-private/caja-undostack-manager.c:1570
+#: libcaja-private/caja-undostack-manager.c:1543
 #, c-format
 msgid "_Undo copy of %d item"
 msgid_plural "_Undo copy of %d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1575
+#: libcaja-private/caja-undostack-manager.c:1548
 #, c-format
 msgid "_Undo duplicate of %d item"
 msgid_plural "_Undo duplicate of %d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1580
+#: libcaja-private/caja-undostack-manager.c:1553
 #, c-format
 msgid "_Undo move of %d item"
 msgid_plural "_Undo move of %d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1585
+#: libcaja-private/caja-undostack-manager.c:1558
 #, c-format
 msgid "_Undo rename of %d item"
 msgid_plural "_Undo rename of %d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1589
+#: libcaja-private/caja-undostack-manager.c:1562
 msgid "_Undo creation of an empty file"
 msgstr "बनविलेली रिकामी फाईल रद्द करा (_U)"
 
-#: libcaja-private/caja-undostack-manager.c:1592
+#: libcaja-private/caja-undostack-manager.c:1565
 msgid "_Undo creation of a file from template"
 msgstr "नमुन्यातुन बनविलेली फाईल रद्द करा (_U)"
 
-#: libcaja-private/caja-undostack-manager.c:1596
+#: libcaja-private/caja-undostack-manager.c:1569
 #, c-format
 msgid "_Undo creation of %d folder"
 msgid_plural "_Undo creation of %d folders"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1601
+#: libcaja-private/caja-undostack-manager.c:1574
 #, c-format
 msgid "_Undo move to trash of %d item"
 msgid_plural "_Undo move to trash of %d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1606
+#: libcaja-private/caja-undostack-manager.c:1579
 #, c-format
 msgid "_Undo restore from trash of %d item"
 msgid_plural "_Undo restore from trash of %d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1611
+#: libcaja-private/caja-undostack-manager.c:1584
 #, c-format
 msgid "_Undo create link to %d item"
 msgid_plural "_Undo create link to %d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1616
+#: libcaja-private/caja-undostack-manager.c:1589
 #, c-format
 msgid "_Undo delete of %d item"
 msgid_plural "_Undo delete of %d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1621
+#: libcaja-private/caja-undostack-manager.c:1594
 #, c-format
 msgid "Undo recursive change permissions of %d item"
 msgid_plural "Undo recursive change permissions of %d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1627
+#: libcaja-private/caja-undostack-manager.c:1600
 #, c-format
 msgid "Undo change permissions of %d item"
 msgid_plural "Undo change permissions of %d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1632
+#: libcaja-private/caja-undostack-manager.c:1605
 #, c-format
 msgid "Undo change group of %d item"
 msgid_plural "Undo change group of %d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1637
+#: libcaja-private/caja-undostack-manager.c:1610
 #, c-format
 msgid "Undo change owner of %d item"
 msgid_plural "Undo change owner of %d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1665
+#: libcaja-private/caja-undostack-manager.c:1638
 #, c-format
 msgid "_Redo copy of %d item"
 msgid_plural "_Redo copy of %d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1670
+#: libcaja-private/caja-undostack-manager.c:1643
 #, c-format
 msgid "_Redo duplicate of %d item"
 msgid_plural "_Redo duplicate of %d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1675
+#: libcaja-private/caja-undostack-manager.c:1648
 #, c-format
 msgid "_Redo move of %d item"
 msgid_plural "_Redo move of %d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1680
+#: libcaja-private/caja-undostack-manager.c:1653
 #, c-format
 msgid "_Redo rename of %d item"
 msgid_plural "_Redo rename of %d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1684
+#: libcaja-private/caja-undostack-manager.c:1657
 msgid "_Redo creation of an empty file"
 msgstr "पुन्हा रिकामी फाईल बनवा (_R)"
 
-#: libcaja-private/caja-undostack-manager.c:1687
+#: libcaja-private/caja-undostack-manager.c:1660
 msgid "_Redo creation of a file from template"
 msgstr "पुन्हा नमुन्यातुन रिकामी फाईल बनवा (_R)"
 
-#: libcaja-private/caja-undostack-manager.c:1691
+#: libcaja-private/caja-undostack-manager.c:1664
 #, c-format
 msgid "_Redo creation of %d folder"
 msgid_plural "_Redo creation of %d folders"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1696
+#: libcaja-private/caja-undostack-manager.c:1669
 #, c-format
 msgid "_Redo move to trash of %d item"
 msgid_plural "_Redo move to trash of %d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1701
+#: libcaja-private/caja-undostack-manager.c:1674
 #, c-format
 msgid "_Redo restore from trash of %d item"
 msgid_plural "_Redo restore from trash of %d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1706
+#: libcaja-private/caja-undostack-manager.c:1679
 #, c-format
 msgid "_Redo create link to %d item"
 msgid_plural "_Redo create link to %d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1711
+#: libcaja-private/caja-undostack-manager.c:1684
 #, c-format
 msgid "_Redo delete of %d item"
 msgid_plural "_Redo delete of %d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1716
+#: libcaja-private/caja-undostack-manager.c:1689
 #, c-format
 msgid "Redo recursive change permissions of %d item"
 msgid_plural "Redo recursive change permissions of %d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1722
+#: libcaja-private/caja-undostack-manager.c:1695
 #, c-format
 msgid "Redo change permissions of %d item"
 msgid_plural "Redo change permissions of %d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1727
+#: libcaja-private/caja-undostack-manager.c:1700
 #, c-format
 msgid "Redo change group of %d item"
 msgid_plural "Redo change group of %d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1732
+#: libcaja-private/caja-undostack-manager.c:1705
 #, c-format
 msgid "Redo change owner of %d item"
 msgid_plural "Redo change owner of %d items"
@@ -4039,7 +4002,7 @@ msgstr "पुस्तकखुण संपादीत करा"
 #: src/caja-file-management-properties.ui:305 src/caja-location-dialog.c:192
 #: src/caja-property-browser.c:389 src/caja-window-menus.c:852
 #: src/file-manager/fm-directory-view.c:1214
-#: src/file-manager/fm-properties-window.c:5233
+#: src/file-manager/fm-properties-window.c:5230
 msgid "_Help"
 msgstr "मदत(_H)"
 
@@ -4050,7 +4013,7 @@ msgstr ""
 #: src/caja-bookmarks-window.ui:93 src/caja-file-management-properties.ui:321
 #: src/caja-property-browser.c:397 src/caja-window-menus.c:854
 #: src/file-manager/fm-list-view.c:2567
-#: src/file-manager/fm-properties-window.c:5238
+#: src/file-manager/fm-properties-window.c:5235
 msgid "_Close"
 msgstr "बंद करा (_C)"
 
@@ -4130,7 +4093,7 @@ msgstr "चालू ठेवा"
 
 #: src/caja-connect-server-dialog.c:717 src/caja-location-dialog.c:105
 #: src/file-manager/fm-directory-view.c:1188
-#: src/file-manager/fm-properties-window.c:5475
+#: src/file-manager/fm-properties-window.c:5472
 msgid "There was an error displaying help."
 msgstr "मदत प्रदर्शीत करतेवेळी त्रूटी आढळली."
 
@@ -4202,7 +4165,7 @@ msgstr ""
 "\n"
 "सर्व्हर आरोहण शी आपोआप जुळवणी करा"
 
-#: src/caja-desktop-window.c:126 src/caja-desktop-window.c:319
+#: src/caja-desktop-window.c:126 src/caja-desktop-window.c:207
 #: src/caja-pathbar.c:1453 src/caja-places-sidebar.c:542
 msgid "Desktop"
 msgstr "डेस्कटॉप"
@@ -4280,7 +4243,7 @@ msgstr "ओढून घेतलेली फाइल वैध प्रत�
 msgid "The emblem cannot be added."
 msgstr "बोधचिन्ह जोडू शकत नाही."
 
-#: src/caja-emblem-sidebar.c:1102 src/file-manager/fm-properties-window.c:3463
+#: src/caja-emblem-sidebar.c:1102 src/file-manager/fm-properties-window.c:3460
 msgid "Emblems"
 msgstr "बोधचिन्ह"
 
@@ -4292,8 +4255,8 @@ msgstr "बोधचिन्ह दर्शवा"
 #. Translators: this is referred to the permissions
 #. * the user has in a directory.
 #: src/caja-file-management-properties.c:342
-#: src/file-manager/fm-properties-window.c:4239
-#: src/file-manager/fm-properties-window.c:4250
+#: src/file-manager/fm-properties-window.c:4236
+#: src/file-manager/fm-properties-window.c:4247
 msgid "None"
 msgstr "काही नाही"
 
@@ -4887,23 +4850,23 @@ msgid "You cannot assign more than one custom icon at a time."
 msgstr "तुम्ही एकावेळी एकापेक्षा जास्त इच्छिक चिन्हाची नेमणूक करू शकत नाही."
 
 #: src/caja-information-panel.c:527
-#: src/file-manager/fm-properties-window.c:515
+#: src/file-manager/fm-properties-window.c:512
 msgid "Please drag just one image to set a custom icon."
 msgstr "इच्छिक चिन्ह स्थापन करण्यास कृपया एक प्रतिमा ओढा."
 
 #: src/caja-information-panel.c:554
-#: src/file-manager/fm-properties-window.c:526
+#: src/file-manager/fm-properties-window.c:523
 msgid "The file that you dropped is not local."
 msgstr "तुम्ही जी फाइल वगळी ती स्थानिक नाही."
 
 #: src/caja-information-panel.c:555
-#: src/file-manager/fm-properties-window.c:527
-#: src/file-manager/fm-properties-window.c:533
+#: src/file-manager/fm-properties-window.c:524
+#: src/file-manager/fm-properties-window.c:530
 msgid "You can only use local images as custom icons."
 msgstr "तुम्ही फक्त स्थानिक प्रतिमा तयार चिन्हे म्हणून वापरू शकता."
 
 #: src/caja-information-panel.c:562
-#: src/file-manager/fm-properties-window.c:532
+#: src/file-manager/fm-properties-window.c:529
 msgid "The file that you dropped is not an image."
 msgstr "तुम्ही जी फाइल वगळली ती प्रतिमा नाही."
 
@@ -4916,7 +4879,7 @@ msgstr "तुम्ही फक्त इच्छिक चिन्हे �
 msgid "Open With %s"
 msgstr "%s च्यासह उघडा"
 
-#: src/caja-location-bar.c:60 src/file-manager/fm-properties-window.c:3319
+#: src/caja-location-bar.c:60 src/file-manager/fm-properties-window.c:3316
 msgid "Location:"
 msgstr "ठिकाण:"
 
@@ -5009,7 +4972,7 @@ msgstr "सर्व संचार चौकटी बंद करा"
 msgid "_Location..."
 msgstr "स्थळ _L)..."
 
-#: src/caja-navigation-window-menus.c:847 src/caja-spatial-window.c:923
+#: src/caja-navigation-window-menus.c:847 src/caja-spatial-window.c:927
 msgid "Specify a location to open"
 msgstr "उघडण्यासाठी ठिकाण निश्चित करा"
 
@@ -5037,19 +5000,19 @@ msgstr "इतर पटलाप्रमाणे समान स्थान
 msgid "Go to the same location as in the extra pane"
 msgstr "अगाऊ पट्टी प्रमाणेच समान स्थानाकडे जा"
 
-#: src/caja-navigation-window-menus.c:862 src/caja-spatial-window.c:936
+#: src/caja-navigation-window-menus.c:862 src/caja-spatial-window.c:940
 msgid "_Add Bookmark"
 msgstr "पुस्तकखुण जोडा (_A)"
 
-#: src/caja-navigation-window-menus.c:863 src/caja-spatial-window.c:937
+#: src/caja-navigation-window-menus.c:863 src/caja-spatial-window.c:941
 msgid "Add a bookmark for the current location to this menu"
 msgstr "या मेनूवरील सद्याच्या स्थळाकरीता ओळखचिन्ह जोडा"
 
-#: src/caja-navigation-window-menus.c:866 src/caja-spatial-window.c:940
+#: src/caja-navigation-window-menus.c:866 src/caja-spatial-window.c:944
 msgid "_Edit Bookmarks..."
 msgstr "ओळचिन्ह संपादन (_E)..."
 
-#: src/caja-navigation-window-menus.c:867 src/caja-spatial-window.c:941
+#: src/caja-navigation-window-menus.c:867 src/caja-spatial-window.c:945
 msgid "Display a window that allows editing the bookmarks in this menu"
 msgstr "या मेनुमधील ओऴखचिन्हे संपादनाकरीता परवानगी देणारी चौकट दर्शवा"
 
@@ -5127,7 +5090,7 @@ msgstr "स्थितीपट्टी (_a)"
 msgid "Change the visibility of this window's statusbar"
 msgstr "या चौकटीमधिल स्थितीपट्टीची दृश्यक्षमता बदलवा"
 
-#: src/caja-navigation-window-menus.c:924 src/caja-spatial-window.c:944
+#: src/caja-navigation-window-menus.c:924 src/caja-spatial-window.c:948
 msgid "_Search for Files..."
 msgstr "फाइल्स् करीता शोधा (_S)..."
 
@@ -5728,31 +5691,31 @@ msgstr "शोधा:"
 msgid "Close the side pane"
 msgstr "बाजूची पट्टी बंद करा"
 
-#: src/caja-spatial-window.c:920
+#: src/caja-spatial-window.c:924
 msgid "_Places"
 msgstr "ठिकाणे (_P)"
 
-#: src/caja-spatial-window.c:922
+#: src/caja-spatial-window.c:926
 msgid "Open _Location..."
 msgstr "स्थळ उघडा (_L)..."
 
-#: src/caja-spatial-window.c:927
+#: src/caja-spatial-window.c:931
 msgid "Close P_arent Folders"
 msgstr "प्रमुख संचयीका बंद करा (_a)"
 
-#: src/caja-spatial-window.c:928
+#: src/caja-spatial-window.c:932
 msgid "Close this folder's parents"
 msgstr "या संचयीकेची प्रमुख संचयीका बंद करा"
 
-#: src/caja-spatial-window.c:932
+#: src/caja-spatial-window.c:936
 msgid "Clos_e All Folders"
 msgstr "सर्व संचयीका बंद करा (_e)"
 
-#: src/caja-spatial-window.c:933
+#: src/caja-spatial-window.c:937
 msgid "Close all folder windows"
 msgstr "संचयीकेच्या सर्व चौकटी बंद करा"
 
-#: src/caja-spatial-window.c:945
+#: src/caja-spatial-window.c:949
 msgid "Locate documents and folders on this computer by name or content"
 msgstr "या संगणकावरील दस्तऐवज व फोल्डर नाव विषयसूचीनुरूप शोधा"
 
@@ -7507,276 +7470,276 @@ msgstr "सुरू होताना यादी दर्शकाने �
 msgid "Display this location with the list view."
 msgstr "हे ठिकाण यादी दर्शकेबरोबर प्रदर्शित करा."
 
-#: src/file-manager/fm-properties-window.c:514
+#: src/file-manager/fm-properties-window.c:511
 msgid "You cannot assign more than one custom icon at a time!"
 msgstr "एकावेळी एकापेक्षा जास्त इच्छिक चिन्ह जोडू शकत नाही!"
 
-#: src/file-manager/fm-properties-window.c:648
+#: src/file-manager/fm-properties-window.c:645
 msgid "_Name:"
 msgid_plural "_Names:"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/file-manager/fm-properties-window.c:1004
+#: src/file-manager/fm-properties-window.c:1001
 msgid "Properties"
 msgstr "वैशिष्ट्ये"
 
-#: src/file-manager/fm-properties-window.c:1016
+#: src/file-manager/fm-properties-window.c:1013
 #, c-format
 msgid "%s Properties"
 msgstr "%s गुणधर्म"
 
-#: src/file-manager/fm-properties-window.c:1346
+#: src/file-manager/fm-properties-window.c:1343
 #, c-format
 msgctxt "MIME type description (MIME type)"
 msgid "%s (%s)"
 msgstr "%s (%s)"
 
-#: src/file-manager/fm-properties-window.c:1554
+#: src/file-manager/fm-properties-window.c:1551
 msgid "Cancel Group Change?"
 msgstr "गट बदल रद्द करा?"
 
-#: src/file-manager/fm-properties-window.c:1969
+#: src/file-manager/fm-properties-window.c:1966
 msgid "Cancel Owner Change?"
 msgstr "मालकी बदल रद्द करा?"
 
-#: src/file-manager/fm-properties-window.c:2296
+#: src/file-manager/fm-properties-window.c:2293
 msgid "nothing"
 msgstr "काही नाही"
 
-#: src/file-manager/fm-properties-window.c:2298
+#: src/file-manager/fm-properties-window.c:2295
 msgid "unreadable"
 msgstr "न वाचतायेण्याजोगी"
 
-#: src/file-manager/fm-properties-window.c:2317
+#: src/file-manager/fm-properties-window.c:2314
 #, c-format
 msgid "%'d item, with size %s (%s on disk)"
 msgid_plural "%'d items, totalling %s (%s on disk)"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/file-manager/fm-properties-window.c:2327
+#: src/file-manager/fm-properties-window.c:2324
 msgid "(some contents unreadable)"
 msgstr "(काहीक आशय वाचतायेण्याजोगी नाही)"
 
-#: src/file-manager/fm-properties-window.c:2344
+#: src/file-manager/fm-properties-window.c:2341
 msgid "Contents:"
 msgstr "आशय:"
 
 #. Translators: "used" refers to the capacity of the filesystem
-#: src/file-manager/fm-properties-window.c:3120
+#: src/file-manager/fm-properties-window.c:3117
 msgid "used"
 msgstr "वापरलेले"
 
 #. Translators: "free" refers to the capacity of the filesystem
-#: src/file-manager/fm-properties-window.c:3131
+#: src/file-manager/fm-properties-window.c:3128
 msgid "free"
 msgstr "मोफत"
 
-#: src/file-manager/fm-properties-window.c:3135
+#: src/file-manager/fm-properties-window.c:3132
 msgid "Total capacity:"
 msgstr "एकूण क्षमता:"
 
-#: src/file-manager/fm-properties-window.c:3149
+#: src/file-manager/fm-properties-window.c:3146
 msgid "Filesystem type:"
 msgstr "फाइलप्रणाली प्रकार:"
 
-#: src/file-manager/fm-properties-window.c:3234
+#: src/file-manager/fm-properties-window.c:3231
 msgid "Basic"
 msgstr "मूलभूत"
 
-#: src/file-manager/fm-properties-window.c:3296
+#: src/file-manager/fm-properties-window.c:3293
 msgid "Link target:"
 msgstr "लक्ष्य्य लिंक:"
 
-#: src/file-manager/fm-properties-window.c:3310
+#: src/file-manager/fm-properties-window.c:3307
 msgid "Size on Disk:"
 msgstr ""
 
-#: src/file-manager/fm-properties-window.c:3325
+#: src/file-manager/fm-properties-window.c:3322
 msgid "Volume:"
 msgstr "आवाज:"
 
-#: src/file-manager/fm-properties-window.c:3334
+#: src/file-manager/fm-properties-window.c:3331
 msgid "Accessed:"
 msgstr "प्रवेश प्राप्तीत:"
 
-#: src/file-manager/fm-properties-window.c:3338
+#: src/file-manager/fm-properties-window.c:3335
 msgid "Modified:"
 msgstr "बदल दिनांक:"
 
-#: src/file-manager/fm-properties-window.c:3347
+#: src/file-manager/fm-properties-window.c:3344
 msgid "Free space:"
 msgstr "मोकळी जागा:"
 
-#: src/file-manager/fm-properties-window.c:3875
+#: src/file-manager/fm-properties-window.c:3872
 msgid "_Read"
 msgstr "वाचन(_R)"
 
-#: src/file-manager/fm-properties-window.c:3877
+#: src/file-manager/fm-properties-window.c:3874
 msgid "_Write"
 msgstr "लेखन(_W)"
 
-#: src/file-manager/fm-properties-window.c:3879
+#: src/file-manager/fm-properties-window.c:3876
 msgid "E_xecute"
 msgstr "कार्यरत करा (_x)"
 
 #. Translators: this gets concatenated to "no read",
 #. * "no access", etc. (see following strings)
-#: src/file-manager/fm-properties-window.c:4147
-#: src/file-manager/fm-properties-window.c:4158
-#: src/file-manager/fm-properties-window.c:4170
+#: src/file-manager/fm-properties-window.c:4144
+#: src/file-manager/fm-properties-window.c:4155
+#: src/file-manager/fm-properties-window.c:4167
 msgid "no "
 msgstr "नाही "
 
-#: src/file-manager/fm-properties-window.c:4150
+#: src/file-manager/fm-properties-window.c:4147
 msgid "list"
 msgstr "यादी"
 
-#: src/file-manager/fm-properties-window.c:4152
+#: src/file-manager/fm-properties-window.c:4149
 msgid "read"
 msgstr "वाचा"
 
-#: src/file-manager/fm-properties-window.c:4161
+#: src/file-manager/fm-properties-window.c:4158
 msgid "create/delete"
 msgstr "निर्माण/काढुन टाका"
 
-#: src/file-manager/fm-properties-window.c:4163
+#: src/file-manager/fm-properties-window.c:4160
 msgid "write"
 msgstr "लिहा"
 
-#: src/file-manager/fm-properties-window.c:4172
+#: src/file-manager/fm-properties-window.c:4169
 msgid "access"
 msgstr "प्रवेश"
 
-#: src/file-manager/fm-properties-window.c:4220
+#: src/file-manager/fm-properties-window.c:4217
 msgid "Access:"
 msgstr "प्रवेश:"
 
-#: src/file-manager/fm-properties-window.c:4222
+#: src/file-manager/fm-properties-window.c:4219
 msgid "Folder access:"
 msgstr "संचयीका प्रवेश:"
 
-#: src/file-manager/fm-properties-window.c:4224
+#: src/file-manager/fm-properties-window.c:4221
 msgid "File access:"
 msgstr "फाइल प्रवेश:"
 
-#: src/file-manager/fm-properties-window.c:4242
+#: src/file-manager/fm-properties-window.c:4239
 msgid "List files only"
 msgstr "फक्त फाइलींची यादी"
 
-#: src/file-manager/fm-properties-window.c:4244
+#: src/file-manager/fm-properties-window.c:4241
 msgid "Access files"
 msgstr "फाइलकरीता प्रवेश "
 
-#: src/file-manager/fm-properties-window.c:4246
+#: src/file-manager/fm-properties-window.c:4243
 msgid "Create and delete files"
 msgstr "फाइल निर्माण करा व काढुन टाका"
 
-#: src/file-manager/fm-properties-window.c:4253
+#: src/file-manager/fm-properties-window.c:4250
 msgid "Read-only"
 msgstr "फक्त-वाचतायेण्याजोगी"
 
-#: src/file-manager/fm-properties-window.c:4255
+#: src/file-manager/fm-properties-window.c:4252
 msgid "Read and write"
 msgstr "वाचा व लिहा"
 
-#: src/file-manager/fm-properties-window.c:4320
+#: src/file-manager/fm-properties-window.c:4317
 msgid "Special flags:"
 msgstr "विशेष खुणा:"
 
-#: src/file-manager/fm-properties-window.c:4322
+#: src/file-manager/fm-properties-window.c:4319
 msgid "Set _user ID"
 msgstr "वापरकर्त्याचा ID निश्चित करा (_u)"
 
-#: src/file-manager/fm-properties-window.c:4323
+#: src/file-manager/fm-properties-window.c:4320
 msgid "Set gro_up ID"
 msgstr "गट नंबर मांडा (_u)"
 
-#: src/file-manager/fm-properties-window.c:4324
+#: src/file-manager/fm-properties-window.c:4321
 msgid "_Sticky"
 msgstr "चिकट (_S)"
 
-#: src/file-manager/fm-properties-window.c:4399
-#: src/file-manager/fm-properties-window.c:4591
+#: src/file-manager/fm-properties-window.c:4396
+#: src/file-manager/fm-properties-window.c:4588
 msgid "_Owner:"
 msgstr "मालक (_O):"
 
-#: src/file-manager/fm-properties-window.c:4407
-#: src/file-manager/fm-properties-window.c:4497
-#: src/file-manager/fm-properties-window.c:4600
+#: src/file-manager/fm-properties-window.c:4404
+#: src/file-manager/fm-properties-window.c:4494
+#: src/file-manager/fm-properties-window.c:4597
 msgid "Owner:"
 msgstr "मालक:"
 
-#: src/file-manager/fm-properties-window.c:4431
-#: src/file-manager/fm-properties-window.c:4615
+#: src/file-manager/fm-properties-window.c:4428
+#: src/file-manager/fm-properties-window.c:4612
 msgid "_Group:"
 msgstr "गट (_G):"
 
-#: src/file-manager/fm-properties-window.c:4439
-#: src/file-manager/fm-properties-window.c:4498
-#: src/file-manager/fm-properties-window.c:4623
+#: src/file-manager/fm-properties-window.c:4436
+#: src/file-manager/fm-properties-window.c:4495
+#: src/file-manager/fm-properties-window.c:4620
 msgid "Group:"
 msgstr "गट:"
 
-#: src/file-manager/fm-properties-window.c:4463
+#: src/file-manager/fm-properties-window.c:4460
 msgid "Others"
 msgstr "अन्य"
 
-#: src/file-manager/fm-properties-window.c:4478
+#: src/file-manager/fm-properties-window.c:4475
 msgid "Execute:"
 msgstr "कार्यान्वीत करा:"
 
-#: src/file-manager/fm-properties-window.c:4481
+#: src/file-manager/fm-properties-window.c:4478
 msgid "Allow _executing file as program"
 msgstr "फाइल कार्यक्रमस्वरूपी कार्यान्वीत करण्याकरीता परवानगी द्या (_e)"
 
-#: src/file-manager/fm-properties-window.c:4499
+#: src/file-manager/fm-properties-window.c:4496
 msgid "Others:"
 msgstr "इतर:"
 
-#: src/file-manager/fm-properties-window.c:4639
+#: src/file-manager/fm-properties-window.c:4636
 msgid "Folder Permissions:"
 msgstr "संचयीका परवानगी:"
 
-#: src/file-manager/fm-properties-window.c:4646
+#: src/file-manager/fm-properties-window.c:4643
 msgid "File Permissions:"
 msgstr "फाइल परवानगी:"
 
-#: src/file-manager/fm-properties-window.c:4655
+#: src/file-manager/fm-properties-window.c:4652
 msgid "Text view:"
 msgstr "पाठ्य दृश्य:"
 
-#: src/file-manager/fm-properties-window.c:4803
+#: src/file-manager/fm-properties-window.c:4800
 msgid "You are not the owner, so you cannot change these permissions."
 msgstr "तुम्ही मालक नसल्यामुळे, या परवानगी तुम्ही बदलवू शकत नाही."
 
-#: src/file-manager/fm-properties-window.c:4823
+#: src/file-manager/fm-properties-window.c:4820
 msgid "SELinux context:"
 msgstr "SELinux संदर्भ:"
 
-#: src/file-manager/fm-properties-window.c:4828
+#: src/file-manager/fm-properties-window.c:4825
 msgid "Last changed:"
 msgstr "शेवटी बदललेले:"
 
-#: src/file-manager/fm-properties-window.c:4841
+#: src/file-manager/fm-properties-window.c:4838
 msgid "Apply Permissions to Enclosed Files"
 msgstr "अंतर्भुतीत फाइलकरीता परवानगी वापरा"
 
-#: src/file-manager/fm-properties-window.c:4855
+#: src/file-manager/fm-properties-window.c:4852
 #, c-format
 msgid "The permissions of \"%s\" could not be determined."
 msgstr "\"%s\" च्या परवानगी ठरवू शकले नाही."
 
-#: src/file-manager/fm-properties-window.c:4858
+#: src/file-manager/fm-properties-window.c:4855
 msgid "The permissions of the selected file could not be determined."
 msgstr "निवडलेल्या फाइलच्या परवानगी ठरवू शकले नाही."
 
-#: src/file-manager/fm-properties-window.c:5448
+#: src/file-manager/fm-properties-window.c:5445
 msgid "Creating Properties window."
 msgstr "गुमधर्म चौकट निर्माण करीत आहे."
 
-#: src/file-manager/fm-properties-window.c:5743
+#: src/file-manager/fm-properties-window.c:5741
 msgid "Select Custom Icon"
 msgstr "इच्छिक चिन्ह निवडा"
 
