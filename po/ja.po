@@ -4,27 +4,28 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Kenzo Matsumoto <dicegeist@gmail.com>, 2018
-# Ikuru K <kanumaiku@gmail.com>, 2018
-# semicolon <mail@semicln.com>, 2018
-# ふうせん Fu-sen. | BALLOON a.k.a. Fu-sen., 2018
-# IWAI, Masaharu <iwaim.sub@gmail.com>, 2018
-# Yuki Shira <shirayuking@gmail.com>, 2018
-# あわしろいくや <ikunya@gmail.com>, 2018
-# Mika Kobayashi, 2018
-# Rockers <sumorock@hotmail.com>, 2018
-# ABE Tsunehiko, 2018
-# shinmili <rmsk.pl.ur.lpt@gmail.com>, 2018
-# Stefano Karapetsas <stefano@karapetsas.com>, 2019
+# Ikuru K <kanumaiku@gmail.com>, 2020
+# ふうせん Fu-sen. | BALLOON a.k.a. Fu-sen., 2020
+# IWAI, Masaharu <iwaim.sub@gmail.com>, 2020
+# Yuki Shira <shirayuking@gmail.com>, 2020
+# あわしろいくや <ikunya@gmail.com>, 2020
+# clefebvre <clement.lefebvre@linuxmint.com>, 2020
 # FuRuYa7 <goo.sirocat47@gmail.com>, 2020
+# Stefano Karapetsas <stefano@karapetsas.com>, 2020
+# ABE Tsunehiko, 2020
+# Mika Kobayashi, 2020
+# shinmili <rmsk.pl.ur.lpt@gmail.com>, 2020
+# Rockers <sumorock@hotmail.com>, 2020
+# jeiday, 2020
+# pivo thusr, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: caja 1.23.2\n"
 "Report-Msgid-Bugs-To: https://mate-desktop.org\n"
 "POT-Creation-Date: 2020-01-10 11:11+0100\n"
-"PO-Revision-Date: 2018-03-11 14:48+0000\n"
-"Last-Translator: FuRuYa7 <goo.sirocat47@gmail.com>, 2020\n"
+"PO-Revision-Date: 2020-02-14 11:44+0000\n"
+"Last-Translator: pivo thusr, 2020\n"
 "Language-Team: Japanese (https://www.transifex.com/mate/teams/13566/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -319,12 +320,15 @@ msgid ""
 " associated with them. It is also responsible for handling the icons on the "
 "MATE desktop. It works on local and remote file systems."
 msgstr ""
+"Caja は MATE "
+"デスクトップの公式ファイルマネージャーです。ディレクトリの参照やファイルのプレビュー、関連付けられたアプリケーションの起動が可能です。また、MATE "
+"デスクトップのアイコンの管理も行っています。Cajaはローカルのファイルシステムでもリモートのファイルシステムでも動作します。"
 
 #: data/caja.appdata.xml.in:16
 msgid ""
 "Caja is extensible through a plugin system, similar to that of GNOME "
 "Nautilus, of which Caja is a fork."
-msgstr ""
+msgstr "Caja は派生元の GNOME Nautilus と同様、プラグインシステムによって拡張することができます。"
 
 #: data/caja-autorun-software.desktop.in.in:3
 msgid "Autorun Prompt"
@@ -574,11 +578,11 @@ msgstr "[キャンセル] をクリックすると、この操作を取り消せ
 #: src/caja-property-browser.c:1202 src/caja-query-editor.c:776
 #: src/file-manager/fm-directory-view.c:1224
 msgid "_OK"
-msgstr ""
+msgstr "OK(_O)"
 
 #: eel/eel-stock-dialogs.c:658
 msgid "_Clear"
-msgstr ""
+msgstr "クリア(_C)"
 
 #: eel/eel-vfs-extensions.c:98
 msgid " (invalid Unicode)"
@@ -847,7 +851,7 @@ msgstr "拡張"
 
 #: libcaja-private/caja-column-utilities.c:149
 msgid "The extension of the file."
-msgstr ""
+msgstr "ファイルの拡張子です。"
 
 #: libcaja-private/caja-column-utilities.c:191
 msgid "Trashed On"
@@ -1694,7 +1698,7 @@ msgstr "ファイルを削除中"
 #: libcaja-private/caja-file-operations.c:2157 src/caja-places-sidebar.c:2266
 #: src/caja-places-sidebar.c:2302
 msgid "It is now safe to remove the drive"
-msgstr ""
+msgstr "安全に取り外しできます"
 
 #: libcaja-private/caja-file-operations.c:2170
 msgid "Unable to eject %V"
@@ -1706,7 +1710,7 @@ msgstr "%V をアンマウントできません"
 
 #: libcaja-private/caja-file-operations.c:2208 src/caja-places-sidebar.c:2336
 msgid "Writing data to the drive -- do not unplug"
-msgstr ""
+msgstr "ドライブに書き込んでいます - 取り外さないでください"
 
 #: libcaja-private/caja-file-operations.c:2332
 msgid "Do you want to empty the trash before you unmount?"
@@ -2462,12 +2466,12 @@ msgstr "キューに登録中"
 #: libcaja-private/caja-progress-info.c:415
 #: libcaja-private/caja-progress-info.c:416
 msgid "Pause"
-msgstr ""
+msgstr "一時停止"
 
 #: libcaja-private/caja-progress-info.c:421
 #: libcaja-private/caja-progress-info.c:422
 msgid "Resume"
-msgstr ""
+msgstr "再開"
 
 #: libcaja-private/caja-progress-info.c:609
 #, c-format
@@ -2477,12 +2481,12 @@ msgstr[0] ""
 
 #: libcaja-private/caja-progress-info.c:631
 msgid "Process completed"
-msgstr ""
+msgstr "完了"
 
 #: libcaja-private/caja-progress-info.c:806
 #: libcaja-private/caja-progress-info.c:807
 msgid "Queue"
-msgstr ""
+msgstr "キュー"
 
 #: libcaja-private/caja-progress-info.c:1007
 #: libcaja-private/caja-progress-info.c:1028
@@ -4323,11 +4327,11 @@ msgstr "フォルダーをファイルより前に配置する(_F)"
 
 #: src/caja-file-management-properties.ui:493
 msgid "Show hidden files"
-msgstr ""
+msgstr "隠しファイルを表示(_H)"
 
 #: src/caja-file-management-properties.ui:508
 msgid "Show backup files"
-msgstr ""
+msgstr "バックアップファイルを表示(_B)"
 
 #: src/caja-file-management-properties.ui:547
 msgid "<b>Icon View Defaults</b>"
@@ -4367,7 +4371,7 @@ msgstr "デフォルトのズームレベル(_E):"
 
 #: src/caja-file-management-properties.ui:844
 msgid "_Show icons"
-msgstr ""
+msgstr "アイコンを表示(_S)"
 
 #: src/caja-file-management-properties.ui:883
 msgid "<b>Tree View Defaults</b>"
@@ -6056,7 +6060,7 @@ msgstr "検索結果の保存"
 
 #: src/file-manager/fm-directory-view.c:1374
 msgid "_Save"
-msgstr "サーバ(_S)"
+msgstr "保存 (_S)"
 
 #: src/file-manager/fm-directory-view.c:1393
 msgid "Search _name:"

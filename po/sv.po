@@ -4,28 +4,30 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Marcus Larborg, 2018
-# Elmer Blanksvärd <elmer.granlund@gmail.com>, 2018
-# 8385e6e60a22e18cd347a1f6e4685fb9, 2018
-# Kristoffer Grundström <hamnisdude@gmail.com>, 2018
-# Jonatan Nyberg, 2018
-# Hilding Kåstad <hilding.kastad@gmail.com>, 2018
-# Henrik Mattsson-Mårn <h@reglage.net>, 2018
-# cb445fb3dfd1fe3c2b9f58ac5638f478, 2018
-# Claes-Göran Nydahl <goldug@gmail.com>, 2018
-# 6a42dd6e7ca9a813693714b0d9aa1ad8, 2018
-# Patrik Nilsson <asavartzeth@gmail.com>, 2018
-# Tobias Lekare <lekare@linux.com>, 2018
-# Philip Andersen <renegadevi@codeofmagi.net>, 2019
-# Stefano Karapetsas <stefano@karapetsas.com>, 2019
+# Marcus Larborg, 2020
+# Elmer Blanksvärd <elmer.granlund@gmail.com>, 2020
+# clefebvre <clement.lefebvre@linuxmint.com>, 2020
+# 8385e6e60a22e18cd347a1f6e4685fb9, 2020
+# Kristoffer Grundström <lovaren@gmail.com>, 2020
+# efef6ec5b435a041fce803c7f8af77d2_2341d43, 2020
+# Hilding Kåstad <hilding.kastad@gmail.com>, 2020
+# Claes-Göran Nydahl <goldug@gmail.com>, 2020
+# 6a42dd6e7ca9a813693714b0d9aa1ad8, 2020
+# Stefano Karapetsas <stefano@karapetsas.com>, 2020
+# Henrik Mattsson-Mårn <h@reglage.net>, 2020
+# Patrik Nilsson <asavartzeth@gmail.com>, 2020
+# cb445fb3dfd1fe3c2b9f58ac5638f478, 2020
+# Tobias Lekare <lekare@linux.com>, 2020
+# Philip Andersen <renegadevi@codeofmagi.net>, 2020
+# Luna Jernberg <bittin@cafe8bitar.se>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: caja 1.23.2\n"
 "Report-Msgid-Bugs-To: https://mate-desktop.org\n"
 "POT-Creation-Date: 2020-01-10 11:11+0100\n"
-"PO-Revision-Date: 2018-03-11 14:48+0000\n"
-"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>, 2019\n"
+"PO-Revision-Date: 2020-02-14 11:44+0000\n"
+"Last-Translator: Luna Jernberg <bittin@cafe8bitar.se>, 2020\n"
 "Language-Team: Swedish (https://www.transifex.com/mate/teams/13566/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -320,12 +322,19 @@ msgid ""
 " associated with them. It is also responsible for handling the icons on the "
 "MATE desktop. It works on local and remote file systems."
 msgstr ""
+"Caja är den officiella filhanteraren för MATE-skrivbordet. Den möjliggör "
+"navigering i kataloger, så väl som förhandsgranskning av filter och start av"
+" associerade program till dessa filer. Den ansvarar även för hantering av "
+"skrivbordsikoner för MATE-skrivbordet. Den fungerar både för lokala och "
+"fjärranslutna filsystem."
 
 #: data/caja.appdata.xml.in:16
 msgid ""
 "Caja is extensible through a plugin system, similar to that of GNOME "
 "Nautilus, of which Caja is a fork."
 msgstr ""
+"Caja kan utökas med hjälp av ett plugin-system som efterliknar det för GNOME"
+" Nautilus, av vilket Caja är en förgrening."
 
 #: data/caja-autorun-software.desktop.in.in:3
 msgid "Autorun Prompt"
@@ -335,7 +344,7 @@ msgstr "Automatisk körning"
 #. file name)!
 #: data/caja-autorun-software.desktop.in.in:7
 msgid "application-x-executable"
-msgstr ""
+msgstr "application-x-executable"
 
 #: data/caja-browser.desktop.in.in:4
 msgid "File Browser"
@@ -350,13 +359,13 @@ msgstr "Bläddra i filsystemet med filhanteraren"
 #: data/caja-browser.desktop.in.in:9 data/caja.desktop.in.in:7
 #: data/caja-file-management-properties.desktop.in.in:7
 msgid "system-file-manager"
-msgstr ""
+msgstr "system-file-manager"
 
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/caja-browser.desktop.in.in:15
 msgid "files;browser;manager;MATE;"
-msgstr ""
+msgstr "filer;bläddrare;hanterare;MATE;"
 
 #: data/caja-computer.desktop.in.in:3 libcaja-private/caja-desktop-link.c:114
 #: src/caja-places-sidebar.c:513
@@ -374,13 +383,13 @@ msgstr ""
 #. file name)!
 #: data/caja-computer.desktop.in.in:8
 msgid "computer"
-msgstr ""
+msgstr "computer"
 
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/caja-computer.desktop.in.in:14
 msgid "browse;disks;folders;local;remote;computer;MATE;"
-msgstr ""
+msgstr "bläddra;diskar;mappar;lokalt;fjärr;dator;MATE;"
 
 #: data/caja.desktop.in.in:4
 msgid "File Manager"
@@ -398,7 +407,7 @@ msgstr "Ändra beteendet och utseendet för filhanterarens fönster"
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/caja-file-management-properties.desktop.in.in:13
 msgid "file;manager;change;properties;behaviour;appearance;windows;MATE;"
-msgstr ""
+msgstr "fil;hanterare;ändra;egenskaper;beteende;utseende;fönster;MATE;"
 
 #: data/caja-folder-handler.desktop.in.in:4 libcaja-private/caja-autorun.c:580
 msgid "Open Folder"
@@ -408,7 +417,7 @@ msgstr "Öppna mapp"
 #. file name)!
 #: data/caja-folder-handler.desktop.in.in:10
 msgid "folder-open"
-msgstr ""
+msgstr "folder-open"
 
 #: data/caja-home.desktop.in.in:3 src/file-manager/fm-tree-view.c:1421
 msgid "Home Folder"
@@ -423,13 +432,13 @@ msgstr "Öppna din personliga mapp"
 #. file name)!
 #: data/caja-home.desktop.in.in:8
 msgid "user-home"
-msgstr ""
+msgstr "user-home"
 
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/caja-home.desktop.in.in:14
 msgid "home;personal;folder;open;MATE;"
-msgstr ""
+msgstr "hem;personligt;mapp;öppen;MATE;"
 
 #: data/caja.xml.in:5
 msgid "Saved search"
@@ -447,13 +456,13 @@ msgstr "Bläddra bokmärkta och lokala nätverksplatser"
 #. file name)!
 #: data/mate-network-scheme.desktop.in.in:11
 msgid "network-workgroup"
-msgstr ""
+msgstr "network-workgroup"
 
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/mate-network-scheme.desktop.in.in:14
 msgid "bookmarks;browse;local;network;locations;MATE;"
-msgstr ""
+msgstr "bokmärken;bläddra;lokalt;nätverk;platser;MATE;"
 
 #: eel/eel-canvas.c:1310 eel/eel-canvas.c:1311
 msgid "X"
@@ -1572,10 +1581,7 @@ msgid_plural ""
 "Are you sure you want to permanently delete the %'d selected items from the "
 "trash?"
 msgstr[0] ""
-"Är du säker att du vill radera objektet %'d permanent från papperskorgen?"
 msgstr[1] ""
-"Är du säker att du vill radera de %'d valda objekten permanent från "
-"papperskorgen?"
 
 #: libcaja-private/caja-file-operations.c:1383
 #: libcaja-private/caja-file-operations.c:1449
@@ -1606,7 +1612,7 @@ msgid "Are you sure you want to permanently delete the %'d selected item?"
 msgid_plural ""
 "Are you sure you want to permanently delete the %'d selected items?"
 msgstr[0] ""
-"Är du säker att du vill permanent radera det %'d markerade objektet?"
+"Är du säker att du vill permanent radera de %'d markerade objektet?"
 msgstr[1] ""
 "Är du säker att du vill permanent radera de %'d markerade objekten?"
 
@@ -1618,8 +1624,8 @@ msgstr "Är du säker på att du vill slänga \"%B\"?"
 #, c-format
 msgid "Are you sure you want to trash the %'d selected item?"
 msgid_plural "Are you sure you want to trash the %'d selected items?"
-msgstr[0] "Är du säker att du vill slänga det %'d markerade objektet?"
-msgstr[1] "Är du säker att du vill slänga de %'d markerade objekten?"
+msgstr[0] "Är du säker att du vill slänga de %'d markerade objektet?"
+msgstr[1] "Är du säker på att du vill slänga de %'d markerade objekten?"
 
 #: libcaja-private/caja-file-operations.c:1491
 msgid "Items moved to the trash may be recovered until the trash is emptied."
@@ -1734,7 +1740,7 @@ msgstr "Tar bort filer"
 #: libcaja-private/caja-file-operations.c:2157 src/caja-places-sidebar.c:2266
 #: src/caja-places-sidebar.c:2302
 msgid "It is now safe to remove the drive"
-msgstr ""
+msgstr "Det är nu säkert att ta bort enheten"
 
 #: libcaja-private/caja-file-operations.c:2170
 msgid "Unable to eject %V"
@@ -1746,7 +1752,7 @@ msgstr "Kunde inte avmontera %V"
 
 #: libcaja-private/caja-file-operations.c:2208 src/caja-places-sidebar.c:2336
 msgid "Writing data to the drive -- do not unplug"
-msgstr ""
+msgstr "Skriver data till enhet --- koppla inte ut"
 
 #: libcaja-private/caja-file-operations.c:2332
 msgid "Do you want to empty the trash before you unmount?"
@@ -1787,8 +1793,8 @@ msgstr[1] "Förbereder att flytta %'d filer (%S)"
 #, c-format
 msgid "Preparing to delete %'d file (%S)"
 msgid_plural "Preparing to delete %'d files (%S)"
-msgstr[0] "Förbereder att radera %'d fil (%S)"
-msgstr[1] "Förbereder att radera %'d filer (%S)"
+msgstr[0] "Förbereder att ta bort %'d fil (%S)"
+msgstr[1] "Förbereder att ta bort %'d filer (%S)"
 
 #: libcaja-private/caja-file-operations.c:2558
 #, c-format
@@ -1944,8 +1950,8 @@ msgstr "%S av %S"
 #: libcaja-private/caja-file-operations.c:3113
 msgid "%S of %S — %T left (%S/sec)"
 msgid_plural "%S of %S — %T left (%S/sec)"
-msgstr[0] "%S av %S — %T kvar (%S/s)"
-msgstr[1] "%S av %S — %T kvar (%S/s)"
+msgstr[0] "%S av %S — %T återstår (%S/sek)"
+msgstr[1] "%S av %S — %T återstår (%S/sek)"
 
 #: libcaja-private/caja-file-operations.c:3504
 msgid ""
@@ -2201,7 +2207,7 @@ msgstr "Är du säker att du vill öppna alla filer?"
 #, c-format
 msgid "This will open %d separate tab."
 msgid_plural "This will open %d separate tabs."
-msgstr[0] "Detta kommer att öppna %d separat flik."
+msgstr[0] "Detta kommer att öppna %d separata flik."
 msgstr[1] "Detta kommer att öppna %d separata flikar."
 
 #: libcaja-private/caja-mime-actions.c:1198 src/caja-location-bar.c:194
@@ -2290,7 +2296,7 @@ msgstr "Öppnar \"%s\"."
 #, c-format
 msgid "Opening %d item."
 msgid_plural "Opening %d items."
-msgstr[0] "Öppnar %d objekt."
+msgstr[0] "Öppna %d objekt."
 msgstr[1] "Öppnar %d objekt."
 
 #: libcaja-private/caja-mime-application-chooser.c:164
@@ -2546,12 +2552,12 @@ msgstr "köar"
 #: libcaja-private/caja-progress-info.c:415
 #: libcaja-private/caja-progress-info.c:416
 msgid "Pause"
-msgstr ""
+msgstr "Paus"
 
 #: libcaja-private/caja-progress-info.c:421
 #: libcaja-private/caja-progress-info.c:422
 msgid "Resume"
-msgstr ""
+msgstr "Återuppta"
 
 #: libcaja-private/caja-progress-info.c:609
 #, c-format
@@ -2567,7 +2573,7 @@ msgstr "Process slutförd"
 #: libcaja-private/caja-progress-info.c:806
 #: libcaja-private/caja-progress-info.c:807
 msgid "Queue"
-msgstr ""
+msgstr "Kö"
 
 #: libcaja-private/caja-progress-info.c:1007
 #: libcaja-private/caja-progress-info.c:1028
@@ -2899,8 +2905,8 @@ msgstr "_Redo skapande av fil från mall"
 #, c-format
 msgid "_Redo creation of %d folder"
 msgid_plural "_Redo creation of %d folders"
-msgstr[0] "Gör om skapelse av %d mapp"
-msgstr[1] "Gör om skapelse av %d mappar"
+msgstr[0] "Gör om skapandet av %d mapp"
+msgstr[1] "Gör om skapandet av %d mappar"
 
 #: libcaja-private/caja-undostack-manager.c:1696
 #, c-format
@@ -2920,8 +2926,8 @@ msgstr[1] "Gör om återställning av %d objekt från papperskorgen"
 #, c-format
 msgid "_Redo create link to %d item"
 msgid_plural "_Redo create link to %d items"
-msgstr[0] "Gör om skapande av länkar till %dobjekt"
-msgstr[1] "Gör om skapande av länkar till %dobjekt"
+msgstr[0] "Gör om skapande av länkar till %d objekt"
+msgstr[1] "Gör om skapande av länkar till %d objekt"
 
 #: libcaja-private/caja-undostack-manager.c:1711
 #, c-format
@@ -3392,6 +3398,9 @@ msgid ""
 "If set to true, then hidden files are shown by default in the file manager. "
 "Hidden files are either dotfiles or listed in the folder's .hidden file."
 msgstr ""
+"Om inställd till sant kommer dolda filer att visas som standard i "
+"filhanteraren. Dolda filer är antingen punktfiler eller listade i mappens "
+".hidden-fil."
 
 #: libcaja-private/org.mate.caja.gschema.xml:253
 msgid "Whether to show backup files"
@@ -3402,6 +3411,8 @@ msgid ""
 "If set to true, then backup files are shown by default in the file manager. "
 "Backup files are backup files ending with a tilde (~)."
 msgstr ""
+"Om inställd till sant kommer backupfiler visas som standard i filhanteraren."
+" Backupfiler är filer som avslutas med tilde (~)."
 
 #: libcaja-private/org.mate.caja.gschema.xml:259
 msgid "Whether to show file sizes with IEC units"
@@ -3417,11 +3428,11 @@ msgstr ""
 
 #: libcaja-private/org.mate.caja.gschema.xml:264
 msgid "Whether to show icons in list view"
-msgstr ""
+msgstr "Huruvida ikoner ska visas i listvy"
 
 #: libcaja-private/org.mate.caja.gschema.xml:265
 msgid "If set to true, show file icons in list view."
-msgstr ""
+msgstr "Om detta är sant, visa filikoner i listvy."
 
 #: libcaja-private/org.mate.caja.gschema.xml:269
 msgid "Whether to show desktop notifications"
@@ -3429,7 +3440,7 @@ msgstr "Huruvida skrivbordsnotifieringar ska visas"
 
 #: libcaja-private/org.mate.caja.gschema.xml:270
 msgid "If set to true, Caja will show desktop notifications."
-msgstr ""
+msgstr "Om inställt till sant kommer Caja visa skrivbordsnotifikationer. "
 
 #: libcaja-private/org.mate.caja.gschema.xml:277
 msgid "List of possible captions on icons"
@@ -4015,7 +4026,7 @@ msgstr ""
 
 #: src/caja-application.c:1882
 msgid "Open URIs in tabs."
-msgstr ""
+msgstr "Öppna URI i flikar."
 
 #: src/caja-application.c:1884
 msgid "Open a browser window."
@@ -4545,11 +4556,11 @@ msgstr "Sortera _mappar före filer"
 
 #: src/caja-file-management-properties.ui:493
 msgid "Show hidden files"
-msgstr ""
+msgstr "Visa dolda filer"
 
 #: src/caja-file-management-properties.ui:508
 msgid "Show backup files"
-msgstr ""
+msgstr "Visa backup filer "
 
 #: src/caja-file-management-properties.ui:547
 msgid "<b>Icon View Defaults</b>"
@@ -4589,7 +4600,7 @@ msgstr "Standardzoomniv_å:"
 
 #: src/caja-file-management-properties.ui:844
 msgid "_Show icons"
-msgstr ""
+msgstr "_Visa ikoner"
 
 #: src/caja-file-management-properties.ui:883
 msgid "<b>Tree View Defaults</b>"
@@ -4904,14 +4915,14 @@ msgstr "Bildtyp:"
 #, c-format
 msgid "<b>Width:</b> %d pixel"
 msgid_plural "<b>Width:</b> %d pixels"
-msgstr[0] "<b>Bredd:</b> %d bildpunkt"
+msgstr[0] "<b>Bredd:</b> %d bildpunkter"
 msgstr[1] "<b>Bredd:</b> %d bildpunkter"
 
 #: src/caja-image-properties-page.c:411
 #, c-format
 msgid "<b>Height:</b> %d pixel"
 msgid_plural "<b>Height:</b> %d pixels"
-msgstr[0] "<b>Höjd:</b> %d bildpunkt"
+msgstr[0] "<b>Höjd:</b> %d bildpunkter"
 msgstr[1] "<b>Höjd:</b> %d bildpunkter"
 
 #: src/caja-image-properties-page.c:430
@@ -4997,7 +5008,7 @@ msgstr "_Plats:"
 
 #: src/caja-navigation-action.c:147
 msgid "folder removed"
-msgstr ""
+msgstr "mapp raderad"
 
 #: src/caja-navigation-window.c:801
 #, c-format
@@ -5587,11 +5598,11 @@ msgstr "Taggar"
 
 #: src/caja-query-editor.c:192
 msgid "Modification Time"
-msgstr ""
+msgstr "Ändringsdatum"
 
 #: src/caja-query-editor.c:206
 msgid "Contained text"
-msgstr ""
+msgstr "Innehållen text"
 
 #: src/caja-query-editor.c:352
 msgid "Select folder to search in"
@@ -5654,27 +5665,27 @@ msgstr "Annan typ..."
 
 #: src/caja-query-editor.c:1082 src/caja-query-editor.c:1221
 msgid "Less than or equal to"
-msgstr ""
+msgstr "Mindre än eller lika med"
 
 #: src/caja-query-editor.c:1084 src/caja-query-editor.c:1223
 msgid "Greater than or equal to"
-msgstr ""
+msgstr "Större än eller lika med"
 
 #: src/caja-query-editor.c:1097
 msgid "1 Hour"
-msgstr ""
+msgstr "1 timme "
 
 #: src/caja-query-editor.c:1099
 msgid "1 Day"
-msgstr ""
+msgstr "1 dag"
 
 #: src/caja-query-editor.c:1101
 msgid "1 Week"
-msgstr ""
+msgstr "1 vecka "
 
 #: src/caja-query-editor.c:1103
 msgid "1 Month"
-msgstr ""
+msgstr "1 månad "
 
 #: src/caja-query-editor.c:1105
 msgid "6 Months"
@@ -5686,59 +5697,59 @@ msgstr "1 år"
 
 #: src/caja-query-editor.c:1238
 msgid "10 KiB"
-msgstr ""
+msgstr "10 KiB"
 
 #: src/caja-query-editor.c:1240
 msgid "100 KiB"
-msgstr ""
+msgstr "100 KiB"
 
 #: src/caja-query-editor.c:1242
 msgid "500 KiB"
-msgstr ""
+msgstr "500 KiB"
 
 #: src/caja-query-editor.c:1244
 msgid "1 MiB"
-msgstr ""
+msgstr "1 MiB"
 
 #: src/caja-query-editor.c:1246
 msgid "5 MiB"
-msgstr ""
+msgstr "5 MiB"
 
 #: src/caja-query-editor.c:1248
 msgid "10 MiB"
-msgstr ""
+msgstr "10 MiB"
 
 #: src/caja-query-editor.c:1250
 msgid "100 MiB"
-msgstr ""
+msgstr "100 MiB"
 
 #: src/caja-query-editor.c:1252
 msgid "500 MiB"
-msgstr ""
+msgstr "500 MiB"
 
 #: src/caja-query-editor.c:1254
 msgid "1 GiB"
-msgstr ""
+msgstr "1 GiB"
 
 #: src/caja-query-editor.c:1256
 msgid "2 GiB"
-msgstr ""
+msgstr "2 GiB"
 
 #: src/caja-query-editor.c:1258
 msgid "4 GiB"
-msgstr ""
+msgstr "4 GiB"
 
 #: src/caja-query-editor.c:1261
 msgid "10 KB"
-msgstr ""
+msgstr "10 KB"
 
 #: src/caja-query-editor.c:1275
 msgid "500 MB"
-msgstr ""
+msgstr "500 MB"
 
 #: src/caja-query-editor.c:1346 src/caja-query-editor.c:1349
 msgid "Matches files that contains specified text."
-msgstr ""
+msgstr "Matchar filer som innehåller specifik text."
 
 #: src/caja-query-editor.c:1503
 msgid "Remove this criterion from the search"
@@ -5949,7 +5960,7 @@ msgstr ""
 
 #: src/caja-window-menus.c:575
 msgid "About Caja"
-msgstr ""
+msgstr "Om Caja"
 
 #: src/caja-window-menus.c:577
 msgid ""
@@ -5962,6 +5973,8 @@ msgid ""
 "Copyright © 1999-2009 The Nautilus authors\n"
 "Copyright © 2011-2020 The Caja authors"
 msgstr ""
+"Copyright © 1999-2009 The Nautilus upphovsmännen\n"
+"Copyright © 2011-2020 Caja upphovsmännen"
 
 #: src/caja-window-menus.c:586
 msgid "translator-credits"
@@ -6116,11 +6129,11 @@ msgstr "Växla visningen av dolda filer i det aktuella fönstret"
 
 #: src/caja-window-menus.c:969
 msgid "Show Bac_kup Files"
-msgstr ""
+msgstr "Visa _Backup filer"
 
 #: src/caja-window-menus.c:970
 msgid "Toggle the display of backup files in the current window"
-msgstr ""
+msgstr "Växla visning av backupfiler i det aktuella fönstret"
 
 #: src/caja-window-menus.c:1003
 msgid "_Up"
@@ -6237,7 +6250,7 @@ msgstr "Töm papperskorgen"
 
 #: src/file-manager/fm-desktop-icon-view.c:886
 msgid "Desktop View"
-msgstr ""
+msgstr "Skrivbordsvy"
 
 #: src/file-manager/fm-desktop-icon-view.c:887
 #: src/file-manager/fm-directory-view.c:7691
@@ -6255,7 +6268,7 @@ msgstr "Skrivbordsvyn råkade ut för ett fel vid uppstarten."
 
 #: src/file-manager/fm-desktop-icon-view.c:890
 msgid "Display this location with the desktop view."
-msgstr ""
+msgstr "Visa denna plats med skrivbordsvyn."
 
 #: src/file-manager/fm-directory-view.c:660
 #, c-format
@@ -6343,7 +6356,7 @@ msgstr[1] "%'d objekt markerade"
 #, c-format
 msgid "%'d other item selected"
 msgid_plural "%'d other items selected"
-msgstr[0] "%'d annat objekt markerad"
+msgstr[0] "%'d andra objekt markerad"
 msgstr[1] "%'d andra objekt markerade"
 
 #. Translators: This is marked for translation in case a localiser
@@ -6385,7 +6398,7 @@ msgstr "%s%s, %s, %s"
 #, c-format
 msgid "Use \"%s\" to open the selected item"
 msgid_plural "Use \"%s\" to open the selected items"
-msgstr[0] "Använd \"%s\" för att öppna det markerade objektet"
+msgstr[0] "Använd \"%s\" för att öppna de markerade objektet"
 msgstr[1] "Använd \"%s\" för att öppna de markerade objekten"
 
 #: src/file-manager/fm-directory-view.c:4612
@@ -6478,11 +6491,7 @@ msgid "The %'d selected item will be moved if you select the Paste command"
 msgid_plural ""
 "The %'d selected items will be moved if you select the Paste command"
 msgstr[0] ""
-"Det %'d markerade objektet kommer att flyttas om du väljer kommandot Klistra"
-" in"
 msgstr[1] ""
-"De %'d markerade objekten kommer att flyttas om du väljer kommandot Klistra "
-"in"
 
 #: src/file-manager/fm-directory-view.c:6098
 #, c-format
@@ -6490,11 +6499,7 @@ msgid "The %'d selected item will be copied if you select the Paste command"
 msgid_plural ""
 "The %'d selected items will be copied if you select the Paste command"
 msgstr[0] ""
-"Det %'d markerade objektet kommer att kopieras om du väljer kommandot "
-"Klistra in"
 msgstr[1] ""
-"De %'d markerade objekten kommer att kopieras om du väljer kommandot Klistra"
-" in"
 
 #: src/file-manager/fm-directory-view.c:6278
 #: src/file-manager/fm-tree-view.c:1060
@@ -6692,8 +6697,8 @@ msgstr "Duplicera varje markerat objekt"
 #: src/file-manager/fm-directory-view.c:9156
 msgid "Ma_ke Link"
 msgid_plural "Ma_ke Links"
-msgstr[0] "Skapa länk"
-msgstr[1] "Skapa länkar"
+msgstr[0] "Sk_apa länk"
+msgstr[1] "Sk_apa länkar"
 
 #: src/file-manager/fm-directory-view.c:7488
 msgid "Create a symbolic link for each selected item"
@@ -6944,40 +6949,40 @@ msgstr "Flytta den öppna mappen från papperskorgen till \"%s\""
 #, c-format
 msgid "Move the selected folder out of the trash to \"%s\""
 msgid_plural "Move the selected folders out of the trash to \"%s\""
-msgstr[0] "Flytta den markerade mappen från papperskorgen till \"%s\""
-msgstr[1] "Flytta de markerade mapparna från papperskorgen till \"%s\""
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/file-manager/fm-directory-view.c:8212
 msgid "Move the selected folder out of the trash"
 msgid_plural "Move the selected folders out of the trash"
-msgstr[0] "Flytta den markerade mappen från papperskorgen"
-msgstr[1] "Flytta de markerade mapparna från papperskorgen"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/file-manager/fm-directory-view.c:8218
 #, c-format
 msgid "Move the selected file out of the trash to \"%s\""
 msgid_plural "Move the selected files out of the trash to \"%s\""
-msgstr[0] "Flytta den markerade filen från papperskorgen till \"%s\""
-msgstr[1] "Flytta de markerade filerna från papperskorgen till \"%s\""
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/file-manager/fm-directory-view.c:8222
 msgid "Move the selected file out of the trash"
 msgid_plural "Move the selected files out of the trash"
-msgstr[0] "Flytta den markerade filen från papperskorgen"
-msgstr[1] "Flytta de markerade filerna från papperskorgen"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/file-manager/fm-directory-view.c:8228
 #, c-format
 msgid "Move the selected item out of the trash to \"%s\""
 msgid_plural "Move the selected items out of the trash to \"%s\""
-msgstr[0] "Flytta det markerade objektet från papperskorgen till \"%s\""
-msgstr[1] "Flytta de markerade objekten från papperskorgen till \"%s\""
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/file-manager/fm-directory-view.c:8232
 msgid "Move the selected item out of the trash"
 msgid_plural "Move the selected items out of the trash"
-msgstr[0] "Flytta det markerade objektet från papperskorgen"
-msgstr[1] "Flytta de markerade objekten från papperskorgen"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/file-manager/fm-directory-view.c:8361
 #: src/file-manager/fm-directory-view.c:8365
@@ -7093,8 +7098,8 @@ msgstr "Bläddra i nytt fö_nster"
 #: src/file-manager/fm-directory-view.c:9034
 msgid "_Browse Folder"
 msgid_plural "_Browse Folders"
-msgstr[0] "Bläddra i mapp"
-msgstr[1] "Bläddra i mappar"
+msgstr[0] "_Bläddra i mapp"
+msgstr[1] "_Bläddra i mappar"
 
 #: src/file-manager/fm-directory-view.c:8711
 #: src/file-manager/fm-directory-view.c:9065
@@ -7123,29 +7128,29 @@ msgstr "_Öppna med %s"
 #, c-format
 msgid "Open in %'d New _Window"
 msgid_plural "Open in %'d New _Windows"
-msgstr[0] "Öppna %'d i nytt fönster"
+msgstr[0] "Öppna i %'d nytt _fönster"
 msgstr[1] "Öppna %'d i nya fönster"
 
 #: src/file-manager/fm-directory-view.c:9026
 #, c-format
 msgid "Browse in %'d New _Window"
 msgid_plural "Browse in %'d New _Windows"
-msgstr[0] "Bläddra %'d i nytt fönster"
-msgstr[1] "Bläddra %'d i nya fönster"
+msgstr[0] "Bläddra i %'d nytt _fönster"
+msgstr[1] "Bläddra %'d i nya _fönster"
 
 #: src/file-manager/fm-directory-view.c:9058
 #, c-format
 msgid "Open in %'d New _Tab"
 msgid_plural "Open in %'d New _Tabs"
-msgstr[0] "Öppna %'d i ny flik"
-msgstr[1] "Öppna %'d i nya flikar"
+msgstr[0] "Öppna i %'d ny _flik"
+msgstr[1] "Öppna %'d i nya _flikar"
 
 #: src/file-manager/fm-directory-view.c:9067
 #, c-format
 msgid "Browse in %'d New _Tab"
 msgid_plural "Browse in %'d New _Tabs"
-msgstr[0] "Bläddra %'d i ny flik"
-msgstr[1] "Bläddra %'d i nya flikar"
+msgstr[0] "Bläddra i %'d ny _flik"
+msgstr[1] "Bläddra %'d i nya _flikar"
 
 #: src/file-manager/fm-directory-view.c:9111
 msgid "Delete all selected items permanently"
@@ -7219,19 +7224,19 @@ msgstr "Kommando"
 
 #: src/file-manager/fm-empty-view.c:397 src/file-manager/fm-empty-view.c:399
 msgid "Empty View"
-msgstr ""
+msgstr "Tom vy"
 
 #: src/file-manager/fm-empty-view.c:398
 msgid "_Empty"
-msgstr ""
+msgstr "_Tom"
 
 #: src/file-manager/fm-empty-view.c:400
 msgid "The empty view encountered an error."
-msgstr ""
+msgstr "Den tomma vyn råkade ut för ett fel."
 
 #: src/file-manager/fm-empty-view.c:401
 msgid "Display this location with the empty view."
-msgstr ""
+msgstr "Visa denna plats med den tomma vyn."
 
 #: src/file-manager/fm-error-reporting.c:72
 #, c-format
@@ -7583,8 +7588,8 @@ msgstr "Du kan inte tilldela fler än en anpassad ikon åt gången!"
 #: src/file-manager/fm-properties-window.c:648
 msgid "_Name:"
 msgid_plural "_Names:"
-msgstr[0] "Namn:"
-msgstr[1] "Namn:"
+msgstr[0] "_Namn:"
+msgstr[1] "_Namn:"
 
 #: src/file-manager/fm-properties-window.c:1004
 msgid "Properties"
@@ -7621,7 +7626,7 @@ msgstr "oläsbar"
 #, c-format
 msgid "%'d item, with size %s (%s on disk)"
 msgid_plural "%'d items, totalling %s (%s on disk)"
-msgstr[0] "%'d objekt, med storlek %s (%s på disk)"
+msgstr[0] "%'d objekt, totalt %s (%s på disk)"
 msgstr[1] "%'d objekt, totalt %s (%s på disk)"
 
 #: src/file-manager/fm-properties-window.c:2327
@@ -7859,20 +7864,20 @@ msgstr "Visa träd"
 
 #: src/file-manager/fm-widget-view.c:443
 msgid "Widget View"
-msgstr ""
+msgstr "Widget-vy"
 
 #: src/file-manager/fm-widget-view.c:444
 msgid "_Widget View"
-msgstr ""
+msgstr "_Widget-vy"
 
 #: src/file-manager/fm-widget-view.c:445
 msgid "The widget view encountered an error."
-msgstr ""
+msgstr "Widgeten råkade ut för ett fel."
 
 #: src/file-manager/fm-widget-view.c:446
 msgid "The widget view encountered an error while starting up."
-msgstr ""
+msgstr "Widget-vyn råka ut för ett fel vid uppstart."
 
 #: src/file-manager/fm-widget-view.c:447
 msgid "Display this location with the widget view."
-msgstr ""
+msgstr "Visa denna plats med widget-vyn"

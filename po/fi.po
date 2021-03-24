@@ -4,25 +4,25 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Mikko Harhanen <gitti@mikkoharhanen.fi>, 2018
-# Riku Viitanen <riisseli4@gmail.com>, 2018
-# Lasse Liehu <larso@gmx.com>, 2018
-# Tommi A Vasarainen <tommi.vasarainen@gmail.com>, 2018
-# Eslam Ali <talvikahvi@gmail.com>, 2018
-# Ammuu5, 2018
-# nomen omen, 2018
-# Kimmo Kujansuu <mrkujansuu@gmail.com>, 2019
-# Stefano Karapetsas <stefano@karapetsas.com>, 2019
-# Jiri Grönroos <jiri.gronroos@iki.fi>, 2019
+# Mikko Harhanen <gitti@mikkoharhanen.fi>, 2020
+# Riku Viitanen <riisseli4@gmail.com>, 2020
+# Jiri Grönroos <jiri.gronroos@iki.fi>, 2020
+# Lasse Liehu <larso@gmx.com>, 2020
+# nomen omen, 2020
+# Stefano Karapetsas <stefano@karapetsas.com>, 2020
+# Eslam Ali <talvikahvi@gmail.com>, 2020
 # Teemu Piippo <crimsondusk64@gmail.com>, 2020
+# Tommi A Vasarainen <tommi.vasarainen@gmail.com>, 2020
+# Ammuu5, 2020
+# Kimmo Kujansuu <mrkujansuu@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: caja 1.23.2\n"
 "Report-Msgid-Bugs-To: https://mate-desktop.org\n"
 "POT-Creation-Date: 2020-01-10 11:11+0100\n"
-"PO-Revision-Date: 2018-03-11 14:48+0000\n"
-"Last-Translator: Teemu Piippo <crimsondusk64@gmail.com>, 2020\n"
+"PO-Revision-Date: 2020-02-14 11:44+0000\n"
+"Last-Translator: Kimmo Kujansuu <mrkujansuu@gmail.com>, 2020\n"
 "Language-Team: Finnish (https://www.transifex.com/mate/teams/13566/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1146,22 +1146,22 @@ msgstr "Annettua ryhmää ”%s” ei ole olemassa"
 #, c-format
 msgid "%'u item"
 msgid_plural "%'u items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'u kohdetta"
+msgstr[1] "%'u kohdetta"
 
 #: libcaja-private/caja-file.c:6200
 #, c-format
 msgid "%'u folder"
 msgid_plural "%'u folders"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'u kansiota"
+msgstr[1] "%'u kansiota"
 
 #: libcaja-private/caja-file.c:6201
 #, c-format
 msgid "%'u file"
 msgid_plural "%'u files"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'u tiedostoa"
+msgstr[1] "%'u tiedostoa"
 
 #: libcaja-private/caja-file.c:6305
 msgid "%"
@@ -1310,7 +1310,7 @@ msgstr "Viimeksi muokattu:"
 
 #: libcaja-private/caja-file-conflict-dialog.c:311
 msgid "Merge with"
-msgstr ""
+msgstr "Yhdistä"
 
 #: libcaja-private/caja-file-conflict-dialog.c:311
 #: libcaja-private/caja-file-conflict-dialog.c:315
@@ -1403,30 +1403,30 @@ msgstr "Kopioi kaikesta _huolimatta"
 #, c-format
 msgid "%'d second"
 msgid_plural "%'d seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'d sekuntia"
+msgstr[1] "%'d sekuntia"
 
 #: libcaja-private/caja-file-operations.c:311
 #: libcaja-private/caja-file-operations.c:323
 #, c-format
 msgid "%'d minute"
 msgid_plural "%'d minutes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'d minuuttia"
+msgstr[1] "%'d minuuttia"
 
 #: libcaja-private/caja-file-operations.c:322
 #, c-format
 msgid "%'d hour"
 msgid_plural "%'d hours"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'d tuntia"
+msgstr[1] "%'d tuntia"
 
 #: libcaja-private/caja-file-operations.c:330
 #, c-format
 msgid "approximately %'d hour"
 msgid_plural "approximately %'d hours"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "arviolta %'d tuntia"
+msgstr[1] "arviolta %'d tuntia"
 
 #: libcaja-private/caja-file-operations.c:410
 #, c-format
@@ -1566,7 +1566,9 @@ msgid_plural ""
 "Are you sure you want to permanently delete the %'d selected items from the "
 "trash?"
 msgstr[0] ""
+"Haluatko varmasti poistaa pysyvästi %'d valittua kohdetta roskakorista?"
 msgstr[1] ""
+"Haluatko varmasti poistaa pysyvästi %'d valittua kohdetta roskakorista?"
 
 #: libcaja-private/caja-file-operations.c:1383
 #: libcaja-private/caja-file-operations.c:1449
@@ -1635,8 +1637,8 @@ msgstr "Poistetaan tiedostoja"
 #: libcaja-private/caja-file-operations.c:1547
 msgid "%T left"
 msgid_plural "%T left"
-msgstr[0] "%T jäljellä"
-msgstr[1] "%T jäljellä"
+msgstr[0] ""
+msgstr[1] ""
 
 #: libcaja-private/caja-file-operations.c:1614
 #: libcaja-private/caja-file-operations.c:1648
@@ -7481,8 +7483,8 @@ msgstr "Voit asettaa vain yhden oman kuvakkeen kerrallaan!"
 #: src/file-manager/fm-properties-window.c:648
 msgid "_Name:"
 msgid_plural "_Names:"
-msgstr[0] "_Nimi:"
-msgstr[1] "_Nimet:"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/file-manager/fm-properties-window.c:1004
 msgid "Properties"

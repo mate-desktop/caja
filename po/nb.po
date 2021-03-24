@@ -4,12 +4,13 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Alexander Jansen <bornxlo@gmail.com>, 2018
-# Kenneth Jenssen <kennethjenssen@yahoo.com>, 2018
-# Allan Nordhøy <epost@anotheragency.no>, 2018
-# Stefano Karapetsas <stefano@karapetsas.com>, 2019
-# b84df44fb72862b85bae7a669218c6c2, 2019
-# Kim Malmo <berencamlost@msn.com>, 2019
+# Kim Malmo <berencamlost@msn.com>, 2020
+# 87d96f43665dd9fb55eba4603e184cae, 2020
+# Alexander Jansen <bornxlo@gmail.com>, 2020
+# Kenneth Jenssen <kennethjenssen@yahoo.com>, 2020
+# b84df44fb72862b85bae7a669218c6c2, 2020
+# Stefano Karapetsas <stefano@karapetsas.com>, 2020
+# Allan Nordhøy <epost@anotheragency.no>, 2020
 # Kjell Cato Heskjestad <cato@heskjestad.xyz>, 2020
 # 
 msgid ""
@@ -17,7 +18,7 @@ msgstr ""
 "Project-Id-Version: caja 1.23.2\n"
 "Report-Msgid-Bugs-To: https://mate-desktop.org\n"
 "POT-Creation-Date: 2020-01-10 11:11+0100\n"
-"PO-Revision-Date: 2018-03-11 14:48+0000\n"
+"PO-Revision-Date: 2020-02-14 11:44+0000\n"
 "Last-Translator: Kjell Cato Heskjestad <cato@heskjestad.xyz>, 2020\n"
 "Language-Team: Norwegian Bokmål (https://www.transifex.com/mate/teams/13566/nb/)\n"
 "MIME-Version: 1.0\n"
@@ -1751,7 +1752,7 @@ msgid ""
 "All trashed items on the volume will be permanently lost."
 msgstr ""
 "Papirkurven må tømmes for å få tilbake ledig plass på dette volumet. Alle "
-"oppføringer i papirkurven vil bli borte permanent."
+"oppføringer i papirkurven vil bli borte for godt."
 
 #: libcaja-private/caja-file-operations.c:2341
 msgid "Do _not Empty Trash"
@@ -2823,14 +2824,14 @@ msgstr[1] "_Angre sletting av %d filer"
 #, c-format
 msgid "Undo recursive change permissions of %d item"
 msgid_plural "Undo recursive change permissions of %d items"
-msgstr[0] "Angre rekursiv rettighetsendring for %d fil"
+msgstr[0] "Angre rekursive rettighetsendring for %d fil"
 msgstr[1] "Angre rekursive rettighetsendringer for %d filer"
 
 #: libcaja-private/caja-undostack-manager.c:1627
 #, c-format
 msgid "Undo change permissions of %d item"
 msgid_plural "Undo change permissions of %d items"
-msgstr[0] "Angre endring av rettigheter for %d oppføring"
+msgstr[0] "Angre endring av rettighet for %d oppføring"
 msgstr[1] "Angre endring av rettigheter for %d oppføringer"
 
 #: libcaja-private/caja-undostack-manager.c:1632
@@ -2922,14 +2923,14 @@ msgstr[1] "_Gjør om sletting av %d oppføringer"
 #, c-format
 msgid "Redo recursive change permissions of %d item"
 msgid_plural "Redo recursive change permissions of %d items"
-msgstr[0] "Gjør om rekursiv endring av rettigheter for %d oppføring"
+msgstr[0] "Gjør om rekursiv endring av rettighet for %d oppføring"
 msgstr[1] "Gjør om rekursiv endring av rettigheter for %d oppføringer"
 
 #: libcaja-private/caja-undostack-manager.c:1722
 #, c-format
 msgid "Redo change permissions of %d item"
 msgid_plural "Redo change permissions of %d items"
-msgstr[0] "Gjør om endring av rettigheter for %d oppføring"
+msgstr[0] "Gjør om endring av rettighet for %d oppføring"
 msgstr[1] "Gjør om endring av rettigheter for %d oppføringer"
 
 #: libcaja-private/caja-undostack-manager.c:1727
@@ -5452,7 +5453,7 @@ msgstr "Lag en ny farge:"
 
 #: src/caja-property-browser.c:1214
 msgid "Color _name:"
-msgstr "Farge _navn:"
+msgstr "Farge_navn:"
 
 #: src/caja-property-browser.c:1230
 msgid "Color _value:"
@@ -6032,7 +6033,7 @@ msgstr "Vis hjelp for Caja"
 
 #: src/caja-window-menus.c:894
 msgid "_About"
-msgstr "Om"
+msgstr "_Om"
 
 #: src/caja-window-menus.c:895
 msgid "Display credits for the creators of Caja"
@@ -6532,7 +6533,7 @@ msgstr "Åpne me_d"
 
 #: src/file-manager/fm-directory-view.c:7391
 msgid "Choose a program with which to open the selected item"
-msgstr "Velg et program du vil åpne valgte oppføring med"
+msgstr "Velg et program du vil åpne valgt oppføring med"
 
 #: src/file-manager/fm-directory-view.c:7393
 #: src/file-manager/fm-directory-view.c:7672
@@ -6543,7 +6544,7 @@ msgstr "_Egenskaper"
 #: src/file-manager/fm-directory-view.c:7394
 #: src/file-manager/fm-directory-view.c:9173
 msgid "View or modify the properties of each selected item"
-msgstr "Vis eller modifiser egenskapene for hver av de valgte oppføringene"
+msgstr "Vis eller endre egenskapene for hver av de valgte oppføringene"
 
 #: src/file-manager/fm-directory-view.c:7401
 #: src/file-manager/fm-tree-view.c:1300
@@ -6723,12 +6724,12 @@ msgstr "Angre siste handling"
 
 #: src/file-manager/fm-directory-view.c:7515
 msgid "_Redo"
-msgstr "_Gjenta"
+msgstr "_Gjør om"
 
 #: src/file-manager/fm-directory-view.c:7516
 #: src/file-manager/fm-directory-view.c:11365
 msgid "Redo the last undone action"
-msgstr "Gjenta forrige angrede handling"
+msgstr "Gjør om forrige angrede handling"
 
 #: src/file-manager/fm-directory-view.c:7526
 msgid "Reset View to _Defaults"
@@ -7340,7 +7341,7 @@ msgstr "Behold ikoner sortert etter størrelse i rader"
 
 #: src/file-manager/fm-icon-view.c:144
 msgid "by S_ize on Disk"
-msgstr "Etter st_ørrelse på disk"
+msgstr "etter st_ørrelse på disk"
 
 #: src/file-manager/fm-icon-view.c:145 src/file-manager/fm-icon-view.c:1772
 msgid "Keep icons sorted by disk usage in rows"
@@ -7380,11 +7381,11 @@ msgstr "Behold ikoner sortert etter tiden den ble lagt i papirkurven"
 
 #: src/file-manager/fm-icon-view.c:179
 msgid "by E_xtension"
-msgstr "Etter filt_ype"
+msgstr "etter filt_ype"
 
 #: src/file-manager/fm-icon-view.c:180
 msgid "Keep icons sorted by reversed extension segments in rows"
-msgstr "Behold ikoner sortert etter omvendt filetternavn i rader"
+msgstr "Behold ikoner sortert etter omvendt etternavnsegmenter i rader"
 
 #: src/file-manager/fm-icon-view.c:794
 msgid "_Organize Desktop by Name"
@@ -7486,7 +7487,7 @@ msgstr "Etter filt_ype"
 
 #: src/file-manager/fm-icon-view.c:1802
 msgid "Keep icons sorted by reverse extension segments in rows"
-msgstr "Behold ikoner sortert etter omvendt filetternavn i rader"
+msgstr "Behold ikoner sortert etter omvendt etternavnsegmenter i rader"
 
 #: src/file-manager/fm-icon-view.c:1936
 msgid "Restore Icon's Original Si_ze"

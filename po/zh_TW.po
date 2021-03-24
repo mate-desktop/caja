@@ -4,19 +4,20 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Walter Cheuk <wwycheuk@gmail.com>, 2018
-# Cheng-Chia Tseng <pswo10680@gmail.com>, 2018
-# Stefano Karapetsas <stefano@karapetsas.com>, 2019
-# 趙惟倫 <bluebat@member.fsf.org>, 2019
+# Cheng-Chia Tseng <pswo10680@gmail.com>, 2020
+# Walter Cheuk <wwycheuk@gmail.com>, 2020
+# Stefano Karapetsas <stefano@karapetsas.com>, 2020
+# 趙惟倫 <bluebat@member.fsf.org>, 2020
 # 黃柏諺 <s8321414@gmail.com>, 2020
+# Woodman Tuen <wmtuen@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: caja 1.23.2\n"
 "Report-Msgid-Bugs-To: https://mate-desktop.org\n"
 "POT-Creation-Date: 2020-01-10 11:11+0100\n"
-"PO-Revision-Date: 2018-03-11 14:48+0000\n"
-"Last-Translator: 黃柏諺 <s8321414@gmail.com>, 2020\n"
+"PO-Revision-Date: 2020-02-14 11:44+0000\n"
+"Last-Translator: Woodman Tuen <wmtuen@gmail.com>, 2020\n"
 "Language-Team: Chinese (Taiwan) (https://www.transifex.com/mate/teams/13566/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,11 +27,11 @@ msgstr ""
 
 #: data/browser.xml.in:5
 msgid "_Patterns"
-msgstr "胚騰(_P)"
+msgstr "樣式(_P)"
 
 #: data/browser.xml.in:5
 msgid "Drag a pattern tile to an object to change it"
-msgstr "將胚騰拖曳到物件上可以改變物件的胚騰"
+msgstr "將樣式拖曳到物件上可以改變物件的胚騰"
 
 #: data/browser.xml.in:6
 msgid "Blue Ridge"
@@ -900,7 +901,7 @@ msgstr "複製至此(_C)"
 
 #: libcaja-private/caja-dnd.c:808
 msgid "_Link Here"
-msgstr "鏈結至此(_L)"
+msgstr "連結至此(_L)"
 
 #: libcaja-private/caja-dnd.c:813
 msgid "Set as _Background"
@@ -1183,17 +1184,17 @@ msgstr "程式"
 
 #: libcaja-private/caja-file.c:6772
 msgid "link"
-msgstr "鏈結"
+msgstr "連結"
 
 #: libcaja-private/caja-file.c:6778 libcaja-private/caja-file-operations.c:406
 #: src/file-manager/fm-directory-view.c:10736
 #, c-format
 msgid "Link to %s"
-msgstr "鏈結至 %s"
+msgstr "連結至 %s"
 
 #: libcaja-private/caja-file.c:6794
 msgid "link (broken)"
-msgstr "鏈結（目標不存在）"
+msgstr "連結（目標不存在）"
 
 #: libcaja-private/caja-file-conflict-dialog.c:143
 #, c-format
@@ -1409,7 +1410,7 @@ msgstr[0] "大約 %'d 小時"
 #: libcaja-private/caja-file-operations.c:410
 #, c-format
 msgid "Another link to %s"
-msgstr "另一個鏈結至 %s"
+msgstr "另一個連結至 %s"
 
 #. Translators: Feel free to leave out the "st" suffix
 #. * if there's no way to do that nicely for a
@@ -1417,22 +1418,22 @@ msgstr "另一個鏈結至 %s"
 #: libcaja-private/caja-file-operations.c:426
 #, c-format
 msgid "%'dst link to %s"
-msgstr "第 %'d 個連至 %s 的鏈結"
+msgstr "第 %'d 個連至 %s 的連結"
 
 #: libcaja-private/caja-file-operations.c:430
 #, c-format
 msgid "%'dnd link to %s"
-msgstr "第 %'d 個連至 %s 的鏈結"
+msgstr "第 %'d 個連至 %s 的連結"
 
 #: libcaja-private/caja-file-operations.c:434
 #, c-format
 msgid "%'drd link to %s"
-msgstr "第 %'d 個連至 %s 的鏈結"
+msgstr "第 %'d 個連至 %s 的連結"
 
 #: libcaja-private/caja-file-operations.c:438
 #, c-format
 msgid "%'dth link to %s"
-msgstr "第 %'d 個連至 %s 的鏈結"
+msgstr "第 %'d 個連至 %s 的連結"
 
 #. Translators:
 #. * Feel free to leave out the st, nd, rd and th suffix or
@@ -1543,7 +1544,7 @@ msgid ""
 msgid_plural ""
 "Are you sure you want to permanently delete the %'d selected items from the "
 "trash?"
-msgstr[0] "確定要從回收筒永久刪除 %'d 個已選項目？"
+msgstr[0] "確定要將 %'d 個已選的項目從回收筒中永久刪除嗎？"
 
 #: libcaja-private/caja-file-operations.c:1383
 #: libcaja-private/caja-file-operations.c:1449
@@ -1573,17 +1574,17 @@ msgstr "確定要將「%B」永久地刪除嗎？"
 msgid "Are you sure you want to permanently delete the %'d selected item?"
 msgid_plural ""
 "Are you sure you want to permanently delete the %'d selected items?"
-msgstr[0] "確定要永久刪除 %'d 個已選項目？"
+msgstr[0] "確定要永久刪除 %'d 個已選的項目？"
 
 #: libcaja-private/caja-file-operations.c:1479
 msgid "Are you sure you want to trash \"%B\"?"
-msgstr "您確定您想要將「%B」丟進資源回收筒嗎？"
+msgstr "確定要將「%B」丟進回收筒嗎？"
 
 #: libcaja-private/caja-file-operations.c:1482
 #, c-format
 msgid "Are you sure you want to trash the %'d selected item?"
 msgid_plural "Are you sure you want to trash the %'d selected items?"
-msgstr[0] "您確定您要將 %'d 個選定的項目丟到資源回收筒嗎？"
+msgstr[0] "確定要將 %'d 個已選的項目丟進回收筒？"
 
 #: libcaja-private/caja-file-operations.c:1491
 msgid "Items moved to the trash may be recovered until the trash is emptied."
@@ -1597,7 +1598,7 @@ msgstr "移動到資源回收筒(_T)"
 #, c-format
 msgid "%'d file left to delete"
 msgid_plural "%'d files left to delete"
-msgstr[0] "%'d 個檔案尚可刪除"
+msgstr[0] "剩下 %'d 個檔案要刪除"
 
 #: libcaja-private/caja-file-operations.c:1530
 msgid "Deleting files"
@@ -1609,7 +1610,7 @@ msgstr "正在刪除檔案"
 #: libcaja-private/caja-file-operations.c:1547
 msgid "%T left"
 msgid_plural "%T left"
-msgstr[0] "%T 餘下"
+msgstr[0] "剩下 %T"
 
 #: libcaja-private/caja-file-operations.c:1614
 #: libcaja-private/caja-file-operations.c:1648
@@ -1665,7 +1666,7 @@ msgstr "將檔案丟進回收筒"
 #, c-format
 msgid "%'d file left to trash"
 msgid_plural "%'d files left to trash"
-msgstr[0] "%'d 個檔案尚可回收"
+msgstr[0] "剩下 %'d 個檔案要丟進回收筒"
 
 #: libcaja-private/caja-file-operations.c:1904
 msgid "Cannot move file to trash, do you want to delete immediately?"
@@ -1741,7 +1742,7 @@ msgstr[0] "準備刪除 %'d 個檔案 (%S)"
 #, c-format
 msgid "Preparing to trash %'d file"
 msgid_plural "Preparing to trash %'d files"
-msgstr[0] "準備回收 %'d 個檔案"
+msgstr[0] "準備將 %'d 個檔案丟至回收筒"
 
 #: libcaja-private/caja-file-operations.c:2589
 #: libcaja-private/caja-file-operations.c:3500
@@ -1831,33 +1832,33 @@ msgstr "正在重製「%B」"
 #: libcaja-private/caja-file-operations.c:3048
 msgid "Moving %'d file (in \"%B\") to \"%B\""
 msgid_plural "Moving %'d files (in \"%B\") to \"%B\""
-msgstr[0] "正在移動 %'d 個檔案 (於「%B」) 到「%B」"
+msgstr[0] ""
 
 #: libcaja-private/caja-file-operations.c:3052
 msgid "Copying %'d file (in \"%B\") to \"%B\""
 msgid_plural "Copying %'d files (in \"%B\") to \"%B\""
-msgstr[0] "正在複製 %'d 個檔案 (於「%B」) 到「%B」"
+msgstr[0] ""
 
 #: libcaja-private/caja-file-operations.c:3060
 msgid "Duplicating %'d file (in \"%B\")"
 msgid_plural "Duplicating %'d files (in \"%B\")"
-msgstr[0] "正在重製 %'d 個檔案 (於「%B」)"
+msgstr[0] ""
 
 #: libcaja-private/caja-file-operations.c:3070
 msgid "Moving %'d file to \"%B\""
 msgid_plural "Moving %'d files to \"%B\""
-msgstr[0] "正在移動 %'d 個檔案到「%B」"
+msgstr[0] "正移動 %'d 個檔案至 「%B」"
 
 #: libcaja-private/caja-file-operations.c:3074
 msgid "Copying %'d file to \"%B\""
 msgid_plural "Copying %'d files to \"%B\""
-msgstr[0] "正在複製 %'d 個檔案到「%B」"
+msgstr[0] "正複製 %'d 個檔案至 「%B」"
 
 #: libcaja-private/caja-file-operations.c:3080
 #, c-format
 msgid "Duplicating %'d file"
 msgid_plural "Duplicating %'d files"
-msgstr[0] "正在重製 %'d 個檔案"
+msgstr[0] ""
 
 #. Translators: %S will expand to a size like "2 bytes" or "3 MB", so
 #. something like "4 kb of 4 MB"
@@ -1876,7 +1877,7 @@ msgstr "%S / %S"
 #: libcaja-private/caja-file-operations.c:3113
 msgid "%S of %S — %T left (%S/sec)"
 msgid_plural "%S of %S — %T left (%S/sec)"
-msgstr[0] "%S 於 %S — %T 餘下 (%S/秒)"
+msgstr[0] ""
 
 #: libcaja-private/caja-file-operations.c:3504
 msgid ""
@@ -1989,30 +1990,30 @@ msgstr "正在移動檔案"
 
 #: libcaja-private/caja-file-operations.c:5332
 msgid "Creating links in \"%B\""
-msgstr "正在「%B」中建立鏈結"
+msgstr "正在「%B」中建立連結"
 
 #: libcaja-private/caja-file-operations.c:5336
 #, c-format
 msgid "Making link to %'d file"
 msgid_plural "Making links to %'d files"
-msgstr[0] "建立鏈結到 %'d 個檔案"
+msgstr[0] "正在建立到 %'d 個檔案的連結"
 
 #: libcaja-private/caja-file-operations.c:5468
 msgid "Error while creating link to %B."
-msgstr "建立鏈結 「%B」 時發生錯誤。"
+msgstr "建立連結「%B」 時發生錯誤。"
 
 #: libcaja-private/caja-file-operations.c:5470
 msgid "Symbolic links only supported for local files"
-msgstr "符號鏈結只支援本地端檔案"
+msgstr "符號連結只支援本地端檔案"
 
 #: libcaja-private/caja-file-operations.c:5473
 msgid "The target doesn't support symbolic links."
-msgstr "目標不支援符號鏈結。"
+msgstr "目標不支援符號連結。"
 
 #: libcaja-private/caja-file-operations.c:5476
 #, c-format
 msgid "There was an error creating the symlink in %F."
-msgstr "在 %F 建立符號鏈結時發生錯誤。"
+msgstr "在 %F 建立符號連結時發生錯誤。"
 
 #: libcaja-private/caja-file-operations.c:5793
 msgid "Setting permissions"
@@ -2068,21 +2069,21 @@ msgstr "矩形選擇區域"
 #: libcaja-private/caja-mime-actions.c:725
 #, c-format
 msgid "The Link \"%s\" is Broken."
-msgstr "鏈結「%s」已損壞。"
+msgstr "連結「%s」已損壞。"
 
 #: libcaja-private/caja-mime-actions.c:729
 #, c-format
 msgid "The Link \"%s\" is Broken. Move it to Trash?"
-msgstr "鏈結「%s」已損壞，將它丟進回收筒？"
+msgstr "連結「%s」已損壞，將它丟進回收筒？"
 
 #: libcaja-private/caja-mime-actions.c:736
 msgid "This link cannot be used, because it has no target."
-msgstr "鏈結無法使用，因為它沒有任何目標位置。"
+msgstr "連結無法使用，因為它沒有任何目標位置。"
 
 #: libcaja-private/caja-mime-actions.c:740
 #, c-format
 msgid "This link cannot be used, because its target \"%s\" doesn't exist."
-msgstr "鏈結無法使用，因為它的目標位置「%s」不存在。"
+msgstr "連結無法使用，因為它的目標位置「%s」不存在。"
 
 #: libcaja-private/caja-mime-actions.c:751
 #: src/file-manager/fm-directory-view.c:7499
@@ -2124,13 +2125,13 @@ msgstr "確定要開啟所有檔案嗎？"
 #, c-format
 msgid "This will open %d separate tab."
 msgid_plural "This will open %d separate tabs."
-msgstr[0] "這將開啟 %d 個分頁。"
+msgstr[0] ""
 
 #: libcaja-private/caja-mime-actions.c:1198 src/caja-location-bar.c:194
 #, c-format
 msgid "This will open %d separate window."
 msgid_plural "This will open %d separate windows."
-msgstr[0] "這將開啟 %d 個分隔視窗。"
+msgstr[0] ""
 
 #: libcaja-private/caja-mime-actions.c:1277
 #: src/caja-window-manage-views.c:2134 src/caja-window-manage-views.c:2142
@@ -2209,7 +2210,7 @@ msgstr "正在開啟「%s」。"
 #, c-format
 msgid "Opening %d item."
 msgid_plural "Opening %d items."
-msgstr[0] "正在開啟 %d 個項目。"
+msgstr[0] ""
 
 #: libcaja-private/caja-mime-application-chooser.c:164
 #: libcaja-private/caja-open-with-dialog.c:305
@@ -2463,7 +2464,7 @@ msgstr "恢復"
 #, c-format
 msgid "%'d file operation active"
 msgid_plural "%'d file operations active"
-msgstr[0] "%'d 個檔案操作啟用"
+msgstr[0] ""
 
 #: libcaja-private/caja-progress-info.c:631
 msgid "Process completed"
@@ -2548,12 +2549,12 @@ msgstr "移動「%s」回到回收筒"
 #: libcaja-private/caja-undostack-manager.c:1323
 #, c-format
 msgid "Delete links to %d items"
-msgstr "刪除到 %d 個項目的鏈結"
+msgstr "刪除到 %d 個項目的連結"
 
 #: libcaja-private/caja-undostack-manager.c:1326
 #, c-format
 msgid "Delete link to '%s'"
-msgstr "刪除到「%s」的鏈結"
+msgstr "刪除到「%s」的連結"
 
 #: libcaja-private/caja-undostack-manager.c:1336
 #, c-format
@@ -2638,12 +2639,12 @@ msgstr "從回收筒還原「%s」"
 #: libcaja-private/caja-undostack-manager.c:1499
 #, c-format
 msgid "Create links to %d items"
-msgstr "建立鏈結到 %d 個項目"
+msgstr "建立連結到 %d 個項目"
 
 #: libcaja-private/caja-undostack-manager.c:1502
 #, c-format
 msgid "Create link to '%s'"
-msgstr "建立鏈結到「%s」"
+msgstr "建立連結到「%s」"
 
 #: libcaja-private/caja-undostack-manager.c:1511
 #, c-format
@@ -2669,25 +2670,25 @@ msgstr "設定「%s」的擁有者為「%s」"
 #, c-format
 msgid "_Undo copy of %d item"
 msgid_plural "_Undo copy of %d items"
-msgstr[0] "復原 %d 個項目的複製(_U)"
+msgstr[0] ""
 
 #: libcaja-private/caja-undostack-manager.c:1575
 #, c-format
 msgid "_Undo duplicate of %d item"
 msgid_plural "_Undo duplicate of %d items"
-msgstr[0] "復原 %d 個項目的重製(_U)"
+msgstr[0] ""
 
 #: libcaja-private/caja-undostack-manager.c:1580
 #, c-format
 msgid "_Undo move of %d item"
 msgid_plural "_Undo move of %d items"
-msgstr[0] "復原 %d 個項目的移動(_U)"
+msgstr[0] ""
 
 #: libcaja-private/caja-undostack-manager.c:1585
 #, c-format
 msgid "_Undo rename of %d item"
 msgid_plural "_Undo rename of %d items"
-msgstr[0] "復原 %d 個項目的重新命名(_U)"
+msgstr[0] ""
 
 #: libcaja-private/caja-undostack-manager.c:1589
 msgid "_Undo creation of an empty file"
@@ -2701,79 +2702,79 @@ msgstr "復原從模板建立的檔案(_U)"
 #, c-format
 msgid "_Undo creation of %d folder"
 msgid_plural "_Undo creation of %d folders"
-msgstr[0] "復原建立的 %d 資料夾(_U)"
+msgstr[0] ""
 
 #: libcaja-private/caja-undostack-manager.c:1601
 #, c-format
 msgid "_Undo move to trash of %d item"
 msgid_plural "_Undo move to trash of %d items"
-msgstr[0] "復原丟進回收筒的 %d 個項目(_U)"
+msgstr[0] ""
 
 #: libcaja-private/caja-undostack-manager.c:1606
 #, c-format
 msgid "_Undo restore from trash of %d item"
 msgid_plural "_Undo restore from trash of %d items"
-msgstr[0] "復原從回收筒還原的 %d 個項目(_U)"
+msgstr[0] ""
 
 #: libcaja-private/caja-undostack-manager.c:1611
 #, c-format
 msgid "_Undo create link to %d item"
 msgid_plural "_Undo create link to %d items"
-msgstr[0] "復原建立鏈結到 %d 個項目(_U)"
+msgstr[0] ""
 
 #: libcaja-private/caja-undostack-manager.c:1616
 #, c-format
 msgid "_Undo delete of %d item"
 msgid_plural "_Undo delete of %d items"
-msgstr[0] "復原 %d 個項目的刪除(_U)"
+msgstr[0] ""
 
 #: libcaja-private/caja-undostack-manager.c:1621
 #, c-format
 msgid "Undo recursive change permissions of %d item"
 msgid_plural "Undo recursive change permissions of %d items"
-msgstr[0] "復原 %d 個項目的遞迴變更權限"
+msgstr[0] ""
 
 #: libcaja-private/caja-undostack-manager.c:1627
 #, c-format
 msgid "Undo change permissions of %d item"
 msgid_plural "Undo change permissions of %d items"
-msgstr[0] "復原 %d 個項目的變更權限"
+msgstr[0] ""
 
 #: libcaja-private/caja-undostack-manager.c:1632
 #, c-format
 msgid "Undo change group of %d item"
 msgid_plural "Undo change group of %d items"
-msgstr[0] "復原 %d 個項目的變更群組"
+msgstr[0] ""
 
 #: libcaja-private/caja-undostack-manager.c:1637
 #, c-format
 msgid "Undo change owner of %d item"
 msgid_plural "Undo change owner of %d items"
-msgstr[0] "復原變更 %d 個項目的擁有者"
+msgstr[0] ""
 
 #: libcaja-private/caja-undostack-manager.c:1665
 #, c-format
 msgid "_Redo copy of %d item"
 msgid_plural "_Redo copy of %d items"
-msgstr[0] "重做 %d 個項目的複製(_R)"
+msgstr[0] ""
 
 #: libcaja-private/caja-undostack-manager.c:1670
 #, c-format
 msgid "_Redo duplicate of %d item"
 msgid_plural "_Redo duplicate of %d items"
-msgstr[0] "重做 %d 個項目的重製(_R)"
+msgstr[0] ""
 
 #: libcaja-private/caja-undostack-manager.c:1675
 #, c-format
 msgid "_Redo move of %d item"
 msgid_plural "_Redo move of %d items"
-msgstr[0] "重做 %d 個項目的移動(_R)"
+msgstr[0] ""
 
 #: libcaja-private/caja-undostack-manager.c:1680
 #, c-format
 msgid "_Redo rename of %d item"
 msgid_plural "_Redo rename of %d items"
-msgstr[0] "重做 %d 個項目的重新命名(_R)"
+msgstr[0] ""
 
 #: libcaja-private/caja-undostack-manager.c:1684
 msgid "_Redo creation of an empty file"
@@ -2787,55 +2788,55 @@ msgstr "重做從模板建立檔案(_R)"
 #, c-format
 msgid "_Redo creation of %d folder"
 msgid_plural "_Redo creation of %d folders"
-msgstr[0] "重做 %d 個資料夾的建立(_R)"
+msgstr[0] ""
 
 #: libcaja-private/caja-undostack-manager.c:1696
 #, c-format
 msgid "_Redo move to trash of %d item"
 msgid_plural "_Redo move to trash of %d items"
-msgstr[0] "重做將 %d 個項目丟進回收筒(_R)"
+msgstr[0] ""
 
 #: libcaja-private/caja-undostack-manager.c:1701
 #, c-format
 msgid "_Redo restore from trash of %d item"
 msgid_plural "_Redo restore from trash of %d items"
-msgstr[0] "重做從回收筒還原 %d 個項目(_R)"
+msgstr[0] ""
 
 #: libcaja-private/caja-undostack-manager.c:1706
 #, c-format
 msgid "_Redo create link to %d item"
 msgid_plural "_Redo create link to %d items"
-msgstr[0] "重做建立鏈結到 %d 個項目(_R)"
+msgstr[0] ""
 
 #: libcaja-private/caja-undostack-manager.c:1711
 #, c-format
 msgid "_Redo delete of %d item"
 msgid_plural "_Redo delete of %d items"
-msgstr[0] "重做刪除 %d 個項目(_R)"
+msgstr[0] ""
 
 #: libcaja-private/caja-undostack-manager.c:1716
 #, c-format
 msgid "Redo recursive change permissions of %d item"
 msgid_plural "Redo recursive change permissions of %d items"
-msgstr[0] "重做遞迴變更 %d 個項目的權限"
+msgstr[0] ""
 
 #: libcaja-private/caja-undostack-manager.c:1722
 #, c-format
 msgid "Redo change permissions of %d item"
 msgid_plural "Redo change permissions of %d items"
-msgstr[0] "重做變更 %d 個項目的權限"
+msgstr[0] ""
 
 #: libcaja-private/caja-undostack-manager.c:1727
 #, c-format
 msgid "Redo change group of %d item"
 msgid_plural "Redo change group of %d items"
-msgstr[0] "重做變更 %d 個項目的群組"
+msgstr[0] ""
 
 #: libcaja-private/caja-undostack-manager.c:1732
 #, c-format
 msgid "Redo change owner of %d item"
 msgid_plural "Redo change owner of %d items"
-msgstr[0] "重做變更 %d 個項目的擁有者"
+msgstr[0] ""
 
 #: libcaja-private/org.mate.caja.gschema.xml:76
 msgid "Where to position newly open tabs in browser windows."
@@ -3383,7 +3384,7 @@ msgstr "在桌面中顯示「個人資料夾」圖示"
 msgid ""
 "If this is set to true, an icon linking to the home folder will be put on "
 "the desktop."
-msgstr "如設定為‘true’，則桌面上會有一個圖示鏈結至「個人資料夾」。"
+msgstr "如設定為‘true’，則桌面上會有一個圖示連結至「個人資料夾」。"
 
 #: libcaja-private/org.mate.caja.gschema.xml:385
 msgid "Computer icon visible on desktop"
@@ -3393,7 +3394,7 @@ msgstr "在桌面中顯示「電腦」圖示"
 msgid ""
 "If this is set to true, an icon linking to the computer location will be put"
 " on the desktop."
-msgstr "如設定為‘true’，則桌面上會顯示一個鏈結到電腦位置的圖示。"
+msgstr "如設定為‘true’，則桌面上會顯示一個連結到電腦位置的圖示。"
 
 #: libcaja-private/org.mate.caja.gschema.xml:390
 msgid "Trash icon visible on desktop"
@@ -3403,7 +3404,7 @@ msgstr "在桌面上顯示「回收筒」圖示"
 msgid ""
 "If this is set to true, an icon linking to the trash will be put on the "
 "desktop."
-msgstr "如設定為‘true’，則桌面上會有一個圖示鏈結至回收筒。"
+msgstr "如設定為‘true’，則桌面上會有一個圖示連結至回收筒。"
 
 #: libcaja-private/org.mate.caja.gschema.xml:395
 msgid "Show mounted volumes on the desktop"
@@ -3413,7 +3414,7 @@ msgstr "在桌面上顯示已掛載的檔案系統"
 msgid ""
 "If this is set to true, icons linking to mounted volumes will be put on the "
 "desktop."
-msgstr "如設定為‘true’，則桌面上會出現鏈結到已掛載的檔案系統的圖示。"
+msgstr "如設定為‘true’，則桌面上會出現連結到已掛載的檔案系統的圖示。"
 
 #: libcaja-private/org.mate.caja.gschema.xml:400
 msgid "Network Servers icon visible on the desktop"
@@ -3423,7 +3424,7 @@ msgstr "在桌面中顯示網路伺服器圖示"
 msgid ""
 "If this is set to true, an icon linking to the Network Servers view will be "
 "put on the desktop."
-msgstr "如設定為‘true’，則桌面上會有一個圖示鏈結至顯示網路伺服器。"
+msgstr "如設定為‘true’，則桌面上會有一個圖示連結至顯示網路伺服器。"
 
 #: libcaja-private/org.mate.caja.gschema.xml:405
 msgid "Desktop computer icon name"
@@ -4634,13 +4635,13 @@ msgstr "圖片類型："
 #, c-format
 msgid "<b>Width:</b> %d pixel"
 msgid_plural "<b>Width:</b> %d pixels"
-msgstr[0] "<b>寬度:</b>%d 像素"
+msgstr[0] ""
 
 #: src/caja-image-properties-page.c:411
 #, c-format
 msgid "<b>Height:</b> %d pixel"
 msgid_plural "<b>Height:</b> %d pixels"
-msgstr[0] "<b>高度:</b>%d 像素"
+msgstr[0] ""
 
 #: src/caja-image-properties-page.c:430
 msgid "Failed to load image information"
@@ -4712,7 +4713,7 @@ msgstr "前往："
 #, c-format
 msgid "Do you want to view %d location?"
 msgid_plural "Do you want to view %d locations?"
-msgstr[0] "您要檢視 %d 個位置嗎？"
+msgstr[0] ""
 
 #: src/caja-location-dialog.c:160
 msgid "Open Location"
@@ -5161,11 +5162,11 @@ msgstr "加入新的…"
 #: src/caja-property-browser.c:979
 #, c-format
 msgid "Sorry, but pattern %s could not be deleted."
-msgstr "抱歉，無法刪除胚騰 %s。"
+msgstr "抱歉，無法刪除樣式 %s。"
 
 #: src/caja-property-browser.c:980
 msgid "Check that you have permission to delete the pattern."
-msgstr "請檢查您有沒有權限刪除胚騰。"
+msgstr "請檢查您有沒有權限刪除樣式。"
 
 #: src/caja-property-browser.c:996
 #, c-format
@@ -5215,11 +5216,11 @@ msgstr "「重設」是一個特殊的圖片，不可以刪除。"
 #: src/caja-property-browser.c:1297
 #, c-format
 msgid "Sorry, but the pattern %s could not be installed."
-msgstr "抱歉，無法安裝 %s 胚騰。"
+msgstr "抱歉，無法安裝 %s 樣式。"
 
 #: src/caja-property-browser.c:1329
 msgid "Select an Image File to Add as a Pattern"
-msgstr "請選取要加入為胚騰的圖形檔"
+msgstr "請選取要加入為樣式的圖形檔"
 
 #: src/caja-property-browser.c:1409 src/caja-property-browser.c:1438
 msgid "The color cannot be installed."
@@ -5256,7 +5257,7 @@ msgstr "取消移除(_A)"
 
 #: src/caja-property-browser.c:2334
 msgid "_Add a New Pattern..."
-msgstr "新增胚騰(_A)…"
+msgstr "新增樣式(_A)…"
 
 #: src/caja-property-browser.c:2337
 msgid "_Add a New Color..."
@@ -5268,7 +5269,7 @@ msgstr "新增圖章(_A)…"
 
 #: src/caja-property-browser.c:2366
 msgid "Click on a pattern to remove it"
-msgstr "按下準備移除的胚騰"
+msgstr "按下準備移除的樣式"
 
 #: src/caja-property-browser.c:2369
 msgid "Click on a color to remove it"
@@ -5280,7 +5281,7 @@ msgstr "按下準備移除的圖章"
 
 #: src/caja-property-browser.c:2384
 msgid "Patterns:"
-msgstr "胚騰："
+msgstr "樣式："
 
 #: src/caja-property-browser.c:2387
 msgid "Colors:"
@@ -5292,7 +5293,7 @@ msgstr "圖章："
 
 #: src/caja-property-browser.c:2412
 msgid "_Remove a Pattern..."
-msgstr "移除胚騰(_R)…"
+msgstr "移除樣式(_R)…"
 
 #: src/caja-property-browser.c:2415
 msgid "_Remove a Color..."
@@ -5720,7 +5721,7 @@ msgstr "背景及圖章(_B)…"
 msgid ""
 "Display patterns, colors, and emblems that can be used to customize "
 "appearance"
-msgstr "顯示自選外觀時所用的胚騰、色彩及圖章"
+msgstr "顯示自選外觀時所用的樣式、色彩及圖章"
 
 #: src/caja-window-menus.c:866
 msgid "Prefere_nces"
@@ -5951,7 +5952,7 @@ msgstr "更改桌面背景(_B)"
 #: src/file-manager/fm-desktop-icon-view.c:776
 msgid ""
 "Show a window that lets you set your desktop background's pattern or color"
-msgstr "顯示一個可設定桌面背景胚騰或顏色的視窗"
+msgstr "顯示一個可設定桌面背景樣式或顏色的視窗"
 
 #: src/file-manager/fm-desktop-icon-view.c:783
 msgid "Empty Trash"
@@ -5983,13 +5984,13 @@ msgstr "以桌面檢視顯示這個位置。"
 #, c-format
 msgid "This will open %'d separate tab."
 msgid_plural "This will open %'d separate tabs."
-msgstr[0] "這將開啟 %'d 個分隔的頁標。"
+msgstr[0] ""
 
 #: src/file-manager/fm-directory-view.c:663
 #, c-format
 msgid "This will open %'d separate window."
 msgid_plural "This will open %'d separate windows."
-msgstr[0] "這將開啟 %'d 個分隔視窗。"
+msgstr[0] ""
 
 #: src/file-manager/fm-directory-view.c:1209
 msgid "Select Items Matching"
@@ -5997,7 +5998,7 @@ msgstr "選擇項目比對"
 
 #: src/file-manager/fm-directory-view.c:1233
 msgid "_Pattern:"
-msgstr "胚騰(_P):"
+msgstr "樣式(_P):"
 
 #: src/file-manager/fm-directory-view.c:1240
 msgid "Examples: "
@@ -6033,13 +6034,13 @@ msgstr "已選取「%s」"
 #, c-format
 msgid "%'d folder selected"
 msgid_plural "%'d folders selected"
-msgstr[0] "%'d 個資料夾已選取"
+msgstr[0] "已選取 %'d 個資料夾"
 
 #: src/file-manager/fm-directory-view.c:2322
 #, c-format
 msgid " (containing %'d item)"
 msgid_plural " (containing %'d items)"
-msgstr[0] " (包含 %'d 個項目)"
+msgstr[0] "(包含 %'d 個項目)"
 
 #. Translators: this is preceded with a string of form 'N folders' (N more
 #. than 1)
@@ -6047,19 +6048,19 @@ msgstr[0] " (包含 %'d 個項目)"
 #, c-format
 msgid " (containing a total of %'d item)"
 msgid_plural " (containing a total of %'d items)"
-msgstr[0] " (包含總計 %'d 個項目)"
+msgstr[0] ""
 
 #: src/file-manager/fm-directory-view.c:2350
 #, c-format
 msgid "%'d item selected"
 msgid_plural "%'d items selected"
-msgstr[0] "%'d 項目已選"
+msgstr[0] "已選取 %'d 個項目"
 
 #: src/file-manager/fm-directory-view.c:2357
 #, c-format
 msgid "%'d other item selected"
 msgid_plural "%'d other items selected"
-msgstr[0] "%'d 個其他項目已選取"
+msgstr[0] "已選取 %'d 個其它項目"
 
 #. Translators: This is marked for translation in case a localiser
 #. * needs to use something other than parentheses. The
@@ -6100,7 +6101,7 @@ msgstr "%s%s, %s, %s"
 #, c-format
 msgid "Use \"%s\" to open the selected item"
 msgid_plural "Use \"%s\" to open the selected items"
-msgstr[0] "使用「%s」以開啟所選項目"
+msgstr[0] ""
 
 #: src/file-manager/fm-directory-view.c:4612
 msgid "Open parent location"
@@ -6189,14 +6190,14 @@ msgstr "選取「貼上」指令則會複製「%s」"
 msgid "The %'d selected item will be moved if you select the Paste command"
 msgid_plural ""
 "The %'d selected items will be moved if you select the Paste command"
-msgstr[0] "如果您選取貼上命令將會移動 %'d 個已選項目"
+msgstr[0] ""
 
 #: src/file-manager/fm-directory-view.c:6098
 #, c-format
 msgid "The %'d selected item will be copied if you select the Paste command"
 msgid_plural ""
 "The %'d selected items will be copied if you select the Paste command"
-msgstr[0] "如果您選取貼上命令將會複製 %'d 個已選項目"
+msgstr[0] ""
 
 #: src/file-manager/fm-directory-view.c:6278
 #: src/file-manager/fm-tree-view.c:1060
@@ -6229,7 +6230,7 @@ msgstr "連接(_C)"
 
 #: src/file-manager/fm-directory-view.c:7118
 msgid "Link _name:"
-msgstr "鏈結名稱(_N):"
+msgstr "連結名稱(_N):"
 
 #: src/file-manager/fm-directory-view.c:7389
 msgid "Create _Document"
@@ -6366,7 +6367,7 @@ msgstr "選擇項目比對(_T)…"
 
 #: src/file-manager/fm-directory-view.c:7476
 msgid "Select items in this window matching a given pattern"
-msgstr "選取本視窗中所有符合指定胚騰的項目"
+msgstr "選取本視窗中所有符合指定樣式的項目"
 
 #: src/file-manager/fm-directory-view.c:7479
 msgid "_Invert Selection"
@@ -6388,11 +6389,11 @@ msgstr "複製所有選定的項目"
 #: src/file-manager/fm-directory-view.c:9156
 msgid "Ma_ke Link"
 msgid_plural "Ma_ke Links"
-msgstr[0] "建立鏈結(_K)"
+msgstr[0] "建立連結(_K)"
 
 #: src/file-manager/fm-directory-view.c:7488
 msgid "Create a symbolic link for each selected item"
-msgstr "為所有選定的項目建立鏈結"
+msgstr "為所有選定的項目建立連結"
 
 #: src/file-manager/fm-directory-view.c:7491
 msgid "_Rename..."
@@ -6635,34 +6636,34 @@ msgstr "將開啟的資料夾自回收筒移至「%s」"
 #, c-format
 msgid "Move the selected folder out of the trash to \"%s\""
 msgid_plural "Move the selected folders out of the trash to \"%s\""
-msgstr[0] "將已選資料夾移出回收筒到「%s」"
+msgstr[0] ""
 
 #: src/file-manager/fm-directory-view.c:8212
 msgid "Move the selected folder out of the trash"
 msgid_plural "Move the selected folders out of the trash"
-msgstr[0] "將已選資料夾移出回收筒"
+msgstr[0] ""
 
 #: src/file-manager/fm-directory-view.c:8218
 #, c-format
 msgid "Move the selected file out of the trash to \"%s\""
 msgid_plural "Move the selected files out of the trash to \"%s\""
-msgstr[0] "將已選檔案移出回收筒到「%s」"
+msgstr[0] ""
 
 #: src/file-manager/fm-directory-view.c:8222
 msgid "Move the selected file out of the trash"
 msgid_plural "Move the selected files out of the trash"
-msgstr[0] "將已選檔案移出回收筒"
+msgstr[0] "將選取的檔案自回收筒移出"
 
 #: src/file-manager/fm-directory-view.c:8228
 #, c-format
 msgid "Move the selected item out of the trash to \"%s\""
 msgid_plural "Move the selected items out of the trash to \"%s\""
-msgstr[0] "將已選項目移出回收筒到「%s」"
+msgstr[0] ""
 
 #: src/file-manager/fm-directory-view.c:8232
 msgid "Move the selected item out of the trash"
 msgid_plural "Move the selected items out of the trash"
-msgstr[0] "將已選項目移出回收筒"
+msgstr[0] "將選取的項目自回收筒移出"
 
 #: src/file-manager/fm-directory-view.c:8361
 #: src/file-manager/fm-directory-view.c:8365
@@ -6807,25 +6808,25 @@ msgstr "以 %s 開啟(_O)"
 #, c-format
 msgid "Open in %'d New _Window"
 msgid_plural "Open in %'d New _Windows"
-msgstr[0] "在 %'d 個新視窗中開啟(_W)"
+msgstr[0] "在 %'d 個新的視窗內開啟(_W)"
 
 #: src/file-manager/fm-directory-view.c:9026
 #, c-format
 msgid "Browse in %'d New _Window"
 msgid_plural "Browse in %'d New _Windows"
-msgstr[0] "在 %'d 個新視窗中瀏覽(_W)"
+msgstr[0] "在 %'d 個新的視窗內瀏覽(_W)"
 
 #: src/file-manager/fm-directory-view.c:9058
 #, c-format
 msgid "Open in %'d New _Tab"
 msgid_plural "Open in %'d New _Tabs"
-msgstr[0] "在 %'d 個新分頁中開啟(_T)"
+msgstr[0] "在 %'d 個新的分頁內開啟(_T)"
 
 #: src/file-manager/fm-directory-view.c:9067
 #, c-format
 msgid "Browse in %'d New _Tab"
 msgid_plural "Browse in %'d New _Tabs"
-msgstr[0] "在 %'d 個新分頁中瀏覽(_T)"
+msgstr[0] "在 %'d 個新的分頁內瀏覽(_T)"
 
 #: src/file-manager/fm-directory-view.c:9111
 msgid "Delete all selected items permanently"
@@ -6841,11 +6842,11 @@ msgstr "下載位置？"
 
 #: src/file-manager/fm-directory-view.c:10484
 msgid "You can download it or make a link to it."
-msgstr "您可以將它下載或給它建立鏈結。"
+msgstr "您可以將它下載或給它建立連結。"
 
 #: src/file-manager/fm-directory-view.c:10487
 msgid "Make a _Link"
-msgstr "建立鏈結(_L)"
+msgstr "建立連結(_L)"
 
 #: src/file-manager/fm-directory-view.c:10494
 msgid "_Download"
@@ -7295,7 +7296,7 @@ msgstr "無法讀取"
 #, c-format
 msgid "%'d item, with size %s (%s on disk)"
 msgid_plural "%'d items, totalling %s (%s on disk)"
-msgstr[0] "%'d 個項目，總大小 %s（%s 在磁碟上）"
+msgstr[0] ""
 
 #: src/file-manager/fm-properties-window.c:2327
 msgid "(some contents unreadable)"
@@ -7329,7 +7330,7 @@ msgstr "基本"
 
 #: src/file-manager/fm-properties-window.c:3296
 msgid "Link target:"
-msgstr "鏈結目標："
+msgstr "連結目標："
 
 #: src/file-manager/fm-properties-window.c:3310
 msgid "Size on Disk:"

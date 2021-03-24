@@ -4,16 +4,17 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Kees Lijkendijk <clkndk@gmail.com>, 2018
-# Marcel van den Boer <marcelvdboer@gmail.com>, 2018
-# Michael Steenbeek <m.o.steenbeek@gmail.com>, 2018
-# Nathan Follens, 2018
-# Stef Pletinck <stef.plet@gmail.com>, 2018
-# Volluta <volluta@tutanota.com>, 2018
-# Erik Bent <hj.bent.60@gmail.com>, 2018
-# infirit <inactive+infirit@transifex.com>, 2018
-# dragnadh, 2018
-# Stefano Karapetsas <stefano@karapetsas.com>, 2019
+# Kees Lijkendijk <clkndk@gmail.com>, 2020
+# Marcel van den Boer <marcelvdboer@gmail.com>, 2020
+# clefebvre <clement.lefebvre@linuxmint.com>, 2020
+# Nathan Follens, 2020
+# Stef Pletinck <stef.plet@gmail.com>, 2020
+# Stefano Karapetsas <stefano@karapetsas.com>, 2020
+# Michael Steenbeek <m.o.steenbeek@gmail.com>, 2020
+# Erik Bent <hj.bent.60@gmail.com>, 2020
+# 8c3c560621f92e66455793da7b85eff0_8989672 <0e181aafae430e5c919398b6a7bba462_109266>, 2020
+# dragnadh, 2020
+# Volluta <volluta@tutanota.com>, 2020
 # Pjotr <pjotrvertaalt@gmail.com>, 2020
 # 
 msgid ""
@@ -21,7 +22,7 @@ msgstr ""
 "Project-Id-Version: caja 1.23.2\n"
 "Report-Msgid-Bugs-To: https://mate-desktop.org\n"
 "POT-Creation-Date: 2020-01-10 11:11+0100\n"
-"PO-Revision-Date: 2018-03-11 14:48+0000\n"
+"PO-Revision-Date: 2020-02-14 11:44+0000\n"
 "Last-Translator: Pjotr <pjotrvertaalt@gmail.com>, 2020\n"
 "Language-Team: Dutch (https://www.transifex.com/mate/teams/13566/nl/)\n"
 "MIME-Version: 1.0\n"
@@ -36,7 +37,7 @@ msgstr "_Patronen"
 
 #: data/browser.xml.in:5
 msgid "Drag a pattern tile to an object to change it"
-msgstr "Sleep een patroon naar een object om het te veranderen"
+msgstr "Sleep een patroontegel naar een object om het te veranderen"
 
 #: data/browser.xml.in:6
 msgid "Blue Ridge"
@@ -317,7 +318,7 @@ msgid ""
 " associated with them. It is also responsible for handling the icons on the "
 "MATE desktop. It works on local and remote file systems."
 msgstr ""
-"Caja is de officiële bestandbeheerder van de MATE-werkomgeving. U kunt er "
+"Caja is de officiële bestandsbeheerder van de MATE-werkomgeving. U kunt er "
 "mappen mee verkennen, voorbeeldweergave van bestanden tonen en toepassingen "
 "starten die met die bestanden zijn geassocieerd. Hij is ook verantwoordelijk"
 " voor het afhandelen van de pictogrammen op het MATE-bureaublad. Hij werkt "
@@ -347,7 +348,7 @@ msgstr "Bestandsbeheerder"
 
 #: data/caja-browser.desktop.in.in:5
 msgid "Browse the file system with the file manager"
-msgstr "Bestandssysteem doorbladeren met het bestandsbeheer"
+msgstr "Bestandssysteem verkennen met de bestandsbeheerder"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon
 #. file name)!
@@ -360,7 +361,7 @@ msgstr "system-file-manager"
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/caja-browser.desktop.in.in:15
 msgid "files;browser;manager;MATE;"
-msgstr "bestanden;verkenner;bestandbeheer;MATE;"
+msgstr "bestanden;verkenner;bestandsbeheer;MATE;"
 
 #: data/caja-computer.desktop.in.in:3 libcaja-private/caja-desktop-link.c:114
 #: src/caja-places-sidebar.c:513
@@ -371,7 +372,7 @@ msgstr "Computer"
 msgid ""
 "Browse all local and remote disks and folders accessible from this computer"
 msgstr ""
-"Doorzoek alle schijven en mappen die benaderbaar zijn vanuit deze computer, "
+"Verken alle schijven en mappen die benaderbaar zijn vanuit deze computer, "
 "ook als ze op afstand zijn"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon
@@ -559,7 +560,7 @@ msgstr "Meer _details weergeven"
 #: src/file-manager/fm-directory-view.c:7099
 #: src/file-manager/fm-directory-view.c:10490
 msgid "_Cancel"
-msgstr "_Annuleren"
+msgstr "_Afbreken"
 
 #: eel/eel-stock-dialogs.c:240 libcaja-private/caja-open-with-dialog.c:988
 #: src/caja-location-dialog.c:202 src/caja-places-sidebar.c:2697
@@ -584,7 +585,7 @@ msgstr "U kunt deze operatie stilzetten door op 'afbreken' te klikken."
 #: src/caja-property-browser.c:1202 src/caja-query-editor.c:776
 #: src/file-manager/fm-directory-view.c:1224
 msgid "_OK"
-msgstr "_Oké"
+msgstr "_OK"
 
 #: eel/eel-stock-dialogs.c:658
 msgid "_Clear"
@@ -1434,7 +1435,7 @@ msgstr[1] "%'d minuten"
 msgid "%'d hour"
 msgid_plural "%'d hours"
 msgstr[0] "%'d uur"
-msgstr[1] "%'d uur"
+msgstr[1] "%'d uren"
 
 #: libcaja-private/caja-file-operations.c:330
 #, c-format
@@ -1581,11 +1582,11 @@ msgid_plural ""
 "Are you sure you want to permanently delete the %'d selected items from the "
 "trash?"
 msgstr[0] ""
-"Weet u zeker dat u %'d gekozen element blijvend uit de prullenbak wilt "
-"verwijderen?"
+"Weet u zeker dat u het gekozen element blijvend wilt verwijderen uit de "
+"prullenbak?"
 msgstr[1] ""
-"Weet u zeker dat u de %'d gekozen elementen blijvend uit de prullenbak wilt "
-"verwijderen?"
+"Weet u zeker dat u de gekozen %'d elementen blijvend wilt verwijderen uit de"
+" prullenbak?"
 
 #: libcaja-private/caja-file-operations.c:1383
 #: libcaja-private/caja-file-operations.c:1449
@@ -1615,9 +1616,9 @@ msgstr "Weet u zeker dat u '%B' blijvend wilt verwijderen?"
 msgid "Are you sure you want to permanently delete the %'d selected item?"
 msgid_plural ""
 "Are you sure you want to permanently delete the %'d selected items?"
-msgstr[0] "Weet u zeker dat u %'d gekozen element blijvend wilt verwijderen?"
+msgstr[0] "Weet u zeker dat u het gekozen element blijvend wilt verwijderen?"
 msgstr[1] ""
-"Weet u zeker dat u de %'d gekozen elementen blijvend wilt verwijderen?"
+"Weet u zeker dat u de gekozen %'d elementen blijvend wilt verwijderen?"
 
 #: libcaja-private/caja-file-operations.c:1479
 msgid "Are you sure you want to trash \"%B\"?"
@@ -1628,9 +1629,9 @@ msgstr "Weet u zeker dat u '%B' naar de prullenbak wilt verplaatsen?"
 msgid "Are you sure you want to trash the %'d selected item?"
 msgid_plural "Are you sure you want to trash the %'d selected items?"
 msgstr[0] ""
-"Weet u zeker dat u %'d gekozen element in de prullenbak wilt gooien?"
+"Weet u zeker dat u het gekozen element in de prullenbak wilt gooien?"
 msgstr[1] ""
-"Weet u zeker dat u de %'d gekozen elementen in de prullenbak wilt gooien?"
+"Weet u zeker dat u de gekozen %'d elementen in de prullenbak wilt gooien?"
 
 #: libcaja-private/caja-file-operations.c:1491
 msgid "Items moved to the trash may be recovered until the trash is emptied."
@@ -1646,8 +1647,8 @@ msgstr "In _prullenbak gooien"
 #, c-format
 msgid "%'d file left to delete"
 msgid_plural "%'d files left to delete"
-msgstr[0] "%'d bestand over om te verwijderen"
-msgstr[1] "%'d bestanden over om te verwijderen"
+msgstr[0] "%'d te wissen bestand over"
+msgstr[1] "%'d te wissen bestanden over"
 
 #: libcaja-private/caja-file-operations.c:1530
 msgid "Deleting files"
@@ -1659,8 +1660,8 @@ msgstr "Wissen van bestanden..."
 #: libcaja-private/caja-file-operations.c:1547
 msgid "%T left"
 msgid_plural "%T left"
-msgstr[0] "%T resterend"
-msgstr[1] "%T resterend"
+msgstr[0] "%T over"
+msgstr[1] "%T over"
 
 #: libcaja-private/caja-file-operations.c:1614
 #: libcaja-private/caja-file-operations.c:1648
@@ -1787,29 +1788,29 @@ msgstr "Kan %s niet aankoppelen"
 #, c-format
 msgid "Preparing to copy %'d file (%S)"
 msgid_plural "Preparing to copy %'d files (%S)"
-msgstr[0] "Bezig met voorbereiden om %'d bestand te kopiëren (%S)"
-msgstr[1] "Bezig met voorbereiden om %'d bestanden te kopiëren (%S)"
+msgstr[0] "Bezig met voorbereiden van kopiëren van %'d bestand (%S)"
+msgstr[1] "Bezig met voorbereiden van kopiëren van %'d bestanden (%S)"
 
 #: libcaja-private/caja-file-operations.c:2546
 #, c-format
 msgid "Preparing to move %'d file (%S)"
 msgid_plural "Preparing to move %'d files (%S)"
-msgstr[0] "Bezig met voorbereiden om %'d bestand te verplaatsen (%S)"
-msgstr[1] "Bezig met voorbereiden om %'d bestanden te verplaatsen (%S)"
+msgstr[0] "Bezig met voorbereiden van verplaatsen van %'d bestand (%S)"
+msgstr[1] "Bezig met voorbereiden van verplaatsen van %'d bestanden (%S)"
 
 #: libcaja-private/caja-file-operations.c:2552
 #, c-format
 msgid "Preparing to delete %'d file (%S)"
 msgid_plural "Preparing to delete %'d files (%S)"
-msgstr[0] "Bezig met voorbereiden om %'d bestand te verwijderen (%S)"
-msgstr[1] "Bezig met voorbereiden om %'d bestanden te verwijderen (%S)"
+msgstr[0] "Bezig met voorbereiden van wissen van %'d bestand (%S)"
+msgstr[1] "Bezig met voorbereiden van wissen van %'d bestanden (%S)"
 
 #: libcaja-private/caja-file-operations.c:2558
 #, c-format
 msgid "Preparing to trash %'d file"
 msgid_plural "Preparing to trash %'d files"
-msgstr[0] "Bezig met voorbereiden om %'d bestand in de prullenbak te gooien"
-msgstr[1] "Bezig met voorbereiden om %'d bestanden in de prullenbak te gooien"
+msgstr[0] "Bezig met voorbereiden van in prullenbak gooien van %'d bestand"
+msgstr[1] "Bezig met voorbereiden van in prullenbak gooien van %'d bestanden"
 
 #: libcaja-private/caja-file-operations.c:2589
 #: libcaja-private/caja-file-operations.c:3500
@@ -1910,32 +1911,32 @@ msgstr "Dupliceren van '%B'..."
 #: libcaja-private/caja-file-operations.c:3048
 msgid "Moving %'d file (in \"%B\") to \"%B\""
 msgid_plural "Moving %'d files (in \"%B\") to \"%B\""
-msgstr[0] "Bezig met verplaatsen van %'d bestand (in '%B') naar '%B'"
-msgstr[1] "Bezig met verplaatsen van %'d bestanden (in '%B') naar '%B'"
+msgstr[0] "Bezig met verplaatsen van %'d bestand (in \"%B\") naar \"%B\""
+msgstr[1] "Bezig met verplaatsen van %'d bestanden (in \"%B\") naar \"%B\""
 
 #: libcaja-private/caja-file-operations.c:3052
 msgid "Copying %'d file (in \"%B\") to \"%B\""
 msgid_plural "Copying %'d files (in \"%B\") to \"%B\""
-msgstr[0] "Bezig met kopiëren van %'d bestand (in '%B') naar '%B'"
-msgstr[1] "Bezig met kopiëren van %'d bestanden (in '%B') naar '%B'"
+msgstr[0] "Bezig met kopiëren van %'d bestand (in \"%B\") naar \"%B\""
+msgstr[1] "Bezig met kopiëren van %'d bestanden (in \"%B\") naar \"%B\""
 
 #: libcaja-private/caja-file-operations.c:3060
 msgid "Duplicating %'d file (in \"%B\")"
 msgid_plural "Duplicating %'d files (in \"%B\")"
-msgstr[0] "Bezig met dupliceren van %'d bestand (in '%B')"
-msgstr[1] "Bezig met dupliceren van %'d bestanden (in '%B')"
+msgstr[0] "Bezig met dupliceren van %'d bestand (in \"%B\")"
+msgstr[1] "Bezig met dupliceren van %'d bestanden (in \"%B\")"
 
 #: libcaja-private/caja-file-operations.c:3070
 msgid "Moving %'d file to \"%B\""
 msgid_plural "Moving %'d files to \"%B\""
-msgstr[0] "Bezig met verplaatsen van %'d bestand naar '%B'"
-msgstr[1] "Bezig met verplaatsen van %'d bestanden naar '%B'"
+msgstr[0] "Bezig met verplaatsen van %'d bestanden naar \"%B\""
+msgstr[1] "Bezig met verplaatsen van %'d bestanden naar \"%B\""
 
 #: libcaja-private/caja-file-operations.c:3074
 msgid "Copying %'d file to \"%B\""
 msgid_plural "Copying %'d files to \"%B\""
-msgstr[0] "Bezig met kopiëren van %'d bestand naar '%B'"
-msgstr[1] "Bezig met kopiëren van %'d bestanden naar '%B'"
+msgstr[0] "Bezig met kopiëren van %'d bestand naar \"%B\""
+msgstr[1] "Bezig met kopiëren van %'d bestanden naar \"%B\""
 
 #: libcaja-private/caja-file-operations.c:3080
 #, c-format
@@ -2417,7 +2418,7 @@ msgstr "_Gebruik een aangepaste opdracht"
 
 #: libcaja-private/caja-open-with-dialog.c:949
 msgid "_Browse..."
-msgstr "_Bladeren..."
+msgstr "_Verkennen..."
 
 #. Translators: first %s is a filename and second %s is a file extension
 #: libcaja-private/caja-open-with-dialog.c:1072
@@ -2789,22 +2790,22 @@ msgstr "Verander eigenaar van '%s' in '%s'"
 #, c-format
 msgid "_Undo copy of %d item"
 msgid_plural "_Undo copy of %d items"
-msgstr[0] "Kopiëren van %d element _ongedaan maken"
-msgstr[1] "Kopiëren van %d elementen _ongedaan maken"
+msgstr[0] " Kopiëren _ongedaan maken van %d element"
+msgstr[1] "Kopiëren _ongedaan maken van %d elementen"
 
 #: libcaja-private/caja-undostack-manager.c:1575
 #, c-format
 msgid "_Undo duplicate of %d item"
 msgid_plural "_Undo duplicate of %d items"
-msgstr[0] "Dupliceren van %d element _ongedaan maken"
-msgstr[1] "Dupliceren van %d elementen _ongedaan maken"
+msgstr[0] "Dupliceren _ongedaan maken van %d element"
+msgstr[1] "Dupliceren _ongedaan maken van %d elementen"
 
 #: libcaja-private/caja-undostack-manager.c:1580
 #, c-format
 msgid "_Undo move of %d item"
 msgid_plural "_Undo move of %d items"
-msgstr[0] "Verplaatsen van %d element _ongedaan maken"
-msgstr[1] "Verplaatsen van %d elementen _ongedaan maken"
+msgstr[0] "Verplaatsing van %d element _ongedaan maken"
+msgstr[1] "Verplaatsing van %d elementen _ongedaan maken"
 
 #: libcaja-private/caja-undostack-manager.c:1585
 #, c-format
@@ -2832,14 +2833,14 @@ msgstr[1] "Aanmaken van %d mappen _ongedaan maken"
 #, c-format
 msgid "_Undo move to trash of %d item"
 msgid_plural "_Undo move to trash of %d items"
-msgstr[0] "Verplaatsen naar prullenbak van %d element _ongedaan maken"
-msgstr[1] "Verplaatsen naar prullenbak van %d elementen _ongedaan maken"
+msgstr[0] "Verplaatsing naar prullenbak van %d element _ongedaan maken"
+msgstr[1] "Verplaatsing naar prullenbak van %d elementen _ongedaan maken"
 
 #: libcaja-private/caja-undostack-manager.c:1606
 #, c-format
 msgid "_Undo restore from trash of %d item"
 msgid_plural "_Undo restore from trash of %d items"
-msgstr[0] "Terugzetten vanuit prullenbak van %d element _ongedaan maken"
+msgstr[0] "terugzetten vanuit prullenbak van %d element _ongedaan maken"
 msgstr[1] "Terugzetten vanuit prullenbak van %d elementen _ongedaan maken"
 
 #: libcaja-private/caja-undostack-manager.c:1611
@@ -2860,57 +2861,57 @@ msgstr[1] "Verwijderen van %d elementen _ongedaan maken"
 #, c-format
 msgid "Undo recursive change permissions of %d item"
 msgid_plural "Undo recursive change permissions of %d items"
-msgstr[0] "Recursieve rechtenwijziging van %d element ongedaan maken"
-msgstr[1] "Recursieve rechtenwijziging van %d elementen ongedaan maken"
+msgstr[0] "Recursieve rechtenwijziging van %d element _ongedaan maken"
+msgstr[1] "Recursieve rechtenwijziging van %d elementen _ongedaan maken"
 
 #: libcaja-private/caja-undostack-manager.c:1627
 #, c-format
 msgid "Undo change permissions of %d item"
 msgid_plural "Undo change permissions of %d items"
-msgstr[0] "Rechtenwijziging van %d element ongedaan maken"
-msgstr[1] "Rechtenwijziging van %d elementen ongedaan maken"
+msgstr[0] "Rechten wijzigen van %d element ongedaan maken"
+msgstr[1] "Rechten wijzigen van %d elementen ongedaan maken"
 
 #: libcaja-private/caja-undostack-manager.c:1632
 #, c-format
 msgid "Undo change group of %d item"
 msgid_plural "Undo change group of %d items"
-msgstr[0] "Groepwijziging van %d element ongedaan maken"
-msgstr[1] "Groepwijziging van %d elementen ongedaan maken"
+msgstr[0] "Groepswijziging van %d element ongedaan maken"
+msgstr[1] "Groepswijziging van %d elementen ongedaan maken"
 
 #: libcaja-private/caja-undostack-manager.c:1637
 #, c-format
 msgid "Undo change owner of %d item"
 msgid_plural "Undo change owner of %d items"
-msgstr[0] "Eigenaarwijziging van %d element ongedaan maken"
-msgstr[1] "Eigenaarwijziging van %d elementen ongedaan maken"
+msgstr[0] "Eigenaar wijzigen van %d element ongedaan maken"
+msgstr[1] "Eigenaar wijzigen van %d elementen ongedaan maken"
 
 #: libcaja-private/caja-undostack-manager.c:1665
 #, c-format
 msgid "_Redo copy of %d item"
 msgid_plural "_Redo copy of %d items"
-msgstr[0] "Kopiëren van %d element opnieuw _uitvoeren"
-msgstr[1] "Kopiëren van %d elementen opnieuw _uitvoeren"
+msgstr[0] "Kopiëren van %d element op_nieuw uitvoeren"
+msgstr[1] "Kopiëren van %d elementen op_nieuw uitvoeren"
 
 #: libcaja-private/caja-undostack-manager.c:1670
 #, c-format
 msgid "_Redo duplicate of %d item"
 msgid_plural "_Redo duplicate of %d items"
-msgstr[0] "Dupliceren van %d element opnieuw _uitvoeren"
-msgstr[1] "Dupliceren van %d elementen opnieuw _uitvoeren"
+msgstr[0] "Dupliceren van %d element op_nieuw uitvoeren"
+msgstr[1] "Dupliceren van %d elementen op_nieuw uitvoeren"
 
 #: libcaja-private/caja-undostack-manager.c:1675
 #, c-format
 msgid "_Redo move of %d item"
 msgid_plural "_Redo move of %d items"
-msgstr[0] "Verplaatsen van %d element opnieuw _uitvoeren"
-msgstr[1] "Verplaatsen van %d elementen opnieuw _uitvoeren"
+msgstr[0] "Verplaatsing van %d element op_nieuw uitvoeren"
+msgstr[1] "Verplaatsing van %d elementen op_nieuw uitvoeren"
 
 #: libcaja-private/caja-undostack-manager.c:1680
 #, c-format
 msgid "_Redo rename of %d item"
 msgid_plural "_Redo rename of %d items"
-msgstr[0] "Hernoemen van %d element opnieuw _uitvoeren"
-msgstr[1] "Hernoemen van %d elementen opnieuw _uitvoeren"
+msgstr[0] "Hernoemen van %d element op_nieuw uitvoeren"
+msgstr[1] "Hernoemen van %d elementen op_nieuw uitvoeren"
 
 #: libcaja-private/caja-undostack-manager.c:1684
 msgid "_Redo creation of an empty file"
@@ -2924,36 +2925,36 @@ msgstr "Voer aanmaken van bestand vanuit sjabloon opnieuw uit"
 #, c-format
 msgid "_Redo creation of %d folder"
 msgid_plural "_Redo creation of %d folders"
-msgstr[0] "Aanmaken van %d map opnieuw _uitvoeren"
-msgstr[1] "Aanmaken van %d mappen opnieuw _uitvoeren"
+msgstr[0] "Aanmaken van %d map op_nieuw uitvoeren"
+msgstr[1] "Aanmaken van %d mappen op_nieuw uitvoeren"
 
 #: libcaja-private/caja-undostack-manager.c:1696
 #, c-format
 msgid "_Redo move to trash of %d item"
 msgid_plural "_Redo move to trash of %d items"
-msgstr[0] "Verplaatsen naar prullenbak van %d element opnieuw _uitvoeren"
-msgstr[1] "Verplaatsen naar prullenbak van %d elementen opnieuw _uitvoeren"
+msgstr[0] "In prullenbak gooien van %d element op_nieuw uitvoeren"
+msgstr[1] "In prullenbak gooien van %d elementen op_nieuw uitvoeren"
 
 #: libcaja-private/caja-undostack-manager.c:1701
 #, c-format
 msgid "_Redo restore from trash of %d item"
 msgid_plural "_Redo restore from trash of %d items"
-msgstr[0] "Terugzetten vanuit prullenbak van %d element opnieuw _uitvoeren"
-msgstr[1] "Terugzetten vanuit prullenbak van %d elementen opnieuw _uitvoeren"
+msgstr[0] "Uit prullenbak terugzetten van %d element op_nieuw uitvoeren"
+msgstr[1] "Uit prullenbak terugzetten van %d elementen op_nieuw uitvoeren"
 
 #: libcaja-private/caja-undostack-manager.c:1706
 #, c-format
 msgid "_Redo create link to %d item"
 msgid_plural "_Redo create link to %d items"
-msgstr[0] "Aanmaken van koppeling naar %d element opnieuw _uitvoeren"
-msgstr[1] "Aanmaken van koppeling naar %d elementen opnieuw _uitvoeren"
+msgstr[0] "Koppeling maken naar %d element op_nieuw uitvoeren"
+msgstr[1] "Koppeling maken naar %d elementen op_nieuw uitvoeren"
 
 #: libcaja-private/caja-undostack-manager.c:1711
 #, c-format
 msgid "_Redo delete of %d item"
 msgid_plural "_Redo delete of %d items"
-msgstr[0] "Verwijderen van %d element opnieuw _uitvoeren"
-msgstr[1] "Verwijderen van %d elementen opnieuw _uitvoeren"
+msgstr[0] "Verwijderen van %d element op_nieuw uitvoeren"
+msgstr[1] "Verwijderen van %d elementen op_nieuw uitvoeren"
 
 #: libcaja-private/caja-undostack-manager.c:1716
 #, c-format
@@ -2973,8 +2974,8 @@ msgstr[1] "Rechtenwijziging van %d elementen opnieuw uitvoeren"
 #, c-format
 msgid "Redo change group of %d item"
 msgid_plural "Redo change group of %d items"
-msgstr[0] "Groepwijziging van %d element opnieuw uitvoeren"
-msgstr[1] "Groepwijziging van %d elementen opnieuw uitvoeren"
+msgstr[0] "Groepswijziging van %d element opnieuw uitvoeren"
+msgstr[1] "Groepswijziging van %d elementen opnieuw uitvoeren"
 
 #: libcaja-private/caja-undostack-manager.c:1732
 #, c-format
@@ -2985,7 +2986,7 @@ msgstr[1] "Eigenaarwijziging van %d elementen opnieuw uitvoeren"
 
 #: libcaja-private/org.mate.caja.gschema.xml:76
 msgid "Where to position newly open tabs in browser windows."
-msgstr "Waar nieuwe tabbladen geplaatst moeten worden in bladervensters."
+msgstr "Waar nieuwe tabbladen geplaatst moeten worden in verkennervensters."
 
 #: libcaja-private/org.mate.caja.gschema.xml:77
 msgid ""
@@ -3028,7 +3029,7 @@ msgstr ""
 msgid "Enables the classic Caja behavior, where all windows are browsers"
 msgstr ""
 "Schakelt het traditionele Caja-gedrag in, waarbij alle vensters "
-"bladervensters zijn"
+"verkennervensters zijn"
 
 #: libcaja-private/org.mate.caja.gschema.xml:92
 msgid ""
@@ -3036,7 +3037,7 @@ msgid ""
 "Nautilus used to behave before version 2.6, and some people prefer this "
 "behavior."
 msgstr ""
-"Als dit aan staat zijn alle vensters van Caja bladervensters. Dit is de "
+"Als dit aan staat zijn alle vensters van Caja verkennervensters. Dit is de "
 "manier waarop Nautilus zich gedroeg voor versie 2.6, en sommigen geven de "
 "voorkeur hieraan."
 
@@ -3049,8 +3050,8 @@ msgid ""
 "If set to true, then Caja browser windows will always use a textual input "
 "entry for the location toolbar, instead of the pathbar."
 msgstr ""
-"Indien ingeschakeld gebruiken Cajavensters altijd een tekstueel invoerveld "
-"voor de locatiewerkbalk, in plaats van de padbalk."
+"Indien ingeschakeld gebruiken Caja-verkennervensters altijd een tekstueel "
+"invoerveld voor de locatiewerkbalk, in plaats van de padbalk."
 
 #: libcaja-private/org.mate.caja.gschema.xml:101
 msgid "Whether to ask for confirmation when deleting files, or emptying Trash"
@@ -3174,7 +3175,7 @@ msgstr ""
 
 #: libcaja-private/org.mate.caja.gschema.xml:143
 msgid "Use extra mouse button events in Caja' browser window"
-msgstr "Extra muisknopgebeurtenissen inschakelen in bladervenster van Caja"
+msgstr "Extra muisknopgebeurtenissen inschakelen in verkennervenster van Caja"
 
 #: libcaja-private/org.mate.caja.gschema.xml:144
 msgid ""
@@ -3186,7 +3187,7 @@ msgstr ""
 
 #: libcaja-private/org.mate.caja.gschema.xml:148
 msgid "Mouse button to activate the \"Forward\" command in browser window"
-msgstr "Muisknop die de opdracht ʻVerderʼ activeert in het bladervenster"
+msgstr "Muisknop die de opdracht ʻVerderʼ activeert in het verkennervenster"
 
 #: libcaja-private/org.mate.caja.gschema.xml:149
 msgid ""
@@ -3195,12 +3196,12 @@ msgid ""
 "window. Possible values range between 6 and 14."
 msgstr ""
 "Voor gebruikers met een muis met een knop voor ‘Terug’ en ‘Verder’ geeft "
-"deze sleutel aan welke knop de ‘Verder’-actie in een bladervenster "
+"deze sleutel aan welke knop de ‘Verder’-actie in een verkennervenster "
 "activeert. Mogelijke waarden liggen tussen 6 en 14."
 
 #: libcaja-private/org.mate.caja.gschema.xml:153
 msgid "Mouse button to activate the \"Back\" command in browser window"
-msgstr "Muisknop die de opdracht ʻTerugʼ activeert in het bladervenster"
+msgstr "Muisknop die de opdracht ʻTerugʼ activeert in het verkennervenster"
 
 #: libcaja-private/org.mate.caja.gschema.xml:154
 msgid ""
@@ -3209,8 +3210,8 @@ msgid ""
 "Possible values range between 6 and 14."
 msgstr ""
 "Voor gebruikers met een muis met een knop voor ‘Terug’ en ‘Verder’ geeft "
-"deze sleutel aan welke knop de ‘Terug’-actie in een bladervenster activeert."
-" Mogelijke waarden liggen tussen 6 en 14."
+"deze sleutel aan welke knop de ‘Terug’-actie in een verkennervenster "
+"activeert. Mogelijke waarden liggen tussen 6 en 14."
 
 #: libcaja-private/org.mate.caja.gschema.xml:159
 msgid "When to show thumbnails of image files"
@@ -4081,7 +4082,7 @@ msgstr "URI's in tabbladen openen."
 
 #: src/caja-application.c:1884
 msgid "Open a browser window."
-msgstr "Open een bladervenster."
+msgstr "Open een verkennervenster."
 
 #: src/caja-application.c:1886
 msgid "Quit Caja."
@@ -4099,7 +4100,7 @@ msgid ""
 msgstr ""
 "\n"
 "\n"
-"Bestandssysteem doorbladeren met het bestandsbeheer"
+"Bestandssysteem verkennen met het bestandsbeheer"
 
 #: src/caja-autorun-software.c:163 src/caja-autorun-software.c:166
 #, c-format
@@ -5362,7 +5363,7 @@ msgstr "Netwerk verkennen"
 
 #: src/caja-places-sidebar.c:889
 msgid "Browse the contents of the network"
-msgstr "Het netwerk doorbladeren"
+msgstr "De inhoud van het netwerk verkennen"
 
 #: src/caja-places-sidebar.c:1813 src/caja-places-sidebar.c:2775
 #: src/file-manager/fm-directory-view.c:7550
@@ -6468,8 +6469,8 @@ msgstr "%s%s, %s, %s"
 #, c-format
 msgid "Use \"%s\" to open the selected item"
 msgid_plural "Use \"%s\" to open the selected items"
-msgstr[0] "Gebruik %s' om het gekozen element te openen"
-msgstr[1] "Gebruik '%s' om de gekozen elementen te openen"
+msgstr[0] "\"%s\" gebruiken om het gekozen element te openen"
+msgstr[1] "\"%s\" gebruiken om de gekozen elementen te openen"
 
 #: src/file-manager/fm-directory-view.c:4612
 msgid "Open parent location"
@@ -6563,11 +6564,10 @@ msgid "The %'d selected item will be moved if you select the Paste command"
 msgid_plural ""
 "The %'d selected items will be moved if you select the Paste command"
 msgstr[0] ""
-"%'d gekozen element zal worden verplaatst indien u de opdracht 'Plakken' "
-"kiest"
+"Het gekozen element zal worden verplaatst als u de opdracht Plakken gebruikt"
 msgstr[1] ""
-"De %'d gekozen elementen zullen worden verplaatst indien u de opdracht "
-"'Plakken' kiest"
+"De %'d gekozen elementen zullen worden verplaatst als u de opdracht Plakken "
+"gebruikt"
 
 #: src/file-manager/fm-directory-view.c:6098
 #, c-format
@@ -6575,11 +6575,10 @@ msgid "The %'d selected item will be copied if you select the Paste command"
 msgid_plural ""
 "The %'d selected items will be copied if you select the Paste command"
 msgstr[0] ""
-"%'d gekozen element zal worden gekopieerd indien u de opdracht 'Plakken' "
-"kiest"
+"Het gekozen element zal worden verplaatst als u de opdracht Plakken gebruikt"
 msgstr[1] ""
-"De %'d gekozen elementen zullen worden gekopieerd indien u de opdracht "
-"'Plakken' kiest"
+"De %'d gekozen elementen zullen worden gekopieerd als u de opdracht Plakken "
+"gebruikt"
 
 #: src/file-manager/fm-directory-view.c:6278
 #: src/file-manager/fm-tree-view.c:1060
@@ -6779,8 +6778,8 @@ msgstr "Dupliceer elk geselecteerd element"
 #: src/file-manager/fm-directory-view.c:9156
 msgid "Ma_ke Link"
 msgid_plural "Ma_ke Links"
-msgstr[0] "_Koppeling maken"
-msgstr[1] "_Koppelingen maken"
+msgstr[0] "Koppeling maken"
+msgstr[1] "Koppelingen maken"
 
 #: src/file-manager/fm-directory-view.c:7488
 msgid "Create a symbolic link for each selected item"
@@ -7033,40 +7032,40 @@ msgstr "Verplaats de geopende map vanuit de prullenbak naar ‘%s’"
 #, c-format
 msgid "Move the selected folder out of the trash to \"%s\""
 msgid_plural "Move the selected folders out of the trash to \"%s\""
-msgstr[0] "Verplaats de gekozen map vanuit de prullenbak naar '%s'"
-msgstr[1] "Verplaats de gekozen mappen vanuit de prullenbak naar '%s'"
+msgstr[0] "Verplaats de gekozen map vanuit de prullenbak naar \"%s\""
+msgstr[1] "Verplaats de gekozen mappen vanuit de prullenbak naar \"%s\""
 
 #: src/file-manager/fm-directory-view.c:8212
 msgid "Move the selected folder out of the trash"
 msgid_plural "Move the selected folders out of the trash"
-msgstr[0] "Haal de gekozen map uit de prullenbak"
-msgstr[1] "Haal de gekozen mappen uit de prullenbak"
+msgstr[0] "Verplaats de gekozen map vanuit de prullenbak"
+msgstr[1] "Verplaats de gekozen mappen vanuit de prullenbak"
 
 #: src/file-manager/fm-directory-view.c:8218
 #, c-format
 msgid "Move the selected file out of the trash to \"%s\""
 msgid_plural "Move the selected files out of the trash to \"%s\""
-msgstr[0] "Verplaats het gekozen bestand vanuit de prullenbak naar '%s'"
-msgstr[1] "Verplaats de gekozen bestanden vanuit de prullenbak naar '%s'"
+msgstr[0] "Verplaats het gekozen bestand vanuit de prullenbak naar \"%s\""
+msgstr[1] "Verplaats de gekozen bestanden vanuit de prullenbak naar \"%s\""
 
 #: src/file-manager/fm-directory-view.c:8222
 msgid "Move the selected file out of the trash"
 msgid_plural "Move the selected files out of the trash"
-msgstr[0] "Haal het gekozen bestand uit de prullenbak"
-msgstr[1] "Haal de gekozen bestanden uit de prullenbak"
+msgstr[0] "Verplaats het gekozen bestand vanuit de prullenbak"
+msgstr[1] "Verplaats de gekozen bestanden vanuit de prullenbak"
 
 #: src/file-manager/fm-directory-view.c:8228
 #, c-format
 msgid "Move the selected item out of the trash to \"%s\""
 msgid_plural "Move the selected items out of the trash to \"%s\""
-msgstr[0] "Verplaats het gekozen element vanuit de prullenbak naar '%s'"
-msgstr[1] "Verplaats de gekozen elementen vanuit de prullenbak naar '%s'"
+msgstr[0] "Verplaats het gekozen element vanuit de prullenbak naar \"%s\""
+msgstr[1] "Verplaats de gekozen elementen vanuit de prullenbak naar \"%s\""
 
 #: src/file-manager/fm-directory-view.c:8232
 msgid "Move the selected item out of the trash"
 msgid_plural "Move the selected items out of the trash"
-msgstr[0] "Haal het gekozen element uit de prullenbak"
-msgstr[1] "Haal de gekozen elementen uit de prullenbak"
+msgstr[0] "Verplaats het gekozen element vanuit de prullenbak"
+msgstr[1] "Verplaats de gekozen elementen vanuit de prullenbak"
 
 #: src/file-manager/fm-directory-view.c:8361
 #: src/file-manager/fm-directory-view.c:8365
@@ -7176,7 +7175,7 @@ msgstr "Vergrendel de schijf die hoort bij de geopende map"
 #: src/file-manager/fm-directory-view.c:8686
 #: src/file-manager/fm-directory-view.c:9024
 msgid "Browse in New _Window"
-msgstr "In _nieuw venster doorbladeren"
+msgstr "In _nieuw venster verkennen"
 
 #: src/file-manager/fm-directory-view.c:8692
 #: src/file-manager/fm-directory-view.c:9034
@@ -7188,7 +7187,7 @@ msgstr[1] "Mappen _verkennen"
 #: src/file-manager/fm-directory-view.c:8711
 #: src/file-manager/fm-directory-view.c:9065
 msgid "Browse in New _Tab"
-msgstr "In nieuw _tabblad doorbladeren"
+msgstr "In nieuw _tabblad verkennen"
 
 #: src/file-manager/fm-directory-view.c:8766
 #: src/file-manager/fm-directory-view.c:9110
@@ -7212,29 +7211,29 @@ msgstr "_Openen met %s"
 #, c-format
 msgid "Open in %'d New _Window"
 msgid_plural "Open in %'d New _Windows"
-msgstr[0] "Open in %'d nieuw venster"
-msgstr[1] "Open in %'d nieuwe vensters"
+msgstr[0] "Openen in %'d nieuw _venster"
+msgstr[1] "Openen in %'d nieuwe _vensters"
 
 #: src/file-manager/fm-directory-view.c:9026
 #, c-format
 msgid "Browse in %'d New _Window"
 msgid_plural "Browse in %'d New _Windows"
-msgstr[0] "Verken in %'d nieuw venster"
-msgstr[1] "Verken in %'d nieuwe vensters"
+msgstr[0] "Verkennen in %'d nieuw _venster"
+msgstr[1] "Verkennen in %'d nieuwe _vensters"
 
 #: src/file-manager/fm-directory-view.c:9058
 #, c-format
 msgid "Open in %'d New _Tab"
 msgid_plural "Open in %'d New _Tabs"
-msgstr[0] "Open in %'d nieuw tabblad"
-msgstr[1] "Open in %'d nieuwe tabbladen"
+msgstr[0] "Openen in %'d nieuw _tabblad"
+msgstr[1] "Openen in %'d nieuwe _tabbladen"
 
 #: src/file-manager/fm-directory-view.c:9067
 #, c-format
 msgid "Browse in %'d New _Tab"
 msgid_plural "Browse in %'d New _Tabs"
-msgstr[0] "Verken in %'d nieuw tabblad"
-msgstr[1] "Verken in %'d nieuwe tabbladen"
+msgstr[0] "Verkennen in %'d nieuw _tabblad"
+msgstr[1] "Verkennen in %'d nieuwe _tabbladen"
 
 #: src/file-manager/fm-directory-view.c:9111
 msgid "Delete all selected items permanently"
@@ -7716,7 +7715,7 @@ msgstr "onleesbaar"
 msgid "%'d item, with size %s (%s on disk)"
 msgid_plural "%'d items, totalling %s (%s on disk)"
 msgstr[0] "%'d element, ter grootte van %s (%s op schijf)"
-msgstr[1] "%'d elementen, in totaal %s (%s op schijf)"
+msgstr[1] "%'d elementen, ter grootte van %s (%s op schijf)"
 
 #: src/file-manager/fm-properties-window.c:2327
 msgid "(some contents unreadable)"

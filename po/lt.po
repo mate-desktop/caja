@@ -4,19 +4,20 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Audrius Meskauskas, 2018
-# brennus <jonas.ska@gmail.com>, 2018
-# Džiugas Grėbliūnas <dziugas.grebliunas@gmail.com>, 2019
-# Stefano Karapetsas <stefano@karapetsas.com>, 2019
+# Audrius Meskauskas, 2020
+# clefebvre <clement.lefebvre@linuxmint.com>, 2020
+# brennus <jonas.ska@gmail.com>, 2020
+# Stefano Karapetsas <stefano@karapetsas.com>, 2020
 # Moo, 2020
+# Džiugas Grėbliūnas <dziugas.grebliunas@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: caja 1.23.2\n"
 "Report-Msgid-Bugs-To: https://mate-desktop.org\n"
 "POT-Creation-Date: 2020-01-10 11:11+0100\n"
-"PO-Revision-Date: 2018-03-11 14:48+0000\n"
-"Last-Translator: Moo, 2020\n"
+"PO-Revision-Date: 2020-02-14 11:44+0000\n"
+"Last-Translator: Džiugas Grėbliūnas <dziugas.grebliunas@gmail.com>, 2020\n"
 "Language-Team: Lithuanian (https://www.transifex.com/mate/teams/13566/lt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -311,12 +312,18 @@ msgid ""
 " associated with them. It is also responsible for handling the icons on the "
 "MATE desktop. It works on local and remote file systems."
 msgstr ""
+" Caja yra oficiali failų tvarkytuvė MATE darbalaukiui. Ji leidžia naršyti "
+"katalogus, o taip pat peržiūrinėti failus ir vykdyti programas, susijusias "
+"su jais. Be to, programa yra atsakinga už piktogramų apdorojimą MATE "
+"darbalaukyje. Ji veikia vietinėse ir nuotolinėse failų sistemose."
 
 #: data/caja.appdata.xml.in:16
 msgid ""
 "Caja is extensible through a plugin system, similar to that of GNOME "
 "Nautilus, of which Caja is a fork."
 msgstr ""
+"Cają galima išplėsti papildinių sistema, panašia į GNOME Nautilaus, kurio "
+"atšaka yra Caja."
 
 #: data/caja-autorun-software.desktop.in.in:3
 msgid "Autorun Prompt"
@@ -347,7 +354,7 @@ msgstr "system-file-manager"
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/caja-browser.desktop.in.in:15
 msgid "files;browser;manager;MATE;"
-msgstr ""
+msgstr "failai;naršyklė;tvarkytuvė;MATE;"
 
 #: data/caja-computer.desktop.in.in:3 libcaja-private/caja-desktop-link.c:114
 #: src/caja-places-sidebar.c:513
@@ -371,7 +378,7 @@ msgstr "computer"
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/caja-computer.desktop.in.in:14
 msgid "browse;disks;folders;local;remote;computer;MATE;"
-msgstr ""
+msgstr "naršyklė;diskai;aplankai;vietiniai;nuotoliniai;kompiuteris;MATE;"
 
 #: data/caja.desktop.in.in:4
 msgid "File Manager"
@@ -389,7 +396,7 @@ msgstr "Keisti failų tvarkytuvės langų išvaizdą ir veikimą"
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/caja-file-management-properties.desktop.in.in:13
 msgid "file;manager;change;properties;behaviour;appearance;windows;MATE;"
-msgstr ""
+msgstr "failas;tvarkytuvė;keisti;savybės;elgsena;išvaizda;langai;MATE;"
 
 #: data/caja-folder-handler.desktop.in.in:4 libcaja-private/caja-autorun.c:580
 msgid "Open Folder"
@@ -420,7 +427,7 @@ msgstr "user-home"
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/caja-home.desktop.in.in:14
 msgid "home;personal;folder;open;MATE;"
-msgstr ""
+msgstr "home;asmeninis;aplankas;atverti;MATE;"
 
 #: data/caja.xml.in:5
 msgid "Saved search"
@@ -444,7 +451,7 @@ msgstr "network-workgroup"
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/mate-network-scheme.desktop.in.in:14
 msgid "bookmarks;browse;local;network;locations;MATE;"
-msgstr ""
+msgstr "žymės;naršyti;vietinį;tinklą;vietos;MATE;"
 
 #: eel/eel-canvas.c:1310 eel/eel-canvas.c:1311
 msgid "X"
@@ -1421,19 +1428,19 @@ msgstr[3] "%'d minučių"
 #, c-format
 msgid "%'d hour"
 msgid_plural "%'d hours"
-msgstr[0] "%'d valanda"
-msgstr[1] "%'d valandos"
-msgstr[2] "%'d valandų"
-msgstr[3] "%'d valandų"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: libcaja-private/caja-file-operations.c:330
 #, c-format
 msgid "approximately %'d hour"
 msgid_plural "approximately %'d hours"
-msgstr[0] "maždaug %'d valanda"
-msgstr[1] "maždaug %'d valandos"
-msgstr[2] "maždaug %'d valandų"
-msgstr[3] "maždaug %'d valandų"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: libcaja-private/caja-file-operations.c:410
 #, c-format
@@ -1573,13 +1580,9 @@ msgid_plural ""
 "Are you sure you want to permanently delete the %'d selected items from the "
 "trash?"
 msgstr[0] ""
-"Ar jūs tikrai norite ištrinti %'d pasirinktą elementą iš šiukšlinės?"
 msgstr[1] ""
-"Ar jūs tikrai norite ištrinti %'d pasirinktus elementus iš šiukšlinės?"
 msgstr[2] ""
-"Ar jūs tikrai norite ištrinti %'d pasirinktų elementų iš šiukšlinės?"
 msgstr[3] ""
-"Ar jūs tikrai norite ištrinti %'d pasirinktų elementų iš šiukšlinės?"
 
 #: libcaja-private/caja-file-operations.c:1383
 #: libcaja-private/caja-file-operations.c:1449
@@ -1609,10 +1612,10 @@ msgstr "Ar tikrai norite visiškai ištrinti „%B“?"
 msgid "Are you sure you want to permanently delete the %'d selected item?"
 msgid_plural ""
 "Are you sure you want to permanently delete the %'d selected items?"
-msgstr[0] "Ar jūs tikrai norite ištrinti %'d pasirinktą elementą?"
-msgstr[1] "Ar jūs tikrai norite ištrinti %'d pasirinktus elementus?"
-msgstr[2] "Ar jūs tikrai norite ištrinti %'d pasirinktų elementų?"
-msgstr[3] "Ar jūs tikrai norite ištrinti %'d pasirinktų elementų?"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: libcaja-private/caja-file-operations.c:1479
 msgid "Are you sure you want to trash \"%B\"?"
@@ -1622,10 +1625,10 @@ msgstr "Ar tikrai norite perkelti \"%B\" į šiukšlinę?"
 #, c-format
 msgid "Are you sure you want to trash the %'d selected item?"
 msgid_plural "Are you sure you want to trash the %'d selected items?"
-msgstr[0] "Ar tikrai norite %'d pažymėtą elementą perkelti į šiukšlinę?"
-msgstr[1] "Ar tikrai norite %'d pažymėtus elementus perkelti į šiukšlinę?"
-msgstr[2] "Ar tikrai norite %'d pažymėtų elementų perkelti į šiukšlinę?"
-msgstr[3] "Ar tikrai norite %'d pažymėtų elementų perkelti į šiukšlinę?"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: libcaja-private/caja-file-operations.c:1491
 msgid "Items moved to the trash may be recovered until the trash is emptied."
@@ -1641,10 +1644,10 @@ msgstr "Perkelti į ši_ukšlinę"
 #, c-format
 msgid "%'d file left to delete"
 msgid_plural "%'d files left to delete"
-msgstr[0] "Liko ištrinti %'d failą"
-msgstr[1] "Liko ištrinti %'d failus"
-msgstr[2] "Liko ištrinti %'d failų"
-msgstr[3] "Liko ištrinti %'d failų"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: libcaja-private/caja-file-operations.c:1530
 msgid "Deleting files"
@@ -1656,10 +1659,10 @@ msgstr "Trinami failai"
 #: libcaja-private/caja-file-operations.c:1547
 msgid "%T left"
 msgid_plural "%T left"
-msgstr[0] "liko %T"
-msgstr[1] "liko %T"
-msgstr[2] "liko %T"
-msgstr[3] "liko %T"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: libcaja-private/caja-file-operations.c:1614
 #: libcaja-private/caja-file-operations.c:1648
@@ -1717,10 +1720,10 @@ msgstr "Failai perkeliami į šiukšlinę"
 #, c-format
 msgid "%'d file left to trash"
 msgid_plural "%'d files left to trash"
-msgstr[0] "Liko perkelti į šiukšlinę %'d failą"
-msgstr[1] "Liko perkelti į šiukšlinę %'d failus"
-msgstr[2] "Liko perkelti į šiukšlinę %'d failų"
-msgstr[3] "Liko perkelti į šiukšlinę %'d failų"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: libcaja-private/caja-file-operations.c:1904
 msgid "Cannot move file to trash, do you want to delete immediately?"
@@ -1753,7 +1756,7 @@ msgstr "Nepavyko atjungi %V"
 
 #: libcaja-private/caja-file-operations.c:2208 src/caja-places-sidebar.c:2336
 msgid "Writing data to the drive -- do not unplug"
-msgstr ""
+msgstr "Rašomi duomenys į diską -- neištraukite"
 
 #: libcaja-private/caja-file-operations.c:2332
 msgid "Do you want to empty the trash before you unmount?"
@@ -1780,37 +1783,37 @@ msgstr "Nepavyko prijungti %s"
 #, c-format
 msgid "Preparing to copy %'d file (%S)"
 msgid_plural "Preparing to copy %'d files (%S)"
-msgstr[0] "Ruošiamasi kopijuoti %'d failą (%S)"
-msgstr[1] "Ruošiamasi kopijuoti %'d failus (%S)"
-msgstr[2] "Ruošiamasi kopijuoti %'d failų (%S)"
-msgstr[3] "Ruošiamasi kopijuoti %'d failų (%S)"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: libcaja-private/caja-file-operations.c:2546
 #, c-format
 msgid "Preparing to move %'d file (%S)"
 msgid_plural "Preparing to move %'d files (%S)"
-msgstr[0] "Ruošiamasi perkelti %'d failą (%S)"
-msgstr[1] "Ruošiamasi perkelti %'d failus (%S)"
-msgstr[2] "Ruošiamasi perkelti %'d failų (%S)"
-msgstr[3] "Ruošiamasi perkelti %'d failų (%S)"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: libcaja-private/caja-file-operations.c:2552
 #, c-format
 msgid "Preparing to delete %'d file (%S)"
 msgid_plural "Preparing to delete %'d files (%S)"
-msgstr[0] "Ruošiamasi ištrinti %'d failą (%S)"
-msgstr[1] "Ruošiamasi ištrinti %'d failus (%S)"
-msgstr[2] "Ruošiamasi ištrinti %'d failų (%S)"
-msgstr[3] "Ruošiamasi ištrinti %'d failų (%S)"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: libcaja-private/caja-file-operations.c:2558
 #, c-format
 msgid "Preparing to trash %'d file"
 msgid_plural "Preparing to trash %'d files"
-msgstr[0] "Ruošiamasi perkelti į šiukšlinę %'d failą"
-msgstr[1] "Ruošiamasi perkelti į šiukšlinę %'d failus"
-msgstr[2] "Ruošiamasi perkelti į šiukšlinę %'d failų"
-msgstr[3] "Ruošiamasi perkelti į šiukšlinę %'d failų"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: libcaja-private/caja-file-operations.c:2589
 #: libcaja-private/caja-file-operations.c:3500
@@ -1904,51 +1907,51 @@ msgstr "Kuriama „%B“ kopija"
 #: libcaja-private/caja-file-operations.c:3048
 msgid "Moving %'d file (in \"%B\") to \"%B\""
 msgid_plural "Moving %'d files (in \"%B\") to \"%B\""
-msgstr[0] "Perkeliamas %'d failas („%B“) į „%B“"
-msgstr[1] "Perkeliami %'d failai („%B“) į „%B“"
-msgstr[2] "Perkeliama %'d failų („%B“) į „%B“"
-msgstr[3] "Perkeliama %'d failų („%B“) į „%B“"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: libcaja-private/caja-file-operations.c:3052
 msgid "Copying %'d file (in \"%B\") to \"%B\""
 msgid_plural "Copying %'d files (in \"%B\") to \"%B\""
-msgstr[0] "Kopijuojamas %'d failas („%B“) į „%B“"
-msgstr[1] "Kopijuojami %'d failai („%B“) į „%B“"
-msgstr[2] "Kopijuojama %'d failų („%B“) į „%B“"
-msgstr[3] "Kopijuojama %'d failų („%B“) į „%B“"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: libcaja-private/caja-file-operations.c:3060
 msgid "Duplicating %'d file (in \"%B\")"
 msgid_plural "Duplicating %'d files (in \"%B\")"
-msgstr[0] "Kuriama %'d failo kopija („%B“)"
-msgstr[1] "Kuriamos %'d failų kopijos („%B“)"
-msgstr[2] "Kuriamos %'d failų kopijos („%B“)"
-msgstr[3] "Kuriamos %'d failų kopijos („%B“)"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: libcaja-private/caja-file-operations.c:3070
 msgid "Moving %'d file to \"%B\""
 msgid_plural "Moving %'d files to \"%B\""
-msgstr[0] "Perkeliamas %'d failas į „%B“"
-msgstr[1] "Perkeliami %'d failai į „%B“"
-msgstr[2] "Perkeliama %'d failų į „%B“"
-msgstr[3] "Perkeliama %'d failų į „%B“"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: libcaja-private/caja-file-operations.c:3074
 msgid "Copying %'d file to \"%B\""
 msgid_plural "Copying %'d files to \"%B\""
-msgstr[0] "Kopijuojamas %'d failas į „%B“"
-msgstr[1] "Kopijuojami %'d failai į „%B“"
-msgstr[2] "Kopijuojama %'d failų į „%B“"
-msgstr[3] "Kopijuojama %'d failų į „%B“"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: libcaja-private/caja-file-operations.c:3080
 #, c-format
 msgid "Duplicating %'d file"
 msgid_plural "Duplicating %'d files"
-msgstr[0] "Kuriama %'d failo kopija"
-msgstr[1] "Kuriamos %'d failų kopijos"
-msgstr[2] "Kuriamos %'d failų kopijos"
-msgstr[3] "Kuriamos %'d failų kopijos"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #. Translators: %S will expand to a size like "2 bytes" or "3 MB", so
 #. something like "4 kb of 4 MB"
@@ -1967,10 +1970,10 @@ msgstr "%S iš %S"
 #: libcaja-private/caja-file-operations.c:3113
 msgid "%S of %S — %T left (%S/sec)"
 msgid_plural "%S of %S — %T left (%S/sec)"
-msgstr[0] "%S iš %S — liko %T (%S/sek.)"
-msgstr[1] "%S iš %S — liko %T (%S/sek.)"
-msgstr[2] "%S iš %S — liko %T (%S/sek.)"
-msgstr[3] "%S iš %S — liko %T (%S/sek.)"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: libcaja-private/caja-file-operations.c:3504
 msgid ""
@@ -2075,10 +2078,10 @@ msgstr "Ruošiamasi perkelti į „%B“"
 #, c-format
 msgid "Preparing to move %'d file"
 msgid_plural "Preparing to move %'d files"
-msgstr[0] "Ruošiamasi perkelti %'d failą"
-msgstr[1] "Ruošiamasi perkelti %'d failus"
-msgstr[2] "Ruošiamasi perkelti %'d failų"
-msgstr[3] "Ruošiamasi perkelti %'d failų"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: libcaja-private/caja-file-operations.c:5030
 #, c-format
@@ -2097,10 +2100,10 @@ msgstr "Kuriamos nuorodos į „%B“"
 #, c-format
 msgid "Making link to %'d file"
 msgid_plural "Making links to %'d files"
-msgstr[0] "Kuriama nuoroda į %'d failą"
-msgstr[1] "Kuriamos nuorodos į %'d failus"
-msgstr[2] "Kuriamos nuorodos į %'d failų"
-msgstr[3] "Kuriamos nuorodos į %'d failų"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: libcaja-private/caja-file-operations.c:5468
 msgid "Error while creating link to %B."
@@ -2230,19 +2233,19 @@ msgstr "Ar tikrai norite atverti visus failus?"
 #, c-format
 msgid "This will open %d separate tab."
 msgid_plural "This will open %d separate tabs."
-msgstr[0] "Tai atvers %d atskirą kortelę."
-msgstr[1] "Tai atvers %d atskiras korteles."
-msgstr[2] "Tai atvers %d atskirų kortelių."
-msgstr[3] "Tai atvers %d atskirų kortelių."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: libcaja-private/caja-mime-actions.c:1198 src/caja-location-bar.c:194
 #, c-format
 msgid "This will open %d separate window."
 msgid_plural "This will open %d separate windows."
-msgstr[0] "Tai atvers %d atskirą langą."
-msgstr[1] "Tai atvers %d atskirus langus."
-msgstr[2] "Tai atvers %d atskirų langų."
-msgstr[3] "Tai atvers %d atskirų langų."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: libcaja-private/caja-mime-actions.c:1277
 #: src/caja-window-manage-views.c:2134 src/caja-window-manage-views.c:2142
@@ -2323,10 +2326,10 @@ msgstr "Atveriama „%s“."
 #, c-format
 msgid "Opening %d item."
 msgid_plural "Opening %d items."
-msgstr[0] "Atveriamas %d elementas."
-msgstr[1] "Atveriami %d elementai."
-msgstr[2] "Atveriama %d elementų."
-msgstr[3] "Atveriama %d elementų."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: libcaja-private/caja-mime-application-chooser.c:164
 #: libcaja-private/caja-open-with-dialog.c:305
@@ -2591,10 +2594,10 @@ msgstr "Pratęsti"
 #, c-format
 msgid "%'d file operation active"
 msgid_plural "%'d file operations active"
-msgstr[0] "Aktyvi %'d failų operacija"
-msgstr[1] "Aktyvios %'d failų operacijos"
-msgstr[2] "Aktyvios %'d failų operacijų"
-msgstr[3] "Aktyvios %'d failų operacijų"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: libcaja-private/caja-progress-info.c:631
 msgid "Process completed"
@@ -2800,37 +2803,37 @@ msgstr "Nustatyti '%s' savininką į '%s'"
 #, c-format
 msgid "_Undo copy of %d item"
 msgid_plural "_Undo copy of %d items"
-msgstr[0] "A_tšaukti %d elemento kopiją"
-msgstr[1] "A_tšaukti %d elementų kopijas"
-msgstr[2] "A_tšaukti %d elementų kopijas"
-msgstr[3] "A_tšaukti %d elementų kopijas"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: libcaja-private/caja-undostack-manager.c:1575
 #, c-format
 msgid "_Undo duplicate of %d item"
 msgid_plural "_Undo duplicate of %d items"
-msgstr[0] "A_tšaukti %d elemento dublikatą"
-msgstr[1] "A_tšaukti %d elementų dublikatus"
-msgstr[2] "A_tšaukti %d elementų dublikatus"
-msgstr[3] "A_tšaukti %d elementų dublikatus"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: libcaja-private/caja-undostack-manager.c:1580
 #, c-format
 msgid "_Undo move of %d item"
 msgid_plural "_Undo move of %d items"
-msgstr[0] "A_tšaukti %d elemento perkėlimą"
-msgstr[1] "A_tšaukti %d elementų perkėlimą"
-msgstr[2] "A_tšaukti %d elementų perkėlimą"
-msgstr[3] "A_tšaukti %d elementų perkėlimą"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: libcaja-private/caja-undostack-manager.c:1585
 #, c-format
 msgid "_Undo rename of %d item"
 msgid_plural "_Undo rename of %d items"
-msgstr[0] "A_tšaukti %d elemento pervadinimą"
-msgstr[1] "A_tšaukti %d elementų pervadinimą"
-msgstr[2] "A_tšaukti %d elementų pervadinimą"
-msgstr[3] "A_tšaukti %d elementų pervadinimą"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: libcaja-private/caja-undostack-manager.c:1589
 msgid "_Undo creation of an empty file"
@@ -2844,118 +2847,118 @@ msgstr "Atšaukti failo iš šablono sukūrimą"
 #, c-format
 msgid "_Undo creation of %d folder"
 msgid_plural "_Undo creation of %d folders"
-msgstr[0] "A_tšaukti %d aplanko sukūrimą"
-msgstr[1] "A_tšaukti %d aplankų sukūrimą"
-msgstr[2] "A_tšaukti %d aplankų sukūrimą"
-msgstr[3] "A_tšaukti %d aplankų sukūrimą"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: libcaja-private/caja-undostack-manager.c:1601
 #, c-format
 msgid "_Undo move to trash of %d item"
 msgid_plural "_Undo move to trash of %d items"
-msgstr[0] "A_tšaukti %d elemento perkėlimą į šiukšlinę"
-msgstr[1] "A_tšaukti %d elementų perkėlimą į šiukšlinę"
-msgstr[2] "A_tšaukti %d elementų perkėlimą į šiukšlinę"
-msgstr[3] "A_tšaukti %d elementų perkėlimą į šiukšlinę"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: libcaja-private/caja-undostack-manager.c:1606
 #, c-format
 msgid "_Undo restore from trash of %d item"
 msgid_plural "_Undo restore from trash of %d items"
-msgstr[0] "A_tšaukti %d elemento atkūrimą iš šiukšlinės"
-msgstr[1] "A_tšaukti %d elementų atkūrimą iš šiukšlinės"
-msgstr[2] "A_tšaukti %d elementų atkūrimą iš šiukšlinės"
-msgstr[3] "A_tšaukti %d elementų atkūrimą iš šiukšlinės"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: libcaja-private/caja-undostack-manager.c:1611
 #, c-format
 msgid "_Undo create link to %d item"
 msgid_plural "_Undo create link to %d items"
-msgstr[0] "A_tšaukti nuorodos į %d elementą sukūrimą"
-msgstr[1] "A_tšaukti nuorodų į %d elementus sukūrimą"
-msgstr[2] "A_tšaukti nuorodų į %d elementus sukūrimą"
-msgstr[3] "A_tšaukti nuorodų į %d elementus sukūrimą"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: libcaja-private/caja-undostack-manager.c:1616
 #, c-format
 msgid "_Undo delete of %d item"
 msgid_plural "_Undo delete of %d items"
-msgstr[0] "A_tšaukti %d elemento ištrynimą"
-msgstr[1] "A_tšaukti %d elementų ištrynimą"
-msgstr[2] "A_tšaukti %d elementų ištrynimą"
-msgstr[3] "A_tšaukti %d elementų ištrynimą"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: libcaja-private/caja-undostack-manager.c:1621
 #, c-format
 msgid "Undo recursive change permissions of %d item"
 msgid_plural "Undo recursive change permissions of %d items"
-msgstr[0] "Atšaukti rekursyvų %d elemento leidimų pakeitimą"
-msgstr[1] "Atšaukti rekursyvų %d elementų leidimų pakeitimą"
-msgstr[2] "Atšaukti rekursyvų %d elementų leidimų pakeitimą"
-msgstr[3] "Atšaukti rekursyvų %d elementų leidimų pakeitimą"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: libcaja-private/caja-undostack-manager.c:1627
 #, c-format
 msgid "Undo change permissions of %d item"
 msgid_plural "Undo change permissions of %d items"
-msgstr[0] "Atšaukti %d elemento leidimų pakeitimą"
-msgstr[1] "Atšaukti %d elementų leidimų pakeitimą"
-msgstr[2] "Atšaukti %d elementų leidimų pakeitimą"
-msgstr[3] "Atšaukti %d elementų leidimų pakeitimą"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: libcaja-private/caja-undostack-manager.c:1632
 #, c-format
 msgid "Undo change group of %d item"
 msgid_plural "Undo change group of %d items"
-msgstr[0] "Atšaukti %d elemento grupės pakeitimą"
-msgstr[1] "Atšaukti %d elementų grupės pakeitimą"
-msgstr[2] "Atšaukti %d elementų grupės pakeitimą"
-msgstr[3] "Atšaukti %d elementų grupės pakeitimą"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: libcaja-private/caja-undostack-manager.c:1637
 #, c-format
 msgid "Undo change owner of %d item"
 msgid_plural "Undo change owner of %d items"
-msgstr[0] "Atšaukti %d elemento savininko pakeitimą"
-msgstr[1] "Atšaukti %d elementų savininko pakeitimą"
-msgstr[2] "Atšaukti %d elementų savininko pakeitimą"
-msgstr[3] "Atšaukti %d elementų savininko pakeitimą"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: libcaja-private/caja-undostack-manager.c:1665
 #, c-format
 msgid "_Redo copy of %d item"
 msgid_plural "_Redo copy of %d items"
-msgstr[0] "_Grąžinti %d elemento kopiją"
-msgstr[1] "_Grąžinti %d elementų kopijas"
-msgstr[2] "_Grąžinti %d elementų kopijas"
-msgstr[3] "_Grąžinti %d elementų kopijas"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: libcaja-private/caja-undostack-manager.c:1670
 #, c-format
 msgid "_Redo duplicate of %d item"
 msgid_plural "_Redo duplicate of %d items"
-msgstr[0] "_Grąžinti %d elemento dublikatą"
-msgstr[1] "_Grąžinti %d elementų dublikatus"
-msgstr[2] "_Grąžinti %d elementų dublikatus"
-msgstr[3] "_Grąžinti %d elementų dublikatus"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: libcaja-private/caja-undostack-manager.c:1675
 #, c-format
 msgid "_Redo move of %d item"
 msgid_plural "_Redo move of %d items"
-msgstr[0] "_Grąžinti %d elemento perkėlimą"
-msgstr[1] "_Grąžinti %d elementų perkėlimą"
-msgstr[2] "_Grąžinti %d elementų perkėlimą"
-msgstr[3] "_Grąžinti %d elementų perkėlimą"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: libcaja-private/caja-undostack-manager.c:1680
 #, c-format
 msgid "_Redo rename of %d item"
 msgid_plural "_Redo rename of %d items"
-msgstr[0] "_Grąžinti %d elemento pervadinimą"
-msgstr[1] "_Grąžinti %d elementų pervadinimą"
-msgstr[2] "_Grąžinti %d elementų pervadinimą"
-msgstr[3] "_Grąžinti %d elementų pervadinimą"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: libcaja-private/caja-undostack-manager.c:1684
 msgid "_Redo creation of an empty file"
@@ -2969,82 +2972,82 @@ msgstr "Pakartoti failo iš šablono sukūrimą"
 #, c-format
 msgid "_Redo creation of %d folder"
 msgid_plural "_Redo creation of %d folders"
-msgstr[0] "_Grąžinti %d aplanko sukūrimą"
-msgstr[1] "_Grąžinti %d aplankų sukūrimą"
-msgstr[2] "_Grąžinti %d aplankų sukūrimą"
-msgstr[3] "_Grąžinti %d aplankų sukūrimą"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: libcaja-private/caja-undostack-manager.c:1696
 #, c-format
 msgid "_Redo move to trash of %d item"
 msgid_plural "_Redo move to trash of %d items"
-msgstr[0] "_Grąžinti %d elemento perkėlimą į šiukšlinę"
-msgstr[1] "_Grąžinti %d elementų perkėlimą į šiukšlinę"
-msgstr[2] "_Grąžinti %d elementų perkėlimą į šiukšlinę"
-msgstr[3] "_Grąžinti %d elementų perkėlimą į šiukšlinę"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: libcaja-private/caja-undostack-manager.c:1701
 #, c-format
 msgid "_Redo restore from trash of %d item"
 msgid_plural "_Redo restore from trash of %d items"
-msgstr[0] "_Grąžinti %d elemento atkūrimą iš šiukšlinės"
-msgstr[1] "_Grąžinti %d elementų atkūrimą iš šiukšlinės"
-msgstr[2] "_Grąžinti %d elementų atkūrimą iš šiukšlinės"
-msgstr[3] "_Grąžinti %d elementų atkūrimą iš šiukšlinės"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: libcaja-private/caja-undostack-manager.c:1706
 #, c-format
 msgid "_Redo create link to %d item"
 msgid_plural "_Redo create link to %d items"
-msgstr[0] "_Grąžinti nuorodos į %d elementą sukūrimą"
-msgstr[1] "_Grąžinti nuorodų į %d elementus sukūrimą"
-msgstr[2] "_Grąžinti nuorodų į %d elementų sukūrimą"
-msgstr[3] "_Grąžinti nuorodų į %d elementų sukūrimą"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: libcaja-private/caja-undostack-manager.c:1711
 #, c-format
 msgid "_Redo delete of %d item"
 msgid_plural "_Redo delete of %d items"
-msgstr[0] "_Grąžinti %d elemento ištrynimą"
-msgstr[1] "_Grąžinti %d elementų ištrynimą"
-msgstr[2] "_Grąžinti %d elementų ištrynimą"
-msgstr[3] "_Grąžinti %d elementų ištrynimą"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: libcaja-private/caja-undostack-manager.c:1716
 #, c-format
 msgid "Redo recursive change permissions of %d item"
 msgid_plural "Redo recursive change permissions of %d items"
-msgstr[0] "Grąžinti rekursyvų %d elemento leidimų pakeitimą"
-msgstr[1] "Grąžinti rekursyvų %d elementų leidimų pakeitimą"
-msgstr[2] "Grąžinti rekursyvų %d elementų leidimų pakeitimą"
-msgstr[3] "Grąžinti rekursyvų %d elementų leidimų pakeitimą"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: libcaja-private/caja-undostack-manager.c:1722
 #, c-format
 msgid "Redo change permissions of %d item"
 msgid_plural "Redo change permissions of %d items"
-msgstr[0] "Grąžinti %d elemento leidimų pakeitimą"
-msgstr[1] "Grąžinti %d elementų leidimų pakeitimą"
-msgstr[2] "Grąžinti %d elementų leidimų pakeitimą"
-msgstr[3] "Grąžinti %d elementų leidimų pakeitimą"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: libcaja-private/caja-undostack-manager.c:1727
 #, c-format
 msgid "Redo change group of %d item"
 msgid_plural "Redo change group of %d items"
-msgstr[0] "Grąžinti %d elemento grupės pakeitimą"
-msgstr[1] "Grąžinti %d elementų grupės pakeitimą"
-msgstr[2] "Grąžinti %d elementų grupės pakeitimą"
-msgstr[3] "Grąžinti %d elementų grupės pakeitimą"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: libcaja-private/caja-undostack-manager.c:1732
 #, c-format
 msgid "Redo change owner of %d item"
 msgid_plural "Redo change owner of %d items"
-msgstr[0] "Grąžinti %d elemento savininko pakeitimą"
-msgstr[1] "Grąžinti %d elementų savininko pakeitimą"
-msgstr[2] "Grąžinti %d elementų savininko pakeitimą"
-msgstr[3] "Grąžinti %d elementų savininko pakeitimą"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: libcaja-private/org.mate.caja.gschema.xml:76
 msgid "Where to position newly open tabs in browser windows."
@@ -3504,11 +3507,11 @@ msgstr "Pažymėjus, failų dydžiai bus rodomi IEC (1024) vienetais vietoje SI.
 
 #: libcaja-private/org.mate.caja.gschema.xml:264
 msgid "Whether to show icons in list view"
-msgstr ""
+msgstr "Ar rodyti piktogramas sąrašo rodinyje"
 
 #: libcaja-private/org.mate.caja.gschema.xml:265
 msgid "If set to true, show file icons in list view."
-msgstr ""
+msgstr "Jei teigiama, rodyti failų piktogramas sąrašo rodinyje."
 
 #: libcaja-private/org.mate.caja.gschema.xml:269
 msgid "Whether to show desktop notifications"
@@ -4977,19 +4980,19 @@ msgstr "Paveikslo tipas:"
 #, c-format
 msgid "<b>Width:</b> %d pixel"
 msgid_plural "<b>Width:</b> %d pixels"
-msgstr[0] "<b>Plotis:</b> %d pikselis"
-msgstr[1] "<b>Plotis:</b> %d pikseliai"
-msgstr[2] "<b>Plotis:</b> %d pikselių"
-msgstr[3] "<b>Plotis:</b> %d pikselių"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: src/caja-image-properties-page.c:411
 #, c-format
 msgid "<b>Height:</b> %d pixel"
 msgid_plural "<b>Height:</b> %d pixels"
-msgstr[0] "<b>Aukštis:</b> %d pikselis"
-msgstr[1] "<b>Aukštis:</b> %d pikseliai"
-msgstr[2] "<b>Aukštis:</b> %d pikselių"
-msgstr[3] "<b>Aukštis:</b> %d pikselių"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: src/caja-image-properties-page.c:430
 msgid "Failed to load image information"
@@ -5064,10 +5067,10 @@ msgstr "Eiti į:"
 #, c-format
 msgid "Do you want to view %d location?"
 msgid_plural "Do you want to view %d locations?"
-msgstr[0] "Ar norite peržiūrėti %d vietą?"
-msgstr[1] "Ar norite peržiūrėti %d vietas?"
-msgstr[2] "Ar norite peržiūrėti %d vietų?"
-msgstr[3] "Ar norite peržiūrėti %d vietų?"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: src/caja-location-dialog.c:160
 msgid "Open Location"
@@ -5671,7 +5674,7 @@ msgstr "Keitimo data"
 
 #: src/caja-query-editor.c:206
 msgid "Contained text"
-msgstr ""
+msgstr "Sudėtyje esantis tekstas"
 
 #: src/caja-query-editor.c:352
 msgid "Select folder to search in"
@@ -5818,7 +5821,7 @@ msgstr "500 MB"
 
 #: src/caja-query-editor.c:1346 src/caja-query-editor.c:1349
 msgid "Matches files that contains specified text."
-msgstr ""
+msgstr "Atitinka failus, kuriuose yra nurodytas tekstas."
 
 #: src/caja-query-editor.c:1503
 msgid "Remove this criterion from the search"
@@ -6045,6 +6048,8 @@ msgid ""
 "Copyright © 1999-2009 The Nautilus authors\n"
 "Copyright © 2011-2020 The Caja authors"
 msgstr ""
+"Autorių teisės © 1999-2009 Nautilus autoriai\n"
+"Autorių teisės © 2011-2020 Caja autoriai"
 
 #: src/caja-window-menus.c:586
 msgid "translator-credits"
@@ -6330,7 +6335,7 @@ msgstr "Išvalyti šiukšlinę"
 
 #: src/file-manager/fm-desktop-icon-view.c:886
 msgid "Desktop View"
-msgstr ""
+msgstr "Darbalaukio rodinys"
 
 #: src/file-manager/fm-desktop-icon-view.c:887
 #: src/file-manager/fm-directory-view.c:7691
@@ -6348,25 +6353,25 @@ msgstr "Įjungus darbalaukio rodinį įvyko klaida."
 
 #: src/file-manager/fm-desktop-icon-view.c:890
 msgid "Display this location with the desktop view."
-msgstr ""
+msgstr "Rodyti šią vietą naudojant darbalaukio rodinį."
 
 #: src/file-manager/fm-directory-view.c:660
 #, c-format
 msgid "This will open %'d separate tab."
 msgid_plural "This will open %'d separate tabs."
-msgstr[0] "Tai atvers %'d atskirą kortelę."
-msgstr[1] "Tai atvers %'d atskiras korteles."
-msgstr[2] "Tai atvers %'d atskirų kortelių."
-msgstr[3] "Tai atvers %'d atskirų kortelių."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: src/file-manager/fm-directory-view.c:663
 #, c-format
 msgid "This will open %'d separate window."
 msgid_plural "This will open %'d separate windows."
-msgstr[0] "Tai atvers %'d atskirą langą."
-msgstr[1] "Tai atvers %'d atskirus langus."
-msgstr[2] "Tai atvers %'d atskirų langų."
-msgstr[3] "Tai atvers %'d atskirų langų."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: src/file-manager/fm-directory-view.c:1209
 msgid "Select Items Matching"
@@ -6410,19 +6415,19 @@ msgstr "pasirinktas „%s“"
 #, c-format
 msgid "%'d folder selected"
 msgid_plural "%'d folders selected"
-msgstr[0] "Pasirinktas %'d aplankas"
-msgstr[1] "Pasirinkti %'d aplankai"
-msgstr[2] "Pasirinkta %'d aplankų"
-msgstr[3] "Pasirinkta %'d aplankų"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: src/file-manager/fm-directory-view.c:2322
 #, c-format
 msgid " (containing %'d item)"
 msgid_plural " (containing %'d items)"
-msgstr[0] " (kuriame yra %'d elementas)"
-msgstr[1] " (kuriame yra %'d elementai)"
-msgstr[2] " (kuriame yra %'d elementų)"
-msgstr[3] " (kuriame yra %'d elementų)"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #. Translators: this is preceded with a string of form 'N folders' (N more
 #. than 1)
@@ -6430,28 +6435,28 @@ msgstr[3] " (kuriame yra %'d elementų)"
 #, c-format
 msgid " (containing a total of %'d item)"
 msgid_plural " (containing a total of %'d items)"
-msgstr[0] " (kuriuose iš viso yra %'d elementas)"
-msgstr[1] " (kuriuose iš viso yra %'d elementai)"
-msgstr[2] " (kuriuose iš viso yra %'d elementų)"
-msgstr[3] " (kuriuose iš viso yra %'d elementų)"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: src/file-manager/fm-directory-view.c:2350
 #, c-format
 msgid "%'d item selected"
 msgid_plural "%'d items selected"
-msgstr[0] "Pasirinktas %'d elementas"
-msgstr[1] "Pasirinkti %'d elementai"
-msgstr[2] "Pasirinkta %'d elementų"
-msgstr[3] "Pasirinkta %'d elementų"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: src/file-manager/fm-directory-view.c:2357
 #, c-format
 msgid "%'d other item selected"
 msgid_plural "%'d other items selected"
-msgstr[0] "Pasirinktas %'d kitas elementas"
-msgstr[1] "Pasirinkti %'d kiti elementai"
-msgstr[2] "Pasirinkta %'d kitų elementų"
-msgstr[3] "Pasirinkta %'d kitų elementų"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #. Translators: This is marked for translation in case a localiser
 #. * needs to use something other than parentheses. The
@@ -6492,10 +6497,10 @@ msgstr "%s%s, %s, %s"
 #, c-format
 msgid "Use \"%s\" to open the selected item"
 msgid_plural "Use \"%s\" to open the selected items"
-msgstr[0] "Pasirinktam elementui atverti, naudoti \"%s\""
-msgstr[1] "Pasirinktiems elementams atverti, naudoti \"%s\""
-msgstr[2] "Pasirinktiems elementams atverti, naudoti \"%s\""
-msgstr[3] "Pasirinktiems elementams atverti, naudoti \"%s\""
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: src/file-manager/fm-directory-view.c:4612
 msgid "Open parent location"
@@ -6587,13 +6592,9 @@ msgid "The %'d selected item will be moved if you select the Paste command"
 msgid_plural ""
 "The %'d selected items will be moved if you select the Paste command"
 msgstr[0] ""
-"Jei pasirinksite komandą Įdėti, bus perkeltas %'d pasirinktas elementas"
 msgstr[1] ""
-"Jei pasirinksite komandą Įdėti, bus perkelti %'d pasirinkti elementai"
 msgstr[2] ""
-"Jei pasirinksite komandą Įdėti, bus perkelta %'d pasirinktų elementų"
 msgstr[3] ""
-"Jei pasirinksite komandą Įdėti, bus perkelta %'d pasirinktų elementų"
 
 #: src/file-manager/fm-directory-view.c:6098
 #, c-format
@@ -6601,13 +6602,9 @@ msgid "The %'d selected item will be copied if you select the Paste command"
 msgid_plural ""
 "The %'d selected items will be copied if you select the Paste command"
 msgstr[0] ""
-"Jei pasirinksite komandą Įdėti, bus nukopijuotas %'d pasirinktas elementas"
 msgstr[1] ""
-"Jei pasirinksite komandą Įdėti, bus nukopijuoti %'d pasirinkti elementai"
 msgstr[2] ""
-"Jei pasirinksite komandą Įdėti, bus nukopijuota %'d pasirinktų elementų"
 msgstr[3] ""
-"Jei pasirinksite komandą Įdėti, bus nukopijuota %'d pasirinktų elementų"
 
 #: src/file-manager/fm-directory-view.c:6278
 #: src/file-manager/fm-tree-view.c:1060
@@ -6803,10 +6800,10 @@ msgstr "Dublikuoti kiekvieną pažymėtą elementą"
 #: src/file-manager/fm-directory-view.c:9156
 msgid "Ma_ke Link"
 msgid_plural "Ma_ke Links"
-msgstr[0] "Su_kurti nuorodą"
-msgstr[1] "Su_kurti nuorodas"
-msgstr[2] "Su_kurti nuorodas"
-msgstr[3] "Su_kurti nuorodas"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: src/file-manager/fm-directory-view.c:7488
 msgid "Create a symbolic link for each selected item"
@@ -7056,52 +7053,52 @@ msgstr "Perkelti atvertąjį aplanką iš šiukšlinės į „%s“"
 #, c-format
 msgid "Move the selected folder out of the trash to \"%s\""
 msgid_plural "Move the selected folders out of the trash to \"%s\""
-msgstr[0] "Perkelti pažymėtąjį aplanką iš šiukšlinės į „%s“"
-msgstr[1] "Perkelti pažymėtuosius aplankus iš šiukšlinės į „%s“"
-msgstr[2] "Perkelti pažymėtuosius aplankus iš šiukšlinės į „%s“"
-msgstr[3] "Perkelti pažymėtuosius aplankus iš šiukšlinės į „%s“"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: src/file-manager/fm-directory-view.c:8212
 msgid "Move the selected folder out of the trash"
 msgid_plural "Move the selected folders out of the trash"
-msgstr[0] "Perkelti pažymėtąjį aplanką iš šiukšlinės"
-msgstr[1] "Perkelti pažymėtuosius aplankus iš šiukšlinės"
-msgstr[2] "Perkelti pažymėtuosius aplankus iš šiukšlinės"
-msgstr[3] "Perkelti pažymėtuosius aplankus iš šiukšlinės"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: src/file-manager/fm-directory-view.c:8218
 #, c-format
 msgid "Move the selected file out of the trash to \"%s\""
 msgid_plural "Move the selected files out of the trash to \"%s\""
-msgstr[0] "Perkelti pažymėtąjį failą iš šiukšlinės į „%s“"
-msgstr[1] "Perkelti pažymėtuosius failus iš šiukšlinės į „%s“"
-msgstr[2] "Perkelti pažymėtuosius failus iš šiukšlinės į „%s“"
-msgstr[3] "Perkelti pažymėtuosius failus iš šiukšlinės į „%s“"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: src/file-manager/fm-directory-view.c:8222
 msgid "Move the selected file out of the trash"
 msgid_plural "Move the selected files out of the trash"
-msgstr[0] "Perkelti pažymėtąjį failą iš šiukšlinės"
-msgstr[1] "Perkelti pažymėtuosius failus iš šiukšlinės"
-msgstr[2] "Perkelti pažymėtuosius failus iš šiukšlinės"
-msgstr[3] "Perkelti pažymėtuosius failus iš šiukšlinės"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: src/file-manager/fm-directory-view.c:8228
 #, c-format
 msgid "Move the selected item out of the trash to \"%s\""
 msgid_plural "Move the selected items out of the trash to \"%s\""
-msgstr[0] "Perkelti pažymėtąjį elementą iš šiukšlinės į „%s“"
-msgstr[1] "Perkelti pažymėtuosius elementus iš šiukšlinės į „%s“"
-msgstr[2] "Perkelti pažymėtuosius elementus iš šiukšlinės į „%s“"
-msgstr[3] "Perkelti pažymėtuosius elementus iš šiukšlinės į „%s“"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: src/file-manager/fm-directory-view.c:8232
 msgid "Move the selected item out of the trash"
 msgid_plural "Move the selected items out of the trash"
-msgstr[0] "Perkelti pažymėtąjį elementą iš šiukšlinės"
-msgstr[1] "Perkelti pažymėtuosius elementus iš šiukšlinės"
-msgstr[2] "Perkelti pažymėtuosius elementus iš šiukšlinės"
-msgstr[3] "Perkelti pažymėtuosius elementus iš šiukšlinės"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: src/file-manager/fm-directory-view.c:8361
 #: src/file-manager/fm-directory-view.c:8365
@@ -7217,10 +7214,10 @@ msgstr "Naršyti naujame _lange"
 #: src/file-manager/fm-directory-view.c:9034
 msgid "_Browse Folder"
 msgid_plural "_Browse Folders"
-msgstr[0] "_Naršyti aplanką"
-msgstr[1] "_Naršyti aplankus"
-msgstr[2] "_Naršyti aplankus"
-msgstr[3] "_Naršyti aplankus"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: src/file-manager/fm-directory-view.c:8711
 #: src/file-manager/fm-directory-view.c:9065
@@ -7249,37 +7246,37 @@ msgstr "_Atverti naudojant %s"
 #, c-format
 msgid "Open in %'d New _Window"
 msgid_plural "Open in %'d New _Windows"
-msgstr[0] "Atverti %'d naujame _lange"
-msgstr[1] "Atverti %'d naujuose _languose"
-msgstr[2] "Atverti %'d naujų _langų"
-msgstr[3] "Atverti %'d naujų _langų"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: src/file-manager/fm-directory-view.c:9026
 #, c-format
 msgid "Browse in %'d New _Window"
 msgid_plural "Browse in %'d New _Windows"
-msgstr[0] "Naršyti %'d naujame _lange"
-msgstr[1] "Naršyti %'d naujuose _languose"
-msgstr[2] "Naršyti %'d naujų _langų"
-msgstr[3] "Naršyti %'d naujų _langų"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: src/file-manager/fm-directory-view.c:9058
 #, c-format
 msgid "Open in %'d New _Tab"
 msgid_plural "Open in %'d New _Tabs"
-msgstr[0] "Atverti %'d naujoje kor_telėje"
-msgstr[1] "Atverti %'d naujose kor_telėse"
-msgstr[2] "Atverti %'d naujų kor_telių"
-msgstr[3] "Atverti %'d naujų kor_telių"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: src/file-manager/fm-directory-view.c:9067
 #, c-format
 msgid "Browse in %'d New _Tab"
 msgid_plural "Browse in %'d New _Tabs"
-msgstr[0] "Naršyti %'d naujoje kor_telėje"
-msgstr[1] "Naršyti %'d naujose kor_telėse"
-msgstr[2] "Naršyti %'d naujų kor_telių"
-msgstr[3] "Naršyti %'d naujų kor_telių"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: src/file-manager/fm-directory-view.c:9111
 msgid "Delete all selected items permanently"
@@ -7353,19 +7350,19 @@ msgstr "Komanda"
 
 #: src/file-manager/fm-empty-view.c:397 src/file-manager/fm-empty-view.c:399
 msgid "Empty View"
-msgstr ""
+msgstr "Tuščias rodinys"
 
 #: src/file-manager/fm-empty-view.c:398
 msgid "_Empty"
-msgstr ""
+msgstr "_Tuščia"
 
 #: src/file-manager/fm-empty-view.c:400
 msgid "The empty view encountered an error."
-msgstr ""
+msgstr "Glaustąjame rodinyje iškilo klaida."
 
 #: src/file-manager/fm-empty-view.c:401
 msgid "Display this location with the empty view."
-msgstr ""
+msgstr "Rodyti šią vietą naudojant tuščią rodinį."
 
 #: src/file-manager/fm-error-reporting.c:72
 #, c-format
@@ -7720,10 +7717,10 @@ msgstr ""
 #: src/file-manager/fm-properties-window.c:648
 msgid "_Name:"
 msgid_plural "_Names:"
-msgstr[0] "_Pavadinimas:"
-msgstr[1] "_Pavadinimai:"
-msgstr[2] "_Pavadinimai:"
-msgstr[3] "_Pavadinimai:"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: src/file-manager/fm-properties-window.c:1004
 msgid "Properties"
@@ -7760,10 +7757,10 @@ msgstr "neperskaitomas"
 #, c-format
 msgid "%'d item, with size %s (%s on disk)"
 msgid_plural "%'d items, totalling %s (%s on disk)"
-msgstr[0] "%'d elementas, iš viso %s (%s diske)"
-msgstr[1] "%'d elementai, iš viso %s (%s diske)"
-msgstr[2] "%'d elementų, iš viso %s (%s diske)"
-msgstr[3] "%'d elementų, iš viso %s (%s diske)"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: src/file-manager/fm-properties-window.c:2327
 msgid "(some contents unreadable)"
@@ -8000,20 +7997,20 @@ msgstr "Rodyti medį"
 
 #: src/file-manager/fm-widget-view.c:443
 msgid "Widget View"
-msgstr ""
+msgstr "Valdiklio rodinys"
 
 #: src/file-manager/fm-widget-view.c:444
 msgid "_Widget View"
-msgstr ""
+msgstr "_Valdiklio rodinys"
 
 #: src/file-manager/fm-widget-view.c:445
 msgid "The widget view encountered an error."
-msgstr ""
+msgstr "Valdiklio rodinyje įvyko klaida."
 
 #: src/file-manager/fm-widget-view.c:446
 msgid "The widget view encountered an error while starting up."
-msgstr ""
+msgstr "Paleidžiant valdiklio rodinį įvyko klaida."
 
 #: src/file-manager/fm-widget-view.c:447
 msgid "Display this location with the widget view."
-msgstr ""
+msgstr "Rodyti šią vietą valdiklio rodinyje."

@@ -4,18 +4,19 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Martin Wimpress <code@flexion.org>, 2018
-# André Rivero Castillo <hab130@gmail.com>, 2018
-# Stefano Karapetsas <stefano@karapetsas.com>, 2019
-# Miguel Anxo Bouzada <mbouzada@gmail.com>, 2020
+# Martin Wimpress <code@flexion.org>, 2020
+# Stefano Karapetsas <stefano@karapetsas.com>, 2020
+# clefebvre <clement.lefebvre@linuxmint.com>, 2020
+# André Rivero Castillo <hab130@gmail.com>, 2020
+# Miguel Anxo Bouzada <mbouzada@gmail.com>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: caja 1.23.2\n"
 "Report-Msgid-Bugs-To: https://mate-desktop.org\n"
 "POT-Creation-Date: 2020-01-10 11:11+0100\n"
-"PO-Revision-Date: 2018-03-11 14:48+0000\n"
-"Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>, 2020\n"
+"PO-Revision-Date: 2020-02-14 11:44+0000\n"
+"Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>, 2021\n"
 "Language-Team: Galician (https://www.transifex.com/mate/teams/13566/gl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -947,13 +948,13 @@ msgstr "Non é posíbel instalar o emblema."
 #: libcaja-private/caja-emblem-utils.c:228
 msgid "Sorry, but you must specify a non-blank keyword for the new emblem."
 msgstr ""
-"Ten que especificar unha palabra chave non baleira para o novo emblema."
+"Ten que especificar unha palabra clave non baleira para o novo emblema."
 
 #: libcaja-private/caja-emblem-utils.c:235
 msgid ""
 "Sorry, but emblem keywords can only contain letters, spaces and numbers."
 msgstr ""
-"As palabras chave dos emblemas só poden conter letras, espazos e números."
+"As palabras clave dos emblemas só poden conter letras, espazos e números."
 
 #: libcaja-private/caja-emblem-utils.c:247
 #, c-format
@@ -1571,8 +1572,7 @@ msgid_plural ""
 "Are you sure you want to permanently delete the %'d selected items from the "
 "trash?"
 msgstr[0] ""
-"Confirma que quere eliminar permanentemente %'d elemento seleccionado do "
-"lixo?"
+"Confirma que quere eliminar permanentemente o elemento seleccionado do lixo?"
 msgstr[1] ""
 "Confirma que quere eliminar permanentemente os %'d elementos seleccionados "
 "do lixo?"
@@ -1606,7 +1606,7 @@ msgid "Are you sure you want to permanently delete the %'d selected item?"
 msgid_plural ""
 "Are you sure you want to permanently delete the %'d selected items?"
 msgstr[0] ""
-"Confirma que quere eliminar permanentemente %'d elemento seleccionado?"
+"Confirma que quere eliminar permanentemente o elemento seleccionado?"
 msgstr[1] ""
 "Confirma que quere eliminar permanentemente os %'d elementos seleccionados?"
 
@@ -1618,7 +1618,7 @@ msgstr "Confirma que quere «%B» no lixo?"
 #, c-format
 msgid "Are you sure you want to trash the %'d selected item?"
 msgid_plural "Are you sure you want to trash the %'d selected items?"
-msgstr[0] "Confirma que quere no lixo %'d elemento seleccionado?"
+msgstr[0] "Confirma que quere no lixo o elemento seleccionado?"
 msgstr[1] "Confirma que quere no lixo os %'d elementos seleccionados?"
 
 #: libcaja-private/caja-file-operations.c:1491
@@ -1910,7 +1910,7 @@ msgstr[1] "Duplicando %'d ficheiros (en «%B»)"
 #: libcaja-private/caja-file-operations.c:3070
 msgid "Moving %'d file to \"%B\""
 msgid_plural "Moving %'d files to \"%B\""
-msgstr[0] "Movendo %'d ficheiro a «%B»"
+msgstr[0] "Movendo %'d ficheiro para «%B»"
 msgstr[1] "Movendo %'d ficheiros para «%B»"
 
 #: libcaja-private/caja-file-operations.c:3074
@@ -2209,7 +2209,7 @@ msgstr[1] "Isto abrirá %d lapelas independentes."
 #, c-format
 msgid "This will open %d separate window."
 msgid_plural "This will open %d separate windows."
-msgstr[0] "Isto abrirá %d xanelas independentes."
+msgstr[0] "Isto abrirá %d xanela independente."
 msgstr[1] "Isto abrirá %d xanelas independentes."
 
 #: libcaja-private/caja-mime-actions.c:1277
@@ -2248,7 +2248,7 @@ msgid ""
 "Do you want to search for an application to open this file?"
 msgstr ""
 "Non hai ningunha aplicación instalada para os ficheiros %s\n"
-"Desexa buscar unha aplicación para abrir este ficheiro?"
+"Quere buscar unha aplicación para abrir este ficheiro?"
 
 #: libcaja-private/caja-mime-actions.c:1717
 msgid "Untrusted application launcher"
@@ -2307,7 +2307,7 @@ msgstr "Non foi posíbel estabelecer a aplicación como predeterminada"
 
 #: libcaja-private/caja-mime-application-chooser.c:258
 msgid "Default"
-msgstr "Predeterminados"
+msgstr "Predeterminado"
 
 #: libcaja-private/caja-mime-application-chooser.c:268
 msgid "Icon"
@@ -2446,7 +2446,7 @@ msgstr "Engadir aplicación"
 
 #: libcaja-private/caja-program-choosing.c:80
 msgid "Open Failed, would you like to choose another application?"
-msgstr "Produciuse un fallo ao abrir, desexa seleccionar outra aplicación?"
+msgstr "Produciuse un fallo ao abrir, quere seleccionar outra aplicación?"
 
 #: libcaja-private/caja-program-choosing.c:81
 #: libcaja-private/caja-program-choosing.c:121
@@ -3158,8 +3158,8 @@ msgid ""
 "will determine if any action is taken inside of Caja when either is pressed."
 msgstr ""
 "Para os usuarios con rato que teñen botóns «Seguinte» e «Anterior», esta "
-"chave determinará se calquera acción se aplicará dentro de Caja ao ser "
-"presionada."
+"clave determinará se calquera acción se aplicará dentro de Caja ao ser "
+"premida."
 
 #: libcaja-private/org.mate.caja.gschema.xml:148
 msgid "Mouse button to activate the \"Forward\" command in browser window"
@@ -3172,7 +3172,7 @@ msgid ""
 "window. Possible values range between 6 and 14."
 msgstr ""
 "Para os usuarios con rato que teñen botóns «Seguinte» e «Anterior», esta "
-"chave determinará  que botón activa a orde «Seguinte» nunha xanela de "
+"clave determinará  que botón activa a orde «Seguinte» nunha xanela de "
 "navegador. O intervalo de valores posíbeis está entre 6 e 14."
 
 #: libcaja-private/org.mate.caja.gschema.xml:153
@@ -3186,7 +3186,7 @@ msgid ""
 "Possible values range between 6 and 14."
 msgstr ""
 "Para os usuarios con rato que teñen botóns «Seguinte» e «Anterior», esta "
-"chave determinará  que botón activa a orde «Anterior» nunha xanela de "
+"clave determinará  que botón activa a orde «Anterior» nunha xanela de "
 "navegador. O intervalo de valores posíbeis está entre 6 e 14."
 
 #: libcaja-private/org.mate.caja.gschema.xml:159
@@ -3203,9 +3203,9 @@ msgid ""
 msgstr ""
 "Balance de velocidade ao amosar un ficheiro de imaxe como unha miniatura. Se"
 " se define como «sempre», crea sempre a miniatura, aínda que o cartafol se "
-"atope nun servidor remoto. Se se define como «só-local», crea miniaturas só "
-"para os sistemas de ficheiros locais. Se se define como «nunca», nunca crea "
-"miniaturas; só se usa unha icona xenérica."
+"encontre nun servidor remoto. Se se define como «só-local», crea miniaturas "
+"só para os sistemas de ficheiros locais. Se se define como «nunca», nunca "
+"crea miniaturas; só se usa unha icona xenérica."
 
 #: libcaja-private/org.mate.caja.gschema.xml:164
 msgid "Maximum image size for thumbnailing"
@@ -3325,8 +3325,8 @@ msgid ""
 "Color for the default folder background. Only used if background_set is "
 "true."
 msgstr ""
-"Cor para o fondo de cartafol predeterminado. Úsase só se a chave "
-"background_set é «true» (verdadeiro)."
+"Cor para o fondo de cartafol predeterminado. Úsase só se a clave "
+"background_set é verdadeiro."
 
 #: libcaja-private/org.mate.caja.gschema.xml:213
 msgid "Default Background Filename"
@@ -3336,7 +3336,7 @@ msgstr "Nome de ficheiro de fondo predeterminado"
 msgid ""
 "Uri of the default folder background. Only used if background_set is true."
 msgstr ""
-"URI do cartafol predeterminado. Úsase só se a chave background_set é "
+"URI do cartafol predeterminado. Úsase só se a clave background_set é "
 "verdadeiro."
 
 #: libcaja-private/org.mate.caja.gschema.xml:218
@@ -3359,7 +3359,7 @@ msgid ""
 "side_pane_background_set is true."
 msgstr ""
 "Nome do ficheiro para o fondo predeterminado do panel lateral. Úsase só se a"
-" chave side_pane_background_set é «true» (verdadeiro)."
+" clave side_pane_background_set é verdadeiro."
 
 #: libcaja-private/org.mate.caja.gschema.xml:228
 msgid "Default Side Pane Background Filename"
@@ -3371,7 +3371,7 @@ msgid ""
 "side_pane_background_set is true."
 msgstr ""
 "URI do ficheiro para o fondo predeterminado do panel lateral. Úsase só se a "
-"chave side_pane_background_set é verdadeiro."
+"clave side_pane_background_set é verdadeiro."
 
 #: libcaja-private/org.mate.caja.gschema.xml:238
 msgid "Default folder viewer"
@@ -3401,15 +3401,15 @@ msgstr ""
 
 #: libcaja-private/org.mate.caja.gschema.xml:248
 msgid "Whether to show hidden files"
-msgstr "Indica se se amosan os ficheiros agochados"
+msgstr "Indica se se amosan os ficheiros agachados"
 
 #: libcaja-private/org.mate.caja.gschema.xml:249
 msgid ""
 "If set to true, then hidden files are shown by default in the file manager. "
 "Hidden files are either dotfiles or listed in the folder's .hidden file."
 msgstr ""
-"Se se estabelece a «verdadeiro», os ficheiros agochados amósanse de xeito "
-"predeterminado no xestor de ficheiros. Os ficheiros agochados son os que "
+"Se se estabelece a «verdadeiro», os ficheiros agachados amósanse de xeito "
+"predeterminado no xestor de ficheiros. Os ficheiros agachados son os que "
 "comezan por punto ou os que están listados no ficheiro .hidden do cartafol"
 
 #: libcaja-private/org.mate.caja.gschema.xml:253
@@ -4587,7 +4587,7 @@ msgstr "Ordenar _cartafoles antes dos ficheiros"
 
 #: src/caja-file-management-properties.ui:493
 msgid "Show hidden files"
-msgstr "Amosar os ficheiros agochados"
+msgstr "Amosar os ficheiros agachados"
 
 #: src/caja-file-management-properties.ui:508
 msgid "Show backup files"
@@ -4814,7 +4814,7 @@ msgstr "_Software:"
 
 #: src/caja-file-management-properties.ui:2321
 msgid "<b>Other Media</b>"
-msgstr "<b>Outros dispositivos</b>"
+msgstr "<b>Outros medios</b>"
 
 #: src/caja-file-management-properties.ui:2346
 msgid "Less common media formats can be configured here"
@@ -4838,7 +4838,7 @@ msgstr "E_xplorar os dispositivos ao inserilos"
 
 #: src/caja-file-management-properties.ui:2489
 msgid "Media"
-msgstr "Dispositivo"
+msgstr "Medio"
 
 #: src/caja-file-management-properties.ui:2507
 msgid "<b>Available _Extensions:</b>"
@@ -4847,7 +4847,7 @@ msgstr "<b>_Extensións dispoñíbeis:</b>"
 #: src/caja-file-management-properties.ui:2538
 #: src/caja-file-management-properties.ui:2562
 msgid "column"
-msgstr "columna"
+msgstr "column"
 
 #: src/caja-file-management-properties.ui:2588
 msgid "_About Extension"
@@ -4924,7 +4924,7 @@ msgstr "Descrición"
 
 #: src/caja-image-properties-page.c:369
 msgid "Keywords"
-msgstr "Palabras chave"
+msgstr "Palabras clave"
 
 #: src/caja-image-properties-page.c:370
 msgid "Creator"
@@ -5026,7 +5026,7 @@ msgstr "Ir a:"
 #, c-format
 msgid "Do you want to view %d location?"
 msgid_plural "Do you want to view %d locations?"
-msgstr[0] "Quere ver %d localización?"
+msgstr[0] "Quere ver a localización?"
 msgstr[1] "Quere ver as %d localizacións?"
 
 #: src/caja-location-dialog.c:160
@@ -5137,7 +5137,7 @@ msgstr "Ir á mesma localización que a do no panel adicional"
 
 #: src/caja-navigation-window-menus.c:862 src/caja-spatial-window.c:936
 msgid "_Add Bookmark"
-msgstr "_Engadir Marcador"
+msgstr "_Engadir marcador"
 
 #: src/caja-navigation-window-menus.c:863 src/caja-spatial-window.c:937
 msgid "Add a bookmark for the current location to this menu"
@@ -5373,11 +5373,11 @@ msgstr "Extraer unidade de forma _segura"
 
 #: src/caja-places-sidebar.c:1825
 msgid "_Connect Drive"
-msgstr "_Conectar unidade"
+msgstr "_Conectar dispositivo"
 
 #: src/caja-places-sidebar.c:1826
 msgid "_Disconnect Drive"
-msgstr "_Desconectar unidade"
+msgstr "_Desconectar dispositivo"
 
 #: src/caja-places-sidebar.c:1829
 msgid "_Start Multi-disk Device"
@@ -5501,7 +5501,7 @@ msgstr "Crear un novo emblema"
 
 #: src/caja-property-browser.c:1141
 msgid "_Keyword:"
-msgstr "_Palabra chave:"
+msgstr "_Palabra clave:"
 
 #: src/caja-property-browser.c:1160
 msgid "_Image:"
@@ -5977,7 +5977,7 @@ msgid ""
 "details."
 msgstr ""
 "Caja distribúese coa esperanza de que lle sexa útil, pero SEN GARANTÍA "
-"ALGUNHA, incluso sen a garantía implícita de COMERCIALIZACIÓN ou ADECUACIÓN "
+"ALGUNHA, incluso sen a garantía implícita de MERCANTIBILIDADE ou ADECUACIÓN "
 "A UN PROPÓSITO EN PARTICULAR. Olle a Licenza Pública Xeral para obter máis "
 "información."
 
@@ -6090,7 +6090,7 @@ msgstr "_Sobre"
 
 #: src/caja-window-menus.c:895
 msgid "Display credits for the creators of Caja"
-msgstr "Amosa os créditos dos creadores de Caja"
+msgstr "Amosa os recoñecementos dos creadores do Caja"
 
 #: src/caja-window-menus.c:899
 msgid "Zoom _In"
@@ -6158,15 +6158,15 @@ msgstr "Abre o seu cartafol persoal de lixo"
 
 #: src/caja-window-menus.c:963
 msgid "Show _Hidden Files"
-msgstr "Amosar ficheiros _agochados"
+msgstr "Amosar ficheiros _agachados"
 
 #: src/caja-window-menus.c:964
 msgid "Toggle the display of hidden files in the current window"
-msgstr "Activar/desactivar o amosado de ficheiros agochados na xanela actual"
+msgstr "Activar/desactivar o amosado de ficheiros agachados na xanela actual"
 
 #: src/caja-window-menus.c:969
 msgid "Show Bac_kup Files"
-msgstr "Amosar os ficheiros de copias de seguran_za"
+msgstr "Amosar os ficheiros de copias de se_guridade"
 
 #: src/caja-window-menus.c:970
 msgid "Toggle the display of backup files in the current window"
@@ -6395,8 +6395,8 @@ msgstr[1] "%'d elementos seleccionados"
 #, c-format
 msgid "%'d other item selected"
 msgid_plural "%'d other items selected"
-msgstr[0] "%'d outro elemento seleccionado"
-msgstr[1] "%'d outros elementos seleccionados"
+msgstr[0] "Outro elemento seleccionado"
+msgstr[1] "Outros %'d elementos seleccionados"
 
 #. Translators: This is marked for translation in case a localiser
 #. * needs to use something other than parentheses. The
@@ -6530,7 +6530,7 @@ msgstr "«%s» copiarase se seleccionou a orde Pegar"
 msgid "The %'d selected item will be moved if you select the Paste command"
 msgid_plural ""
 "The %'d selected items will be moved if you select the Paste command"
-msgstr[0] "%'d elemento  seleccionado moverase se selecciona a orde «Pegar»"
+msgstr[0] "O elemento seleccionado moverase se selecciona a orde «Pegar»"
 msgstr[1] ""
 "Os %'d elementos  seleccionados moveranse se selecciona a orde «Pegar»"
 
@@ -6539,7 +6539,7 @@ msgstr[1] ""
 msgid "The %'d selected item will be copied if you select the Paste command"
 msgid_plural ""
 "The %'d selected items will be copied if you select the Paste command"
-msgstr[0] "%'d elemento  seleccionado copiaranse se selecciona a orde «Pegar»"
+msgstr[0] "O elemento seleccionado copiarase se selecciona a orde «Pegar»"
 msgstr[1] ""
 "Os %'d elementos  seleccionados copiaranse se selecciona a orde «Pegar»"
 
@@ -7107,7 +7107,7 @@ msgstr "Conectar á unidade asociada co cartafol aberto"
 
 #: src/file-manager/fm-directory-view.c:8467
 msgid "Start the multi-disk drive associated with the open folder"
-msgstr "Iniciar a unidade multidisco asociada coa apertura do cartafol"
+msgstr "Iniciar o dispositivo multidisco asociado coa apertura do cartafol"
 
 #: src/file-manager/fm-directory-view.c:8471
 msgid "Unlock the drive associated with the open folder"
@@ -7142,7 +7142,7 @@ msgstr "Navegar nunha nova _xanela"
 #: src/file-manager/fm-directory-view.c:9034
 msgid "_Browse Folder"
 msgid_plural "_Browse Folders"
-msgstr[0] "_Examinar o cartafol"
+msgstr[0] "_Navegar polo cartafol"
 msgstr[1] "_Navegar polos cartafoles"
 
 #: src/file-manager/fm-directory-view.c:8711
@@ -7172,28 +7172,28 @@ msgstr "_Abrir con %s"
 #, c-format
 msgid "Open in %'d New _Window"
 msgid_plural "Open in %'d New _Windows"
-msgstr[0] "Abrir en %'d nova _xanela"
+msgstr[0] "Abrir nunha nova _xanela"
 msgstr[1] "Abrir en %'d novas _xanelas"
 
 #: src/file-manager/fm-directory-view.c:9026
 #, c-format
 msgid "Browse in %'d New _Window"
 msgid_plural "Browse in %'d New _Windows"
-msgstr[0] "Navegar en %'d nova _xanela"
+msgstr[0] "Navegar nunha nova _xanela"
 msgstr[1] "Navegar en %'d novas _xanelas"
 
 #: src/file-manager/fm-directory-view.c:9058
 #, c-format
 msgid "Open in %'d New _Tab"
 msgid_plural "Open in %'d New _Tabs"
-msgstr[0] "Abrir en %'d nova _lapela"
+msgstr[0] "Abrir nunha nova _lapela"
 msgstr[1] "Abrir en %'d novas _lapelas"
 
 #: src/file-manager/fm-directory-view.c:9067
 #, c-format
 msgid "Browse in %'d New _Tab"
 msgid_plural "Browse in %'d New _Tabs"
-msgstr[0] "Examinar en %'d nova _lapela"
+msgstr[0] "Navegar nunha nova _lapela"
 msgstr[1] "Navegar en %'d novas _lapelas"
 
 #: src/file-manager/fm-directory-view.c:9111
