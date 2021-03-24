@@ -432,7 +432,9 @@ caja_drag_default_drop_action_for_icons (GdkDragContext *context,
     GdkDragAction actions;
     CajaFile *dropped_file, *target_file;
 
-    if (target_uri_string == NULL)
+    if ((target_uri_string == NULL) ||
+        (strcmp (target_uri_string, "computer:///") == 0) ||
+        (strcmp (target_uri_string, "network:///") == 0))
     {
         *action = 0;
         return;
@@ -457,12 +459,31 @@ caja_drag_default_drop_action_for_icons (GdkDragContext *context,
     dropped_file = caja_file_get_existing_by_uri (dropped_uri);
     target_file = caja_file_get_existing_by_uri (target_uri_string);
 
+    if (eel_uri_is_desktop (dropped_uri))
+    {
+        if (eel_uri_is_desktop (target_uri_string))
+        {
+            /* Only move to Desktop icons */
+            if (actions & GDK_ACTION_MOVE)
+            {
+                *action = GDK_ACTION_MOVE;
+            }
+        }
+        else
+        {
+            *action = 0;
+        }
+
+        caja_file_unref (dropped_file);
+        caja_file_unref (target_file);
+        return;
+    }
     /*
      * Check for trash URI.  We do a find_directory for any Trash directory.
      * Passing 0 permissions as mate-vfs would override the permissions
      * passed with 700 while creating .Trash directory
      */
-    if (eel_uri_is_trash (target_uri_string))
+    else if (eel_uri_is_trash (target_uri_string))
     {
         /* Only move to Trash */
         if (actions & GDK_ACTION_MOVE)
@@ -491,20 +512,6 @@ caja_drag_default_drop_action_for_icons (GdkDragContext *context,
 
         caja_file_unref (target_file);
         target_file = caja_file_get (target);
-
-        if (eel_uri_is_desktop (dropped_uri))
-        {
-            /* Only move to Desktop icons */
-            if (actions & GDK_ACTION_MOVE)
-            {
-                *action = GDK_ACTION_MOVE;
-            }
-
-            g_object_unref (target);
-            caja_file_unref (dropped_file);
-            caja_file_unref (target_file);
-            return;
-        }
     }
     else if (target_file != NULL && caja_file_is_archive (target_file))
     {
