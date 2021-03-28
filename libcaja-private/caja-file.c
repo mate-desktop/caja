@@ -120,6 +120,8 @@ static GQuark attribute_name_q,
 	attribute_size_q,
 	attribute_size_on_disk_q,
 	attribute_type_q,
+	attribute_creation_date_q,
+	attribute_date_created_q,
 	attribute_modification_date_q,
 	attribute_date_modified_q,
 	attribute_accessed_date_q,
@@ -476,6 +478,7 @@ caja_file_clear_info (CajaFile *file)
 	file->details->mtime = 0;
 	file->details->atime = 0;
 	file->details->ctime = 0;
+	file->details->btime = 0;
 	file->details->trash_time = 0;
 	g_free (file->details->symlink_name);
 	file->details->symlink_name = NULL;
@@ -2108,7 +2111,7 @@ update_info_internal (CajaFile *file,
 	goffset size;
 	goffset size_on_disk;
 	int sort_order;
-	time_t atime, mtime, ctime;
+	time_t atime, mtime, ctime, btime;
 	time_t trash_time;
 	const char * time_string;
 	const char *symlink_name, *mime_type, *selinux_context, *thumbnail_path;
@@ -2404,9 +2407,11 @@ update_info_internal (CajaFile *file,
 	atime = g_file_info_get_attribute_uint64 (info, G_FILE_ATTRIBUTE_TIME_ACCESS);
 	ctime = g_file_info_get_attribute_uint64 (info, G_FILE_ATTRIBUTE_TIME_CHANGED);
 	mtime = g_file_info_get_attribute_uint64 (info, G_FILE_ATTRIBUTE_TIME_MODIFIED);
+	btime = g_file_info_get_attribute_uint64 (info, G_FILE_ATTRIBUTE_TIME_CREATED);
 	if (file->details->atime != atime ||
 	    file->details->mtime != mtime ||
-	    file->details->ctime != ctime) {
+	    file->details->ctime != ctime ||
+	    file->details->btime != btime) {
 		if (file->details->thumbnail == NULL) {
 			file->details->thumbnail_is_up_to_date = FALSE;
 		}
@@ -2416,6 +2421,7 @@ update_info_internal (CajaFile *file,
 	file->details->atime = atime;
 	file->details->ctime = ctime;
 	file->details->mtime = mtime;
+	file->details->btime = btime;
 
 	if (file->details->thumbnail != NULL &&
 	    file->details->thumbnail_mtime != 0 &&
@@ -2790,6 +2796,9 @@ get_time (CajaFile *file,
 		break;
 	case CAJA_DATE_TYPE_ACCESSED:
 		time = file->details->atime;
+		break;
+	case CAJA_DATE_TYPE_CREATED:
+		time = file->details->btime;
 		break;
 	case CAJA_DATE_TYPE_TRASHED:
 		time = file->details->trash_time;
@@ -3496,6 +3505,12 @@ caja_file_compare_for_sort (CajaFile *file_1,
 				result = compare_by_full_path (file_1, file_2);
 			}
 			break;
+		case CAJA_FILE_SORT_BY_BTIME:
+			result = compare_by_time (file_1, file_2, CAJA_DATE_TYPE_CREATED);
+			if (result == 0) {
+				result = compare_by_full_path (file_1, file_2);
+			}
+			break;
 		case CAJA_FILE_SORT_BY_ATIME:
 			result = compare_by_time (file_1, file_2, CAJA_DATE_TYPE_ACCESSED);
 			if (result == 0) {
@@ -3577,6 +3592,11 @@ caja_file_compare_for_sort_by_attribute_q   (CajaFile                   *file_1,
 						       CAJA_FILE_SORT_BY_MTIME,
 						       directories_first,
 						       reversed);
+        } else if (attribute == attribute_creation_date_q || attribute == attribute_date_created_q) {
+                return caja_file_compare_for_sort (file_1, file_2,
+                                                       CAJA_FILE_SORT_BY_BTIME,
+                                                       directories_first,
+                                                       reversed);
         } else if (attribute == attribute_accessed_date_q || attribute == attribute_date_accessed_q) {
 		return caja_file_compare_for_sort (file_1, file_2,
 						       CAJA_FILE_SORT_BY_ATIME,
@@ -4721,6 +4741,7 @@ caja_file_get_date (CajaFile *file,
 	g_return_val_if_fail (date_type == CAJA_DATE_TYPE_CHANGED
 			      || date_type == CAJA_DATE_TYPE_ACCESSED
 			      || date_type == CAJA_DATE_TYPE_MODIFIED
+	                      || date_type == CAJA_DATE_TYPE_CREATED
 			      || date_type == CAJA_DATE_TYPE_TRASHED
 			      || date_type == CAJA_DATE_TYPE_PERMISSIONS_CHANGED, FALSE);
 
@@ -6558,6 +6579,10 @@ caja_file_get_string_attribute_q (CajaFile *file, GQuark attribute_q)
 		return caja_file_get_date_as_string (file,
 							 CAJA_DATE_TYPE_ACCESSED);
 	}
+	if (attribute_q == attribute_date_created_q) {
+		return caja_file_get_date_as_string (file,
+		                                     CAJA_DATE_TYPE_CREATED);
+	}
 	if (attribute_q == attribute_trashed_on_q) {
 		return caja_file_get_date_as_string (file,
 							 CAJA_DATE_TYPE_TRASHED);
@@ -6724,6 +6749,8 @@ caja_file_is_date_sort_attribute_q (GQuark attribute_q)
 {
 	if (attribute_q == attribute_modification_date_q ||
 	    attribute_q == attribute_date_modified_q ||
+	    attribute_q == attribute_creation_date_q ||
+	    attribute_q == attribute_date_created_q ||
 	    attribute_q == attribute_accessed_date_q ||
 	    attribute_q == attribute_date_accessed_q ||
 	    attribute_q == attribute_date_changed_q ||
@@ -8598,6 +8625,8 @@ caja_file_class_init (CajaFileClass *class)
 	attribute_type_q = g_quark_from_static_string ("type");
 	attribute_modification_date_q = g_quark_from_static_string ("modification_date");
 	attribute_date_modified_q = g_quark_from_static_string ("date_modified");
+	attribute_creation_date_q = g_quark_from_static_string ("creation_date");
+	attribute_date_created_q = g_quark_from_static_string ("date_created");
 	attribute_accessed_date_q = g_quark_from_static_string ("accessed_date");
 	attribute_date_accessed_q = g_quark_from_static_string ("date_accessed");
 	attribute_emblems_q = g_quark_from_static_string ("emblems");

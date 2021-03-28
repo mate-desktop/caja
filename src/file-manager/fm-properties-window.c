@@ -3362,6 +3362,10 @@ create_basic_page (FMPropertiesWindow *window)
 					 "date_modified",
 					 INCONSISTENT_STATE_STRING,
 					 FALSE);
+		append_title_value_pair (window, grid, _("Created:"),
+		                         "date_created",
+		                         INCONSISTENT_STATE_STRING,
+		                         FALSE);
 	}
 
 	if (should_show_free_space (window)) {
