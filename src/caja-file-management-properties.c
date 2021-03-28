@@ -111,6 +111,7 @@ static const char * const sort_order_values[] =
     "size_on_disk",
     "type",
     "mtime",
+    "btime",
     "atime",
     "emblems",
     "extension",
