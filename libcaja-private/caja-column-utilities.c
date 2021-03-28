@@ -79,6 +79,14 @@ get_builtin_columns (void)
 
     columns = g_list_append (columns,
                              g_object_new (CAJA_TYPE_COLUMN,
+                                           "name", "date_created",
+                                           "attribute", "date_created",
+                                           "label", _("Date Created"),
+                                           "description", _("The date the file was created."),
+                                           NULL));
+
+    columns = g_list_append (columns,
+                             g_object_new (CAJA_TYPE_COLUMN,
                                            "name", "date_accessed",
                                            "attribute", "date_accessed",
                                            "label", _("Date Accessed"),

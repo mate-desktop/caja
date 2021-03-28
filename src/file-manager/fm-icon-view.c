@@ -159,6 +159,13 @@ static const SortCriterion sort_criteria[] =
         N_("Keep icons sorted by modification date in rows")
     },
     {
+        CAJA_FILE_SORT_BY_BTIME,
+        "creation date",
+        "Sort by Creation Date",
+        N_("by _Creation Date"),
+        N_("Keep icons sorted by creation date in rows")
+    },
+    {
         CAJA_FILE_SORT_BY_EMBLEMS,
         "emblems",
         "Sort by Emblems",
@@ -1781,6 +1788,12 @@ static const GtkRadioActionEntry arrange_radio_entries[] =
         N_("By Modification _Date"), NULL,
         N_("Keep icons sorted by modification date in rows"),
         CAJA_FILE_SORT_BY_MTIME
+    },
+    {
+        "Sort by Creation Date", NULL,
+        N_("By _Creation Date"), NULL,
+        N_("Keep icons sorted by creation date in rows"),
+        CAJA_FILE_SORT_BY_BTIME
     },
     {
         "Sort by Emblems", NULL,
