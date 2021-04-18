@@ -1208,9 +1208,7 @@ caja_window_load_extension_menus (CajaWindow *window)
     if (items != NULL)
     {
         add_extension_menu_items (window, merge_id, action_group, items, "");
-
-        g_list_foreach (items, (GFunc) g_object_unref, NULL);
-        g_list_free (items);
+        g_list_free_full (items, g_object_unref);
     }
 }
 
