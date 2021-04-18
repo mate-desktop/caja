@@ -1114,14 +1114,14 @@ caja_window_key_press_event (GtkWidget *widget,
  */
 
 static void
-free_activate_view_data (gpointer data)
+free_activate_view_data (gpointer  data,
+                         GClosure *closure)
 {
     ActivateViewData *activate_data;
+    (void) closure;
 
     activate_data = data;
-
     g_free (activate_data->id);
-
     g_slice_free (ActivateViewData, activate_data);
 }
 
@@ -1205,7 +1205,7 @@ add_view_as_menu_item (CajaWindow *window,
     data->id = g_strdup (identifier);
     g_signal_connect_data (action, "activate",
                            G_CALLBACK (action_view_as_callback),
-                           data, (GClosureNotify) free_activate_view_data, 0);
+                           data, free_activate_view_data, 0);
 
     G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
     gtk_action_group_add_action (window->details->view_as_action_group,
@@ -1974,10 +1974,18 @@ caja_get_history_list (void)
     return history_list;
 }
 
+static gpointer
+caja_window_copy_history_item (gconstpointer src,
+                               gpointer      data)
+{
+    (void) data;
+    return g_object_ref (G_OBJECT (src));
+}
+
 static GList *
 caja_window_get_history (CajaWindow *window)
 {
-    return g_list_copy_deep (history_list, (GCopyFunc) g_object_ref, NULL);
+    return g_list_copy_deep (history_list, caja_window_copy_history_item, NULL);
 }
 
 
