@@ -2149,6 +2149,14 @@ property_browser_category_button_new (const char *display_name,
     return button;
 }
 
+static void
+free_category_link_name (gpointer  data,
+                         GClosure *closure)
+{
+    (void) closure;
+    g_free (data);
+}
+
 /* this is a utility routine to generate a category link widget and install it in the browser */
 static void
 make_category_link (CajaPropertyBrowser *property_browser,
@@ -2190,10 +2198,9 @@ make_category_link (CajaPropertyBrowser *property_browser,
 
     /* add a signal to handle clicks */
     g_object_set_data (G_OBJECT(button), "user_data", property_browser);
-    g_signal_connect_data
-    (button, "toggled",
-     G_CALLBACK (category_toggled_callback),
-     g_strdup (name), (GClosureNotify) g_free, 0);
+    g_signal_connect_data (button, "toggled",
+                           G_CALLBACK (category_toggled_callback),
+                           g_strdup (name), free_category_link_name, 0);
 }
 
 /* update_contents populates the property browser with information specified by the path and other state variables */
