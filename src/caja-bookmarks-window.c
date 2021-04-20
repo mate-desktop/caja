@@ -984,7 +984,6 @@ repopulate (void)
     GtkListStore *store;
     GtkTreeRowReference *reference;
     guint index;
-    GtkTreePath *path = NULL;
 
     g_assert (GTK_IS_TREE_VIEW (bookmark_list_widget));
     g_assert (CAJA_IS_BOOKMARK_LIST (bookmarks));
@@ -1060,6 +1059,7 @@ repopulate (void)
     if (reference != NULL)
     {
         /* restore old selection */
+        GtkTreePath *path;
 
         /* bookmarks_set_empty() will call the selection change handler,
          * so we block it here in case of selection change.

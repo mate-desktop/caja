@@ -4138,9 +4138,8 @@ copy_move_file (CopyMoveJob *copy_job,
 	GError *error;
 	GFileCopyFlags flags;
 	char *primary, *secondary, *details;
-	int response;
 	ProgressData pdata;
-	gboolean would_recurse, is_merge;
+	gboolean would_recurse;
 	CommonJob *job;
 	gboolean res;
 	int unique_name_nr;
@@ -4182,13 +4181,13 @@ copy_move_file (CopyMoveJob *copy_job,
 					    : g_strdup (_("You cannot copy a folder into itself."));
 		secondary = g_strdup (_("The destination folder is inside the source folder."));
 
-		response = run_warning (job,
-					primary,
-					secondary,
-					NULL,
-					(source_info->num_files - transfer_info->num_files) > 1,
-					CANCEL, SKIP_ALL, SKIP,
-					NULL);
+		int response = run_warning (job,
+		                            primary,
+		                            secondary,
+		                            NULL,
+		                            (source_info->num_files - transfer_info->num_files) > 1,
+		                            CANCEL, SKIP_ALL, SKIP,
+		                            NULL);
 
 		if (response == 0 || response == GTK_RESPONSE_DELETE_EVENT) {
 			abort_job (job);
@@ -4215,13 +4214,13 @@ copy_move_file (CopyMoveJob *copy_job,
 					    : g_strdup (_("You cannot copy a file over itself."));
 		secondary = g_strdup (_("The source file would be overwritten by the destination."));
 
-		response = run_warning (job,
-					primary,
-					secondary,
-					NULL,
-					(source_info->num_files - transfer_info->num_files) > 1,
-					CANCEL, SKIP_ALL, SKIP,
-					NULL);
+		int response = run_warning (job,
+		                            primary,
+		                            secondary,
+		                            NULL,
+		                            (source_info->num_files - transfer_info->num_files) > 1,
+		                            CANCEL, SKIP_ALL, SKIP,
+		                            NULL);
 
 		if (response == 0 || response == GTK_RESPONSE_DELETE_EVENT) {
 			abort_job (job);
@@ -4417,6 +4416,8 @@ copy_move_file (CopyMoveJob *copy_job,
 	/* Needs to recurse */
 	else if (IS_IO_ERROR (error, WOULD_RECURSE) ||
 		 IS_IO_ERROR (error, WOULD_MERGE)) {
+		gboolean is_merge;
+
 		is_merge = error->code == G_IO_ERROR_WOULD_MERGE;
 		would_recurse = error->code == G_IO_ERROR_WOULD_RECURSE;
 		g_error_free (error);
@@ -4442,13 +4443,13 @@ copy_move_file (CopyMoveJob *copy_job,
 				/* setting TRUE on show_all here, as we could have
 				 * another error on the same file later.
 				 */
-				response = run_warning (job,
-							primary,
-							secondary,
-							details,
-							TRUE,
-							CANCEL, SKIP_ALL, SKIP,
-							NULL);
+				int response = run_warning (job,
+				                            primary,
+				                            secondary,
+				                            details,
+				                            TRUE,
+				                            CANCEL, SKIP_ALL, SKIP,
+				                            NULL);
 
 				g_error_free (error);
 
@@ -4510,13 +4511,13 @@ copy_move_file (CopyMoveJob *copy_job,
 		secondary = f (_("There was an error copying the file into %F."), dest_dir);
 		details = error->message;
 
-		response = run_warning (job,
-					primary,
-					secondary,
-					details,
-					(source_info->num_files - transfer_info->num_files) > 1,
-					CANCEL, SKIP_ALL, SKIP,
-					NULL);
+		int response = run_warning (job,
+		                            primary,
+		                            secondary,
+		                            details,
+		                            (source_info->num_files - transfer_info->num_files) > 1,
+		                            CANCEL, SKIP_ALL, SKIP,
+		                            NULL);
 
 		g_error_free (error);
 
@@ -4849,7 +4850,6 @@ move_file_prepare (CopyMoveJob *move_job,
 	CommonJob *job;
 	gboolean overwrite;
 	char *primary, *secondary, *details;
-	int response;
 	GFileCopyFlags flags;
 	MoveFileCopyFallback *fallback;
 	gboolean handled_invalid_filename;
@@ -4875,13 +4875,13 @@ move_file_prepare (CopyMoveJob *move_job,
 					    : g_strdup (_("You cannot copy a folder into itself."));
 		secondary = g_strdup (_("The destination folder is inside the source folder."));
 
-		response = run_warning (job,
-					primary,
-					secondary,
-					NULL,
-					files_left > 1,
-					CANCEL, SKIP_ALL, SKIP,
-					NULL);
+		int response = run_warning (job,
+		                            primary,
+		                            secondary,
+		                            NULL,
+		                            files_left > 1,
+		                            CANCEL, SKIP_ALL, SKIP,
+		                            NULL);
 
 		if (response == 0 || response == GTK_RESPONSE_DELETE_EVENT) {
 			abort_job (job);
@@ -5029,13 +5029,13 @@ move_file_prepare (CopyMoveJob *move_job,
 		secondary = f (_("There was an error moving the file into %F."), dest_dir);
 		details = error->message;
 
-		response = run_warning (job,
-					primary,
-					secondary,
-					details,
-					files_left > 1,
-					CANCEL, SKIP_ALL, SKIP,
-					NULL);
+		int response = run_warning (job,
+		                            primary,
+		                            secondary,
+		                            details,
+		                            files_left > 1,
+		                            CANCEL, SKIP_ALL, SKIP,
+		                            NULL);
 
 		g_error_free (error);
 

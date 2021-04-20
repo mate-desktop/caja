@@ -7758,7 +7758,6 @@ finish_adding_new_icons (CajaIconContainer *container)
 
         for (p = semi_position_icons; p != NULL; p = p->next)
         {
-            CajaIcon *icon;
             CajaIconPosition position;
             int x, y;
 

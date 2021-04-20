@@ -1894,9 +1894,7 @@ caja_window_get_slot_for_view (CajaWindow *window,
 void
 caja_forget_history (void)
 {
-    CajaWindowSlot *slot;
-    CajaNavigationWindowSlot *navigation_slot;
-    GList *window_node, *l, *walk;
+    GList *window_node;
     CajaApplication *app;
 
     app = CAJA_APPLICATION (g_application_get_default ());
@@ -1908,19 +1906,18 @@ caja_forget_history (void)
             window_node != NULL;
             window_node = window_node->next)
     {
+        GList *walk;
 
         if (CAJA_IS_NAVIGATION_WINDOW (window_node->data))
         {
-            CajaNavigationWindow *window;
-
-            window = CAJA_NAVIGATION_WINDOW (window_node->data);
-
+            CajaNavigationWindow *window = CAJA_NAVIGATION_WINDOW (window_node->data);
             for (walk = CAJA_WINDOW (window_node->data)->details->panes; walk; walk = walk->next)
             {
+                GList *l;
                 CajaWindowPane *pane = walk->data;
                 for (l = pane->slots; l != NULL; l = l->next)
                 {
-                    navigation_slot = l->data;
+                    CajaNavigationWindowSlot *navigation_slot = l->data;
 
                     caja_navigation_window_slot_clear_back_list (navigation_slot);
                     caja_navigation_window_slot_clear_forward_list (navigation_slot);
@@ -1933,10 +1930,11 @@ caja_forget_history (void)
 
         for (walk = CAJA_WINDOW (window_node->data)->details->panes; walk; walk = walk->next)
         {
+            GList *l;
             CajaWindowPane *pane = walk->data;
             for (l = pane->slots; l != NULL; l = l->next)
             {
-                slot = l->data;
+                CajaWindowSlot *slot = l->data;
                 history_list = g_list_remove (history_list,
                                               slot->current_location_bookmark);
             }
@@ -1951,17 +1949,15 @@ caja_forget_history (void)
             window_node != NULL;
             window_node = window_node->next)
     {
-        CajaWindow *window;
-        CajaWindowSlot *slot;
-        GList *l;
-
-        window = CAJA_WINDOW (window_node->data);
+        GList *walk;
+        CajaWindow *window = CAJA_WINDOW (window_node->data);
         for (walk = window->details->panes; walk; walk = walk->next)
         {
+            GList *l;
             CajaWindowPane *pane = walk->data;
             for (l = pane->slots; l != NULL; l = l->next)
             {
-                slot = CAJA_WINDOW_SLOT (l->data);
+                CajaWindowSlot *slot = CAJA_WINDOW_SLOT (l->data);
                 caja_window_slot_add_current_location_to_history_list (slot);
             }
         }

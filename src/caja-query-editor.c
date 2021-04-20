@@ -743,7 +743,6 @@ type_combo_changed (GtkComboBox *combo_box, CajaQueryEditorRow *row)
         store = gtk_list_store_new (2, G_TYPE_STRING, G_TYPE_STRING);
         for (l = mime_infos; l != NULL; l = l->next)
         {
-            GtkTreeIter iter;
             char *mime_type = l->data;
             char *description;
 

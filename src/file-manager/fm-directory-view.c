@@ -10724,8 +10724,6 @@ fm_directory_view_handle_netscape_url_drop (FMDirectoryView  *view,
 		char *link_name;
 
 		if (eel_str_is_empty (title)) {
-			GFile *f;
-
 			f = g_file_new_for_uri (url);
 			link_name = g_file_get_basename (f);
 			g_object_unref (f);
