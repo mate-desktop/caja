@@ -923,7 +923,6 @@ caja_directory_notify_files_added (GList *files)
              * If it was renamed this could be ignored, but
              * queue a change just in case */
             caja_file_changed (file);
-            caja_file_unref (file);
         }
         else
         {
@@ -931,6 +930,7 @@ caja_directory_notify_files_added (GList *files)
                                      directory,
                                      g_object_ref (location));
         }
+        caja_file_unref (file);
         caja_directory_unref (directory);
     }
 
