@@ -1,6 +1,42 @@
+### caja 1.25.3
+
+  * update translations
+    caja-directory.c: Fix memory leak.
+    caja-bookmarks-window.ui: expand child widgets, sane default size
+    caja-bookmarks-window.ui: remove deprecated GtkAlignment, remove empty labels
+    caja-file-management-properties.ui: remove deprecated GtkAlignment (use
+    update resource for transifex
+    travis: disable travis builds for ubuntu
+    Add creation time support
+    caja-window: remove -Wcast-function-type warning
+    caja-window-menus: remove -Wcast-function-type warning
+    caja-window-manage-views: remove -Wcast-function-type warning
+    caja-property-browser: remove -Wcast-function-type warning
+    icon view: Add a directory setting to block moving icons
+    Improved filesystem check on dnd
+    No longer need to check the locale.h header as it's part of C90
+    warning: missing initializer for a field of ‘GtkActionEntry’
+    caja-places-sidebar: gnome-disk-utility ignores the --xid option
+    keep one .desktop suffix on desktop file renaming
+    caja-pathbar: Fix cppcheck warning nullPointerRedundantCheck
+    caja-application: Use PACKAGE in notify_init instead of GETTEXT_PACKAGE
+    cppcheck warning: Local variable 'combo_box' shadows outer argument
+    Rename wallpaper pattern name from MATE to GNOME
+    caja-window: Fix cppcheck warning unusedAllocatedMemory
+    caja-file-management-properties: Do not cast the instance to GObject when connecting a signal
+    caja-file-management-properties: use gtk_builder_new_from_file
+    Fix warnings about xmlChar cast
+    caja-customization-data: keep the key of the hash table if exists
+    caja-customization-data: Do not build the path to the browser.xml file
+    caja-directory-async: drop istr_set_insert, use g_hash_table_add instead
+    build: allow users to disable gettext support (--disable-nls)
+    build: Use PACKAGE_URL variable
+    build: underline package name and version in configure summary
+    build: set GETTEXT_PACKAGE=AC_PACKAGE_NAME
+
 ### caja 1.25.2
 
-  * sync with transifex
+  * update translations
   * build: fix dist target
   * i18n: Fix fetching all keywords on desktop files
   * Fix desktop file validation warning
@@ -9,7 +45,7 @@
 
 ### caja 1.25.1
 
-  * sync with transifex
+  * update translations
   * Remove warning -Wtype-limits
   * caja-bookmarks-window: upgrade ui file
   * caja-file-operations: Let user mark trusted launcher
@@ -53,7 +89,7 @@
 
 ### caja 1.25.0
 
-  * sync with transifex
+  * update translations
   * Add informations about translation contribution
   * caja-window-slot: fix window icon replacement/alternation
   * fm-properties: Don't show notebook arrows
