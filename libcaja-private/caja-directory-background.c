@@ -6,6 +6,7 @@
 
    Copyright (C) 2000 Eazel, Inc.
    Copyright (C) 2012 Jasmine Hassan <jasmine.aura@gmail.com>
+   Copyright (C) 2012-2021 The MATE developers
 
    This program is free software; you can redistribute it and/or
    modify it under the terms of the GNU General Public License as

@@ -4,6 +4,7 @@
  *
  * Copyright (C) 2007-2010 Amos Brocco
  * Copyright (C) 2011 Stefano Karapetsas
+ * Copyright (C) 2012-2021 The MATE developers
  *
  * Authors: Amos Brocco <amos.brocco@unifr.ch>,
  *          Stefano Karapetsas <stefano@karapetsas.com>
