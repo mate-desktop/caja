@@ -12,15 +12,15 @@
 # Volluta <volluta@tutanota.com>, 2018
 # Erik Bent <hj.bent.60@gmail.com>, 2018
 # 8c3c560621f92e66455793da7b85eff0_8989672 <0e181aafae430e5c919398b6a7bba462_109266>, 2018
-# dragnadh, 2018
 # Stefano Karapetsas <stefano@karapetsas.com>, 2019
+# dragnadh, 2021
 # Pjotr <pjotrvertaalt@gmail.com>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: caja 1.25.2\n"
 "Report-Msgid-Bugs-To: https://github.com/mate-desktop/caja/issues\n"
-"POT-Creation-Date: 2021-04-26 12:46+0200\n"
+"POT-Creation-Date: 2021-05-29 15:26+0200\n"
 "PO-Revision-Date: 2018-03-11 14:48+0000\n"
 "Last-Translator: Pjotr <pjotrvertaalt@gmail.com>, 2021\n"
 "Language-Team: Dutch (https://www.transifex.com/mate/teams/13566/nl/)\n"
@@ -826,7 +826,7 @@ msgid "The location of the file."
 msgstr "De locatie van het bestand."
 
 #: libcaja-private/caja-column-utilities.c:156
-#: src/caja-file-management-properties.ui:2486
+#: src/caja-file-management-properties.ui:2427
 msgid "Extension"
 msgstr "Uitbreiding"
 
@@ -2306,7 +2306,7 @@ msgid "_Add"
 msgstr "_Toevoegen"
 
 #: libcaja-private/caja-mime-application-chooser.c:432
-#: libcaja-private/caja-open-with-dialog.c:962 src/caja-bookmarks-window.ui:77
+#: libcaja-private/caja-open-with-dialog.c:962 src/caja-bookmarks-window.ui:79
 msgid "_Remove"
 msgstr "_Verwijderen"
 
@@ -4130,37 +4130,37 @@ msgstr ""
 msgid "Edit Bookmarks"
 msgstr "Bladwijzers bewerken"
 
-#: src/caja-bookmarks-window.ui:45 src/caja-connect-server-dialog.c:1114
+#: src/caja-bookmarks-window.ui:47 src/caja-connect-server-dialog.c:1114
 #: src/caja-emblem-sidebar.c:303 src/caja-emblem-sidebar.c:562
-#: src/caja-file-management-properties.ui:308 src/caja-location-dialog.c:192
+#: src/caja-file-management-properties.ui:309 src/caja-location-dialog.c:192
 #: src/caja-property-browser.c:389 src/caja-window-menus.c:855
 #: src/file-manager/fm-directory-view.c:1214
 #: src/file-manager/fm-properties-window.c:5259
 msgid "_Help"
 msgstr "_Hulp"
 
-#: src/caja-bookmarks-window.ui:61
+#: src/caja-bookmarks-window.ui:63
 msgid "_Jump to"
 msgstr "_Spring naar"
 
-#: src/caja-bookmarks-window.ui:93 src/caja-file-management-properties.ui:324
+#: src/caja-bookmarks-window.ui:95 src/caja-file-management-properties.ui:325
 #: src/caja-property-browser.c:397 src/caja-window-menus.c:858
 #: src/file-manager/fm-list-view.c:2560
 #: src/file-manager/fm-properties-window.c:5264
 msgid "_Close"
 msgstr "Sl_uiten"
 
-#: src/caja-bookmarks-window.ui:136
-msgid "<b>_Bookmarks</b>"
-msgstr "<b>Blad_wijzers</b>"
+#: src/caja-bookmarks-window.ui:134 src/caja-navigation-window-menus.c:830
+msgid "_Bookmarks"
+msgstr "_Bladwijzers"
 
-#: src/caja-bookmarks-window.ui:227
-msgid "<b>_Name</b>"
-msgstr "<b>_Naam</b>"
+#: src/caja-bookmarks-window.ui:196
+msgid "_Name"
+msgstr "_Naam"
 
-#: src/caja-bookmarks-window.ui:295
-msgid "<b>_Location</b>"
-msgstr "<b>_Locatie</b>"
+#: src/caja-bookmarks-window.ui:241
+msgid "_Location"
+msgstr "_Locatie"
 
 #: src/caja-connect-server-dialog.c:135
 msgid "SSH"
@@ -4402,7 +4402,7 @@ msgstr "Over Uitbreidingen"
 #. Translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
 #: src/caja-file-management-properties.ui:44
-#: src/caja-file-management-properties.ui:652
+#: src/caja-file-management-properties.ui:642
 #: src/file-manager/fm-icon-container.c:620
 #: src/file-manager/fm-icon-view.c:3512
 msgid "Icon View"
@@ -4411,7 +4411,7 @@ msgstr "Pictogramweergave"
 #. Translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
 #: src/caja-file-management-properties.ui:47
-#: src/caja-file-management-properties.ui:819
+#: src/caja-file-management-properties.ui:809
 #: src/file-manager/fm-list-view.c:1854 src/file-manager/fm-list-view.c:3493
 msgid "List View"
 msgstr "Lijstweergave"
@@ -4419,7 +4419,7 @@ msgstr "Lijstweergave"
 #. Translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
 #: src/caja-file-management-properties.ui:50
-#: src/caja-file-management-properties.ui:735
+#: src/caja-file-management-properties.ui:725
 #: src/file-manager/fm-icon-view.c:3527
 msgid "Compact View"
 msgstr "Compacte weergave"
@@ -4575,133 +4575,133 @@ msgstr "4 GB"
 msgid "File Management Preferences"
 msgstr "Bestandsbeheer-voorkeuren"
 
-#: src/caja-file-management-properties.ui:368
+#: src/caja-file-management-properties.ui:369
 msgid "<b>Default View</b>"
 msgstr "<b>Standaardweergave</b>"
 
-#: src/caja-file-management-properties.ui:398
+#: src/caja-file-management-properties.ui:395
 msgid "View _new folders using:"
 msgstr "_Nieuwe mappen bekijken met:"
 
-#: src/caja-file-management-properties.ui:443
+#: src/caja-file-management-properties.ui:440
 msgid "_Arrange items:"
 msgstr "Elementen _rangschikken:"
 
-#: src/caja-file-management-properties.ui:481
+#: src/caja-file-management-properties.ui:478
 msgid "Sort _folders before files"
 msgstr "_Mappen vóór bestanden sorteren"
 
-#: src/caja-file-management-properties.ui:497
+#: src/caja-file-management-properties.ui:494
 msgid "Show hidden files"
 msgstr "Verborgen bestanden tonen"
 
-#: src/caja-file-management-properties.ui:513
+#: src/caja-file-management-properties.ui:510
 msgid "Show backup files"
 msgstr "Reservekopiebestanden tonen"
 
-#: src/caja-file-management-properties.ui:578
+#: src/caja-file-management-properties.ui:568
 msgid "Default _zoom level:"
 msgstr "Standaard-vergrotingsfactor:"
 
-#: src/caja-file-management-properties.ui:616
+#: src/caja-file-management-properties.ui:606
 msgid "_Use compact layout"
 msgstr "_Compacte vormgeving gebruiken"
 
-#: src/caja-file-management-properties.ui:632
+#: src/caja-file-management-properties.ui:622
 msgid "_Text beside icons"
 msgstr "_Tekst naast pictogrammen"
 
-#: src/caja-file-management-properties.ui:674
+#: src/caja-file-management-properties.ui:664
 msgid "_Default zoom level:"
 msgstr "_Standaard-vergrotingsfactor:"
 
-#: src/caja-file-management-properties.ui:712
+#: src/caja-file-management-properties.ui:702
 msgid "A_ll columns have the same width"
 msgstr "Alle _kolommen hebben dezelfde breedte"
 
-#: src/caja-file-management-properties.ui:758
+#: src/caja-file-management-properties.ui:748
 msgid "D_efault zoom level:"
 msgstr "Standaard-vergrotingsfactor:"
 
-#: src/caja-file-management-properties.ui:796
+#: src/caja-file-management-properties.ui:786
 msgid "_Show icons"
 msgstr "Pictogrammen _tonen"
 
-#: src/caja-file-management-properties.ui:835
+#: src/caja-file-management-properties.ui:825
 msgid "Show _only folders"
 msgstr "_Alleen mappen tonen"
 
-#: src/caja-file-management-properties.ui:858
+#: src/caja-file-management-properties.ui:848
 msgid "Tree View"
 msgstr "Boomstructuurweergave"
 
-#: src/caja-file-management-properties.ui:874
+#: src/caja-file-management-properties.ui:862
 msgid "Defaults"
 msgstr "Standaard"
 
-#: src/caja-file-management-properties.ui:893
+#: src/caja-file-management-properties.ui:881
 msgid "Views"
 msgstr "Weergaven"
 
-#: src/caja-file-management-properties.ui:916
+#: src/caja-file-management-properties.ui:904
 msgid "<b>Behavior</b>"
 msgstr "<b>Gedrag</b>"
 
-#: src/caja-file-management-properties.ui:938
+#: src/caja-file-management-properties.ui:922
 msgid "_Single click to open items"
 msgstr "Enkelklik om elementen te openen"
 
-#: src/caja-file-management-properties.ui:954
+#: src/caja-file-management-properties.ui:938
 msgid "_Double click to open items"
 msgstr "_Dubbelklik om elementen te openen"
 
-#: src/caja-file-management-properties.ui:972
+#: src/caja-file-management-properties.ui:956
 msgid "Open each _folder in its own window"
 msgstr "Open elke _map in een eigen venster"
 
-#: src/caja-file-management-properties.ui:1012
+#: src/caja-file-management-properties.ui:994
 msgid "<b>Executable Text Files</b>"
 msgstr "<b>Uitvoerbare tekstbestanden</b>"
 
-#: src/caja-file-management-properties.ui:1035
+#: src/caja-file-management-properties.ui:1013
 msgid "_Run executable text files when they are opened"
 msgstr "Uitvoe_rbare tekstbestanden uitvoeren als ze worden geopend"
 
-#: src/caja-file-management-properties.ui:1051
+#: src/caja-file-management-properties.ui:1029
 msgid "_View executable text files when they are opened"
 msgstr "Uit_voerbare tekstbestanden weergeven wanneer ze worden geopend"
 
-#: src/caja-file-management-properties.ui:1068
+#: src/caja-file-management-properties.ui:1046
 msgid "_Ask each time"
 msgstr "_Elke keer vragen"
 
-#: src/caja-file-management-properties.ui:1109
+#: src/caja-file-management-properties.ui:1085
 msgid "<b>Trash</b>"
 msgstr "<b>Prullenbak</b>"
 
-#: src/caja-file-management-properties.ui:1132
+#: src/caja-file-management-properties.ui:1104
 msgid "Ask before _emptying the Trash or deleting files"
 msgstr ""
 "Vraag om b_evestiging voor het ledigen van de prullenbak of het wissen van "
 "bestanden"
 
-#: src/caja-file-management-properties.ui:1148
+#: src/caja-file-management-properties.ui:1120
 msgid "Ask before moving files to the _Trash"
 msgstr "Vraag voordat u bestanden in de _prullenbak gooit"
 
-#: src/caja-file-management-properties.ui:1164
+#: src/caja-file-management-properties.ui:1136
 msgid "I_nclude a Delete command that bypasses Trash"
 msgstr "Bied een Verw_ijderen-opdracht aan die voorbijgaat aan de prullenbak"
 
-#: src/caja-file-management-properties.ui:1203
+#: src/caja-file-management-properties.ui:1173
 msgid "Behavior"
 msgstr "Gedrag"
 
-#: src/caja-file-management-properties.ui:1227
+#: src/caja-file-management-properties.ui:1197
 msgid "<b>Icon Captions</b>"
 msgstr "<b>Pictogrambijschriften</b>"
 
-#: src/caja-file-management-properties.ui:1252
+#: src/caja-file-management-properties.ui:1218
 msgid ""
 "Choose the order of information to appear beneath icon names. More "
 "information will appear when zooming in closer."
@@ -4709,155 +4709,155 @@ msgstr ""
 "Kies de volgorde waarin er informatie onder pictogramnamen verschijnt. Meer "
 "informatie verschijnt zodra u verder vergroot."
 
-#: src/caja-file-management-properties.ui:1388
+#: src/caja-file-management-properties.ui:1352
 msgid "<b>Date</b>"
 msgstr "<b>Datum</b>"
 
-#: src/caja-file-management-properties.ui:1412
+#: src/caja-file-management-properties.ui:1372
 msgid "_Format:"
 msgstr "Opmaak:"
 
-#: src/caja-file-management-properties.ui:1459
+#: src/caja-file-management-properties.ui:1417
 msgid "<b>Size</b>"
 msgstr "<b>Grootte</b>"
 
-#: src/caja-file-management-properties.ui:1476
+#: src/caja-file-management-properties.ui:1429
 msgid "_Show file sizes with IEC units"
 msgstr "Laat bestandsgroottes zien in IEC-eenheden"
 
-#: src/caja-file-management-properties.ui:1508
+#: src/caja-file-management-properties.ui:1460
 msgid "Display"
 msgstr "Weergave"
 
-#: src/caja-file-management-properties.ui:1532
+#: src/caja-file-management-properties.ui:1484
 msgid "<b>List Columns</b>"
 msgstr "<b>Lijstkolommen</b>"
 
-#: src/caja-file-management-properties.ui:1557
+#: src/caja-file-management-properties.ui:1504
 msgid "Choose the order of information to appear in the list view."
 msgstr "Kies de volgorde waarin er informatie verschijnt in de lijstweergave."
 
-#: src/caja-file-management-properties.ui:1595
+#: src/caja-file-management-properties.ui:1540
 msgid "List Columns"
 msgstr "Lijstkolommen"
 
-#: src/caja-file-management-properties.ui:1619
+#: src/caja-file-management-properties.ui:1564
 msgid "<b>Text Files</b>"
 msgstr "<b>Tekstbestanden</b>"
 
-#: src/caja-file-management-properties.ui:1649
+#: src/caja-file-management-properties.ui:1590
 msgid "Show te_xt in icons:"
 msgstr "Te_kst in pictogrammen tonen:"
 
-#: src/caja-file-management-properties.ui:1711
+#: src/caja-file-management-properties.ui:1650
 msgid "<b>Other Previewable Files</b>"
 msgstr "<b>Andere bestanden geschikt voor voorbeeldweergave</b>"
 
-#: src/caja-file-management-properties.ui:1741
+#: src/caja-file-management-properties.ui:1676
 msgid "Show _thumbnails:"
 msgstr "Minia_turen tonen:"
 
-#: src/caja-file-management-properties.ui:1786
+#: src/caja-file-management-properties.ui:1721
 msgid "_Only for files smaller than:"
 msgstr "Alleen v_oor bestanden kleiner dan:"
 
-#: src/caja-file-management-properties.ui:1848
+#: src/caja-file-management-properties.ui:1781
 msgid "<b>Sound Files</b>"
 msgstr "<b>Geluidsbestanden</b>"
 
-#: src/caja-file-management-properties.ui:1878
+#: src/caja-file-management-properties.ui:1807
 msgid "Preview _sound files:"
 msgstr "Fragment van geluid_sbestanden afspelen:"
 
-#: src/caja-file-management-properties.ui:1940
+#: src/caja-file-management-properties.ui:1867
 msgid "<b>Folders</b>"
 msgstr "<b>Mappen</b>"
 
-#: src/caja-file-management-properties.ui:1970
+#: src/caja-file-management-properties.ui:1893
 msgid "Count _number of items:"
 msgstr "Aa_ntal elementen tellen:"
 
-#: src/caja-file-management-properties.ui:2031
+#: src/caja-file-management-properties.ui:1952
 msgid "Preview"
 msgstr "Voorbeeld"
 
-#: src/caja-file-management-properties.ui:2061
+#: src/caja-file-management-properties.ui:1982
 msgid "<b>Media Handling</b>"
 msgstr "<b>Afhandeling media</b>"
 
-#: src/caja-file-management-properties.ui:2086
+#: src/caja-file-management-properties.ui:2003
 msgid ""
 "Choose what happens when inserting media or connecting devices to the system"
 msgstr ""
 "Kies wat er gebeurt bij het invoeren van media of bij het verbinden van "
 "apparaten met het systeem"
 
-#: src/caja-file-management-properties.ui:2107
+#: src/caja-file-management-properties.ui:2025
 msgid "CD _Audio:"
 msgstr "Cd-_audio:"
 
-#: src/caja-file-management-properties.ui:2132
+#: src/caja-file-management-properties.ui:2050
 msgid "_DVD Video:"
 msgstr "Dvd-video:"
 
-#: src/caja-file-management-properties.ui:2157
+#: src/caja-file-management-properties.ui:2075
 msgid "_Music Player:"
 msgstr "_Muziekspeler:"
 
-#: src/caja-file-management-properties.ui:2182
+#: src/caja-file-management-properties.ui:2100
 msgid "_Photos:"
 msgstr "_Foto's:"
 
-#: src/caja-file-management-properties.ui:2207
+#: src/caja-file-management-properties.ui:2125
 msgid "_Software:"
 msgstr "_Programmatuur:"
 
-#: src/caja-file-management-properties.ui:2261
+#: src/caja-file-management-properties.ui:2192
 msgid "<b>Other Media</b>"
 msgstr "<b>Andere media</b>"
 
-#: src/caja-file-management-properties.ui:2286
+#: src/caja-file-management-properties.ui:2213
 msgid "Less common media formats can be configured here"
 msgstr "Minder algemene mediasoorten kunt u hier instellen"
 
-#: src/caja-file-management-properties.ui:2307
+#: src/caja-file-management-properties.ui:2235
 msgid "_Type:"
 msgstr "Soor_t:"
 
-#: src/caja-file-management-properties.ui:2321
+#: src/caja-file-management-properties.ui:2249
 msgid "Acti_on:"
 msgstr "A_ctie:"
 
-#: src/caja-file-management-properties.ui:2385
+#: src/caja-file-management-properties.ui:2326
 msgid "_Never prompt or start programs on media insertion"
 msgstr "_Nooit vragen, noch programma's starten bij invoeren van media"
 
-#: src/caja-file-management-properties.ui:2401
+#: src/caja-file-management-properties.ui:2342
 msgid "B_rowse media when inserted"
 msgstr "Media doo_rbladeren na invoeren"
 
-#: src/caja-file-management-properties.ui:2424
+#: src/caja-file-management-properties.ui:2365
 msgid "Media"
 msgstr "Media"
 
-#: src/caja-file-management-properties.ui:2442
+#: src/caja-file-management-properties.ui:2383
 msgid "<b>Available _Extensions:</b>"
 msgstr "<b>Beschikbare _uitbreidingen:</b>"
 
-#: src/caja-file-management-properties.ui:2473
-#: src/caja-file-management-properties.ui:2494
+#: src/caja-file-management-properties.ui:2414
+#: src/caja-file-management-properties.ui:2435
 msgid "column"
 msgstr "kolom"
 
-#: src/caja-file-management-properties.ui:2520
+#: src/caja-file-management-properties.ui:2461
 msgid "_About Extension"
 msgstr "_Over Uitbreidingen"
 
-#: src/caja-file-management-properties.ui:2536
+#: src/caja-file-management-properties.ui:2477
 msgid "C_onfigure Extension"
 msgstr "Uitbreidingen instellen"
 
-#: src/caja-file-management-properties.ui:2566
+#: src/caja-file-management-properties.ui:2507
 msgid "Extensions"
 msgstr "Uitbreidingen"
 
@@ -5064,10 +5064,6 @@ msgstr "De geschiedenislocatie bestaat niet."
 #: src/caja-navigation-window-menus.c:827
 msgid "_Go"
 msgstr "_Ga naar"
-
-#: src/caja-navigation-window-menus.c:830
-msgid "_Bookmarks"
-msgstr "_Bladwijzers"
 
 #: src/caja-navigation-window-menus.c:833
 msgid "_Tabs"

@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: caja 1.25.2\n"
 "Report-Msgid-Bugs-To: https://github.com/mate-desktop/caja/issues\n"
-"POT-Creation-Date: 2021-04-26 12:46+0200\n"
+"POT-Creation-Date: 2021-05-29 15:26+0200\n"
 "PO-Revision-Date: 2018-03-11 14:48+0000\n"
 "Last-Translator: Julio E Tamara P <jutamara90@gmail.com>, 2020\n"
 "Language-Team: Spanish (Colombia) (https://www.transifex.com/mate/teams/13566/es_CO/)\n"
@@ -821,7 +821,7 @@ msgid "The location of the file."
 msgstr "La ubicación del archivo."
 
 #: libcaja-private/caja-column-utilities.c:156
-#: src/caja-file-management-properties.ui:2486
+#: src/caja-file-management-properties.ui:2427
 msgid "Extension"
 msgstr "Extensión"
 
@@ -2280,7 +2280,7 @@ msgid "_Add"
 msgstr "_Añadir"
 
 #: libcaja-private/caja-mime-application-chooser.c:432
-#: libcaja-private/caja-open-with-dialog.c:962 src/caja-bookmarks-window.ui:77
+#: libcaja-private/caja-open-with-dialog.c:962 src/caja-bookmarks-window.ui:79
 msgid "_Remove"
 msgstr ""
 
@@ -4093,37 +4093,37 @@ msgstr ""
 msgid "Edit Bookmarks"
 msgstr "Editar los marcadores"
 
-#: src/caja-bookmarks-window.ui:45 src/caja-connect-server-dialog.c:1114
+#: src/caja-bookmarks-window.ui:47 src/caja-connect-server-dialog.c:1114
 #: src/caja-emblem-sidebar.c:303 src/caja-emblem-sidebar.c:562
-#: src/caja-file-management-properties.ui:308 src/caja-location-dialog.c:192
+#: src/caja-file-management-properties.ui:309 src/caja-location-dialog.c:192
 #: src/caja-property-browser.c:389 src/caja-window-menus.c:855
 #: src/file-manager/fm-directory-view.c:1214
 #: src/file-manager/fm-properties-window.c:5259
 msgid "_Help"
 msgstr "_Ayuda"
 
-#: src/caja-bookmarks-window.ui:61
+#: src/caja-bookmarks-window.ui:63
 msgid "_Jump to"
 msgstr ""
 
-#: src/caja-bookmarks-window.ui:93 src/caja-file-management-properties.ui:324
+#: src/caja-bookmarks-window.ui:95 src/caja-file-management-properties.ui:325
 #: src/caja-property-browser.c:397 src/caja-window-menus.c:858
 #: src/file-manager/fm-list-view.c:2560
 #: src/file-manager/fm-properties-window.c:5264
 msgid "_Close"
 msgstr "_Cerrar"
 
-#: src/caja-bookmarks-window.ui:136
-msgid "<b>_Bookmarks</b>"
-msgstr "<b>_Marcadores</b>"
+#: src/caja-bookmarks-window.ui:134 src/caja-navigation-window-menus.c:830
+msgid "_Bookmarks"
+msgstr "_Marcardores"
 
-#: src/caja-bookmarks-window.ui:227
-msgid "<b>_Name</b>"
-msgstr "<b>_Nombre</b>"
+#: src/caja-bookmarks-window.ui:196
+msgid "_Name"
+msgstr ""
 
-#: src/caja-bookmarks-window.ui:295
-msgid "<b>_Location</b>"
-msgstr "<b>_Ubicación</b>"
+#: src/caja-bookmarks-window.ui:241
+msgid "_Location"
+msgstr ""
 
 #: src/caja-connect-server-dialog.c:135
 msgid "SSH"
@@ -4365,7 +4365,7 @@ msgstr "Acerca de Extensión"
 #. Translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
 #: src/caja-file-management-properties.ui:44
-#: src/caja-file-management-properties.ui:652
+#: src/caja-file-management-properties.ui:642
 #: src/file-manager/fm-icon-container.c:620
 #: src/file-manager/fm-icon-view.c:3512
 msgid "Icon View"
@@ -4374,7 +4374,7 @@ msgstr "Vista de icono"
 #. Translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
 #: src/caja-file-management-properties.ui:47
-#: src/caja-file-management-properties.ui:819
+#: src/caja-file-management-properties.ui:809
 #: src/file-manager/fm-list-view.c:1854 src/file-manager/fm-list-view.c:3493
 msgid "List View"
 msgstr "Vista de lista"
@@ -4382,7 +4382,7 @@ msgstr "Vista de lista"
 #. Translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
 #: src/caja-file-management-properties.ui:50
-#: src/caja-file-management-properties.ui:735
+#: src/caja-file-management-properties.ui:725
 #: src/file-manager/fm-icon-view.c:3527
 msgid "Compact View"
 msgstr "Vista compacta"
@@ -4538,131 +4538,131 @@ msgstr "4 GiB"
 msgid "File Management Preferences"
 msgstr "Preferencias de administración de archivos"
 
-#: src/caja-file-management-properties.ui:368
+#: src/caja-file-management-properties.ui:369
 msgid "<b>Default View</b>"
 msgstr "<b>Vista predeterminada</b>"
 
-#: src/caja-file-management-properties.ui:398
+#: src/caja-file-management-properties.ui:395
 msgid "View _new folders using:"
 msgstr "_Ver las carpetas nuevas usando:"
 
-#: src/caja-file-management-properties.ui:443
+#: src/caja-file-management-properties.ui:440
 msgid "_Arrange items:"
 msgstr "_Organizar los elementos:"
 
-#: src/caja-file-management-properties.ui:481
+#: src/caja-file-management-properties.ui:478
 msgid "Sort _folders before files"
 msgstr "Colocar las carpetas _antes que los archivos"
 
-#: src/caja-file-management-properties.ui:497
+#: src/caja-file-management-properties.ui:494
 msgid "Show hidden files"
 msgstr ""
 
-#: src/caja-file-management-properties.ui:513
+#: src/caja-file-management-properties.ui:510
 msgid "Show backup files"
 msgstr ""
 
-#: src/caja-file-management-properties.ui:578
+#: src/caja-file-management-properties.ui:568
 msgid "Default _zoom level:"
 msgstr "_Nivel de ampliación predeterminado:"
 
-#: src/caja-file-management-properties.ui:616
+#: src/caja-file-management-properties.ui:606
 msgid "_Use compact layout"
 msgstr "Usar distribución co_mpacta"
 
-#: src/caja-file-management-properties.ui:632
+#: src/caja-file-management-properties.ui:622
 msgid "_Text beside icons"
 msgstr "_Texto al lado de los iconos"
 
-#: src/caja-file-management-properties.ui:674
+#: src/caja-file-management-properties.ui:664
 msgid "_Default zoom level:"
 msgstr "N_ivel de ampliación predeterminado:"
 
-#: src/caja-file-management-properties.ui:712
+#: src/caja-file-management-properties.ui:702
 msgid "A_ll columns have the same width"
 msgstr "Toda_s las columnas tienen la misma anchura"
 
-#: src/caja-file-management-properties.ui:758
+#: src/caja-file-management-properties.ui:748
 msgid "D_efault zoom level:"
 msgstr "Niv_el de ampliación predeterminado:"
 
-#: src/caja-file-management-properties.ui:796
+#: src/caja-file-management-properties.ui:786
 msgid "_Show icons"
 msgstr ""
 
-#: src/caja-file-management-properties.ui:835
+#: src/caja-file-management-properties.ui:825
 msgid "Show _only folders"
 msgstr "Só_lo mostrar las carpetas"
 
-#: src/caja-file-management-properties.ui:858
+#: src/caja-file-management-properties.ui:848
 msgid "Tree View"
 msgstr ""
 
-#: src/caja-file-management-properties.ui:874
+#: src/caja-file-management-properties.ui:862
 msgid "Defaults"
 msgstr ""
 
-#: src/caja-file-management-properties.ui:893
+#: src/caja-file-management-properties.ui:881
 msgid "Views"
 msgstr "Vistas"
 
-#: src/caja-file-management-properties.ui:916
+#: src/caja-file-management-properties.ui:904
 msgid "<b>Behavior</b>"
 msgstr "<b>Comportamiento</b>"
 
-#: src/caja-file-management-properties.ui:938
+#: src/caja-file-management-properties.ui:922
 msgid "_Single click to open items"
 msgstr "Un_a sola pulsación para abrir los elementos"
 
-#: src/caja-file-management-properties.ui:954
+#: src/caja-file-management-properties.ui:938
 msgid "_Double click to open items"
 msgstr "_Doble pulsación para abrir los elementos"
 
-#: src/caja-file-management-properties.ui:972
+#: src/caja-file-management-properties.ui:956
 msgid "Open each _folder in its own window"
 msgstr "Abrir cada _carpeta en su propia ventana"
 
-#: src/caja-file-management-properties.ui:1012
+#: src/caja-file-management-properties.ui:994
 msgid "<b>Executable Text Files</b>"
 msgstr "<b>Archivos de texto ejecutables</b>"
 
-#: src/caja-file-management-properties.ui:1035
+#: src/caja-file-management-properties.ui:1013
 msgid "_Run executable text files when they are opened"
 msgstr "_Ejecutar los archivos de texto ejecutables al abrirlos"
 
-#: src/caja-file-management-properties.ui:1051
+#: src/caja-file-management-properties.ui:1029
 msgid "_View executable text files when they are opened"
 msgstr "_Ver los archivos de texto ejecutables al abrirlos"
 
-#: src/caja-file-management-properties.ui:1068
+#: src/caja-file-management-properties.ui:1046
 msgid "_Ask each time"
 msgstr "_Preguntar cada vez"
 
-#: src/caja-file-management-properties.ui:1109
+#: src/caja-file-management-properties.ui:1085
 msgid "<b>Trash</b>"
 msgstr "<b>Papelera</b>"
 
-#: src/caja-file-management-properties.ui:1132
+#: src/caja-file-management-properties.ui:1104
 msgid "Ask before _emptying the Trash or deleting files"
 msgstr "Preguntar antes de vacia_r la papelera o borrar archivos"
 
-#: src/caja-file-management-properties.ui:1148
+#: src/caja-file-management-properties.ui:1120
 msgid "Ask before moving files to the _Trash"
 msgstr "Preguntar antes de mover los archivos a la _Papelera"
 
-#: src/caja-file-management-properties.ui:1164
+#: src/caja-file-management-properties.ui:1136
 msgid "I_nclude a Delete command that bypasses Trash"
 msgstr "_Incluir una orden \"Borrar\" que no utilice la papelera"
 
-#: src/caja-file-management-properties.ui:1203
+#: src/caja-file-management-properties.ui:1173
 msgid "Behavior"
 msgstr "Comportamiento"
 
-#: src/caja-file-management-properties.ui:1227
+#: src/caja-file-management-properties.ui:1197
 msgid "<b>Icon Captions</b>"
 msgstr "<b>Descripciones de iconos</b>"
 
-#: src/caja-file-management-properties.ui:1252
+#: src/caja-file-management-properties.ui:1218
 msgid ""
 "Choose the order of information to appear beneath icon names. More "
 "information will appear when zooming in closer."
@@ -4670,156 +4670,156 @@ msgstr ""
 "Seleccione el orden en que la información aparecerá debajo de los nombres de"
 " los iconos. Aparecerá más información cuando aumente la ampliación."
 
-#: src/caja-file-management-properties.ui:1388
+#: src/caja-file-management-properties.ui:1352
 msgid "<b>Date</b>"
 msgstr "<b>Fecha</b>"
 
-#: src/caja-file-management-properties.ui:1412
+#: src/caja-file-management-properties.ui:1372
 msgid "_Format:"
 msgstr "_Formato:"
 
-#: src/caja-file-management-properties.ui:1459
+#: src/caja-file-management-properties.ui:1417
 msgid "<b>Size</b>"
 msgstr "<b>Tamaño</b>"
 
-#: src/caja-file-management-properties.ui:1476
+#: src/caja-file-management-properties.ui:1429
 msgid "_Show file sizes with IEC units"
 msgstr "_Mostrar tamaño de archivos en unidades IEC"
 
-#: src/caja-file-management-properties.ui:1508
+#: src/caja-file-management-properties.ui:1460
 msgid "Display"
 msgstr "Visualización"
 
-#: src/caja-file-management-properties.ui:1532
+#: src/caja-file-management-properties.ui:1484
 msgid "<b>List Columns</b>"
 msgstr "<b>Columnas de la lista</b>"
 
-#: src/caja-file-management-properties.ui:1557
+#: src/caja-file-management-properties.ui:1504
 msgid "Choose the order of information to appear in the list view."
 msgstr ""
 "Seleccione el orden en que la información aparecerá en la vista de lista."
 
-#: src/caja-file-management-properties.ui:1595
+#: src/caja-file-management-properties.ui:1540
 msgid "List Columns"
 msgstr "Columnas de la lista"
 
-#: src/caja-file-management-properties.ui:1619
+#: src/caja-file-management-properties.ui:1564
 msgid "<b>Text Files</b>"
 msgstr "<b>Archivos de Texto</b>"
 
-#: src/caja-file-management-properties.ui:1649
+#: src/caja-file-management-properties.ui:1590
 msgid "Show te_xt in icons:"
 msgstr "Mostrar _texto en los iconos:"
 
-#: src/caja-file-management-properties.ui:1711
+#: src/caja-file-management-properties.ui:1650
 msgid "<b>Other Previewable Files</b>"
 msgstr "<b>Otros archivos previsualizables</b>"
 
-#: src/caja-file-management-properties.ui:1741
+#: src/caja-file-management-properties.ui:1676
 msgid "Show _thumbnails:"
 msgstr "Mostrar _miniaturas:"
 
-#: src/caja-file-management-properties.ui:1786
+#: src/caja-file-management-properties.ui:1721
 msgid "_Only for files smaller than:"
 msgstr "_Solo para archivos menores de:"
 
-#: src/caja-file-management-properties.ui:1848
+#: src/caja-file-management-properties.ui:1781
 msgid "<b>Sound Files</b>"
 msgstr "<b>Archivos De Sonido</b>"
 
-#: src/caja-file-management-properties.ui:1878
+#: src/caja-file-management-properties.ui:1807
 msgid "Preview _sound files:"
 msgstr "_Escucha previa de archivos de sonido:"
 
-#: src/caja-file-management-properties.ui:1940
+#: src/caja-file-management-properties.ui:1867
 msgid "<b>Folders</b>"
 msgstr "<b>Carpetas</b>"
 
-#: src/caja-file-management-properties.ui:1970
+#: src/caja-file-management-properties.ui:1893
 msgid "Count _number of items:"
 msgstr "Contar el _número de elementos:"
 
-#: src/caja-file-management-properties.ui:2031
+#: src/caja-file-management-properties.ui:1952
 msgid "Preview"
 msgstr "Vista previa"
 
-#: src/caja-file-management-properties.ui:2061
+#: src/caja-file-management-properties.ui:1982
 msgid "<b>Media Handling</b>"
 msgstr "<b>Gestión de soportes</b>"
 
-#: src/caja-file-management-properties.ui:2086
+#: src/caja-file-management-properties.ui:2003
 msgid ""
 "Choose what happens when inserting media or connecting devices to the system"
 msgstr ""
 "Elija qué quiere que pase al introducir un soporte o conectar dispositivos "
 "en el sistema"
 
-#: src/caja-file-management-properties.ui:2107
+#: src/caja-file-management-properties.ui:2025
 msgid "CD _Audio:"
 msgstr "CD De _Audio:"
 
-#: src/caja-file-management-properties.ui:2132
+#: src/caja-file-management-properties.ui:2050
 msgid "_DVD Video:"
 msgstr "_DVD De Vídeo:"
 
-#: src/caja-file-management-properties.ui:2157
+#: src/caja-file-management-properties.ui:2075
 msgid "_Music Player:"
 msgstr "Reproductor de _música:"
 
-#: src/caja-file-management-properties.ui:2182
+#: src/caja-file-management-properties.ui:2100
 msgid "_Photos:"
 msgstr "_Fotos:"
 
-#: src/caja-file-management-properties.ui:2207
+#: src/caja-file-management-properties.ui:2125
 msgid "_Software:"
 msgstr "_Programas:"
 
-#: src/caja-file-management-properties.ui:2261
+#: src/caja-file-management-properties.ui:2192
 msgid "<b>Other Media</b>"
 msgstr "<b>Otros soportes</b>"
 
-#: src/caja-file-management-properties.ui:2286
+#: src/caja-file-management-properties.ui:2213
 msgid "Less common media formats can be configured here"
 msgstr "Los soportes multimedia menos comunes se pueden configurar aquí"
 
-#: src/caja-file-management-properties.ui:2307
+#: src/caja-file-management-properties.ui:2235
 msgid "_Type:"
 msgstr "_Tipo:"
 
-#: src/caja-file-management-properties.ui:2321
+#: src/caja-file-management-properties.ui:2249
 msgid "Acti_on:"
 msgstr "_Acción:"
 
-#: src/caja-file-management-properties.ui:2385
+#: src/caja-file-management-properties.ui:2326
 msgid "_Never prompt or start programs on media insertion"
 msgstr "_Nunca preguntar ni iniciar programas al introducir soportes"
 
-#: src/caja-file-management-properties.ui:2401
+#: src/caja-file-management-properties.ui:2342
 msgid "B_rowse media when inserted"
 msgstr "E_xaminar los soportes al introducirlos"
 
-#: src/caja-file-management-properties.ui:2424
+#: src/caja-file-management-properties.ui:2365
 msgid "Media"
 msgstr "Soporte"
 
-#: src/caja-file-management-properties.ui:2442
+#: src/caja-file-management-properties.ui:2383
 msgid "<b>Available _Extensions:</b>"
 msgstr "<b>_Extensiones disponibles:</b>"
 
-#: src/caja-file-management-properties.ui:2473
-#: src/caja-file-management-properties.ui:2494
+#: src/caja-file-management-properties.ui:2414
+#: src/caja-file-management-properties.ui:2435
 msgid "column"
 msgstr "columna"
 
-#: src/caja-file-management-properties.ui:2520
+#: src/caja-file-management-properties.ui:2461
 msgid "_About Extension"
 msgstr "Acerca _de Extensión"
 
-#: src/caja-file-management-properties.ui:2536
+#: src/caja-file-management-properties.ui:2477
 msgid "C_onfigure Extension"
 msgstr "C_onfigurar Extensión"
 
-#: src/caja-file-management-properties.ui:2566
+#: src/caja-file-management-properties.ui:2507
 msgid "Extensions"
 msgstr "Extensiones"
 
@@ -5025,10 +5025,6 @@ msgstr "La ubicación del histórico no existe."
 #: src/caja-navigation-window-menus.c:827
 msgid "_Go"
 msgstr "_Ir"
-
-#: src/caja-navigation-window-menus.c:830
-msgid "_Bookmarks"
-msgstr "_Marcardores"
 
 #: src/caja-navigation-window-menus.c:833
 msgid "_Tabs"

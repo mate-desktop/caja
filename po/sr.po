@@ -4,16 +4,16 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Мирослав Николић <miroslavnikolic@rocketmail.com>, 2021
 # Stefano Karapetsas <stefano@karapetsas.com>, 2021
+# Мирослав Николић <miroslavnikolic@rocketmail.com>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: caja 1.25.2\n"
 "Report-Msgid-Bugs-To: https://github.com/mate-desktop/caja/issues\n"
-"POT-Creation-Date: 2021-04-26 12:46+0200\n"
+"POT-Creation-Date: 2021-05-29 15:26+0200\n"
 "PO-Revision-Date: 2018-03-11 14:48+0000\n"
-"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>, 2021\n"
+"Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>, 2021\n"
 "Language-Team: Serbian (https://www.transifex.com/mate/teams/13566/sr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -67,7 +67,7 @@ msgstr "Против-врх"
 
 #: data/browser.xml:13
 msgid "Dark GNOME"
-msgstr ""
+msgstr "Тамни Гном"
 
 #: data/browser.xml:14
 msgid "Dots"
@@ -91,7 +91,7 @@ msgstr "Фосилни"
 
 #: data/browser.xml:19
 msgid "GNOME"
-msgstr ""
+msgstr "Гном"
 
 #: data/browser.xml:20
 msgid "Green Weave"
@@ -740,11 +740,11 @@ msgstr "Датум када је датотека измењена."
 
 #: libcaja-private/caja-column-utilities.c:84
 msgid "Date Created"
-msgstr ""
+msgstr "Датум стварања"
 
 #: libcaja-private/caja-column-utilities.c:85
 msgid "The date the file was created."
-msgstr ""
+msgstr "Датум када је датотека направљена."
 
 #: libcaja-private/caja-column-utilities.c:92
 msgid "Date Accessed"
@@ -813,7 +813,7 @@ msgid "The location of the file."
 msgstr "Путања до датотеке."
 
 #: libcaja-private/caja-column-utilities.c:156
-#: src/caja-file-management-properties.ui:2486
+#: src/caja-file-management-properties.ui:2427
 msgid "Extension"
 msgstr "Проширење"
 
@@ -2295,7 +2295,7 @@ msgid "_Add"
 msgstr "_Додај"
 
 #: libcaja-private/caja-mime-application-chooser.c:432
-#: libcaja-private/caja-open-with-dialog.c:962 src/caja-bookmarks-window.ui:77
+#: libcaja-private/caja-open-with-dialog.c:962 src/caja-bookmarks-window.ui:79
 msgid "_Remove"
 msgstr "_Уклони"
 
@@ -3434,7 +3434,7 @@ msgstr "Ако је изабрано, Цаја ће приказати обав�
 
 #: libcaja-private/org.mate.caja.gschema.xml:277
 msgid "List of possible captions on icons"
-msgstr "Списак доступних натписа на иконицама"
+msgstr "Списак могућих натписа на иконицама"
 
 #: libcaja-private/org.mate.caja.gschema.xml:278
 msgid ""
@@ -3444,6 +3444,13 @@ msgid ""
 "\"date_changed\", \"date_accessed\", \"owner\", \"group\", \"permissions\", "
 "\"octal_permissions\" and \"mime_type\"."
 msgstr ""
+"Списак натписа испод иконице у приказу помоћу иконица или на радној површи. "
+"Стварни број приказаних натписа зависи од нивоа увеличања. Неке могуће "
+"вредности су: „size“ (величина), „type“ (врста), „date_modified“ (датум "
+"измене), „date_created“ (датум стварања), „date_changed“ (датум промене), "
+"„date_accessed“ (датум приступа), „owner“ (власник), „group“ (група), "
+"„permissions“ (овлашћења), „octal_permissions“ (октална овлашћења) и "
+"„mime_type“ (миме врста)."
 
 #: libcaja-private/org.mate.caja.gschema.xml:286
 msgid "Use tighter layout in new windows"
@@ -4098,37 +4105,37 @@ msgstr ""
 msgid "Edit Bookmarks"
 msgstr "Уредите обележиваче"
 
-#: src/caja-bookmarks-window.ui:45 src/caja-connect-server-dialog.c:1114
+#: src/caja-bookmarks-window.ui:47 src/caja-connect-server-dialog.c:1114
 #: src/caja-emblem-sidebar.c:303 src/caja-emblem-sidebar.c:562
-#: src/caja-file-management-properties.ui:308 src/caja-location-dialog.c:192
+#: src/caja-file-management-properties.ui:309 src/caja-location-dialog.c:192
 #: src/caja-property-browser.c:389 src/caja-window-menus.c:855
 #: src/file-manager/fm-directory-view.c:1214
 #: src/file-manager/fm-properties-window.c:5259
 msgid "_Help"
 msgstr "По_моћ"
 
-#: src/caja-bookmarks-window.ui:61
+#: src/caja-bookmarks-window.ui:63
 msgid "_Jump to"
 msgstr "_Иди на"
 
-#: src/caja-bookmarks-window.ui:93 src/caja-file-management-properties.ui:324
+#: src/caja-bookmarks-window.ui:95 src/caja-file-management-properties.ui:325
 #: src/caja-property-browser.c:397 src/caja-window-menus.c:858
 #: src/file-manager/fm-list-view.c:2560
 #: src/file-manager/fm-properties-window.c:5264
 msgid "_Close"
 msgstr "_Затвори"
 
-#: src/caja-bookmarks-window.ui:136
-msgid "<b>_Bookmarks</b>"
-msgstr "<b>Обележивачи</b>"
+#: src/caja-bookmarks-window.ui:134 src/caja-navigation-window-menus.c:830
+msgid "_Bookmarks"
+msgstr "_Обележивачи"
 
-#: src/caja-bookmarks-window.ui:227
-msgid "<b>_Name</b>"
-msgstr "<b>_Назив:</b>"
+#: src/caja-bookmarks-window.ui:196
+msgid "_Name"
+msgstr "_Назив"
 
-#: src/caja-bookmarks-window.ui:295
-msgid "<b>_Location</b>"
-msgstr "<b>_Путања:</b>"
+#: src/caja-bookmarks-window.ui:241
+msgid "_Location"
+msgstr "_Путања"
 
 #: src/caja-connect-server-dialog.c:135
 msgid "SSH"
@@ -4370,7 +4377,7 @@ msgstr "О проширењима"
 #. Translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
 #: src/caja-file-management-properties.ui:44
-#: src/caja-file-management-properties.ui:652
+#: src/caja-file-management-properties.ui:642
 #: src/file-manager/fm-icon-container.c:620
 #: src/file-manager/fm-icon-view.c:3512
 msgid "Icon View"
@@ -4379,7 +4386,7 @@ msgstr "Преглед иконицама"
 #. Translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
 #: src/caja-file-management-properties.ui:47
-#: src/caja-file-management-properties.ui:819
+#: src/caja-file-management-properties.ui:809
 #: src/file-manager/fm-list-view.c:1854 src/file-manager/fm-list-view.c:3493
 msgid "List View"
 msgstr "Преглед списком"
@@ -4387,7 +4394,7 @@ msgstr "Преглед списком"
 #. Translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
 #: src/caja-file-management-properties.ui:50
-#: src/caja-file-management-properties.ui:735
+#: src/caja-file-management-properties.ui:725
 #: src/file-manager/fm-icon-view.c:3527
 msgid "Compact View"
 msgstr "Збијени приказ"
@@ -4439,7 +4446,7 @@ msgstr "Према датуму измене"
 
 #: src/caja-file-management-properties.ui:96
 msgid "By Creation Date"
-msgstr ""
+msgstr "Према датуму стварања"
 
 #: src/caja-file-management-properties.ui:99
 msgid "By Access Date"
@@ -4543,131 +4550,131 @@ msgstr "4 GB"
 msgid "File Management Preferences"
 msgstr "Поставке управника датотека"
 
-#: src/caja-file-management-properties.ui:368
+#: src/caja-file-management-properties.ui:369
 msgid "<b>Default View</b>"
 msgstr "<b>Основни преглед</b>"
 
-#: src/caja-file-management-properties.ui:398
+#: src/caja-file-management-properties.ui:395
 msgid "View _new folders using:"
 msgstr "Прегледај _нове фасцикле користећи:"
 
-#: src/caja-file-management-properties.ui:443
+#: src/caja-file-management-properties.ui:440
 msgid "_Arrange items:"
 msgstr "_Поређај ставке:"
 
-#: src/caja-file-management-properties.ui:481
+#: src/caja-file-management-properties.ui:478
 msgid "Sort _folders before files"
 msgstr "Поређај _фасцикле пре датотека"
 
-#: src/caja-file-management-properties.ui:497
+#: src/caja-file-management-properties.ui:494
 msgid "Show hidden files"
 msgstr "Прикажи скривене датотеке"
 
-#: src/caja-file-management-properties.ui:513
+#: src/caja-file-management-properties.ui:510
 msgid "Show backup files"
 msgstr "Прикажи резервне датотеке"
 
-#: src/caja-file-management-properties.ui:578
+#: src/caja-file-management-properties.ui:568
 msgid "Default _zoom level:"
 msgstr "Основно _увећање:"
 
-#: src/caja-file-management-properties.ui:616
+#: src/caja-file-management-properties.ui:606
 msgid "_Use compact layout"
 msgstr "Користи _збијени распоред"
 
-#: src/caja-file-management-properties.ui:632
+#: src/caja-file-management-properties.ui:622
 msgid "_Text beside icons"
 msgstr "_Текст поред иконица"
 
-#: src/caja-file-management-properties.ui:674
+#: src/caja-file-management-properties.ui:664
 msgid "_Default zoom level:"
 msgstr "Основно _увећање:"
 
-#: src/caja-file-management-properties.ui:712
+#: src/caja-file-management-properties.ui:702
 msgid "A_ll columns have the same width"
 msgstr "_Све колоне имају исту ширину"
 
-#: src/caja-file-management-properties.ui:758
+#: src/caja-file-management-properties.ui:748
 msgid "D_efault zoom level:"
 msgstr "Основно _увећање:"
 
-#: src/caja-file-management-properties.ui:796
+#: src/caja-file-management-properties.ui:786
 msgid "_Show icons"
 msgstr "_Прикажи иконице"
 
-#: src/caja-file-management-properties.ui:835
+#: src/caja-file-management-properties.ui:825
 msgid "Show _only folders"
 msgstr "Прикажи _само фасцикле"
 
-#: src/caja-file-management-properties.ui:858
+#: src/caja-file-management-properties.ui:848
 msgid "Tree View"
 msgstr "Приказ стабла"
 
-#: src/caja-file-management-properties.ui:874
+#: src/caja-file-management-properties.ui:862
 msgid "Defaults"
 msgstr "Основно"
 
-#: src/caja-file-management-properties.ui:893
+#: src/caja-file-management-properties.ui:881
 msgid "Views"
 msgstr "Прегледи"
 
-#: src/caja-file-management-properties.ui:916
+#: src/caja-file-management-properties.ui:904
 msgid "<b>Behavior</b>"
 msgstr "<b>Понашање</b>"
 
-#: src/caja-file-management-properties.ui:938
+#: src/caja-file-management-properties.ui:922
 msgid "_Single click to open items"
 msgstr "_Један клик за отварање ставки"
 
-#: src/caja-file-management-properties.ui:954
+#: src/caja-file-management-properties.ui:938
 msgid "_Double click to open items"
 msgstr "_Двоклик за отварање ставки"
 
-#: src/caja-file-management-properties.ui:972
+#: src/caja-file-management-properties.ui:956
 msgid "Open each _folder in its own window"
 msgstr "Отвори сваку _фасциклу у њеном сопственом прозору"
 
-#: src/caja-file-management-properties.ui:1012
+#: src/caja-file-management-properties.ui:994
 msgid "<b>Executable Text Files</b>"
 msgstr "<b>Извршне текстуалне датотеке</b>"
 
-#: src/caja-file-management-properties.ui:1035
+#: src/caja-file-management-properties.ui:1013
 msgid "_Run executable text files when they are opened"
 msgstr "П_окрени извршне текстуалне датотеке при отварању"
 
-#: src/caja-file-management-properties.ui:1051
+#: src/caja-file-management-properties.ui:1029
 msgid "_View executable text files when they are opened"
 msgstr "П_регледај извршне текстуалне датотеке при отварању"
 
-#: src/caja-file-management-properties.ui:1068
+#: src/caja-file-management-properties.ui:1046
 msgid "_Ask each time"
 msgstr "_Питај сваки пут"
 
-#: src/caja-file-management-properties.ui:1109
+#: src/caja-file-management-properties.ui:1085
 msgid "<b>Trash</b>"
 msgstr "<b>Смеће</b>"
 
-#: src/caja-file-management-properties.ui:1132
+#: src/caja-file-management-properties.ui:1104
 msgid "Ask before _emptying the Trash or deleting files"
 msgstr "Питај пре _избацивања смећа или брисања датотека"
 
-#: src/caja-file-management-properties.ui:1148
+#: src/caja-file-management-properties.ui:1120
 msgid "Ask before moving files to the _Trash"
 msgstr "Питај пре премештања датотека у _смеће"
 
-#: src/caja-file-management-properties.ui:1164
+#: src/caja-file-management-properties.ui:1136
 msgid "I_nclude a Delete command that bypasses Trash"
 msgstr "_Укључи и наредбу за брисање која заобилази смеће"
 
-#: src/caja-file-management-properties.ui:1203
+#: src/caja-file-management-properties.ui:1173
 msgid "Behavior"
 msgstr "Понашање"
 
-#: src/caja-file-management-properties.ui:1227
+#: src/caja-file-management-properties.ui:1197
 msgid "<b>Icon Captions</b>"
 msgstr "<b>Натписи иконица</b>"
 
-#: src/caja-file-management-properties.ui:1252
+#: src/caja-file-management-properties.ui:1218
 msgid ""
 "Choose the order of information to appear beneath icon names. More "
 "information will appear when zooming in closer."
@@ -4675,155 +4682,155 @@ msgstr ""
 "Изаберите редослед података који се појављују испод назива иконица. Више "
 "података ће бити приказано када увећате."
 
-#: src/caja-file-management-properties.ui:1388
+#: src/caja-file-management-properties.ui:1352
 msgid "<b>Date</b>"
 msgstr "<b>Датум</b>"
 
-#: src/caja-file-management-properties.ui:1412
+#: src/caja-file-management-properties.ui:1372
 msgid "_Format:"
 msgstr "_Запис:"
 
-#: src/caja-file-management-properties.ui:1459
+#: src/caja-file-management-properties.ui:1417
 msgid "<b>Size</b>"
 msgstr "<b>Величина</b>"
 
-#: src/caja-file-management-properties.ui:1476
+#: src/caja-file-management-properties.ui:1429
 msgid "_Show file sizes with IEC units"
 msgstr "_Прикажи величине датотека јединицама ИЕЦ-а"
 
-#: src/caja-file-management-properties.ui:1508
+#: src/caja-file-management-properties.ui:1460
 msgid "Display"
 msgstr "Приказ"
 
-#: src/caja-file-management-properties.ui:1532
+#: src/caja-file-management-properties.ui:1484
 msgid "<b>List Columns</b>"
 msgstr "<b>Колоне списка</b>"
 
-#: src/caja-file-management-properties.ui:1557
+#: src/caja-file-management-properties.ui:1504
 msgid "Choose the order of information to appear in the list view."
 msgstr "Изаберите редослед података приликом приказивања списком."
 
-#: src/caja-file-management-properties.ui:1595
+#: src/caja-file-management-properties.ui:1540
 msgid "List Columns"
 msgstr "Колоне списка"
 
-#: src/caja-file-management-properties.ui:1619
+#: src/caja-file-management-properties.ui:1564
 msgid "<b>Text Files</b>"
 msgstr "<b>Текстуалне датотеке</b>"
 
-#: src/caja-file-management-properties.ui:1649
+#: src/caja-file-management-properties.ui:1590
 msgid "Show te_xt in icons:"
 msgstr "Прикажи _текст са иконицама:"
 
-#: src/caja-file-management-properties.ui:1711
+#: src/caja-file-management-properties.ui:1650
 msgid "<b>Other Previewable Files</b>"
 msgstr "<b>Друге претпрегледљиве датотеке</b>"
 
-#: src/caja-file-management-properties.ui:1741
+#: src/caja-file-management-properties.ui:1676
 msgid "Show _thumbnails:"
 msgstr "_Прикажи сличице:"
 
-#: src/caja-file-management-properties.ui:1786
+#: src/caja-file-management-properties.ui:1721
 msgid "_Only for files smaller than:"
 msgstr "_Само за датотеке мање од:"
 
-#: src/caja-file-management-properties.ui:1848
+#: src/caja-file-management-properties.ui:1781
 msgid "<b>Sound Files</b>"
 msgstr "<b>Звучне датотеке</b>"
 
-#: src/caja-file-management-properties.ui:1878
+#: src/caja-file-management-properties.ui:1807
 msgid "Preview _sound files:"
 msgstr "Пусти _звучне датотеке:"
 
-#: src/caja-file-management-properties.ui:1940
+#: src/caja-file-management-properties.ui:1867
 msgid "<b>Folders</b>"
 msgstr "<b>Фасцикле</b>"
 
-#: src/caja-file-management-properties.ui:1970
+#: src/caja-file-management-properties.ui:1893
 msgid "Count _number of items:"
 msgstr "Пре_број ставке:"
 
-#: src/caja-file-management-properties.ui:2031
+#: src/caja-file-management-properties.ui:1952
 msgid "Preview"
 msgstr "Претпреглед"
 
-#: src/caja-file-management-properties.ui:2061
+#: src/caja-file-management-properties.ui:1982
 msgid "<b>Media Handling</b>"
 msgstr "<b>Рад са медијумима</b>"
 
-#: src/caja-file-management-properties.ui:2086
+#: src/caja-file-management-properties.ui:2003
 msgid ""
 "Choose what happens when inserting media or connecting devices to the system"
 msgstr ""
 "Изаберите шта се дешава по убацивању медијума или повезивања уређаја на "
 "систем"
 
-#: src/caja-file-management-properties.ui:2107
+#: src/caja-file-management-properties.ui:2025
 msgid "CD _Audio:"
 msgstr "_Звучни ЦД:"
 
-#: src/caja-file-management-properties.ui:2132
+#: src/caja-file-management-properties.ui:2050
 msgid "_DVD Video:"
 msgstr "_Видео ДВД:"
 
-#: src/caja-file-management-properties.ui:2157
+#: src/caja-file-management-properties.ui:2075
 msgid "_Music Player:"
 msgstr "_Музичка справица:"
 
-#: src/caja-file-management-properties.ui:2182
+#: src/caja-file-management-properties.ui:2100
 msgid "_Photos:"
 msgstr "_Фотографије:"
 
-#: src/caja-file-management-properties.ui:2207
+#: src/caja-file-management-properties.ui:2125
 msgid "_Software:"
 msgstr "_Софтвер:"
 
-#: src/caja-file-management-properties.ui:2261
+#: src/caja-file-management-properties.ui:2192
 msgid "<b>Other Media</b>"
 msgstr "<b>Остали медији</b>"
 
-#: src/caja-file-management-properties.ui:2286
+#: src/caja-file-management-properties.ui:2213
 msgid "Less common media formats can be configured here"
 msgstr "Овде можете подесити неуобичајене врсте медија"
 
-#: src/caja-file-management-properties.ui:2307
+#: src/caja-file-management-properties.ui:2235
 msgid "_Type:"
 msgstr "_Врста:"
 
-#: src/caja-file-management-properties.ui:2321
+#: src/caja-file-management-properties.ui:2249
 msgid "Acti_on:"
 msgstr "_Радња:"
 
-#: src/caja-file-management-properties.ui:2385
+#: src/caja-file-management-properties.ui:2326
 msgid "_Never prompt or start programs on media insertion"
 msgstr "_Никада не питај или не покрећи програме након убацивања медија"
 
-#: src/caja-file-management-properties.ui:2401
+#: src/caja-file-management-properties.ui:2342
 msgid "B_rowse media when inserted"
 msgstr "_Разгледај медијум након убацивања"
 
-#: src/caja-file-management-properties.ui:2424
+#: src/caja-file-management-properties.ui:2365
 msgid "Media"
 msgstr "Медиј"
 
-#: src/caja-file-management-properties.ui:2442
+#: src/caja-file-management-properties.ui:2383
 msgid "<b>Available _Extensions:</b>"
 msgstr "<b>Доступна _проширења:</b>"
 
-#: src/caja-file-management-properties.ui:2473
-#: src/caja-file-management-properties.ui:2494
+#: src/caja-file-management-properties.ui:2414
+#: src/caja-file-management-properties.ui:2435
 msgid "column"
 msgstr "колона"
 
-#: src/caja-file-management-properties.ui:2520
+#: src/caja-file-management-properties.ui:2461
 msgid "_About Extension"
 msgstr "_О проширењу"
 
-#: src/caja-file-management-properties.ui:2536
+#: src/caja-file-management-properties.ui:2477
 msgid "C_onfigure Extension"
 msgstr "_Подеси проширење"
 
-#: src/caja-file-management-properties.ui:2566
+#: src/caja-file-management-properties.ui:2507
 msgid "Extensions"
 msgstr "Проширења"
 
@@ -5031,10 +5038,6 @@ msgstr "Путања историјата не постоји."
 #: src/caja-navigation-window-menus.c:827
 msgid "_Go"
 msgstr "_Иди"
-
-#: src/caja-navigation-window-menus.c:830
-msgid "_Bookmarks"
-msgstr "_Обележивачи"
 
 #: src/caja-navigation-window-menus.c:833
 msgid "_Tabs"
@@ -7412,11 +7415,11 @@ msgstr "Поређајте иконице према датуму измене �
 
 #: src/file-manager/fm-icon-view.c:165
 msgid "by _Creation Date"
-msgstr ""
+msgstr "према датуму _стварања"
 
 #: src/file-manager/fm-icon-view.c:166 src/file-manager/fm-icon-view.c:1868
 msgid "Keep icons sorted by creation date in rows"
-msgstr ""
+msgstr "Поређајте иконице према датуму стварања у редовима"
 
 #: src/file-manager/fm-icon-view.c:172
 msgid "by _Emblems"
@@ -7501,11 +7504,11 @@ msgstr "Поређајте иконице у шаблону мреже"
 
 #: src/file-manager/fm-icon-view.c:1820
 msgid "_Lock Icons Position"
-msgstr ""
+msgstr "_Закључај положај иконице"
 
 #: src/file-manager/fm-icon-view.c:1821
 msgid "Prevent repositioning icons"
-msgstr ""
+msgstr "Спречите поновно размештање иконица"
 
 #: src/file-manager/fm-icon-view.c:1831
 msgid "_Manually"
@@ -7537,7 +7540,7 @@ msgstr "Према _датуму измене"
 
 #: src/file-manager/fm-icon-view.c:1867
 msgid "By _Creation Date"
-msgstr ""
+msgstr "Према датуму _стварања"
 
 #: src/file-manager/fm-icon-view.c:1873
 msgid "By _Emblems"

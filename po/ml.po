@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: caja 1.25.2\n"
 "Report-Msgid-Bugs-To: https://github.com/mate-desktop/caja/issues\n"
-"POT-Creation-Date: 2021-04-26 12:46+0200\n"
+"POT-Creation-Date: 2021-05-29 15:26+0200\n"
 "PO-Revision-Date: 2018-03-11 14:48+0000\n"
 "Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>, 2021\n"
 "Language-Team: Malayalam (https://www.transifex.com/mate/teams/13566/ml/)\n"
@@ -824,7 +824,7 @@ msgid "The location of the file."
 msgstr "ഫയൽ സ്ഥിതിചെയ്യുന്ന സ്ഥലം "
 
 #: libcaja-private/caja-column-utilities.c:156
-#: src/caja-file-management-properties.ui:2486
+#: src/caja-file-management-properties.ui:2427
 msgid "Extension"
 msgstr "എക്സ്റ്റെന്‍ഷന്‍"
 
@@ -2292,7 +2292,7 @@ msgid "_Add"
 msgstr "_ചേര്‍ക്കുക"
 
 #: libcaja-private/caja-mime-application-chooser.c:432
-#: libcaja-private/caja-open-with-dialog.c:962 src/caja-bookmarks-window.ui:77
+#: libcaja-private/caja-open-with-dialog.c:962 src/caja-bookmarks-window.ui:79
 msgid "_Remove"
 msgstr "_നീക്കം ചെയ്യുക"
 
@@ -4061,37 +4061,37 @@ msgstr ""
 msgid "Edit Bookmarks"
 msgstr "ബുക്ക് മാര്‍ക്കുകളില്‍ മാറ്റം വരുത്തുക"
 
-#: src/caja-bookmarks-window.ui:45 src/caja-connect-server-dialog.c:1114
+#: src/caja-bookmarks-window.ui:47 src/caja-connect-server-dialog.c:1114
 #: src/caja-emblem-sidebar.c:303 src/caja-emblem-sidebar.c:562
-#: src/caja-file-management-properties.ui:308 src/caja-location-dialog.c:192
+#: src/caja-file-management-properties.ui:309 src/caja-location-dialog.c:192
 #: src/caja-property-browser.c:389 src/caja-window-menus.c:855
 #: src/file-manager/fm-directory-view.c:1214
 #: src/file-manager/fm-properties-window.c:5259
 msgid "_Help"
 msgstr "_സഹായം"
 
-#: src/caja-bookmarks-window.ui:61
+#: src/caja-bookmarks-window.ui:63
 msgid "_Jump to"
 msgstr ""
 
-#: src/caja-bookmarks-window.ui:93 src/caja-file-management-properties.ui:324
+#: src/caja-bookmarks-window.ui:95 src/caja-file-management-properties.ui:325
 #: src/caja-property-browser.c:397 src/caja-window-menus.c:858
 #: src/file-manager/fm-list-view.c:2560
 #: src/file-manager/fm-properties-window.c:5264
 msgid "_Close"
 msgstr "_അടയ്ക്കു:"
 
-#: src/caja-bookmarks-window.ui:136
-msgid "<b>_Bookmarks</b>"
-msgstr "<b>ഓര്‍മ്മക്കുറിപ്പുകള്‍ _B</b>"
+#: src/caja-bookmarks-window.ui:134 src/caja-navigation-window-menus.c:830
+msgid "_Bookmarks"
+msgstr "ബുക്ക് മാര്‍ക്കുകള്‍ (_B)"
 
-#: src/caja-bookmarks-window.ui:227
-msgid "<b>_Name</b>"
-msgstr "<b>പേരു്</b> (_N)"
+#: src/caja-bookmarks-window.ui:196
+msgid "_Name"
+msgstr ""
 
-#: src/caja-bookmarks-window.ui:295
-msgid "<b>_Location</b>"
-msgstr "<b>സ്ഥാനം</b> (_L)"
+#: src/caja-bookmarks-window.ui:241
+msgid "_Location"
+msgstr ""
 
 #: src/caja-connect-server-dialog.c:135
 msgid "SSH"
@@ -4331,7 +4331,7 @@ msgstr ""
 #. Translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
 #: src/caja-file-management-properties.ui:44
-#: src/caja-file-management-properties.ui:652
+#: src/caja-file-management-properties.ui:642
 #: src/file-manager/fm-icon-container.c:620
 #: src/file-manager/fm-icon-view.c:3512
 msgid "Icon View"
@@ -4340,7 +4340,7 @@ msgstr "സൂചക ദൃശ്യം"
 #. Translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
 #: src/caja-file-management-properties.ui:47
-#: src/caja-file-management-properties.ui:819
+#: src/caja-file-management-properties.ui:809
 #: src/file-manager/fm-list-view.c:1854 src/file-manager/fm-list-view.c:3493
 msgid "List View"
 msgstr "പട്ടികയായുള്ള കാഴ്ച"
@@ -4348,7 +4348,7 @@ msgstr "പട്ടികയായുള്ള കാഴ്ച"
 #. Translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
 #: src/caja-file-management-properties.ui:50
-#: src/caja-file-management-properties.ui:735
+#: src/caja-file-management-properties.ui:725
 #: src/file-manager/fm-icon-view.c:3527
 msgid "Compact View"
 msgstr "ചുരുങ്ങിയ കാഴ്ച"
@@ -4504,135 +4504,135 @@ msgstr "4 GB"
 msgid "File Management Preferences"
 msgstr "ഫയല്‍ മേല്‍നോട്ട മുന്‍ഗണനകള്‍"
 
-#: src/caja-file-management-properties.ui:368
+#: src/caja-file-management-properties.ui:369
 msgid "<b>Default View</b>"
 msgstr "<b>സ്വതേയുള്ള കാഴ്ച</b>"
 
-#: src/caja-file-management-properties.ui:398
+#: src/caja-file-management-properties.ui:395
 msgid "View _new folders using:"
 msgstr "പുതിയ അറകള്‍ തുറക്കുവാനുപയോഗിക്കേണ്ടതു്:"
 
-#: src/caja-file-management-properties.ui:443
+#: src/caja-file-management-properties.ui:440
 msgid "_Arrange items:"
 msgstr "ഇനങ്ങളുടെ ക്രമീകരണം:"
 
-#: src/caja-file-management-properties.ui:481
+#: src/caja-file-management-properties.ui:478
 msgid "Sort _folders before files"
 msgstr "അറകള്‍ ഫയലുകള്‍ക്കു് മുമ്പായി അണിനിരത്തുക"
 
-#: src/caja-file-management-properties.ui:497
+#: src/caja-file-management-properties.ui:494
 msgid "Show hidden files"
 msgstr ""
 
-#: src/caja-file-management-properties.ui:513
+#: src/caja-file-management-properties.ui:510
 msgid "Show backup files"
 msgstr ""
 
-#: src/caja-file-management-properties.ui:578
+#: src/caja-file-management-properties.ui:568
 msgid "Default _zoom level:"
 msgstr "സ്വതേയുള്ള വലിപ്പ നിലവാരം:"
 
-#: src/caja-file-management-properties.ui:616
+#: src/caja-file-management-properties.ui:606
 msgid "_Use compact layout"
 msgstr "ഒതുങ്ങിയ കെട്ടുംമട്ടും ഉപയോഗിക്കുക"
 
-#: src/caja-file-management-properties.ui:632
+#: src/caja-file-management-properties.ui:622
 msgid "_Text beside icons"
 msgstr "സൂചനാചിത്രങ്ങള്‍ക്കു് അരികില്‍ ശീര്‍ഷകം"
 
-#: src/caja-file-management-properties.ui:674
+#: src/caja-file-management-properties.ui:664
 msgid "_Default zoom level:"
 msgstr "സ്വതേയുള്ള വലിപ്പം:"
 
-#: src/caja-file-management-properties.ui:712
+#: src/caja-file-management-properties.ui:702
 msgid "A_ll columns have the same width"
 msgstr "_എല്ലാം കളങ്ങള്‍ക്കും തുല്ല്യ വലിപ്പമാണു്"
 
-#: src/caja-file-management-properties.ui:758
+#: src/caja-file-management-properties.ui:748
 msgid "D_efault zoom level:"
 msgstr "സ_ഹജമായ വലിപ്പ നില:"
 
-#: src/caja-file-management-properties.ui:796
+#: src/caja-file-management-properties.ui:786
 msgid "_Show icons"
 msgstr ""
 
-#: src/caja-file-management-properties.ui:835
+#: src/caja-file-management-properties.ui:825
 msgid "Show _only folders"
 msgstr "അറകള്‍ മാത്രം കാണിക്കുക"
 
-#: src/caja-file-management-properties.ui:858
+#: src/caja-file-management-properties.ui:848
 msgid "Tree View"
 msgstr ""
 
-#: src/caja-file-management-properties.ui:874
+#: src/caja-file-management-properties.ui:862
 msgid "Defaults"
 msgstr ""
 
-#: src/caja-file-management-properties.ui:893
+#: src/caja-file-management-properties.ui:881
 msgid "Views"
 msgstr "പ്രദര്‍ശനരീതികള്‍"
 
-#: src/caja-file-management-properties.ui:916
+#: src/caja-file-management-properties.ui:904
 msgid "<b>Behavior</b>"
 msgstr "<b>പെരുമാറ്റം</b>"
 
-#: src/caja-file-management-properties.ui:938
+#: src/caja-file-management-properties.ui:922
 msgid "_Single click to open items"
 msgstr "വസ്തുക്കള്‍ തുറക്കുന്നതിനായി ഒരു ക്ലിക്കു് ചെയ്യുക"
 
-#: src/caja-file-management-properties.ui:954
+#: src/caja-file-management-properties.ui:938
 msgid "_Double click to open items"
 msgstr "വസ്തുക്കള്‍ തുറക്കുന്നതിനായി രണ്ടു് തവണ ക്ലിക്കു് ചെയ്യുക"
 
-#: src/caja-file-management-properties.ui:972
+#: src/caja-file-management-properties.ui:956
 msgid "Open each _folder in its own window"
 msgstr ""
 
-#: src/caja-file-management-properties.ui:1012
+#: src/caja-file-management-properties.ui:994
 msgid "<b>Executable Text Files</b>"
 msgstr "<b>പ്രവര്‍ത്തിപ്പിക്കാവുന്ന രചനകള്‍</b>"
 
-#: src/caja-file-management-properties.ui:1035
+#: src/caja-file-management-properties.ui:1013
 msgid "_Run executable text files when they are opened"
 msgstr ""
 "നിര്‍ദ്ദേശങ്ങളടങ്ങിയ രചനകള്‍ തുറക്കുമ്പോള്‍ അവ പ്രവര്‍ത്തിപ്പിക്കുക _R"
 
-#: src/caja-file-management-properties.ui:1051
+#: src/caja-file-management-properties.ui:1029
 msgid "_View executable text files when they are opened"
 msgstr "നിര്‍‌ദ്ദേശങ്ങളടങ്ങിയ രചനകള്‍ തുറക്കുമ്പോള്‍ അവ പ്രദര്‍ശിപ്പിക്കുക"
 
-#: src/caja-file-management-properties.ui:1068
+#: src/caja-file-management-properties.ui:1046
 msgid "_Ask each time"
 msgstr "ഓരോ പ്രാവശ്യവും ചോദിക്കുക"
 
-#: src/caja-file-management-properties.ui:1109
+#: src/caja-file-management-properties.ui:1085
 msgid "<b>Trash</b>"
 msgstr "<b>ചവറ്റുകുട്ട</b>"
 
-#: src/caja-file-management-properties.ui:1132
+#: src/caja-file-management-properties.ui:1104
 msgid "Ask before _emptying the Trash or deleting files"
 msgstr ""
 "രചനകള് നീക്കം ചെയ്യുന്നതിന് മുമ്പും ചവറ് കളയുന്നതിന് മുമ്പും ചോദിക്കുക"
 
-#: src/caja-file-management-properties.ui:1148
+#: src/caja-file-management-properties.ui:1120
 msgid "Ask before moving files to the _Trash"
 msgstr ""
 
-#: src/caja-file-management-properties.ui:1164
+#: src/caja-file-management-properties.ui:1136
 msgid "I_nclude a Delete command that bypasses Trash"
 msgstr ""
 "ചവറ്റുകുട്ടയിലേക്കു് വസ്തുക്കള്‍ പോകാതെ നീക്കം ചെയ്യുവാന്‍ സാധിക്കുന്ന ഒരു "
 "ഡിലീറ്റ് കമാന്‍ഡ് ഉല്‍പ്പെടുത്തുക _N"
 
-#: src/caja-file-management-properties.ui:1203
+#: src/caja-file-management-properties.ui:1173
 msgid "Behavior"
 msgstr "പെരുമാറ്റം"
 
-#: src/caja-file-management-properties.ui:1227
+#: src/caja-file-management-properties.ui:1197
 msgid "<b>Icon Captions</b>"
 msgstr "<b>സൂചനാചിത്രങ്ങളുടെ തലക്കെട്ട്</b>"
 
-#: src/caja-file-management-properties.ui:1252
+#: src/caja-file-management-properties.ui:1218
 msgid ""
 "Choose the order of information to appear beneath icon names. More "
 "information will appear when zooming in closer."
@@ -4640,158 +4640,158 @@ msgstr ""
 "സൂചനാചിത്രങ്ങളുടെ ശീര്‍ഷകങ്ങളുടെ അടിയില്‍ കാണിക്കുന്ന  വിവരങ്ങളുടെ ക്രമം. "
 "വലുതാക്കിയാല്‍ കുറേക്കൂടി വിവരങ്ങള്‍ കാണാം."
 
-#: src/caja-file-management-properties.ui:1388
+#: src/caja-file-management-properties.ui:1352
 msgid "<b>Date</b>"
 msgstr "<b>തീയതി</b>"
 
-#: src/caja-file-management-properties.ui:1412
+#: src/caja-file-management-properties.ui:1372
 msgid "_Format:"
 msgstr "ഫോര്‍മാറ്റ് ചെയ്യുക:"
 
-#: src/caja-file-management-properties.ui:1459
+#: src/caja-file-management-properties.ui:1417
 msgid "<b>Size</b>"
 msgstr ""
 
-#: src/caja-file-management-properties.ui:1476
+#: src/caja-file-management-properties.ui:1429
 msgid "_Show file sizes with IEC units"
 msgstr ""
 
-#: src/caja-file-management-properties.ui:1508
+#: src/caja-file-management-properties.ui:1460
 msgid "Display"
 msgstr "പ്രദര്‍ശനം"
 
-#: src/caja-file-management-properties.ui:1532
+#: src/caja-file-management-properties.ui:1484
 msgid "<b>List Columns</b>"
 msgstr "<b>നിരകള്‍ ലിസ്റ്റ് ചെയ്യുക</b>"
 
-#: src/caja-file-management-properties.ui:1557
+#: src/caja-file-management-properties.ui:1504
 msgid "Choose the order of information to appear in the list view."
 msgstr ""
 "പട്ടികാപ്രദര്‍ശനരീതിയില്‍ കാണപ്പെടേണ്ട വിവരങ്ങളുടെ ക്രമം തിരഞ്ഞെടുക്കുക."
 
-#: src/caja-file-management-properties.ui:1595
+#: src/caja-file-management-properties.ui:1540
 msgid "List Columns"
 msgstr "നിരകള്‍ ലിസ്റ്റ് ചെയ്യുക"
 
-#: src/caja-file-management-properties.ui:1619
+#: src/caja-file-management-properties.ui:1564
 msgid "<b>Text Files</b>"
 msgstr "<b>ടെക്സ്റ്റ് ഫയലുകള്‍</b>"
 
-#: src/caja-file-management-properties.ui:1649
+#: src/caja-file-management-properties.ui:1590
 msgid "Show te_xt in icons:"
 msgstr "സൂചനാചിത്രങ്ങളുടെ കൂടെ ശീര്‍ഷകങ്ങള്‍ കാണിക്കുക:"
 
-#: src/caja-file-management-properties.ui:1711
+#: src/caja-file-management-properties.ui:1650
 msgid "<b>Other Previewable Files</b>"
 msgstr "<b>ക്രമീകരണത്തിന് മുമ്പു് കാണുവാന്‍ സാധ്യമായ മറ്റ് ഫയലുകള്‍</b>"
 
-#: src/caja-file-management-properties.ui:1741
+#: src/caja-file-management-properties.ui:1676
 msgid "Show _thumbnails:"
 msgstr "നഖചിത്രങ്ങള്‍ പ്രദര്‍ശിപ്പിക്കുക:"
 
-#: src/caja-file-management-properties.ui:1786
+#: src/caja-file-management-properties.ui:1721
 msgid "_Only for files smaller than:"
 msgstr "ഇതിലും ചെറുതായ രചനകള്‍ക്കു് മാത്രം:"
 
-#: src/caja-file-management-properties.ui:1848
+#: src/caja-file-management-properties.ui:1781
 msgid "<b>Sound Files</b>"
 msgstr "<b>ശബ്ദ ഫയലുകള്‍</b>"
 
-#: src/caja-file-management-properties.ui:1878
+#: src/caja-file-management-properties.ui:1807
 msgid "Preview _sound files:"
 msgstr "ശബ്ദഫയലുകളുടെ തിരനോട്ടം:"
 
-#: src/caja-file-management-properties.ui:1940
+#: src/caja-file-management-properties.ui:1867
 msgid "<b>Folders</b>"
 msgstr "<b>ഫോള്‍ഡറുകള്‍</b>"
 
-#: src/caja-file-management-properties.ui:1970
+#: src/caja-file-management-properties.ui:1893
 msgid "Count _number of items:"
 msgstr "ഇനങ്ങളുടെ എണ്ണം തിട്ടപ്പെടുത്തുക:"
 
-#: src/caja-file-management-properties.ui:2031
+#: src/caja-file-management-properties.ui:1952
 msgid "Preview"
 msgstr "തിരനോട്ടം"
 
-#: src/caja-file-management-properties.ui:2061
+#: src/caja-file-management-properties.ui:1982
 msgid "<b>Media Handling</b>"
 msgstr "<b>മാധ്യമത്തെ കൈകാര്യം ചെയ്യുന്നതു്</b>"
 
-#: src/caja-file-management-properties.ui:2086
+#: src/caja-file-management-properties.ui:2003
 msgid ""
 "Choose what happens when inserting media or connecting devices to the system"
 msgstr ""
 "മാധ്യമങ്ങള്‍ വയ്ക്കുമ്പോളോ ഉപകരണങ്ങള്‍ ഘടിപ്പിയ്ക്കുമ്പോഴോ എന്താണു് "
 "ചെയ്യേണ്ടതെന്നു് തെരഞ്ഞെടുക്കുക"
 
-#: src/caja-file-management-properties.ui:2107
+#: src/caja-file-management-properties.ui:2025
 msgid "CD _Audio:"
 msgstr "സി‍ഡി _ശബ്ദം:"
 
-#: src/caja-file-management-properties.ui:2132
+#: src/caja-file-management-properties.ui:2050
 msgid "_DVD Video:"
 msgstr "ഡിവിഡി വീഡിയോ:"
 
-#: src/caja-file-management-properties.ui:2157
+#: src/caja-file-management-properties.ui:2075
 msgid "_Music Player:"
 msgstr "_പാട്ടുപെട്ടി:"
 
-#: src/caja-file-management-properties.ui:2182
+#: src/caja-file-management-properties.ui:2100
 msgid "_Photos:"
 msgstr "ഫോട്ടോ :"
 
-#: src/caja-file-management-properties.ui:2207
+#: src/caja-file-management-properties.ui:2125
 msgid "_Software:"
 msgstr "സോഫ്റ്റ്‌വെയര്‍:"
 
-#: src/caja-file-management-properties.ui:2261
+#: src/caja-file-management-properties.ui:2192
 msgid "<b>Other Media</b>"
 msgstr "<b>മറ്റു് മാധ്യമം</b>"
 
-#: src/caja-file-management-properties.ui:2286
+#: src/caja-file-management-properties.ui:2213
 msgid "Less common media formats can be configured here"
 msgstr "സാധാരണയല്ലാത്ത മാധ്യമങ്ങളുടെ ഫോര്‍മാറ്റുകള്‍ ഇവിടെ ക്രമീകരിയ്ക്കാം"
 
-#: src/caja-file-management-properties.ui:2307
+#: src/caja-file-management-properties.ui:2235
 msgid "_Type:"
 msgstr "തരം: (_T)"
 
-#: src/caja-file-management-properties.ui:2321
+#: src/caja-file-management-properties.ui:2249
 msgid "Acti_on:"
 msgstr "പ്രവര്‍ത്തി:"
 
-#: src/caja-file-management-properties.ui:2385
+#: src/caja-file-management-properties.ui:2326
 msgid "_Never prompt or start programs on media insertion"
 msgstr ""
 "മാധ്യമം വയ്ക്കുമ്പോള്‍ _ഒരിയ്ക്കലും പ്രോഗ്രാമുകള്‍ തുടങ്ങുകയോ "
 "ഓര്‍മ്മപ്പെടുത്തുകയോ വേണ്ട"
 
-#: src/caja-file-management-properties.ui:2401
+#: src/caja-file-management-properties.ui:2342
 msgid "B_rowse media when inserted"
 msgstr "വച്ചു് കഴിഞ്ഞാല്‍ മാധ്യമത്തില്‍ പ_രതുക"
 
-#: src/caja-file-management-properties.ui:2424
+#: src/caja-file-management-properties.ui:2365
 msgid "Media"
 msgstr "മാധ്യമം"
 
-#: src/caja-file-management-properties.ui:2442
+#: src/caja-file-management-properties.ui:2383
 msgid "<b>Available _Extensions:</b>"
 msgstr ""
 
-#: src/caja-file-management-properties.ui:2473
-#: src/caja-file-management-properties.ui:2494
+#: src/caja-file-management-properties.ui:2414
+#: src/caja-file-management-properties.ui:2435
 msgid "column"
 msgstr ""
 
-#: src/caja-file-management-properties.ui:2520
+#: src/caja-file-management-properties.ui:2461
 msgid "_About Extension"
 msgstr ""
 
-#: src/caja-file-management-properties.ui:2536
+#: src/caja-file-management-properties.ui:2477
 msgid "C_onfigure Extension"
 msgstr ""
 
-#: src/caja-file-management-properties.ui:2566
+#: src/caja-file-management-properties.ui:2507
 msgid "Extensions"
 msgstr ""
 
@@ -5003,10 +5003,6 @@ msgstr "ചരിത്രത്തിലുള്ള സ്ഥാനം നി�
 #: src/caja-navigation-window-menus.c:827
 msgid "_Go"
 msgstr "_പോകുക"
-
-#: src/caja-navigation-window-menus.c:830
-msgid "_Bookmarks"
-msgstr "ബുക്ക് മാര്‍ക്കുകള്‍ (_B)"
 
 #: src/caja-navigation-window-menus.c:833
 msgid "_Tabs"

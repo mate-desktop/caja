@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: caja 1.25.2\n"
 "Report-Msgid-Bugs-To: https://github.com/mate-desktop/caja/issues\n"
-"POT-Creation-Date: 2021-04-26 12:46+0200\n"
+"POT-Creation-Date: 2021-05-29 15:26+0200\n"
 "PO-Revision-Date: 2018-03-11 14:48+0000\n"
 "Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>, 2021\n"
 "Language-Team: Gujarati (https://www.transifex.com/mate/teams/13566/gu/)\n"
@@ -806,7 +806,7 @@ msgid "The location of the file."
 msgstr ""
 
 #: libcaja-private/caja-column-utilities.c:156
-#: src/caja-file-management-properties.ui:2486
+#: src/caja-file-management-properties.ui:2427
 msgid "Extension"
 msgstr "એક્સટેન્શન"
 
@@ -2260,7 +2260,7 @@ msgid "_Add"
 msgstr "ઉમેરવું (_A)"
 
 #: libcaja-private/caja-mime-application-chooser.c:432
-#: libcaja-private/caja-open-with-dialog.c:962 src/caja-bookmarks-window.ui:77
+#: libcaja-private/caja-open-with-dialog.c:962 src/caja-bookmarks-window.ui:79
 msgid "_Remove"
 msgstr "દૂર કરો (_R)"
 
@@ -3992,37 +3992,37 @@ msgstr ""
 msgid "Edit Bookmarks"
 msgstr "બુકમાર્કોમાં ફેરફાર કરો"
 
-#: src/caja-bookmarks-window.ui:45 src/caja-connect-server-dialog.c:1114
+#: src/caja-bookmarks-window.ui:47 src/caja-connect-server-dialog.c:1114
 #: src/caja-emblem-sidebar.c:303 src/caja-emblem-sidebar.c:562
-#: src/caja-file-management-properties.ui:308 src/caja-location-dialog.c:192
+#: src/caja-file-management-properties.ui:309 src/caja-location-dialog.c:192
 #: src/caja-property-browser.c:389 src/caja-window-menus.c:855
 #: src/file-manager/fm-directory-view.c:1214
 #: src/file-manager/fm-properties-window.c:5259
 msgid "_Help"
 msgstr "મદદ (_H)"
 
-#: src/caja-bookmarks-window.ui:61
+#: src/caja-bookmarks-window.ui:63
 msgid "_Jump to"
 msgstr ""
 
-#: src/caja-bookmarks-window.ui:93 src/caja-file-management-properties.ui:324
+#: src/caja-bookmarks-window.ui:95 src/caja-file-management-properties.ui:325
 #: src/caja-property-browser.c:397 src/caja-window-menus.c:858
 #: src/file-manager/fm-list-view.c:2560
 #: src/file-manager/fm-properties-window.c:5264
 msgid "_Close"
 msgstr "બંધ કરો (_C)"
 
-#: src/caja-bookmarks-window.ui:136
-msgid "<b>_Bookmarks</b>"
-msgstr "<b>બુકમાર્ક (_B)</b>"
+#: src/caja-bookmarks-window.ui:134 src/caja-navigation-window-menus.c:830
+msgid "_Bookmarks"
+msgstr "બુકમાર્કો (_B)"
 
-#: src/caja-bookmarks-window.ui:227
-msgid "<b>_Name</b>"
-msgstr "<b>નામ (_N)</b>"
+#: src/caja-bookmarks-window.ui:196
+msgid "_Name"
+msgstr ""
 
-#: src/caja-bookmarks-window.ui:295
-msgid "<b>_Location</b>"
-msgstr "<b>સ્થાન (_L)</b>"
+#: src/caja-bookmarks-window.ui:241
+msgid "_Location"
+msgstr ""
 
 #: src/caja-connect-server-dialog.c:135
 msgid "SSH"
@@ -4261,7 +4261,7 @@ msgstr ""
 #. Translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
 #: src/caja-file-management-properties.ui:44
-#: src/caja-file-management-properties.ui:652
+#: src/caja-file-management-properties.ui:642
 #: src/file-manager/fm-icon-container.c:620
 #: src/file-manager/fm-icon-view.c:3512
 msgid "Icon View"
@@ -4270,7 +4270,7 @@ msgstr "ચિહ્ન દેખાવ"
 #. Translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
 #: src/caja-file-management-properties.ui:47
-#: src/caja-file-management-properties.ui:819
+#: src/caja-file-management-properties.ui:809
 #: src/file-manager/fm-list-view.c:1854 src/file-manager/fm-list-view.c:3493
 msgid "List View"
 msgstr "યાદી દેખાવ"
@@ -4278,7 +4278,7 @@ msgstr "યાદી દેખાવ"
 #. Translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
 #: src/caja-file-management-properties.ui:50
-#: src/caja-file-management-properties.ui:735
+#: src/caja-file-management-properties.ui:725
 #: src/file-manager/fm-icon-view.c:3527
 msgid "Compact View"
 msgstr "સંકુચિત દેખાવ"
@@ -4434,132 +4434,132 @@ msgstr "4 GB"
 msgid "File Management Preferences"
 msgstr "ફાઈલ સંચાલનની પસંદગીઓ"
 
-#: src/caja-file-management-properties.ui:368
+#: src/caja-file-management-properties.ui:369
 msgid "<b>Default View</b>"
 msgstr "<b>મૂળભૂત દૃશ્ય</b>"
 
-#: src/caja-file-management-properties.ui:398
+#: src/caja-file-management-properties.ui:395
 msgid "View _new folders using:"
 msgstr "ની મદદથી નવા ફોલ્ડરો જૂઓ (_n):"
 
-#: src/caja-file-management-properties.ui:443
+#: src/caja-file-management-properties.ui:440
 msgid "_Arrange items:"
 msgstr "વસ્તુઓને વ્યવસ્થિત કરો (_A):"
 
-#: src/caja-file-management-properties.ui:481
+#: src/caja-file-management-properties.ui:478
 msgid "Sort _folders before files"
 msgstr "ફાઈલોની પહેલા ફોલ્ડરને ક્રમમાં ગોઠવો (_f)"
 
-#: src/caja-file-management-properties.ui:497
+#: src/caja-file-management-properties.ui:494
 msgid "Show hidden files"
 msgstr ""
 
-#: src/caja-file-management-properties.ui:513
+#: src/caja-file-management-properties.ui:510
 msgid "Show backup files"
 msgstr ""
 
-#: src/caja-file-management-properties.ui:578
+#: src/caja-file-management-properties.ui:568
 msgid "Default _zoom level:"
 msgstr "નાનુમોટું કરવાનુ મૂળભૂત સ્તર (_z):"
 
-#: src/caja-file-management-properties.ui:616
+#: src/caja-file-management-properties.ui:606
 msgid "_Use compact layout"
 msgstr "સંકોચિત દેખાવ વાપરો (_U)"
 
-#: src/caja-file-management-properties.ui:632
+#: src/caja-file-management-properties.ui:622
 msgid "_Text beside icons"
 msgstr "ચિહ્નની પાછળનુ લખાણ (_T)"
 
-#: src/caja-file-management-properties.ui:674
+#: src/caja-file-management-properties.ui:664
 msgid "_Default zoom level:"
 msgstr "નાનુમોટુ કરવાનું મૂળભૂત સ્તર (_D):"
 
-#: src/caja-file-management-properties.ui:712
+#: src/caja-file-management-properties.ui:702
 msgid "A_ll columns have the same width"
 msgstr "બધા સ્તંભો ને સરખી પહોળાઇ છે (_l)"
 
-#: src/caja-file-management-properties.ui:758
+#: src/caja-file-management-properties.ui:748
 msgid "D_efault zoom level:"
 msgstr "નાનુમોટું કરવાનુ મૂળભૂત સ્તર (_e):"
 
-#: src/caja-file-management-properties.ui:796
+#: src/caja-file-management-properties.ui:786
 msgid "_Show icons"
 msgstr ""
 
-#: src/caja-file-management-properties.ui:835
+#: src/caja-file-management-properties.ui:825
 msgid "Show _only folders"
 msgstr "ફક્ત ફોલ્ડર દર્શાવો (_o)"
 
-#: src/caja-file-management-properties.ui:858
+#: src/caja-file-management-properties.ui:848
 msgid "Tree View"
 msgstr ""
 
-#: src/caja-file-management-properties.ui:874
+#: src/caja-file-management-properties.ui:862
 msgid "Defaults"
 msgstr ""
 
-#: src/caja-file-management-properties.ui:893
+#: src/caja-file-management-properties.ui:881
 msgid "Views"
 msgstr "દૃશ્યો"
 
-#: src/caja-file-management-properties.ui:916
+#: src/caja-file-management-properties.ui:904
 msgid "<b>Behavior</b>"
 msgstr "<b>વર્તણુક</b>"
 
-#: src/caja-file-management-properties.ui:938
+#: src/caja-file-management-properties.ui:922
 msgid "_Single click to open items"
 msgstr "વસ્તુઓ ખોલવા માટે એક ક્લિક (_S)"
 
-#: src/caja-file-management-properties.ui:954
+#: src/caja-file-management-properties.ui:938
 msgid "_Double click to open items"
 msgstr "વસ્તુઓ ખોલવા માટે બમણું ક્લિક કરો (_D)"
 
-#: src/caja-file-management-properties.ui:972
+#: src/caja-file-management-properties.ui:956
 msgid "Open each _folder in its own window"
 msgstr ""
 
-#: src/caja-file-management-properties.ui:1012
+#: src/caja-file-management-properties.ui:994
 msgid "<b>Executable Text Files</b>"
 msgstr "<b>ચલાવી શકાય તેવી ફાઇલો</b>"
 
-#: src/caja-file-management-properties.ui:1035
+#: src/caja-file-management-properties.ui:1013
 msgid "_Run executable text files when they are opened"
 msgstr "જ્યારે એક્ઝેક્યુટેબલ લખાણ ફાઈલો ખૂલેલી હોય ત્યારે તેમને ચલાવો (_R)"
 
-#: src/caja-file-management-properties.ui:1051
+#: src/caja-file-management-properties.ui:1029
 msgid "_View executable text files when they are opened"
 msgstr "જ્યારે એક્ઝેક્યુટેબલ ફાઈલો ખૂલેલી હોય ત્યારે તેમને જુઓ (_V)"
 
-#: src/caja-file-management-properties.ui:1068
+#: src/caja-file-management-properties.ui:1046
 msgid "_Ask each time"
 msgstr "દરેક વખતે પુછો (_A)"
 
-#: src/caja-file-management-properties.ui:1109
+#: src/caja-file-management-properties.ui:1085
 msgid "<b>Trash</b>"
 msgstr "<b>કચરાપેટી</b>"
 
-#: src/caja-file-management-properties.ui:1132
+#: src/caja-file-management-properties.ui:1104
 msgid "Ask before _emptying the Trash or deleting files"
 msgstr "કચરાપેટીને ખાલી કરતાં પહેલા અથવા ફાઇલો કાઢી નાખતા પહેલા પૂછો (_e)"
 
-#: src/caja-file-management-properties.ui:1148
+#: src/caja-file-management-properties.ui:1120
 msgid "Ask before moving files to the _Trash"
 msgstr ""
 
-#: src/caja-file-management-properties.ui:1164
+#: src/caja-file-management-properties.ui:1136
 msgid "I_nclude a Delete command that bypasses Trash"
 msgstr ""
 "કચરાપેટીમાં ગયા વગર પસાર થઇ શકાય તે માટેનો કાઢી નાખવા માટેનો આદેશ ઉમેરો (_n)"
 
-#: src/caja-file-management-properties.ui:1203
+#: src/caja-file-management-properties.ui:1173
 msgid "Behavior"
 msgstr "વર્તણૂક"
 
-#: src/caja-file-management-properties.ui:1227
+#: src/caja-file-management-properties.ui:1197
 msgid "<b>Icon Captions</b>"
 msgstr "<b>ચિહ્ન કેપ્શનો</b>"
 
-#: src/caja-file-management-properties.ui:1252
+#: src/caja-file-management-properties.ui:1218
 msgid ""
 "Choose the order of information to appear beneath icon names. More "
 "information will appear when zooming in closer."
@@ -4567,156 +4567,156 @@ msgstr ""
 "ચિહ્નના નામની નીચે દર્શાવતી જાણકારી માટેનો ક્રમ પસંદ કરો. મોટુ કરતા વધારે "
 "જાણકારી દેખાશે."
 
-#: src/caja-file-management-properties.ui:1388
+#: src/caja-file-management-properties.ui:1352
 msgid "<b>Date</b>"
 msgstr "<b>તારીખ</b>"
 
-#: src/caja-file-management-properties.ui:1412
+#: src/caja-file-management-properties.ui:1372
 msgid "_Format:"
 msgstr "બંધારણ (_F):"
 
-#: src/caja-file-management-properties.ui:1459
+#: src/caja-file-management-properties.ui:1417
 msgid "<b>Size</b>"
 msgstr ""
 
-#: src/caja-file-management-properties.ui:1476
+#: src/caja-file-management-properties.ui:1429
 msgid "_Show file sizes with IEC units"
 msgstr ""
 
-#: src/caja-file-management-properties.ui:1508
+#: src/caja-file-management-properties.ui:1460
 msgid "Display"
 msgstr "દેખાડો"
 
-#: src/caja-file-management-properties.ui:1532
+#: src/caja-file-management-properties.ui:1484
 msgid "<b>List Columns</b>"
 msgstr "<b>સ્તંભોની યાદી</b>"
 
-#: src/caja-file-management-properties.ui:1557
+#: src/caja-file-management-properties.ui:1504
 msgid "Choose the order of information to appear in the list view."
 msgstr "ચિહ્નના નામની નીચે દર્શાવતી જાણકારી માટેનો ક્રમ પસંદ કરો."
 
-#: src/caja-file-management-properties.ui:1595
+#: src/caja-file-management-properties.ui:1540
 msgid "List Columns"
 msgstr "સ્તંભોની યાદી"
 
-#: src/caja-file-management-properties.ui:1619
+#: src/caja-file-management-properties.ui:1564
 msgid "<b>Text Files</b>"
 msgstr "<b>લખાણ ફાઈલ</b>"
 
-#: src/caja-file-management-properties.ui:1649
+#: src/caja-file-management-properties.ui:1590
 msgid "Show te_xt in icons:"
 msgstr "ચિહ્નોમાં લખાણ દર્શાવો (_x):"
 
-#: src/caja-file-management-properties.ui:1711
+#: src/caja-file-management-properties.ui:1650
 msgid "<b>Other Previewable Files</b>"
 msgstr "<b>બીજી પૂર્વદર્શિત ફાઇલો</b>"
 
-#: src/caja-file-management-properties.ui:1741
+#: src/caja-file-management-properties.ui:1676
 msgid "Show _thumbnails:"
 msgstr "મોટા ચિહ્નો દર્શાવો (_t):"
 
-#: src/caja-file-management-properties.ui:1786
+#: src/caja-file-management-properties.ui:1721
 msgid "_Only for files smaller than:"
 msgstr "ફક્ત આના કરતા નાની ફાઇલો માટે (_O):"
 
-#: src/caja-file-management-properties.ui:1848
+#: src/caja-file-management-properties.ui:1781
 msgid "<b>Sound Files</b>"
 msgstr "<b>ધ્વનિ ફાઇલો</b>"
 
-#: src/caja-file-management-properties.ui:1878
+#: src/caja-file-management-properties.ui:1807
 msgid "Preview _sound files:"
 msgstr "ધ્વની ફાઇલોનો પુર્વદર્શન કરાવો (_s):"
 
-#: src/caja-file-management-properties.ui:1940
+#: src/caja-file-management-properties.ui:1867
 msgid "<b>Folders</b>"
 msgstr "<b>ફોલ્ડરો</b>"
 
-#: src/caja-file-management-properties.ui:1970
+#: src/caja-file-management-properties.ui:1893
 msgid "Count _number of items:"
 msgstr "વસ્તુઓની સંખ્યાની ગણતરી કરો (_n):"
 
-#: src/caja-file-management-properties.ui:2031
+#: src/caja-file-management-properties.ui:1952
 msgid "Preview"
 msgstr "પૂર્વદર્શન"
 
-#: src/caja-file-management-properties.ui:2061
+#: src/caja-file-management-properties.ui:1982
 msgid "<b>Media Handling</b>"
 msgstr "<b>મીડિયા ને સંભાળી રહ્યા છે</b>"
 
-#: src/caja-file-management-properties.ui:2086
+#: src/caja-file-management-properties.ui:2003
 msgid ""
 "Choose what happens when inserting media or connecting devices to the system"
 msgstr ""
 "જ્યારે મીડિયા દાખલ કરી રહ્યા હોય અથવા ઉપકરણોને સિસ્ટમ સાથે જોડી રહ્યા હોય "
 "ત્યારે શું થશે તે પસંદ કરો"
 
-#: src/caja-file-management-properties.ui:2107
+#: src/caja-file-management-properties.ui:2025
 msgid "CD _Audio:"
 msgstr "CD ઓડિયો (_A):"
 
-#: src/caja-file-management-properties.ui:2132
+#: src/caja-file-management-properties.ui:2050
 msgid "_DVD Video:"
 msgstr "DVD વિડિઓ (_D):"
 
-#: src/caja-file-management-properties.ui:2157
+#: src/caja-file-management-properties.ui:2075
 msgid "_Music Player:"
 msgstr "સંગીત પ્લેયર (_M):"
 
-#: src/caja-file-management-properties.ui:2182
+#: src/caja-file-management-properties.ui:2100
 msgid "_Photos:"
 msgstr "ફોટો (_P):"
 
-#: src/caja-file-management-properties.ui:2207
+#: src/caja-file-management-properties.ui:2125
 msgid "_Software:"
 msgstr "સોફ્ટવેર (_S):"
 
-#: src/caja-file-management-properties.ui:2261
+#: src/caja-file-management-properties.ui:2192
 msgid "<b>Other Media</b>"
 msgstr "<b>બીજી મીડિયા</b>"
 
-#: src/caja-file-management-properties.ui:2286
+#: src/caja-file-management-properties.ui:2213
 msgid "Less common media formats can be configured here"
 msgstr "ઓછા સામાન્ય મીડિયા બંધારણો અંહિ રૂપરેખાંકિત કરી શકાય છે"
 
-#: src/caja-file-management-properties.ui:2307
+#: src/caja-file-management-properties.ui:2235
 msgid "_Type:"
 msgstr "પ્રકાર (_T):"
 
-#: src/caja-file-management-properties.ui:2321
+#: src/caja-file-management-properties.ui:2249
 msgid "Acti_on:"
 msgstr "કાર્ય (_o):"
 
-#: src/caja-file-management-properties.ui:2385
+#: src/caja-file-management-properties.ui:2326
 msgid "_Never prompt or start programs on media insertion"
 msgstr ""
 "મીડિયા દાખલ કરવા પર ક્યારે પૂછશો નહિં કે કાર્યક્રમો શરૂ કરશો નહિં (_N)"
 
-#: src/caja-file-management-properties.ui:2401
+#: src/caja-file-management-properties.ui:2342
 msgid "B_rowse media when inserted"
 msgstr "મીડિયા ને બ્રાઉઝ કરો જ્યારે દાખલ થયેલ હોય (_r)"
 
-#: src/caja-file-management-properties.ui:2424
+#: src/caja-file-management-properties.ui:2365
 msgid "Media"
 msgstr "મીડિયા "
 
-#: src/caja-file-management-properties.ui:2442
+#: src/caja-file-management-properties.ui:2383
 msgid "<b>Available _Extensions:</b>"
 msgstr ""
 
-#: src/caja-file-management-properties.ui:2473
-#: src/caja-file-management-properties.ui:2494
+#: src/caja-file-management-properties.ui:2414
+#: src/caja-file-management-properties.ui:2435
 msgid "column"
 msgstr ""
 
-#: src/caja-file-management-properties.ui:2520
+#: src/caja-file-management-properties.ui:2461
 msgid "_About Extension"
 msgstr ""
 
-#: src/caja-file-management-properties.ui:2536
+#: src/caja-file-management-properties.ui:2477
 msgid "C_onfigure Extension"
 msgstr ""
 
-#: src/caja-file-management-properties.ui:2566
+#: src/caja-file-management-properties.ui:2507
 msgid "Extensions"
 msgstr ""
 
@@ -4921,10 +4921,6 @@ msgstr "ઈતિહાસ સ્થાન અસ્તિત્વમાં ન
 #: src/caja-navigation-window-menus.c:827
 msgid "_Go"
 msgstr "જાઓ (_G)"
-
-#: src/caja-navigation-window-menus.c:830
-msgid "_Bookmarks"
-msgstr "બુકમાર્કો (_B)"
 
 #: src/caja-navigation-window-menus.c:833
 msgid "_Tabs"
