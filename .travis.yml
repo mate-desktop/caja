@@ -30,7 +30,7 @@ notifications:
     if: (tag OR branch = master) AND
         repo = mate-desktop/caja
     channels:
-      - "irc.freenode.org#mate-dev"
+      - "irc.libera.chat#mate-dev"
     template:
       - "[%{repository_name}] %{author}: %{commit_subject}"
       - "[%{branch}] %{commit} %{message} %{build_url}"
