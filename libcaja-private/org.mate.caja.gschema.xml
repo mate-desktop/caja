@@ -269,6 +269,11 @@
       <summary>Whether to show desktop notifications</summary>
       <description>If set to true, Caja will show desktop notifications.</description>
     </key>
+    <key type="ay" name="bulk-rename-tool">
+      <default>[]</default>
+      <summary>Bulk rename utility</summary>
+      <description>If set, Nautilus will append URIs of selected files and treat the result as a command line for bulk renaming. Bulk rename applications can register themselves in this key by setting the key to a space-separated string of their executable name and any command line options. If the executable name is not set to a full path, it will be searched for in the search path.</description>
+    </key>
   </schema>
 
   <schema id="org.mate.caja.icon-view" path="/org/mate/caja/icon-view/" gettext-domain="caja">

@@ -209,6 +209,9 @@ typedef enum
 #define CAJA_PREFERENCES_LOCKDOWN_COMMAND_LINE         "disable-command-line"
 #define CAJA_PREFERENCES_DISABLED_EXTENSIONS           "disabled-extensions"
 
+/* bulk rename utility */
+#define CAJA_PREFERENCES_BULK_RENAME_TOOL              "bulk-rename-tool"
+
 void caja_global_preferences_init                      (void);
 char *caja_global_preferences_get_default_folder_viewer_preference_as_iid (void);
 
