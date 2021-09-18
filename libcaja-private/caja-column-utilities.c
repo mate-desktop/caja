@@ -326,15 +326,15 @@ column_compare (CajaColumn *a, CajaColumn *b, char **column_order)
     }
     else if (index_a == -1)
     {
-        return 1;
+        return -1;
     }
     else if (index_b == -1)
     {
-        return -1;
+        return 1;
     }
     else
     {
-        return index_a - index_b;
+        return index_b - index_a;
     }
 }
 
