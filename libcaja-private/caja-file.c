@@ -1,4 +1,4 @@
-/* -*- Mode: C; indent-tabs-mode: t; c-basic-offset: 8; tab-width: 8 -*-
+/*- Mode: C; indent-tabs-mode: t; c-basic-offset: 8; tab-width: 8 -*-
 
    caja-file.c: Caja file model.
 
@@ -474,7 +474,7 @@ caja_file_clear_info (CajaFile *file)
 	file->details->permissions = 0;
 	file->details->size = -1;
 	file->details->size_on_disk = -1;
-	file->details->sort_order = 0;
+	file->details->sort_order =-1;
 	file->details->mtime = 0;
 	file->details->atime = 0;
 	file->details->ctime = 0;
@@ -2836,10 +2836,10 @@ compare_directories_by_count (CajaFile *file_1, CajaFile *file_2)
 	count_known_2 = get_item_count (file_2, &count_2);
 
 	if (count_known_1 > count_known_2) {
-		return -1;
+		return 1;
 	}
 	if (count_known_1 < count_known_2) {
-		return +1;
+		return -1;
 	}
 
 	/* count_known_1 and count_known_2 are equal now. Check if count
@@ -2850,10 +2850,10 @@ compare_directories_by_count (CajaFile *file_1, CajaFile *file_2)
 	}
 
 	if (count_1 < count_2) {
-		return -1;
+		return 1;
 	}
 	if (count_1 > count_2) {
-		return +1;
+		return -1;
 	}
 
 	return 0;
@@ -2876,10 +2876,10 @@ compare_files_by_size (CajaFile *file_1, CajaFile *file_2, gboolean size_on_disk
 	size_known_2 = get_size (file_2, &size_2, size_on_disk);
 
 	if (size_known_1 > size_known_2) {
-		return -1;
+		return 1;
 	}
 	if (size_known_1 < size_known_2) {
-		return +1;
+		return -1;
 	}
 
 	/* size_known_1 and size_known_2 are equal now. Check if size
@@ -2890,10 +2890,10 @@ compare_files_by_size (CajaFile *file_1, CajaFile *file_2, gboolean size_on_disk
 	}
 
 	if (size_1 < size_2) {
-		return -1;
+		return 1;
 	}
 	if (size_1 > size_2) {
-		return +1;
+		return -1;
 	}
 
 	return 0;
@@ -2947,13 +2947,13 @@ compare_by_display_name (CajaFile *file_1, CajaFile *file_2)
 	sort_last_2 = name_2[0] == SORT_LAST_CHAR1 || name_2[0] == SORT_LAST_CHAR2;
 
 	if (sort_last_1 && !sort_last_2) {
-		compare = +1;
+		compare = 1;
 	} else if (!sort_last_1 && sort_last_2) {
 		compare = -1;
 	} else {
 		key_1 = caja_file_peek_display_name_collation_key (file_1);
 		key_2 = caja_file_peek_display_name_collation_key (file_2);
-		compare = strcmp (key_1, key_2);
+		compare = strcmp (key_2, key_1);
 	}
 
 	return compare;
@@ -2972,7 +2972,7 @@ compare_by_directory_name (CajaFile *file_1, CajaFile *file_2)
 	directory_1 = caja_file_get_parent_uri_for_display (file_1);
 	directory_2 = caja_file_get_parent_uri_for_display (file_2);
 
-	compare = g_utf8_collate (directory_1, directory_2);
+	compare = g_utf8_collate (directory_2, directory_1);
 
 	g_free (directory_1);
 	g_free (directory_2);
@@ -3153,7 +3153,7 @@ compare_by_type (CajaFile *file_1, CajaFile *file_2)
 	type_string_1 = caja_file_get_type_as_string (file_1);
 	type_string_2 = caja_file_get_type_as_string (file_2);
 
-	result = g_utf8_collate (type_string_1, type_string_2);
+	result = g_utf8_collate (type_string_2, type_string_1);
 
 	g_free (type_string_1);
 	g_free (type_string_2);
@@ -3181,10 +3181,10 @@ compare_by_time (CajaFile *file_1, CajaFile *file_2, CajaDateType type)
 	time_known_2 = get_time (file_2, &time_2, type);
 
 	if (time_known_1 > time_known_2) {
-		return -1;
+		return 1;
 	}
 	if (time_known_1 < time_known_2) {
-		return +1;
+		return -1;
 	}
 
 	/* Now time_known_1 is equal to time_known_2. Check whether
@@ -3195,10 +3195,10 @@ compare_by_time (CajaFile *file_1, CajaFile *file_2, CajaDateType type)
 	}
 
 	if (time_1 < time_2) {
-		return -1;
+		return 1;
 	}
 	if (time_1 > time_2) {
-		return +1;
+		return -1;
 	}
 
 	return 0;
@@ -3422,9 +3422,9 @@ caja_file_compare_for_sort_internal (CajaFile *file_1,
 	}
 
 	if (file_1->details->sort_order < file_2->details->sort_order) {
-		return reversed ? 1 : -1;
-	} else if (file_1->details->sort_order > file_2->details->sort_order) {
 		return reversed ? -1 : 1;
+	} else if (file_1->details->sort_order > file_2->details->sort_order) {
+		return reversed ? 1 : -1;
 	}
 
 	return 0;
