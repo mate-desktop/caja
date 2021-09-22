@@ -1,4 +1,4 @@
-/*- Mode: C; indent-tabs-mode: t; c-basic-offset: 8; tab-width: 8 -*-
+/* -*- Mode: C; indent-tabs-mode: t; c-basic-offset: 8; tab-width: 8 -*-
 
    caja-file.c: Caja file model.
 
