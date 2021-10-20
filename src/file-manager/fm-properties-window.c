@@ -4435,6 +4435,7 @@ create_simple_permissions (FMPropertiesWindow *window, GtkGrid *page_grid)
 {
 	gboolean has_file, has_directory;
 	GtkLabel *group_label;
+	GtkLabel *others_label;
 	GtkLabel *owner_label;
 	GtkLabel *execute_label;
 	GtkWidget *value;
@@ -4510,6 +4511,12 @@ create_simple_permissions (FMPropertiesWindow *window, GtkGrid *page_grid)
 	append_blank_slim_row (page_grid);
 
 	group_label = attach_title_field (page_grid, _("Others"));
+	/* Adding an empty focusable widget to ease keyboard navigation
+	 * and screen reader accessibility. */
+	others_label = attach_label (page_grid, GTK_WIDGET (group_label),
+				     NULL, FALSE, TRUE, FALSE);
+	gtk_label_set_mnemonic_widget (group_label,
+				       GTK_WIDGET (others_label));
 
 	if (has_directory) {
 		add_permissions_combo_box (window, page_grid,
