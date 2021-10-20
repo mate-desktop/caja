@@ -609,7 +609,7 @@ add_one_mate_icon (const char *uri, int x, int y, int w, int h,
 
     result = (GString *) data;
 
-    g_string_append_printf (result, "%s\r%d:%d:%hu:%hu\r\n",
+    g_string_append_printf (result, "%s\r%d:%d:%d:%d\r\n",
                             uri, x, y, w, h);
 }
 
