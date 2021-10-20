@@ -635,7 +635,7 @@ parse_previous_duplicate_name (const char *name,
 			}
 			*name_base = extract_string_until (name, tag);
 			/* Translators: opening parentheses of the "th copy)" string */
-			if (sscanf (tag, _(" (%'d"), count) == 1) {
+			if (sscanf (tag, _(" (%d"), count) == 1) {
 				if (*count < 1 || *count > 1000000) {
 					/* keep the count within a reasonable range */
 					*count = 0;
