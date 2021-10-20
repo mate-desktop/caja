@@ -552,6 +552,8 @@ create_image_widget (FMPropertiesWindow *window,
 
 	button = NULL;
 	if (is_customizable) {
+		AtkObject *button_acc;
+		gchar     *icon_msg;
 		button = gtk_button_new ();
 		gtk_button_set_image (GTK_BUTTON (button), image);
 
@@ -566,13 +568,14 @@ create_image_widget (FMPropertiesWindow *window,
 		g_signal_connect (button, "clicked",
 				  G_CALLBACK (select_image_button_callback), window);
 
-		gchar *icon_name;
-		get_image_for_properties_window (window, &icon_name, NULL);
-		if (! icon_name)
-			icon_name = g_strdup (_("Icon"));
-		atk_object_set_name (gtk_widget_get_accessible (GTK_WIDGET (button)),
-				     icon_name);
-		g_free (icon_name);
+		button_acc = gtk_widget_get_accessible (GTK_WIDGET (button));
+		get_image_for_properties_window (window, &icon_msg, NULL);
+		if (! icon_msg)
+			icon_msg = g_strdup (_("Current icon"));
+		atk_object_set_name (button_acc, icon_msg);
+		atk_object_set_description (button_acc,
+				            _("Change this object’s icon."));
+		g_free (icon_msg);
 	}
 
 	window->details->icon_button = button;
@@ -3531,6 +3534,7 @@ create_emblems_page (FMPropertiesWindow *window)
 		button = eel_labeled_image_check_button_new (label, pixbuf);
 		eel_labeled_image_set_fixed_image_height (EEL_LABELED_IMAGE (gtk_bin_get_child (GTK_BIN (button))), STANDARD_EMBLEM_HEIGHT * scale);
 		eel_labeled_image_set_spacing (EEL_LABELED_IMAGE (gtk_bin_get_child (GTK_BIN (button))), EMBLEM_LABEL_SPACING * scale);
+		atk_object_set_name (gtk_widget_get_accessible (GTK_WIDGET (button)), label);
 
 		g_free (label);
 		g_object_unref (pixbuf);
