@@ -55,6 +55,7 @@
 #include <libcaja-private/caja-metadata.h>
 #include <libcaja-private/caja-module.h>
 #include <libcaja-private/caja-mime-actions.h>
+#include <libcaja-private/caja-ui-utilities.h>
 
 #include "fm-properties-window.h"
 #include "fm-ditem-page.h"
@@ -552,7 +553,7 @@ create_image_widget (FMPropertiesWindow *window,
 	button = NULL;
 	if (is_customizable) {
 		button = gtk_button_new ();
-		gtk_container_add (GTK_CONTAINER (button), image);
+		gtk_button_set_image (GTK_BUTTON (button), image);
 
 		/* prepare the image to receive dropped objects to assign custom images */
 		gtk_drag_dest_set (GTK_WIDGET (image),
@@ -564,6 +565,14 @@ create_image_widget (FMPropertiesWindow *window,
 				  G_CALLBACK (fm_properties_window_drag_data_received), NULL);
 		g_signal_connect (button, "clicked",
 				  G_CALLBACK (select_image_button_callback), window);
+
+		gchar *icon_name;
+		get_image_for_properties_window (window, &icon_name, NULL);
+		if (! icon_name)
+			icon_name = g_strdup (_("Icon"));
+		atk_object_set_name (gtk_widget_get_accessible (GTK_WIDGET (button)),
+				     icon_name);
+		g_free (icon_name);
 	}
 
 	window->details->icon_button = button;
@@ -3852,26 +3861,6 @@ set_up_permissions_checkbox (FMPropertiesWindow *window,
 				 0);
 }
 
-static gchar *
-remove_mnemonics (const gchar *str)
-{
-	gsize str_len = strlen (str);
-	gchar *buffer = g_malloc (str_len + 1 + 1);
-	gchar *p = buffer;
-
-	for (; *str != '\0'; str++) {
-		if (*str != '_')
-			*p++ = *str;
-	}
-	/* Work around Orca bug #218, which ignores an accessible
-	 * object’s description if equal to its name. */
-	*p++ = ' ';
-
-	*p = '\0';
-
-	return buffer;
-}
-
 static GtkWidget *
 add_permissions_checkbox_with_label (FMPropertiesWindow *window,
                                      GtkGrid *grid,
@@ -3900,7 +3889,11 @@ add_permissions_checkbox_with_label (FMPropertiesWindow *window,
 
 	a11y_enabled = GTK_IS_ACCESSIBLE (gtk_widget_get_accessible (check_button));
 	if (a11y_enabled && label_for != NULL) {
-		gchar *desc = remove_mnemonics (label);
+		/* Work around Orca bug #218, which ignores an accessible
+		* object’s description if equal to its name. */
+		gchar *msg = caja_remove_mnemonics (label);
+		gchar *desc = g_strconcat (msg, " ", NULL);
+		g_free (msg);
 
 		eel_accessibility_set_up_label_widget_relation (GTK_WIDGET (label_for),
 								check_button);

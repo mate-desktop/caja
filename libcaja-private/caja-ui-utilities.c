@@ -333,3 +333,22 @@ caja_ui_frame_image (GdkPixbuf **pixbuf)
 
     *pixbuf = pixbuf_with_frame;
 }
+
+/* A simple substitution function to remove mnemonic underscores
+ * from a character string; useful for accessible descriptions. */
+char *
+caja_remove_mnemonics (const char *str)
+{
+    gsize str_len = strlen (str);
+    char *buffer = g_malloc (str_len + 1 + 1);
+    char *p = buffer;
+
+    for (; *str != '\0'; str++) {
+        if (*str != '_')
+            *p++ = *str;
+    }
+
+    *p = '\0';
+
+    return buffer;
+}
