@@ -3852,6 +3852,26 @@ set_up_permissions_checkbox (FMPropertiesWindow *window,
 				 0);
 }
 
+static gchar *
+remove_mnemonics (const gchar *str)
+{
+	gsize str_len = strlen (str);
+	gchar *buffer = g_malloc (str_len + 1 + 1);
+	gchar *p = buffer;
+
+	for (; *str != '\0'; str++) {
+		if (*str != '_')
+			*p++ = *str;
+	}
+	/* Work around Orca bug #218, which ignores an accessible
+	 * object’s description if equal to its name. */
+	*p++ = ' ';
+
+	*p = '\0';
+
+	return buffer;
+}
+
 static GtkWidget *
 add_permissions_checkbox_with_label (FMPropertiesWindow *window,
                                      GtkGrid *grid,
@@ -3880,8 +3900,13 @@ add_permissions_checkbox_with_label (FMPropertiesWindow *window,
 
 	a11y_enabled = GTK_IS_ACCESSIBLE (gtk_widget_get_accessible (check_button));
 	if (a11y_enabled && label_for != NULL) {
+		gchar *desc = remove_mnemonics (label);
+
 		eel_accessibility_set_up_label_widget_relation (GTK_WIDGET (label_for),
 								check_button);
+		atk_object_set_description (gtk_widget_get_accessible (check_button),
+					    desc);
+		g_free (desc);
 	}
 
 	return check_button;
