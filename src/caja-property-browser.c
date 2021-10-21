@@ -56,6 +56,7 @@
 #include <libcaja-private/caja-global-preferences.h>
 #include <libcaja-private/caja-metadata.h>
 #include <libcaja-private/caja-signaller.h>
+#include <libcaja-private/caja-ui-utilities.h>
 
 #include "caja-property-browser.h"
 
@@ -2139,12 +2140,16 @@ property_browser_category_button_new (const char *display_name,
         button = eel_labeled_image_radio_button_new (display_name, NULL);
     }
 
+    gchar *button_msg = caja_remove_mnemonics (display_name);
+    atk_object_set_name (gtk_widget_get_accessible (GTK_WIDGET (button)),
+                         button_msg);
     gtk_toggle_button_set_mode (GTK_TOGGLE_BUTTON (button), FALSE);
 
     /* We also want all of the buttons to be the same height */
     eel_labeled_image_set_fixed_image_height (EEL_LABELED_IMAGE (gtk_bin_get_child (GTK_BIN (button))), STANDARD_BUTTON_IMAGE_HEIGHT);
 
     g_free (file_name);
+    g_free (button_msg);
 
     return button;
 }
