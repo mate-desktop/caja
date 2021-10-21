@@ -315,6 +315,27 @@ on_text_field_focus_out_event (GtkWidget *widget,
     return FALSE;
 }
 
+static gboolean
+filter_shift_tab_cb (GtkWidget *widget, GdkEventKey  *event)
+{
+    GdkModifierType state = event->state & gtk_accelerator_get_default_mod_mask ();
+
+    if (state == GDK_SHIFT_MASK) {
+        switch (event->keyval) {
+            case GDK_KEY_Tab:
+            case GDK_KEY_KP_Tab:
+            case GDK_KEY_ISO_Left_Tab:
+                g_signal_stop_emission_by_name(widget, "key-press-event");
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    return FALSE;
+}
+
 static void
 on_changed (GtkEditable *editable, CajaNotesViewer *notes)
 {
@@ -355,6 +376,8 @@ caja_notes_viewer_init (CajaNotesViewer *sidebar)
 
     gtk_container_add (GTK_CONTAINER (sidebar), details->note_text_field);
 
+    g_signal_connect (details->note_text_field, "key_press_event",
+                      G_CALLBACK (filter_shift_tab_cb), sidebar);
     g_signal_connect (details->note_text_field, "focus_out_event",
                       G_CALLBACK (on_text_field_focus_out_event), sidebar);
     g_signal_connect (details->text_buffer, "changed",
