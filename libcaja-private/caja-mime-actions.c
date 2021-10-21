@@ -1356,7 +1356,11 @@ show_unhandled_type_error (ActivateParametersInstall *parameters)
         	      NULL);
     } else {
         char *text;
-        text = g_strdup_printf (_("There is no application installed for %s files"), g_content_type_get_description (mime_type));
+        char *description;
+
+        description = g_content_type_get_description (mime_type);
+        text = g_strdup_printf (_("There is no application installed for %s files"), description);
+        g_free (description);
 
         dialog = gtk_message_dialog_new (parameters->parent_window,
         				 GTK_DIALOG_DESTROY_WITH_PARENT,
@@ -1510,6 +1514,7 @@ pk_proxy_appeared_cb (GObject *source,
 {
     ActivateParametersInstall *parameters_install = user_data;
     char *mime_type;
+    char *description;
     char *error_message;
     GtkWidget *dialog;
     GDBusProxy *proxy;
@@ -1539,10 +1544,12 @@ pk_proxy_appeared_cb (GObject *source,
                                      GTK_MESSAGE_ERROR,
                                      GTK_BUTTONS_YES_NO,
                                      "%s", error_message);
+    description = g_content_type_get_description (mime_type);
     gtk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG (dialog),
             _("There is no application installed for %s files.\n"
               "Do you want to search for an application to open this file?"),
-            g_content_type_get_description (mime_type));
+            description);
+    g_free (description);
     gtk_window_set_resizable (GTK_WINDOW (dialog), FALSE);
 
     parameters_install->dialog = dialog;
