@@ -1001,13 +1001,19 @@ void
 eel_bg_load_from_gsettings (EelBackground *self,
 			    GSettings     *settings)
 {
-    char *keyfile = g_settings_get_string (settings, MATE_BG_KEY_PICTURE_FILENAME);
+    char *picture_filename;
 
-    if (!g_file_test (keyfile, G_FILE_TEST_EXISTS) && (*keyfile != '\0'))
+    picture_filename = g_settings_get_string (settings,
+                                              MATE_BG_KEY_PICTURE_FILENAME);
+    if ((*picture_filename != '\0') &&
+        !g_file_test (picture_filename, G_FILE_TEST_EXISTS))
     {
-        *keyfile = '\0';
-        g_settings_set_string (settings, MATE_BG_KEY_PICTURE_FILENAME, keyfile);
+        *picture_filename = '\0';
+        g_settings_set_string (settings,
+                               MATE_BG_KEY_PICTURE_FILENAME,
+                               picture_filename);
     }
+    g_free (picture_filename);
 
     if (self->details->bg)
         mate_bg_load_from_gsettings (self->details->bg,
