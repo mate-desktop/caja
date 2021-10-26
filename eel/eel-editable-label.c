@@ -1005,9 +1005,9 @@ eel_editable_label_ensure_layout (EelEditableLabel *label,
         if (label->font_desc != NULL)
             pango_layout_set_font_description (label->layout, label->font_desc);
 
-        #if PANGO_CHECK_VERSION (1, 44, 0)
+#if PANGO_CHECK_VERSION (1, 44, 0)
         pango_attr_list_insert (tmp_attrs, pango_attr_insert_hyphens_new (FALSE));
-        #endif
+#endif
         pango_layout_set_attributes (label->layout, tmp_attrs);
 
         if (preedit_string)

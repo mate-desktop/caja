@@ -943,8 +943,8 @@ in_single_click_mode (void)
 
 /* Keep these for a bit while we work on performance of draw_or_measure_label_text. */
 /*
-  #define PERFORMANCE_TEST_DRAW_DISABLE
-  #define PERFORMANCE_TEST_MEASURE_DISABLE
+#define PERFORMANCE_TEST_DRAW_DISABLE
+#define PERFORMANCE_TEST_MEASURE_DISABLE
 */
 
 /* This gets the size of the layout from the position of the layout.
@@ -1975,18 +1975,18 @@ create_label_layout (CajaIconCanvasItem *item,
     CajaIconContainer *container;
     EelCanvasItem *canvas_item;
     char *zeroified_text;
-    #if PANGO_CHECK_VERSION (1, 44, 0)
+#if PANGO_CHECK_VERSION (1, 44, 0)
     PangoAttrList *attr_list;
-    #endif
+#endif
 
     canvas_item = EEL_CANVAS_ITEM (item);
 
     container = CAJA_ICON_CONTAINER (canvas_item->canvas);
     context = gtk_widget_get_pango_context (GTK_WIDGET (canvas_item->canvas));
     layout = pango_layout_new (context);
-    #if PANGO_CHECK_VERSION (1, 44, 0)
+#if PANGO_CHECK_VERSION (1, 44, 0)
     attr_list = pango_attr_list_new ();
-    #endif
+#endif
 
     zeroified_text = NULL;
 
@@ -2036,10 +2036,10 @@ create_label_layout (CajaIconCanvasItem *item,
     pango_layout_set_spacing (layout, LABEL_LINE_SPACING);
     pango_layout_set_wrap (layout, PANGO_WRAP_WORD_CHAR);
 
-    #if PANGO_CHECK_VERSION (1, 44, 0)
+#if PANGO_CHECK_VERSION (1, 44, 0)
     pango_attr_list_insert (attr_list, pango_attr_insert_hyphens_new (FALSE));
     pango_layout_set_attributes (layout, attr_list);
-    #endif
+#endif
 
     /* Create a font description */
     if (container->details->font)
@@ -2056,9 +2056,9 @@ create_label_layout (CajaIconCanvasItem *item,
     pango_layout_set_font_description (layout, desc);
     pango_font_description_free (desc);
     g_free (zeroified_text);
-    #if PANGO_CHECK_VERSION (1, 44, 0)
+#if PANGO_CHECK_VERSION (1, 44, 0)
     pango_attr_list_unref (attr_list);
-    #endif
+#endif
 
     return layout;
 }
