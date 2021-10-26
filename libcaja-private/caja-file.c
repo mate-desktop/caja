@@ -3922,7 +3922,6 @@ caja_file_get_boolean_metadata (CajaFile *file,
 		result = FALSE;
 	} else {
 		g_error ("boolean metadata with value other than true or false");
-		result = default_metadata;
 	}
 
 	g_free (result_as_string);
