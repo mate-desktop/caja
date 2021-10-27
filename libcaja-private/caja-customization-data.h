@@ -25,8 +25,6 @@
 /* caja-customization-data.h - functions to collect and load property
    names and imges */
 
-
-
 #ifndef CAJA_CUSTOMIZATION_DATA_H
 #define CAJA_CUSTOMIZATION_DATA_H
 
@@ -36,8 +34,6 @@
 #define RESET_IMAGE_NAME "reset.png"
 
 typedef struct CajaCustomizationData CajaCustomizationData;
-
-
 
 CajaCustomizationData* caja_customization_data_new                          (const char *customization_name,
         gboolean show_public_customizations,
@@ -57,8 +53,6 @@ gboolean                   caja_customization_data_get_next_element_for_display 
 gboolean                   caja_customization_data_private_data_was_displayed   (CajaCustomizationData *data);
 
 void                       caja_customization_data_destroy                      (CajaCustomizationData *data);
-
-
 
 GdkPixbuf*                 caja_customization_make_pattern_chit                 (GdkPixbuf *pattern_tile,
         GdkPixbuf *frame,

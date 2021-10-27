@@ -260,7 +260,6 @@ eel_g_lists_sort_and_check_for_intersection (GList **list_1,
     return FALSE;
 }
 
-
 /**
  * eel_g_list_partition
  *

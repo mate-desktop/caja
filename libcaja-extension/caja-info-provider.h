@@ -80,8 +80,6 @@ CajaOperationResult caja_info_provider_update_file_info       (CajaInfoProvider 
 void                caja_info_provider_cancel_update          (CajaInfoProvider     *provider,
                                                                CajaOperationHandle  *handle);
 
-
-
 /* Helper functions for implementations */
 void                caja_info_provider_update_complete_invoke (GClosure             *update_complete,
                                                                CajaInfoProvider     *provider,

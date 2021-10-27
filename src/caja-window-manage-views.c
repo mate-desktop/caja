@@ -510,7 +510,6 @@ new_window_show_callback (GtkWidget *widget,
                                           user_data);
 }
 
-
 void
 caja_window_slot_open_location_full (CajaWindowSlot *slot,
                                      GFile *location,
@@ -754,7 +753,6 @@ caja_window_slot_open_location_with_selection (CajaWindowSlot *slot,
                                          flags, selection, NULL, NULL);
 }
 
-
 void
 caja_window_slot_go_home (CajaWindowSlot *slot, gboolean new_tab)
 {
@@ -832,7 +830,6 @@ report_nascent_content_view_failure_to_user (CajaWindowSlot *slot,
                            GTK_WINDOW (window));
     g_free (message);
 }
-
 
 const char *
 caja_window_slot_get_content_view_id (CajaWindowSlot *slot)
@@ -2225,7 +2222,6 @@ display_view_selection_failure (CajaWindow *window, CajaFile *file,
     g_free (error_message);
     g_free (detail_message);
 }
-
 
 void
 caja_window_slot_stop_loading (CajaWindowSlot *slot)

@@ -822,7 +822,6 @@ progress_widget_new (CajaProgressInfo *info)
     vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
     gtk_box_set_spacing (GTK_BOX (vbox), 5);
 
-
     data->widget = vbox;
     g_object_set_data_full (G_OBJECT (data->widget),
                             "data", data,
@@ -1328,7 +1327,6 @@ caja_progress_info_set_status (CajaProgressInfo *info,
 
     G_UNLOCK (progress_info);
 }
-
 
 void
 caja_progress_info_take_details (CajaProgressInfo *info,

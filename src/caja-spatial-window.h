@@ -61,7 +61,6 @@ struct _CajaSpatialWindowClass
     CajaWindowClass parent_spot;
 };
 
-
 GType            caja_spatial_window_get_type			(void);
 void             caja_spatial_window_set_location_button		(CajaSpatialWindow *window,
         GFile                 *location);

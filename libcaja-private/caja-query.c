@@ -86,7 +86,6 @@ caja_query_new (void)
     return g_object_new (CAJA_TYPE_QUERY,  NULL);
 }
 
-
 char *
 caja_query_get_text (CajaQuery *query)
 {
@@ -216,7 +215,6 @@ decode_home_uri (const char *uri)
     return decoded_uri;
 }
 
-
 typedef struct
 {
     CajaQuery *query;
@@ -331,7 +329,6 @@ static GMarkupParser parser =
     error_cb
 };
 
-
 static CajaQuery *
 caja_query_parse_xml (char *xml, gsize xml_len)
 {
@@ -353,7 +350,6 @@ caja_query_parse_xml (char *xml, gsize xml_len)
     return info.query;
 }
 
-
 CajaQuery *
 caja_query_load (char *file)
 {
@@ -365,7 +361,6 @@ caja_query_load (char *file)
     {
         return NULL;
     }
-
 
     g_file_get_contents (file, &xml, &xml_len, NULL);
     query = caja_query_parse_xml (xml, xml_len);
@@ -449,7 +444,6 @@ caja_query_save (CajaQuery *query, char *file)
     char *xml;
     GError *err = NULL;
     gboolean res;
-
 
     res = TRUE;
     xml = caja_query_to_xml (query);

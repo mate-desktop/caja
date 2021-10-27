@@ -812,7 +812,6 @@ real_merge_menus (FMDirectoryView *view)
                                   view);
     G_GNUC_END_IGNORE_DEPRECATIONS;
 
-
     gtk_ui_manager_insert_action_group (ui_manager, action_group, 0);
     g_object_unref (action_group); /* owned by ui manager */
 

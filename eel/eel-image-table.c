@@ -123,7 +123,6 @@ eel_image_table_realize (GtkWidget *widget)
                            | GDK_LEAVE_NOTIFY_MASK
                            | GDK_POINTER_MOTION_MASK);
 
-
     signal_connect_while_realized (windowed_ancestor,
     				   "enter_notify_event",
     				   G_CALLBACK (ancestor_enter_notify_event),

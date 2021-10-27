@@ -184,7 +184,6 @@ caja_icon_info_new_for_icon_info (GtkIconInfo *icon_info,
     return icon;
 }
 
-
 typedef struct
 {
     GIcon *icon;
@@ -377,7 +376,6 @@ caja_icon_info_lookup (GIcon *icon,
                                                                  GTK_ICON_LOOKUP_FORCE_SIZE);
             pixbuf = gtk_icon_info_load_icon (gtkicon_info, NULL);
         }
-
 
         icon_info = caja_icon_info_new_for_pixbuf (pixbuf, scale);
 
@@ -758,7 +756,6 @@ caja_get_icon_size_for_stock_size (GtkIconSize size)
     }
     return CAJA_ZOOM_LEVEL_STANDARD;
 }
-
 
 guint
 caja_icon_get_emblem_size_for_icon_size (guint size)

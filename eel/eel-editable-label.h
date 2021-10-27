@@ -26,7 +26,6 @@
 #ifndef __EEL_EDITABLE_LABEL_H__
 #define __EEL_EDITABLE_LABEL_H__
 
-
 #include <gdk/gdk.h>
 #include <gtk/gtk.h>
 
@@ -86,7 +85,6 @@ extern "C" {
     {
         GtkWidgetClass parent_class;
 
-
         void (* move_cursor)        (EelEditableLabel  *label,
                                      GtkMovementStep    step,
                                      gint               count,
@@ -138,6 +136,5 @@ extern "C" {
 #ifdef __cplusplus
 }
 #endif /* __cplusplus */
-
 
 #endif /* __EEL_EDITABLE_LABEL_H__ */

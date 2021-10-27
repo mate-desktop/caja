@@ -227,7 +227,6 @@ do_constructor (GType type,
     return retval;
 }
 
-
 static void
 caja_bookmark_list_class_init (CajaBookmarkListClass *class)
 {

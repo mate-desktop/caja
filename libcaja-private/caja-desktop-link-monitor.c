@@ -59,7 +59,6 @@ struct CajaDesktopLinkMonitorDetails
     GList *mount_links;
 };
 
-
 static void caja_desktop_link_monitor_init       (gpointer              object,
         gpointer              klass);
 static void caja_desktop_link_monitor_class_init (gpointer              klass);
@@ -201,8 +200,6 @@ remove_mount_link (CajaDesktopLinkMonitor *monitor,
     }
 }
 
-
-
 static void
 mount_added_callback (GVolumeMonitor *volume_monitor,
                       GMount *mount,
@@ -210,7 +207,6 @@ mount_added_callback (GVolumeMonitor *volume_monitor,
 {
     create_mount_link (monitor, mount);
 }
-
 
 static void
 mount_removed_callback (GVolumeMonitor *volume_monitor,

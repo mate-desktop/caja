@@ -77,7 +77,6 @@ fm_empty_view_add_file (FMDirectoryView *view, CajaFile *file, CajaDirectory *di
     g_message ("entire loading: %.3f, cumulative %.3f", elaps, cumu);
 }
 
-
 static void
 fm_empty_view_begin_loading (FMDirectoryView *view)
 {
@@ -87,7 +86,6 @@ static void
 fm_empty_view_clear (FMDirectoryView *view)
 {
 }
-
 
 static void
 fm_empty_view_file_changed (FMDirectoryView *view, CajaFile *file, CajaDirectory *directory)
@@ -105,7 +103,6 @@ fm_empty_view_get_selection (FMDirectoryView *view)
 {
     return NULL;
 }
-
 
 static GList *
 fm_empty_view_get_selection_for_file_transfer (FMDirectoryView *view)
@@ -216,7 +213,6 @@ static void
 fm_empty_view_click_policy_changed (FMDirectoryView *directory_view)
 {
 }
-
 
 static int
 fm_empty_view_compare_files (FMDirectoryView *view, CajaFile *file1, CajaFile *file2)
@@ -332,7 +328,6 @@ fm_empty_view_get_id (CajaView *view)
     return FM_EMPTY_VIEW_ID;
 }
 
-
 static void
 fm_empty_view_iface_init (CajaViewIface *iface)
 {
@@ -344,7 +339,6 @@ fm_empty_view_iface_init (CajaViewIface *iface)
     iface->get_title = NULL;
     iface->grab_focus = fm_empty_view_grab_focus;
 }
-
 
 static void
 fm_empty_view_init (FMEmptyView *empty_view)

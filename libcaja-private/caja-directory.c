@@ -320,7 +320,6 @@ caja_directory_get_existing (GFile *location)
     return caja_directory_get_internal (location, FALSE);
 }
 
-
 CajaDirectory *
 caja_directory_get_by_uri (const char *uri)
 {
@@ -884,7 +883,6 @@ caja_directory_notify_files_added (GList *files)
              * monitored, but the corresponding file is,
              * we must invalidate it's item count.
              */
-
 
             file = NULL;
             parent = g_file_get_parent (location);
@@ -1553,7 +1551,6 @@ caja_directory_match_pattern (CajaDirectory *directory, const char *pattern)
 {
     GList *files, *l, *ret;
     GPatternSpec *spec;
-
 
     ret = NULL;
     spec = g_pattern_spec_new (pattern);

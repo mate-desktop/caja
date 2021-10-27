@@ -290,7 +290,6 @@ caja_sidebar_title_select_text_color (CajaSidebarTitle *sidebar_title,
     setup_gc_with_fg (sidebar_title, LABEL_INFO_COLOR_ACTIVE,
                       eel_gdk_rgba_is_dark (&color) ? light_info_color : dark_info_color);
 
-
     /* If EelBackground is not set in the widget, we can safely
      * use the foreground color from the theme, because it will
      * always be displayed against the gtk background */

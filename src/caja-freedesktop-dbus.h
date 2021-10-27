@@ -21,7 +21,6 @@
  *          Stefano Karapetsas <stefano@karapetsas.com>
  */
 
-
 #ifndef __CAJA_FREEDESKTOP_DBUS_H__
 #define __CAJA_FREEDESKTOP_DBUS_H__
 

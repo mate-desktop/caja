@@ -49,7 +49,6 @@
       PANGO_VERSION_MICRO >= (micro)))
 #endif
 
-
 enum
 {
     MOVE_CURSOR,
@@ -235,7 +234,6 @@ eel_editable_label_class_init (EelEditableLabelClass *class)
     gobject_class->get_property = eel_editable_label_get_property;
     gobject_class->finalize = eel_editable_label_finalize;
 
-
     widget_class->get_preferred_width = eel_editable_label_get_preferred_width;
     widget_class->get_preferred_height = eel_editable_label_get_preferred_height;
     widget_class->size_allocate = eel_editable_label_size_allocate;
@@ -256,7 +254,6 @@ eel_editable_label_class_init (EelEditableLabelClass *class)
     widget_class->focus_in_event = eel_editable_label_focus_in;
     widget_class->focus_out_event = eel_editable_label_focus_out;
     gtk_widget_class_set_accessible_type (widget_class, eel_editable_label_accessible_get_type ());
-
 
     class->move_cursor = eel_editable_label_move_cursor;
     class->delete_from_cursor = eel_editable_label_delete_from_cursor;
@@ -327,7 +324,6 @@ eel_editable_label_class_init (EelEditableLabelClass *class)
                       NULL, NULL,
                       g_cclosure_marshal_VOID__VOID,
                       G_TYPE_NONE, 0);
-
 
     g_object_class_install_property (gobject_class,
                                      PROP_TEXT,
@@ -544,7 +540,6 @@ eel_editable_label_editable_init (GtkEditableInterface *iface)
     iface->set_position = editable_real_set_position;
     iface->get_position = editable_get_position;
 }
-
 
 static void
 eel_editable_label_set_property (GObject      *object,
@@ -776,7 +771,6 @@ eel_editable_label_set_draw_outline (EelEditableLabel *label,
 
 }
 
-
 /**
  * eel_editable_label_set_line_wrap:
  * @label: a #EelEditableLabel
@@ -803,7 +797,6 @@ eel_editable_label_set_line_wrap (EelEditableLabel *label,
     }
 }
 
-
 void
 eel_editable_label_set_line_wrap_mode (EelEditableLabel *label,
                                        PangoWrapMode     mode)
@@ -818,7 +811,6 @@ eel_editable_label_set_line_wrap_mode (EelEditableLabel *label,
     }
 
 }
-
 
 /**
  * eel_editable_label_get_line_wrap:
@@ -1130,7 +1122,6 @@ eel_editable_label_size_request (GtkWidget      *widget,
     gint set_width;
     gint xpad, ypad;
     gint margin_start, margin_end, margin_top, margin_bottom;
-
 
     g_assert (EEL_IS_EDITABLE_LABEL (widget));
     g_assert (requisition != NULL);
@@ -1461,7 +1452,6 @@ eel_editable_label_get_block_cursor_location (EelEditableLabel  *label,
     return pos->width != 0;
 }
 
-
 /* These functions are copies from gtk+, as they are not exported from gtk+ */
 
 static void
@@ -1542,7 +1532,6 @@ eel_editable_label_draw_cursor (EelEditableLabel  *label, cairo_t *cr, gint xoff
         }
     }
 }
-
 
 static gint
 eel_editable_label_draw (GtkWidget *widget,
@@ -1992,7 +1981,6 @@ eel_editable_label_select_region_index (EelEditableLabel *label,
 
     g_assert (EEL_IS_EDITABLE_LABEL (label));
 
-
     if (label->selection_anchor == anchor_index &&
             label->selection_end == end_index)
         return;
@@ -2093,7 +2081,6 @@ eel_editable_label_get_selection_bounds (EelEditableLabel  *label,
 
     g_return_val_if_fail (EEL_IS_EDITABLE_LABEL (label), FALSE);
 
-
     start_index = MIN (label->selection_anchor,
                        label->selection_end);
     end_index = MAX (label->selection_anchor,
@@ -2125,7 +2112,6 @@ eel_editable_label_get_selection_bounds (EelEditableLabel  *label,
 
     return start_offset != end_offset;
 }
-
 
 /**
  * eel_editable_label_get_layout:
@@ -2501,7 +2487,6 @@ get_better_cursor (EelEditableLabel *label,
     }
 }
 
-
 static gint
 eel_editable_label_move_logically (EelEditableLabel *label,
                                    gint      start,
@@ -2674,7 +2659,6 @@ eel_editable_label_move_forward_word (EelEditableLabel *label,
     return g_utf8_offset_to_pointer (label->text, new_pos) - label->text;
 }
 
-
 static gint
 eel_editable_label_move_backward_word (EelEditableLabel *label,
                                        gint      start)
@@ -2819,7 +2803,6 @@ eel_editable_label_reset_im_context (EelEditableLabel  *label)
     }
 }
 
-
 static void
 eel_editable_label_delete_from_cursor (EelEditableLabel *label,
                                        GtkDeleteType     type,
@@ -2895,7 +2878,6 @@ eel_editable_label_delete_from_cursor (EelEditableLabel *label,
 
     eel_editable_label_pend_cursor_blink (label);
 }
-
 
 static void
 eel_editable_label_copy_clipboard (EelEditableLabel *label)
@@ -3347,7 +3329,6 @@ editable_get_position (GtkEditable *editable)
     return g_utf8_pointer_to_offset (label->text, label->text + label->selection_anchor);
 }
 
-
 static AtkObjectClass *a11y_parent_class = NULL;
 
 static const char* eel_editable_label_accessible_data = "eel-editable-label-accessible-data";
@@ -3474,7 +3455,6 @@ eel_editable_label_accessible_get_text_at_offset (AtkText          *text,
     if (widget == NULL)
         /* State is defunct */
         return NULL;
-
 
     label = EEL_EDITABLE_LABEL (widget);
     priv = g_object_get_data (G_OBJECT (text), eel_editable_label_accessible_data);

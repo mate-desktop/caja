@@ -94,4 +94,3 @@ caja_property_page_provider_get_pages (CajaPropertyPageProvider *provider,
            (provider, files);
 }
 
-

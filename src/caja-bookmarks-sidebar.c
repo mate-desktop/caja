@@ -51,7 +51,6 @@
 
 #include "caja-bookmarks-sidebar.h"
 
-
 typedef struct
 {
     GtkScrolledWindowClass parent;

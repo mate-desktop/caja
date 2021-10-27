@@ -294,7 +294,6 @@ icon_is_positioned (const CajaIcon *icon)
     return icon->x != ICON_UNPOSITIONED_VALUE && icon->y != ICON_UNPOSITIONED_VALUE;
 }
 
-
 /* x, y are the top-left coordinates of the icon. */
 static void
 icon_set_position (CajaIcon *icon,
@@ -711,7 +710,6 @@ icon_get_row_and_column_bounds (CajaIconContainer *container,
             bounds->y1 = MAX (bounds->y1, one_bounds.y1);
         }
     }
-
 
 }
 
@@ -1411,7 +1409,6 @@ lay_down_icons_horizontal (CajaIconContainer *container,
         {
             icon_width = ceil ((bounds.x1 - bounds.x0)/grid_width) * grid_width;
 
-
         }
         else
         {
@@ -1753,7 +1750,6 @@ snap_position (CajaIconContainer *container,
     {
         *x = get_mirror_x_position (container, icon, *x);
     }
-
 
     /* Find the grid position vertically and place on the proper baseline */
     baseline_y = *y + icon_height;
@@ -2294,7 +2290,6 @@ lay_down_icons_vertical_desktop (CajaIconContainer *container, GList *icons)
     caja_icon_container_freeze_icon_positions (container);
 }
 
-
 static void
 lay_down_icons (CajaIconContainer *container, GList *icons, double start_y)
 {
@@ -2543,7 +2538,6 @@ select_range (CajaIconContainer *container,
     }
     return selection_changed;
 }
-
 
 static gboolean
 select_one_unselect_others (CajaIconContainer *container,
@@ -3081,7 +3075,6 @@ get_cmp_point_y (CajaIconContainer *container,
         return icon_rect.y1;
     }
 }
-
 
 static int
 compare_icons_horizontal (CajaIconContainer *container,
@@ -3626,7 +3619,6 @@ previous_column_highest (CajaIconContainer *container,
     return best_so_far == NULL;
 }
 
-
 static gboolean
 next_column_highest (CajaIconContainer *container,
                      CajaIcon *start_icon,
@@ -3721,7 +3713,6 @@ closest_in_90_degrees (CajaIconContainer *container,
     int dx, dy;
     int dist;
     int *best_dist;
-
 
     world_rect = caja_icon_canvas_item_get_icon_rectangle (candidate->item);
     eel_canvas_w2c
@@ -4805,7 +4796,6 @@ caja_icon_container_did_not_drag (CajaIconContainer *container,
          * the selection or pressing for a very long time, or double clicking.
          */
 
-
         if (click_count == 0 &&
                 event->time - details->button_down_time < MAX_CLICK_TIME &&
                 ! button_event_modifies_selection (event))
@@ -5250,7 +5240,6 @@ caja_icon_container_search_position_func (CajaIconContainer *container,
     GtkRequisition requisition;
     GdkMonitor *monitor_num;
     GdkRectangle monitor;
-
 
     cont_window = gtk_widget_get_window (GTK_WIDGET (container));
     scale = gtk_widget_get_scale_factor (GTK_WIDGET (container));
@@ -6589,7 +6578,6 @@ caja_icon_container_class_init (CajaIconContainerClass *class)
                                   FALSE,
                                   G_PARAM_READABLE));
 
-
     binding_set = gtk_binding_set_by_class (class);
 
     gtk_binding_entry_add_signal (binding_set, GDK_KEY_f, GDK_CONTROL_MASK, "start_interactive_search", 0);
@@ -6638,7 +6626,6 @@ handle_scale_factor_changed (GObject    *object,
     invalidate_labels (CAJA_ICON_CONTAINER (object));
     caja_icon_container_request_update_all (CAJA_ICON_CONTAINER (object));
 }
-
 
 static int text_ellipsis_limits[CAJA_ZOOM_LEVEL_N_ENTRIES];
 static int desktop_text_ellipsis_limit;
@@ -6945,7 +6932,6 @@ handle_icon_button_press (CajaIconContainer *container,
                        signals[CONTEXT_CLICK_SELECTION], 0,
                        event);
     }
-
 
     return TRUE;
 }
@@ -7438,7 +7424,6 @@ caja_icon_container_stop_monitor_top_left (CajaIconContainer *container,
     klass->stop_monitor_top_left (container, data, client);
 }
 
-
 static void
 caja_icon_container_prioritize_thumbnailing (CajaIconContainer *container,
         CajaIcon *icon)
@@ -7542,7 +7527,6 @@ handle_hadjustment_changed (GtkAdjustment *adjustment,
     }
 }
 
-
 void
 caja_icon_container_update_icon (CajaIconContainer *container,
                                  CajaIcon *icon)
@@ -7584,7 +7568,6 @@ caja_icon_container_update_icon (CajaIconContainer *container,
         icon_get_size (container, icon, &icon_size);
     }
 
-
     icon_size = MAX (icon_size, min_image_size);
     icon_size = MIN (icon_size, max_image_size);
 
@@ -7598,7 +7581,6 @@ caja_icon_container_update_icon (CajaIconContainer *container,
                 icon == details->drop_target,
                 large_embedded_text, &embedded_text_needs_loading,
                 &has_open_window);
-
 
     if (container->details->forced_icon_size > 0)
         pixbuf = caja_icon_info_get_pixbuf_at_size (icon_info, icon_size);
@@ -8141,7 +8123,6 @@ caja_icon_container_invert_selection (CajaIconContainer *container)
     g_signal_emit (container, signals[SELECTION_CHANGED], 0);
 }
 
-
 /* Returns an array of GdkPoints of locations of the icons. */
 static GArray *
 caja_icon_container_get_icon_locations (CajaIconContainer *container,
@@ -8649,7 +8630,6 @@ caja_icon_container_set_auto_layout (CajaIconContainer *container,
     g_signal_emit (container, signals[LAYOUT_CHANGED], 0);
 }
 
-
 /* Toggle the tighter layout boolean. */
 void
 caja_icon_container_set_tighter_layout (CajaIconContainer *container,
@@ -8966,7 +8946,6 @@ caja_icon_container_start_renaming_selected_item (CajaIconContainer *container,
     }
 
     g_assert (!has_multiple_selection (container));
-
 
     if (!icon_is_positioned (icon))
     {
@@ -9655,7 +9634,6 @@ caja_icon_container_accessible_cleared_cb (CajaIconContainer *container,
     g_signal_emit_by_name (data, "children_changed", 0, NULL, NULL);
 }
 
-
 static gboolean
 caja_icon_container_accessible_add_selection (AtkSelection *accessible,
         int i)
@@ -9858,7 +9836,6 @@ caja_icon_container_accessible_selection_interface_init (AtkSelectionIface *ifac
     iface->remove_selection = caja_icon_container_accessible_remove_selection;
     iface->select_all_selection = caja_icon_container_accessible_select_all_selection;
 }
-
 
 static gint
 caja_icon_container_accessible_get_n_children (AtkObject *accessible)

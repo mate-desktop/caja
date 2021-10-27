@@ -673,7 +673,6 @@ on_remove_button_clicked (GtkButton *button,
     bookmarks_delete_bookmark ();
 }
 
-
 /* This is a bit of a kludge to get DnD to work. We check if the row in the
    GtkListStore matches the one in the bookmark list. If it doesn't, we assume
    the bookmark has just been dragged here and we insert it into the bookmark
@@ -838,7 +837,6 @@ on_selection_changed (GtkTreeSelection *treeselection,
     g_free (name);
     g_free (entry_text);
 }
-
 
 static void
 update_bookmark_from_text (void)

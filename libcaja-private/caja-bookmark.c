@@ -203,7 +203,6 @@ caja_bookmark_get_name (CajaBookmark *bookmark)
     return g_strdup (bookmark->details->name);
 }
 
-
 gboolean
 caja_bookmark_get_has_custom_name (CajaBookmark *bookmark)
 {
@@ -282,7 +281,6 @@ caja_bookmark_get_uri (CajaBookmark *bookmark)
     g_object_unref (file);
     return uri;
 }
-
 
 /**
  * caja_bookmark_set_name:

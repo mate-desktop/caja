@@ -46,7 +46,6 @@ struct CajaSearchDirectoryFileDetails
 
 G_DEFINE_TYPE(CajaSearchDirectoryFile, caja_search_directory_file, CAJA_TYPE_FILE);
 
-
 static void
 search_directory_file_monitor_add (CajaFile *file,
                                    gconstpointer client,
@@ -184,7 +183,6 @@ caja_search_directory_file_update_display_name (CajaSearchDirectoryFile *search_
     CajaFile *file;
     char *display_name;
     gboolean changed;
-
 
     display_name = NULL;
     file = CAJA_FILE (search_file);

@@ -26,7 +26,6 @@
  * check functions in Caja proper.
  */
 
-
 #ifndef __CAJA_SELF_CHECK_FUNCTIONS_H__
 #define __CAJA_SELF_CHECK_FUNCTIONS_H__
 

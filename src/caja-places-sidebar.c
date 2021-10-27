@@ -562,7 +562,6 @@ update_places (CajaPlacesSidebar *sidebar)
                            location, mount_uri, last_uri,
                            &last_iter, &select_path);
 
-
     /* XDG directories */
     xdg_dirs = NULL;
     for (index = 0; index < G_USER_N_DIRECTORIES; index++) {
@@ -808,7 +807,6 @@ update_places (CajaPlacesSidebar *sidebar)
         g_free (tooltip);
     }
     g_list_free (mounts);
-
 
     /* add bookmarks */
     bookmark_count = caja_bookmark_list_length (sidebar->bookmarks);
@@ -1853,7 +1851,6 @@ bookmarks_check_popup_sensitivity (CajaPlacesSidebar *sidebar)
         }
     }
 
-
     g_free (uri);
 }
 
@@ -1905,7 +1902,6 @@ volume_mounted_cb (GVolume *volume,
         g_object_unref (G_OBJECT (location));
         g_object_unref (G_OBJECT (mount));
     }
-
 
     eel_remove_weak_pointer (&(sidebar->go_to_after_mount_slot));
 }
@@ -3059,7 +3055,6 @@ bookmarks_button_press_event_cb (GtkWidget             *widget,
 
     return FALSE;
 }
-
 
 static void
 bookmarks_edited (GtkCellRenderer       *cell,

@@ -61,6 +61,4 @@ GtkWidget* caja_add_application_dialog_new (const char *uri,
 GtkWidget* caja_add_application_dialog_new_for_multiple_files (const char *extension,
         const char *mime_type);
 
-
-
 #endif /* CAJA_OPEN_WITH_DIALOG_H */

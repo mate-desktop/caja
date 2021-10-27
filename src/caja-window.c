@@ -1416,7 +1416,6 @@ load_view_as_menu (CajaWindow *window)
         window->details->view_as_action_group = NULL;
     }
 
-
     refresh_stored_viewers (window);
 
     merge_id = gtk_ui_manager_new_merge_id (window->details->ui_manager);
@@ -1605,7 +1604,6 @@ zoom_level_changed_callback (CajaView *view,
     caja_window_sync_zoom_widgets (window);
 }
 
-
 /* These are called
  *   A) when switching the view within the active slot
  *   B) when switching the active slot
@@ -1708,7 +1706,6 @@ caja_window_get_next_pane (CajaWindow *window)
 
     return next_pane;
 }
-
 
 void
 caja_window_slot_set_viewed_file (CajaWindowSlot *slot,
@@ -1988,7 +1985,6 @@ caja_window_get_history (CajaWindow *window)
     return g_list_copy_deep (history_list, caja_window_copy_history_item, NULL);
 }
 
-
 static CajaWindowType
 caja_window_get_window_type (CajaWindow *window)
 {
@@ -2100,7 +2096,6 @@ caja_window_get_extra_slot (CajaWindow *window)
     GList *node;
 
     g_assert (CAJA_IS_WINDOW (window));
-
 
     /* return NULL if there is only one pane */
     if (window->details->panes == NULL ||

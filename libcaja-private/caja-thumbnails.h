@@ -40,5 +40,4 @@ gboolean   caja_thumbnail_is_mimetype_limited_by_size
 void       caja_thumbnail_remove_from_queue     (const char   *file_uri);
 void       caja_thumbnail_prioritize            (const char   *file_uri);
 
-
 #endif /* CAJA_THUMBNAILS_H */

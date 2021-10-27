@@ -54,7 +54,6 @@ extern "C" {
                                   const char *mime_type);
     };
 
-
     void                    caja_view_factory_register          (CajaViewInfo   *view_info);
     const CajaViewInfo *caja_view_factory_lookup            (const char         *id);
     CajaView *          caja_view_factory_create            (const char         *id,
@@ -66,9 +65,6 @@ extern "C" {
     GList *                 caja_view_factory_get_views_for_uri (const char         *uri,
             GFileType          file_type,
             const char         *mime_type);
-
-
-
 
 #ifdef __cplusplus
 }

@@ -42,7 +42,6 @@
 #define CAJA_ICON_CONTAINER_GET_CLASS(obj) \
   (G_TYPE_INSTANCE_GET_CLASS ((obj), CAJA_TYPE_ICON_CONTAINER, CajaIconContainerClass))
 
-
 #define CAJA_ICON_CONTAINER_ICON_DATA(pointer) \
 	((CajaIconData *) (pointer))
 
@@ -245,7 +244,6 @@ typedef struct
 GType             caja_icon_container_get_type                      (void);
 GtkWidget *       caja_icon_container_new                           (void);
 
-
 /* adding, removing, and managing icons */
 void              caja_icon_container_clear                         (CajaIconContainer  *view);
 gboolean          caja_icon_container_add                           (CajaIconContainer  *view,
@@ -300,7 +298,6 @@ void              caja_icon_container_set_highlighted_for_clipboard (CajaIconCon
 /* operations on all icons */
 void              caja_icon_container_unselect_all                  (CajaIconContainer  *view);
 void              caja_icon_container_select_all                    (CajaIconContainer  *view);
-
 
 /* operations on the selection */
 GList     *       caja_icon_container_get_selection                 (CajaIconContainer  *view);
@@ -360,7 +357,6 @@ void              caja_icon_container_set_store_layout_timestamps   (CajaIconCon
 
 void              caja_icon_container_widget_to_file_operation_position (CajaIconContainer *container,
         GdkPoint              *position);
-
 
 #define CANVAS_WIDTH(container,allocation) ((allocation.width	  \
 				- container->details->left_margin \

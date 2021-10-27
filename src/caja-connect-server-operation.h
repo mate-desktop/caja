@@ -59,5 +59,4 @@ GType caja_connect_server_operation_get_type (void);
 GMountOperation *
 caja_connect_server_operation_new (CajaConnectServerDialog *dialog);
 
-
 #endif /* __CAJA_CONNECT_SERVER_OPERATION_H__ */

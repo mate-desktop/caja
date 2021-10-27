@@ -81,5 +81,4 @@ gboolean                caja_desktop_link_can_rename              (CajaDesktopLi
 gboolean                caja_desktop_link_rename                  (CajaDesktopLink     *link,
         const char              *name);
 
-
 #endif /* CAJA_DESKTOP_LINK_H */

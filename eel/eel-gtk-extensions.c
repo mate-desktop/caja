@@ -50,7 +50,6 @@
 #define MINIMUM_ON_SCREEN_WIDTH		100
 #define MINIMUM_ON_SCREEN_HEIGHT	100
 
-
 /**
  * eel_gtk_window_get_geometry_string:
  * @window: a #GtkWindow

@@ -418,4 +418,3 @@ caja_entry_set_special_tab_handling (CajaEntry *entry,
     entry->details->special_tab_handling = special_tab_handling;
 }
 
-

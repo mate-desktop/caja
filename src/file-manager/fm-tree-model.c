@@ -2114,4 +2114,3 @@ fm_tree_model_tree_model_init (GtkTreeModelIface *iface)
     iface->unref_node = fm_tree_model_unref_node;
 }
 
-

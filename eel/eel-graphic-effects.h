@@ -29,7 +29,6 @@
 #include <gtk/gtk.h>
 #include <gdk/gdk.h>
 
-
 /* return a lightened pixbuf for pre-lighting */
 GdkPixbuf *eel_create_spotlight_pixbuf (GdkPixbuf *source_pixbuf);
 /* return a lightened surface for pre-lighting */

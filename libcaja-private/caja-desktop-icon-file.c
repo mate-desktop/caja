@@ -48,7 +48,6 @@ struct _CajaDesktopIconFilePrivate
 
 G_DEFINE_TYPE_WITH_PRIVATE (CajaDesktopIconFile, caja_desktop_icon_file, CAJA_TYPE_FILE)
 
-
 static void
 desktop_icon_file_monitor_add (CajaFile *file,
                                gconstpointer client,

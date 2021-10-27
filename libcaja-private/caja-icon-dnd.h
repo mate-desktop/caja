@@ -43,7 +43,6 @@ typedef struct
     EelCanvasItem *shadow;
 } CajaIconDndInfo;
 
-
 void   caja_icon_dnd_init                  (CajaIconContainer *container);
 void   caja_icon_dnd_fini                  (CajaIconContainer *container);
 void   caja_icon_dnd_begin_drag            (CajaIconContainer *container,

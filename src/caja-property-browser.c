@@ -168,7 +168,6 @@ static GdkPixbuf * make_color_drag_image                        (CajaPropertyBro
         const char                    *color_spec,
         gboolean                       trim_edges);
 
-
 #define BROWSER_CATEGORIES_FILE_NAME "browser.xml"
 
 #define PROPERTY_BROWSER_WIDTH 540
@@ -196,9 +195,7 @@ static GtkTargetEntry drag_types[] =
     { "text/uri-list",  0, PROPERTY_TYPE }
 };
 
-
 G_DEFINE_TYPE_WITH_PRIVATE (CajaPropertyBrowser, caja_property_browser, GTK_TYPE_WINDOW)
-
 
 /* Destroy the three dialogs for adding patterns/colors/emblems if any of them
    exist. */
@@ -433,7 +430,6 @@ caja_property_browser_init (CajaPropertyBrowser *property_browser)
     g_signal_connect_object (property_browser->details->add_button, "clicked",
                              G_CALLBACK (add_new_button_callback), property_browser, 0);
 
-
     /* now create the actual content, with the category pane and the content frame */
 
     /* the actual contents are created when necessary */
@@ -580,7 +576,6 @@ caja_property_browser_drag_begin (GtkWidget *widget,
     }
 
 }
-
 
 /* drag and drop data get handler */
 
@@ -799,7 +794,6 @@ make_drag_image (CajaPropertyBrowser *property_browser, const char* file_name)
 
     return pixbuf;
 }
-
 
 /* create a pixbuf and fill it with a color */
 
@@ -1274,7 +1268,6 @@ add_pattern_to_browser (GtkDialog *dialog, gint response_id, gpointer data)
         return;
     }
 
-
     user_directory = caja_get_user_directory ();
 
     /* copy the image file to the patterns directory */
@@ -1304,7 +1297,6 @@ add_pattern_to_browser (GtkDialog *dialog, gint response_id, gpointer data)
     g_object_unref (selected);
     g_object_unref (dest);
     g_free (basename);
-
 
     /* update the property browser's contents to show the new one */
     caja_property_browser_update_contents (property_browser);
@@ -1486,7 +1478,6 @@ show_color_selection_window (GtkWidget *widget, gpointer data)
     gtk_widget_show (GTK_WIDGET(property_browser->details->colors_dialog));
 }
 
-
 /* here's the routine to add a new color, by putting up a color selector */
 
 static void
@@ -1579,7 +1570,6 @@ emblem_dialog_clicked (GtkWidget *dialog, int which_button, CajaPropertyBrowser 
         {
             stripped_keyword = g_strstrip (g_strdup (new_keyword));
         }
-
 
         caja_emblem_install_custom_emblem (pixbuf,
                                            stripped_keyword,
@@ -1947,7 +1937,6 @@ make_properties_from_directories (CajaPropertyBrowser *property_browser)
 
         blank = eel_image_table_add_empty_image (image_table);
         labeled_image_configure (EEL_LABELED_IMAGE (blank));
-
 
         num_images = eel_wrap_table_get_num_children (EEL_WRAP_TABLE (image_table));
         g_assert (num_images > 0);
@@ -2373,7 +2362,6 @@ caja_property_browser_update_contents (CajaPropertyBrowser *property_browser)
         }
         gtk_widget_show (property_browser->details->add_button);
 
-
         if (property_browser->details->remove_mode)
         {
 
@@ -2488,7 +2476,6 @@ caja_property_browser_set_category (CajaPropertyBrowser *property_browser,
     caja_property_browser_update_contents (property_browser);
 }
 
-
 /* here is the routine that populates the property browser with the appropriate information
    when the path changes */
 
@@ -2515,7 +2502,6 @@ emblems_changed_callback (GObject *signaller,
 {
     caja_property_browser_update_contents (property_browser);
 }
-
 
 static void
 emit_emblems_changed_signal (void)

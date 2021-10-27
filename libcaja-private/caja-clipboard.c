@@ -160,7 +160,6 @@ received_clipboard_contents (GtkClipboard     *clipboard,
     g_object_unref (action_group);
 }
 
-
 static void
 set_paste_sensitive_if_clipboard_contains_data (GtkActionGroup *action_group)
 {

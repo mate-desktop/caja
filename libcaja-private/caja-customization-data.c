@@ -70,7 +70,6 @@ struct CajaCustomizationData
     guint reading_mode : 2; /* enough bits for CustomizationReadingMode */
 };
 
-
 /* The Property here should be one of "emblems", "colors" or "patterns" */
 static char *            get_global_customization_path       (const char *customization_name);
 static char *            get_private_customization_path      (const char *customization_name);
@@ -78,7 +77,6 @@ static char *            get_file_path_for_mode              (const CajaCustomiz
         const char *file_name);
 static char*             format_name_for_display             (CajaCustomizationData *data, const char *name);
 static void		 load_name_map_hash_table	     (CajaCustomizationData *data);
-
 
 static gboolean
 read_all_children (char *filename,
@@ -115,7 +113,6 @@ read_all_children (char *filename,
     *list_out = g_list_reverse (list);
     return TRUE;
 }
-
 
 CajaCustomizationData*
 caja_customization_data_new (const char *customization_name,
@@ -231,7 +228,6 @@ caja_customization_data_get_next_element_for_display (CajaCustomizationData *dat
         }
     }
 
-
     current_file_info = data->current_file_list->data;
     data->current_file_list = data->current_file_list->next;
 
@@ -321,7 +317,6 @@ caja_customization_data_destroy (CajaCustomizationData *data)
     g_free (data);
 }
 
-
 /* get_global_customization_directory
    Get the path where a property's pixmaps are stored
    @customization_name : the name of the customization to get.
@@ -336,7 +331,6 @@ get_global_customization_path (const char *customization_name)
                              customization_name,
                              NULL);
 }
-
 
 /* get_private_customization_directory
    Get the path where a customization's pixmaps are stored
@@ -360,7 +354,6 @@ get_private_customization_path (const char *customization_name)
     return directory_path;
 }
 
-
 static char *
 get_file_path_for_mode (const CajaCustomizationData *data,
                         const char *file_name)
@@ -380,7 +373,6 @@ get_file_path_for_mode (const CajaCustomizationData *data,
 
     return file;
 }
-
 
 /* utility to make an attractive pattern image by compositing with a frame */
 GdkPixbuf*
@@ -420,7 +412,6 @@ caja_customization_make_pattern_chit (GdkPixbuf *pattern_tile, GdkPixbuf *frame,
 
     return pixbuf;
 }
-
 
 /* utility to format the passed-in name for display by stripping the extension, mapping underscore
    and capitalizing as necessary */

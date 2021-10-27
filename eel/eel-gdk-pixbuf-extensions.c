@@ -107,7 +107,6 @@ eel_gdk_pixbuf_load_from_stream_at_size (GInputStream  *stream,
     GdkPixbuf *pixbuf;
     gboolean got_eos;
 
-
     g_return_val_if_fail (stream != NULL, NULL);
 
     got_eos = FALSE;

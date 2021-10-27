@@ -160,7 +160,6 @@ caja_search_engine_start (CajaSearchEngine *engine)
     CAJA_SEARCH_ENGINE_GET_CLASS (engine)->start (engine);
 }
 
-
 void
 caja_search_engine_stop (CajaSearchEngine *engine)
 {
@@ -187,7 +186,6 @@ caja_search_engine_hits_added (CajaSearchEngine *engine, GList *hits)
     g_signal_emit (engine, signals[HITS_ADDED], 0, hits);
 }
 
-
 void
 caja_search_engine_hits_subtracted (CajaSearchEngine *engine, GList *hits)
 {
@@ -195,7 +193,6 @@ caja_search_engine_hits_subtracted (CajaSearchEngine *engine, GList *hits)
 
     g_signal_emit (engine, signals[HITS_SUBTRACTED], 0, hits);
 }
-
 
 void
 caja_search_engine_finished (CajaSearchEngine *engine)

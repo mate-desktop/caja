@@ -25,11 +25,9 @@
 	    Andy Hertzfeld <andy@eazel.com>
 	    Pavel Cisler <pavel@eazel.com>
 
-
    XDS support: Benedikt Meurer <benny@xfce.org> (adapted by Amos Brocco <amos.brocco@unifr.ch>)
 
 */
-
 
 #include <config.h>
 #include <math.h>
@@ -182,7 +180,6 @@ set_shadow_position (EelCanvasItem *shadow,
                          "x", x, "y", y,
                          NULL);
 }
-
 
 /* Source-side handling of the drag. */
 
@@ -338,7 +335,6 @@ drag_data_get_callback (GtkWidget *widget,
     caja_drag_drag_data_get (widget, context, selection_data,
                              info, time, widget, each_icon_get_data_binder);
 }
-
 
 /* Target-side handling of the drag.  */
 
@@ -1221,7 +1217,6 @@ selection_is_image_file (GList *selection_list)
     return result;
 }
 
-
 static void
 caja_icon_container_receive_dropped_icons (CajaIconContainer *container,
         GdkDragContext *context,
@@ -1943,7 +1938,6 @@ caja_icon_dnd_init (CajaIconContainer *container)
     g_return_if_fail (container != NULL);
     g_return_if_fail (CAJA_IS_ICON_CONTAINER (container));
 
-
     container->details->dnd_info = g_new0 (CajaIconDndInfo, 1);
     caja_drag_init (&container->details->dnd_info->drag_info,
                     drag_types, G_N_ELEMENTS (drag_types), TRUE);
@@ -1965,7 +1959,6 @@ caja_icon_dnd_init (CajaIconContainer *container)
 
     targets = gtk_drag_dest_get_target_list (GTK_WIDGET (container));
     gtk_target_list_add_text_targets (targets, CAJA_ICON_DND_TEXT);
-
 
     /* Messages for outgoing drag. */
     g_signal_connect (container, "drag_begin",

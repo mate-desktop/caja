@@ -109,7 +109,6 @@ real_update_query_editor (CajaWindowSlot *slot)
     caja_directory_unref (directory);
 }
 
-
 static void
 real_active (CajaWindowSlot *slot)
 {
@@ -175,7 +174,6 @@ caja_window_slot_inactive (CajaWindowSlot *slot)
     EEL_CALL_METHOD (CAJA_WINDOW_SLOT_CLASS, slot,
                      inactive, (slot));
 }
-
 
 static void
 caja_window_slot_init (CajaWindowSlot *slot)
@@ -339,7 +337,6 @@ caja_window_slot_set_title (CajaWindowSlot *slot,
         caja_window_sync_title (window, slot);
     }
 }
-
 
 /* caja_window_slot_update_title:
  *

@@ -66,7 +66,6 @@ caja_sidebar_provider_create (CajaSidebarProvider *provider,
     return (* CAJA_SIDEBAR_PROVIDER_GET_IFACE (provider)->create) (provider, window);
 }
 
-
 GList *
 caja_list_sidebar_providers (void)
 {

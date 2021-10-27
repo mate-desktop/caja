@@ -151,8 +151,6 @@ struct DeepCountState
     char *fs_id;
 };
 
-
-
 typedef struct
 {
     CajaFile *file; /* Which file, NULL means all. */
@@ -837,7 +835,6 @@ caja_directory_monitor_add_internal (CajaDirectory *directory,
     {
         directory->details->monitor = caja_monitor_directory (directory->details->location);
     }
-
 
     if (REQUEST_WANTS_TYPE (monitor->request, REQUEST_FILE_INFO) &&
             directory->details->mime_db_monitor == 0)
@@ -2116,7 +2113,6 @@ caja_directory_has_active_request_for_file (CajaDirectory *directory,
     return FALSE;
 }
 
-
 /* This checks if there's a request for monitoring the file list. */
 gboolean
 caja_directory_is_anyone_monitoring_file_list (CajaDirectory *directory)
@@ -2278,7 +2274,6 @@ enumerate_children_callback (GObject *source_object,
     }
 }
 
-
 /* Start monitoring the file list if it isn't already. */
 static void
 start_monitoring_file_list (CajaDirectory *directory)
@@ -2370,7 +2365,6 @@ caja_file_invalidate_count_and_mime_list (CajaFile *file)
 
     caja_file_invalidate_attributes (file, attributes);
 }
-
 
 /* Reset count and mime list. Invalidating deep counts is handled by
  * itself elsewhere because it's a relatively heavyweight and
@@ -3045,7 +3039,6 @@ deep_count_callback (GObject *source_object,
     }
 }
 
-
 static void
 deep_count_load (DeepCountState *state, GFile *location)
 {
@@ -3221,7 +3214,6 @@ mime_list_state_free (MimeListState *state)
     caja_directory_unref (state->directory);
     g_free (state);
 }
-
 
 static void
 mime_list_done (MimeListState *state, gboolean success)
@@ -3431,7 +3423,6 @@ mime_list_start (CajaDirectory *directory,
     {
         return;
     }
-
 
     state = g_new0 (MimeListState, 1);
     state->mime_list_file = file;
@@ -4291,7 +4282,6 @@ get_pixbuf_for_content (goffset file_len,
     return pixbuf;
 }
 
-
 static void
 thumbnail_read_callback (GObject *source_object,
                          GAsyncResult *res,
@@ -4828,7 +4818,6 @@ finish_info_provider (CajaDirectory *directory,
     }
 }
 
-
 static gboolean
 info_provider_idle_callback (gpointer user_data)
 {
@@ -5177,7 +5166,6 @@ cancel_link_info_for_file (CajaDirectory *directory,
     }
 }
 
-
 static void
 cancel_loading_attributes (CajaDirectory *directory,
                            CajaFileAttributes file_attributes)
@@ -5294,7 +5282,6 @@ caja_directory_add_file_to_work_queue (CajaDirectory *directory,
                              file);
 }
 
-
 static void
 add_all_files_to_work_queue (CajaDirectory *directory)
 {
@@ -5321,7 +5308,6 @@ caja_directory_remove_file_from_work_queue (CajaDirectory *directory,
     caja_file_queue_remove (directory->details->extension_queue,
                             file);
 }
-
 
 static void
 move_file_to_low_priority_queue (CajaDirectory *directory,

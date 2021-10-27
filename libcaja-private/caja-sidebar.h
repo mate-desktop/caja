@@ -56,7 +56,6 @@ extern "C" {
         void           (* is_visible_changed)     (CajaSidebar *sidebar,
                 gboolean         is_visible);
 
-
         /* Padding for future expansion */
         void (*_reserved1) (void);
         void (*_reserved2) (void);

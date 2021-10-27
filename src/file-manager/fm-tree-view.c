@@ -74,7 +74,6 @@ typedef struct
     GObjectClass parent;
 } FMTreeViewProviderClass;
 
-
 struct FMTreeViewDetails
 {
     CajaWindowInfo *window;
@@ -156,7 +155,6 @@ notify_clipboard_info (CajaClipboardMonitor *monitor,
         fm_tree_model_set_highlight_for_files (view->details->child_model, NULL);
     }
 }
-
 
 static gboolean
 show_iter_for_file (FMTreeView *view, CajaFile *file, GtkTreeIter *iter)
@@ -621,7 +619,6 @@ compare_rows (GtkTreeModel *model, GtkTreeIter *a, GtkTreeIter *b, gpointer call
 
     return result;
 }
-
 
 static char *
 get_root_uri_callback (CajaTreeViewDragDest *dest,
@@ -1266,7 +1263,6 @@ create_popup_menu (FMTreeView *view)
                       G_CALLBACK (popup_menu_deactivated),
                       view);
 
-
     /* add the "open" menu item */
     menu_item = eel_image_menu_item_new_from_icon ("document-open", _("_Open"));
     g_signal_connect (menu_item, "activate",
@@ -1427,7 +1423,6 @@ create_tree (FMTreeView *view)
     icon = g_themed_icon_new (CAJA_ICON_TRASH);
     fm_tree_model_add_root_uri (view->details->child_model, "trash:///", _("Trash"), icon, NULL);
     g_object_unref (icon);
-
 
     volume_monitor = g_volume_monitor_get ();
     view->details->volume_monitor = volume_monitor;
