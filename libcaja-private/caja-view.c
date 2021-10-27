@@ -203,7 +203,6 @@ caja_view_get_title (CajaView *view)
     }
 }
 
-
 gboolean
 caja_view_supports_zooming (CajaView *view)
 {
@@ -326,5 +325,4 @@ caja_view_drop_proxy_received_netscape_url (CajaView         *view,
         (* CAJA_VIEW_GET_IFACE (view)->drop_proxy_received_netscape_url) (view, source_url, target_location, action);
     }
 }
-
 

@@ -53,7 +53,6 @@ enum
     PROP_WINDOW
 };
 
-
 static void
 activate_nth_short_list_item (CajaWindow *window, guint index)
 {
@@ -166,7 +165,6 @@ view_as_changed_callback (CajaWindow *window,
         gtk_widget_show(GTK_WIDGET(combo_box));
     }
 }
-
 
 static void
 connect_proxy (GtkAction *action,

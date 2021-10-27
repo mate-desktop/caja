@@ -85,4 +85,3 @@ caja_configurable_run_config (CajaConfigurable *provider)
     }
 }
 
-

@@ -43,7 +43,6 @@
 #define CAJA_PLACES_SIDEBAR_GET_CLASS(obj) \
   (G_TYPE_INSTANCE_GET_CLASS ((obj), CAJA_TYPE_PLACES_SIDEBAR, CajaPlacesSidebarClass))
 
-
 GType caja_places_sidebar_get_type (void);
 void caja_places_sidebar_register (void);
 

@@ -57,5 +57,4 @@ void                   caja_mime_activate_file                        (GtkWindow
         CajaWindowOpenMode   mode,
         CajaWindowOpenFlags  flags);
 
-
 #endif /* CAJA_MIME_ACTIONS_H */

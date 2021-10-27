@@ -141,8 +141,6 @@ _g_key_file_save_to_gfile (GKeyFile *key_file,
     return TRUE;
 }
 
-
-
 static GKeyFile *
 _g_key_file_new_from_uri (const char *uri,
                           GKeyFileFlags flags,
@@ -270,7 +268,6 @@ caja_link_local_create (const char     *directory_uri,
                                 image != NULL ? "Icon=" : "",
                                 image != NULL ? image : "");
 
-
     if (!g_file_replace_contents (file,
                                   contents, strlen (contents),
                                   NULL, FALSE,
@@ -355,7 +352,6 @@ caja_link_local_set_key (const char *uri,
         g_key_file_set_string (key_file, MAIN_GROUP, key, value);
     }
 
-
     success = _g_key_file_save_to_gfile (key_file,  file, NULL);
     g_key_file_free (key_file);
     g_object_unref (file);
@@ -368,7 +364,6 @@ caja_link_local_set_text (const char *uri,
 {
     return caja_link_local_set_key (uri, "Name", text, TRUE);
 }
-
 
 gboolean
 caja_link_local_set_icon (const char        *uri,

@@ -116,7 +116,6 @@ struct FMIconViewDetails
     gulong clipboard_handler_id;
 };
 
-
 /* Note that the first item in this list is the default sort,
  * and that the items show up in the menu in the order they
  * appear in this list.
@@ -483,7 +482,6 @@ action_tighter_layout_callback (GtkAction *action,
     G_GNUC_END_IGNORE_DEPRECATIONS;
 }
 
-
 static gboolean
 fm_icon_view_using_auto_layout (FMIconView *icon_view)
 {
@@ -557,7 +555,6 @@ fm_icon_view_clear (FMDirectoryView *view)
     g_slist_foreach (file_list, (GFunc)unref_cover, NULL);
     g_slist_free (file_list);
 }
-
 
 static gboolean
 should_show_file_on_screen (FMDirectoryView *view, CajaFile *file)
@@ -817,7 +814,6 @@ update_layout_menus (FMIconView *view)
     G_GNUC_END_IGNORE_DEPRECATIONS;
 }
 
-
 static char *
 fm_icon_view_get_directory_sort_by (FMIconView *icon_view,
                                     CajaFile *file)
@@ -1063,7 +1059,6 @@ static gboolean
 fm_icon_view_real_get_directory_auto_layout (FMIconView *icon_view,
         CajaFile *file)
 {
-
 
     return caja_file_get_boolean_metadata
            (file, CAJA_METADATA_KEY_ICON_VIEW_AUTO_LAYOUT, TRUE);
@@ -1651,7 +1646,6 @@ set_sort_criterion_by_sort_type (FMIconView *icon_view,
     fm_icon_view_reveal_selection (FM_DIRECTORY_VIEW (icon_view));
 }
 
-
 static void
 action_reversed_order_callback (GtkAction *action,
                                 gpointer user_data)
@@ -2101,7 +2095,6 @@ fm_icon_view_get_selected_icon_locations (FMDirectoryView *view)
            (get_icon_container (FM_ICON_VIEW (view)));
 }
 
-
 static void
 fm_icon_view_set_selection (FMDirectoryView *view, GList *selection)
 {
@@ -2409,7 +2402,6 @@ sound_preview_type_supported (CajaFile *file)
     return FALSE;
 }
 
-
 static gboolean
 should_preview_sound (CajaFile *file)
 {
@@ -2541,7 +2533,6 @@ compare_files (FMDirectoryView   *icon_view,
 {
     return fm_icon_view_compare_files ((FMIconView *)icon_view, a, b);
 }
-
 
 void
 fm_icon_view_filter_by_screen (FMIconView *icon_view,
@@ -2726,7 +2717,6 @@ icon_position_changed_callback (CajaIconContainer *container,
          NULL, position_string);
         g_free (position_string);
     }
-
 
     g_ascii_dtostr (scale_string, sizeof (scale_string), position->scale);
     caja_file_set_metadata
@@ -2937,7 +2927,6 @@ all_columns_same_width_changed_callback (gpointer callback_data)
 
     set_columns_same_width (icon_view);
 }
-
 
 static void
 fm_icon_view_sort_directories_first_changed (FMDirectoryView *directory_view)
@@ -3259,8 +3248,6 @@ fm_icon_view_set_property (GObject         *object,
     }
 }
 
-
-
 static void
 fm_icon_view_class_init (FMIconViewClass *klass)
 {
@@ -3502,7 +3489,6 @@ fm_icon_view_supports_uri (const char *uri,
 	view_info.error_label = _(view_info.error_label); \
 	view_info.startup_error_label = _(view_info.startup_error_label); \
 	view_info.display_location_label = _(view_info.display_location_label); \
-
 
 static CajaViewInfo fm_icon_view =
 {

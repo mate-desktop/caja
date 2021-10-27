@@ -53,7 +53,6 @@ enum
     PROP_WIDTH_UNITS
 };
 
-
 static void eel_canvas_re_class_init (EelCanvasREClass *klass);
 static void eel_canvas_re_init       (EelCanvasRE      *re);
 static void eel_canvas_re_set_property (GObject              *object,
@@ -84,7 +83,6 @@ static void  diff_rects (Rect r1, Rect r2, int *count, Rect result[4]);
 
 static EelCanvasItemClass *re_parent_class;
 static EelCanvasREClass *rect_parent_class;
-
 
 GType
 eel_canvas_re_get_type (void)
@@ -410,7 +408,6 @@ eel_canvas_re_translate (EelCanvasItem *item, double dx, double dy)
     re->y2 += dy;
 }
 
-
 static void
 eel_canvas_re_bounds (EelCanvasItem *item, double *x1, double *y1, double *x2, double *y2)
 {
@@ -434,7 +431,6 @@ eel_canvas_re_bounds (EelCanvasItem *item, double *x1, double *y1, double *x2, d
 }
 
 /* Rectangle item */
-
 
 static void eel_canvas_rect_class_init (EelCanvasRectClass *klass);
 static void eel_canvas_rect_init (EelCanvasRect *rect);
@@ -694,7 +690,6 @@ request_redraw_borders (EelCanvas *canvas,
                                update_rect->x1-width, update_rect->y0,
                                update_rect->x1,       update_rect->y1);
 }
-
 
 static void
 eel_canvas_rect_update (EelCanvasItem *item, double i2w_dx, double i2w_dy, gint flags)

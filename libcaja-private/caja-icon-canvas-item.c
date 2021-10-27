@@ -237,7 +237,6 @@ static void      draw_embedded_text                  (CajaIconCanvasItem        
 
 static void       caja_icon_canvas_item_ensure_bounds_up_to_date (CajaIconCanvasItem *icon_item);
 
-
 /* Object initialization function for the icon item. */
 static void
 caja_icon_canvas_item_init (CajaIconCanvasItem *icon_item)
@@ -732,7 +731,6 @@ caja_icon_canvas_item_set_embedded_text (CajaIconCanvasItem       *item,
     eel_canvas_item_request_update (EEL_CANVAS_ITEM (item));
 }
 
-
 /* Recomputes the bounding box of a icon canvas item.
  * This is a generic implementation that could be used for any canvas item
  * class, it has no assumptions about how the item is used.
@@ -942,7 +940,6 @@ in_single_click_mode (void)
 {
     return click_policy_auto_value == CAJA_CLICK_POLICY_SINGLE;
 }
-
 
 /* Keep these for a bit while we work on performance of draw_or_measure_label_text. */
 /*
@@ -1466,7 +1463,6 @@ caja_icon_canvas_item_invalidate_label (CajaIconCanvasItem     *item)
     }
 }
 
-
 static GdkPixbuf *
 get_knob_pixbuf (void)
 {
@@ -1568,7 +1564,6 @@ emblem_layout_next (EmblemLayout *layout,
     pixbuf = layout->emblem->data;
     width = gdk_pixbuf_get_width (pixbuf);
     height = gdk_pixbuf_get_height (pixbuf);
-
 
     /* Advance to the next emblem. */
     layout->emblem = layout->emblem->next;
@@ -1970,7 +1965,6 @@ caja_icon_canvas_item_draw (EelCanvasItem *item,
 	 (g_ascii_isdigit (*(p+1)) && \
 	  g_ascii_isdigit (*(p+2))))
 
-
 static PangoLayout *
 create_label_layout (CajaIconCanvasItem *item,
                      const char *text)
@@ -2090,7 +2084,6 @@ get_label_layout (PangoLayout **layout_cache,
 
     return layout;
 }
-
 
 /* handle events */
 static int
@@ -2566,7 +2559,6 @@ get_icon_canvas_rectangle (CajaIconCanvasItem *item,
     g_assert (CAJA_IS_ICON_CANVAS_ITEM (item));
     g_assert (rect != NULL);
 
-
     eel_canvas_w2c (EEL_CANVAS_ITEM (item)->canvas,
                     item->details->x,
                     item->details->y,
@@ -2743,7 +2735,6 @@ caja_icon_canvas_item_get_max_text_width (CajaIconCanvasItem *item)
             return MAX_TEXT_WIDTH_STANDARD * canvas_item->canvas->pixels_per_unit;
         }
 
-
     }
 
 }
@@ -2805,7 +2796,6 @@ caja_icon_canvas_item_class_init (CajaIconCanvasItemClass *class)
 				      "highlighted as keyboard focus",
 				      "whether we are highlighted to render keyboard focus",
 				      FALSE, G_PARAM_READWRITE));
-
 
         g_object_class_install_property (
 		object_class,
@@ -3128,7 +3118,6 @@ caja_icon_canvas_item_accessible_get_index_in_parent (AtkObject *accessible)
 
     return -1;
 }
-
 
 static const gchar* caja_icon_canvas_item_accessible_get_image_description(AtkImage* image)
 {
@@ -3613,7 +3602,6 @@ typedef AtkObjectFactoryClass CajaIconCanvasItemAccessibleFactoryClass;
 
 G_DEFINE_TYPE (CajaIconCanvasItemAccessibleFactory, caja_icon_canvas_item_accessible_factory,
 	       ATK_TYPE_OBJECT_FACTORY);
-
 
 static AtkObject *
 caja_icon_canvas_item_accessible_factory_create_accessible (GObject *for_object)

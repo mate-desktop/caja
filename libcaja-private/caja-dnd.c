@@ -92,7 +92,6 @@ caja_drag_finalize (CajaDragInfo *drag_info)
     g_free (drag_info);
 }
 
-
 /* Functions to deal with CajaDragSelectionItems.  */
 
 CajaDragSelectionItem *
@@ -929,7 +928,6 @@ caja_drag_autoscroll_in_scroll_region (GtkWidget *widget)
     return x_scroll_delta != 0 || y_scroll_delta != 0;
 }
 
-
 void
 caja_drag_autoscroll_calculate_delta (GtkWidget *widget, float *x_scroll_delta, float *y_scroll_delta)
 {
@@ -1016,8 +1014,6 @@ caja_drag_autoscroll_calculate_delta (GtkWidget *widget, float *x_scroll_delta, 
     }
 
 }
-
-
 
 void
 caja_drag_autoscroll_start (CajaDragInfo *drag_info,
@@ -1240,7 +1236,6 @@ slot_proxy_drag_drop (GtkWidget          *widget,
     return TRUE;
 }
 
-
 static void
 slot_proxy_handle_drop (GtkWidget                *widget,
                         GdkDragContext           *context,
@@ -1317,7 +1312,6 @@ slot_proxy_handle_drop (GtkWidget                *widget,
                     target_uri,
                     gdk_drag_context_get_selected_action (context));
         }
-
 
         gtk_drag_finish (context, TRUE, FALSE, time);
     }
@@ -1428,5 +1422,4 @@ caja_drag_slot_proxy_init (GtkWidget *widget,
                       G_CALLBACK (slot_proxy_drag_leave),
                       drag_info);
 }
-
 

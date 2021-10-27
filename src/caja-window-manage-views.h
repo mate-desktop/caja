@@ -34,7 +34,6 @@
 void caja_window_manage_views_close_slot (CajaWindowPane *pane,
         CajaWindowSlot *slot);
 
-
 /* CajaWindowInfo implementation: */
 void caja_window_report_load_underway     (CajaWindow     *window,
         CajaView       *view);

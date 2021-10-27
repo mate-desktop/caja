@@ -41,7 +41,6 @@
 #define CAJA_CELL_RENDERER_TEXT_ELLIPSIZED_GET_CLASS(obj) \
   (G_TYPE_INSTANCE_GET_CLASS ((obj), CAJA_TYPE_CELL_RENDERER_TEXT_ELLIPSIZED, CajaCellRendererTextEllipsizedClass))
 
-
 typedef struct _CajaCellRendererTextEllipsized CajaCellRendererTextEllipsized;
 typedef struct _CajaCellRendererTextEllipsizedClass CajaCellRendererTextEllipsizedClass;
 

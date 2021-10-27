@@ -58,7 +58,6 @@ typedef struct _CajaNavigationWindow        CajaNavigationWindow;
 typedef struct _CajaNavigationWindowClass   CajaNavigationWindowClass;
 typedef struct _CajaNavigationWindowPrivate CajaNavigationWindowPrivate;
 
-
 struct _CajaNavigationWindow
 {
     CajaWindow parent_object;
@@ -71,7 +70,6 @@ struct _CajaNavigationWindow
     /* Current views stuff */
     GList *sidebar_panels;
 };
-
 
 struct _CajaNavigationWindowClass
 {

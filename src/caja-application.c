@@ -925,7 +925,6 @@ caja_window_delete_event_callback (GtkWidget *widget,
     return TRUE;
 }
 
-
 static CajaWindow *
 create_window (CajaApplication *application,
                GType window_type,
@@ -1962,7 +1961,6 @@ caja_application_local_command_line (GApplication *application,
 
 	g_option_context_add_group (context, egg_sm_client_get_option_group ());
 
-
     /* we need to do this here, as parsing the EggSMClient option context,
 	 * unsets this variable.
 	 */
@@ -1971,7 +1969,6 @@ caja_application_local_command_line (GApplication *application,
         no_default_window = TRUE;
         self->priv->autostart = TRUE;
     }
-
 
     argv = *arguments;
     argc = g_strv_length (argv);
@@ -2236,7 +2233,6 @@ init_gtk_accels (void)
     g_signal_connect (gtk_accel_map_get (), "changed",
               G_CALLBACK (queue_accel_map_save_callback), NULL);
 }
-
 
 static void
 caja_application_startup (GApplication *app)

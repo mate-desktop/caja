@@ -74,7 +74,6 @@ typedef struct
     void *data;
 } CajaQueryEditorRow;
 
-
 typedef struct
 {
     const char *name;
@@ -526,7 +525,6 @@ tags_add_rows_from_query (CajaQueryEditor *editor,
     g_free (tags_str);
 }
 
-
 /* Type */
 
 static gboolean
@@ -710,7 +708,6 @@ type_add_custom_type (CajaQueryEditorRow *row,
                         -1);
 }
 
-
 static void
 type_combo_changed (GtkComboBox *combo_box, CajaQueryEditorRow *row)
 {
@@ -764,8 +761,6 @@ type_combo_changed (GtkComboBox *combo_box, CajaQueryEditorRow *row)
         }
         g_list_free (mime_infos);
 
-
-
         toplevel = gtk_widget_get_toplevel (GTK_WIDGET (combo_box));
 
         dialog = gtk_dialog_new ();
@@ -799,7 +794,6 @@ type_combo_changed (GtkComboBox *combo_box, CajaQueryEditorRow *row)
 
         selection = gtk_tree_view_get_selection (GTK_TREE_VIEW (treeview));
         gtk_tree_selection_set_mode (selection, GTK_SELECTION_BROWSE);
-
 
         renderer = gtk_cell_renderer_text_new ();
         column = gtk_tree_view_column_new_with_attributes ("Name",
@@ -991,7 +985,6 @@ remove_group_types_from_list (char **group_types, GList *mime_types)
     return mime_types;
 }
 
-
 static void
 type_add_rows_from_query (CajaQueryEditor    *editor,
                           CajaQuery          *query)
@@ -1055,7 +1048,6 @@ type_add_rows_from_query (CajaQueryEditor    *editor,
 }
 
 /* End of row types */
-
 
 static GtkWidget *modtime_row_create_widgets(CajaQueryEditorRow *row)
 {
@@ -1194,7 +1186,6 @@ static void modtime_row_free_data(CajaQueryEditorRow *row)
 static void modtime_add_rows_from_query(CajaQueryEditor *editor, CajaQuery *query)
 {
 }
-
 
 static GtkWidget *size_row_create_widgets(CajaQueryEditorRow *row)
 {
@@ -1381,7 +1372,6 @@ get_next_free_type (CajaQueryEditor *editor)
     CajaQueryEditorRowType type;
     gboolean found;
     GList *l;
-
 
     for (type = 0; type < CAJA_QUERY_EDITOR_ROW_LAST; type++)
     {

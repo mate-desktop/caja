@@ -96,7 +96,6 @@ static const GtkTargetEntry drag_types [] =
     { CAJA_ICON_DND_RAW_TYPE, 0, CAJA_ICON_DND_RAW }
 };
 
-
 static void
 gtk_tree_view_vertical_autoscroll (GtkTreeView *tree_view)
 {
@@ -516,7 +515,6 @@ drag_motion_callback (GtkWidget *widget,
     gtk_tree_view_get_dest_row_at_pos (GTK_TREE_VIEW (widget),
                                        x, y, &path, &pos);
 
-
     if (!dest->details->have_drag_data)
     {
         res = get_drag_data (dest, context, time);
@@ -895,7 +893,6 @@ receive_xds (CajaTreeViewDragDest *dest,
     return TRUE;
 }
 
-
 static gboolean
 drag_data_received_callback (GtkWidget *widget,
                              GdkDragContext *context,
@@ -1271,8 +1268,6 @@ caja_tree_view_drag_dest_class_init (CajaTreeViewDragDestClass *class)
                       G_TYPE_INT,
                       G_TYPE_INT);
 }
-
-
 
 CajaTreeViewDragDest *
 caja_tree_view_drag_dest_new (GtkTreeView *tree_view)

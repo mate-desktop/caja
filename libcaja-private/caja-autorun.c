@@ -147,7 +147,6 @@ add_elem_to_str_array (char **v, const char *s)
     return r;
 }
 
-
 void
 caja_autorun_set_preferences (const char *x_content_type,
                               gboolean pref_start_app,
@@ -801,7 +800,6 @@ typedef struct
     gpointer user_data;
 } AutorunDialogData;
 
-
 void
 caja_autorun_launch_for_mount (GMount *mount, GAppInfo *app_info)
 {
@@ -915,7 +913,6 @@ autorun_combo_changed (gboolean selected_ask,
     data->selected_ignore = selected_ignore;
     data->selected_open_folder = selected_open_folder;
 }
-
 
 static void
 autorun_always_toggled (GtkToggleButton *togglebutton, AutorunDialogData *data)
@@ -1040,7 +1037,6 @@ show_dialog:
     gtk_box_pack_start (GTK_BOX (hbox), vbox, TRUE, TRUE, 0);
 
     label = gtk_label_new (NULL);
-
 
     /* Customize greeting for well-known x-content types */
     if (strcmp (x_content_type, "x-content/audio-cdda") == 0)
@@ -1357,7 +1353,6 @@ caja_autorun_get_x_content_types_for_mount_async (GMount *mount,
                                 get_types_cb,
                                 data);
 }
-
 
 char **
 caja_autorun_get_cached_x_content_types_for_mount (GMount      *mount)

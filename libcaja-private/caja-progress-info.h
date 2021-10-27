@@ -82,5 +82,4 @@ void          caja_progress_info_set_progress    (CajaProgressInfo *info,
         double                total);
 void          caja_progress_info_pulse_progress  (CajaProgressInfo *info);
 
-
 #endif /* CAJA_PROGRESS_INFO_H */

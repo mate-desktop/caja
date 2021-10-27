@@ -235,7 +235,6 @@ preferences_show_help (GtkWindow *parent,
     }
 }
 
-
 static void
 caja_file_management_properties_dialog_response_cb (GtkDialog *parent,
         int response_id,
@@ -721,7 +720,6 @@ extension_state_toggled (GtkCellRendererToggle *cell, gchar *path_str, gpointer 
     gtk_tree_path_free (path);
 }
 
-
 static void
 caja_file_management_properties_dialog_setup_media_page (GtkBuilder *builder)
 {
@@ -755,7 +753,6 @@ caja_file_management_properties_dialog_setup_media_page (GtkBuilder *builder)
 
     gtk_tree_sortable_set_sort_column_id (GTK_TREE_SORTABLE (other_type_list_store),
                                           1, GTK_SORT_ASCENDING);
-
 
     content_types = g_content_types_get_registered ();
 
@@ -1219,7 +1216,6 @@ caja_file_management_properties_dialog_setup (GtkBuilder *builder, GtkWindow *wi
                               "changed::" CAJA_PREFERENCES_MEDIA_AUTORUN_NEVER,
                               G_CALLBACK(caja_file_management_properties_dialog_update_media_sensitivity),
                               builder);
-
 
     /* UI callbacks */
     dialog = GTK_WIDGET (gtk_builder_get_object (builder, "file_management_dialog"));

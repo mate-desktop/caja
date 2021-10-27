@@ -38,7 +38,6 @@ typedef enum
     TRACKER_0_8 = 1 << 2
 } TrackerVersion;
 
-
 /* tracker 0.6 API */
 typedef void (*TrackerArrayReply) (char **result, GError *error, gpointer user_data);
 
@@ -47,7 +46,6 @@ static TrackerClient *	(*tracker_connect)		(gboolean enable_warnings,
 static void		(*tracker_disconnect)		(TrackerClient *client) = NULL;
 static void		(*tracker_cancel_last_call)	(TrackerClient *client) = NULL;
 static int		(*tracker_get_version)		(TrackerClient *client, GError **error) = NULL;
-
 
 static void (*tracker_search_metadata_by_text_async) (TrackerClient *client,
         const char *query,
@@ -70,7 +68,6 @@ static void (*tracker_search_metadata_by_text_and_mime_and_location_async) (Trac
         TrackerArrayReply callback,
         gpointer user_data) = NULL;
 
-
 /* tracker 0.8 API */
 typedef enum
 {
@@ -88,7 +85,6 @@ static guint		(*tracker_resources_sparql_query_async)	(TrackerClient          *c
         const gchar            *query,
         TrackerReplyGPtrArray   callback,
         gpointer                user_data) = NULL;
-
 
 static struct TrackerDlMapping
 {
@@ -109,7 +105,6 @@ static struct TrackerDlMapping
     MAP (tracker_resources_sparql_query_async, TRACKER_0_8)
 #undef MAP
 };
-
 
 static TrackerVersion
 open_libtracker (void)
@@ -178,7 +173,6 @@ open_libtracker (void)
     return version;
 }
 
-
 struct CajaSearchEngineTrackerDetails
 {
     CajaQuery 	*query;
@@ -220,7 +214,6 @@ finalize (GObject *object)
     EEL_CALL_PARENT (G_OBJECT_CLASS, finalize, (object));
 }
 
-
 /* stolen from tracker sources, tracker.c */
 static void
 sparql_append_string_literal (GString     *sparql,
@@ -236,7 +229,6 @@ sparql_append_string_literal (GString     *sparql,
 
     g_free (s);
 }
-
 
 static void
 search_callback (gpointer results, GError *error, gpointer user_data)
@@ -308,7 +300,6 @@ search_callback (gpointer results, GError *error, gpointer user_data)
     g_list_free_full (hit_uris, g_free);
 }
 
-
 static void
 caja_search_engine_tracker_start (CajaSearchEngine *engine)
 {
@@ -320,7 +311,6 @@ caja_search_engine_tracker_start (CajaSearchEngine *engine)
     GString *sparql;
 
     tracker = CAJA_SEARCH_ENGINE_TRACKER (engine);
-
 
     if (tracker->details->query_pending)
     {
@@ -525,7 +515,6 @@ caja_search_engine_tracker_init (CajaSearchEngineTracker *engine)
 {
     engine->details = g_new0 (CajaSearchEngineTrackerDetails, 1);
 }
-
 
 CajaSearchEngine *
 caja_search_engine_tracker_new (void)

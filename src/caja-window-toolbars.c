@@ -112,7 +112,6 @@ caja_navigation_window_initialize_toolbars (CajaNavigationWindow *window)
     caja_navigation_window_activate_spinner (window);
 }
 
-
 static GList *
 get_extension_toolbar_items (CajaNavigationWindow *window)
 {

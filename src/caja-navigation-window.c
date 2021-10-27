@@ -91,7 +91,6 @@ static void mouse_forward_button_changed	     (gpointer                  callbac
 static void use_extra_mouse_buttons_changed          (gpointer                  callback_data);
 static CajaWindowSlot *create_extra_pane         (CajaNavigationWindow *window);
 
-
 G_DEFINE_TYPE_WITH_PRIVATE (CajaNavigationWindow, caja_navigation_window, CAJA_TYPE_WINDOW)
 #define parent_class caja_navigation_window_parent_class
 
@@ -1017,7 +1016,6 @@ caja_navigation_window_status_bar_showing (CajaNavigationWindow *window)
     /* If we're not visible yet we haven't changed visibility, so its TRUE */
     return TRUE;
 }
-
 
 void
 caja_navigation_window_hide_toolbar (CajaNavigationWindow *window)

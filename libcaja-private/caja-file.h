@@ -118,7 +118,6 @@ typedef char * (*CajaTruncateCallback)    (const char    *string,
         int	      width,
         void	     *context);
 
-
 #define CAJA_FILE_ATTRIBUTES_FOR_ICON (CAJA_FILE_ATTRIBUTE_INFO | CAJA_FILE_ATTRIBUTE_LINK_INFO | CAJA_FILE_ATTRIBUTE_THUMBNAIL)
 
 typedef void CajaFileListHandle;
@@ -384,7 +383,6 @@ void                    caja_file_set_time_metadata                 (CajaFile   
         const char                    *key,
         time_t                         time);
 
-
 /* Attributes for file objects as user-displayable strings. */
 char *                  caja_file_get_string_attribute              (CajaFile                   *file,
         const char                     *attribute_name);
@@ -444,7 +442,6 @@ gboolean                caja_file_should_show                       (CajaFile   
 GList                  *caja_file_list_filter_hidden                (GList                          *files,
         gboolean                        show_hidden);
 
-
 /* Get the URI that's used when activating the file.
  * Getting this can require reading the contents of the file.
  */
@@ -459,7 +456,6 @@ char *                  caja_file_get_drop_target_uri               (CajaFile   
 
 /* Get custom icon (if specified by metadata or link contents) */
 char *                  caja_file_get_custom_icon                   (CajaFile                   *file);
-
 
 GIcon           *caja_file_get_gicon        (CajaFile         *file,
                                              CajaFileIconFlags flags);

@@ -70,7 +70,6 @@ typedef struct
     eel_boolean_bit has_lazy_position : 1;
 } CajaIcon;
 
-
 /* Private CajaIconContainer members. */
 
 typedef struct
@@ -318,7 +317,5 @@ gboolean      caja_icon_container_scroll                      (CajaIconContainer
         int                    delta_x,
         int                    delta_y);
 void          caja_icon_container_update_scroll_region        (CajaIconContainer *container);
-
-
 
 #endif /* CAJA_ICON_CONTAINER_PRIVATE_H */

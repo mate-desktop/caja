@@ -103,15 +103,12 @@ extern "C" {
                                           float           x_alignment,
                                           float           y_alignment);
 
-
     void eel_drect_union (EelDRect       *dest,
                           const EelDRect *src1,
                           const EelDRect *src2);
 
-
     /* EelDimensions functions. */
     gboolean      eel_dimensions_are_empty        (EelDimensions dimensions);
-
 
 #ifdef __cplusplus
 }

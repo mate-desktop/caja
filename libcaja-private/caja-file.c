@@ -289,7 +289,6 @@ foreach_metadata_free (gpointer  key,
 	return TRUE;
 }
 
-
 static void
 metadata_hash_free (GHashTable *hash)
 {
@@ -1152,7 +1151,6 @@ caja_file_is_media_check_automatic (CajaFile *file)
  out:
 	return ret;
 }
-
 
 gboolean
 caja_file_can_stop (CajaFile *file)
@@ -3034,7 +3032,6 @@ prepend_automatic_keywords (CajaFile *file,
 		caja_file_unref (parent);
 	}
 
-
 	return names;
 }
 
@@ -3101,7 +3098,6 @@ compare_by_emblems (CajaFile *file_1, CajaFile *file_2)
 		keyword_cache_1 += length + 1;
 		keyword_cache_2 += length + 1;
 	}
-
 
 	/* One or both is now NULL. */
 	if (*keyword_cache_1 != '\0') {
@@ -3303,7 +3299,6 @@ compare_by_extension_segments (CajaFile *file_1, CajaFile *file_2)
 	gboolean done_1, done_2;
 	gboolean is_directory_1, is_directory_2;
 	int segment_index;
-
 
 	/* Directories do not have an extension */
 	is_directory_1 = caja_file_is_directory (file_1);
@@ -3659,7 +3654,6 @@ caja_file_compare_for_sort_by_attribute     (CajaFile                   *file_1,
 							      reversed);
 }
 
-
 /**
  * caja_file_compare_name:
  * @file: A file object
@@ -3681,7 +3675,6 @@ caja_file_compare_display_name (CajaFile *file,
 	result = g_utf8_collate (name, pattern);
 	return result;
 }
-
 
 gboolean
 caja_file_is_hidden_file (CajaFile *file)
@@ -3894,7 +3887,6 @@ caja_file_set_metadata_list (CajaFile *file,
 	g_free (val);
 }
 
-
 gboolean
 caja_file_get_boolean_metadata (CajaFile *file,
 				    const char   *key,
@@ -4021,7 +4013,6 @@ caja_file_set_time_metadata (CajaFile *file,
 
 	caja_file_set_metadata (file, key, NULL, metadata);
 }
-
 
 void
 caja_file_set_boolean_metadata (CajaFile *file,
@@ -4201,7 +4192,6 @@ caja_file_has_activation_uri (CajaFile *file)
 	return file->details->activation_uri != NULL;
 }
 
-
 /* Return the uri associated with the passed-in file, which may not be
  * the actual uri if the file is an desktop file or a caja
  * xml link file.
@@ -4229,7 +4219,6 @@ caja_file_get_activation_location (CajaFile *file)
 
 	return caja_file_get_location (file);
 }
-
 
 char *
 caja_file_get_drop_target_uri (CajaFile *file)
@@ -4343,7 +4332,6 @@ get_custom_icon (CajaFile *file)
 
 	return icon;
 }
-
 
 static guint64 cached_thumbnail_limit;
 int cached_thumbnail_size;
@@ -4725,7 +4713,6 @@ caja_file_get_custom_icon (CajaFile *file)
 
 	return custom_icon;
 }
-
 
 gboolean
 caja_file_get_date (CajaFile *file,
@@ -5262,7 +5249,6 @@ caja_file_can_get_size (CajaFile *file)
 	return file->details->size == -1;
 }
 
-
 /**
  * caja_file_get_size
  *
@@ -5308,7 +5294,6 @@ caja_file_get_mtime (CajaFile *file)
 	return file->details->mtime;
 }
 
-
 static void
 set_attributes_get_info_callback (GObject *source_object,
 				  GAsyncResult *res,
@@ -5333,7 +5318,6 @@ set_attributes_get_info_callback (GObject *source_object,
 		g_error_free (error);
 	}
 }
-
 
 static void
 set_attributes_callback (GObject *source_object,
@@ -5386,7 +5370,6 @@ caja_file_set_attributes (CajaFile *file,
 				     op);
 	g_object_unref (location);
 }
-
 
 /**
  * caja_file_can_get_permissions:
@@ -5527,7 +5510,6 @@ caja_file_can_get_selinux_context (CajaFile *file)
 	return file->details->selinux_context != NULL;
 }
 
-
 /**
  * caja_file_get_selinux_context:
  *
@@ -5601,7 +5583,6 @@ get_real_name (const char *name, const char *gecos)
 			(part_before_comma, "&", capitalized_login_name);
 		g_free (part_before_comma);
 	}
-
 
 	if (eel_str_is_empty (real_name)
 	    || eel_strcmp (name, real_name) == 0
@@ -5948,7 +5929,6 @@ caja_get_group_names_for_user (void)
 	int count, i;
 	gid_t gid_list[NGROUPS_MAX + 1];
 	struct group *group = NULL;
-
 
 	list = NULL;
 
@@ -6644,7 +6624,6 @@ caja_file_get_string_attribute (CajaFile *file, const char *attribute_name)
 	return caja_file_get_string_attribute_q (file, g_quark_from_string (attribute_name));
 }
 
-
 /**
  * caja_file_get_string_attribute_with_default:
  *
@@ -6916,7 +6895,6 @@ caja_file_is_launchable (CajaFile *file)
 		!caja_file_is_directory (file);
 }
 
-
 /**
  * caja_file_get_emblem_icons
  *
@@ -6975,7 +6953,6 @@ caja_file_get_emblem_icons (CajaFile *file,
 			}
 		}
 
-
 		icon_names[0] = g_strconcat ("emblem-", keyword, NULL);
 		icon_names[1] = keyword;
 		icon = g_themed_icon_new_from_names (icon_names, 2);
@@ -7018,14 +6995,12 @@ caja_file_get_emblem_pixbufs (CajaFile *file,
 			pixbufs = g_list_prepend (pixbufs, pixbuf);
 		}
 
-
 		g_object_unref (icon_info);
 		g_object_unref (icon);
 	}
 	g_list_free (icons);
 
 	return g_list_reverse (pixbufs);
-
 
 }
 
@@ -7258,7 +7233,6 @@ caja_file_get_volume_free_space (CajaFile *file)
 		caja_directory_unref (directory);
 	}
 
-
 	res = NULL;
 
 	if (directory->details->free_space != (guint64) -1)
@@ -7465,7 +7439,6 @@ caja_file_is_archive (CajaFile *file)
 
 	return FALSE;
 }
-
 
 /**
  * caja_file_is_in_trash
@@ -7770,7 +7743,6 @@ caja_file_emit_changed (CajaFile *file)
 
 	g_assert (CAJA_IS_FILE (file));
 
-
 	/* Invalidate the emblem compare cache. -- This is not the cleanest
 	 * place to do it but it is the one guaranteed bottleneck through
 	 * which all change notifications pass.
@@ -8021,7 +7993,6 @@ caja_file_set_has_open_window (CajaFile *file,
 	}
 }
 
-
 gboolean
 caja_file_is_thumbnailing (CajaFile *file)
 {
@@ -8038,7 +8009,6 @@ caja_file_set_is_thumbnailing (CajaFile *file,
 
 	file->details->is_thumbnailing = is_thumbnailing;
 }
-
 
 /**
  * caja_file_invalidate_attributes
@@ -8089,7 +8059,6 @@ caja_file_invalidate_all_attributes (CajaFile *file)
 	all_attributes = caja_file_get_all_attributes ();
 	caja_file_invalidate_attributes (file, all_attributes);
 }
-
 
 /**
  * caja_file_dump
@@ -8377,7 +8346,6 @@ caja_file_list_call_when_ready (GList *file_list,
 		*handle = (CajaFileListHandle *) data;
 	}
 
-
 	l = file_list;
 	while (l != NULL) {
 		file = CAJA_FILE (l->data);
@@ -8458,8 +8426,6 @@ try_to_make_utf8 (const char *text, int *length)
 	return utf8_text;
 }
 
-
-
 /* Extract the top left part of the read-in text. */
 char *
 caja_extract_top_left_text (const char *text,
@@ -8485,8 +8451,6 @@ caja_extract_top_left_text (const char *text,
 		max_lines = CAJA_FILE_TOP_LEFT_TEXT_MAXIMUM_LINES;
 		max_cols = CAJA_FILE_TOP_LEFT_TEXT_MAXIMUM_CHARACTERS_PER_LINE;
 	}
-
-
 
         text_copy = NULL;
         if (text != NULL) {
@@ -8841,7 +8805,6 @@ caja_self_check_file (void)
 	caja_file_list_free (list);
 
         EEL_CHECK_INTEGER_RESULT (caja_directory_number_outstanding (), 0);
-
 
         /* name checks */
 	file_1 = caja_file_get_by_uri ("file:///home/");

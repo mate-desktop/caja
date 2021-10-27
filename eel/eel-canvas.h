@@ -46,10 +46,8 @@
 extern "C" {
 #endif
 
-
     /* "Small" value used by canvas stuff */
 #define EEL_CANVAS_EPSILON 1e-10
-
 
     /* Macros for building colors that fit in a 32-bit integer.  The values are in
      * [0, 255].
@@ -65,14 +63,12 @@ extern "C" {
 					  | (((int) (b) & 0xff) << 8)	\
 					  | ((int) (a) & 0xff))
 
-
     typedef struct _EelCanvas           EelCanvas;
     typedef struct _EelCanvasClass      EelCanvasClass;
     typedef struct _EelCanvasItem       EelCanvasItem;
     typedef struct _EelCanvasItemClass  EelCanvasItemClass;
     typedef struct _EelCanvasGroup      EelCanvasGroup;
     typedef struct _EelCanvasGroupClass EelCanvasGroupClass;
-
 
     /* EelCanvasItem - base item class for canvas items
      *
@@ -112,7 +108,6 @@ extern "C" {
 #define EEL_IS_CANVAS_ITEM(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), EEL_TYPE_CANVAS_ITEM))
 #define EEL_IS_CANVAS_ITEM_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), EEL_TYPE_CANVAS_ITEM))
 #define EEL_CANVAS_ITEM_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), EEL_TYPE_CANVAS_ITEM, EelCanvasItemClass))
-
 
     struct _EelCanvasItem
     {
@@ -187,7 +182,6 @@ extern "C" {
         gpointer spare_vmethods [4];
     };
 
-
     /* Standard Gtk function */
     GType eel_canvas_item_get_type (void) G_GNUC_CONST;
 
@@ -235,7 +229,6 @@ extern "C" {
     /* Send an item behind another item */
     void eel_canvas_item_send_behind (EelCanvasItem *item,
                                       EelCanvasItem *behind_item);
-
 
     /* Show an item (make it visible).  If the item is already shown, it has no
      * effect.
@@ -318,14 +311,12 @@ extern "C" {
      * y		double		RW		Y coordinate of group's origin
      */
 
-
 #define EEL_TYPE_CANVAS_GROUP            (eel_canvas_group_get_type ())
 #define EEL_CANVAS_GROUP(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), EEL_TYPE_CANVAS_GROUP, EelCanvasGroup))
 #define EEL_CANVAS_GROUP_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), EEL_TYPE_CANVAS_GROUP, EelCanvasGroupClass))
 #define EEL_IS_CANVAS_GROUP(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), EEL_TYPE_CANVAS_GROUP))
 #define EEL_IS_CANVAS_GROUP_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), EEL_TYPE_CANVAS_GROUP))
 #define EEL_CANVAS_GROUP_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), EEL_TYPE_CANVAS_GROUP, EelCanvasGroupClass))
-
 
     struct _EelCanvasGroup
     {
@@ -343,13 +334,10 @@ extern "C" {
         EelCanvasItemClass parent_class;
     };
 
-
     /* Standard Gtk function */
     GType eel_canvas_group_get_type (void) G_GNUC_CONST;
 
-
     /*** EelCanvas ***/
-
 
 #define EEL_TYPE_CANVAS            (eel_canvas_get_type ())
 #define EEL_CANVAS(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), EEL_TYPE_CANVAS, EelCanvas))
@@ -357,7 +345,6 @@ extern "C" {
 #define EEL_IS_CANVAS(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), EEL_TYPE_CANVAS))
 #define EEL_IS_CANVAS_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), EEL_TYPE_CANVAS))
 #define EEL_CANVAS_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), EEL_TYPE_CANVAS, EelCanvasClass))
-
 
     struct _EelCanvas
     {
@@ -444,7 +431,6 @@ extern "C" {
         /* Reserved for future expansion */
         gpointer spare_vmethods [4];
     };
-
 
     /* Standard Gtk function */
     GType eel_canvas_get_type (void) G_GNUC_CONST;

@@ -91,7 +91,6 @@ extern "C" {
     typedef struct CajaWindowSlot      CajaWindowSlot;
 #endif
 
-
     typedef CajaWindowSlot              CajaWindowSlotInfo;
     typedef CajaWindow                  CajaWindowInfo;
 

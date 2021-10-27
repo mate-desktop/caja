@@ -410,7 +410,6 @@ caja_search_engine_beagle_init (CajaSearchEngineBeagle *engine)
     engine->details = g_new0 (CajaSearchEngineBeagleDetails, 1);
 }
 
-
 CajaSearchEngine *
 caja_search_engine_beagle_new (void)
 {

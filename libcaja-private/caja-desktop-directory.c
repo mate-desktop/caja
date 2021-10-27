@@ -57,7 +57,6 @@ typedef struct
     GList *merged_file_list;
 } MergedCallback;
 
-
 typedef struct
 {
     CajaDesktopDirectory *desktop_dir;
@@ -211,7 +210,6 @@ desktop_call_when_ready (CajaDirectory *directory,
     merged_callback->non_ready_directories = g_list_prepend
             (merged_callback->non_ready_directories, desktop->details->real_directory);
 
-
     merged_callback->merged_file_list = g_list_concat (NULL,
                                         caja_file_list_copy (directory->details->file_list));
 
@@ -342,7 +340,6 @@ desktop_monitor_add (CajaDirectory *directory,
     merged_callback_list = g_list_concat (merged_callback_list,
                                           caja_file_list_copy (directory->details->file_list));
 
-
     if (callback != NULL)
     {
         (* callback) (directory, merged_callback_list, callback_data);
@@ -430,7 +427,6 @@ caja_desktop_directory_get_real_directory (CajaDesktopDirectory *desktop)
     return desktop->details->real_directory;
 }
 
-
 static void
 desktop_finalize (GObject *object)
 {
@@ -457,7 +453,6 @@ done_loading_callback (CajaDirectory *real_directory,
 {
     caja_directory_emit_done_loading (CAJA_DIRECTORY (desktop));
 }
-
 
 static void
 forward_files_added_cover (CajaDirectory *real_directory,

@@ -354,7 +354,6 @@ build_grid (GtkWidget *container,
         entry = gtk_entry_new ();
         gtk_widget_set_hexpand (entry, TRUE);
 
-
         if (item_entry->localized)
         {
             val = g_key_file_get_locale_string (key_file,
@@ -476,7 +475,6 @@ build_grid:
 
     gtk_widget_show_all (GTK_WIDGET (box));
 }
-
 
 static void
 ditem_read_cb (GObject *source_object,

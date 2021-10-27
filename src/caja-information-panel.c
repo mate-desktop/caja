@@ -141,7 +141,6 @@ typedef struct
     GObjectClass parent;
 } CajaInformationPanelProviderClass;
 
-
 G_DEFINE_TYPE_WITH_CODE (CajaInformationPanel, caja_information_panel, EEL_TYPE_BACKGROUND_BOX,
                          G_ADD_PRIVATE (CajaInformationPanel)
                          G_IMPLEMENT_INTERFACE (CAJA_TYPE_SIDEBAR,
@@ -150,7 +149,6 @@ G_DEFINE_TYPE_WITH_CODE (CajaInformationPanel, caja_information_panel, EEL_TYPE_
 G_DEFINE_TYPE_WITH_CODE (CajaInformationPanelProvider, caja_information_panel_provider, G_TYPE_OBJECT,
                          G_IMPLEMENT_INTERFACE (CAJA_TYPE_SIDEBAR_PROVIDER,
                                  sidebar_provider_iface_init));
-
 
 static const char *
 caja_information_panel_get_sidebar_id (CajaSidebar *sidebar)

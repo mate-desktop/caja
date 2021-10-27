@@ -1137,7 +1137,6 @@ eel_background_new (void)
     return EEL_BACKGROUND (g_object_new (EEL_TYPE_BACKGROUND, NULL));
 }
 
-
 /*
  * self check code
  */

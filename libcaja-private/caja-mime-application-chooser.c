@@ -94,7 +94,6 @@ caja_mime_application_chooser_finalize (GObject *object)
                                           G_CALLBACK (mime_type_data_changed_cb),
                                           chooser);
 
-
     g_free (chooser->details->uri);
     g_free (chooser->details->content_type);
     g_free (chooser->details->extension);

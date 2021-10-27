@@ -73,7 +73,6 @@ typedef struct
     GObjectClass parent;
 } CajaNotesViewerProviderClass;
 
-
 G_DEFINE_TYPE_WITH_CODE (CajaNotesViewer, caja_notes_viewer, GTK_TYPE_SCROLLED_WINDOW,
                          G_IMPLEMENT_INTERFACE (CAJA_TYPE_SIDEBAR,
                                  caja_notes_viewer_sidebar_iface_init));
@@ -85,7 +84,6 @@ G_DEFINE_TYPE_WITH_CODE (CajaNotesViewerProvider, caja_notes_viewer_provider, G_
                                  property_page_provider_iface_init);
                          G_IMPLEMENT_INTERFACE (CAJA_TYPE_SIDEBAR_PROVIDER,
                                  sidebar_provider_iface_init));
-
 
 struct _CajaNotesViewerDetails
 {
@@ -383,7 +381,6 @@ caja_notes_viewer_finalize (GObject *object)
     G_OBJECT_CLASS (caja_notes_viewer_parent_class)->finalize (object);
 }
 
-
 static void
 caja_notes_viewer_class_init (CajaNotesViewerClass *class)
 {
@@ -483,7 +480,6 @@ get_property_pages (CajaPropertyPageProvider *provider,
     CajaFileInfo *file;
     char *uri;
     CajaNotesViewer *viewer;
-
 
     /* Only show the property page if 1 file is selected */
     if (!files || files->next != NULL)

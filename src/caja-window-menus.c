@@ -775,7 +775,6 @@ connect_proxy_cb (GtkUIManager *manager,
         g_signal_connect (proxy, "deselect",
                           G_CALLBACK (menu_item_deselect_cb), window);
 
-
         /* This is a way to easily get surfaces into the menu items */
         icon = g_object_get_data (G_OBJECT (action), "menu-icon");
         if (icon != NULL)

@@ -68,4 +68,3 @@ extern "C" {
 
 #endif /* EEL_BACKGROUND_TABLE_H */
 
-

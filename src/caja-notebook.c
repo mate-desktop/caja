@@ -199,7 +199,6 @@ caja_notebook_constructed (GObject *object)
     gtk_widget_add_events (widget, GDK_SCROLL_MASK);
 }
 
-
 void
 caja_notebook_sync_loading (CajaNotebook *notebook,
                             CajaWindowSlot *slot)
@@ -404,7 +403,6 @@ caja_notebook_add_tab (CajaNotebook *notebook,
 
     caja_notebook_sync_tab_label (notebook, slot);
     caja_notebook_sync_loading (notebook, slot);
-
 
     /* FIXME gtk bug! */
     /* FIXME: this should be fixed in gtk 2.12; check & remove this! */

@@ -69,7 +69,6 @@ typedef struct EelBackgroundClass EelBackgroundClass;
 GType                       eel_background_get_type              (void);
 EelBackground *             eel_background_new                   (void);
 
-
 /* Calls to change a background. */
 void                        eel_background_set_use_base          (EelBackground   *self,
         							  gboolean         use_base);

@@ -566,7 +566,6 @@ get_column_iter (CajaColumnChooser *chooser,
         {
             char *name;
 
-
             gtk_tree_model_get (GTK_TREE_MODEL (chooser->details->store),
                                 iter,
                                 COLUMN_NAME, &name,

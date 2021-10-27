@@ -49,7 +49,6 @@ caja_keep_last_vertical_box_init (CajaKeepLastVerticalBox *box)
     gtk_orientable_set_orientation (GTK_ORIENTABLE (box), GTK_ORIENTATION_VERTICAL);
 }
 
-
 /* caja_keep_last_vertical_box_new:
  *
  * Create a new vertical box that clips off items from the end that don't

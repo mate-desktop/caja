@@ -34,13 +34,11 @@
 #ifndef EEL_CANVAS_RECT_ELLIPSE_H
 #define EEL_CANVAS_RECT_ELLIPSE_H
 
-
 #include "eel-canvas.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
-
 
     /* Base class for rectangle and ellipse item types.  These are defined by their top-left and
      * bottom-right corners.  Rectangles and ellipses share the following arguments:
@@ -65,14 +63,12 @@ extern "C" {
      *							will be scaled when the canvas zoom factor is changed.
      */
 
-
 #define EEL_TYPE_CANVAS_RE            (eel_canvas_re_get_type ())
 #define EEL_CANVAS_RE(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), EEL_TYPE_CANVAS_RE, EelCanvasRE))
 #define EEL_CANVAS_RE_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), EEL_TYPE_CANVAS_RE, EelCanvasREClass))
 #define EEL_IS_CANVAS_RE(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), EEL_TYPE_CANVAS_RE))
 #define EEL_IS_CANVAS_RE_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), EEL_TYPE_CANVAS_RE))
 #define EEL_CANVAS_RE_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), EEL_TYPE_CANVAS_RE, EelCanvasREClass))
-
 
     typedef struct _EelCanvasRE      EelCanvasRE;
     typedef struct _EelCanvasREClass EelCanvasREClass;
@@ -101,15 +97,12 @@ extern "C" {
         EelCanvasItemClass parent_class;
     };
 
-
     /* Standard Gtk function */
     GType eel_canvas_re_get_type (void) G_GNUC_CONST;
-
 
     /* Rectangle item.  No configurable or queryable arguments are available (use those in
      * EelCanvasRE).
      */
-
 
 #define EEL_TYPE_CANVAS_RECT            (eel_canvas_rect_get_type ())
 #define EEL_CANVAS_RECT(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), EEL_TYPE_CANVAS_RECT, EelCanvasRect))
@@ -117,7 +110,6 @@ extern "C" {
 #define EEL_IS_CANVAS_RECT(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), EEL_TYPE_CANVAS_RECT))
 #define EEL_IS_CANVAS_RECT_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), EEL_TYPE_CANVAS_RECT))
 #define EEL_CANVAS_RECT_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), EEL_TYPE_CANVAS_RECT, EelCanvasRectClass))
-
 
     typedef struct _EelCanvasRect EelCanvasRect;
     typedef struct _EelCanvasRectPrivate EelCanvasRectPrivate;
@@ -133,7 +125,6 @@ extern "C" {
     {
         EelCanvasREClass parent_class;
     };
-
 
     /* Standard Gtk function */
     GType eel_canvas_rect_get_type (void) G_GNUC_CONST;

@@ -266,7 +266,6 @@ caja_file_changes_consume_changes (gboolean consume_all)
     CajaFileChangesQueue *queue;
     gboolean flush_needed;
 
-
     additions = NULL;
     changes = NULL;
     deletions = NULL;

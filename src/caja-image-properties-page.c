@@ -91,7 +91,6 @@ typedef struct
     GObjectClass parent;
 } CajaImagePropertiesPageProviderClass;
 
-
 static GType caja_image_properties_page_provider_get_type (void);
 static void  property_page_provider_iface_init                (CajaPropertyPageProviderIface *iface);
 
@@ -717,7 +716,6 @@ property_page_provider_iface_init (CajaPropertyPageProviderIface *iface)
 {
     iface->get_pages = get_property_pages;
 }
-
 
 static void
 caja_image_properties_page_provider_init (CajaImagePropertiesPageProvider *sidebar)

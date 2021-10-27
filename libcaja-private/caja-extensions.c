@@ -33,7 +33,6 @@
 
 static GList *caja_extensions = NULL;
 
-
 static Extension *
 extension_new (gchar *filename, gboolean state, gboolean python, GObject *module)
 {

@@ -33,7 +33,6 @@
 #include <gtk/gtk.h>
 #include <libmate-desktop/mate-desktop-utils.h>
 
-
 /* Return a command string containing the path to a terminal on this system. */
 
 static char *

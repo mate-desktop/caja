@@ -28,7 +28,6 @@
 #include "caja-window-info.h"
 #include "caja-view.h"
 
-
 #define CAJA_TYPE_WINDOW_SLOT_INFO           (caja_window_slot_info_get_type ())
 #define CAJA_WINDOW_SLOT_INFO(obj)           (G_TYPE_CHECK_INSTANCE_CAST ((obj), CAJA_TYPE_WINDOW_SLOT_INFO, CajaWindowSlotInfo))
 #define CAJA_IS_WINDOW_SLOT_INFO(obj)        (G_TYPE_CHECK_INSTANCE_TYPE ((obj), CAJA_TYPE_WINDOW_SLOT_INFO))
@@ -77,7 +76,6 @@ struct _CajaWindowSlotInfoIface
                                    gpointer user_data);
     void   (* make_hosting_pane_active) (CajaWindowSlotInfo *slot);
 };
-
 
 GType                             caja_window_slot_info_get_type            (void);
 CajaWindowInfo *              caja_window_slot_info_get_window          (CajaWindowSlotInfo            *slot);

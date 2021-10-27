@@ -71,7 +71,6 @@ caja_ui_prepare_merge_ui (GtkUIManager *ui_manager,
     g_object_unref (*action_group); /* owned by ui manager */
 }
 
-
 char *
 caja_get_ui_directory (void)
 {

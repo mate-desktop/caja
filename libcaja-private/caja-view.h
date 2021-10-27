@@ -40,7 +40,6 @@ extern "C" {
 #define CAJA_IS_VIEW(obj)        (G_TYPE_CHECK_INSTANCE_TYPE ((obj), CAJA_TYPE_VIEW))
 #define CAJA_VIEW_GET_IFACE(obj) (G_TYPE_INSTANCE_GET_INTERFACE ((obj), CAJA_TYPE_VIEW, CajaViewIface))
 
-
     typedef struct _CajaView CajaView; /* dummy typedef */
     typedef struct _CajaViewIface CajaViewIface;
 
@@ -96,7 +95,6 @@ extern "C" {
         /* This function can supply a special window title, if you don't want one
            have this function return NULL, or just don't supply a function  */
         char *         (* get_title)              (CajaView          *view);
-
 
         /* Zoom support */
         gboolean       (* supports_zooming)       (CajaView          *view);

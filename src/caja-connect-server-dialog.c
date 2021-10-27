@@ -975,7 +975,6 @@ caja_connect_server_dialog_init (CajaConnectServerDialog *dialog)
                             1, get_method_description (&(methods[i])),
                             -1);
 
-
         if (methods[i].flags & DEFAULT_METHOD)
         {
             gtk_combo_box_set_active_iter (GTK_COMBO_BOX (combo), &iter);

@@ -22,7 +22,6 @@
    Author: David Zeuthen <davidz@redhat.com>
 */
 
-
 #include <config.h>
 #include <unistd.h>
 #include <string.h>
@@ -225,7 +224,6 @@ present_autorun_for_software_dialog (GMount *mount)
      * software on media (e.g. if it has a certificate, check it
      * etc.)
      */
-
 
     icon = g_mount_get_icon (mount);
     icon_size = caja_get_icon_size_for_stock_size (GTK_ICON_SIZE_DIALOG);
