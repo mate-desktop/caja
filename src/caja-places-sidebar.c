@@ -2892,7 +2892,7 @@ bookmarks_button_release_event_cb (GtkWidget *widget,
             return FALSE;
         }
 
-    	model = gtk_tree_view_get_model (tree_view);
+        model = gtk_tree_view_get_model (tree_view);
 
         gtk_tree_view_get_path_at_pos (tree_view, (int) event->x, (int) event->y,
                                        &path, NULL, NULL, NULL);
