@@ -2906,12 +2906,13 @@ bookmarks_button_release_event_cb (GtkWidget *widget,
         gtk_tree_view_get_path_at_pos (tree_view, (int) event->x, (int) event->y,
                                        &path, NULL, NULL, NULL);
 
-        gtk_tree_view_set_cursor(tree_view, path, NULL, FALSE);
-        bookmarks_popup_menu (sidebar, event);
-
         if (path != NULL)
         {
+            gtk_tree_view_set_cursor(tree_view, path, NULL, FALSE);
             gtk_tree_path_free (path);
+
+            bookmarks_popup_menu (sidebar, event);
+
             return TRUE;
         }
     }
