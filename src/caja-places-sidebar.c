@@ -2884,15 +2884,15 @@ bookmarks_button_release_event_cb (GtkWidget *widget,
     }
 
     tree_view = GTK_TREE_VIEW (widget);
-    model = gtk_tree_view_get_model (tree_view);
 
     if (event->button == 1)
     {
-
         if (event->window != gtk_tree_view_get_bin_window (tree_view))
         {
             return FALSE;
         }
+
+        model = gtk_tree_view_get_model (tree_view);
 
         gtk_tree_view_get_path_at_pos (tree_view, (int) event->x, (int) event->y,
                                        &path, NULL, NULL, NULL);
@@ -2900,6 +2900,21 @@ bookmarks_button_release_event_cb (GtkWidget *widget,
         open_selected_bookmark (sidebar, model, path, 0);
 
         gtk_tree_path_free (path);
+    }
+    else if (event->button == 3)
+    {
+        gtk_tree_view_get_path_at_pos (tree_view, (int) event->x, (int) event->y,
+                                       &path, NULL, NULL, NULL);
+
+        if (path != NULL)
+        {
+            gtk_tree_view_set_cursor(tree_view, path, NULL, FALSE);
+            gtk_tree_path_free (path);
+
+            bookmarks_popup_menu (sidebar, event);
+
+            return TRUE;
+        }
     }
 
     return FALSE;
@@ -3016,11 +3031,7 @@ bookmarks_button_press_event_cb (GtkWidget             *widget,
         return TRUE;
     }
 
-    if (event->button == 3)
-    {
-        bookmarks_popup_menu (sidebar, event);
-    }
-    else if (event->button == 2)
+    if (event->button == 2)
     {
         GtkTreeModel *model;
         GtkTreePath *path;
