@@ -2431,6 +2431,25 @@ update_info_internal (CajaFile *file,
 	}
 
 	icon = g_file_info_get_icon (info);
+	g_object_ref (icon);
+	if (G_IS_THEMED_ICON (icon)) {
+		/* Only keep the first icon name found in theme, in hope to
+		   drop the generic icon name. */
+		GtkIconTheme *icon_theme = gtk_icon_theme_get_default ();
+		const gchar * const *names = g_themed_icon_get_names (G_THEMED_ICON (icon));
+		int i;
+
+		if (names) {
+			for (i = 0; names[i]; i++) {
+				if (gtk_icon_theme_has_icon (icon_theme, names[i])) {
+					GIcon *new_icon = G_ICON (g_themed_icon_new_from_names ((char **) &names[i], 1));
+					g_object_unref (icon);
+					icon = new_icon;
+					break;
+				}
+			}
+		}
+	}
 	if (!g_icon_equal (icon, file->details->icon)) {
 		changed = TRUE;
 
@@ -2439,6 +2458,7 @@ update_info_internal (CajaFile *file,
 		}
 		file->details->icon = g_object_ref (icon);
 	}
+	g_object_unref (icon);
 
 	thumbnail_path =  g_file_info_get_attribute_byte_string (info, G_FILE_ATTRIBUTE_THUMBNAIL_PATH);
 	if (eel_strcmp (file->details->thumbnail_path, thumbnail_path) != 0) {
