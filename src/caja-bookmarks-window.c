@@ -264,13 +264,7 @@ create_bookmarks_window (CajaBookmarkList *list, CajaWindow *window_source)
 
     bookmarks = list;
 
-    builder = gtk_builder_new ();
-    if (!gtk_builder_add_from_file (builder,
-                                    UIDIR  "/caja-bookmarks-window.ui",
-                                    NULL))
-    {
-        return NULL;
-    }
+    builder = gtk_builder_new_from_resource ("/org/mate/caja/caja-bookmarks-window.ui");
 
     window = (GtkWidget *)gtk_builder_get_object (builder, "bookmarks_dialog");
     bookmark_list_widget = (GtkTreeView *)gtk_builder_get_object (builder, "bookmark_tree_view");

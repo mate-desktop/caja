@@ -70,13 +70,21 @@ else
 	$(AM_V_GEN) cp -f $< $@
 endif
 
+ui_files = \
+	caja-file-management-properties.ui \
+	caja-bookmarks-window.ui \
+	$(NULL)
+
 EXTRA_DIST = \
 	$(appdata_in_in_files) \
 	$(cajadata_DATA) \
 	$(desktop_in_in_files) \
 	$(mime_in_files) \
 	$(service_in_files) \
+	$(ui_files) \
+	caja-resources.gresource.xml \
 	freedesktop-dbus-interfaces.xml \
+	ui-a11y.suppr \
 	$(NULL)
 
 DISTCLEANFILES = \
@@ -106,4 +114,5 @@ if ENABLE_UPDATE_MIMEDB
 	$(UPDATE_MIME_DATABASE) "$(DESTDIR)$(datadir)/mime"
 endif
 
+include $(top_srcdir)/gla11y.mk
 -include $(top_srcdir)/git.mk
