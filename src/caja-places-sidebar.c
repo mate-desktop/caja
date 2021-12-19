@@ -1461,6 +1461,7 @@ reorder_bookmarks (CajaPlacesSidebar *sidebar,
     GtkTreeIter iter;
     PlaceType type;
     int old_position;
+    guint list_length;
 
     /* Get the selected path */
 
@@ -1472,12 +1473,12 @@ reorder_bookmarks (CajaPlacesSidebar *sidebar,
                         PLACES_SIDEBAR_COLUMN_INDEX, &old_position,
                         -1);
 
-    if (type != PLACES_BOOKMARK ||
-            old_position < 0 ||
-            old_position >= caja_bookmark_list_length (sidebar->bookmarks))
-    {
+    if (type != PLACES_BOOKMARK || old_position < 0)
         return;
-    }
+
+    list_length = caja_bookmark_list_length (sidebar->bookmarks);
+    if (((guint) old_position) >= list_length)
+        return;
 
     caja_bookmark_list_move_item (sidebar->bookmarks, old_position,
                                   new_position);

@@ -335,11 +335,6 @@ caja_query_parse_xml (char *xml, gsize xml_len)
     ParserInfo info = { NULL };
     GMarkupParseContext *ctx;
 
-    if (xml_len == -1)
-    {
-        xml_len = strlen (xml);
-    }
-
     info.query = caja_query_new ();
     info.in_text = FALSE;
 

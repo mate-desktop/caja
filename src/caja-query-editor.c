@@ -468,7 +468,7 @@ tags_row_add_to_query (CajaQueryEditorRow *row,
 
     char **strv = g_strsplit (tags, " ", -1);
     guint len = g_strv_length (strv);
-    int i;
+    guint i;
 
     for (i = 0; i < len; ++i) {
         strv[i] = g_strstrip (strv[i]);
@@ -839,7 +839,7 @@ type_row_create_widgets (CajaQueryEditorRow *row)
     GtkCellRenderer *cell;
     GtkListStore *store;
     GtkTreeIter iter;
-    int i;
+    gsize i;
 
     store = gtk_list_store_new (4, G_TYPE_STRING, G_TYPE_POINTER, G_TYPE_STRING, G_TYPE_BOOLEAN);
     combo = gtk_combo_box_new_with_model (GTK_TREE_MODEL (store));
@@ -993,7 +993,7 @@ type_add_rows_from_query (CajaQueryEditor    *editor,
     char *mime_type;
     CajaQueryEditorRow *row;
     GtkTreeIter iter;
-    int i;
+    gsize i;
     GtkTreeModel *model;
     GList *l;
 
@@ -1017,7 +1017,7 @@ type_add_rows_from_query (CajaQueryEditor    *editor,
 
             model = gtk_combo_box_get_model (GTK_COMBO_BOX (row->type_widget));
 
-            gtk_tree_model_iter_nth_child (model, &iter, NULL, i + 2);
+            gtk_tree_model_iter_nth_child (model, &iter, NULL, ((gint) i) + 2);
             gtk_combo_box_set_active_iter  (GTK_COMBO_BOX (row->type_widget),
                                             &iter);
         }

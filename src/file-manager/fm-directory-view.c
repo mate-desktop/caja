@@ -2351,9 +2351,9 @@ fm_directory_view_display_selection_info (FMDirectoryView *view)
 			char *size_string;
 
 			if (g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_USE_IEC_UNITS))
-				size_string = g_format_size_full (non_folder_size, G_FORMAT_SIZE_IEC_UNITS);
+				size_string = g_format_size_full ((guint64) non_folder_size, G_FORMAT_SIZE_IEC_UNITS);
 			else
-				size_string = g_format_size(non_folder_size);
+				size_string = g_format_size ((guint64) non_folder_size);
 
 			/* Translators: This is marked for translation in case a localiser
 			 * needs to use something other than parentheses. The
