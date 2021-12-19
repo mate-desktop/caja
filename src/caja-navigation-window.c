@@ -519,7 +519,7 @@ caja_navigation_window_key_press_event (GtkWidget *widget,
                                         GdkEventKey *event)
 {
     CajaNavigationWindow *window;
-    int i;
+    gsize i;
 
     window = CAJA_NAVIGATION_WINDOW (widget);
 
@@ -604,12 +604,12 @@ caja_navigation_window_button_press_event (GtkWidget *widget,
     handled = FALSE;
     window = CAJA_NAVIGATION_WINDOW (widget);
 
-    if (mouse_extra_buttons && (event->button == mouse_back_button))
+    if (mouse_extra_buttons && (((int) event->button) == mouse_back_button))
     {
         caja_navigation_window_go_back (window);
         handled = TRUE;
     }
-    else if (mouse_extra_buttons && (event->button == mouse_forward_button))
+    else if (mouse_extra_buttons && (((int) event->button) == mouse_forward_button))
     {
         caja_navigation_window_go_forward (window);
         handled = TRUE;
@@ -1082,7 +1082,7 @@ gint
 caja_navigation_window_get_base_page_index (CajaNavigationWindow *window)
 {
     CajaNavigationWindowSlot *slot;
-    gint forward_count;
+    guint forward_count;
 
     slot = CAJA_NAVIGATION_WINDOW_SLOT (CAJA_WINDOW (window)->details->active_pane->active_slot);
 
@@ -1097,7 +1097,7 @@ caja_navigation_window_get_base_page_index (CajaNavigationWindow *window)
     /* The forward count indicate the relative postion of the base page
      * in the history list
      */
-    return forward_count;
+    return (int) forward_count;
 }
 
 /**

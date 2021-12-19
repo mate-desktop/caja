@@ -1073,7 +1073,7 @@ caja_window_key_press_event (GtkWidget *widget,
         return TRUE;
 
     CajaWindow *window;
-    int i;
+    gsize i;
 
     window = CAJA_WINDOW (widget);
 

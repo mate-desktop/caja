@@ -4139,7 +4139,7 @@ permission_combo_update (FMPropertiesWindow *window,
 			int current_perm;
 			gtk_tree_model_get (model, &iter, 1, &current_perm, -1);
 
-			if (current_perm == all_perm) {
+			if (((PermissionValue) current_perm) == all_perm) {
 				found = TRUE;
 				break;
 			}

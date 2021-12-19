@@ -472,7 +472,7 @@ file_read_callback (GObject      *object,
     {
         int exif_still_loading;
 
-        g_assert (count_read <= sizeof(page->details->buffer));
+        g_assert (((size_t) count_read) <= sizeof (page->details->buffer));
 
 #ifdef HAVE_EXIF
         exif_still_loading = exif_loader_write (page->details->exifldr,

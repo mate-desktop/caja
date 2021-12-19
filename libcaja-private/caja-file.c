@@ -6254,9 +6254,9 @@ caja_file_get_size_as_string (CajaFile *file,
 	}
 
 	if (g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_USE_IEC_UNITS))
-		return g_format_size_full (size, G_FORMAT_SIZE_IEC_UNITS);
+		return g_format_size_full ((guint64) size, G_FORMAT_SIZE_IEC_UNITS);
 	else
-		return g_format_size (size);
+		return g_format_size ((guint64) size);
 }
 
 /**

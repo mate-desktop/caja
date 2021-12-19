@@ -376,7 +376,7 @@ get_link_name (const char *name, int count, int max_length)
 {
 	const char *format;
 	char *result;
-	int unshortened_length;
+	size_t unshortened_length;
 	gboolean use_count;
 
 	g_assert (name != NULL);
@@ -444,10 +444,10 @@ get_link_name (const char *name, int count, int max_length)
 	else
 		result = g_strdup_printf (format, name);
 
-	if (max_length > 0 && (unshortened_length = strlen (result)) > max_length) {
+	if (max_length > 0 && (unshortened_length = strlen (result)) > (size_t) max_length) {
 		char *new_name;
 
-		new_name = shorten_utf8_string (name, unshortened_length - max_length);
+		new_name = shorten_utf8_string (name, ((int) unshortened_length) - max_length);
 		if (new_name) {
 			g_free (result);
 
@@ -456,7 +456,7 @@ get_link_name (const char *name, int count, int max_length)
 			else
 				result = g_strdup_printf (format, new_name);
 
-			g_assert (strlen (result) <= max_length);
+			g_assert (strlen (result) <= (size_t) max_length);
 			g_free (new_name);
 		}
 	}
@@ -655,7 +655,7 @@ make_next_duplicate_name (const char *base, const char *suffix, int count, int m
 {
 	const char *format;
 	char *result;
-	int unshortened_length;
+	size_t unshortened_length;
 	gboolean use_count;
 
 	if (count < 1) {
@@ -733,10 +733,10 @@ make_next_duplicate_name (const char *base, const char *suffix, int count, int m
 	else
 		result = g_strdup_printf (format, base, suffix);
 
-	if (max_length > 0 && (unshortened_length = strlen (result)) > max_length) {
+	if (max_length > 0 && (unshortened_length = strlen (result)) > (size_t) max_length) {
 		char *new_base;
 
-		new_base = shorten_utf8_string (base, unshortened_length - max_length);
+		new_base = shorten_utf8_string (base, ((int) unshortened_length) - max_length);
 		if (new_base) {
 			g_free (result);
 
@@ -745,7 +745,7 @@ make_next_duplicate_name (const char *base, const char *suffix, int count, int m
 			else
 				result = g_strdup_printf (format, new_base, suffix);
 
-			g_assert (strlen (result) <= max_length);
+			g_assert (strlen (result) <= (size_t) max_length);
 			g_free (new_base);
 		}
 	}
@@ -1778,7 +1778,7 @@ delete_file (CommonJob *job, GFile *file,
 }
 
 static void
-delete_files (CommonJob *job, GList *files, int *files_skipped)
+delete_files (CommonJob *job, GList *files, guint *files_skipped)
 {
 	GList *l;
 	SourceInfo source_info;
@@ -1821,10 +1821,10 @@ delete_files (CommonJob *job, GList *files, int *files_skipped)
 
 static void
 report_trash_progress (CommonJob *job,
-		       int files_trashed,
-		       int total_files)
+                       guint      files_trashed,
+                       guint      total_files)
 {
-	int files_left;
+	guint files_left;
 	char *s;
 
 	files_left = total_files - files_trashed;
@@ -1844,13 +1844,13 @@ report_trash_progress (CommonJob *job,
 }
 
 static void
-trash_files (CommonJob *job, GList *files, int *files_skipped)
+trash_files (CommonJob *job, GList *files, guint *files_skipped)
 {
 	GList *l;
 	GFile *file;
 	GList *to_delete;
 	GError *error;
-	int total_files, files_trashed;
+	guint total_files, files_trashed;
 	char *primary, *secondary, *details;
 	int response;
 
@@ -1978,7 +1978,7 @@ delete_job (GIOSchedulerJob *io_job,
 	gboolean must_confirm_delete_in_trash;
 	gboolean must_confirm_delete;
 	gboolean must_confirm_trash;
-	int files_skipped;
+	guint files_skipped;
 	GFile *file = NULL;
 
 	common = (CommonJob *)job;
@@ -2923,11 +2923,11 @@ verify_destination (CommonJob *job,
 		free_size = g_file_info_get_attribute_uint64 (fsinfo,
 							      G_FILE_ATTRIBUTE_FILESYSTEM_FREE);
 
-		if (free_size < required_size) {
+		if (free_size < (guint64) required_size) {
 			primary = f (_("Error while copying to \"%B\"."), dest);
 			secondary = f(_("There is not enough space on the destination. Try to remove files to make space."));
 
-			details = f (_("There is %S available, but %S is required."), free_size, required_size);
+			details = f (_("There is %" G_GUINT64_FORMAT  " available, but %" G_GOFFSET_FORMAT " is required."), free_size, required_size);
 
 			response = run_warning (job,
 						primary,
@@ -3174,7 +3174,7 @@ make_file_name_valid_for_dest_fs (char *filename,
 		    !strcmp (dest_fs_type, "msdos") ||
 		    !strcmp (dest_fs_type, "msdosfs")) {
 			gboolean ret;
-			int i, old_len;
+			size_t i, old_len;
 
 			ret = str_replace (filename, FAT_FORBIDDEN_CHARACTERS, '_');
 
@@ -6134,11 +6134,13 @@ create_job (GIOSchedulerJob *io_job,
 			if (count == 1) {
 				new_filename = g_strdup (filename);
 			} else if (job->make_dir) {
-				filename2 = g_strdup_printf ("%s %d", filename, count);
+				size_t unshortened_length;
 
+				filename2 = g_strdup_printf ("%s %d", filename, count);
+				unshortened_length = strlen (filename2);
 				new_filename = NULL;
-				if (max_length > 0 && strlen (filename2) > max_length) {
-					new_filename = shorten_utf8_string (filename2, strlen (filename2) - max_length);
+				if (max_length > 0 && unshortened_length > (size_t) max_length) {
+					new_filename = shorten_utf8_string (filename2, ((int) unshortened_length) - max_length);
 				}
 
 				if (new_filename == NULL) {

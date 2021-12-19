@@ -240,7 +240,7 @@ caja_desktop_update_metadata_from_keyfile (CajaFile *file,
     gsize length, values_length;
     GKeyFile *keyfile;
     GFileInfo *info;
-    gint idx;
+    gsize idx;
     gboolean res;
 
     keyfile = get_keyfile ();

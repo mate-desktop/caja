@@ -115,21 +115,25 @@ static void
 sanity_check_window_dimensions (guint *width, guint *height)
 {
     GdkScreen *screen;
-    gint scale;
+    int screen_width;
+    int screen_height;
+    int scale;
 
     g_assert (width != NULL);
     g_assert (height != NULL);
 
     screen = gdk_screen_get_default ();
     scale = gdk_window_get_scale_factor (gdk_screen_get_root_window (screen));
+    screen_width = WidthOfScreen (gdk_x11_screen_get_xscreen (screen)) / scale;
+    screen_height = HeightOfScreen (gdk_x11_screen_get_xscreen (screen)) / scale;
 
     /* Pin the size of the window to the screen, so we don't end up in
      * a state where the window is so big essential parts of it can't
      * be reached (might not be necessary with all window managers,
      * but seems reasonable anyway).
      */
-    *width = MIN (*width, WidthOfScreen (gdk_x11_screen_get_xscreen (screen)) / scale);
-    *height = MIN (*height, HeightOfScreen (gdk_x11_screen_get_xscreen (screen)) / scale);
+    *width = MIN (*width, (guint) screen_width);
+    *height = MIN (*height, (guint) screen_height);
 }
 
 /**
