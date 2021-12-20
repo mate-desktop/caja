@@ -871,7 +871,7 @@ set_file_unconfirmed (CajaFile *file, gboolean unconfirmed)
     {
         return;
     }
-    file->details->unconfirmed = unconfirmed;
+    file->details->unconfirmed = (unconfirmed != FALSE);
 
     directory = file->details->directory;
     if (unconfirmed)
@@ -3521,7 +3521,7 @@ top_left_read_callback (GObject *source_object,
     {
         file_details->top_left_text = caja_extract_top_left_text (file_contents, state->large, file_size);
         file_details->got_top_left_text = TRUE;
-        file_details->got_large_top_left_text = state->large;
+        file_details->got_large_top_left_text = (state->large != FALSE);
         g_free (file_contents);
     }
     else
@@ -3902,9 +3902,9 @@ link_info_done (CajaDirectory *directory,
     {
         file->details->custom_icon = g_strdup (icon);
     }
-    file->details->is_launcher = is_launcher;
-    file->details->is_foreign_link = is_foreign;
-    file->details->is_trusted_link = is_trusted;
+    file->details->is_launcher = (is_launcher != FALSE);
+    file->details->is_foreign_link = (is_foreign != FALSE);
+    file->details->is_trusted_link = (is_trusted != FALSE);
 
     caja_directory_async_state_changed (directory);
 }
@@ -4111,7 +4111,7 @@ thumbnail_done (CajaDirectory *directory,
                 gboolean tried_original)
 {
     file->details->thumbnail_is_up_to_date = TRUE;
-    file->details->thumbnail_tried_original  = tried_original;
+    file->details->thumbnail_tried_original = (tried_original != FALSE);
     if (file->details->thumbnail)
     {
         g_object_unref (file->details->thumbnail);
@@ -4667,7 +4667,7 @@ got_filesystem_info (FilesystemInfoState *state, GFileInfo *info)
         file->details->filesystem_use_preview =
             g_file_info_get_attribute_uint32 (info, G_FILE_ATTRIBUTE_FILESYSTEM_USE_PREVIEW);
         file->details->filesystem_readonly =
-            g_file_info_get_attribute_boolean (info, G_FILE_ATTRIBUTE_FILESYSTEM_READONLY);
+            (g_file_info_get_attribute_boolean (info, G_FILE_ATTRIBUTE_FILESYSTEM_READONLY) != FALSE);
     }
 
     caja_directory_async_state_changed (directory);

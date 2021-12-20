@@ -204,7 +204,7 @@ eel_canvas_re_set_fill (EelCanvasRE *re, gboolean fill_set)
 {
     if (re->fill_set != fill_set)
     {
-        re->fill_set = fill_set;
+        re->fill_set = (fill_set != FALSE);
         eel_canvas_item_request_update (EEL_CANVAS_ITEM (re));
     }
 }
@@ -214,7 +214,7 @@ eel_canvas_re_set_outline (EelCanvasRE *re, gboolean outline_set)
 {
     if (re->outline_set != outline_set)
     {
-        re->outline_set = outline_set;
+        re->outline_set = (outline_set != FALSE);
         eel_canvas_item_request_update (EEL_CANVAS_ITEM (re));
     }
 }
