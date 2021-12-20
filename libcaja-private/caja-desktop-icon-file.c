@@ -205,8 +205,8 @@ update_info_from_link (CajaDesktopIconFile *icon_file)
     file->details->mount = mount;
     if (mount)
     {
-        file->details->can_unmount = g_mount_can_unmount (mount);
-        file->details->can_eject = g_mount_can_eject (mount);
+        file->details->can_unmount = (g_mount_can_unmount (mount) != FALSE);
+        file->details->can_eject = (g_mount_can_eject (mount) != FALSE);
     }
 
     file->details->file_info_is_up_to_date = TRUE;

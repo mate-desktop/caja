@@ -420,7 +420,7 @@ caja_icon_canvas_item_set_property (GObject        *object,
         {
             return;
         }
-        details->is_highlighted_for_selection = g_value_get_boolean (value);
+        details->is_highlighted_for_selection = (g_value_get_boolean (value) != FALSE);
         caja_icon_canvas_item_invalidate_label_size (item);
 
         atk_object_notify_state_change (accessible, ATK_STATE_SELECTED,
@@ -432,7 +432,7 @@ caja_icon_canvas_item_set_property (GObject        *object,
         {
             return;
         }
-        details->is_highlighted_as_keyboard_focus = g_value_get_boolean (value);
+        details->is_highlighted_as_keyboard_focus = (g_value_get_boolean (value) != FALSE);
         atk_object_notify_state_change (accessible, ATK_STATE_FOCUSED,
                                         details->is_highlighted_as_keyboard_focus);
         break;
@@ -442,7 +442,7 @@ caja_icon_canvas_item_set_property (GObject        *object,
         {
             return;
         }
-        details->is_highlighted_for_drop = g_value_get_boolean (value);
+        details->is_highlighted_for_drop = (g_value_get_boolean (value) != FALSE);
         break;
 
     case PROP_HIGHLIGHTED_FOR_CLIPBOARD:
@@ -450,7 +450,7 @@ caja_icon_canvas_item_set_property (GObject        *object,
         {
             return;
         }
-        details->is_highlighted_for_clipboard = g_value_get_boolean (value);
+        details->is_highlighted_for_clipboard = (g_value_get_boolean (value) != FALSE);
         break;
 
     default:
@@ -1431,7 +1431,7 @@ caja_icon_canvas_item_set_is_visible (CajaIconCanvasItem       *item,
     if (item->details->is_visible == visible)
         return;
 
-    item->details->is_visible = visible;
+    item->details->is_visible = (visible != FALSE);
 
     if (!visible)
     {
@@ -1827,7 +1827,7 @@ map_surface (CajaIconCanvasItem *icon_item)
         icon_item->details->rendered_is_highlighted_for_selection = icon_item->details->is_highlighted_for_selection;
         icon_item->details->rendered_is_highlighted_for_drop = icon_item->details->is_highlighted_for_drop;
         icon_item->details->rendered_is_highlighted_for_clipboard = icon_item->details->is_highlighted_for_clipboard;
-        icon_item->details->rendered_is_focused = gtk_widget_has_focus (GTK_WIDGET (EEL_CANVAS_ITEM (icon_item)->canvas));
+        icon_item->details->rendered_is_focused = (gtk_widget_has_focus (GTK_WIDGET (EEL_CANVAS_ITEM (icon_item)->canvas)) != FALSE);
     }
 
     cairo_surface_reference (icon_item->details->rendered_surface);
@@ -2128,10 +2128,10 @@ caja_icon_canvas_item_event (EelCanvasItem *item, GdkEvent *event)
              * should be separate. The "unpreview" signal
              * does not have a return value.
              */
-            icon_item->details->is_active = caja_icon_container_emit_preview_signal
-                                            (CAJA_ICON_CONTAINER (item->canvas),
-                                             CAJA_ICON_CANVAS_ITEM (item)->user_data,
-                                             TRUE);
+            icon_item->details->is_active =
+                (caja_icon_container_emit_preview_signal (CAJA_ICON_CONTAINER (item->canvas),
+                                                          CAJA_ICON_CANVAS_ITEM (item)->user_data,
+                                                          TRUE) != FALSE);
         }
         return TRUE;
 
@@ -2583,7 +2583,7 @@ caja_icon_canvas_item_set_show_stretch_handles (CajaIconCanvasItem *item,
         return;
     }
 
-    item->details->show_stretch_handles = show_stretch_handles;
+    item->details->show_stretch_handles = (show_stretch_handles != FALSE);
     eel_canvas_item_request_update (EEL_CANVAS_ITEM (item));
 }
 
@@ -2691,7 +2691,7 @@ caja_icon_canvas_item_set_renaming (CajaIconCanvasItem *item, gboolean state)
         return;
     }
 
-    item->details->is_renaming = state;
+    item->details->is_renaming = (state != FALSE);
     eel_canvas_item_request_update (EEL_CANVAS_ITEM (item));
 }
 
@@ -2744,7 +2744,7 @@ caja_icon_canvas_item_set_entire_text (CajaIconCanvasItem       *item,
 					   gboolean                      entire_text)
 {
 	if (item->details->entire_text != entire_text) {
-		item->details->entire_text = entire_text;
+		item->details->entire_text = (entire_text != FALSE);
 
 		caja_icon_canvas_item_invalidate_label_size (item);
 		eel_canvas_item_request_update (EEL_CANVAS_ITEM (item));

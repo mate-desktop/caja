@@ -764,7 +764,7 @@ eel_editable_label_set_draw_outline (EelEditableLabel *label,
 
     if (label->draw_outline != draw_outline)
     {
-        label->draw_outline = draw_outline;
+        label->draw_outline = (draw_outline != FALSE);
 
         gtk_widget_queue_draw (GTK_WIDGET (label));
     }
@@ -790,7 +790,7 @@ eel_editable_label_set_line_wrap (EelEditableLabel *label,
 
     if (label->wrap != wrap)
     {
-        label->wrap = wrap;
+        label->wrap = (wrap != FALSE);
         g_object_notify (G_OBJECT (label), "wrap");
 
         gtk_widget_queue_resize (GTK_WIDGET (label));
@@ -1000,7 +1000,7 @@ eel_editable_label_ensure_layout (EelEditableLabel *label,
         {
             label->layout = gtk_widget_create_pango_layout (widget, label->text);
         }
-        label->layout_includes_preedit = include_preedit;
+        label->layout_includes_preedit = (include_preedit != FALSE);
 
         if (label->font_desc != NULL)
             pango_layout_set_font_description (label->layout, label->font_desc);
