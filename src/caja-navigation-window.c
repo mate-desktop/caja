@@ -1121,6 +1121,9 @@ caja_navigation_window_show (GtkWidget *widget)
      * these can be controlled on a per-window basis from View menu items.
      */
 
+    if (g_settings_get_boolean (caja_window_state, CAJA_WINDOW_STATE_START_WITH_EXTRA_PANE))
+        caja_navigation_window_split_view_on (window);
+
     if (g_settings_get_boolean (caja_window_state, CAJA_WINDOW_STATE_START_WITH_TOOLBAR))
     {
         caja_navigation_window_show_toolbar (window);
@@ -1349,6 +1352,29 @@ create_extra_pane (CajaNavigationWindow *window)
     return slot;
 }
 
+static void
+extra_pane_position_changed_callback (GtkWidget *widget,
+                                      GParamSpec *pspec,
+                                      gpointer user_data)
+{
+    CajaNavigationWindow *window;
+    gint scale;
+    gint position;
+
+    window = CAJA_NAVIGATION_WINDOW (user_data);
+    scale = gtk_widget_get_scale_factor (widget);
+
+    g_object_get (widget, "position", &position, NULL);
+    position /= scale;
+    if (position != window->details->extra_pane_width)
+    {
+        window->details->extra_pane_width = position;
+        g_settings_set_int (caja_window_state,
+                            CAJA_WINDOW_STATE_EXTRA_PANE_POSITION,
+                            position <= 1 ? 0 : position);
+    }
+}
+
 void
 caja_navigation_window_split_view_on (CajaNavigationWindow *window)
 {
@@ -1357,6 +1383,8 @@ caja_navigation_window_split_view_on (CajaNavigationWindow *window)
     CajaWindowSlot *slot, *old_active_slot;
     GFile *location;
     GtkAction *action;
+    GtkWidget *paned;
+    gint       scale;
 
     win = CAJA_WINDOW (window);
 
@@ -1397,6 +1425,24 @@ caja_navigation_window_split_view_on (CajaNavigationWindow *window)
         caja_navigation_window_pane_hide_location_bar (pane, TRUE);
     }
     G_GNUC_END_IGNORE_DEPRECATIONS;
+
+
+    paned = GTK_WIDGET (window->details->split_view_hpane);
+    scale = gtk_widget_get_scale_factor (GTK_WIDGET (window->sidebar));
+    window->details->extra_pane_width =
+        g_settings_get_int (caja_window_state, CAJA_WINDOW_STATE_EXTRA_PANE_POSITION) * scale;
+    if (window->details->extra_pane_width <= 0)
+        window->details->extra_pane_width = gtk_widget_get_allocated_width (paned) / 2;
+    gtk_paned_set_position (GTK_PANED (paned), window->details->extra_pane_width);
+
+
+    g_signal_connect (paned,
+                      "notify::position",
+                      G_CALLBACK (extra_pane_position_changed_callback),
+                      window);
+
+
+    g_settings_set_boolean (caja_window_state, CAJA_WINDOW_STATE_START_WITH_EXTRA_PANE, TRUE);
 }
 
 void
@@ -1426,6 +1472,8 @@ caja_navigation_window_split_view_off (CajaNavigationWindow *window)
 
     caja_navigation_window_update_show_hide_menu_items (window);
     caja_navigation_window_update_split_view_actions_sensitivity (window);
+
+    g_settings_set_boolean (caja_window_state, CAJA_WINDOW_STATE_START_WITH_EXTRA_PANE, FALSE);
 }
 
 gboolean

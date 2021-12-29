@@ -438,10 +438,20 @@
       <summary>Whether the navigation window should be maximized.</summary>
       <description>Whether the navigation window should be maximized by default.</description>
     </key>
+    <key name="extra-pane-position" type="i">
+      <default>-1</default>
+      <summary>Default position of the extra pane</summary>
+      <description>The default position (in pixels) of the extra pane in new windows, relative to the left side (or right side in right-to-left mode) of the navigation window.  A greater value here will allocate more space for the primary pane and less space for the extra pane.  A value of -1 here will split the window evenly in half between the two panes.</description>
+    </key>
     <key name="sidebar-width" type="i">
       <default>148</default>
       <summary>Width of the side pane</summary>
       <description>The default width of the side pane in new windows.</description>
+    </key>
+    <key name="start-with-extra-pane" type="b">
+      <default>true</default>
+      <summary>Show extra pane by default in new windows</summary>
+      <description>If set to true, newly opened windows will have the extra pane visible.</description>
     </key>
     <key name="start-with-toolbar" type="b">
       <default>true</default>
