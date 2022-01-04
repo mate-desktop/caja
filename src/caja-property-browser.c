@@ -29,6 +29,7 @@
  */
 
 #include <config.h>
+#include <limits.h>
 #include <math.h>
 
 #include <libxml/parser.h>
@@ -803,15 +804,16 @@ make_color_drag_image (CajaPropertyBrowser *property_browser, const char *color_
     GdkPixbuf *color_square;
     GdkPixbuf *ret;
     int row, col, stride;
-    char *pixels;
+    guchar *pixels;
     GdkColor color;
+    guchar red, green, blue;
 
     color_square = gdk_pixbuf_new (GDK_COLORSPACE_RGB, TRUE, 8, COLOR_SQUARE_SIZE, COLOR_SQUARE_SIZE);
 
     gdk_color_parse (color_spec, &color);
-    color.red >>= 8;
-    color.green >>= 8;
-    color.blue >>= 8;
+    red   = (guchar)(color.red >> 8);
+    green = (guchar)(color.green >> 8);
+    blue  = (guchar)(color.blue >> 8);
 
     pixels = gdk_pixbuf_get_pixels (color_square);
     stride = gdk_pixbuf_get_rowstride (color_square);
@@ -819,16 +821,16 @@ make_color_drag_image (CajaPropertyBrowser *property_browser, const char *color_
     /* loop through and set each pixel */
     for (row = 0; row < COLOR_SQUARE_SIZE; row++)
     {
-        char *row_pixels;
+        guchar *row_pixels;
 
         row_pixels =  (pixels + (row * stride));
 
         for (col = 0; col < COLOR_SQUARE_SIZE; col++)
         {
-            *row_pixels++ = color.red;
-            *row_pixels++ = color.green;
-            *row_pixels++ = color.blue;
-            *row_pixels++ = 255;
+            *row_pixels++ = red;
+            *row_pixels++ = green;
+            *row_pixels++ = blue;
+            *row_pixels++ = UCHAR_MAX;
         }
     }
 
