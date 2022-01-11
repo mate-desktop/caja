@@ -100,7 +100,7 @@ struct _CajaNavigationWindowPrivate
     GtkSizeGroup *header_size_group;
 
     /* Extra Pane */
-    int extra_pane_width;
+    double extra_pane_position;
 
     /* Side Pane */
     int side_pane_width;

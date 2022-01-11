@@ -1358,20 +1358,22 @@ extra_pane_position_changed_callback (GtkWidget *widget,
                                       gpointer user_data)
 {
     CajaNavigationWindow *window;
-    gint scale;
-    gint position;
+    GtkAllocation allocation;
+    gint pane_width;
+    double position;
 
     window = CAJA_NAVIGATION_WINDOW (user_data);
-    scale = gtk_widget_get_scale_factor (widget);
 
-    g_object_get (widget, "position", &position, NULL);
-    position /= scale;
-    if (position != window->details->extra_pane_width)
+    gtk_widget_get_allocation (widget, &allocation);
+    g_object_get (widget, "position", &pane_width, NULL);
+    position = CLAMP ((double) pane_width / allocation.width, 0.0, 1.0);
+
+    if (position != window->details->extra_pane_position)
     {
-        window->details->extra_pane_width = position;
-        g_settings_set_int (caja_window_state,
-                            CAJA_WINDOW_STATE_EXTRA_PANE_POSITION,
-                            position <= 1 ? 0 : position);
+        window->details->extra_pane_position = position;
+        g_settings_set_double (caja_window_state,
+                               CAJA_WINDOW_STATE_EXTRA_PANE_POSITION,
+                               position);
     }
 }
 
@@ -1384,7 +1386,7 @@ caja_navigation_window_split_view_on (CajaNavigationWindow *window)
     GFile *location;
     GtkAction *action;
     GtkWidget *paned;
-    gint       scale;
+    GtkAllocation allocation;
 
     win = CAJA_WINDOW (window);
 
@@ -1426,21 +1428,13 @@ caja_navigation_window_split_view_on (CajaNavigationWindow *window)
     }
     G_GNUC_END_IGNORE_DEPRECATIONS;
 
-
     paned = GTK_WIDGET (window->details->split_view_hpane);
-    scale = gtk_widget_get_scale_factor (GTK_WIDGET (window->sidebar));
-    window->details->extra_pane_width =
-        g_settings_get_int (caja_window_state, CAJA_WINDOW_STATE_EXTRA_PANE_POSITION) * scale;
-    if (window->details->extra_pane_width <= 0)
-        window->details->extra_pane_width = gtk_widget_get_allocated_width (paned) / 2;
-    gtk_paned_set_position (GTK_PANED (paned), window->details->extra_pane_width);
+    window->details->extra_pane_position =
+        CLAMP (g_settings_get_double (caja_window_state, CAJA_WINDOW_STATE_EXTRA_PANE_POSITION), 0.0, 1.0);
 
-
-    g_signal_connect (paned,
-                      "notify::position",
+    g_signal_connect (paned, "notify::position",
                       G_CALLBACK (extra_pane_position_changed_callback),
                       window);
-
 
     g_settings_set_boolean (caja_window_state, CAJA_WINDOW_STATE_START_WITH_EXTRA_PANE, TRUE);
 }

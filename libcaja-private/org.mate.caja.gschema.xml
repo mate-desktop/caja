@@ -438,10 +438,11 @@
       <summary>Whether the navigation window should be maximized.</summary>
       <description>Whether the navigation window should be maximized by default.</description>
     </key>
-    <key name="extra-pane-position" type="i">
-      <default>-1</default>
+    <key name="extra-pane-position" type="d">
+      <default>0.5</default>
+      <range min="0.0" max="1.0"/>
       <summary>Default position of the extra pane</summary>
-      <description>The default position (in pixels) of the extra pane in new windows, relative to the left side (or right side in right-to-left mode) of the navigation window.  A greater value here will allocate more space for the primary pane and less space for the extra pane.  A value of -1 here will split the window evenly in half between the two panes.</description>
+      <description>The default position (as a fraction between 0.0 and 1.0) of the handle separating the two panes of new file manager windows, relative to the left side (or right side in right-to-left mode) of the navigation window.  A greater value here will allocate more space for the primary pane and less space for the extra pane.  A value of 0.5 here will split the window evenly in half between the two panes.</description>
     </key>
     <key name="sidebar-width" type="i">
       <default>148</default>
