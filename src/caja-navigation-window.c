@@ -1352,10 +1352,12 @@ create_extra_pane (CajaNavigationWindow *window)
     return slot;
 }
 
+static gulong extra_pane_position_changed_handler;
+
 static void
-extra_pane_position_changed_callback (GtkWidget *widget,
+extra_pane_position_changed_callback (GtkWidget  *paned,
                                       GParamSpec *pspec,
-                                      gpointer user_data)
+                                      gpointer    user_data)
 {
     CajaNavigationWindow *window;
     GtkAllocation allocation;
@@ -1364,8 +1366,8 @@ extra_pane_position_changed_callback (GtkWidget *widget,
 
     window = CAJA_NAVIGATION_WINDOW (user_data);
 
-    gtk_widget_get_allocation (widget, &allocation);
-    g_object_get (widget, "position", &pane_width, NULL);
+    gtk_widget_get_allocation (paned, &allocation);
+    pane_width = gtk_paned_get_position (GTK_PANED (paned));
     position = CLAMP ((double) pane_width / allocation.width, 0.0, 1.0);
 
     if (position != window->details->extra_pane_position)
@@ -1377,6 +1379,32 @@ extra_pane_position_changed_callback (GtkWidget *widget,
     }
 }
 
+/*
+ * Adjust the position of the extra pane when the paned widget itself changes
+ * size.  This way, the primary-pane-to-extra-pane-width ratio remains
+ * constant no matter how large or small the containing paned widget is.
+ *
+ * We also temporarily disable our 'position_changed' handler (defined
+ * above) while repositioning the extra pane, as otherwise an endless
+ * loop may result.
+ */
+static void
+extra_pane_size_allocate_callback (GtkWidget     *paned,
+                                   GtkAllocation *allocation,
+                                   gpointer       user_data)
+{
+    CajaNavigationWindow *window;
+    gint pane_width;
+
+    window = CAJA_NAVIGATION_WINDOW (user_data);
+    pane_width = window->details->extra_pane_position * allocation->width;
+
+    g_signal_handler_block (paned, extra_pane_position_changed_handler);
+    gtk_paned_set_position (GTK_PANED (paned), pane_width);
+    g_signal_handler_unblock (paned, extra_pane_position_changed_handler);
+}
+
+
 void
 caja_navigation_window_split_view_on (CajaNavigationWindow *window)
 {
@@ -1386,7 +1414,6 @@ caja_navigation_window_split_view_on (CajaNavigationWindow *window)
     GFile *location;
     GtkAction *action;
     GtkWidget *paned;
-    GtkAllocation allocation;
 
     win = CAJA_WINDOW (window);
 
@@ -1432,9 +1459,14 @@ caja_navigation_window_split_view_on (CajaNavigationWindow *window)
     window->details->extra_pane_position =
         CLAMP (g_settings_get_double (caja_window_state, CAJA_WINDOW_STATE_EXTRA_PANE_POSITION), 0.0, 1.0);
 
-    g_signal_connect (paned, "notify::position",
-                      G_CALLBACK (extra_pane_position_changed_callback),
+    g_signal_connect (paned, "size-allocate",
+                      G_CALLBACK (extra_pane_size_allocate_callback),
                       window);
+
+    extra_pane_position_changed_handler =
+     g_signal_connect (paned, "notify::position",
+                       G_CALLBACK (extra_pane_position_changed_callback),
+                       window);
 
     g_settings_set_boolean (caja_window_state, CAJA_WINDOW_STATE_START_WITH_EXTRA_PANE, TRUE);
 }
