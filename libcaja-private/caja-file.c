@@ -2534,7 +2534,8 @@ update_info_internal (CajaFile *file,
 				(file->details->directory, file);
 
 			g_clear_pointer (&file->details->name, g_ref_string_release);
-			if (eel_strcmp (file->details->display_name, name) == 0) {
+			if (file->details->display_name &&
+			    strcmp (file->details->display_name, name) == 0) {
 				file->details->name = g_ref_string_acquire (file->details->display_name);
 			} else {
 				file->details->name = g_ref_string_new (name);
@@ -4099,7 +4100,7 @@ caja_file_peek_display_name (CajaFile *file)
 		}
 	}
 
-	return file->details->display_name;
+	return file->details->display_name ? file->details->display_name : "";
 }
 
 char *
