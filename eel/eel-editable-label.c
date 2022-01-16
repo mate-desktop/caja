@@ -135,7 +135,6 @@ static gboolean eel_editable_label_delete_surrounding_cb   (GtkIMContext        
         gint                   offset,
         gint                   n_chars,
         EelEditableLabel      *label);
-static void     eel_editable_label_clear_layout            (EelEditableLabel      *label);
 static void     eel_editable_label_recompute               (EelEditableLabel      *label);
 static void     eel_editable_label_ensure_layout           (EelEditableLabel      *label,
         gboolean               include_preedit);
@@ -849,7 +848,7 @@ eel_editable_label_set_font_description (EelEditableLabel *label,
     else
         label->font_desc = NULL;
 
-    eel_editable_label_clear_layout (label);
+    g_clear_object (&label->layout);
 }
 
 static void
@@ -873,29 +872,15 @@ eel_editable_label_finalize (GObject *object)
     g_free (label->text);
     label->text = NULL;
 
-    if (label->layout)
-    {
-        g_object_unref (G_OBJECT (label->layout));
-        label->layout = NULL;
-    }
+    g_clear_object (&label->layout);
 
     G_OBJECT_CLASS (eel_editable_label_parent_class)->finalize (object);
 }
 
 static void
-eel_editable_label_clear_layout (EelEditableLabel *label)
-{
-    if (label->layout)
-    {
-        g_object_unref (G_OBJECT (label->layout));
-        label->layout = NULL;
-    }
-}
-
-static void
 eel_editable_label_recompute (EelEditableLabel *label)
 {
-    eel_editable_label_clear_layout (label);
+    g_clear_object (&label->layout);
     eel_editable_label_check_cursor_blink (label);
 }
 
@@ -962,8 +947,10 @@ eel_editable_label_ensure_layout (EelEditableLabel *label,
     include_preedit = include_preedit != 0;
 
     if (label->preedit_length > 0 &&
-            include_preedit != label->layout_includes_preedit)
-        eel_editable_label_clear_layout (label);
+        include_preedit != label->layout_includes_preedit)
+    {
+        g_clear_object (&label->layout);
+    }
 
     widget = GTK_WIDGET (label);
 
