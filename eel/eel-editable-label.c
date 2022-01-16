@@ -827,15 +827,6 @@ eel_editable_label_get_line_wrap (EelEditableLabel *label)
     return label->wrap;
 }
 
-PangoFontDescription *
-eel_editable_label_get_font_description (EelEditableLabel *label)
-{
-    if (label->font_desc)
-        return pango_font_description_copy (label->font_desc);
-
-    return NULL;
-}
-
 void
 eel_editable_label_set_font_description (EelEditableLabel *label,
         const PangoFontDescription *desc)

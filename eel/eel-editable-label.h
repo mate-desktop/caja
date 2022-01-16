@@ -129,7 +129,6 @@ extern "C" {
     void                  eel_editable_label_get_layout_offsets   (EelEditableLabel *label,
             gint             *x,
             gint             *y);
-    PangoFontDescription *eel_editable_label_get_font_description (EelEditableLabel *label);
     void                  eel_editable_label_set_font_description (EelEditableLabel *label,
             const PangoFontDescription *desc);
 
