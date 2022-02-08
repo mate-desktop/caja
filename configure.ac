@@ -2,7 +2,7 @@ AC_PREREQ(2.54)
 
 dnl ===========================================================================
 
-m4_define(gdk-pixbuf_minver,           2.36.5)
+m4_define(gdkpixbuf_minver,           2.36.5)
 m4_define(glib_minver,                 2.58.1)
 m4_define(gio_minver,                  2.50.0)
 m4_define(mate_desktop_minver,         1.17.3)
@@ -40,7 +40,7 @@ m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
 AM_MAINTAINER_MODE
 AC_SUBST([ACLOCAL_AMFLAGS], ["\${ACLOCAL_FLAGS}"])
 
-AC_SUBST(GDKPIXBUF_REQUIRED, [gdk-pixbuf_minver])
+AC_SUBST(GDKPIXBUF_REQUIRED, [gdkpixbuf_minver])
 AC_SUBST(GLIB_REQUIRED, [glib_minver])
 AC_SUBST(GIO_REQUIRED, [gio_minver])
 AC_SUBST(MATE_DESKTOP_REQUIRED, [mate_desktop_minver])
@@ -72,7 +72,7 @@ AC_PATH_PROG([GLA11Y], [gla11y], [true])
 AC_CHECK_LIB(m, floor)
 
 PKG_CHECK_MODULES(ALL, [
-    gdk-pixbuf-2.0 >= gdk-pixbuf_minver
+    gdk-pixbuf-2.0 >= gdkpixbuf_minver
     glib-2.0 >= glib_minver
     mate-desktop-2.0 >= mate_desktop_minver
     gthread-2.0
