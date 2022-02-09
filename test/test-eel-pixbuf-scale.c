@@ -11,6 +11,8 @@ main (int argc, char* argv[])
 	GdkPixbuf *pixbuf, *scaled;
 	GError *error;
 	gint64 t1, t2;
+	int width;
+	int height;
 
 	test_init (&argc, &argv);
 
@@ -27,9 +29,11 @@ main (int argc, char* argv[])
 		exit (1);
 	}
 
+	width = gdk_pixbuf_get_width (pixbuf);
+        height = gdk_pixbuf_get_height (pixbuf);
 	printf ("scale factors: %f, %f\n",
-		(double)gdk_pixbuf_get_width(pixbuf)/DEST_WIDTH,
-		(double)gdk_pixbuf_get_height(pixbuf)/DEST_HEIGHT);
+		((double) width)  / ((double) DEST_WIDTH),
+		((double) height) / ((double) DEST_HEIGHT));
 
 	t1 = g_get_monotonic_time ();
 	scaled = eel_gdk_pixbuf_scale_down (pixbuf, DEST_WIDTH, DEST_HEIGHT);

@@ -735,7 +735,12 @@ eel_canvas_rect_update (EelCanvasItem *item, double i2w_dx, double i2w_dy, gint 
         if (re->width_pixels)
             width_pixels = (int) re->width;
         else
-            width_pixels = (int) floor (re->width * re->item.canvas->pixels_per_unit + 0.5);
+        {
+            double pixels;
+
+            pixels = floor (re->width * re->item.canvas->pixels_per_unit + 0.5);
+            width_pixels = (int) pixels;
+        }
 
         width_lt = width_pixels / 2;
         width_rb = (width_pixels + 1) / 2;

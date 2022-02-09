@@ -7968,6 +7968,7 @@ caja_icon_container_set_zoom_level (CajaIconContainer *container, int new_level)
     CajaIconContainerDetails *details;
     int pinned_level;
     double pixels_per_unit;
+    guint icon_size;
 
     details = container->details;
 
@@ -7990,8 +7991,8 @@ caja_icon_container_set_zoom_level (CajaIconContainer *container, int new_level)
 
     details->zoom_level = pinned_level;
 
-    pixels_per_unit = (double) caja_get_icon_size_for_zoom_level (pinned_level)
-                      / CAJA_ICON_SIZE_STANDARD;
+    icon_size = caja_get_icon_size_for_zoom_level (pinned_level);
+    pixels_per_unit = ((double) icon_size) / ((double) CAJA_ICON_SIZE_STANDARD);
     eel_canvas_set_pixels_per_unit (EEL_CANVAS (container), pixels_per_unit);
 
     invalidate_labels (container);

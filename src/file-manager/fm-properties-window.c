@@ -5675,14 +5675,17 @@ update_preview_callback (GtkFileChooser *icon_chooser,
 
 		if (gdk_pixbuf_get_width (pixbuf) > PREVIEW_IMAGE_WIDTH) {
 			double scale;
+			gint   height;
+			gint   width;
 
-			scale = (double)gdk_pixbuf_get_height (pixbuf) /
-				gdk_pixbuf_get_width (pixbuf);
+			height = gdk_pixbuf_get_height (pixbuf);
+			width = gdk_pixbuf_get_width (pixbuf);
+			scale = ((double) height) / ((double) width);
 
 			scaled_pixbuf = gdk_pixbuf_scale_simple
 				(pixbuf,
 				 PREVIEW_IMAGE_WIDTH,
-				 scale * PREVIEW_IMAGE_WIDTH,
+				 (int) (scale * (double) PREVIEW_IMAGE_WIDTH),
 				 GDK_INTERP_HYPER);
 			g_object_unref (pixbuf);
 			pixbuf = scaled_pixbuf;

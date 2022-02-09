@@ -2286,10 +2286,12 @@ scroll_to (EelCanvas *canvas, int cx, int cy)
     int scroll_width, scroll_height;
     int right_limit, bottom_limit;
     int old_zoom_xofs, old_zoom_yofs;
-    int changed_x = FALSE, changed_y = FALSE;
+    gboolean changed_x;
+    gboolean changed_y;
     int canvas_width, canvas_height;
     GtkAllocation allocation;
     GtkAdjustment *vadjustment, *hadjustment;
+    gdouble adjustment_value;
     guint width, height;
 
     gtk_widget_get_allocation (GTK_WIDGET (canvas), &allocation);
@@ -2373,22 +2375,25 @@ scroll_to (EelCanvas *canvas, int cx, int cy)
     hadjustment = gtk_scrollable_get_hadjustment (GTK_SCROLLABLE (canvas));
     vadjustment = gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (canvas));
 
-    if (((int) gtk_adjustment_get_value (hadjustment)) != cx)
-    {
-        gtk_adjustment_set_value (hadjustment, cx);
-        changed_x = TRUE;
-    }
+    adjustment_value = gtk_adjustment_get_value (hadjustment);
+    changed_x = ((int) adjustment_value) != cx;
+    if (changed_x)
+        gtk_adjustment_set_value (hadjustment,
+                                  (gdouble) cx);
 
-    if (((int) gtk_adjustment_get_value (vadjustment)) != cy)
-    {
-        gtk_adjustment_set_value (vadjustment, cy);
-        changed_y = TRUE;
-    }
+    adjustment_value = gtk_adjustment_get_value (vadjustment);
+    changed_y = ((int) adjustment_value) != cy;
+    if (changed_y)
+        gtk_adjustment_set_value (vadjustment,
+                                  (gdouble) cy);
 
     gtk_layout_get_size (&canvas->layout, &width, &height);
-    if ((scroll_width != (int) width )|| (scroll_height != (int) height))
+    if ((scroll_width  != (int) width) ||
+        (scroll_height != (int) height))
     {
-        gtk_layout_set_size (GTK_LAYOUT (canvas), scroll_width, scroll_height);
+        gtk_layout_set_size (GTK_LAYOUT (canvas),
+                             (guint) scroll_width,
+                             (guint) scroll_height);
     }
 
     /* Signal GtkLayout that it should do a redraw. */
