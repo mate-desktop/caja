@@ -330,7 +330,7 @@ caja_bookmark_icon_is_different (CajaBookmark *bookmark,
         return TRUE;
     }
 
-    return !g_icon_equal (bookmark->details->icon, new_icon) != 0;
+    return !g_icon_equal (bookmark->details->icon, new_icon);
 }
 
 /**
