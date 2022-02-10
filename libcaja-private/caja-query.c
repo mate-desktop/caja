@@ -332,7 +332,7 @@ static GMarkupParser parser =
 static CajaQuery *
 caja_query_parse_xml (char *xml, gsize xml_len)
 {
-    ParserInfo info = { NULL };
+    ParserInfo info = { NULL, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE };
     GMarkupParseContext *ctx;
 
     info.query = caja_query_new ();

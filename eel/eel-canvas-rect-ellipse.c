@@ -101,7 +101,8 @@ eel_canvas_re_get_type (void)
             NULL,           /* class_data */
             sizeof (EelCanvasRE),
             0,              /* n_preallocs */
-            (GInstanceInitFunc) eel_canvas_re_init
+            (GInstanceInitFunc) eel_canvas_re_init,
+            NULL            /* value_table */
         };
 
         re_type = g_type_register_static (eel_canvas_item_get_type (),
@@ -465,7 +466,8 @@ eel_canvas_rect_get_type (void)
             NULL,           /* class_data */
             sizeof (EelCanvasRect),
             0,              /* n_preallocs */
-            (GInstanceInitFunc) eel_canvas_rect_init
+            (GInstanceInitFunc) eel_canvas_rect_init,
+            NULL            /* value_table */
         };
 
         rect_type = g_type_register_static (eel_canvas_re_get_type (),

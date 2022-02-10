@@ -337,7 +337,8 @@ caja_menu_item_get_type (void)
             NULL,
             sizeof (CajaMenuItem),
             0,
-            (GInstanceInitFunc)caja_menu_item_instance_init
+            (GInstanceInitFunc)caja_menu_item_instance_init,
+            NULL
         };
 
         type = g_type_register_static

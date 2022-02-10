@@ -57,6 +57,7 @@ caja_configurable_get_type (void)
             NULL,
             0,
             0,
+            NULL,
             NULL
         };
 
