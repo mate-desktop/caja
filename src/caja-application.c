@@ -1945,8 +1945,7 @@ caja_application_local_command_line (GApplication *application,
         { "select", 's', 0, G_OPTION_ARG_NONE, &select_uris,
           N_("Select specified URI in parent folder."), NULL },
         { G_OPTION_REMAINING, 0, 0, G_OPTION_ARG_STRING_ARRAY, &remaining, NULL,  N_("[URI...]") },
-
-        { NULL }
+        { NULL, '\0', 0, G_OPTION_ARG_NONE, NULL, NULL, NULL }
     };
     GOptionContext *context;
     GError *error = NULL;

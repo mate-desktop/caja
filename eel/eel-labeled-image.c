@@ -2303,7 +2303,8 @@ eel_labeled_image_button_get_type (void)
             NULL, /* class_data */
             sizeof (GtkButton),
             0, /* n_preallocs */
-            (GInstanceInitFunc) NULL
+            (GInstanceInitFunc) NULL,
+            NULL /* value_table */
         };
 
         type = g_type_register_static
@@ -2331,7 +2332,8 @@ eel_labeled_image_check_button_get_type (void)
             NULL, /* class_data */
             sizeof (GtkCheckButton),
             0, /* n_preallocs */
-            (GInstanceInitFunc) NULL
+            (GInstanceInitFunc) NULL,
+            NULL /* value_table */
         };
 
         type = g_type_register_static
@@ -2359,7 +2361,8 @@ eel_labeled_image_toggle_button_get_type (void)
             NULL, /* class_data */
             sizeof (GtkToggleButton),
             0, /* n_preallocs */
-            (GInstanceInitFunc) NULL
+            (GInstanceInitFunc) NULL,
+            NULL /* value_table */
         };
 
         type = g_type_register_static
@@ -2387,7 +2390,8 @@ eel_labeled_image_radio_button_get_type (void)
             NULL, /* class_data */
             sizeof (GtkRadioButton),
             0, /* n_preallocs */
-            (GInstanceInitFunc) NULL
+            (GInstanceInitFunc) NULL,
+            NULL /* value_table */
         };
 
         type = g_type_register_static

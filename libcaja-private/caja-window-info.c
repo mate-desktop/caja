@@ -112,6 +112,7 @@ caja_window_info_get_type (void)
             NULL,
             0,
             0,
+            NULL,
             NULL
         };
 

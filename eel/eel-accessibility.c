@@ -218,11 +218,16 @@ eel_accessible_text_get_type (void)
     {
         const GTypeInfo tinfo =
         {
-            sizeof (AtkTextIface),
-            (GBaseInitFunc) NULL,
-            (GBaseFinalizeFunc) NULL,
-            (GClassInitFunc) NULL,
-            (GClassFinalizeFunc) NULL
+            sizeof (AtkTextIface),     /* class_size */
+            NULL,                      /* base_init */
+            NULL,                      /* base_finalize */
+            NULL,                      /* class_init */
+            NULL,                      /* class_finalize */
+            NULL,                      /* class_data */
+            0,                         /* instance_size */
+            0,                         /* n_preallocs */
+            NULL,                      /* instance_init */
+            NULL                       /* value_table */
         };
 
         type = g_type_register_static (

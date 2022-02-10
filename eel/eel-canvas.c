@@ -137,7 +137,8 @@ eel_canvas_item_get_type (void)
             NULL,           /* class_data */
             sizeof (EelCanvasItem),
             0,              /* n_preallocs */
-            (GInstanceInitFunc) eel_canvas_item_init
+            (GInstanceInitFunc) eel_canvas_item_init,
+            NULL            /* value_table */
         };
 
         canvas_item_type = g_type_register_static (G_TYPE_INITIALLY_UNOWNED,
@@ -1255,8 +1256,8 @@ eel_canvas_group_get_type (void)
             NULL,           /* class_data */
             sizeof (EelCanvasGroup),
             0,              /* n_preallocs */
-            (GInstanceInitFunc) eel_canvas_group_init
-
+            (GInstanceInitFunc) eel_canvas_group_init,
+            NULL            /* value_table */
         };
 
         group_type = g_type_register_static (eel_canvas_item_get_type (),
@@ -1851,7 +1852,8 @@ eel_canvas_get_type (void)
             NULL,           /* class_data */
             sizeof (EelCanvas),
             0,              /* n_preallocs */
-            (GInstanceInitFunc) eel_canvas_init
+            (GInstanceInitFunc) eel_canvas_init,
+            NULL            /* value_table */
         };
 
         canvas_type = g_type_register_static (gtk_layout_get_type (),

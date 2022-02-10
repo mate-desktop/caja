@@ -239,7 +239,8 @@ caja_property_page_get_type (void)
             NULL,
             sizeof (CajaPropertyPage),
             0,
-            (GInstanceInitFunc)caja_property_page_instance_init
+            (GInstanceInitFunc)caja_property_page_instance_init,
+            NULL
         };
 
         type = g_type_register_static

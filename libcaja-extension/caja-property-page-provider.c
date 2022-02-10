@@ -58,6 +58,7 @@ caja_property_page_provider_get_type (void)
             NULL,
             0,
             0,
+            NULL,
             NULL
         };
 
