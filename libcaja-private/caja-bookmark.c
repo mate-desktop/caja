@@ -642,6 +642,10 @@ caja_bookmark_menu_item_new (CajaBookmark *bookmark)
         menu_item =
             bookmark_image_menu_item_new_from_surface (surface,
                                                        bookmark->details->name);
+        if (surface != NULL)
+        {
+            cairo_surface_destroy (surface);
+        }
     }
     return menu_item;
 }
