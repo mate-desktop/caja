@@ -2238,8 +2238,6 @@ static void
 caja_application_startup (GApplication *app)
 {
     CajaApplication *self = CAJA_APPLICATION (app);
-    gboolean exit_with_last_window;
-    exit_with_last_window = TRUE;
 
     /* chain up to the GTK+ implementation early, so gtk_init()
      * is called for us.
@@ -2329,6 +2327,7 @@ caja_application_startup (GApplication *app)
     if (running_in_mate () && !running_as_root())
     {
         GApplication *instance;
+        gboolean      exit_with_last_window;
 
         exit_with_last_window = g_settings_get_boolean (caja_preferences,
                                 CAJA_PREFERENCES_EXIT_WITH_LAST_WINDOW);
