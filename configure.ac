@@ -60,8 +60,7 @@ AC_PROG_CPP
 AC_PROG_INSTALL
 AC_PROG_LN_S
 AC_PROG_MAKE_SET
-AM_DISABLE_STATIC
-AM_PROG_LIBTOOL
+LT_INIT([disable-static])
 PKG_PROG_PKG_CONFIG
 dnl Give error and exit if we dont have pkgconfig
 if test "x$PKG_CONFIG" = "x"; then
@@ -164,7 +163,7 @@ dnl exempi checking
 AM_CONDITIONAL(HAVE_EXEMPI, false)
 
 AC_ARG_ENABLE(xmp,
-    AC_HELP_STRING([--disable-xmp],
+    AS_HELP_STRING([--disable-xmp],
                    [build without xmp support]))
 msg_xmp=no
 if test "x$enable_xmp" != "xno"; then
@@ -198,7 +197,7 @@ AC_SUBST(SELINUX_LIBS)
 
 
 AC_ARG_ENABLE(empty_view,
- AC_HELP_STRING([--enable-empty-view], [Enable empty view]),
+ AS_HELP_STRING([--enable-empty-view], [Enable empty view]),
  [ENABLE_EMPTY_VIEW=1
   AC_DEFINE(ENABLE_EMPTY_VIEW, 1, [define to enable the empty view that is used for performance measurement])])
 
@@ -207,7 +206,7 @@ AM_CONDITIONAL(ENABLE_EMPTY_VIEW, test "x$ENABLE_EMPTY_VIEW" = "x1")
 
 dnl ==========  EEL/CAJA OMIT SELF CHECK  ====================================
 AC_ARG_ENABLE(self-check,
-    AC_HELP_STRING([--disable-self-check], [build without self check]))
+    AS_HELP_STRING([--disable-self-check], [build without self check]))
 msg_self_check=yes
 if test "x$enable_self_check" = "xno"; then
     msg_self_check=no
@@ -219,7 +218,7 @@ AM_CONDITIONAL(ENABLE_SELF_CHECK, test "x$msg_self_check" = "xyes")
 dnl ==========================================================================
 
 AC_ARG_ENABLE(packagekit,
-    AC_HELP_STRING([--disable-packagekit],
+    AS_HELP_STRING([--disable-packagekit],
         [build without PackageKit support]))
 msg_packagekit=no
 if test "x$enable_packagekit" != "xno"; then
@@ -269,12 +268,12 @@ dnl ==========================================================================
 AC_PATH_PROG(UPDATE_MIME_DATABASE, update-mime-database, no)
 
 AC_ARG_ENABLE(update-mimedb,
-   AC_HELP_STRING([--disable-update-mimedb],
+   AS_HELP_STRING([--disable-update-mimedb],
                    [disable the update-mime-database after install [default=no]]),,
     enable_update_mimedb=yes)
 AM_CONDITIONAL(ENABLE_UPDATE_MIMEDB, test x$enable_update_mimedb = xyes)
 
-AC_ARG_ENABLE(icon-update, AC_HELP_STRING([--disable-icon-update],
+AC_ARG_ENABLE(icon-update, AS_HELP_STRING([--disable-icon-update],
                                         [Disable icon cache update]))
 if (test "$enable_icon_update" != no); then
         AC_PATH_PROG(UPDATE_ICON_CACHE, [gtk-update-icon-cache])
