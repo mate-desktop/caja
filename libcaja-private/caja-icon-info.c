@@ -307,6 +307,7 @@ icon_key_new (GIcon *icon,
 
     key = g_slice_new (IconKey);
     key->icon = g_object_ref (icon);
+    key->scale = scale;
     key->size = size;
 
     return key;
