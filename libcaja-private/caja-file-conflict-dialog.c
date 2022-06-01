@@ -68,27 +68,18 @@ G_DEFINE_TYPE_WITH_PRIVATE (CajaFileConflictDialog,
                             GTK_TYPE_DIALOG);
 
 static void
-file_icons_changed (CajaFile *file,
-                    CajaFileConflictDialog *fcd)
+file_icons_changed (CajaFile  *file,
+                    GtkWidget *widget)
 {
     cairo_surface_t *surface;
 
-    surface = caja_file_get_icon_surface (fcd->details->destination,
+    surface = caja_file_get_icon_surface (file,
                                           CAJA_ICON_SIZE_LARGE,
                                           FALSE,
-                                          gtk_widget_get_scale_factor (fcd->details->dest_image),
+                                          gtk_widget_get_scale_factor (widget),
                                           CAJA_FILE_ICON_FLAGS_USE_THUMBNAILS);
 
-    gtk_image_set_from_surface (GTK_IMAGE (fcd->details->dest_image), surface);
-    cairo_surface_destroy (surface);
-
-    surface = caja_file_get_icon_surface (fcd->details->source,
-                                          CAJA_ICON_SIZE_LARGE,
-                                          FALSE,
-                                          gtk_widget_get_scale_factor (fcd->details->src_image),
-                                          CAJA_FILE_ICON_FLAGS_USE_THUMBNAILS);
-
-    gtk_image_set_from_surface (GTK_IMAGE (fcd->details->src_image), surface);
+    gtk_image_set_from_surface (GTK_IMAGE (widget), surface);
     cairo_surface_destroy (surface);
 }
 
@@ -371,9 +362,11 @@ file_list_ready_cb (GList *files,
     caja_file_monitor_add (dest, fcd, CAJA_FILE_ATTRIBUTES_FOR_ICON);
 
     details->src_handler_id = g_signal_connect (src, "changed",
-                              G_CALLBACK (file_icons_changed), fcd);
+                                                G_CALLBACK (file_icons_changed),
+                                                fcd->details->src_image);
     details->dest_handler_id = g_signal_connect (dest, "changed",
-                               G_CALLBACK (file_icons_changed), fcd);
+                                                 G_CALLBACK (file_icons_changed),
+                                                 fcd->details->dest_image);
 }
 
 static void
