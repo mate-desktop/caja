@@ -283,6 +283,7 @@ open_tabs (CajaApplication *application,
     CajaApplication *self = CAJA_APPLICATION (application);
     CajaWindow *window;
     gchar *uri = NULL;
+    guint i;
 
     /* monitor the preference to use browser or spatial windows */
     /* connect before trying to read or this preference won't be read by root or after change */
@@ -307,7 +308,7 @@ open_tabs (CajaApplication *application,
     g_debug ("Opening new tab at uri %s\n", uri);
     caja_window_go_to (window, locations[0]);
     g_free (uri);
-    for (int i = 1; i< n_files;i++) {
+    for (i = 1; i < n_files; i++) {
         /* open tabs in reverse order because each
          * tab is opened before the previous one */
         guint tab = n_files-i;
@@ -2237,8 +2238,6 @@ static void
 caja_application_startup (GApplication *app)
 {
     CajaApplication *self = CAJA_APPLICATION (app);
-    gboolean exit_with_last_window;
-    exit_with_last_window = TRUE;
 
     /* chain up to the GTK+ implementation early, so gtk_init()
      * is called for us.
@@ -2328,6 +2327,7 @@ caja_application_startup (GApplication *app)
     if (running_in_mate () && !running_as_root())
     {
         GApplication *instance;
+        gboolean      exit_with_last_window;
 
         exit_with_last_window = g_settings_get_boolean (caja_preferences,
                                 CAJA_PREFERENCES_EXIT_WITH_LAST_WINDOW);

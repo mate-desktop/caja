@@ -384,7 +384,7 @@ update_caption_combo_box (GtkBuilder *builder,
                           const char *name)
 {
     GtkWidget *combo_box;
-    int i;
+    guint i;
     GPtrArray *column_names;
 
     combo_box = GTK_WIDGET (gtk_builder_get_object (builder, combo_box_name));
@@ -401,7 +401,7 @@ update_caption_combo_box (GtkBuilder *builder,
     {
         if (!strcmp (name, g_ptr_array_index (column_names, i)))
         {
-            gtk_combo_box_set_active (GTK_COMBO_BOX (combo_box), i);
+            gtk_combo_box_set_active (GTK_COMBO_BOX (combo_box), (int) i);
             break;
         }
     }
@@ -842,7 +842,7 @@ caja_file_management_properties_dialog_setup_extension_page (GtkBuilder *builder
     gchar *ext_text_info;
 
     GList *extensions;
-    int i;
+    guint i;
 
     extensions = caja_extensions_get_list ();
 

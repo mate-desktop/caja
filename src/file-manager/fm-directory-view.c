@@ -2351,9 +2351,9 @@ fm_directory_view_display_selection_info (FMDirectoryView *view)
 			char *size_string;
 
 			if (g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_USE_IEC_UNITS))
-				size_string = g_format_size_full (non_folder_size, G_FORMAT_SIZE_IEC_UNITS);
+				size_string = g_format_size_full ((guint64) non_folder_size, G_FORMAT_SIZE_IEC_UNITS);
 			else
-				size_string = g_format_size(non_folder_size);
+				size_string = g_format_size ((guint64) non_folder_size);
 
 			/* Translators: This is marked for translation in case a localiser
 			 * needs to use something other than parentheses. The
@@ -4707,6 +4707,7 @@ reset_open_with_menu (FMDirectoryView *view, GList *selection)
 	GtkUIManager *ui_manager;
 	GtkAction *action;
 	GAppInfo *default_app;
+	char *uri;
 
 	/* Clear any previous inserted items in the applications and viewers placeholders */
 
@@ -4787,11 +4788,14 @@ reset_open_with_menu (FMDirectoryView *view, GList *selection)
 	}
 
 	/* Show open parent folder action if we are in search mode */
-	if (eel_uri_is_search (fm_directory_view_get_uri (view)) && g_list_length (selection) == 1)
+	uri = fm_directory_view_get_uri (view);
+	if (eel_uri_is_search (uri) && g_list_length (selection) == 1)
 		add_parent_folder_to_open_menu (view,
 					       selection,
 					       FM_DIRECTORY_VIEW_MENU_PATH_OPEN,
 					       FM_DIRECTORY_VIEW_POPUP_PATH_OPEN);
+
+	g_free (uri);
 
 	open_with_chooser_visible = other_applications_visible &&
 				    g_list_length (selection) == 1;

@@ -1941,7 +1941,7 @@ make_directory_button (CajaPathBar  *path_bar,
                               button_data);
     }
 
-    button_data->file_is_hidden = file_is_hidden;
+    button_data->file_is_hidden = (file_is_hidden != FALSE);
 
     gtk_container_add (GTK_CONTAINER (button_data->button), child);
     gtk_widget_show_all (button_data->button);

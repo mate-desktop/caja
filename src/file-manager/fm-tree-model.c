@@ -1101,7 +1101,7 @@ set_done_loading (FMTreeModel *model, TreeNode *node, gboolean done_loading)
 
     had_dummy = tree_node_has_dummy_child (node);
 
-    node->done_loading = done_loading;
+    node->done_loading = (done_loading != FALSE);
 
     if (tree_node_has_dummy_child (node))
     {

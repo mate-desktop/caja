@@ -330,7 +330,7 @@ caja_bookmark_icon_is_different (CajaBookmark *bookmark,
         return TRUE;
     }
 
-    return !g_icon_equal (bookmark->details->icon, new_icon) != 0;
+    return !g_icon_equal (bookmark->details->icon, new_icon);
 }
 
 /**
@@ -585,20 +585,6 @@ caja_bookmark_new (GFile *location, const char *name, gboolean has_custom_name,
     return new_bookmark;
 }
 
-static cairo_surface_t *
-create_image_cairo_for_bookmark (CajaBookmark *bookmark)
-{
-    cairo_surface_t *surface;
-
-    surface = caja_bookmark_get_surface (bookmark, GTK_ICON_SIZE_MENU);
-    if (surface == NULL)
-    {
-        return NULL;
-    }
-
-    return surface;
-}
-
 static GtkWidget *
 bookmark_image_menu_item_new_from_surface (cairo_surface_t   *icon_surface,
                                            const gchar       *label_name)
@@ -644,20 +630,24 @@ bookmark_image_menu_item_new_from_surface (cairo_surface_t   *icon_surface,
 GtkWidget *
 caja_bookmark_menu_item_new (CajaBookmark *bookmark)
 {
-    cairo_surface_t *image_cairo;
-
-    image_cairo = create_image_cairo_for_bookmark (bookmark);
+    GtkWidget *menu_item = NULL;
 
     if (strlen (bookmark->details->name) > 0)
     {
-        GtkWidget *menu_item;
+        cairo_surface_t *surface;
 
-        menu_item = bookmark_image_menu_item_new_from_surface (image_cairo, bookmark->details->name);
-
-        return menu_item;
+        surface =
+            caja_bookmark_get_surface (bookmark,
+                                       GTK_ICON_SIZE_MENU);
+        menu_item =
+            bookmark_image_menu_item_new_from_surface (surface,
+                                                       bookmark->details->name);
+        if (surface != NULL)
+        {
+            cairo_surface_destroy (surface);
+        }
     }
-    else
-        return NULL;
+    return menu_item;
 }
 
 gboolean

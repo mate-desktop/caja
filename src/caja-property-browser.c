@@ -29,6 +29,7 @@
  */
 
 #include <config.h>
+#include <limits.h>
 #include <math.h>
 
 #include <libxml/parser.h>
@@ -615,18 +616,18 @@ caja_property_browser_drag_data_get (GtkWidget *widget,
         else if (strcmp (property_browser->details->drag_type,
                          "application/x-color") == 0)
         {
-            GdkColor color;
-            guint16 colorArray[4];
-
             /* handle the "reset" case as an image */
             if (g_strcmp0 (property_browser->details->dragged_file, RESET_IMAGE_NAME) != 0)
             {
-                gdk_color_parse (property_browser->details->dragged_file, &color);
+                GdkRGBA color;
+                guint16 colorArray [4];
 
-                colorArray[0] = color.red;
-                colorArray[1] = color.green;
-                colorArray[2] = color.blue;
-                colorArray[3] = 0xffff;
+                gdk_rgba_parse (&color, property_browser->details->dragged_file);
+
+                colorArray [0] = (guint16) (color.red   * 65535.0);
+                colorArray [1] = (guint16) (color.green * 65535.0);
+                colorArray [2] = (guint16) (color.blue  * 65535.0);
+                colorArray [3] = USHRT_MAX;
 
                 gtk_selection_data_set(selection_data,
                                        target, 16, (const char *) &colorArray[0], 8);
@@ -803,15 +804,16 @@ make_color_drag_image (CajaPropertyBrowser *property_browser, const char *color_
     GdkPixbuf *color_square;
     GdkPixbuf *ret;
     int row, col, stride;
-    char *pixels;
-    GdkColor color;
+    guchar *pixels;
+    GdkRGBA color;
+    guchar red, green, blue;
 
     color_square = gdk_pixbuf_new (GDK_COLORSPACE_RGB, TRUE, 8, COLOR_SQUARE_SIZE, COLOR_SQUARE_SIZE);
 
-    gdk_color_parse (color_spec, &color);
-    color.red >>= 8;
-    color.green >>= 8;
-    color.blue >>= 8;
+    gdk_rgba_parse (&color, color_spec);
+    red   = (guchar) (color.red * 255.0);
+    green = (guchar) (color.green * 255.0);
+    blue  = (guchar) (color.blue * 255.0);
 
     pixels = gdk_pixbuf_get_pixels (color_square);
     stride = gdk_pixbuf_get_rowstride (color_square);
@@ -819,16 +821,16 @@ make_color_drag_image (CajaPropertyBrowser *property_browser, const char *color_
     /* loop through and set each pixel */
     for (row = 0; row < COLOR_SQUARE_SIZE; row++)
     {
-        char *row_pixels;
+        guchar *row_pixels;
 
         row_pixels =  (pixels + (row * stride));
 
         for (col = 0; col < COLOR_SQUARE_SIZE; col++)
         {
-            *row_pixels++ = color.red;
-            *row_pixels++ = color.green;
-            *row_pixels++ = color.blue;
-            *row_pixels++ = 255;
+            *row_pixels++ = red;
+            *row_pixels++ = green;
+            *row_pixels++ = blue;
+            *row_pixels++ = UCHAR_MAX;
         }
     }
 

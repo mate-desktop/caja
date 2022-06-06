@@ -135,7 +135,7 @@ before_scripts:
 
 build_scripts:
   - if [ ${DISTRO_NAME} == "debian" ];then
-  -     export CFLAGS+=" -Wsign-compare -Wunused-macros -Wunused-parameter"
+  -     export CFLAGS+=" -Wsign-compare -Wunused-macros"
   -     cppcheck --enable=warning,style,performance,portability,information,missingInclude .
   - fi
 

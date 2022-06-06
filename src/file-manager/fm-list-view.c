@@ -1296,11 +1296,11 @@ sort_column_changed_callback (GtkTreeSortable *sortable,
         if (sort_attr == default_sort_attr)
         {
             /* use value from preferences */
-            reversed = g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_DEFAULT_SORT_IN_REVERSE_ORDER);
+            reversed = (g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_DEFAULT_SORT_IN_REVERSE_ORDER) != FALSE);
         }
         else
         {
-            reversed = caja_file_is_date_sort_attribute_q (sort_attr);
+            reversed = (caja_file_is_date_sort_attribute_q (sort_attr) != FALSE);
         }
 
         if (reversed)

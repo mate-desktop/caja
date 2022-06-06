@@ -7852,7 +7852,7 @@ caja_icon_container_add (CajaIconContainer *container,
      * if the previous icon position is free. If the position
      * is occupied, another position near the last one will
      */
-    icon->has_lazy_position = is_old_or_unknown_icon_data (container, data);
+    icon->has_lazy_position = (is_old_or_unknown_icon_data (container, data) != FALSE);
     icon->scale = 1.0;
     icon->item = CAJA_ICON_CANVAS_ITEM
                  (eel_canvas_item_new (EEL_CANVAS_GROUP (EEL_CANVAS (container)->root),
@@ -10153,7 +10153,7 @@ caja_icon_container_get_store_layout_timestamps (CajaIconContainer *container)
 
 void
 caja_icon_container_set_store_layout_timestamps (CajaIconContainer *container,
-        gboolean               store_layout_timestamps)
+                                                 gboolean           store_layout_timestamps)
 {
-    container->details->store_layout_timestamps = store_layout_timestamps;
+    container->details->store_layout_timestamps = (store_layout_timestamps != FALSE);
 }

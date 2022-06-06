@@ -135,7 +135,6 @@ static gboolean eel_editable_label_delete_surrounding_cb   (GtkIMContext        
         gint                   offset,
         gint                   n_chars,
         EelEditableLabel      *label);
-static void     eel_editable_label_clear_layout            (EelEditableLabel      *label);
 static void     eel_editable_label_recompute               (EelEditableLabel      *label);
 static void     eel_editable_label_ensure_layout           (EelEditableLabel      *label,
         gboolean               include_preedit);
@@ -764,7 +763,7 @@ eel_editable_label_set_draw_outline (EelEditableLabel *label,
 
     if (label->draw_outline != draw_outline)
     {
-        label->draw_outline = draw_outline;
+        label->draw_outline = (draw_outline != FALSE);
 
         gtk_widget_queue_draw (GTK_WIDGET (label));
     }
@@ -790,7 +789,7 @@ eel_editable_label_set_line_wrap (EelEditableLabel *label,
 
     if (label->wrap != wrap)
     {
-        label->wrap = wrap;
+        label->wrap = (wrap != FALSE);
         g_object_notify (G_OBJECT (label), "wrap");
 
         gtk_widget_queue_resize (GTK_WIDGET (label));
@@ -828,15 +827,6 @@ eel_editable_label_get_line_wrap (EelEditableLabel *label)
     return label->wrap;
 }
 
-PangoFontDescription *
-eel_editable_label_get_font_description (EelEditableLabel *label)
-{
-    if (label->font_desc)
-        return pango_font_description_copy (label->font_desc);
-
-    return NULL;
-}
-
 void
 eel_editable_label_set_font_description (EelEditableLabel *label,
         const PangoFontDescription *desc)
@@ -849,7 +839,7 @@ eel_editable_label_set_font_description (EelEditableLabel *label,
     else
         label->font_desc = NULL;
 
-    eel_editable_label_clear_layout (label);
+    g_clear_object (&label->layout);
 }
 
 static void
@@ -873,29 +863,15 @@ eel_editable_label_finalize (GObject *object)
     g_free (label->text);
     label->text = NULL;
 
-    if (label->layout)
-    {
-        g_object_unref (G_OBJECT (label->layout));
-        label->layout = NULL;
-    }
+    g_clear_object (&label->layout);
 
     G_OBJECT_CLASS (eel_editable_label_parent_class)->finalize (object);
 }
 
 static void
-eel_editable_label_clear_layout (EelEditableLabel *label)
-{
-    if (label->layout)
-    {
-        g_object_unref (G_OBJECT (label->layout));
-        label->layout = NULL;
-    }
-}
-
-static void
 eel_editable_label_recompute (EelEditableLabel *label)
 {
-    eel_editable_label_clear_layout (label);
+    g_clear_object (&label->layout);
     eel_editable_label_check_cursor_blink (label);
 }
 
@@ -962,8 +938,10 @@ eel_editable_label_ensure_layout (EelEditableLabel *label,
     include_preedit = include_preedit != 0;
 
     if (label->preedit_length > 0 &&
-            include_preedit != label->layout_includes_preedit)
-        eel_editable_label_clear_layout (label);
+        include_preedit != label->layout_includes_preedit)
+    {
+        g_clear_object (&label->layout);
+    }
 
     widget = GTK_WIDGET (label);
 
@@ -1000,7 +978,7 @@ eel_editable_label_ensure_layout (EelEditableLabel *label,
         {
             label->layout = gtk_widget_create_pango_layout (widget, label->text);
         }
-        label->layout_includes_preedit = include_preedit;
+        label->layout_includes_preedit = (include_preedit != FALSE);
 
         if (label->font_desc != NULL)
             pango_layout_set_font_description (label->layout, label->font_desc);

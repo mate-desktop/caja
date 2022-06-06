@@ -257,7 +257,7 @@ caja_file_set_display_name (CajaFile *file,
 		}
 	}
 
-	file->details->got_custom_display_name = custom;
+	file->details->got_custom_display_name = (custom != FALSE);
 	return changed;
 }
 
@@ -2188,7 +2188,7 @@ update_info_internal (CajaFile *file,
 	if (file->details->is_symlink != is_symlink) {
 		changed = TRUE;
 	}
-	file->details->is_symlink = is_symlink;
+	file->details->is_symlink = (is_symlink != FALSE);
 
 	is_hidden = g_file_info_get_is_hidden (info);
 	is_backup = g_file_info_get_is_backup (info);
@@ -2196,14 +2196,14 @@ update_info_internal (CajaFile *file,
 	    file->details->is_backup != is_backup) {
 		changed = TRUE;
 	}
-	file->details->is_hidden = is_hidden;
-	file->details->is_backup = is_backup;
+	file->details->is_hidden = (is_hidden != FALSE);
+	file->details->is_backup = (is_backup != FALSE);
 
 	is_mountpoint = g_file_info_get_attribute_boolean (info, G_FILE_ATTRIBUTE_UNIX_IS_MOUNTPOINT);
 	if (file->details->is_mountpoint != is_mountpoint) {
 		changed = TRUE;
 	}
-	file->details->is_mountpoint = is_mountpoint;
+	file->details->is_mountpoint = (is_mountpoint != FALSE);
 
 	has_permissions = g_file_info_has_attribute (info, G_FILE_ATTRIBUTE_UNIX_MODE);
 	permissions = g_file_info_get_attribute_uint32 (info, G_FILE_ATTRIBUTE_UNIX_MODE);;
@@ -2211,7 +2211,7 @@ update_info_internal (CajaFile *file,
 	    file->details->permissions != permissions) {
 		changed = TRUE;
 	}
-	file->details->has_permissions = has_permissions;
+	file->details->has_permissions = (has_permissions != FALSE);
 	file->details->permissions = permissions;
 
 	/* We default to TRUE for this if we can't know */
@@ -2308,21 +2308,21 @@ update_info_internal (CajaFile *file,
 		changed = TRUE;
 	}
 
-	file->details->can_read = can_read;
-	file->details->can_write = can_write;
-	file->details->can_execute = can_execute;
-	file->details->can_delete = can_delete;
-	file->details->can_trash = can_trash;
-	file->details->can_rename = can_rename;
-	file->details->can_mount = can_mount;
-	file->details->can_unmount = can_unmount;
-	file->details->can_eject = can_eject;
-	file->details->can_start = can_start;
-	file->details->can_start_degraded = can_start_degraded;
-	file->details->can_stop = can_stop;
+	file->details->can_read = (can_read != FALSE);
+	file->details->can_write = (can_write != FALSE);
+	file->details->can_execute = (can_execute != FALSE);
+	file->details->can_delete = (can_delete != FALSE);
+	file->details->can_trash = (can_trash != FALSE);
+	file->details->can_rename = (can_rename != FALSE);
+	file->details->can_mount = (can_mount != FALSE);
+	file->details->can_unmount = (can_unmount != FALSE);
+	file->details->can_eject = (can_eject != FALSE);
+	file->details->can_start = (can_start != FALSE);
+	file->details->can_start_degraded = (can_start_degraded != FALSE);
+	file->details->can_stop = (can_stop != FALSE);
 	file->details->start_stop_type = start_stop_type;
-	file->details->can_poll_for_media = can_poll_for_media;
-	file->details->is_media_check_automatic = is_media_check_automatic;
+	file->details->can_poll_for_media = (can_poll_for_media != FALSE);
+	file->details->is_media_check_automatic = (is_media_check_automatic != FALSE);
 
 	free_owner = FALSE;
 	owner = g_file_info_get_attribute_string (info, G_FILE_ATTRIBUTE_OWNER_USER);
@@ -2448,7 +2448,7 @@ update_info_internal (CajaFile *file,
 	thumbnailing_failed =  g_file_info_get_attribute_boolean (info, G_FILE_ATTRIBUTE_THUMBNAILING_FAILED);
 	if (file->details->thumbnailing_failed != thumbnailing_failed) {
 		changed = TRUE;
-		file->details->thumbnailing_failed = thumbnailing_failed;
+		file->details->thumbnailing_failed = (thumbnailing_failed != FALSE);
 	}
 
 	symlink_name = g_file_info_get_symlink_target (info);
@@ -6254,9 +6254,9 @@ caja_file_get_size_as_string (CajaFile *file,
 	}
 
 	if (g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_USE_IEC_UNITS))
-		return g_format_size_full (size, G_FORMAT_SIZE_IEC_UNITS);
+		return g_format_size_full ((guint64) size, G_FORMAT_SIZE_IEC_UNITS);
 	else
-		return g_format_size (size);
+		return g_format_size ((guint64) size);
 }
 
 /**
@@ -7987,7 +7987,7 @@ caja_file_set_has_open_window (CajaFile *file,
 	has_open_window = (has_open_window != FALSE);
 
 	if (file->details->has_open_window != has_open_window) {
-		file->details->has_open_window = has_open_window;
+		file->details->has_open_window = (has_open_window != FALSE);
 		caja_file_changed (file);
 	}
 }
@@ -8006,7 +8006,7 @@ caja_file_set_is_thumbnailing (CajaFile *file,
 {
 	g_return_if_fail (CAJA_IS_FILE (file));
 
-	file->details->is_thumbnailing = is_thumbnailing;
+	file->details->is_thumbnailing = (is_thumbnailing != FALSE);
 }
 
 /**
