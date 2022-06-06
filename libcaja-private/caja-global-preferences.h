@@ -106,6 +106,7 @@ typedef enum
 #define CAJA_PREFERENCES_ALWAYS_USE_LOCATION_ENTRY			"always-use-location-entry"
 
 /* Which views should be displayed for new windows */
+#define CAJA_WINDOW_STATE_START_WITH_EXTRA_PANE		 		"start-with-extra-pane"
 #define CAJA_WINDOW_STATE_START_WITH_LOCATION_BAR			"start-with-location-bar"
 #define CAJA_WINDOW_STATE_START_WITH_STATUS_BAR				"start-with-status-bar"
 #define CAJA_WINDOW_STATE_START_WITH_SIDEBAR		 		"start-with-sidebar"
@@ -113,6 +114,7 @@ typedef enum
 #define CAJA_WINDOW_STATE_SIDE_PANE_VIEW                    "side-pane-view"
 #define CAJA_WINDOW_STATE_GEOMETRY 	"geometry"
 #define CAJA_WINDOW_STATE_MAXIMIZED        "maximized"
+#define CAJA_WINDOW_STATE_EXTRA_PANE_POSITION  					"extra-pane-position"
 #define CAJA_WINDOW_STATE_SIDEBAR_WIDTH  					"sidebar-width"
 
 /* Sorting order */
