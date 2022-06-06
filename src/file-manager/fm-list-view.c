@@ -180,12 +180,14 @@ get_default_sort_order (CajaFile *file, gboolean *reversed)
         "name",
         "uri",
         "size",
-        "size_on_disk",
         "type",
         "date_modified",
+        "date_created",
         "date_accessed",
         "emblems",
         "trashed_on",
+        "size_on_disk",
+        "extension",
         NULL
     };
 
