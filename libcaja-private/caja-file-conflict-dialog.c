@@ -46,6 +46,8 @@ struct _CajaFileConflictDialogPrivate
 
     gchar *conflict_name;
     CajaFileListHandle *handle;
+    gulong src_handler_id;
+    gulong dest_handler_id;
 
     /* UI objects */
     GtkWidget *titles_vbox;
@@ -359,12 +361,12 @@ file_list_ready_cb (GList *files,
     caja_file_monitor_add (src, fcd, CAJA_FILE_ATTRIBUTES_FOR_ICON);
     caja_file_monitor_add (dest, fcd, CAJA_FILE_ATTRIBUTES_FOR_ICON);
 
-    g_signal_connect_object (src, "changed",
-                             G_CALLBACK (file_icons_changed),
-                             fcd->details->src_image, 0);
-    g_signal_connect_object (dest, "changed",
-                             G_CALLBACK (file_icons_changed),
-                             fcd->details->dest_image, 0);
+    details->src_handler_id = g_signal_connect (src, "changed",
+                                                G_CALLBACK (file_icons_changed),
+                                                fcd->details->src_image);
+    details->dest_handler_id = g_signal_connect (dest, "changed",
+                                                 G_CALLBACK (file_icons_changed),
+                                                 fcd->details->dest_image);
 }
 
 static void
@@ -680,12 +682,19 @@ do_dispose (GObject *self)
         caja_file_list_cancel_call_when_ready (details->handle);
         details->handle = NULL;
     }
-    else
+
+    if (details->src_handler_id)
     {
-        if (details->source)
-            caja_file_monitor_remove (details->source, self);
-        if (details->destination)
-            caja_file_monitor_remove (details->destination, self);
+        g_signal_handler_disconnect (details->source, details->src_handler_id);
+        caja_file_monitor_remove (details->source, self);
+        details->src_handler_id = 0;
+    }
+
+    if (details->dest_handler_id)
+    {
+        g_signal_handler_disconnect (details->destination, details->dest_handler_id);
+        caja_file_monitor_remove (details->destination, self);
+        details->dest_handler_id = 0;
     }
 
     g_clear_pointer (&details->source, caja_file_unref);
