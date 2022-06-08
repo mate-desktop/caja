@@ -672,39 +672,6 @@ caja_file_conflict_dialog_init (CajaFileConflictDialog *fcd)
 }
 
 static void
-do_dispose (GObject *self)
-{
-    CajaFileConflictDialogPrivate *details =
-        CAJA_FILE_CONFLICT_DIALOG (self)->details;
-
-    if (details->handle != NULL)
-    {
-        caja_file_list_cancel_call_when_ready (details->handle);
-        details->handle = NULL;
-    }
-
-    if (details->src_handler_id)
-    {
-        g_signal_handler_disconnect (details->source, details->src_handler_id);
-        caja_file_monitor_remove (details->source, self);
-        details->src_handler_id = 0;
-    }
-
-    if (details->dest_handler_id)
-    {
-        g_signal_handler_disconnect (details->destination, details->dest_handler_id);
-        caja_file_monitor_remove (details->destination, self);
-        details->dest_handler_id = 0;
-    }
-
-    g_clear_pointer (&details->source, caja_file_unref);
-    g_clear_pointer (&details->destination, caja_file_unref);
-    g_clear_pointer (&details->dest_dir, caja_file_unref);
-
-    G_OBJECT_CLASS (caja_file_conflict_dialog_parent_class)->dispose (self);
-}
-
-static void
 do_finalize (GObject *self)
 {
     CajaFileConflictDialogPrivate *details =
@@ -712,13 +679,33 @@ do_finalize (GObject *self)
 
     g_free (details->conflict_name);
 
+    if (details->handle != NULL)
+    {
+        caja_file_list_cancel_call_when_ready (details->handle);
+    }
+
+    if (details->src_handler_id)
+    {
+        g_signal_handler_disconnect (details->source, details->src_handler_id);
+        caja_file_monitor_remove (details->source, self);
+    }
+
+    if (details->dest_handler_id)
+    {
+        g_signal_handler_disconnect (details->destination, details->dest_handler_id);
+        caja_file_monitor_remove (details->destination, self);
+    }
+
+    caja_file_unref (details->source);
+    caja_file_unref (details->destination);
+    caja_file_unref (details->dest_dir);
+
     G_OBJECT_CLASS (caja_file_conflict_dialog_parent_class)->finalize (self);
 }
 
 static void
 caja_file_conflict_dialog_class_init (CajaFileConflictDialogClass *klass)
 {
-    G_OBJECT_CLASS (klass)->dispose = do_dispose;
     G_OBJECT_CLASS (klass)->finalize = do_finalize;
 }
 
