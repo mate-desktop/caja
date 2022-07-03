@@ -4,22 +4,22 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# peter, 2018
-# 32442f8bc5cc500b59f161d95078a28a_525ed04, 2018
-# Pavol Šimo <palo.simo@gmail.com>, 2018
-# Erik Bročko <erik.brocko@letemsvetemapplem.eu>, 2018
-# Stefano Karapetsas <stefano@karapetsas.com>, 2019
-# Tibor Kaputa <tibbbi2@gmail.com>, 2019
+# peter, 2021
+# Erik Bročko <erik.brocko@letemsvetemapplem.eu>, 2021
 # Ján Ďanovský <dagsoftware@yahoo.com>, 2021
 # Dušan Kazik <prescott66@gmail.com>, 2021
+# Stefano Karapetsas <stefano@karapetsas.com>, 2021
+# 32442f8bc5cc500b59f161d95078a28a_525ed04, 2021
+# Tibor Kaputa <tibbbi2@gmail.com>, 2021
+# Pavol Šimo <palo.simo@gmail.com>, 2022
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: caja 1.25.2\n"
+"Project-Id-Version: caja 1.25.3\n"
 "Report-Msgid-Bugs-To: https://github.com/mate-desktop/caja/issues\n"
-"POT-Creation-Date: 2021-05-29 15:26+0200\n"
-"PO-Revision-Date: 2018-03-11 14:48+0000\n"
-"Last-Translator: Dušan Kazik <prescott66@gmail.com>, 2021\n"
+"POT-Creation-Date: 2021-08-04 14:26+0200\n"
+"PO-Revision-Date: 2021-09-18 16:24+0000\n"
+"Last-Translator: Pavol Šimo <palo.simo@gmail.com>, 2022\n"
 "Language-Team: Slovak (https://www.transifex.com/mate/teams/13566/sk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -73,7 +73,7 @@ msgstr "Naopak"
 
 #: data/browser.xml:13
 msgid "Dark GNOME"
-msgstr ""
+msgstr "Tmavé GNOME"
 
 #: data/browser.xml:14
 msgid "Dots"
@@ -97,7 +97,7 @@ msgstr "Fosílie"
 
 #: data/browser.xml:19
 msgid "GNOME"
-msgstr ""
+msgstr "GNOME"
 
 #: data/browser.xml:20
 msgid "Green Weave"
@@ -314,12 +314,19 @@ msgid ""
 " associated with them. It is also responsible for handling the icons on the "
 "MATE desktop. It works on local and remote file systems."
 msgstr ""
+"Caja je oficiálnym správcom súborov prostredia MATE. Môžete pomocou neho "
+"prechádzať priečinkami, prezerať súbory a spúšťať aplikácie s nimi "
+"asociované. Taktiež je zodpovedný za správu ikoniek na pracovnej ploche "
+"prostredia MATE. Funguje na miestnych aj na vzdialených súborových "
+"systémoch."
 
 #: data/caja.appdata.xml.in.in:16
 msgid ""
 "Caja is extensible through a plugin system, similar to that of GNOME "
 "Nautilus, of which Caja is a fork."
 msgstr ""
+"Caja je rozšíriteľná systémom zásuvných modulov, podobne ako aj GNOME "
+"Nautilus, z ktorého Caja vychádza."
 
 #: data/caja-autorun-software.desktop.in.in:3
 msgid "Autorun Prompt"
@@ -646,7 +653,7 @@ msgstr ""
 
 #: libcaja-private/caja-autorun.c:1145
 msgid "_Always perform this action"
-msgstr "Vždy vykon_ať túto operáciu."
+msgstr "Vždy vykon_ať túto operáciu"
 
 #: libcaja-private/caja-autorun.c:1168 src/caja-places-sidebar.c:2792
 #: src/file-manager/fm-directory-view.c:7545
@@ -742,11 +749,11 @@ msgstr "Dátum, kedy bol súbor upravený."
 
 #: libcaja-private/caja-column-utilities.c:84
 msgid "Date Created"
-msgstr ""
+msgstr "Dátum vytvorenia"
 
 #: libcaja-private/caja-column-utilities.c:85
 msgid "The date the file was created."
-msgstr ""
+msgstr "Dátum, kedy bol súbor vytvorený."
 
 #: libcaja-private/caja-column-utilities.c:92
 msgid "Date Accessed"
@@ -812,7 +819,7 @@ msgstr "Umiestnenie"
 
 #: libcaja-private/caja-column-utilities.c:149
 msgid "The location of the file."
-msgstr "Umiestnenie súboru"
+msgstr "Umiestnenie súboru."
 
 #: libcaja-private/caja-column-utilities.c:156
 #: src/caja-file-management-properties.ui:2427
@@ -1119,10 +1126,10 @@ msgstr "Uvedená skupina „%s“ neexistuje"
 #, c-format
 msgid "%'u item"
 msgid_plural "%'u items"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%'u položka"
+msgstr[1] "%'u položky"
+msgstr[2] "%'u položiek"
+msgstr[3] "%'u položiek"
 
 #: libcaja-private/caja-file.c:6230
 #, c-format
@@ -1137,10 +1144,10 @@ msgstr[3] "%'u priečinkov"
 #, c-format
 msgid "%'u file"
 msgid_plural "%'u files"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%'u súbor"
+msgstr[1] "%'u súbory"
+msgstr[2] "%'u súborov"
+msgstr[3] "%'u súborov"
 
 #: libcaja-private/caja-file.c:6335
 msgid "%"
@@ -1376,7 +1383,7 @@ msgid "%'d second"
 msgid_plural "%'d seconds"
 msgstr[0] "%'d sekunda"
 msgstr[1] "%'d sekundy"
-msgstr[2] "%'d sekundy"
+msgstr[2] "%'d sekúnd"
 msgstr[3] "%'d sekúnd"
 
 #: libcaja-private/caja-file-operations.c:310
@@ -1386,7 +1393,7 @@ msgid "%'d minute"
 msgid_plural "%'d minutes"
 msgstr[0] "%'d minúta"
 msgstr[1] "%'d minúty"
-msgstr[2] "%'d minúty"
+msgstr[2] "%'d minút"
 msgstr[3] "%'d minút"
 
 #: libcaja-private/caja-file-operations.c:321
@@ -1395,7 +1402,7 @@ msgid "%'d hour"
 msgid_plural "%'d hours"
 msgstr[0] "%'d hodina"
 msgstr[1] "%'d hodiny"
-msgstr[2] "%'d hodiny"
+msgstr[2] "%'d hodín"
 msgstr[3] "%'d hodín"
 
 #: libcaja-private/caja-file-operations.c:329
@@ -1404,7 +1411,7 @@ msgid "approximately %'d hour"
 msgid_plural "approximately %'d hours"
 msgstr[0] "približne %'d hodina"
 msgstr[1] "približne %'d hodiny"
-msgstr[2] "približne %'d hodiny"
+msgstr[2] "približne %'d hodín"
 msgstr[3] "približne %'d hodín"
 
 #: libcaja-private/caja-file-operations.c:409
@@ -1534,7 +1541,7 @@ msgstr " (%'d"
 
 #: libcaja-private/caja-file-operations.c:1369
 msgid "Are you sure you want to permanently delete \"%B\" from the trash?"
-msgstr "Ste si istý, že chcete „%B“ z Koša trvale vymazať?"
+msgstr "Ste si istý, že chcete „%B“ z Koša natrvalo vymazať?"
 
 #: libcaja-private/caja-file-operations.c:1372
 #, c-format
@@ -1544,15 +1551,17 @@ msgid ""
 msgid_plural ""
 "Are you sure you want to permanently delete the %'d selected items from the "
 "trash?"
-msgstr[0] "Naozaj chcete natrvalo zmazať %'d vybranú položku z koša?"
-msgstr[1] "Naozaj chcete natrvalo zmazať %'d vybrané položky z koša?"
-msgstr[2] "Naozaj chcete natrvalo zmazať %'d vybraných položiek z koša?"
-msgstr[3] "Naozaj chcete natrvalo zmazať %'d vybraných položiek z koša?"
+msgstr[0] "Ste si istý, že chcete z Koša trvale vymazať %'d vybranú položku?"
+msgstr[1] "Ste si istý, že chcete z Koša trvale vymazať %'d vybrané položky?"
+msgstr[2] ""
+"Ste si istý, že chcete z Koša trvale vymazať %'d vybraných položiek?"
+msgstr[3] ""
+"Ste si istý, že chcete z Koša trvale vymazať %'d vybraných položiek?"
 
 #: libcaja-private/caja-file-operations.c:1382
 #: libcaja-private/caja-file-operations.c:1448
 msgid "If you delete an item, it will be permanently lost."
-msgstr "Ak vymažete položku, bude trvale stratená."
+msgstr "Ak vymažete položku, bude natrvalo stratená."
 
 #: libcaja-private/caja-file-operations.c:1402
 msgid "Empty all items from Trash?"
@@ -1560,7 +1569,7 @@ msgstr "Odstrániť z Koša všetky položky?"
 
 #: libcaja-private/caja-file-operations.c:1406
 msgid "All items in the Trash will be permanently deleted."
-msgstr "Všetky položky v Koši budú trvale vymazané."
+msgstr "Všetky položky v Koši budú natrvalo vymazané."
 
 #: libcaja-private/caja-file-operations.c:1409
 #: libcaja-private/caja-file-operations.c:2346 src/caja-places-sidebar.c:2829
@@ -1570,17 +1579,17 @@ msgstr "Vyprázdniť _Kôš"
 
 #: libcaja-private/caja-file-operations.c:1436
 msgid "Are you sure you want to permanently delete \"%B\"?"
-msgstr "Ste si istý, že chcete „%B“ trvale vymazať?"
+msgstr "Ste si istý, že chcete „%B“ natrvalo vymazať?"
 
 #: libcaja-private/caja-file-operations.c:1439
 #, c-format
 msgid "Are you sure you want to permanently delete the %'d selected item?"
 msgid_plural ""
 "Are you sure you want to permanently delete the %'d selected items?"
-msgstr[0] "Naozaj chcete natrvalo zmazať %'d vybranú položku z koša?"
-msgstr[1] "Naozaj chcete natrvalo zmazať %'d vybrané položky z koša?"
-msgstr[2] "Naozaj chcete natrvalo zmazať %'d vybraných položiek z koša?"
-msgstr[3] "Naozaj chcete natrvalo zmazať %'d vybraných položiek z koša?"
+msgstr[0] "Naozaj chcete natrvalo zmazať %'d vybranú položku?"
+msgstr[1] "Naozaj chcete natrvalo zmazať %'d vybrané položky?"
+msgstr[2] "Naozaj chcete natrvalo zmazať %'d vybraných položiek?"
+msgstr[3] "Naozaj chcete natrvalo zmazať %'d vybraných položiek?"
 
 #: libcaja-private/caja-file-operations.c:1478
 msgid "Are you sure you want to trash \"%B\"?"
@@ -1750,37 +1759,37 @@ msgstr "Nepodarilo sa pripojiť %s"
 #, c-format
 msgid "Preparing to copy %'d file (%S)"
 msgid_plural "Preparing to copy %'d files (%S)"
-msgstr[0] "Príprava na kopírovanie %'d súboru (%S)"
-msgstr[1] "Príprava na kopírovanie %'d súborov (%S)"
-msgstr[2] "Príprava na kopírovanie %'d súborov (%S)"
-msgstr[3] "Príprava na kopírovanie %'d súborov (%S)"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: libcaja-private/caja-file-operations.c:2545
 #, c-format
 msgid "Preparing to move %'d file (%S)"
 msgid_plural "Preparing to move %'d files (%S)"
-msgstr[0] "Príprava na presun %'d súboru (%S)"
-msgstr[1] "Príprava na presun %'d súborov (%S)"
-msgstr[2] "Príprava na presun %'d súborov (%S)"
-msgstr[3] "Príprava na presun %'d súborov (%S)"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: libcaja-private/caja-file-operations.c:2551
 #, c-format
 msgid "Preparing to delete %'d file (%S)"
 msgid_plural "Preparing to delete %'d files (%S)"
-msgstr[0] "Príprava na vymazanie %'d súboru (%S)"
-msgstr[1] "Príprava na vymazanie %'d súborov (%S)"
-msgstr[2] "Príprava na vymazanie %'d súborov (%S)"
-msgstr[3] "Príprava na vymazanie %'d súborov (%S)"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: libcaja-private/caja-file-operations.c:2557
 #, c-format
 msgid "Preparing to trash %'d file"
 msgid_plural "Preparing to trash %'d files"
-msgstr[0] "Príprava na vyhodenie %'d súboru"
-msgstr[1] "Príprava na vyhodenie %'d súborov"
-msgstr[2] "Príprava na vyhodenie %'d súborov"
-msgstr[3] "Príprava na vyhodenie %'d súborov"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: libcaja-private/caja-file-operations.c:2588
 #: libcaja-private/caja-file-operations.c:3499
@@ -1894,10 +1903,10 @@ msgstr[3] ""
 #: libcaja-private/caja-file-operations.c:3059
 msgid "Duplicating %'d file (in \"%B\")"
 msgid_plural "Duplicating %'d files (in \"%B\")"
-msgstr[0] "Duplikuje sa %'d súbor (v „%B“)"
-msgstr[1] "Duplikujú sa %'d súbory (v „%B“)"
-msgstr[2] "Duplikuje sa %'d súborov (v „%B“)"
-msgstr[3] "Duplikuje sa %'d súborov (v „%B“)"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: libcaja-private/caja-file-operations.c:3069
 msgid "Moving %'d file to \"%B\""
@@ -2297,10 +2306,10 @@ msgstr "Otvára sa „%s“."
 #, c-format
 msgid "Opening %d item."
 msgid_plural "Opening %d items."
-msgstr[0] "Otvára sa %d položka"
-msgstr[1] "Otvárajú sa %d položky."
-msgstr[2] "Otvára sa %d položky."
-msgstr[3] "Otvára sa %d položiek."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: libcaja-private/caja-mime-application-chooser.c:164
 #: libcaja-private/caja-open-with-dialog.c:304
@@ -2567,10 +2576,10 @@ msgstr "Pokračovať"
 #, c-format
 msgid "%'d file operation active"
 msgid_plural "%'d file operations active"
-msgstr[0] "%'d operácia so súbormi aktívna"
-msgstr[1] "%'d operácie so súbormi aktívne"
-msgstr[2] "%'d operácií so súbormi aktívnych"
-msgstr[3] "%'d operácií so súbormi aktívnych"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: libcaja-private/caja-progress-info.c:631
 msgid "Process completed"
@@ -2598,181 +2607,181 @@ msgstr "Hľadať"
 msgid "Search for \"%s\""
 msgstr "Hľadať „%s“"
 
-#: libcaja-private/caja-undostack-manager.c:1212
+#: libcaja-private/caja-undostack-manager.c:1213
 #, c-format
 msgid "Delete %d copied items"
 msgstr "Vymazať %d skopírovaných položiek"
 
-#: libcaja-private/caja-undostack-manager.c:1215
-#: libcaja-private/caja-undostack-manager.c:1225
-#: libcaja-private/caja-undostack-manager.c:1256
+#: libcaja-private/caja-undostack-manager.c:1216
+#: libcaja-private/caja-undostack-manager.c:1226
+#: libcaja-private/caja-undostack-manager.c:1257
 #, c-format
 msgid "Delete '%s'"
 msgstr "Vymazať „%s“"
 
-#: libcaja-private/caja-undostack-manager.c:1222
+#: libcaja-private/caja-undostack-manager.c:1223
 #, c-format
 msgid "Delete %d duplicated items"
 msgstr "Vymazať %d duplicitných položiek"
 
-#: libcaja-private/caja-undostack-manager.c:1233
+#: libcaja-private/caja-undostack-manager.c:1234
 #, c-format
 msgid "Move %d items back to '%s'"
 msgstr "Presunúť %d položiek späť do „%s“"
 
-#: libcaja-private/caja-undostack-manager.c:1237
+#: libcaja-private/caja-undostack-manager.c:1238
 #, c-format
 msgid "Move '%s' back to '%s'"
 msgstr "Presunúť „%s“ späť do „%s“"
 
-#: libcaja-private/caja-undostack-manager.c:1246
-#: libcaja-private/caja-undostack-manager.c:1413
+#: libcaja-private/caja-undostack-manager.c:1247
+#: libcaja-private/caja-undostack-manager.c:1414
 #, c-format
 msgid "Rename '%s' as '%s'"
 msgstr "Premenovať „%s“ na „%s“"
 
-#: libcaja-private/caja-undostack-manager.c:1265
-#: libcaja-private/caja-undostack-manager.c:1460
+#: libcaja-private/caja-undostack-manager.c:1266
+#: libcaja-private/caja-undostack-manager.c:1461
 #, c-format
 msgid "Restore %d items from trash"
 msgstr "Obnoviť z Koša „%d“ položiek"
 
-#: libcaja-private/caja-undostack-manager.c:1273
+#: libcaja-private/caja-undostack-manager.c:1274
 #, c-format
 msgid "Restore '%s' to '%s'"
 msgstr "Obnoviť „%s“ do „%s“"
 
-#: libcaja-private/caja-undostack-manager.c:1284
+#: libcaja-private/caja-undostack-manager.c:1285
 #, c-format
 msgid "Move %d items back to trash"
 msgstr "Presunúť %d položiek späť do Koša"
 
-#: libcaja-private/caja-undostack-manager.c:1287
+#: libcaja-private/caja-undostack-manager.c:1288
 #, c-format
 msgid "Move '%s' back to trash"
 msgstr "Presunúť „%s“ späť do Koša"
 
-#: libcaja-private/caja-undostack-manager.c:1296
+#: libcaja-private/caja-undostack-manager.c:1297
 #, c-format
 msgid "Delete links to %d items"
 msgstr "Vymazať odkazy na %d položiek"
 
-#: libcaja-private/caja-undostack-manager.c:1299
+#: libcaja-private/caja-undostack-manager.c:1300
 #, c-format
 msgid "Delete link to '%s'"
 msgstr "Vymazať odkaz na „%s“"
 
-#: libcaja-private/caja-undostack-manager.c:1309
+#: libcaja-private/caja-undostack-manager.c:1310
 #, c-format
 msgid "Restore original permissions of items enclosed in '%s'"
 msgstr "Obnoviť pôvodné oprávnenia položiek v „%s“"
 
-#: libcaja-private/caja-undostack-manager.c:1317
+#: libcaja-private/caja-undostack-manager.c:1318
 #, c-format
 msgid "Restore original permissions of '%s'"
 msgstr "Obnoviť pôvodné oprávnenia „%s“"
 
-#: libcaja-private/caja-undostack-manager.c:1326
+#: libcaja-private/caja-undostack-manager.c:1327
 #, c-format
 msgid "Restore group of '%s' to '%s'"
 msgstr "Obnoviť skupinu „%s“ na „%s“"
 
-#: libcaja-private/caja-undostack-manager.c:1336
+#: libcaja-private/caja-undostack-manager.c:1337
 #, c-format
 msgid "Restore owner of '%s' to '%s'"
 msgstr "Obnoviť vlastníka „%s“ na „%s“"
 
-#: libcaja-private/caja-undostack-manager.c:1375
+#: libcaja-private/caja-undostack-manager.c:1376
 #, c-format
 msgid "Copy %d items to '%s'"
 msgstr "Kopírovať %d položiek do „%s“"
 
-#: libcaja-private/caja-undostack-manager.c:1379
+#: libcaja-private/caja-undostack-manager.c:1380
 #, c-format
 msgid "Copy '%s' to '%s'"
 msgstr "Skopírovať „%s“ do „%s“"
 
-#: libcaja-private/caja-undostack-manager.c:1387
+#: libcaja-private/caja-undostack-manager.c:1388
 #, c-format
 msgid "Duplicate of %d items in '%s'"
 msgstr "Duplikovať %d položiek v „%s“"
 
-#: libcaja-private/caja-undostack-manager.c:1392
+#: libcaja-private/caja-undostack-manager.c:1393
 #, c-format
 msgid "Duplicate '%s' in '%s'"
 msgstr "Duplikovať „%s“ v „%s“"
 
-#: libcaja-private/caja-undostack-manager.c:1400
+#: libcaja-private/caja-undostack-manager.c:1401
 #, c-format
 msgid "Move %d items to '%s'"
 msgstr "Presunúť %d položiek do „%s“"
 
-#: libcaja-private/caja-undostack-manager.c:1404
+#: libcaja-private/caja-undostack-manager.c:1405
 #, c-format
 msgid "Move '%s' to '%s'"
 msgstr "Presunúť „%s“ do „%s“"
 
-#: libcaja-private/caja-undostack-manager.c:1422
+#: libcaja-private/caja-undostack-manager.c:1423
 #, c-format
 msgid "Create new file '%s' from template "
 msgstr "Vytvoriť nový súbor „%s“ zo šablóny"
 
-#: libcaja-private/caja-undostack-manager.c:1429
+#: libcaja-private/caja-undostack-manager.c:1430
 #, c-format
 msgid "Create an empty file '%s'"
 msgstr "Vytvoriť prázdny súbor „%s“"
 
-#: libcaja-private/caja-undostack-manager.c:1436
+#: libcaja-private/caja-undostack-manager.c:1437
 #, c-format
 msgid "Create a new folder '%s'"
 msgstr "Vytvoriť nový priečinok „%s“"
 
-#: libcaja-private/caja-undostack-manager.c:1444
+#: libcaja-private/caja-undostack-manager.c:1445
 #, c-format
 msgid "Move %d items to trash"
 msgstr "Presunúť %d súborov do Koša"
 
-#: libcaja-private/caja-undostack-manager.c:1450
+#: libcaja-private/caja-undostack-manager.c:1451
 #, c-format
 msgid "Move '%s' to trash"
 msgstr "Presunúť „%s“ do Koša"
 
-#: libcaja-private/caja-undostack-manager.c:1463
+#: libcaja-private/caja-undostack-manager.c:1464
 #, c-format
 msgid "Restore '%s' from trash"
 msgstr "Obnoviť „%s“ z Koša"
 
-#: libcaja-private/caja-undostack-manager.c:1472
+#: libcaja-private/caja-undostack-manager.c:1473
 #, c-format
 msgid "Create links to %d items"
 msgstr "Vytvoriť odkazy na %d položiek"
 
-#: libcaja-private/caja-undostack-manager.c:1475
+#: libcaja-private/caja-undostack-manager.c:1476
 #, c-format
 msgid "Create link to '%s'"
 msgstr "Vytvoriť odkaz na „%s“"
 
-#: libcaja-private/caja-undostack-manager.c:1484
+#: libcaja-private/caja-undostack-manager.c:1485
 #, c-format
 msgid "Set permissions of items enclosed in '%s'"
 msgstr "Nastaviť oprávnenia na všetky súbory v „%s“"
 
-#: libcaja-private/caja-undostack-manager.c:1492
+#: libcaja-private/caja-undostack-manager.c:1493
 #, c-format
 msgid "Set permissions of '%s'"
 msgstr "Nastaviť oprávnenia „%s“"
 
-#: libcaja-private/caja-undostack-manager.c:1501
+#: libcaja-private/caja-undostack-manager.c:1502
 #, c-format
 msgid "Set group of '%s' to '%s'"
 msgstr "Nastaviť skupinu „%s“ na „%s“"
 
-#: libcaja-private/caja-undostack-manager.c:1511
+#: libcaja-private/caja-undostack-manager.c:1512
 #, c-format
 msgid "Set owner of '%s' to '%s'"
 msgstr "Nastaviť vlastníka „%s“ na „%s“"
 
-#: libcaja-private/caja-undostack-manager.c:1543
+#: libcaja-private/caja-undostack-manager.c:1544
 #, c-format
 msgid "_Undo copy of %d item"
 msgid_plural "_Undo copy of %d items"
@@ -2781,7 +2790,7 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: libcaja-private/caja-undostack-manager.c:1548
+#: libcaja-private/caja-undostack-manager.c:1549
 #, c-format
 msgid "_Undo duplicate of %d item"
 msgid_plural "_Undo duplicate of %d items"
@@ -2790,16 +2799,16 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: libcaja-private/caja-undostack-manager.c:1553
+#: libcaja-private/caja-undostack-manager.c:1554
 #, c-format
 msgid "_Undo move of %d item"
 msgid_plural "_Undo move of %d items"
-msgstr[0] "_Vrátiť presun %d položky"
-msgstr[1] "_Vrátiť presun %d položiek"
-msgstr[2] "_Vrátiť presun %d položiek"
-msgstr[3] "_Vrátiť presun %d položiek"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
-#: libcaja-private/caja-undostack-manager.c:1558
+#: libcaja-private/caja-undostack-manager.c:1559
 #, c-format
 msgid "_Undo rename of %d item"
 msgid_plural "_Undo rename of %d items"
@@ -2808,15 +2817,15 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: libcaja-private/caja-undostack-manager.c:1562
+#: libcaja-private/caja-undostack-manager.c:1563
 msgid "_Undo creation of an empty file"
 msgstr "_Vrátiť vytvorenie prázdneho súboru"
 
-#: libcaja-private/caja-undostack-manager.c:1565
+#: libcaja-private/caja-undostack-manager.c:1566
 msgid "_Undo creation of a file from template"
 msgstr "_Vrátiť vytvorenie súboru zo šablóny"
 
-#: libcaja-private/caja-undostack-manager.c:1569
+#: libcaja-private/caja-undostack-manager.c:1570
 #, c-format
 msgid "_Undo creation of %d folder"
 msgid_plural "_Undo creation of %d folders"
@@ -2825,7 +2834,7 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: libcaja-private/caja-undostack-manager.c:1574
+#: libcaja-private/caja-undostack-manager.c:1575
 #, c-format
 msgid "_Undo move to trash of %d item"
 msgid_plural "_Undo move to trash of %d items"
@@ -2834,7 +2843,7 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: libcaja-private/caja-undostack-manager.c:1579
+#: libcaja-private/caja-undostack-manager.c:1580
 #, c-format
 msgid "_Undo restore from trash of %d item"
 msgid_plural "_Undo restore from trash of %d items"
@@ -2843,7 +2852,7 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: libcaja-private/caja-undostack-manager.c:1584
+#: libcaja-private/caja-undostack-manager.c:1585
 #, c-format
 msgid "_Undo create link to %d item"
 msgid_plural "_Undo create link to %d items"
@@ -2852,7 +2861,7 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: libcaja-private/caja-undostack-manager.c:1589
+#: libcaja-private/caja-undostack-manager.c:1590
 #, c-format
 msgid "_Undo delete of %d item"
 msgid_plural "_Undo delete of %d items"
@@ -2861,34 +2870,34 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: libcaja-private/caja-undostack-manager.c:1594
+#: libcaja-private/caja-undostack-manager.c:1595
 #, c-format
 msgid "Undo recursive change permissions of %d item"
 msgid_plural "Undo recursive change permissions of %d items"
-msgstr[0] "Vrátiť rekurzívnu zmenu oprávnení %d položky"
-msgstr[1] "Vrátiť rekurzívnu zmenu oprávnení %d položiek"
-msgstr[2] "Vrátiť rekurzívnu zmenu oprávnení %d položiek"
-msgstr[3] "Vrátiť rekurzívnu zmenu oprávnení %d položiek"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
-#: libcaja-private/caja-undostack-manager.c:1600
+#: libcaja-private/caja-undostack-manager.c:1601
 #, c-format
 msgid "Undo change permissions of %d item"
 msgid_plural "Undo change permissions of %d items"
-msgstr[0] "Vrátiť zmenu oprávnení %d položku"
-msgstr[1] "Vrátiť zmenu oprávnení %d položky"
-msgstr[2] "Vrátiť zmenu oprávnení %d položiek"
-msgstr[3] "Vrátiť zmenu oprávnení %d položiek"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
-#: libcaja-private/caja-undostack-manager.c:1605
+#: libcaja-private/caja-undostack-manager.c:1606
 #, c-format
 msgid "Undo change group of %d item"
 msgid_plural "Undo change group of %d items"
-msgstr[0] "Vrátiť zmenu skupiny %d položky"
-msgstr[1] "Vrátiť zmenu skupiny %d položiek"
-msgstr[2] "Vrátiť zmenu skupiny %d položiek"
-msgstr[3] "Vrátiť zmenu skupiny %d položiek"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
-#: libcaja-private/caja-undostack-manager.c:1610
+#: libcaja-private/caja-undostack-manager.c:1611
 #, c-format
 msgid "Undo change owner of %d item"
 msgid_plural "Undo change owner of %d items"
@@ -2897,7 +2906,7 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: libcaja-private/caja-undostack-manager.c:1638
+#: libcaja-private/caja-undostack-manager.c:1639
 #, c-format
 msgid "_Redo copy of %d item"
 msgid_plural "_Redo copy of %d items"
@@ -2906,25 +2915,25 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: libcaja-private/caja-undostack-manager.c:1643
+#: libcaja-private/caja-undostack-manager.c:1644
 #, c-format
 msgid "_Redo duplicate of %d item"
 msgid_plural "_Redo duplicate of %d items"
-msgstr[0] "_Zopakovať duplikovanie %d položky"
-msgstr[1] "_Zopakovať duplikovanie %d položiek"
-msgstr[2] "_Zopakovať duplikovanie %d položiek"
-msgstr[3] "_Zopakovať duplikovanie %d položiek"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
-#: libcaja-private/caja-undostack-manager.c:1648
+#: libcaja-private/caja-undostack-manager.c:1649
 #, c-format
 msgid "_Redo move of %d item"
 msgid_plural "_Redo move of %d items"
-msgstr[0] "_Zopakovať presun %d položky"
-msgstr[1] "_Zopakovať presun %d položiek"
-msgstr[2] "_Zopakovať presun %d položiek"
-msgstr[3] "_Zopakovať presun %d položiek"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
-#: libcaja-private/caja-undostack-manager.c:1653
+#: libcaja-private/caja-undostack-manager.c:1654
 #, c-format
 msgid "_Redo rename of %d item"
 msgid_plural "_Redo rename of %d items"
@@ -2933,15 +2942,15 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: libcaja-private/caja-undostack-manager.c:1657
+#: libcaja-private/caja-undostack-manager.c:1658
 msgid "_Redo creation of an empty file"
 msgstr "_Zopakovať vrátené vytvorenie prázdneho súboru"
 
-#: libcaja-private/caja-undostack-manager.c:1660
+#: libcaja-private/caja-undostack-manager.c:1661
 msgid "_Redo creation of a file from template"
 msgstr "_Zopakovať vrátené vytvorenie súboru zo šablóny"
 
-#: libcaja-private/caja-undostack-manager.c:1664
+#: libcaja-private/caja-undostack-manager.c:1665
 #, c-format
 msgid "_Redo creation of %d folder"
 msgid_plural "_Redo creation of %d folders"
@@ -2950,7 +2959,7 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: libcaja-private/caja-undostack-manager.c:1669
+#: libcaja-private/caja-undostack-manager.c:1670
 #, c-format
 msgid "_Redo move to trash of %d item"
 msgid_plural "_Redo move to trash of %d items"
@@ -2959,7 +2968,7 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: libcaja-private/caja-undostack-manager.c:1674
+#: libcaja-private/caja-undostack-manager.c:1675
 #, c-format
 msgid "_Redo restore from trash of %d item"
 msgid_plural "_Redo restore from trash of %d items"
@@ -2968,7 +2977,7 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: libcaja-private/caja-undostack-manager.c:1679
+#: libcaja-private/caja-undostack-manager.c:1680
 #, c-format
 msgid "_Redo create link to %d item"
 msgid_plural "_Redo create link to %d items"
@@ -2977,7 +2986,7 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: libcaja-private/caja-undostack-manager.c:1684
+#: libcaja-private/caja-undostack-manager.c:1685
 #, c-format
 msgid "_Redo delete of %d item"
 msgid_plural "_Redo delete of %d items"
@@ -2986,16 +2995,16 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: libcaja-private/caja-undostack-manager.c:1689
+#: libcaja-private/caja-undostack-manager.c:1690
 #, c-format
 msgid "Redo recursive change permissions of %d item"
 msgid_plural "Redo recursive change permissions of %d items"
-msgstr[0] "Zopakovať rekurzívnu zmenu oprávnení %d položky"
-msgstr[1] "Zopakovať rekurzívnu zmenu oprávnení %d položiek"
-msgstr[2] "Zopakovať rekurzívnu zmenu oprávnení %d položiek"
-msgstr[3] "Zopakovať rekurzívnu zmenu oprávnení %d položiek"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
-#: libcaja-private/caja-undostack-manager.c:1695
+#: libcaja-private/caja-undostack-manager.c:1696
 #, c-format
 msgid "Redo change permissions of %d item"
 msgid_plural "Redo change permissions of %d items"
@@ -3004,7 +3013,7 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: libcaja-private/caja-undostack-manager.c:1700
+#: libcaja-private/caja-undostack-manager.c:1701
 #, c-format
 msgid "Redo change group of %d item"
 msgid_plural "Redo change group of %d items"
@@ -3013,7 +3022,7 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: libcaja-private/caja-undostack-manager.c:1705
+#: libcaja-private/caja-undostack-manager.c:1706
 #, c-format
 msgid "Redo change owner of %d item"
 msgid_plural "Redo change owner of %d items"
@@ -3925,63 +3934,63 @@ msgstr ""
 "Zoznam typov x-content/*, pre ktoré používateľ v nastaveniach zvolil „Open "
 "Folder“. Po pripojení médií týchto typov bude otvorené okno priečinka."
 
-#: mate-submodules/libegg/eggdesktopfile.c:168
+#: mate-submodules/libegg/eggdesktopfile.c:169
 msgid "File is not a valid .desktop file"
 msgstr "Súbor nie je platným .desktop súborom"
 
-#: mate-submodules/libegg/eggdesktopfile.c:193
+#: mate-submodules/libegg/eggdesktopfile.c:194
 #, c-format
 msgid "Unrecognized desktop file Version '%s'"
 msgstr "Nerozpoznaná verzia súboru plochy „%s“"
 
-#: mate-submodules/libegg/eggdesktopfile.c:975
+#: mate-submodules/libegg/eggdesktopfile.c:976
 #, c-format
 msgid "Starting %s"
 msgstr "Spúšťa sa %s"
 
-#: mate-submodules/libegg/eggdesktopfile.c:1117
+#: mate-submodules/libegg/eggdesktopfile.c:1118
 msgid "Application does not accept documents on command line"
 msgstr "Program neprijíma dokumenty z príkazového riadka"
 
-#: mate-submodules/libegg/eggdesktopfile.c:1185
+#: mate-submodules/libegg/eggdesktopfile.c:1186
 #, c-format
 msgid "Unrecognized launch option: %d"
 msgstr "Nerozpoznaný spúšťací argument: %d"
 
-#: mate-submodules/libegg/eggdesktopfile.c:1401
+#: mate-submodules/libegg/eggdesktopfile.c:1402
 msgid "Can't pass document URIs to a 'Type=Link' desktop entry"
 msgstr ""
 "Položke pracovnej plochy typu Odkaz nie je možné odovzdať URI dokumentov"
 
-#: mate-submodules/libegg/eggdesktopfile.c:1422
+#: mate-submodules/libegg/eggdesktopfile.c:1423
 msgid "Not a launchable item"
 msgstr "Nie je spustiteľnou položkou"
 
-#: mate-submodules/libegg/eggsmclient.c:233
+#: mate-submodules/libegg/eggsmclient.c:234
 msgid "Disable connection to session manager"
 msgstr "Zakázať spojenie k správcovi relácií"
 
-#: mate-submodules/libegg/eggsmclient.c:238
+#: mate-submodules/libegg/eggsmclient.c:239
 msgid "Specify file containing saved configuration"
 msgstr "Určte súbor obsahujúci uložené nastavenia"
 
-#: mate-submodules/libegg/eggsmclient.c:238
+#: mate-submodules/libegg/eggsmclient.c:239
 msgid "FILE"
 msgstr "SÚBOR"
 
-#: mate-submodules/libegg/eggsmclient.c:243
+#: mate-submodules/libegg/eggsmclient.c:244
 msgid "Specify session management ID"
 msgstr "Zadať identifikátor správy relácií"
 
-#: mate-submodules/libegg/eggsmclient.c:243
+#: mate-submodules/libegg/eggsmclient.c:244
 msgid "ID"
 msgstr "ID"
 
-#: mate-submodules/libegg/eggsmclient.c:269
+#: mate-submodules/libegg/eggsmclient.c:270
 msgid "Session management options:"
 msgstr "Možnosti správy relácií:"
 
-#: mate-submodules/libegg/eggsmclient.c:270
+#: mate-submodules/libegg/eggsmclient.c:271
 msgid "Show session management options"
 msgstr "Zobraziť možnosti správy relácie"
 
@@ -4130,15 +4139,15 @@ msgstr ""
 "\n"
 "Ak ste na pochybách, stlačte Zrušiť."
 
-#: src/caja-bookmarks-sidebar.c:193 src/caja-bookmarks-window.c:199
+#: src/caja-bookmarks-sidebar.c:194 src/caja-bookmarks-window.c:199
 msgid "No bookmarks defined"
 msgstr "Neboli definované žiadne záložky"
 
-#: src/caja-bookmarks-sidebar.c:484 src/caja-places-sidebar.c:325
+#: src/caja-bookmarks-sidebar.c:485 src/caja-places-sidebar.c:325
 msgid "Bookmarks"
 msgstr "Záložky"
 
-#: src/caja-bookmarks-sidebar.c:490
+#: src/caja-bookmarks-sidebar.c:491
 msgid "Show a list of your personal bookmarks"
 msgstr ""
 
@@ -4826,7 +4835,7 @@ msgstr "Video _DVD:"
 
 #: src/caja-file-management-properties.ui:2075
 msgid "_Music Player:"
-msgstr "_Hudobný prehrávač"
+msgstr "_Hudobný prehrávač:"
 
 #: src/caja-file-management-properties.ui:2100
 msgid "_Photos:"
@@ -4970,10 +4979,10 @@ msgstr "Typ obrázku:"
 #, c-format
 msgid "<b>Width:</b> %d pixel"
 msgid_plural "<b>Width:</b> %d pixels"
-msgstr[0] "<b>Šírka:</b> %d pixel"
-msgstr[1] "<b>Šírka:</b> %d pixle"
-msgstr[2] "<b>Šírka:</b> %d pixlov"
-msgstr[3] "<b>Šírka:</b> %d pixlov"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: src/caja-image-properties-page.c:411
 #, c-format
@@ -5055,10 +5064,10 @@ msgstr "Prejsť na:"
 #, c-format
 msgid "Do you want to view %d location?"
 msgid_plural "Do you want to view %d locations?"
-msgstr[0] "Chcete zobraziť toto %d umiestnenie?"
-msgstr[1] "Chcete zobraziť tieto %d umiestnenia?"
-msgstr[2] "Chcete zobraziť týchto %d umiestnení?"
-msgstr[3] "Chcete zobraziť týchto %d umiestnení?"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: src/caja-location-dialog.c:160
 msgid "Open Location"
@@ -6243,12 +6252,12 @@ msgstr "Tieto súbory sú na digitálnom prehrávači hudby."
 
 #: src/caja-x-content-bar.c:105
 msgid "The media contains software."
-msgstr "Médium obsahuje softvér"
+msgstr "Médium obsahuje softvér."
 
 #: src/caja-x-content-bar.c:110
 #, c-format
 msgid "The media has been detected as \"%s\"."
-msgstr "Médium bolo detekované ako „%s“"
+msgstr "Médium bolo rozpoznané ako „%s“."
 
 #: src/caja-zoom-control.c:85
 msgid "Zoom In"
@@ -6330,10 +6339,10 @@ msgstr ""
 #, c-format
 msgid "This will open %'d separate tab."
 msgid_plural "This will open %'d separate tabs."
-msgstr[0] "Toto otvorí %'d samostatnú kartu."
-msgstr[1] "Toto otvorí %'d samostatné karty."
-msgstr[2] "Toto otvorí %'d samostatných kariet."
-msgstr[3] "Toto otvorí %'d samostatných kariet."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: src/file-manager/fm-directory-view.c:663
 #, c-format
@@ -6386,10 +6395,10 @@ msgstr "„%s“ vybraných"
 #, c-format
 msgid "%'d folder selected"
 msgid_plural "%'d folders selected"
-msgstr[0] "vybraný %'d priečinok"
-msgstr[1] "vybrané %'d priečinky"
-msgstr[2] "vybraných %'d priečinkov"
-msgstr[3] "vybraných %'d priečinkov"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: src/file-manager/fm-directory-view.c:2322
 #, c-format
@@ -6827,7 +6836,7 @@ msgstr "Nastaviť pre_dvolené zobrazenie"
 msgid "Reset sorting order and zoom level to match preferences for this view"
 msgstr ""
 "Vrátiť sa k usporiadaniu a úrovni priblíženia, ktoré sú pre toto zobrazenie "
-"predvolené."
+"predvolené"
 
 #: src/file-manager/fm-directory-view.c:7533
 msgid "Connect To This Server"
@@ -7217,19 +7226,19 @@ msgstr "_Otvoriť pomocou %s"
 #, c-format
 msgid "Open in %'d New _Window"
 msgid_plural "Open in %'d New _Windows"
-msgstr[0] "Otvoriť v %'d novom _okne"
-msgstr[1] "Otvoriť v %'d nových _oknách"
-msgstr[2] "Otvoriť v %'d nových _oknách"
-msgstr[3] "Otvoriť v %'d nových _oknách"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: src/file-manager/fm-directory-view.c:9031
 #, c-format
 msgid "Browse in %'d New _Window"
 msgid_plural "Browse in %'d New _Windows"
-msgstr[0] "Prechádzať v %'d novom okne"
-msgstr[1] "Prechádzať v %'d nových oknách"
-msgstr[2] "Prechádzať v %'d nových oknách"
-msgstr[3] "Prechádzať v %'d nových oknách"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: src/file-manager/fm-directory-view.c:9063
 #, c-format
@@ -7376,7 +7385,7 @@ msgstr "Názov „%s“ je už v tomto priečinku použitý. Prosím vyberte in�
 msgid "There is no \"%s\" in this folder. Perhaps it was just moved or deleted?"
 msgstr ""
 "V tomto priečinku sa nenachádza žiadny súbor s názvom „%s“. Možno bol práve "
-"presunutý alebo vymazaný."
+"presunutý alebo odstránený."
 
 #: src/file-manager/fm-error-reporting.c:130
 #, c-format
@@ -7715,10 +7724,10 @@ msgstr "Nedá sa naraz priradiť viac ako jednu vlastnú ikonu!"
 #: src/file-manager/fm-properties-window.c:645
 msgid "_Name:"
 msgid_plural "_Names:"
-msgstr[0] "_Názov:"
-msgstr[1] "_Názvy:"
-msgstr[2] "_Názvy:"
-msgstr[3] "_Názvy:"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: src/file-manager/fm-properties-window.c:1001
 msgid "Properties"
@@ -7755,10 +7764,10 @@ msgstr "nečitateľný"
 #, c-format
 msgid "%'d item, with size %s (%s on disk)"
 msgid_plural "%'d items, totalling %s (%s on disk)"
-msgstr[0] "%'d položka o veľkosti %s (%s na disku)"
-msgstr[1] "%'d položky, celkom %s (%s na disku)"
-msgstr[2] "%'d položiek, celkom %s (%s na disku)"
-msgstr[3] "%'d položiek, celkom %s (%s na disku)"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: src/file-manager/fm-properties-window.c:2324
 msgid "(some contents unreadable)"
@@ -7997,22 +8006,22 @@ msgstr "Strom"
 msgid "Show Tree"
 msgstr "Zobraziť strom"
 
-#: src/file-manager/fm-widget-view.c:443
+#: src/file-manager/fm-widget-view.c:444
 msgid "Widget View"
 msgstr ""
 
-#: src/file-manager/fm-widget-view.c:444
+#: src/file-manager/fm-widget-view.c:445
 msgid "_Widget View"
 msgstr ""
 
-#: src/file-manager/fm-widget-view.c:445
+#: src/file-manager/fm-widget-view.c:446
 msgid "The widget view encountered an error."
 msgstr ""
 
-#: src/file-manager/fm-widget-view.c:446
+#: src/file-manager/fm-widget-view.c:447
 msgid "The widget view encountered an error while starting up."
 msgstr ""
 
-#: src/file-manager/fm-widget-view.c:447
+#: src/file-manager/fm-widget-view.c:448
 msgid "Display this location with the widget view."
 msgstr ""

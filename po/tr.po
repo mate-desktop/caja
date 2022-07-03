@@ -4,25 +4,29 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Ali Orhun Akkirman <divercans@gmail.com>, 2018
-# Umut Barış GÖKMEN <umtbrsgkmn@gmail.com>, 2018
-# Mehmet, 2018
-# Kudret <kudretemre@hotmail.com.tr>, 2018
-# tarakbumba <tarakbumba@gmail.com>, 2018
-# Yaşar Çiv <yasarciv@protonmail.com>, 2018
-# mauron, 2019
-# Emre FIRAT <emrefirat93@gmail.com>, 2020
-# Stefano Karapetsas <stefano@karapetsas.com>, 2021
+# Ali Orhun Akkirman <divercans@gmail.com>, 2021
+# Yaşar Çiv <yasarciv@protonmail.com>, 2021
+# Umut Barış GÖKMEN <umtbrsgkmn@gmail.com>, 2021
 # 0d1bdb3b9a0d4e8f77bc854af8bf3dfc_e6913f4, 2021
+# hilalis <hilalis@outlook.com.tr>, 2021
+# Emre FIRAT <emrefirat93@gmail.com>, 2021
+# clefebvre <clement.lefebvre@linuxmint.com>, 2021
+# Mehmet, 2021
+# tarakbumba <tarakbumba@gmail.com>, 2021
+# mauron, 2021
+# Stefano Karapetsas <stefano@karapetsas.com>, 2021
 # Butterfly <gokhanlnx@gmail.com>, 2021
+# Kudret <kudretemre@hotmail.com.tr>, 2021
+# Sabri Ünal <libreajans@gmail.com>, 2022
+# Hüseyin Güç <huseyinguc@outlook.com>, 2022
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: caja 1.25.2\n"
+"Project-Id-Version: caja 1.25.3\n"
 "Report-Msgid-Bugs-To: https://github.com/mate-desktop/caja/issues\n"
-"POT-Creation-Date: 2021-05-29 15:26+0200\n"
-"PO-Revision-Date: 2018-03-11 14:48+0000\n"
-"Last-Translator: Butterfly <gokhanlnx@gmail.com>, 2021\n"
+"POT-Creation-Date: 2021-08-04 14:26+0200\n"
+"PO-Revision-Date: 2021-09-18 16:24+0000\n"
+"Last-Translator: Hüseyin Güç <huseyinguc@outlook.com>, 2022\n"
 "Language-Team: Turkish (https://www.transifex.com/mate/teams/13566/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -76,7 +80,7 @@ msgstr "Countertop"
 
 #: data/browser.xml:13
 msgid "Dark GNOME"
-msgstr ""
+msgstr "Koyu GNOME"
 
 #: data/browser.xml:14
 msgid "Dots"
@@ -751,11 +755,11 @@ msgstr "Dosyanın değiştirildiği tarih."
 
 #: libcaja-private/caja-column-utilities.c:84
 msgid "Date Created"
-msgstr ""
+msgstr "Oluşturulma Tarihi"
 
 #: libcaja-private/caja-column-utilities.c:85
 msgid "The date the file was created."
-msgstr ""
+msgstr "Dosyanın oluşturulduğu tarih."
 
 #: libcaja-private/caja-column-utilities.c:92
 msgid "Date Accessed"
@@ -1127,15 +1131,15 @@ msgstr "Belirtilen grup '%s' mevcut değil"
 #, c-format
 msgid "%'u item"
 msgid_plural "%'u items"
-msgstr[0] "%'u unsur"
-msgstr[1] "%'u unsur"
+msgstr[0] "%'u öğe"
+msgstr[1] "%'u öğe"
 
 #: libcaja-private/caja-file.c:6230
 #, c-format
 msgid "%'u folder"
 msgid_plural "%'u folders"
-msgstr[0] "%'u klasör"
-msgstr[1] "%'u klasör"
+msgstr[0] "%'u dizin"
+msgstr[1] "%'u dizin"
 
 #: libcaja-private/caja-file.c:6231
 #, c-format
@@ -1539,9 +1543,11 @@ msgid_plural ""
 "Are you sure you want to permanently delete the %'d selected items from the "
 "trash?"
 msgstr[0] ""
-"%'d seçili unsuru kalıcı olarak çöpten silmek istediğinizden emin misiniz?"
+"%'d seçili öğeyi çöp kutusundan kalıcı olarak silmek istediğinize emin "
+"misiniz?"
 msgstr[1] ""
-"%'d seçili unsuru kalıcı olarak çöpten silmek istediğinizden emin misiniz?"
+"%'d seçili öğeyi çöp kutusundan kalıcı olarak silmek istediğinize emin "
+"misiniz?"
 
 #: libcaja-private/caja-file-operations.c:1382
 #: libcaja-private/caja-file-operations.c:1448
@@ -1571,10 +1577,8 @@ msgstr "\"%B\" dosyasını kalıcı olarak silmek istediğinize emin misiniz?"
 msgid "Are you sure you want to permanently delete the %'d selected item?"
 msgid_plural ""
 "Are you sure you want to permanently delete the %'d selected items?"
-msgstr[0] ""
-"%'d seçili unsuru kalıcı olarak silmek istediğinizden emin misiniz?"
-msgstr[1] ""
-"%'d seçili unsuru kalıcı olarak silmek istediğinizden emin misiniz?"
+msgstr[0] "%'d seçili öğeyi kalıcı olarak silmek istediğinizden emin misiniz?"
+msgstr[1] "%'d seçili öğeyi kalıcı olarak silmek istediğinizden emin misiniz?"
 
 #: libcaja-private/caja-file-operations.c:1478
 msgid "Are you sure you want to trash \"%B\"?"
@@ -1584,8 +1588,8 @@ msgstr "\"% B\" öğesini çöp kutusuna atmak istediğinizden emin misiniz?"
 #, c-format
 msgid "Are you sure you want to trash the %'d selected item?"
 msgid_plural "Are you sure you want to trash the %'d selected items?"
-msgstr[0] "Seçili %'d unsuru çöp kutusuna taşımak istediğinize emin misiniz?"
-msgstr[1] "Seçili %'d unsuru çöp kutusuna taşımak istediğinize emin misiniz?"
+msgstr[0] "Seçili %'d öğeyi çöp kutusuna taşımak istediğinize emin misiniz?"
+msgstr[1] "Seçili %'d öğeyi çöp kutusuna taşımak istediğinize emin misiniz?"
 
 #: libcaja-private/caja-file-operations.c:1490
 msgid "Items moved to the trash may be recovered until the trash is emptied."
@@ -1600,8 +1604,8 @@ msgstr "_Çöpe Taşı"
 #, c-format
 msgid "%'d file left to delete"
 msgid_plural "%'d files left to delete"
-msgstr[0] "Silinmek üzere %'d dosya kaldı"
-msgstr[1] "Silinmek üzere %'d dosya kaldı"
+msgstr[0] "Silinecek %'d dosya kaldı"
+msgstr[1] "Silinecek %'d dosya kaldı"
 
 #: libcaja-private/caja-file-operations.c:1529
 msgid "Deleting files"
@@ -1734,29 +1738,29 @@ msgstr "%s bağlanamadı"
 #, c-format
 msgid "Preparing to copy %'d file (%S)"
 msgid_plural "Preparing to copy %'d files (%S)"
-msgstr[0] "%'d dosya kopyalanmak için hazırlanıyor (%S)"
-msgstr[1] "%'d dosya kopyalanmak için hazırlanıyor (%S)"
+msgstr[0] "%'d Dosya kopyalama için hazırlanıyor (%S)"
+msgstr[1] "%'d Dosya kopyalama için hazırlanıyor (%S)"
 
 #: libcaja-private/caja-file-operations.c:2545
 #, c-format
 msgid "Preparing to move %'d file (%S)"
 msgid_plural "Preparing to move %'d files (%S)"
-msgstr[0] "%'d dosya taşınmak için hazırlanıyor (%S)"
-msgstr[1] "%'d dosya taşınmak için hazırlanıyor (%S)"
+msgstr[0] "%'d Dosya taşınma için hazırlanıyor (%S)"
+msgstr[1] "%'d Dosya taşınma için hazırlanıyor (%S)"
 
 #: libcaja-private/caja-file-operations.c:2551
 #, c-format
 msgid "Preparing to delete %'d file (%S)"
 msgid_plural "Preparing to delete %'d files (%S)"
-msgstr[0] "%'d dosya silinmek için hazırlanıyor (%S)"
-msgstr[1] "%'d dosya silinmek için hazırlanıyor (%S)"
+msgstr[0] "%'d Dosya silinmek için hazırlanıyor (%S)"
+msgstr[1] "%'d Dosya silinmek için hazırlanıyor (%S)"
 
 #: libcaja-private/caja-file-operations.c:2557
 #, c-format
 msgid "Preparing to trash %'d file"
 msgid_plural "Preparing to trash %'d files"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'d dosya çöpe atılmaya hazırlanıyor"
+msgstr[1] "%'d dosya çöpe atılmaya hazırlanıyor"
 
 #: libcaja-private/caja-file-operations.c:2588
 #: libcaja-private/caja-file-operations.c:3499
@@ -1851,14 +1855,14 @@ msgstr "\"%B\" çoğaltılıyor"
 #: libcaja-private/caja-file-operations.c:3047
 msgid "Moving %'d file (in \"%B\") to \"%B\""
 msgid_plural "Moving %'d files (in \"%B\") to \"%B\""
-msgstr[0] "%'d dosya (\"%B\" içerisinde) \"%B\" hedefine taşınıyor"
-msgstr[1] "%'d dosya (\"%B\" içerisinde) \"%B\" hedefine taşınıyor"
+msgstr[0] "%'d dosya (\"%B\" içindeki) \"%B\" hedefine taşınıyor"
+msgstr[1] "%'d dosya (\"%B\" içindeki) \"%B\" hedefine taşınıyor"
 
 #: libcaja-private/caja-file-operations.c:3051
 msgid "Copying %'d file (in \"%B\") to \"%B\""
 msgid_plural "Copying %'d files (in \"%B\") to \"%B\""
-msgstr[0] "%'d dosya (\"%B\" içerisinde) \"%B\" hedefine kopyalanıyor"
-msgstr[1] "%'d dosya (\"%B\" içerisinde) \"%B\" hedefine kopyalanıyor"
+msgstr[0] "%'d dosya (\"%B\" içindeki) \"%B\" hedefine kopyalanıyor"
+msgstr[1] "%'d dosya (\"%B\" içindeki) \"%B\" hedefine kopyalanıyor"
 
 #: libcaja-private/caja-file-operations.c:3059
 msgid "Duplicating %'d file (in \"%B\")"
@@ -1902,8 +1906,8 @@ msgstr "%S / %S"
 #: libcaja-private/caja-file-operations.c:3112
 msgid "%S of %S — %T left (%S/sec)"
 msgid_plural "%S of %S — %T left (%S/sec)"
-msgstr[0] "%S / %S — %T kaldı (%S/sn)"
-msgstr[1] "%S / %S — %T kaldı (%S/sn)"
+msgstr[0] "%S / %S — %T kaldı (%S/san)"
+msgstr[1] "%S / %S — %T kaldı (%S/san)"
 
 #: libcaja-private/caja-file-operations.c:3503
 msgid ""
@@ -2009,8 +2013,8 @@ msgstr "\"%B\" içine Taşımak için Hazırlanıyor"
 #, c-format
 msgid "Preparing to move %'d file"
 msgid_plural "Preparing to move %'d files"
-msgstr[0] "%'d dosya taşınmak için hazırlanıyor"
-msgstr[1] "%'d dosya taşınmak için hazırlanıyor"
+msgstr[0] "%'d Dosya taşınma için hazırlanıyor"
+msgstr[1] "%'d Dosya taşınma için hazırlanıyor"
 
 #: libcaja-private/caja-file-operations.c:5029
 #, c-format
@@ -2248,8 +2252,8 @@ msgstr "\"%s\" açılıyor."
 #, c-format
 msgid "Opening %d item."
 msgid_plural "Opening %d items."
-msgstr[0] "%d unsur açılıyor."
-msgstr[1] "%d unsur açılıyor."
+msgstr[0] "%d öğe açılıyor."
+msgstr[1] "%d öğe açılıyor."
 
 #: libcaja-private/caja-mime-application-chooser.c:164
 #: libcaja-private/caja-open-with-dialog.c:304
@@ -2543,377 +2547,377 @@ msgstr "Ara"
 msgid "Search for \"%s\""
 msgstr "\"%s\" için arama"
 
-#: libcaja-private/caja-undostack-manager.c:1212
+#: libcaja-private/caja-undostack-manager.c:1213
 #, c-format
 msgid "Delete %d copied items"
 msgstr "Kopyalanan %d unsuru sil"
 
-#: libcaja-private/caja-undostack-manager.c:1215
-#: libcaja-private/caja-undostack-manager.c:1225
-#: libcaja-private/caja-undostack-manager.c:1256
+#: libcaja-private/caja-undostack-manager.c:1216
+#: libcaja-private/caja-undostack-manager.c:1226
+#: libcaja-private/caja-undostack-manager.c:1257
 #, c-format
 msgid "Delete '%s'"
 msgstr "'%s' unsurunu sil"
 
-#: libcaja-private/caja-undostack-manager.c:1222
+#: libcaja-private/caja-undostack-manager.c:1223
 #, c-format
 msgid "Delete %d duplicated items"
 msgstr "Çoğaltılmış %d unsuru sil"
 
-#: libcaja-private/caja-undostack-manager.c:1233
+#: libcaja-private/caja-undostack-manager.c:1234
 #, c-format
 msgid "Move %d items back to '%s'"
 msgstr "%d unsuru '%s' konumuna geri taşı"
 
-#: libcaja-private/caja-undostack-manager.c:1237
+#: libcaja-private/caja-undostack-manager.c:1238
 #, c-format
 msgid "Move '%s' back to '%s'"
 msgstr "'%s' unsurunu '%s' konumuna geri taşı"
 
-#: libcaja-private/caja-undostack-manager.c:1246
-#: libcaja-private/caja-undostack-manager.c:1413
+#: libcaja-private/caja-undostack-manager.c:1247
+#: libcaja-private/caja-undostack-manager.c:1414
 #, c-format
 msgid "Rename '%s' as '%s'"
 msgstr "Yeniden adlandır: '%s' > '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1265
-#: libcaja-private/caja-undostack-manager.c:1460
+#: libcaja-private/caja-undostack-manager.c:1266
+#: libcaja-private/caja-undostack-manager.c:1461
 #, c-format
 msgid "Restore %d items from trash"
 msgstr "%d unsuru çöpten geri al"
 
-#: libcaja-private/caja-undostack-manager.c:1273
+#: libcaja-private/caja-undostack-manager.c:1274
 #, c-format
 msgid "Restore '%s' to '%s'"
 msgstr "Geri yükle: '%s' > '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1284
+#: libcaja-private/caja-undostack-manager.c:1285
 #, c-format
 msgid "Move %d items back to trash"
 msgstr "%d unsuru çöpe geri taşı"
 
-#: libcaja-private/caja-undostack-manager.c:1287
+#: libcaja-private/caja-undostack-manager.c:1288
 #, c-format
 msgid "Move '%s' back to trash"
 msgstr "Çöpe geri taşı: '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1296
+#: libcaja-private/caja-undostack-manager.c:1297
 #, c-format
 msgid "Delete links to %d items"
 msgstr "%d unsura bağlantıları sil"
 
-#: libcaja-private/caja-undostack-manager.c:1299
+#: libcaja-private/caja-undostack-manager.c:1300
 #, c-format
 msgid "Delete link to '%s'"
 msgstr "Bağlantısını sil: '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1309
+#: libcaja-private/caja-undostack-manager.c:1310
 #, c-format
 msgid "Restore original permissions of items enclosed in '%s'"
 msgstr "'%s' içinde bulunan unsurların özgün izinlerini geri yükle"
 
-#: libcaja-private/caja-undostack-manager.c:1317
+#: libcaja-private/caja-undostack-manager.c:1318
 #, c-format
 msgid "Restore original permissions of '%s'"
 msgstr "'%s' unsurunun özgün izinlerini geri yükle"
 
-#: libcaja-private/caja-undostack-manager.c:1326
+#: libcaja-private/caja-undostack-manager.c:1327
 #, c-format
 msgid "Restore group of '%s' to '%s'"
 msgstr "'%s' unsurunun grubunu '%s' olarak geri yükle"
 
-#: libcaja-private/caja-undostack-manager.c:1336
+#: libcaja-private/caja-undostack-manager.c:1337
 #, c-format
 msgid "Restore owner of '%s' to '%s'"
 msgstr "'%s' unsurunun sahibini '%s' olarak geri yükle"
 
-#: libcaja-private/caja-undostack-manager.c:1375
+#: libcaja-private/caja-undostack-manager.c:1376
 #, c-format
 msgid "Copy %d items to '%s'"
 msgstr "%d unsuru '%s' konumuna kopyala"
 
-#: libcaja-private/caja-undostack-manager.c:1379
+#: libcaja-private/caja-undostack-manager.c:1380
 #, c-format
 msgid "Copy '%s' to '%s'"
 msgstr "'%s' unsurunu '%s' konumuna kopyala"
 
-#: libcaja-private/caja-undostack-manager.c:1387
+#: libcaja-private/caja-undostack-manager.c:1388
 #, c-format
 msgid "Duplicate of %d items in '%s'"
 msgstr "%d unsurun çoğaltılmış kopyaları '%s' içinde"
 
-#: libcaja-private/caja-undostack-manager.c:1392
+#: libcaja-private/caja-undostack-manager.c:1393
 #, c-format
 msgid "Duplicate '%s' in '%s'"
 msgstr "'%s' unsurunu '%s' konumunda çoğalt"
 
-#: libcaja-private/caja-undostack-manager.c:1400
+#: libcaja-private/caja-undostack-manager.c:1401
 #, c-format
 msgid "Move %d items to '%s'"
 msgstr "%d unsuru '%s' konumuna taşı"
 
-#: libcaja-private/caja-undostack-manager.c:1404
+#: libcaja-private/caja-undostack-manager.c:1405
 #, c-format
 msgid "Move '%s' to '%s'"
 msgstr "'%s' unsurunu '%s' konumuna taşı"
 
-#: libcaja-private/caja-undostack-manager.c:1422
+#: libcaja-private/caja-undostack-manager.c:1423
 #, c-format
 msgid "Create new file '%s' from template "
 msgstr "Şablondan yeni '%s' dosyası oluştur "
 
-#: libcaja-private/caja-undostack-manager.c:1429
+#: libcaja-private/caja-undostack-manager.c:1430
 #, c-format
 msgid "Create an empty file '%s'"
 msgstr "Boş '%s' dosyası oluştur"
 
-#: libcaja-private/caja-undostack-manager.c:1436
+#: libcaja-private/caja-undostack-manager.c:1437
 #, c-format
 msgid "Create a new folder '%s'"
 msgstr "Yeni bir dizin oluştur '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1444
+#: libcaja-private/caja-undostack-manager.c:1445
 #, c-format
 msgid "Move %d items to trash"
 msgstr "%d unsuru çöpe taşı"
 
-#: libcaja-private/caja-undostack-manager.c:1450
+#: libcaja-private/caja-undostack-manager.c:1451
 #, c-format
 msgid "Move '%s' to trash"
 msgstr "'%s' unsurunu çöpe taşı"
 
-#: libcaja-private/caja-undostack-manager.c:1463
+#: libcaja-private/caja-undostack-manager.c:1464
 #, c-format
 msgid "Restore '%s' from trash"
 msgstr "'%s' unsurunu çöpten geri al"
 
-#: libcaja-private/caja-undostack-manager.c:1472
+#: libcaja-private/caja-undostack-manager.c:1473
 #, c-format
 msgid "Create links to %d items"
 msgstr "%d unsura bağlantı oluştur"
 
-#: libcaja-private/caja-undostack-manager.c:1475
+#: libcaja-private/caja-undostack-manager.c:1476
 #, c-format
 msgid "Create link to '%s'"
 msgstr "'%s' unsuruna bağlantı oluştur"
 
-#: libcaja-private/caja-undostack-manager.c:1484
+#: libcaja-private/caja-undostack-manager.c:1485
 #, c-format
 msgid "Set permissions of items enclosed in '%s'"
 msgstr "'%s' konumundaki unsurların izinlerini tanımla"
 
-#: libcaja-private/caja-undostack-manager.c:1492
+#: libcaja-private/caja-undostack-manager.c:1493
 #, c-format
 msgid "Set permissions of '%s'"
 msgstr "'%s' unsurunun izinlerini tanımla"
 
-#: libcaja-private/caja-undostack-manager.c:1501
+#: libcaja-private/caja-undostack-manager.c:1502
 #, c-format
 msgid "Set group of '%s' to '%s'"
 msgstr "'%s' unsurunun grubunu '%s' olarak tanımla"
 
-#: libcaja-private/caja-undostack-manager.c:1511
+#: libcaja-private/caja-undostack-manager.c:1512
 #, c-format
 msgid "Set owner of '%s' to '%s'"
 msgstr "'%s' unsurunun sahibini '%s' olarak tanımla"
 
-#: libcaja-private/caja-undostack-manager.c:1543
+#: libcaja-private/caja-undostack-manager.c:1544
 #, c-format
 msgid "_Undo copy of %d item"
 msgid_plural "_Undo copy of %d items"
-msgstr[0] "%d unsurun kopyalanmasını _geri al"
-msgstr[1] "%d unsurun kopyalanmasını _geri al"
+msgstr[0] "%d öğenin kopyalanmasını _geri al"
+msgstr[1] "%d öğenin kopyalanmasını _geri al"
 
-#: libcaja-private/caja-undostack-manager.c:1548
+#: libcaja-private/caja-undostack-manager.c:1549
 #, c-format
 msgid "_Undo duplicate of %d item"
 msgid_plural "_Undo duplicate of %d items"
-msgstr[0] "%d unsurun çoğaltılmasını _geri al"
-msgstr[1] "%d unsurun çoğaltılmasını _geri al"
+msgstr[0] "%d öğenin çoğaltılmasını _geri al"
+msgstr[1] "%d öğenin çoğaltılmasını _geri al"
 
-#: libcaja-private/caja-undostack-manager.c:1553
+#: libcaja-private/caja-undostack-manager.c:1554
 #, c-format
 msgid "_Undo move of %d item"
 msgid_plural "_Undo move of %d items"
-msgstr[0] "%d unsurun taşınmasını _geri al"
-msgstr[1] "%d unsurun taşınmasını _geri al"
+msgstr[0] "%d öğenin taşınmasını _geri al"
+msgstr[1] "%d öğenin taşınmasını _geri al"
 
-#: libcaja-private/caja-undostack-manager.c:1558
+#: libcaja-private/caja-undostack-manager.c:1559
 #, c-format
 msgid "_Undo rename of %d item"
 msgid_plural "_Undo rename of %d items"
-msgstr[0] "%d unsurun yeniden adlandırılmasını _geri al"
-msgstr[1] "%d unsurun yeniden adlandırılmasını _geri al"
+msgstr[0] "%d öğenin yeniden isimlendirilmesini _geri al"
+msgstr[1] "%d öğenin yeniden isimlendirilmesini _geri al"
 
-#: libcaja-private/caja-undostack-manager.c:1562
+#: libcaja-private/caja-undostack-manager.c:1563
 msgid "_Undo creation of an empty file"
 msgstr "Boş dosya oluşturulmasını _geri al"
 
-#: libcaja-private/caja-undostack-manager.c:1565
+#: libcaja-private/caja-undostack-manager.c:1566
 msgid "_Undo creation of a file from template"
 msgstr "Şablondan dosya oluşturulmasını _geri al"
 
-#: libcaja-private/caja-undostack-manager.c:1569
+#: libcaja-private/caja-undostack-manager.c:1570
 #, c-format
 msgid "_Undo creation of %d folder"
 msgid_plural "_Undo creation of %d folders"
-msgstr[0] "%d klasörün oluşturulmasını _geri al"
-msgstr[1] "%d klasörün oluşturulmasını _geri al"
+msgstr[0] "%d öğenin oluşturulmasını _geri al"
+msgstr[1] "%d öğenin oluşturulmasını _geri al"
 
-#: libcaja-private/caja-undostack-manager.c:1574
+#: libcaja-private/caja-undostack-manager.c:1575
 #, c-format
 msgid "_Undo move to trash of %d item"
 msgid_plural "_Undo move to trash of %d items"
-msgstr[0] "%d unsurun çöpe taşınmasını _geri al"
-msgstr[1] "%d unsurun çöpe taşınmasını _geri al"
+msgstr[0] "%d öğenin çöpe taşınmasını _geri al"
+msgstr[1] "%d öğenin çöpe taşınmasını _geri al"
 
-#: libcaja-private/caja-undostack-manager.c:1579
+#: libcaja-private/caja-undostack-manager.c:1580
 #, c-format
 msgid "_Undo restore from trash of %d item"
 msgid_plural "_Undo restore from trash of %d items"
-msgstr[0] "%d unsurun çöpten çıkarılmasını _geri al"
-msgstr[1] "%d unsurun çöpten çıkarılmasını _geri al"
+msgstr[0] "%d öğenin çöpten çıkarılmasını _geri al"
+msgstr[1] "%d öğenin çöpten çıkarılmasını _geri al"
 
-#: libcaja-private/caja-undostack-manager.c:1584
+#: libcaja-private/caja-undostack-manager.c:1585
 #, c-format
 msgid "_Undo create link to %d item"
 msgid_plural "_Undo create link to %d items"
-msgstr[0] "%d unsura bağlantı oluşturulmasını _geri al"
-msgstr[1] "%d unsura bağlantı oluşturulmasını _geri al"
+msgstr[0] "%d öğeye bağlantı oluşturulmasını _geri al"
+msgstr[1] "%d öğeye bağlantı oluşturulmasını _geri al"
 
-#: libcaja-private/caja-undostack-manager.c:1589
+#: libcaja-private/caja-undostack-manager.c:1590
 #, c-format
 msgid "_Undo delete of %d item"
 msgid_plural "_Undo delete of %d items"
-msgstr[0] "%d unsurun silinmesini _geri al"
-msgstr[1] "%d unsurun silinmesini _geri al"
+msgstr[0] "%d öğenin silinmesini _geri al"
+msgstr[1] "%d öğenin silinmesini _geri al"
 
-#: libcaja-private/caja-undostack-manager.c:1594
+#: libcaja-private/caja-undostack-manager.c:1595
 #, c-format
 msgid "Undo recursive change permissions of %d item"
 msgid_plural "Undo recursive change permissions of %d items"
-msgstr[0] "%d unsur için yinelenen izin değiştirilmesini geri al"
-msgstr[1] "%d unsur için yinelenen izin değiştirilmesini geri al"
+msgstr[0] "%d öğenin ardaşık izin değişikliklerini geri al"
+msgstr[1] "%d öğenin ardaşık izin değişikliklerini geri al"
 
-#: libcaja-private/caja-undostack-manager.c:1600
+#: libcaja-private/caja-undostack-manager.c:1601
 #, c-format
 msgid "Undo change permissions of %d item"
 msgid_plural "Undo change permissions of %d items"
-msgstr[0] "%d unsurun izinlerinin değiştirilmesini geri al"
-msgstr[1] "%d unsurun izinlerinin değiştirilmesini geri al"
+msgstr[0] "%d öğenin izin değişikliklerini geri al"
+msgstr[1] "%d öğenin izin değişikliklerini geri al"
 
-#: libcaja-private/caja-undostack-manager.c:1605
+#: libcaja-private/caja-undostack-manager.c:1606
 #, c-format
 msgid "Undo change group of %d item"
 msgid_plural "Undo change group of %d items"
-msgstr[0] "%d unsurun grubunun değiştirilmesini geri al"
-msgstr[1] "%d unsurun grubunun değiştirilmesini geri al"
+msgstr[0] "%d ögenin grubunun değiştirilmesini geri al"
+msgstr[1] "%d ögenin grubunun değiştirilmesini geri al"
 
-#: libcaja-private/caja-undostack-manager.c:1610
+#: libcaja-private/caja-undostack-manager.c:1611
 #, c-format
 msgid "Undo change owner of %d item"
 msgid_plural "Undo change owner of %d items"
-msgstr[0] "%d unsurun sahibinin değiştirilmesini geri al"
-msgstr[1] "%d unsurun sahibinin değiştirilmesini geri al"
+msgstr[0] "%d ögenin sahibinin değiştirilmesini geri al"
+msgstr[1] "%d ögenin sahibinin değiştirilmesini geri al"
 
-#: libcaja-private/caja-undostack-manager.c:1638
+#: libcaja-private/caja-undostack-manager.c:1639
 #, c-format
 msgid "_Redo copy of %d item"
 msgid_plural "_Redo copy of %d items"
-msgstr[0] "%d unsurun kopyalanmasını _tekrarla"
-msgstr[1] "%d unsurun kopyalanmasını _tekrarla"
+msgstr[0] "%d öğenin kopyalamasını yeniden _gerçekleştir"
+msgstr[1] "%d öğenin kopyalamasını yeniden _gerçekleştir"
 
-#: libcaja-private/caja-undostack-manager.c:1643
+#: libcaja-private/caja-undostack-manager.c:1644
 #, c-format
 msgid "_Redo duplicate of %d item"
 msgid_plural "_Redo duplicate of %d items"
-msgstr[0] "%d unsurun çoğaltılmasını _tekrarla"
-msgstr[1] "%d unsurun çoğaltılmasını _tekrarla"
+msgstr[0] "%d öğenin çoğaltılmasını yeniden _gerçekleştir"
+msgstr[1] "%d öğenin çoğaltılmasını yeniden _gerçekleştir"
 
-#: libcaja-private/caja-undostack-manager.c:1648
+#: libcaja-private/caja-undostack-manager.c:1649
 #, c-format
 msgid "_Redo move of %d item"
 msgid_plural "_Redo move of %d items"
-msgstr[0] "%d unsurun taşınmasını _tekrarla"
-msgstr[1] "%d unsurun taşınmasını _tekrarla"
+msgstr[0] "%d öğenin taşınmasını yeniden _gerçekleştir"
+msgstr[1] "%d öğenin taşınmasını yeniden _gerçekleştir"
 
-#: libcaja-private/caja-undostack-manager.c:1653
+#: libcaja-private/caja-undostack-manager.c:1654
 #, c-format
 msgid "_Redo rename of %d item"
 msgid_plural "_Redo rename of %d items"
-msgstr[0] "%d unsurun yeniden adlandırılmasını _tekrarla"
-msgstr[1] "%d unsurun yeniden adlandırılmasını _tekrarla"
+msgstr[0] "%d öğenin yeniden isimlendirilmesini yeniden _gerçekleştir"
+msgstr[1] "%d öğenin yeniden isimlendirilmesini yeniden _gerçekleştir"
 
-#: libcaja-private/caja-undostack-manager.c:1657
+#: libcaja-private/caja-undostack-manager.c:1658
 msgid "_Redo creation of an empty file"
 msgstr "Boş dosya oluşturulmasını _tekrarla"
 
-#: libcaja-private/caja-undostack-manager.c:1660
+#: libcaja-private/caja-undostack-manager.c:1661
 msgid "_Redo creation of a file from template"
 msgstr "Şablondan boş dosya oluşturulmasını _tekrarla"
 
-#: libcaja-private/caja-undostack-manager.c:1664
+#: libcaja-private/caja-undostack-manager.c:1665
 #, c-format
 msgid "_Redo creation of %d folder"
 msgid_plural "_Redo creation of %d folders"
-msgstr[0] "%d klasör oluşturulmasını _tekrarla"
-msgstr[1] "%d klasör oluşturulmasını _tekrarla"
+msgstr[0] "%d dizin oluşturulmasını yeniden _gerçekleştir"
+msgstr[1] "%d dizin oluşturulmasını yeniden _gerçekleştir"
 
-#: libcaja-private/caja-undostack-manager.c:1669
+#: libcaja-private/caja-undostack-manager.c:1670
 #, c-format
 msgid "_Redo move to trash of %d item"
 msgid_plural "_Redo move to trash of %d items"
-msgstr[0] "%d unsurun çöpe taşınmasını _tekrarla"
-msgstr[1] "%d unsurun çöpe taşınmasını _tekrarla"
+msgstr[0] "%d öğenin çöp kutusuna taşınmasını yeniden _gerçekleştir"
+msgstr[1] "%d öğenin çöp kutusuna taşınmasını yeniden _gerçekleştir"
 
-#: libcaja-private/caja-undostack-manager.c:1674
+#: libcaja-private/caja-undostack-manager.c:1675
 #, c-format
 msgid "_Redo restore from trash of %d item"
 msgid_plural "_Redo restore from trash of %d items"
-msgstr[0] "%d unsurun çöpten çıkarılmasını _tekrarla"
-msgstr[1] "%d unsurun çöpten çıkarılmasını _tekrarla"
+msgstr[0] "%d öğenin çöp kutusundan geri alınmasını yeniden _gerçekleştir"
+msgstr[1] "%d öğenin çöp kutusundan geri alınmasını yeniden _gerçekleştir"
 
-#: libcaja-private/caja-undostack-manager.c:1679
+#: libcaja-private/caja-undostack-manager.c:1680
 #, c-format
 msgid "_Redo create link to %d item"
 msgid_plural "_Redo create link to %d items"
-msgstr[0] "%d unsura bağlantı oluşturulmasını _tekrarla"
-msgstr[1] "%d unsura bağlantı oluşturulmasını _tekrarla"
+msgstr[0] "%d öğenin bağlantı oluşturulmasını yeniden _gerçekleştir"
+msgstr[1] "%d öğenin bağlantı oluşturulmasını yeniden _gerçekleştir"
 
-#: libcaja-private/caja-undostack-manager.c:1684
+#: libcaja-private/caja-undostack-manager.c:1685
 #, c-format
 msgid "_Redo delete of %d item"
 msgid_plural "_Redo delete of %d items"
-msgstr[0] "%d unsurun silinmesini _tekrarla"
-msgstr[1] "%d unsurun silinmesini _tekrarla"
+msgstr[0] "%d öğenin silinmesini yeniden _gerçekleştir"
+msgstr[1] "%d öğenin silinmesini yeniden _gerçekleştir"
 
-#: libcaja-private/caja-undostack-manager.c:1689
+#: libcaja-private/caja-undostack-manager.c:1690
 #, c-format
 msgid "Redo recursive change permissions of %d item"
 msgid_plural "Redo recursive change permissions of %d items"
-msgstr[0] "%d unsur için yinelenen izin değiştirilmesini tekrarla"
-msgstr[1] "%d unsur için yinelenen izin değiştirilmesini tekrarla"
+msgstr[0] "%d öğenin ardaşık izin değişikliklerini yeniden gerçekleştir"
+msgstr[1] "%d öğenin ardaşık izin değişikliklerini yeniden gerçekleştir"
 
-#: libcaja-private/caja-undostack-manager.c:1695
+#: libcaja-private/caja-undostack-manager.c:1696
 #, c-format
 msgid "Redo change permissions of %d item"
 msgid_plural "Redo change permissions of %d items"
-msgstr[0] "%d unsurun izinlerinin değiştirilmesini tekrarla"
-msgstr[1] "%d unsurun izinlerinin değiştirilmesini tekrarla"
+msgstr[0] "%d öğenin izin değişikliklerini yeniden gerçekleştir"
+msgstr[1] "%d öğenin izin değişikliklerini yeniden gerçekleştir"
 
-#: libcaja-private/caja-undostack-manager.c:1700
+#: libcaja-private/caja-undostack-manager.c:1701
 #, c-format
 msgid "Redo change group of %d item"
 msgid_plural "Redo change group of %d items"
-msgstr[0] "%d unsurun grubunun değiştirilmesini tekrarla"
-msgstr[1] "%d unsurun grubunun değiştirilmesini tekrarla"
+msgstr[0] "%d öğenin grup değişikliğini yeniden gerçekleştir"
+msgstr[1] "%d öğenin grup değişikliğini yeniden gerçekleştir"
 
-#: libcaja-private/caja-undostack-manager.c:1705
+#: libcaja-private/caja-undostack-manager.c:1706
 #, c-format
 msgid "Redo change owner of %d item"
 msgid_plural "Redo change owner of %d items"
-msgstr[0] "%d unsurun sahibinin değiştirilmesini tekrarla"
-msgstr[1] "%d unsurun sahibinin değiştirilmesini tekrarla"
+msgstr[0] "%d öğenin sahiplik değişikliğini yeniden gerçekleştir"
+msgstr[1] "%d öğenin sahiplik değişikliğini yeniden gerçekleştir"
 
 #: libcaja-private/org.mate.caja.gschema.xml:76
 msgid "Where to position newly open tabs in browser windows."
@@ -3410,6 +3414,11 @@ msgid ""
 "\"date_changed\", \"date_accessed\", \"owner\", \"group\", \"permissions\", "
 "\"octal_permissions\" and \"mime_type\"."
 msgstr ""
+"Masaüstünde ve simge görünümünde, simgelerin altında görünecek yazılar. Asıl"
+" yazı sayısı yaklaştırma seviyesine göre belirlenecektir. Olası bazı "
+"değerler: \"size\", \"type\", \"date_modified\",  \"date_created\", "
+"\"date_changed\", \"date_accessed\", \"owner\", \"group\", \"permissions\", "
+"\"octal_permissions\" ve \"mime_type\"."
 
 #: libcaja-private/org.mate.caja.gschema.xml:286
 msgid "Use tighter layout in new windows"
@@ -3831,62 +3840,62 @@ msgstr ""
 " listesi. Bu türlerle eşleşen ortam takıldığında bir dizin penceresi "
 "açılacak."
 
-#: mate-submodules/libegg/eggdesktopfile.c:168
+#: mate-submodules/libegg/eggdesktopfile.c:169
 msgid "File is not a valid .desktop file"
 msgstr "Dosya geçerli bir .desktop dosyası değil"
 
-#: mate-submodules/libegg/eggdesktopfile.c:193
+#: mate-submodules/libegg/eggdesktopfile.c:194
 #, c-format
 msgid "Unrecognized desktop file Version '%s'"
 msgstr "Tanınmayan desktop dosyası Sürüm '%s'"
 
-#: mate-submodules/libegg/eggdesktopfile.c:975
+#: mate-submodules/libegg/eggdesktopfile.c:976
 #, c-format
 msgid "Starting %s"
 msgstr "%s başlatılıyor"
 
-#: mate-submodules/libegg/eggdesktopfile.c:1117
+#: mate-submodules/libegg/eggdesktopfile.c:1118
 msgid "Application does not accept documents on command line"
 msgstr "Uygulama komut satırında belgeleri kabul etmiyor"
 
-#: mate-submodules/libegg/eggdesktopfile.c:1185
+#: mate-submodules/libegg/eggdesktopfile.c:1186
 #, c-format
 msgid "Unrecognized launch option: %d"
 msgstr "Anımsanamayan başlatma seçeneği: %d"
 
-#: mate-submodules/libegg/eggdesktopfile.c:1401
+#: mate-submodules/libegg/eggdesktopfile.c:1402
 msgid "Can't pass document URIs to a 'Type=Link' desktop entry"
 msgstr "Belge URI'leri bir 'Tür=Bağ' masaüstü girişine geçilemiyor"
 
-#: mate-submodules/libegg/eggdesktopfile.c:1422
+#: mate-submodules/libegg/eggdesktopfile.c:1423
 msgid "Not a launchable item"
 msgstr "Başlatılabilir bir öğe değil"
 
-#: mate-submodules/libegg/eggsmclient.c:233
+#: mate-submodules/libegg/eggsmclient.c:234
 msgid "Disable connection to session manager"
 msgstr "Ortam yöneticisiyle bağlantıyı kapat"
 
-#: mate-submodules/libegg/eggsmclient.c:238
+#: mate-submodules/libegg/eggsmclient.c:239
 msgid "Specify file containing saved configuration"
 msgstr "Kaydedilen yapılandırmayı içeren dosyayı belirtin"
 
-#: mate-submodules/libegg/eggsmclient.c:238
+#: mate-submodules/libegg/eggsmclient.c:239
 msgid "FILE"
 msgstr "DOSYA"
 
-#: mate-submodules/libegg/eggsmclient.c:243
+#: mate-submodules/libegg/eggsmclient.c:244
 msgid "Specify session management ID"
 msgstr "Ortam yönetici ID belirtin"
 
-#: mate-submodules/libegg/eggsmclient.c:243
+#: mate-submodules/libegg/eggsmclient.c:244
 msgid "ID"
 msgstr "No"
 
-#: mate-submodules/libegg/eggsmclient.c:269
+#: mate-submodules/libegg/eggsmclient.c:270
 msgid "Session management options:"
 msgstr "Ortam yönetimi seçenekleri:"
 
-#: mate-submodules/libegg/eggsmclient.c:270
+#: mate-submodules/libegg/eggsmclient.c:271
 msgid "Show session management options"
 msgstr "Ortam yönetimi seçeneklerini göster"
 
@@ -3936,7 +3945,7 @@ msgstr "--geometri, birden fazla hedefle (URI) kullanılamaz."
 
 #: src/caja-application.c:1814
 msgid "--select must be used with at least an URI."
-msgstr ""
+msgstr "--select en az bir URI ile kullanılmalıdır."
 
 #: src/caja-application.c:1928
 msgid "Perform a quick set of self-check tests."
@@ -3986,7 +3995,7 @@ msgstr "Caja'dan Çık."
 
 #: src/caja-application.c:1947
 msgid "Select specified URI in parent folder."
-msgstr ""
+msgstr "Üst klasörde belirtilen URI'yi seç."
 
 #: src/caja-application.c:1948
 msgid "[URI...]"
@@ -4034,17 +4043,17 @@ msgstr ""
 "\n"
 "Eğer şüpheliyseniz İptal'e basın."
 
-#: src/caja-bookmarks-sidebar.c:193 src/caja-bookmarks-window.c:199
+#: src/caja-bookmarks-sidebar.c:194 src/caja-bookmarks-window.c:199
 msgid "No bookmarks defined"
 msgstr "Yer imi tanımlanmamış"
 
-#: src/caja-bookmarks-sidebar.c:484 src/caja-places-sidebar.c:325
+#: src/caja-bookmarks-sidebar.c:485 src/caja-places-sidebar.c:325
 msgid "Bookmarks"
 msgstr "Yer imleri"
 
-#: src/caja-bookmarks-sidebar.c:490
+#: src/caja-bookmarks-sidebar.c:491
 msgid "Show a list of your personal bookmarks"
-msgstr ""
+msgstr "Kişisel yer imlerinin bir listesini göster"
 
 #: src/caja-bookmarks-window.c:163 src/caja-file-management-properties.c:226
 #: src/caja-property-browser.c:1693 src/caja-window-menus.c:629
@@ -4090,7 +4099,7 @@ msgstr "_Ad"
 
 #: src/caja-bookmarks-window.ui:241
 msgid "_Location"
-msgstr ""
+msgstr "_Konum"
 
 #: src/caja-connect-server-dialog.c:135
 msgid "SSH"
@@ -4401,7 +4410,7 @@ msgstr "Değişim Tarihine Göre"
 
 #: src/caja-file-management-properties.ui:96
 msgid "By Creation Date"
-msgstr ""
+msgstr "Oluşturulma Tarihine Göre"
 
 #: src/caja-file-management-properties.ui:99
 msgid "By Access Date"
@@ -4563,11 +4572,11 @@ msgstr "_Sadece dizinleri göster"
 
 #: src/caja-file-management-properties.ui:848
 msgid "Tree View"
-msgstr ""
+msgstr "Ağaç Görünümü"
 
 #: src/caja-file-management-properties.ui:862
 msgid "Defaults"
-msgstr ""
+msgstr "Öntanımlar"
 
 #: src/caja-file-management-properties.ui:881
 msgid "Views"
@@ -4953,8 +4962,8 @@ msgstr "Git:"
 #, c-format
 msgid "Do you want to view %d location?"
 msgid_plural "Do you want to view %d locations?"
-msgstr[0] "%d konumu görüntülemek istiyor musunuz?"
-msgstr[1] "%d konumu görüntülemek istiyor musunuz?"
+msgstr[0] "%d konumunu görmek istiyor musunuz?"
+msgstr[1] "%d konumunu görmek istiyor musunuz?"
 
 #: src/caja-location-dialog.c:160
 msgid "Open Location"
@@ -5924,6 +5933,8 @@ msgid ""
 "Copyright © 1999-2009 The Nautilus authors\n"
 "Copyright © 2011-2021 The Caja authors"
 msgstr ""
+"Telif Hakkı © 1999-2009 Nautilus yazarları\n"
+"Telif Hakkı © 2011-2021  Caja yazarları"
 
 #: src/caja-window-menus.c:586
 msgid "translator-credits"
@@ -5937,11 +5948,12 @@ msgstr ""
 "hsngrms <dead-bodies-everywhere@hotmail.com>, 2012\n"
 "mauron, 2012, 2013, 2014, 2015, 2016, 2017, 2018\n"
 "Atilla Öntaş <tarakbumba@gmail.com>, 2014\n"
-"Emre FIRAT <emrefirat93@gmail.com>, 2013, 2014, 2015"
+"Emre FIRAT <emrefirat93@gmail.com>, 2013, 2014, 2015\n"
+"Hilalis BIRDS <hilalis@outlook.com.tr>, 2021"
 
 #: src/caja-window-menus.c:589
 msgid "Website"
-msgstr ""
+msgstr "Web sitesi"
 
 #: src/caja-window-menus.c:849
 msgid "_File"
@@ -6282,15 +6294,15 @@ msgstr "\"%s\" seçildi"
 #, c-format
 msgid "%'d folder selected"
 msgid_plural "%'d folders selected"
-msgstr[0] "%'d klasör seçildi"
-msgstr[1] "%'d klasör seçildi"
+msgstr[0] "%'d dizin seçildi"
+msgstr[1] "%'d dizin seçildi"
 
 #: src/file-manager/fm-directory-view.c:2322
 #, c-format
 msgid " (containing %'d item)"
 msgid_plural " (containing %'d items)"
-msgstr[0] " (%'d unsur içeriyor)"
-msgstr[1] " (%'d unsur içeriyor)"
+msgstr[0] " (%'d öge içeriyor)"
+msgstr[1] " (%'d öge içeriyor)"
 
 #. Translators: this is preceded with a string of form 'N folders' (N more
 #. than 1)
@@ -6298,22 +6310,22 @@ msgstr[1] " (%'d unsur içeriyor)"
 #, c-format
 msgid " (containing a total of %'d item)"
 msgid_plural " (containing a total of %'d items)"
-msgstr[0] " (toplam olarak %'d unsur içeriyor)"
-msgstr[1] " (toplam olarak %'d unsur içeriyor)"
+msgstr[0] " (toplam olarak %'d öğe içeriyor)"
+msgstr[1] " (toplam olarak %'d öğe içeriyor)"
 
 #: src/file-manager/fm-directory-view.c:2350
 #, c-format
 msgid "%'d item selected"
 msgid_plural "%'d items selected"
-msgstr[0] "%'d unsur seçildi"
-msgstr[1] "%'d unsur seçildi"
+msgstr[0] "%'d öğe seçildi"
+msgstr[1] "%'d öğe seçildi"
 
 #: src/file-manager/fm-directory-view.c:2357
 #, c-format
 msgid "%'d other item selected"
 msgid_plural "%'d other items selected"
-msgstr[0] "%'d başka unsur seçildi"
-msgstr[1] "%'d başka unsur seçildi"
+msgstr[0] "%'d başka öğe seçildi"
+msgstr[1] "%'d başka öğe seçildi"
 
 #. Translators: This is marked for translation in case a localiser
 #. * needs to use something other than parentheses. The
@@ -6354,8 +6366,8 @@ msgstr "%s%s, %s, %s"
 #, c-format
 msgid "Use \"%s\" to open the selected item"
 msgid_plural "Use \"%s\" to open the selected items"
-msgstr[0] "Seçili unsuru açmak için \"%s\" kullan"
-msgstr[1] "Seçili unsurları açmak için \"%s\" kullan"
+msgstr[0] "Seçili öğeleri açmak için \"%s\" kullanın "
+msgstr[1] "Seçili öğeleri açmak için \"%s\" kullanın "
 
 #: src/file-manager/fm-directory-view.c:4612
 msgid "Open parent location"
@@ -6447,16 +6459,16 @@ msgstr "Yapıştır komutunu seçerseniz \"%s\" kopyalanacak"
 msgid "The %'d selected item will be moved if you select the Paste command"
 msgid_plural ""
 "The %'d selected items will be moved if you select the Paste command"
-msgstr[0] "Eğer Yapıştır komutunu seçerseniz %'d seçili unsur taşınacak"
-msgstr[1] "Eğer Yapıştır komutunu seçerseniz %'d seçili unsur taşınacak"
+msgstr[0] "Eğer Yapıştır komutunu seçerseniz, seçilmiş %'d öğe taşınacaktır"
+msgstr[1] "Eğer Yapıştır komutunu seçerseniz, seçilmiş %'d öğe taşınacaktır"
 
 #: src/file-manager/fm-directory-view.c:6098
 #, c-format
 msgid "The %'d selected item will be copied if you select the Paste command"
 msgid_plural ""
 "The %'d selected items will be copied if you select the Paste command"
-msgstr[0] "Eğer Yapıştır komutunu seçerseniz %'d seçili unsur kopyalanacak"
-msgstr[1] "Eğer Yapıştır komutunu seçerseniz %'d seçili unsur kopyalanacak"
+msgstr[0] "Eğer Yapıştır komutunu seçerseniz %'d seçili öğe kopyalanacak"
+msgstr[1] "Eğer Yapıştır komutunu seçerseniz %'d seçili öğe kopyalanacak"
 
 #: src/file-manager/fm-directory-view.c:6278
 #: src/file-manager/fm-tree-view.c:1060
@@ -6517,7 +6529,7 @@ msgstr "Seçili her öğenin özelliklerini göster ya da değiştir"
 #: src/file-manager/fm-directory-view.c:7402
 #: src/file-manager/fm-tree-view.c:1300
 msgid "Create _Folder"
-msgstr "Dizin _Yarat"
+msgstr "Di_zin Oluştur"
 
 #: src/file-manager/fm-directory-view.c:7403
 msgid "Create a new empty folder inside this folder"
@@ -6904,40 +6916,40 @@ msgstr "Açık olan dizini çöpün dışındaki \"%s\" konumuna taşı"
 #, c-format
 msgid "Move the selected folder out of the trash to \"%s\""
 msgid_plural "Move the selected folders out of the trash to \"%s\""
-msgstr[0] "Seçili klasörü çöpün dışındaki \"%s\" konumuna taşı"
-msgstr[1] "Tüm seçili klasörleri çöpün dışındaki \"%s\" konumuna taşı"
+msgstr[0] "Seçilen dizinleri çöp kutusundan çıkarıp \"%s\" konumuna taşı"
+msgstr[1] "Seçilen dizinleri çöp kutusundan çıkarıp  \"%s\" konumuna taşı"
 
 #: src/file-manager/fm-directory-view.c:8217
 msgid "Move the selected folder out of the trash"
 msgid_plural "Move the selected folders out of the trash"
-msgstr[0] "Seçili klasörü çöpün dışına taşı"
-msgstr[1] "Tüm seçili klasörleri çöpün dışına taşı"
+msgstr[0] "Seçilen dizinleri çöp kutusundan dışarı taşı"
+msgstr[1] "Seçilen dizinleri çöp kutusundan çıkarıp, dışarı taşı"
 
 #: src/file-manager/fm-directory-view.c:8223
 #, c-format
 msgid "Move the selected file out of the trash to \"%s\""
 msgid_plural "Move the selected files out of the trash to \"%s\""
-msgstr[0] "Seçili dosyayı çöpün dışındaki \"%s\" konumuna taşı"
-msgstr[1] "Tüm seçili dosyaları çöpün dışındaki \"%s\" konumuna taşı"
+msgstr[0] "Seçilen dosyaları çöp kutusundan çıkarıp \"%s\" konumuna taşı"
+msgstr[1] "Seçilen dosyaları çöp kutusundan çıkarıp \"%s\" konumuna taşı"
 
 #: src/file-manager/fm-directory-view.c:8227
 msgid "Move the selected file out of the trash"
 msgid_plural "Move the selected files out of the trash"
-msgstr[0] "Seçili dosyayı çöpün dışına taşı"
-msgstr[1] "Tüm seçili dosyaları çöpün dışına taşı"
+msgstr[0] "Tüm seçili dosyaları çöp kutusundan dışarı çıkar"
+msgstr[1] "Tüm seçili dosyaları çöp kutusundan dışarı çıkar"
 
 #: src/file-manager/fm-directory-view.c:8233
 #, c-format
 msgid "Move the selected item out of the trash to \"%s\""
 msgid_plural "Move the selected items out of the trash to \"%s\""
-msgstr[0] "Seçili unsuru çöpün dışındaki \"%s\" konumuna taşı"
-msgstr[1] "Tüm seçili unsurları çöpün dışındaki \"%s\" konumuna taşı"
+msgstr[0] "Seçilen öğeleri çöp kutusundan çıkarıp \"%s\" konumuna taşı"
+msgstr[1] "Seçilen öğeleri çöp kutusundan çıkarıp \"%s\" konumuna taşı"
 
 #: src/file-manager/fm-directory-view.c:8237
 msgid "Move the selected item out of the trash"
 msgid_plural "Move the selected items out of the trash"
-msgstr[0] "Seçili unsuru çöpün dışına taşı"
-msgstr[1] "Tüm seçili unsurları çöpün dışına taşı"
+msgstr[0] "Seçilen öğeleri çöp kutusunun dışına taşı"
+msgstr[1] "Seçilen öğeleri çöp kutusunun dışına taşı"
 
 #: src/file-manager/fm-directory-view.c:8366
 #: src/file-manager/fm-directory-view.c:8370
@@ -7053,8 +7065,8 @@ msgstr "_Yeni Pencerede Göz At"
 #: src/file-manager/fm-directory-view.c:9039
 msgid "_Browse Folder"
 msgid_plural "_Browse Folders"
-msgstr[0] "Klasöre _Gözat"
-msgstr[1] "Klasörlere _Gözat"
+msgstr[0] "_Dizinlere Gözat"
+msgstr[1] "_Dizinlere Gözat"
 
 #: src/file-manager/fm-directory-view.c:8716
 #: src/file-manager/fm-directory-view.c:9070
@@ -7090,8 +7102,8 @@ msgstr[1] "%'d Yeni Pencerede _Aç"
 #, c-format
 msgid "Browse in %'d New _Window"
 msgid_plural "Browse in %'d New _Windows"
-msgstr[0] "%'d Yeni Pencerede _Göz At"
-msgstr[1] "%'d Yeni Pencerede _Göz At"
+msgstr[0] "%'d Yeni Pencerede _Gözat"
+msgstr[1] "%'d Yeni Pencerede _Gözat"
 
 #: src/file-manager/fm-directory-view.c:9063
 #, c-format
@@ -7104,8 +7116,8 @@ msgstr[1] "%'d Yeni Sekmede _Aç"
 #, c-format
 msgid "Browse in %'d New _Tab"
 msgid_plural "Browse in %'d New _Tabs"
-msgstr[0] "%'d Yeni Sekmede _Göz At"
-msgstr[1] "%'d Yeni Sekmede _Göz At"
+msgstr[0] "%'d Yeni Sekmede _Gözat"
+msgstr[1] "%'d Yeni Sekmede _Gözat"
 
 #: src/file-manager/fm-directory-view.c:9116
 msgid "Delete all selected items permanently"
@@ -7149,12 +7161,12 @@ msgstr "Geçersiz bir sürükleme türü kullanıldı."
 #: src/file-manager/fm-directory-view.c:10766
 #: src/file-manager/fm-directory-view.c:10771
 msgid "Link Creation Failed"
-msgstr ""
+msgstr "Bağlantı Oluşturulamadı"
 
 #: src/file-manager/fm-directory-view.c:10770
 #, c-format
 msgid "Cannot create the link to %s"
-msgstr ""
+msgstr " %s konumuna bağlantı oluşturulamadı"
 
 #. Translators: This is the filename used for when you dnd text to a directory
 #: src/file-manager/fm-directory-view.c:10921
@@ -7197,11 +7209,11 @@ msgstr "_Boş"
 
 #: src/file-manager/fm-empty-view.c:400
 msgid "The empty view encountered an error."
-msgstr ""
+msgstr "Boş görünüm hata ile karşılaştı."
 
 #: src/file-manager/fm-empty-view.c:401
 msgid "Display this location with the empty view."
-msgstr ""
+msgstr "Bu konumu boş görünüm ile göster."
 
 #: src/file-manager/fm-error-reporting.c:72
 #, c-format
@@ -7344,11 +7356,11 @@ msgstr "Simgeleri değişim tarihlerine göre sırala"
 
 #: src/file-manager/fm-icon-view.c:165
 msgid "by _Creation Date"
-msgstr ""
+msgstr "_Oluşturulma Tarihine göre"
 
 #: src/file-manager/fm-icon-view.c:166 src/file-manager/fm-icon-view.c:1868
 msgid "Keep icons sorted by creation date in rows"
-msgstr ""
+msgstr "Simgeleri oluşturulma tarihlerine göre sırala"
 
 #: src/file-manager/fm-icon-view.c:172
 msgid "by _Emblems"
@@ -7434,11 +7446,11 @@ msgstr "Simgeleri bir ızgara üzerinde hizalı tut"
 
 #: src/file-manager/fm-icon-view.c:1820
 msgid "_Lock Icons Position"
-msgstr ""
+msgstr "_Simge Konumlarını Kilitle"
 
 #: src/file-manager/fm-icon-view.c:1821
 msgid "Prevent repositioning icons"
-msgstr ""
+msgstr "Simgelerin yeniden konumlandırılmalarını engelle"
 
 #: src/file-manager/fm-icon-view.c:1831
 msgid "_Manually"
@@ -7470,7 +7482,7 @@ msgstr "_Değişim Tarihine Göre"
 
 #: src/file-manager/fm-icon-view.c:1867
 msgid "By _Creation Date"
-msgstr ""
+msgstr "Oluşturulma _Tarihine göre"
 
 #: src/file-manager/fm-icon-view.c:1873
 msgid "By _Emblems"
@@ -7576,7 +7588,7 @@ msgstr "Bir seferde birden daha fazla özel simge atayamazsınız!"
 #: src/file-manager/fm-properties-window.c:645
 msgid "_Name:"
 msgid_plural "_Names:"
-msgstr[0] "_İsim:"
+msgstr[0] "_İsimler:"
 msgstr[1] "_İsimler:"
 
 #: src/file-manager/fm-properties-window.c:1001
@@ -7614,8 +7626,8 @@ msgstr "okunamadı"
 #, c-format
 msgid "%'d item, with size %s (%s on disk)"
 msgid_plural "%'d items, totalling %s (%s on disk)"
-msgstr[0] "%'d unsur, toplam %s boyutunda (disk üzerinde %s)"
-msgstr[1] "%'d unsur, toplam %s boyutunda (disk üzerinde %s)"
+msgstr[0] "%'d öğe, toplam %s boyutunda (disk üzerinde %s)"
+msgstr[1] "%'d öğe, toplam %s boyutunda (disk üzerinde %s)"
 
 #: src/file-manager/fm-properties-window.c:2324
 msgid "(some contents unreadable)"
@@ -7705,7 +7717,7 @@ msgstr "okuma"
 
 #: src/file-manager/fm-properties-window.c:4188
 msgid "create/delete"
-msgstr "oluşturma/silme"
+msgstr "oluştur/sil"
 
 #: src/file-manager/fm-properties-window.c:4190
 msgid "write"
@@ -7854,22 +7866,22 @@ msgstr "Ağaç"
 msgid "Show Tree"
 msgstr "Ağacı Göster"
 
-#: src/file-manager/fm-widget-view.c:443
+#: src/file-manager/fm-widget-view.c:444
 msgid "Widget View"
 msgstr "Gereç Görünümü"
 
-#: src/file-manager/fm-widget-view.c:444
+#: src/file-manager/fm-widget-view.c:445
 msgid "_Widget View"
 msgstr "_Gereç Görünümü"
 
-#: src/file-manager/fm-widget-view.c:445
-msgid "The widget view encountered an error."
-msgstr ""
-
 #: src/file-manager/fm-widget-view.c:446
-msgid "The widget view encountered an error while starting up."
-msgstr ""
+msgid "The widget view encountered an error."
+msgstr "Gereç görünümü hata ile karşılaştı."
 
 #: src/file-manager/fm-widget-view.c:447
+msgid "The widget view encountered an error while starting up."
+msgstr "Gereç görünümü başlatılırken hata ile karşılaştı."
+
+#: src/file-manager/fm-widget-view.c:448
 msgid "Display this location with the widget view."
-msgstr ""
+msgstr "Bu konumu gereç görünümüyle göster."

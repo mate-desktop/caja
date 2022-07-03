@@ -4,18 +4,18 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Martin Wimpress <code@flexion.org>, 2018
-# Andi Chandler <andi@gowling.com>, 2018
-# Steven Maddox <s.maddox@lantizia.me.uk>, 2019
 # Stefano Karapetsas <stefano@karapetsas.com>, 2021
+# Martin Wimpress <code@flexion.org>, 2021
+# Steven Maddox <s.maddox@lantizia.me.uk>, 2021
+# Andi Chandler <andi@gowling.com>, 2022
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: caja 1.25.2\n"
+"Project-Id-Version: caja 1.25.3\n"
 "Report-Msgid-Bugs-To: https://github.com/mate-desktop/caja/issues\n"
-"POT-Creation-Date: 2021-05-29 15:26+0200\n"
-"PO-Revision-Date: 2018-03-11 14:48+0000\n"
-"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>, 2021\n"
+"POT-Creation-Date: 2021-08-04 14:26+0200\n"
+"PO-Revision-Date: 2021-09-18 16:24+0000\n"
+"Last-Translator: Andi Chandler <andi@gowling.com>, 2022\n"
 "Language-Team: English (United Kingdom) (https://www.transifex.com/mate/teams/13566/en_GB/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -69,7 +69,7 @@ msgstr "Worktop"
 
 #: data/browser.xml:13
 msgid "Dark GNOME"
-msgstr ""
+msgstr "Dark GNOME"
 
 #: data/browser.xml:14
 msgid "Dots"
@@ -93,7 +93,7 @@ msgstr "Fossil"
 
 #: data/browser.xml:19
 msgid "GNOME"
-msgstr ""
+msgstr "GNOME"
 
 #: data/browser.xml:20
 msgid "Green Weave"
@@ -310,12 +310,18 @@ msgid ""
 " associated with them. It is also responsible for handling the icons on the "
 "MATE desktop. It works on local and remote file systems."
 msgstr ""
+"Caja is the official file manager for the MATE desktop. It allows for "
+"browsing directories, as well as previewing files and launching applications"
+" associated with them. It is also responsible for handling the icons on the "
+"MATE desktop. It works on local and remote file systems."
 
 #: data/caja.appdata.xml.in.in:16
 msgid ""
 "Caja is extensible through a plugin system, similar to that of GNOME "
 "Nautilus, of which Caja is a fork."
 msgstr ""
+"Caja is extensible through a plugin system, similar to that of GNOME "
+"Nautilus, of which Caja is a fork."
 
 #: data/caja-autorun-software.desktop.in.in:3
 msgid "Autorun Prompt"
@@ -333,7 +339,7 @@ msgstr "Browse the file system with the file manager"
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/caja-browser.desktop.in.in:15
 msgid "files;browser;manager;MATE;"
-msgstr ""
+msgstr "files;browser;manager;MATE;"
 
 #: data/caja-computer.desktop.in.in:3 libcaja-private/caja-desktop-link.c:114
 #: src/caja-places-sidebar.c:512
@@ -350,7 +356,7 @@ msgstr ""
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/caja-computer.desktop.in.in:14
 msgid "browse;disks;folders;local;remote;computer;MATE;"
-msgstr ""
+msgstr "browse;disks;folders;local;remote;computer;MATE;"
 
 #: data/caja.desktop.in.in:4
 msgid "File Manager"
@@ -368,7 +374,7 @@ msgstr "Change the behaviour and appearance of file manager windows"
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/caja-file-management-properties.desktop.in.in:13
 msgid "file;manager;change;properties;behaviour;appearance;windows;MATE;"
-msgstr ""
+msgstr "file;manager;change;properties;behaviour;appearance;windows;MATE;"
 
 #: data/caja-folder-handler.desktop.in.in:4 libcaja-private/caja-autorun.c:580
 msgid "Open Folder"
@@ -387,7 +393,7 @@ msgstr "Open your personal folder"
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/caja-home.desktop.in.in:14
 msgid "home;personal;folder;open;MATE;"
-msgstr ""
+msgstr "home;personal;folder;open;MATE;"
 
 #: data/caja.xml.in:5
 msgid "Saved search"
@@ -405,7 +411,7 @@ msgstr "Browse bookmarked and local network locations"
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/mate-network-scheme.desktop.in.in:14
 msgid "bookmarks;browse;local;network;locations;MATE;"
-msgstr ""
+msgstr "bookmarks;browse;local;network;locations;MATE;"
 
 #: eel/eel-canvas.c:1309 eel/eel-canvas.c:1310
 msgid "X"
@@ -535,7 +541,7 @@ msgstr "_OK"
 
 #: eel/eel-stock-dialogs.c:656
 msgid "_Clear"
-msgstr ""
+msgstr "_Clear"
 
 #: eel/eel-vfs-extensions.c:98
 msgid " (invalid Unicode)"
@@ -737,11 +743,11 @@ msgstr "The date the file was modified."
 
 #: libcaja-private/caja-column-utilities.c:84
 msgid "Date Created"
-msgstr ""
+msgstr "Date Created"
 
 #: libcaja-private/caja-column-utilities.c:85
 msgid "The date the file was created."
-msgstr ""
+msgstr "The date the file was created."
 
 #: libcaja-private/caja-column-utilities.c:92
 msgid "Date Accessed"
@@ -816,7 +822,7 @@ msgstr "Extension"
 
 #: libcaja-private/caja-column-utilities.c:157
 msgid "The extension of the file."
-msgstr ""
+msgstr "The extension of the file."
 
 #: libcaja-private/caja-column-utilities.c:199
 msgid "Trashed On"
@@ -1523,11 +1529,7 @@ msgid_plural ""
 "Are you sure you want to permanently delete the %'d selected items from the "
 "trash?"
 msgstr[0] ""
-"Are you sure you want to permanently delete the %'d selected item from the "
-"bin?"
 msgstr[1] ""
-"Are you sure you want to permanently delete the %'d selected items from the "
-"bin?"
 
 #: libcaja-private/caja-file-operations.c:1382
 #: libcaja-private/caja-file-operations.c:1448
@@ -1568,8 +1570,8 @@ msgstr "Are you sure you want to bin \"%B\"?"
 #, c-format
 msgid "Are you sure you want to trash the %'d selected item?"
 msgid_plural "Are you sure you want to trash the %'d selected items?"
-msgstr[0] "Are you sure you want to bin the %'d selected item?"
-msgstr[1] "Are you sure you want to bin the %'d selected items?"
+msgstr[0] ""
+msgstr[1] ""
 
 #: libcaja-private/caja-file-operations.c:1490
 msgid "Items moved to the trash may be recovered until the trash is emptied."
@@ -1658,8 +1660,8 @@ msgstr "Moving files to the bin"
 #, c-format
 msgid "%'d file left to trash"
 msgid_plural "%'d files left to trash"
-msgstr[0] "%'d file left to bin"
-msgstr[1] "%'d files left to bin"
+msgstr[0] ""
+msgstr[1] ""
 
 #: libcaja-private/caja-file-operations.c:1903
 msgid "Cannot move file to trash, do you want to delete immediately?"
@@ -1740,8 +1742,8 @@ msgstr[1] ""
 #, c-format
 msgid "Preparing to trash %'d file"
 msgid_plural "Preparing to trash %'d files"
-msgstr[0] "Preparing to bin %'d file"
-msgstr[1] "Preparing to bin %'d files"
+msgstr[0] ""
+msgstr[1] ""
 
 #: libcaja-private/caja-file-operations.c:2588
 #: libcaja-private/caja-file-operations.c:3499
@@ -2530,372 +2532,372 @@ msgstr "Search"
 msgid "Search for \"%s\""
 msgstr "Search for \"%s\""
 
-#: libcaja-private/caja-undostack-manager.c:1212
+#: libcaja-private/caja-undostack-manager.c:1213
 #, c-format
 msgid "Delete %d copied items"
 msgstr "Delete %d copied items"
 
-#: libcaja-private/caja-undostack-manager.c:1215
-#: libcaja-private/caja-undostack-manager.c:1225
-#: libcaja-private/caja-undostack-manager.c:1256
+#: libcaja-private/caja-undostack-manager.c:1216
+#: libcaja-private/caja-undostack-manager.c:1226
+#: libcaja-private/caja-undostack-manager.c:1257
 #, c-format
 msgid "Delete '%s'"
 msgstr "Delete '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1222
+#: libcaja-private/caja-undostack-manager.c:1223
 #, c-format
 msgid "Delete %d duplicated items"
 msgstr "Delete %d duplicated items"
 
-#: libcaja-private/caja-undostack-manager.c:1233
+#: libcaja-private/caja-undostack-manager.c:1234
 #, c-format
 msgid "Move %d items back to '%s'"
 msgstr "Move %d items back to '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1237
+#: libcaja-private/caja-undostack-manager.c:1238
 #, c-format
 msgid "Move '%s' back to '%s'"
 msgstr "Move '%s' back to '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1246
-#: libcaja-private/caja-undostack-manager.c:1413
+#: libcaja-private/caja-undostack-manager.c:1247
+#: libcaja-private/caja-undostack-manager.c:1414
 #, c-format
 msgid "Rename '%s' as '%s'"
 msgstr "Rename '%s' as '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1265
-#: libcaja-private/caja-undostack-manager.c:1460
+#: libcaja-private/caja-undostack-manager.c:1266
+#: libcaja-private/caja-undostack-manager.c:1461
 #, c-format
 msgid "Restore %d items from trash"
 msgstr "Restore %d items from the bin"
 
-#: libcaja-private/caja-undostack-manager.c:1273
+#: libcaja-private/caja-undostack-manager.c:1274
 #, c-format
 msgid "Restore '%s' to '%s'"
 msgstr "Restore '%s' to '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1284
+#: libcaja-private/caja-undostack-manager.c:1285
 #, c-format
 msgid "Move %d items back to trash"
 msgstr "Move %d items back to the bin"
 
-#: libcaja-private/caja-undostack-manager.c:1287
+#: libcaja-private/caja-undostack-manager.c:1288
 #, c-format
 msgid "Move '%s' back to trash"
 msgstr "Move '%s' back to the bin"
 
-#: libcaja-private/caja-undostack-manager.c:1296
+#: libcaja-private/caja-undostack-manager.c:1297
 #, c-format
 msgid "Delete links to %d items"
 msgstr "Delete links to %d items"
 
-#: libcaja-private/caja-undostack-manager.c:1299
+#: libcaja-private/caja-undostack-manager.c:1300
 #, c-format
 msgid "Delete link to '%s'"
 msgstr "Delete link to '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1309
+#: libcaja-private/caja-undostack-manager.c:1310
 #, c-format
 msgid "Restore original permissions of items enclosed in '%s'"
 msgstr "Restore original permissions of items enclosed in '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1317
+#: libcaja-private/caja-undostack-manager.c:1318
 #, c-format
 msgid "Restore original permissions of '%s'"
 msgstr "Restore original permissions of '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1326
+#: libcaja-private/caja-undostack-manager.c:1327
 #, c-format
 msgid "Restore group of '%s' to '%s'"
 msgstr "Restore group of '%s' to '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1336
+#: libcaja-private/caja-undostack-manager.c:1337
 #, c-format
 msgid "Restore owner of '%s' to '%s'"
 msgstr "Restore owner of '%s' to '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1375
+#: libcaja-private/caja-undostack-manager.c:1376
 #, c-format
 msgid "Copy %d items to '%s'"
 msgstr "Copy %d items to '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1379
+#: libcaja-private/caja-undostack-manager.c:1380
 #, c-format
 msgid "Copy '%s' to '%s'"
 msgstr "Copy '%s' to '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1387
+#: libcaja-private/caja-undostack-manager.c:1388
 #, c-format
 msgid "Duplicate of %d items in '%s'"
 msgstr "Duplicate of %d items in '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1392
+#: libcaja-private/caja-undostack-manager.c:1393
 #, c-format
 msgid "Duplicate '%s' in '%s'"
 msgstr "Duplicate '%s' in '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1400
+#: libcaja-private/caja-undostack-manager.c:1401
 #, c-format
 msgid "Move %d items to '%s'"
 msgstr "Move %d items to '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1404
+#: libcaja-private/caja-undostack-manager.c:1405
 #, c-format
 msgid "Move '%s' to '%s'"
 msgstr "Move '%s' to '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1422
+#: libcaja-private/caja-undostack-manager.c:1423
 #, c-format
 msgid "Create new file '%s' from template "
 msgstr "Create new file '%s' from template "
 
-#: libcaja-private/caja-undostack-manager.c:1429
+#: libcaja-private/caja-undostack-manager.c:1430
 #, c-format
 msgid "Create an empty file '%s'"
 msgstr "Create an empty file '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1436
+#: libcaja-private/caja-undostack-manager.c:1437
 #, c-format
 msgid "Create a new folder '%s'"
 msgstr "Create a new folder '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1444
+#: libcaja-private/caja-undostack-manager.c:1445
 #, c-format
 msgid "Move %d items to trash"
 msgstr "Move %d items to the bin"
 
-#: libcaja-private/caja-undostack-manager.c:1450
+#: libcaja-private/caja-undostack-manager.c:1451
 #, c-format
 msgid "Move '%s' to trash"
 msgstr "Move '%s' to the bin"
 
-#: libcaja-private/caja-undostack-manager.c:1463
+#: libcaja-private/caja-undostack-manager.c:1464
 #, c-format
 msgid "Restore '%s' from trash"
 msgstr "Restore '%s' from the bin"
 
-#: libcaja-private/caja-undostack-manager.c:1472
+#: libcaja-private/caja-undostack-manager.c:1473
 #, c-format
 msgid "Create links to %d items"
 msgstr "Create links to %d items"
 
-#: libcaja-private/caja-undostack-manager.c:1475
+#: libcaja-private/caja-undostack-manager.c:1476
 #, c-format
 msgid "Create link to '%s'"
 msgstr "Create link to '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1484
+#: libcaja-private/caja-undostack-manager.c:1485
 #, c-format
 msgid "Set permissions of items enclosed in '%s'"
 msgstr "Set permissions of items enclosed in '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1492
+#: libcaja-private/caja-undostack-manager.c:1493
 #, c-format
 msgid "Set permissions of '%s'"
 msgstr "Set permissions of '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1501
+#: libcaja-private/caja-undostack-manager.c:1502
 #, c-format
 msgid "Set group of '%s' to '%s'"
 msgstr "Set group of '%s' to '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1511
+#: libcaja-private/caja-undostack-manager.c:1512
 #, c-format
 msgid "Set owner of '%s' to '%s'"
 msgstr "Set owner of '%s' to '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1543
+#: libcaja-private/caja-undostack-manager.c:1544
 #, c-format
 msgid "_Undo copy of %d item"
 msgid_plural "_Undo copy of %d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1548
+#: libcaja-private/caja-undostack-manager.c:1549
 #, c-format
 msgid "_Undo duplicate of %d item"
 msgid_plural "_Undo duplicate of %d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1553
+#: libcaja-private/caja-undostack-manager.c:1554
 #, c-format
 msgid "_Undo move of %d item"
 msgid_plural "_Undo move of %d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1558
+#: libcaja-private/caja-undostack-manager.c:1559
 #, c-format
 msgid "_Undo rename of %d item"
 msgid_plural "_Undo rename of %d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1562
+#: libcaja-private/caja-undostack-manager.c:1563
 msgid "_Undo creation of an empty file"
 msgstr "_Undo creation of an empty file"
 
-#: libcaja-private/caja-undostack-manager.c:1565
+#: libcaja-private/caja-undostack-manager.c:1566
 msgid "_Undo creation of a file from template"
 msgstr "_Undo creation of a file from template"
 
-#: libcaja-private/caja-undostack-manager.c:1569
+#: libcaja-private/caja-undostack-manager.c:1570
 #, c-format
 msgid "_Undo creation of %d folder"
 msgid_plural "_Undo creation of %d folders"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1574
+#: libcaja-private/caja-undostack-manager.c:1575
 #, c-format
 msgid "_Undo move to trash of %d item"
 msgid_plural "_Undo move to trash of %d items"
-msgstr[0] "_Undo move to the bin of %d item"
-msgstr[1] "_Undo move to the bin of %d items"
+msgstr[0] ""
+msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1579
+#: libcaja-private/caja-undostack-manager.c:1580
 #, c-format
 msgid "_Undo restore from trash of %d item"
 msgid_plural "_Undo restore from trash of %d items"
-msgstr[0] "_Undo restore from the bin of %d item"
-msgstr[1] "_Undo restore from the bin of %d items"
+msgstr[0] ""
+msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1584
+#: libcaja-private/caja-undostack-manager.c:1585
 #, c-format
 msgid "_Undo create link to %d item"
 msgid_plural "_Undo create link to %d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1589
+#: libcaja-private/caja-undostack-manager.c:1590
 #, c-format
 msgid "_Undo delete of %d item"
 msgid_plural "_Undo delete of %d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1594
+#: libcaja-private/caja-undostack-manager.c:1595
 #, c-format
 msgid "Undo recursive change permissions of %d item"
 msgid_plural "Undo recursive change permissions of %d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1600
+#: libcaja-private/caja-undostack-manager.c:1601
 #, c-format
 msgid "Undo change permissions of %d item"
 msgid_plural "Undo change permissions of %d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1605
+#: libcaja-private/caja-undostack-manager.c:1606
 #, c-format
 msgid "Undo change group of %d item"
 msgid_plural "Undo change group of %d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1610
+#: libcaja-private/caja-undostack-manager.c:1611
 #, c-format
 msgid "Undo change owner of %d item"
 msgid_plural "Undo change owner of %d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1638
+#: libcaja-private/caja-undostack-manager.c:1639
 #, c-format
 msgid "_Redo copy of %d item"
 msgid_plural "_Redo copy of %d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1643
+#: libcaja-private/caja-undostack-manager.c:1644
 #, c-format
 msgid "_Redo duplicate of %d item"
 msgid_plural "_Redo duplicate of %d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1648
+#: libcaja-private/caja-undostack-manager.c:1649
 #, c-format
 msgid "_Redo move of %d item"
 msgid_plural "_Redo move of %d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1653
+#: libcaja-private/caja-undostack-manager.c:1654
 #, c-format
 msgid "_Redo rename of %d item"
 msgid_plural "_Redo rename of %d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1657
+#: libcaja-private/caja-undostack-manager.c:1658
 msgid "_Redo creation of an empty file"
 msgstr "_Redo creation of an empty file"
 
-#: libcaja-private/caja-undostack-manager.c:1660
+#: libcaja-private/caja-undostack-manager.c:1661
 msgid "_Redo creation of a file from template"
 msgstr "_Redo creation of a file from template"
 
-#: libcaja-private/caja-undostack-manager.c:1664
+#: libcaja-private/caja-undostack-manager.c:1665
 #, c-format
 msgid "_Redo creation of %d folder"
 msgid_plural "_Redo creation of %d folders"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1669
+#: libcaja-private/caja-undostack-manager.c:1670
 #, c-format
 msgid "_Redo move to trash of %d item"
 msgid_plural "_Redo move to trash of %d items"
-msgstr[0] "_Redo move to the bin of %d item"
-msgstr[1] "_Redo move to the bin of %d items"
+msgstr[0] ""
+msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1674
+#: libcaja-private/caja-undostack-manager.c:1675
 #, c-format
 msgid "_Redo restore from trash of %d item"
 msgid_plural "_Redo restore from trash of %d items"
-msgstr[0] "_Redo restore from the bin of %d item"
-msgstr[1] "_Redo restore from the bin of %d items"
+msgstr[0] ""
+msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1679
+#: libcaja-private/caja-undostack-manager.c:1680
 #, c-format
 msgid "_Redo create link to %d item"
 msgid_plural "_Redo create link to %d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1684
+#: libcaja-private/caja-undostack-manager.c:1685
 #, c-format
 msgid "_Redo delete of %d item"
 msgid_plural "_Redo delete of %d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1689
+#: libcaja-private/caja-undostack-manager.c:1690
 #, c-format
 msgid "Redo recursive change permissions of %d item"
 msgid_plural "Redo recursive change permissions of %d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1695
+#: libcaja-private/caja-undostack-manager.c:1696
 #, c-format
 msgid "Redo change permissions of %d item"
 msgid_plural "Redo change permissions of %d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1700
+#: libcaja-private/caja-undostack-manager.c:1701
 #, c-format
 msgid "Redo change group of %d item"
 msgid_plural "Redo change group of %d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1705
+#: libcaja-private/caja-undostack-manager.c:1706
 #, c-format
 msgid "Redo change owner of %d item"
 msgid_plural "Redo change owner of %d items"
@@ -2918,13 +2920,15 @@ msgstr ""
 
 #: libcaja-private/org.mate.caja.gschema.xml:81
 msgid "Switch tabs with [ctrl] + [tab]"
-msgstr ""
+msgstr "Switch tabs with [ctrl] + [tab]"
 
 #: libcaja-private/org.mate.caja.gschema.xml:82
 msgid ""
 "If true, it enables the ability to switch tabs using [ctrl + tab] and [ctrl "
 "+ shift + tab]."
 msgstr ""
+"If true, it enables the ability to switch tabs using [ctrl + tab] and [ctrl "
+"+ shift + tab]."
 
 #: libcaja-private/org.mate.caja.gschema.xml:86
 msgid "Caja will exit when last window destroyed."
@@ -3797,62 +3801,62 @@ msgstr ""
 "the preferences capplet. A folder window will be opened on insertion of "
 "media matching these types."
 
-#: mate-submodules/libegg/eggdesktopfile.c:168
+#: mate-submodules/libegg/eggdesktopfile.c:169
 msgid "File is not a valid .desktop file"
 msgstr "File is not a valid .desktop file"
 
-#: mate-submodules/libegg/eggdesktopfile.c:193
+#: mate-submodules/libegg/eggdesktopfile.c:194
 #, c-format
 msgid "Unrecognized desktop file Version '%s'"
 msgstr "Unrecognised desktop file Version '%s'"
 
-#: mate-submodules/libegg/eggdesktopfile.c:975
+#: mate-submodules/libegg/eggdesktopfile.c:976
 #, c-format
 msgid "Starting %s"
 msgstr "Starting %s"
 
-#: mate-submodules/libegg/eggdesktopfile.c:1117
+#: mate-submodules/libegg/eggdesktopfile.c:1118
 msgid "Application does not accept documents on command line"
 msgstr "Application does not accept documents on the command line"
 
-#: mate-submodules/libegg/eggdesktopfile.c:1185
+#: mate-submodules/libegg/eggdesktopfile.c:1186
 #, c-format
 msgid "Unrecognized launch option: %d"
 msgstr "Unrecognised launch option: %d"
 
-#: mate-submodules/libegg/eggdesktopfile.c:1401
+#: mate-submodules/libegg/eggdesktopfile.c:1402
 msgid "Can't pass document URIs to a 'Type=Link' desktop entry"
 msgstr "Can't pass document URIs to a 'Type=Link' desktop entry"
 
-#: mate-submodules/libegg/eggdesktopfile.c:1422
+#: mate-submodules/libegg/eggdesktopfile.c:1423
 msgid "Not a launchable item"
 msgstr "Not a launchable item"
 
-#: mate-submodules/libegg/eggsmclient.c:233
+#: mate-submodules/libegg/eggsmclient.c:234
 msgid "Disable connection to session manager"
 msgstr "Disable connection to session manager"
 
-#: mate-submodules/libegg/eggsmclient.c:238
+#: mate-submodules/libegg/eggsmclient.c:239
 msgid "Specify file containing saved configuration"
 msgstr "Specify file containing saved configuration"
 
-#: mate-submodules/libegg/eggsmclient.c:238
+#: mate-submodules/libegg/eggsmclient.c:239
 msgid "FILE"
 msgstr "FILE"
 
-#: mate-submodules/libegg/eggsmclient.c:243
+#: mate-submodules/libegg/eggsmclient.c:244
 msgid "Specify session management ID"
 msgstr "Specify session management ID"
 
-#: mate-submodules/libegg/eggsmclient.c:243
+#: mate-submodules/libegg/eggsmclient.c:244
 msgid "ID"
 msgstr "ID"
 
-#: mate-submodules/libegg/eggsmclient.c:269
+#: mate-submodules/libegg/eggsmclient.c:270
 msgid "Session management options:"
 msgstr "Session management options:"
 
-#: mate-submodules/libegg/eggsmclient.c:270
+#: mate-submodules/libegg/eggsmclient.c:271
 msgid "Show session management options"
 msgstr "Show session management options"
 
@@ -4002,15 +4006,15 @@ msgstr ""
 "\n"
 "If in doubt, press Cancel."
 
-#: src/caja-bookmarks-sidebar.c:193 src/caja-bookmarks-window.c:199
+#: src/caja-bookmarks-sidebar.c:194 src/caja-bookmarks-window.c:199
 msgid "No bookmarks defined"
 msgstr "No bookmarks defined"
 
-#: src/caja-bookmarks-sidebar.c:484 src/caja-places-sidebar.c:325
+#: src/caja-bookmarks-sidebar.c:485 src/caja-places-sidebar.c:325
 msgid "Bookmarks"
 msgstr "Bookmarks"
 
-#: src/caja-bookmarks-sidebar.c:490
+#: src/caja-bookmarks-sidebar.c:491
 msgid "Show a list of your personal bookmarks"
 msgstr ""
 
@@ -6859,40 +6863,40 @@ msgstr "Move the open folder out of the bin to \"%s\""
 #, c-format
 msgid "Move the selected folder out of the trash to \"%s\""
 msgid_plural "Move the selected folders out of the trash to \"%s\""
-msgstr[0] "Move the selected folder out of the bin to \"%s\""
-msgstr[1] "Move the selected folders out of the bin to \"%s\""
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/file-manager/fm-directory-view.c:8217
 msgid "Move the selected folder out of the trash"
 msgid_plural "Move the selected folders out of the trash"
-msgstr[0] "Move the selected folder out of the bin"
-msgstr[1] "Move the selected folders out of the bin"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/file-manager/fm-directory-view.c:8223
 #, c-format
 msgid "Move the selected file out of the trash to \"%s\""
 msgid_plural "Move the selected files out of the trash to \"%s\""
-msgstr[0] "Move the selected file out of the bin to \"%s\""
-msgstr[1] "Move the selected files out of the bin to \"%s\""
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/file-manager/fm-directory-view.c:8227
 msgid "Move the selected file out of the trash"
 msgid_plural "Move the selected files out of the trash"
-msgstr[0] "Move the selected file out of the bin"
-msgstr[1] "Move the selected files out of the bin"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/file-manager/fm-directory-view.c:8233
 #, c-format
 msgid "Move the selected item out of the trash to \"%s\""
 msgid_plural "Move the selected items out of the trash to \"%s\""
-msgstr[0] "Move the selected item out of the bin to \"%s\""
-msgstr[1] "Move the selected items out of the bin to \"%s\""
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/file-manager/fm-directory-view.c:8237
 msgid "Move the selected item out of the trash"
 msgid_plural "Move the selected items out of the trash"
-msgstr[0] "Move the selected item out of the bin"
-msgstr[1] "Move the selected items out of the bin"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/file-manager/fm-directory-view.c:8366
 #: src/file-manager/fm-directory-view.c:8370
@@ -7804,22 +7808,22 @@ msgstr "Tree"
 msgid "Show Tree"
 msgstr "Show Tree"
 
-#: src/file-manager/fm-widget-view.c:443
+#: src/file-manager/fm-widget-view.c:444
 msgid "Widget View"
 msgstr ""
 
-#: src/file-manager/fm-widget-view.c:444
+#: src/file-manager/fm-widget-view.c:445
 msgid "_Widget View"
 msgstr ""
 
-#: src/file-manager/fm-widget-view.c:445
+#: src/file-manager/fm-widget-view.c:446
 msgid "The widget view encountered an error."
 msgstr ""
 
-#: src/file-manager/fm-widget-view.c:446
+#: src/file-manager/fm-widget-view.c:447
 msgid "The widget view encountered an error while starting up."
 msgstr ""
 
-#: src/file-manager/fm-widget-view.c:447
+#: src/file-manager/fm-widget-view.c:448
 msgid "Display this location with the widget view."
 msgstr ""

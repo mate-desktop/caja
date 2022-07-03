@@ -4,20 +4,21 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Alexander Jansen <bornxlo@gmail.com>, 2018
-# Kenneth Jenssen <kennethjenssen@yahoo.com>, 2018
-# b84df44fb72862b85bae7a669218c6c2, 2019
-# Kim Malmo <berencamlost@msn.com>, 2019
+# Kim Malmo <berencamlost@msn.com>, 2021
+# 87d96f43665dd9fb55eba4603e184cae, 2021
+# Alexander Jansen <bornxlo@gmail.com>, 2021
+# Kenneth Jenssen <kennethjenssen@yahoo.com>, 2021
+# b84df44fb72862b85bae7a669218c6c2, 2021
 # Stefano Karapetsas <stefano@karapetsas.com>, 2021
 # Allan Nordhøy <epost@anotheragency.no>, 2021
 # heskjestad <cato@heskjestad.xyz>, 2021
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: caja 1.25.2\n"
+"Project-Id-Version: caja 1.25.3\n"
 "Report-Msgid-Bugs-To: https://github.com/mate-desktop/caja/issues\n"
-"POT-Creation-Date: 2021-05-29 15:26+0200\n"
-"PO-Revision-Date: 2018-03-11 14:48+0000\n"
+"POT-Creation-Date: 2021-08-04 14:26+0200\n"
+"PO-Revision-Date: 2021-09-18 16:24+0000\n"
 "Last-Translator: heskjestad <cato@heskjestad.xyz>, 2021\n"
 "Language-Team: Norwegian Bokmål (https://www.transifex.com/mate/teams/13566/nb/)\n"
 "MIME-Version: 1.0\n"
@@ -304,7 +305,7 @@ msgstr "Caja"
 
 #: data/caja.appdata.xml.in.in:8
 msgid "File manager for the MATE desktop environment"
-msgstr "Filhåndtering for MATE-skrivebordsmiljøet"
+msgstr "Filbehandler for MATE-skrivebordsmiljøet"
 
 #: data/caja.appdata.xml.in.in:10
 msgid ""
@@ -336,7 +337,7 @@ msgstr "Filutforsker"
 
 #: data/caja-browser.desktop.in.in:5
 msgid "Browse the file system with the file manager"
-msgstr "Bla gjennom filsystemet med filhåndtereren"
+msgstr "Bla gjennom filsystemet med filbehandleren"
 
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
@@ -364,15 +365,15 @@ msgstr "utforske;disker;mapper;lokal;ekstern;datamaskin;MATE;"
 
 #: data/caja.desktop.in.in:4
 msgid "File Manager"
-msgstr "Filhåndterer"
+msgstr "Filbehandler"
 
 #: data/caja-file-management-properties.desktop.in.in:3
 msgid "File Management"
-msgstr "Filhåndtering"
+msgstr "Filbehandling"
 
 #: data/caja-file-management-properties.desktop.in.in:4
 msgid "Change the behaviour and appearance of file manager windows"
-msgstr "Endre oppførsel og utseende for filhåndterervinduer"
+msgstr "Endre oppførsel og utseende for filbehandlingsvinduer"
 
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
@@ -967,7 +968,7 @@ msgstr "Skråstrek er ikke tillatt i filnavn"
 
 #: libcaja-private/caja-file.c:1844
 msgid "File not found"
-msgstr "Fil ikke funnet"
+msgstr "Fant ikke filen"
 
 #: libcaja-private/caja-file.c:1872
 msgid "Toplevel files cannot be renamed"
@@ -1569,7 +1570,7 @@ msgstr[1] "Er du sikker på at du vil slette %'d valgte oppføringer for godt?"
 
 #: libcaja-private/caja-file-operations.c:1478
 msgid "Are you sure you want to trash \"%B\"?"
-msgstr "Er du sikker på at du vil forkaste \"%B\"?"
+msgstr "Er du sikker på at du vil legge «%B» i papirkurven?"
 
 #: libcaja-private/caja-file-operations.c:1481
 #, c-format
@@ -1714,7 +1715,7 @@ msgid ""
 "All trashed items on the volume will be permanently lost."
 msgstr ""
 "Papirkurven må tømmes for å få tilbake ledig plass på dette volumet. Alle "
-"oppføringer i papirkurven vil bli borte permanent."
+"oppføringer i papirkurven vil bli borte for godt."
 
 #: libcaja-private/caja-file-operations.c:2340
 msgid "Do _not Empty Trash"
@@ -1805,11 +1806,11 @@ msgstr "Feil under kopiering til «%B»."
 
 #: libcaja-private/caja-file-operations.c:2873
 msgid "You do not have permissions to access the destination folder."
-msgstr "Du har ikke rettigheter til å aksessere målmappen."
+msgstr "Du har ikke tilgangsrettigheter til målmappen."
 
 #: libcaja-private/caja-file-operations.c:2875
 msgid "There was an error getting information about the destination."
-msgstr "Det oppsto en feil under henting av informsjon om målet."
+msgstr "Det oppsto en feil under henting av informasjon om målet."
 
 #: libcaja-private/caja-file-operations.c:2912
 msgid "The destination is not a folder."
@@ -2022,7 +2023,7 @@ msgstr "Oppretter lenker i «%B»"
 #, c-format
 msgid "Making link to %'d file"
 msgid_plural "Making links to %'d files"
-msgstr[0] "Oppretter lenke til %'d fil"
+msgstr[0] "Oppretter lenker til %'d fil"
 msgstr[1] "Oppretter lenker til %'d filer"
 
 #: libcaja-private/caja-file-operations.c:5467
@@ -2058,7 +2059,7 @@ msgstr "ny fil"
 
 #: libcaja-private/caja-file-operations.c:6233
 msgid "Error while creating directory %B."
-msgstr "Feil under oppretting av katalog %B."
+msgstr "Feil under oppretting av mappe %B."
 
 #: libcaja-private/caja-file-operations.c:6235
 msgid "Error while creating file %B."
@@ -2067,7 +2068,7 @@ msgstr "Feil under oppretting av fil «%B»."
 #: libcaja-private/caja-file-operations.c:6237
 #, c-format
 msgid "There was an error creating the directory in %F."
-msgstr "Det oppsto en feil under oppretting av katalog i %F."
+msgstr "Det oppsto en feil under oppretting av mappe i %F."
 
 #: libcaja-private/caja-file-operations.c:6516
 msgid "Emptying Trash"
@@ -2078,7 +2079,7 @@ msgstr "Tømmer papirkurv"
 #: libcaja-private/caja-file-operations.c:6641
 #: libcaja-private/caja-file-operations.c:6676
 msgid "Unable to mark launcher trusted (executable)"
-msgstr "Kan ikke merke oppstartsfil med tillit (kjørbar)"
+msgstr "Kan ikke merke oppstartsfil som tiltrodd (kjørbar)"
 
 #: libcaja-private/caja-file-utilities.c:1261
 #, c-format
@@ -2308,11 +2309,11 @@ msgstr "Kunne ikke kjøre program"
 #: libcaja-private/caja-open-with-dialog.c:165
 #, c-format
 msgid "Could not find '%s'"
-msgstr "Kunne ikke finne «%s»"
+msgstr "Fant ikke «%s»"
 
 #: libcaja-private/caja-open-with-dialog.c:168
 msgid "Could not find application"
-msgstr "Kunne ikke finne program"
+msgstr "Fant ikke program"
 
 #: libcaja-private/caja-open-with-dialog.c:252
 #, c-format
@@ -2537,372 +2538,372 @@ msgstr "Søk"
 msgid "Search for \"%s\""
 msgstr "Søk etter «%s»"
 
-#: libcaja-private/caja-undostack-manager.c:1212
+#: libcaja-private/caja-undostack-manager.c:1213
 #, c-format
 msgid "Delete %d copied items"
 msgstr "Slett %d kopierte oppføringer"
 
-#: libcaja-private/caja-undostack-manager.c:1215
-#: libcaja-private/caja-undostack-manager.c:1225
-#: libcaja-private/caja-undostack-manager.c:1256
+#: libcaja-private/caja-undostack-manager.c:1216
+#: libcaja-private/caja-undostack-manager.c:1226
+#: libcaja-private/caja-undostack-manager.c:1257
 #, c-format
 msgid "Delete '%s'"
 msgstr "Slett '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1222
+#: libcaja-private/caja-undostack-manager.c:1223
 #, c-format
 msgid "Delete %d duplicated items"
 msgstr "Slett %d duplikerte oppføringer"
 
-#: libcaja-private/caja-undostack-manager.c:1233
+#: libcaja-private/caja-undostack-manager.c:1234
 #, c-format
 msgid "Move %d items back to '%s'"
 msgstr "Flytt %d oppføringer tilbake til «%s»"
 
-#: libcaja-private/caja-undostack-manager.c:1237
+#: libcaja-private/caja-undostack-manager.c:1238
 #, c-format
 msgid "Move '%s' back to '%s'"
 msgstr "Flytt '%s' tilbake til '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1246
-#: libcaja-private/caja-undostack-manager.c:1413
+#: libcaja-private/caja-undostack-manager.c:1247
+#: libcaja-private/caja-undostack-manager.c:1414
 #, c-format
 msgid "Rename '%s' as '%s'"
 msgstr "Navngi '%s' til '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1265
-#: libcaja-private/caja-undostack-manager.c:1460
+#: libcaja-private/caja-undostack-manager.c:1266
+#: libcaja-private/caja-undostack-manager.c:1461
 #, c-format
 msgid "Restore %d items from trash"
 msgstr "Gjenopprett %d oppføringer fra papirkurven"
 
-#: libcaja-private/caja-undostack-manager.c:1273
+#: libcaja-private/caja-undostack-manager.c:1274
 #, c-format
 msgid "Restore '%s' to '%s'"
 msgstr "Gjenopprett '%s' til '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1284
+#: libcaja-private/caja-undostack-manager.c:1285
 #, c-format
 msgid "Move %d items back to trash"
 msgstr "Flytt %d oppføringer tilbake til papirkurven"
 
-#: libcaja-private/caja-undostack-manager.c:1287
+#: libcaja-private/caja-undostack-manager.c:1288
 #, c-format
 msgid "Move '%s' back to trash"
 msgstr "Flytt '%s' tilbake til papirkurven"
 
-#: libcaja-private/caja-undostack-manager.c:1296
+#: libcaja-private/caja-undostack-manager.c:1297
 #, c-format
 msgid "Delete links to %d items"
 msgstr "Slett lenker til %d oppføringer"
 
-#: libcaja-private/caja-undostack-manager.c:1299
+#: libcaja-private/caja-undostack-manager.c:1300
 #, c-format
 msgid "Delete link to '%s'"
 msgstr "Slett lenke til '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1309
+#: libcaja-private/caja-undostack-manager.c:1310
 #, c-format
 msgid "Restore original permissions of items enclosed in '%s'"
 msgstr "Gjenopprett orginale rettigheter for filer innbefattet i '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1317
+#: libcaja-private/caja-undostack-manager.c:1318
 #, c-format
 msgid "Restore original permissions of '%s'"
 msgstr "Gjenopprett orginale rettigheter for '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1326
+#: libcaja-private/caja-undostack-manager.c:1327
 #, c-format
 msgid "Restore group of '%s' to '%s'"
 msgstr "Gjenopprett gruppe av '%s' til '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1336
+#: libcaja-private/caja-undostack-manager.c:1337
 #, c-format
 msgid "Restore owner of '%s' to '%s'"
 msgstr "Gjenopprett eierskap av '%s' til '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1375
+#: libcaja-private/caja-undostack-manager.c:1376
 #, c-format
 msgid "Copy %d items to '%s'"
 msgstr "Kopier %d filer til '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1379
+#: libcaja-private/caja-undostack-manager.c:1380
 #, c-format
 msgid "Copy '%s' to '%s'"
 msgstr "Kopier '%s' til '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1387
+#: libcaja-private/caja-undostack-manager.c:1388
 #, c-format
 msgid "Duplicate of %d items in '%s'"
 msgstr "Duplikat av %d oppføringer i «%s»"
 
-#: libcaja-private/caja-undostack-manager.c:1392
+#: libcaja-private/caja-undostack-manager.c:1393
 #, c-format
 msgid "Duplicate '%s' in '%s'"
 msgstr "Duplikat '%s' i '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1400
+#: libcaja-private/caja-undostack-manager.c:1401
 #, c-format
 msgid "Move %d items to '%s'"
 msgstr "Flytt %d filer til '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1404
+#: libcaja-private/caja-undostack-manager.c:1405
 #, c-format
 msgid "Move '%s' to '%s'"
 msgstr "Flytt '%s' til '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1422
+#: libcaja-private/caja-undostack-manager.c:1423
 #, c-format
 msgid "Create new file '%s' from template "
 msgstr "Opprett ny fil '%s' fra mal"
 
-#: libcaja-private/caja-undostack-manager.c:1429
+#: libcaja-private/caja-undostack-manager.c:1430
 #, c-format
 msgid "Create an empty file '%s'"
 msgstr "Opprett ei tom fil '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1436
+#: libcaja-private/caja-undostack-manager.c:1437
 #, c-format
 msgid "Create a new folder '%s'"
 msgstr "Opprett en ny mappe '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1444
+#: libcaja-private/caja-undostack-manager.c:1445
 #, c-format
 msgid "Move %d items to trash"
 msgstr "Flytt %d filer til papirkurven"
 
-#: libcaja-private/caja-undostack-manager.c:1450
+#: libcaja-private/caja-undostack-manager.c:1451
 #, c-format
 msgid "Move '%s' to trash"
 msgstr "Flytt '%s' til papirkurven"
 
-#: libcaja-private/caja-undostack-manager.c:1463
+#: libcaja-private/caja-undostack-manager.c:1464
 #, c-format
 msgid "Restore '%s' from trash"
 msgstr "Gjenopprett '%s' fra papirkurven"
 
-#: libcaja-private/caja-undostack-manager.c:1472
+#: libcaja-private/caja-undostack-manager.c:1473
 #, c-format
 msgid "Create links to %d items"
 msgstr "Opprett lenker til %d oppføringer"
 
-#: libcaja-private/caja-undostack-manager.c:1475
+#: libcaja-private/caja-undostack-manager.c:1476
 #, c-format
 msgid "Create link to '%s'"
 msgstr "Opprett lenke til '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1484
+#: libcaja-private/caja-undostack-manager.c:1485
 #, c-format
 msgid "Set permissions of items enclosed in '%s'"
 msgstr "Angi rettigheter for filer innebygd i '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1492
+#: libcaja-private/caja-undostack-manager.c:1493
 #, c-format
 msgid "Set permissions of '%s'"
 msgstr "Angi rettigheter for '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1501
+#: libcaja-private/caja-undostack-manager.c:1502
 #, c-format
 msgid "Set group of '%s' to '%s'"
 msgstr "Angi gruppe for '%s' til '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1511
+#: libcaja-private/caja-undostack-manager.c:1512
 #, c-format
 msgid "Set owner of '%s' to '%s'"
 msgstr "Angi eierskap for '%s' til '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1543
+#: libcaja-private/caja-undostack-manager.c:1544
 #, c-format
 msgid "_Undo copy of %d item"
 msgid_plural "_Undo copy of %d items"
 msgstr[0] "_Angre kopiering av %d oppføring"
 msgstr[1] "_Angre kopiering av %d oppføringer"
 
-#: libcaja-private/caja-undostack-manager.c:1548
+#: libcaja-private/caja-undostack-manager.c:1549
 #, c-format
 msgid "_Undo duplicate of %d item"
 msgid_plural "_Undo duplicate of %d items"
 msgstr[0] "_Angre duplikering av %d oppføring"
 msgstr[1] "_Angre duplikering av %d oppføringer"
 
-#: libcaja-private/caja-undostack-manager.c:1553
+#: libcaja-private/caja-undostack-manager.c:1554
 #, c-format
 msgid "_Undo move of %d item"
 msgid_plural "_Undo move of %d items"
 msgstr[0] "_Angre flytting av %d oppføring"
 msgstr[1] "_Angre flytting av %d oppføringer"
 
-#: libcaja-private/caja-undostack-manager.c:1558
+#: libcaja-private/caja-undostack-manager.c:1559
 #, c-format
 msgid "_Undo rename of %d item"
 msgid_plural "_Undo rename of %d items"
 msgstr[0] "_Angre navneendring av %d oppføring"
 msgstr[1] "_Angre navneendring av %d oppføringer"
 
-#: libcaja-private/caja-undostack-manager.c:1562
+#: libcaja-private/caja-undostack-manager.c:1563
 msgid "_Undo creation of an empty file"
 msgstr "_Angre opprettelse av tom fil"
 
-#: libcaja-private/caja-undostack-manager.c:1565
+#: libcaja-private/caja-undostack-manager.c:1566
 msgid "_Undo creation of a file from template"
 msgstr "_Angre opprettelse av fil fra mal"
 
-#: libcaja-private/caja-undostack-manager.c:1569
+#: libcaja-private/caja-undostack-manager.c:1570
 #, c-format
 msgid "_Undo creation of %d folder"
 msgid_plural "_Undo creation of %d folders"
 msgstr[0] "_Angre opprettelse av %d mappe"
 msgstr[1] "_Angre opprettelse av %d mapper"
 
-#: libcaja-private/caja-undostack-manager.c:1574
+#: libcaja-private/caja-undostack-manager.c:1575
 #, c-format
 msgid "_Undo move to trash of %d item"
 msgid_plural "_Undo move to trash of %d items"
 msgstr[0] "_Angre flytting av %d oppføring til papirkurv"
 msgstr[1] "_Angre flytting av %d oppføringer til papirkurv"
 
-#: libcaja-private/caja-undostack-manager.c:1579
+#: libcaja-private/caja-undostack-manager.c:1580
 #, c-format
 msgid "_Undo restore from trash of %d item"
 msgid_plural "_Undo restore from trash of %d items"
 msgstr[0] "_Angre gjenoppretting av %d oppføring fra papirkurv"
 msgstr[1] "_Angre gjenoppretting av %d oppføringer fra papirkurv"
 
-#: libcaja-private/caja-undostack-manager.c:1584
+#: libcaja-private/caja-undostack-manager.c:1585
 #, c-format
 msgid "_Undo create link to %d item"
 msgid_plural "_Undo create link to %d items"
 msgstr[0] "_Angre opprettelse av lenke til %d oppføring"
 msgstr[1] "_Angre opprettelse av lenke til %d oppføringer"
 
-#: libcaja-private/caja-undostack-manager.c:1589
+#: libcaja-private/caja-undostack-manager.c:1590
 #, c-format
 msgid "_Undo delete of %d item"
 msgid_plural "_Undo delete of %d items"
-msgstr[0] "_Angre sletting av %d fil"
-msgstr[1] "_Angre sletting av %d filer"
+msgstr[0] "_Angre sletting av %d oppføring"
+msgstr[1] "_Angre sletting av %d oppføringer"
 
-#: libcaja-private/caja-undostack-manager.c:1594
+#: libcaja-private/caja-undostack-manager.c:1595
 #, c-format
 msgid "Undo recursive change permissions of %d item"
 msgid_plural "Undo recursive change permissions of %d items"
-msgstr[0] "Angre rekursiv rettighetsendring for %d fil"
-msgstr[1] "Angre rekursive rettighetsendringer for %d filer"
+msgstr[0] "Angre rekursive rettighetsendringer for %d oppføring"
+msgstr[1] "Angre rekursive rettighetsendringer for %d oppføringer"
 
-#: libcaja-private/caja-undostack-manager.c:1600
+#: libcaja-private/caja-undostack-manager.c:1601
 #, c-format
 msgid "Undo change permissions of %d item"
 msgid_plural "Undo change permissions of %d items"
 msgstr[0] "Angre endring av rettigheter for %d oppføring"
 msgstr[1] "Angre endring av rettigheter for %d oppføringer"
 
-#: libcaja-private/caja-undostack-manager.c:1605
+#: libcaja-private/caja-undostack-manager.c:1606
 #, c-format
 msgid "Undo change group of %d item"
 msgid_plural "Undo change group of %d items"
 msgstr[0] "Angre endring av gruppe for %d oppføring"
 msgstr[1] "Angre endring av gruppe for %d oppføringer"
 
-#: libcaja-private/caja-undostack-manager.c:1610
+#: libcaja-private/caja-undostack-manager.c:1611
 #, c-format
 msgid "Undo change owner of %d item"
 msgid_plural "Undo change owner of %d items"
 msgstr[0] "Angre endring av eierskap for %d oppføring"
 msgstr[1] "Angre endring av eierskap for %d oppføringer"
 
-#: libcaja-private/caja-undostack-manager.c:1638
+#: libcaja-private/caja-undostack-manager.c:1639
 #, c-format
 msgid "_Redo copy of %d item"
 msgid_plural "_Redo copy of %d items"
 msgstr[0] "_Gjør om kopiering av %d oppføring"
 msgstr[1] "_Gjør om kopiering av %d oppføringer"
 
-#: libcaja-private/caja-undostack-manager.c:1643
+#: libcaja-private/caja-undostack-manager.c:1644
 #, c-format
 msgid "_Redo duplicate of %d item"
 msgid_plural "_Redo duplicate of %d items"
 msgstr[0] "_Gjør om duplikering av %d oppføring"
 msgstr[1] "_Gjør om duplikering av %d oppføringer"
 
-#: libcaja-private/caja-undostack-manager.c:1648
+#: libcaja-private/caja-undostack-manager.c:1649
 #, c-format
 msgid "_Redo move of %d item"
 msgid_plural "_Redo move of %d items"
 msgstr[0] "_Gjør om flytting av %d oppføring"
 msgstr[1] "_Gjør om flytting av %d oppføringer"
 
-#: libcaja-private/caja-undostack-manager.c:1653
+#: libcaja-private/caja-undostack-manager.c:1654
 #, c-format
 msgid "_Redo rename of %d item"
 msgid_plural "_Redo rename of %d items"
 msgstr[0] "_Gjør om navneendring av %d oppføring"
 msgstr[1] "_Gjør om navneendring av %d oppføringer"
 
-#: libcaja-private/caja-undostack-manager.c:1657
+#: libcaja-private/caja-undostack-manager.c:1658
 msgid "_Redo creation of an empty file"
 msgstr "_Gjør om opprettelse av tom fil"
 
-#: libcaja-private/caja-undostack-manager.c:1660
+#: libcaja-private/caja-undostack-manager.c:1661
 msgid "_Redo creation of a file from template"
 msgstr "_Gjør om opprettelse av fil fra mal"
 
-#: libcaja-private/caja-undostack-manager.c:1664
+#: libcaja-private/caja-undostack-manager.c:1665
 #, c-format
 msgid "_Redo creation of %d folder"
 msgid_plural "_Redo creation of %d folders"
 msgstr[0] "_Gjør om opprettelse av %d mappe"
 msgstr[1] "_Gjør om opprettelse av %d mapper"
 
-#: libcaja-private/caja-undostack-manager.c:1669
+#: libcaja-private/caja-undostack-manager.c:1670
 #, c-format
 msgid "_Redo move to trash of %d item"
 msgid_plural "_Redo move to trash of %d items"
 msgstr[0] "_Gjør om flytting av %d oppføring til papirkurv"
 msgstr[1] "_Gjør om flytting av %d oppføringer til papirkurv"
 
-#: libcaja-private/caja-undostack-manager.c:1674
+#: libcaja-private/caja-undostack-manager.c:1675
 #, c-format
 msgid "_Redo restore from trash of %d item"
 msgid_plural "_Redo restore from trash of %d items"
 msgstr[0] "_Gjør om gjenoppretting av %d oppføring fra papirkurven"
 msgstr[1] "_Gjør om gjenoppretting av %d oppføringer fra papirkurven"
 
-#: libcaja-private/caja-undostack-manager.c:1679
+#: libcaja-private/caja-undostack-manager.c:1680
 #, c-format
 msgid "_Redo create link to %d item"
 msgid_plural "_Redo create link to %d items"
 msgstr[0] "_Gjør om oppretting av lenke til %d oppføring"
 msgstr[1] "_Gjør om oppretting av lenker til %d oppføringer"
 
-#: libcaja-private/caja-undostack-manager.c:1684
+#: libcaja-private/caja-undostack-manager.c:1685
 #, c-format
 msgid "_Redo delete of %d item"
 msgid_plural "_Redo delete of %d items"
 msgstr[0] "_Gjør om sletting av %d oppføring"
 msgstr[1] "_Gjør om sletting av %d oppføringer"
 
-#: libcaja-private/caja-undostack-manager.c:1689
+#: libcaja-private/caja-undostack-manager.c:1690
 #, c-format
 msgid "Redo recursive change permissions of %d item"
 msgid_plural "Redo recursive change permissions of %d items"
 msgstr[0] "Gjør om rekursiv endring av rettigheter for %d oppføring"
 msgstr[1] "Gjør om rekursiv endring av rettigheter for %d oppføringer"
 
-#: libcaja-private/caja-undostack-manager.c:1695
+#: libcaja-private/caja-undostack-manager.c:1696
 #, c-format
 msgid "Redo change permissions of %d item"
 msgid_plural "Redo change permissions of %d items"
 msgstr[0] "Gjør om endring av rettigheter for %d oppføring"
 msgstr[1] "Gjør om endring av rettigheter for %d oppføringer"
 
-#: libcaja-private/caja-undostack-manager.c:1700
+#: libcaja-private/caja-undostack-manager.c:1701
 #, c-format
 msgid "Redo change group of %d item"
 msgid_plural "Redo change group of %d items"
 msgstr[0] "Gjør om endring av gruppe for %d oppføring"
 msgstr[1] "Gjør om endring av gruppe for %d oppføringer"
 
-#: libcaja-private/caja-undostack-manager.c:1705
+#: libcaja-private/caja-undostack-manager.c:1706
 #, c-format
 msgid "Redo change owner of %d item"
 msgid_plural "Redo change owner of %d items"
@@ -3340,7 +3341,7 @@ msgid ""
 "If set to true, then hidden files are shown by default in the file manager. "
 "Hidden files are either dotfiles or listed in the folder's .hidden file."
 msgstr ""
-"Sett lik sann for å vise skjulte filer i filhåndtereren. Skjulte filer "
+"Sett lik sann for å vise skjulte filer i filbehandleren. Skjulte filer "
 "starter enten med punktum eller er nevnt i mappens «.hidden»-fil."
 
 #: libcaja-private/org.mate.caja.gschema.xml:253
@@ -3352,7 +3353,7 @@ msgid ""
 "If set to true, then backup files are shown by default in the file manager. "
 "Backup files are backup files ending with a tilde (~)."
 msgstr ""
-"Sett lik sann for å vise reservekopier i filhåndtereren. Reservekopier er "
+"Sett lik sann for å vise reservekopier i filbehandleren. Reservekopier er "
 "filer som slutter med tilde, «~»."
 
 #: libcaja-private/org.mate.caja.gschema.xml:259
@@ -3529,8 +3530,8 @@ msgid ""
 "If set to true, Caja will only show folders in the tree side pane. Otherwise"
 " it will show both folders and files."
 msgstr ""
-"Caja viser kun kataloger i trevisningen i sidepanelet hvis satt til «true». "
-"Ellers vises både kataloger og filer."
+"Caja viser kun mapper i trevisningen i sidepanelet hvis satt til «true». "
+"Ellers vises både mapper og filer."
 
 #: libcaja-private/org.mate.caja.gschema.xml:375
 msgid "Desktop font"
@@ -3818,63 +3819,63 @@ msgstr ""
 "preferences capplet. Et mappevindu vil åpnes ved insetting av media som "
 "samsvarer med disse typene."
 
-#: mate-submodules/libegg/eggdesktopfile.c:168
+#: mate-submodules/libegg/eggdesktopfile.c:169
 msgid "File is not a valid .desktop file"
 msgstr "Filen er ikke en gyldig .desktop-fil"
 
-#: mate-submodules/libegg/eggdesktopfile.c:193
+#: mate-submodules/libegg/eggdesktopfile.c:194
 #, c-format
 msgid "Unrecognized desktop file Version '%s'"
 msgstr "Kjenner ikke igjen versjon «%s» i desktop-fil"
 
-#: mate-submodules/libegg/eggdesktopfile.c:975
+#: mate-submodules/libegg/eggdesktopfile.c:976
 #, c-format
 msgid "Starting %s"
 msgstr "Starter %s"
 
-#: mate-submodules/libegg/eggdesktopfile.c:1117
+#: mate-submodules/libegg/eggdesktopfile.c:1118
 msgid "Application does not accept documents on command line"
 msgstr "Programmet tar ikke dokumenter på kommandolinjen"
 
-#: mate-submodules/libegg/eggdesktopfile.c:1185
+#: mate-submodules/libegg/eggdesktopfile.c:1186
 #, c-format
 msgid "Unrecognized launch option: %d"
 msgstr "Kjenner ikke igjen oppstartsalternativ: %d"
 
-#: mate-submodules/libegg/eggdesktopfile.c:1401
+#: mate-submodules/libegg/eggdesktopfile.c:1402
 msgid "Can't pass document URIs to a 'Type=Link' desktop entry"
 msgstr ""
 "Kan ikke gi URIer til dokumenter til en oppføring av type «Types=Link»"
 
-#: mate-submodules/libegg/eggdesktopfile.c:1422
+#: mate-submodules/libegg/eggdesktopfile.c:1423
 msgid "Not a launchable item"
 msgstr "Ikke en startbar oppføring"
 
-#: mate-submodules/libegg/eggsmclient.c:233
+#: mate-submodules/libegg/eggsmclient.c:234
 msgid "Disable connection to session manager"
 msgstr "Slå av tilkobling til øktbehandler"
 
-#: mate-submodules/libegg/eggsmclient.c:238
+#: mate-submodules/libegg/eggsmclient.c:239
 msgid "Specify file containing saved configuration"
 msgstr "Oppgi fil som inneholder lagret oppsett"
 
-#: mate-submodules/libegg/eggsmclient.c:238
+#: mate-submodules/libegg/eggsmclient.c:239
 msgid "FILE"
 msgstr "FIL"
 
-#: mate-submodules/libegg/eggsmclient.c:243
+#: mate-submodules/libegg/eggsmclient.c:244
 msgid "Specify session management ID"
 msgstr "Oppgi øktbehandlings-ID"
 
-#: mate-submodules/libegg/eggsmclient.c:243
+#: mate-submodules/libegg/eggsmclient.c:244
 msgid "ID"
 msgstr "ID"
 
-#: mate-submodules/libegg/eggsmclient.c:269
+#: mate-submodules/libegg/eggsmclient.c:270
 msgid "Session management options:"
 msgstr "Alternativer for øktbehandling:"
 
-#: mate-submodules/libegg/eggsmclient.c:270
+#: mate-submodules/libegg/eggsmclient.c:271
 msgid "Show session management options"
 msgstr "Vis alternativer for øktbehandling"
 
@@ -3989,7 +3990,7 @@ msgid ""
 msgstr ""
 "\n"
 "\n"
-"Bla gjennom filsystemet med filhåndtereren"
+"Bla gjennom filsystemet med filbehandleren"
 
 #: src/caja-autorun-software.c:163 src/caja-autorun-software.c:166
 #, c-format
@@ -4019,19 +4020,19 @@ msgid ""
 "\n"
 "If in doubt, press Cancel."
 msgstr ""
-"Programvaren vil kjøre direkte fra medie «%s». Du bør aldri kjøre programmer du ikke stoler på.\n"
+"Programvaren vil kjøre direkte fra mediet «%s». Du bør aldri kjøre programmer du ikke stoler på.\n"
 "\n"
 "Trykk Avbryt hvis du er i tvil."
 
-#: src/caja-bookmarks-sidebar.c:193 src/caja-bookmarks-window.c:199
+#: src/caja-bookmarks-sidebar.c:194 src/caja-bookmarks-window.c:199
 msgid "No bookmarks defined"
 msgstr "Ingen bokmerker definert"
 
-#: src/caja-bookmarks-sidebar.c:484 src/caja-places-sidebar.c:325
+#: src/caja-bookmarks-sidebar.c:485 src/caja-places-sidebar.c:325
 msgid "Bookmarks"
 msgstr "Bokmerker"
 
-#: src/caja-bookmarks-sidebar.c:490
+#: src/caja-bookmarks-sidebar.c:491
 msgid "Show a list of your personal bookmarks"
 msgstr "Vis en liste med personlige bokmerker"
 
@@ -4491,7 +4492,7 @@ msgstr "4 GB"
 
 #: src/caja-file-management-properties.ui:291
 msgid "File Management Preferences"
-msgstr "Brukervalg for filhåndtering"
+msgstr "Brukervalg for filbehandling"
 
 #: src/caja-file-management-properties.ui:369
 msgid "<b>Default View</b>"
@@ -4811,7 +4812,7 @@ msgstr "Blenderverdi"
 
 #: src/caja-image-properties-page.c:292
 msgid "ISO Speed Rating"
-msgstr "ISO hastighet"
+msgstr "ISO-verdi"
 
 #: src/caja-image-properties-page.c:293
 msgid "Flash Fired"
@@ -4819,7 +4820,7 @@ msgstr "Blitz brukt"
 
 #: src/caja-image-properties-page.c:294
 msgid "Metering Mode"
-msgstr "Målingsmodus"
+msgstr "Lysmålingsmodus"
 
 #: src/caja-image-properties-page.c:295
 msgid "Exposure Program"
@@ -5422,7 +5423,7 @@ msgstr "Lag en ny farge:"
 
 #: src/caja-property-browser.c:1217
 msgid "Color _name:"
-msgstr "Farge _navn:"
+msgstr "Farge_navn:"
 
 #: src/caja-property-browser.c:1233
 msgid "Color _value:"
@@ -5589,7 +5590,7 @@ msgstr "PDF / PostScript"
 
 #: src/caja-query-editor.c:686
 msgid "Text File"
-msgstr "Tekstfil:"
+msgstr "Tekstfil"
 
 #: src/caja-query-editor.c:772
 msgid "Select type"
@@ -5613,15 +5614,15 @@ msgstr "Større enn eller lik"
 
 #: src/caja-query-editor.c:1097
 msgid "1 Hour"
-msgstr "1 Time"
+msgstr "1 time"
 
 #: src/caja-query-editor.c:1099
 msgid "1 Day"
-msgstr "1 Dag"
+msgstr "1 dag"
 
 #: src/caja-query-editor.c:1101
 msgid "1 Week"
-msgstr "1 Uke"
+msgstr "1 uke"
 
 #: src/caja-query-editor.c:1103
 msgid "1 Month"
@@ -5819,7 +5820,7 @@ msgstr "Plasseringen er ikke en mappe."
 #: src/caja-window-manage-views.c:2162
 #, c-format
 msgid "Could not find \"%s\"."
-msgstr "Kunne ikke finne «%s»."
+msgstr "Fant ikke «%s»."
 
 #: src/caja-window-manage-views.c:2165
 msgid "Please check the spelling and try again."
@@ -5828,11 +5829,11 @@ msgstr "Sjekk stavingen og prøv igjen."
 #: src/caja-window-manage-views.c:2174
 #, c-format
 msgid "Caja cannot handle \"%s\" locations."
-msgstr "Caja ikke kan håndtere %s-plasseringer."
+msgstr "Caja håndterer ikke %s-plasseringer."
 
 #: src/caja-window-manage-views.c:2179
 msgid "Caja cannot handle this kind of location."
-msgstr "Caja ikke kan håndtere denne typen plassering."
+msgstr "Caja håndterer ikke denne type plassering."
 
 #: src/caja-window-manage-views.c:2186
 msgid "Unable to mount the location."
@@ -6002,7 +6003,7 @@ msgstr "Vis hjelp for Caja"
 
 #: src/caja-window-menus.c:898
 msgid "_About"
-msgstr "Om"
+msgstr "_Om"
 
 #: src/caja-window-menus.c:899
 msgid "Display credits for the creators of Caja"
@@ -6111,11 +6112,11 @@ msgstr "Disse filene ligger på en lyd-DVD."
 
 #: src/caja-x-content-bar.c:77
 msgid "These files are on a Video DVD."
-msgstr "Disse filene ligger på en Video-DVD."
+msgstr "Disse filene ligger på en video-DVD."
 
 #: src/caja-x-content-bar.c:81
 msgid "These files are on a Video CD."
-msgstr "Disse filene ligger på en Video-CD."
+msgstr "Disse filene ligger på en video-CD."
 
 #: src/caja-x-content-bar.c:85
 msgid "These files are on a Super Video CD."
@@ -6444,9 +6445,9 @@ msgid "The %'d selected item will be moved if you select the Paste command"
 msgid_plural ""
 "The %'d selected items will be moved if you select the Paste command"
 msgstr[0] ""
-"%'d valgt oppføring vil flyttes hvis du velger kommandoen «Lim inn filer»"
+"%'d valgt oppføring vil flyttes hvis du velger kommandoen «Lim inn»"
 msgstr[1] ""
-"%'d valgte oppføringer vil flyttes hvis du velger kommandoen «Lim inn filer»"
+"%'d valgte oppføringer vil flyttes hvis du velger kommandoen «Lim inn»"
 
 #: src/file-manager/fm-directory-view.c:6098
 #, c-format
@@ -6454,10 +6455,9 @@ msgid "The %'d selected item will be copied if you select the Paste command"
 msgid_plural ""
 "The %'d selected items will be copied if you select the Paste command"
 msgstr[0] ""
-"%'d valgt oppføring vil kopieres hvis du velger kommandoen «Lim inn filer»"
+"%'d valgt oppføring vil kopieres hvis du velger kommandoen «Lim inn»"
 msgstr[1] ""
-"%'d valgte oppføringer vil kopieres hvis du velger kommandoen «Lim inn "
-"filer»"
+"%'d valgte oppføringer vil kopieres hvis du velger kommandoen «Lim inn»"
 
 #: src/file-manager/fm-directory-view.c:6278
 #: src/file-manager/fm-tree-view.c:1060
@@ -6502,7 +6502,7 @@ msgstr "Åpne me_d"
 
 #: src/file-manager/fm-directory-view.c:7392
 msgid "Choose a program with which to open the selected item"
-msgstr "Velg et program du vil åpne valgte oppføring med"
+msgstr "Velg et program du vil åpne valgt oppføring med"
 
 #: src/file-manager/fm-directory-view.c:7394
 #: src/file-manager/fm-directory-view.c:7675
@@ -6513,7 +6513,7 @@ msgstr "_Egenskaper"
 #: src/file-manager/fm-directory-view.c:7395
 #: src/file-manager/fm-directory-view.c:9178
 msgid "View or modify the properties of each selected item"
-msgstr "Vis eller modifiser egenskapene for hver av de valgte oppføringene"
+msgstr "Vis eller endre egenskapene for hver av de valgte oppføringene"
 
 #: src/file-manager/fm-directory-view.c:7402
 #: src/file-manager/fm-tree-view.c:1300
@@ -6693,12 +6693,12 @@ msgstr "Angre siste handling"
 
 #: src/file-manager/fm-directory-view.c:7518
 msgid "_Redo"
-msgstr "_Gjenta"
+msgstr "_Gjør om"
 
 #: src/file-manager/fm-directory-view.c:7519
 #: src/file-manager/fm-directory-view.c:11385
 msgid "Redo the last undone action"
-msgstr "Gjenta forrige angrede handling"
+msgstr "Gjør om forrige angrede handling"
 
 #: src/file-manager/fm-directory-view.c:7529
 msgid "Reset View to _Defaults"
@@ -7138,11 +7138,11 @@ msgstr "Last ne_d"
 #: src/file-manager/fm-directory-view.c:10715
 #: src/file-manager/fm-directory-view.c:10843
 msgid "Drag and drop is not supported."
-msgstr "Dra-og-slipp er ikke støttet."
+msgstr "Dra-og-slipp støttes ikke."
 
 #: src/file-manager/fm-directory-view.c:10657
 msgid "Drag and drop is only supported on local file systems."
-msgstr "Dra-og-slipp er kun støttet for lokale filsystemer."
+msgstr "Dra-og-slipp støttes kun for lokale filsystemer."
 
 #: src/file-manager/fm-directory-view.c:10716
 #: src/file-manager/fm-directory-view.c:10844
@@ -7162,7 +7162,7 @@ msgstr "Kan ikke opprette lenke til %s"
 #. Translators: This is the filename used for when you dnd text to a directory
 #: src/file-manager/fm-directory-view.c:10921
 msgid "dropped text.txt"
-msgstr "slapp tekst.txt"
+msgstr "sluppet tekst.txt"
 
 #. Translators: This is the filename used for when you dnd raw
 #. * data to a directory, if the source didn't supply a name.
@@ -7320,7 +7320,7 @@ msgstr "Behold ikoner sortert etter størrelse i rader"
 
 #: src/file-manager/fm-icon-view.c:144
 msgid "by S_ize on Disk"
-msgstr "Etter st_ørrelse på disk"
+msgstr "etter st_ørrelse på disk"
 
 #: src/file-manager/fm-icon-view.c:145 src/file-manager/fm-icon-view.c:1850
 msgid "Keep icons sorted by disk usage in rows"
@@ -7368,11 +7368,11 @@ msgstr "Behold ikoner sortert etter tiden den ble lagt i papirkurven"
 
 #: src/file-manager/fm-icon-view.c:186
 msgid "by E_xtension"
-msgstr "Etter filt_ype"
+msgstr "etter filt_ype"
 
 #: src/file-manager/fm-icon-view.c:187
 msgid "Keep icons sorted by reversed extension segments in rows"
-msgstr "Behold ikoner sortert etter omvendt filetternavn i rader"
+msgstr "Behold ikoner sortert etter omvendt etternavnsegmenter i rader"
 
 #: src/file-manager/fm-icon-view.c:801
 msgid "_Organize Desktop by Name"
@@ -7486,7 +7486,7 @@ msgstr "Etter filt_ype"
 
 #: src/file-manager/fm-icon-view.c:1886
 msgid "Keep icons sorted by reverse extension segments in rows"
-msgstr "Behold ikoner sortert etter omvendt filetternavn i rader"
+msgstr "Behold ikoner sortert etter omvendt etternavnsegmenter i rader"
 
 #: src/file-manager/fm-icon-view.c:2022
 msgid "Restore Icon's Original Si_ze"
@@ -7854,22 +7854,22 @@ msgstr "Tre"
 msgid "Show Tree"
 msgstr "Vis tre"
 
-#: src/file-manager/fm-widget-view.c:443
+#: src/file-manager/fm-widget-view.c:444
 msgid "Widget View"
 msgstr "Skjermelementvisning"
 
-#: src/file-manager/fm-widget-view.c:444
+#: src/file-manager/fm-widget-view.c:445
 msgid "_Widget View"
 msgstr "_Skjermelementvisning"
 
-#: src/file-manager/fm-widget-view.c:445
+#: src/file-manager/fm-widget-view.c:446
 msgid "The widget view encountered an error."
 msgstr "Skjermelementvisningen ble utsatt for en feil."
 
-#: src/file-manager/fm-widget-view.c:446
+#: src/file-manager/fm-widget-view.c:447
 msgid "The widget view encountered an error while starting up."
 msgstr "Skjermelementvisningen ble utsatt for en feil under oppstart."
 
-#: src/file-manager/fm-widget-view.c:447
+#: src/file-manager/fm-widget-view.c:448
 msgid "Display this location with the widget view."
 msgstr "Skjermelementvisning for denne plasseringen."
