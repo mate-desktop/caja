@@ -4,18 +4,19 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Daniel <danicases@gmail.com>, 2018
-# Pere Orga <gotrunks@gmail.com>, 2018
-# Stefano Karapetsas <stefano@karapetsas.com>, 2019
-# Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>, 2021
+# Daniel <danicases@gmail.com>, 2021
+# clefebvre <clement.lefebvre@linuxmint.com>, 2021
+# Stefano Karapetsas <stefano@karapetsas.com>, 2021
+# Pere Orga <gotrunks@gmail.com>, 2021
+# Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>, 2022
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: caja 1.25.2\n"
+"Project-Id-Version: caja 1.25.3\n"
 "Report-Msgid-Bugs-To: https://github.com/mate-desktop/caja/issues\n"
-"POT-Creation-Date: 2021-05-29 15:26+0200\n"
-"PO-Revision-Date: 2018-03-11 14:48+0000\n"
-"Last-Translator: Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>, 2021\n"
+"POT-Creation-Date: 2021-08-04 14:26+0200\n"
+"PO-Revision-Date: 2021-09-18 16:24+0000\n"
+"Last-Translator: Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>, 2022\n"
 "Language-Team: Catalan (https://www.transifex.com/mate/teams/13566/ca/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1532,7 +1533,7 @@ msgid_plural ""
 "Are you sure you want to permanently delete the %'d selected items from the "
 "trash?"
 msgstr[0] ""
-"Esteu segur que voleu suprimir permanentment l'element seleccionat de la "
+"Esteu segur que voleu suprimir permanentment %'d element seleccionat de la "
 "paperera?"
 msgstr[1] ""
 "Esteu segur que voleu suprimir permanentment els %'d elements seleccionats "
@@ -1567,7 +1568,7 @@ msgid "Are you sure you want to permanently delete the %'d selected item?"
 msgid_plural ""
 "Are you sure you want to permanently delete the %'d selected items?"
 msgstr[0] ""
-"Esteu segur que voleu suprimir permanentment l'element seleccionat?"
+"Esteu segur que voleu suprimir permanentment %'d element seleccionat?"
 msgstr[1] ""
 "Esteu segur que voleu suprimir permanentment els %'d elements seleccionats?"
 
@@ -1579,7 +1580,7 @@ msgstr "Esteu segur que voleu moure a la paperera «%B»?"
 #, c-format
 msgid "Are you sure you want to trash the %'d selected item?"
 msgid_plural "Are you sure you want to trash the %'d selected items?"
-msgstr[0] "Esteu segur que voleu moure a la paperera l'element seleccionat?"
+msgstr[0] "Esteu segur que voleu moure a la paperera %'d element seleccionat?"
 msgstr[1] ""
 "Esteu segur que voleu moure a la paperera els %'d elements seleccionats?"
 
@@ -2079,7 +2080,7 @@ msgstr "S'ha produït un error en crear el directori a %F."
 
 #: libcaja-private/caja-file-operations.c:6516
 msgid "Emptying Trash"
-msgstr "S'està buidant la paperera"
+msgstr "Buidar la paperera"
 
 #: libcaja-private/caja-file-operations.c:6565
 #: libcaja-private/caja-file-operations.c:6606
@@ -2508,7 +2509,7 @@ msgstr "s'està posant a la cua"
 #: libcaja-private/caja-progress-info.c:415
 #: libcaja-private/caja-progress-info.c:416
 msgid "Pause"
-msgstr "Fes una pausa"
+msgstr "Pausa"
 
 #: libcaja-private/caja-progress-info.c:421
 #: libcaja-private/caja-progress-info.c:422
@@ -2548,372 +2549,372 @@ msgstr "Cerca"
 msgid "Search for \"%s\""
 msgstr "Cerca «%s»"
 
-#: libcaja-private/caja-undostack-manager.c:1212
+#: libcaja-private/caja-undostack-manager.c:1213
 #, c-format
 msgid "Delete %d copied items"
 msgstr "Suprimeix %d elements copiats"
 
-#: libcaja-private/caja-undostack-manager.c:1215
-#: libcaja-private/caja-undostack-manager.c:1225
-#: libcaja-private/caja-undostack-manager.c:1256
+#: libcaja-private/caja-undostack-manager.c:1216
+#: libcaja-private/caja-undostack-manager.c:1226
+#: libcaja-private/caja-undostack-manager.c:1257
 #, c-format
 msgid "Delete '%s'"
 msgstr "Suprimeix «%s»"
 
-#: libcaja-private/caja-undostack-manager.c:1222
+#: libcaja-private/caja-undostack-manager.c:1223
 #, c-format
 msgid "Delete %d duplicated items"
 msgstr "Suprimeix %d elements duplicats"
 
-#: libcaja-private/caja-undostack-manager.c:1233
+#: libcaja-private/caja-undostack-manager.c:1234
 #, c-format
 msgid "Move %d items back to '%s'"
 msgstr "Torna a moure %d elements a «%s»"
 
-#: libcaja-private/caja-undostack-manager.c:1237
+#: libcaja-private/caja-undostack-manager.c:1238
 #, c-format
 msgid "Move '%s' back to '%s'"
 msgstr "Torna a moure «%s» a «%s»"
 
-#: libcaja-private/caja-undostack-manager.c:1246
-#: libcaja-private/caja-undostack-manager.c:1413
+#: libcaja-private/caja-undostack-manager.c:1247
+#: libcaja-private/caja-undostack-manager.c:1414
 #, c-format
 msgid "Rename '%s' as '%s'"
 msgstr "Reanomena «%s» a «%s»"
 
-#: libcaja-private/caja-undostack-manager.c:1265
-#: libcaja-private/caja-undostack-manager.c:1460
+#: libcaja-private/caja-undostack-manager.c:1266
+#: libcaja-private/caja-undostack-manager.c:1461
 #, c-format
 msgid "Restore %d items from trash"
 msgstr "Restaura els %d elements de la paperera"
 
-#: libcaja-private/caja-undostack-manager.c:1273
+#: libcaja-private/caja-undostack-manager.c:1274
 #, c-format
 msgid "Restore '%s' to '%s'"
 msgstr "Restaura «%s» a «%s»"
 
-#: libcaja-private/caja-undostack-manager.c:1284
+#: libcaja-private/caja-undostack-manager.c:1285
 #, c-format
 msgid "Move %d items back to trash"
 msgstr "Torna a moure %d elements a la paperera"
 
-#: libcaja-private/caja-undostack-manager.c:1287
+#: libcaja-private/caja-undostack-manager.c:1288
 #, c-format
 msgid "Move '%s' back to trash"
 msgstr "Torna a moure «%s» a la paperera"
 
-#: libcaja-private/caja-undostack-manager.c:1296
+#: libcaja-private/caja-undostack-manager.c:1297
 #, c-format
 msgid "Delete links to %d items"
 msgstr "Suprimeix els enllaços a %d elements"
 
-#: libcaja-private/caja-undostack-manager.c:1299
+#: libcaja-private/caja-undostack-manager.c:1300
 #, c-format
 msgid "Delete link to '%s'"
 msgstr "Suprimeix l'enllaç a «%s»"
 
-#: libcaja-private/caja-undostack-manager.c:1309
+#: libcaja-private/caja-undostack-manager.c:1310
 #, c-format
 msgid "Restore original permissions of items enclosed in '%s'"
 msgstr "Restaura els permisos originals dels elements inclosos en «%s»"
 
-#: libcaja-private/caja-undostack-manager.c:1317
+#: libcaja-private/caja-undostack-manager.c:1318
 #, c-format
 msgid "Restore original permissions of '%s'"
 msgstr "Restaura els permisos originals de «%s»"
 
-#: libcaja-private/caja-undostack-manager.c:1326
+#: libcaja-private/caja-undostack-manager.c:1327
 #, c-format
 msgid "Restore group of '%s' to '%s'"
 msgstr "Restaura el grup de «%s» a «%s»"
 
-#: libcaja-private/caja-undostack-manager.c:1336
+#: libcaja-private/caja-undostack-manager.c:1337
 #, c-format
 msgid "Restore owner of '%s' to '%s'"
 msgstr "Restaura el propietari de «%s» a «%s»"
 
-#: libcaja-private/caja-undostack-manager.c:1375
+#: libcaja-private/caja-undostack-manager.c:1376
 #, c-format
 msgid "Copy %d items to '%s'"
 msgstr "Copia %d elements a «%s»"
 
-#: libcaja-private/caja-undostack-manager.c:1379
+#: libcaja-private/caja-undostack-manager.c:1380
 #, c-format
 msgid "Copy '%s' to '%s'"
 msgstr "Copia «%s» a «%s»"
 
-#: libcaja-private/caja-undostack-manager.c:1387
+#: libcaja-private/caja-undostack-manager.c:1388
 #, c-format
 msgid "Duplicate of %d items in '%s'"
 msgstr "Duplica %d elements en «%s»"
 
-#: libcaja-private/caja-undostack-manager.c:1392
+#: libcaja-private/caja-undostack-manager.c:1393
 #, c-format
 msgid "Duplicate '%s' in '%s'"
 msgstr "Duplica «%s» en «%s»"
 
-#: libcaja-private/caja-undostack-manager.c:1400
+#: libcaja-private/caja-undostack-manager.c:1401
 #, c-format
 msgid "Move %d items to '%s'"
 msgstr "Mou %d elements a «%s»"
 
-#: libcaja-private/caja-undostack-manager.c:1404
+#: libcaja-private/caja-undostack-manager.c:1405
 #, c-format
 msgid "Move '%s' to '%s'"
 msgstr "Mou «%s» a «%s»"
 
-#: libcaja-private/caja-undostack-manager.c:1422
+#: libcaja-private/caja-undostack-manager.c:1423
 #, c-format
 msgid "Create new file '%s' from template "
 msgstr "Crea un fitxer nou «%s» a partir d'una plantilla"
 
-#: libcaja-private/caja-undostack-manager.c:1429
+#: libcaja-private/caja-undostack-manager.c:1430
 #, c-format
 msgid "Create an empty file '%s'"
 msgstr "Crea un fitxer en blanc «%s»"
 
-#: libcaja-private/caja-undostack-manager.c:1436
+#: libcaja-private/caja-undostack-manager.c:1437
 #, c-format
 msgid "Create a new folder '%s'"
 msgstr "Crea una carpeta nova «%s»"
 
-#: libcaja-private/caja-undostack-manager.c:1444
+#: libcaja-private/caja-undostack-manager.c:1445
 #, c-format
 msgid "Move %d items to trash"
 msgstr "Mou %d elements a la paperera"
 
-#: libcaja-private/caja-undostack-manager.c:1450
+#: libcaja-private/caja-undostack-manager.c:1451
 #, c-format
 msgid "Move '%s' to trash"
 msgstr "Mou «%s» a la paperera"
 
-#: libcaja-private/caja-undostack-manager.c:1463
+#: libcaja-private/caja-undostack-manager.c:1464
 #, c-format
 msgid "Restore '%s' from trash"
 msgstr "Restaura «%s» de la paperera"
 
-#: libcaja-private/caja-undostack-manager.c:1472
+#: libcaja-private/caja-undostack-manager.c:1473
 #, c-format
 msgid "Create links to %d items"
 msgstr "Crea enllaços a %d elements"
 
-#: libcaja-private/caja-undostack-manager.c:1475
+#: libcaja-private/caja-undostack-manager.c:1476
 #, c-format
 msgid "Create link to '%s'"
 msgstr "Crea un enllaç a «%s»"
 
-#: libcaja-private/caja-undostack-manager.c:1484
+#: libcaja-private/caja-undostack-manager.c:1485
 #, c-format
 msgid "Set permissions of items enclosed in '%s'"
 msgstr "Estableix els permisos dels elements inclosos en «%s»"
 
-#: libcaja-private/caja-undostack-manager.c:1492
+#: libcaja-private/caja-undostack-manager.c:1493
 #, c-format
 msgid "Set permissions of '%s'"
 msgstr "Estableix els permisos de «%s»"
 
-#: libcaja-private/caja-undostack-manager.c:1501
+#: libcaja-private/caja-undostack-manager.c:1502
 #, c-format
 msgid "Set group of '%s' to '%s'"
 msgstr "Estableix el grup de «%s» a «%s»"
 
-#: libcaja-private/caja-undostack-manager.c:1511
+#: libcaja-private/caja-undostack-manager.c:1512
 #, c-format
 msgid "Set owner of '%s' to '%s'"
 msgstr "Estableix el propietari de «%s» a «%s»"
 
-#: libcaja-private/caja-undostack-manager.c:1543
+#: libcaja-private/caja-undostack-manager.c:1544
 #, c-format
 msgid "_Undo copy of %d item"
 msgid_plural "_Undo copy of %d items"
 msgstr[0] "_Desfés la còpia d'%d element"
 msgstr[1] "_Desfés la còpia de %d elements"
 
-#: libcaja-private/caja-undostack-manager.c:1548
+#: libcaja-private/caja-undostack-manager.c:1549
 #, c-format
 msgid "_Undo duplicate of %d item"
 msgid_plural "_Undo duplicate of %d items"
 msgstr[0] "_Desfés la duplicació d'%d element"
 msgstr[1] "_Desfés la duplicació de %d elements"
 
-#: libcaja-private/caja-undostack-manager.c:1553
+#: libcaja-private/caja-undostack-manager.c:1554
 #, c-format
 msgid "_Undo move of %d item"
 msgid_plural "_Undo move of %d items"
 msgstr[0] "_Desfés el moviment d'%d element"
 msgstr[1] "_Desfés el moviment de %d elements"
 
-#: libcaja-private/caja-undostack-manager.c:1558
+#: libcaja-private/caja-undostack-manager.c:1559
 #, c-format
 msgid "_Undo rename of %d item"
 msgid_plural "_Undo rename of %d items"
 msgstr[0] "_Desfés el canvi de nom d'%d element"
 msgstr[1] "_Desfés el canvi de nom de %d elements"
 
-#: libcaja-private/caja-undostack-manager.c:1562
+#: libcaja-private/caja-undostack-manager.c:1563
 msgid "_Undo creation of an empty file"
 msgstr "_Desfés la creació d'un fitxer en blanc"
 
-#: libcaja-private/caja-undostack-manager.c:1565
+#: libcaja-private/caja-undostack-manager.c:1566
 msgid "_Undo creation of a file from template"
 msgstr "_Desfés la creació d'un fitxer a partir d'una plantilla."
 
-#: libcaja-private/caja-undostack-manager.c:1569
+#: libcaja-private/caja-undostack-manager.c:1570
 #, c-format
 msgid "_Undo creation of %d folder"
 msgid_plural "_Undo creation of %d folders"
 msgstr[0] "_Desfés la creació d'%d carpeta"
 msgstr[1] "_Desfés la creació de %d carpetes"
 
-#: libcaja-private/caja-undostack-manager.c:1574
+#: libcaja-private/caja-undostack-manager.c:1575
 #, c-format
 msgid "_Undo move to trash of %d item"
 msgid_plural "_Undo move to trash of %d items"
 msgstr[0] "_Desfés el moviment a la paperera d'%d element"
 msgstr[1] "_Desfés el moviment a la paperera de %d elements"
 
-#: libcaja-private/caja-undostack-manager.c:1579
+#: libcaja-private/caja-undostack-manager.c:1580
 #, c-format
 msgid "_Undo restore from trash of %d item"
 msgid_plural "_Undo restore from trash of %d items"
 msgstr[0] "_Desfés la restauració d'%d element de la paperera"
 msgstr[1] "_Desfés la restauració de %d elements de la paperera"
 
-#: libcaja-private/caja-undostack-manager.c:1584
+#: libcaja-private/caja-undostack-manager.c:1585
 #, c-format
 msgid "_Undo create link to %d item"
 msgid_plural "_Undo create link to %d items"
 msgstr[0] "_Desfés la creació de l'enllaç d'%d element"
 msgstr[1] "_Desfés la creació dels enllaços de %d elements"
 
-#: libcaja-private/caja-undostack-manager.c:1589
+#: libcaja-private/caja-undostack-manager.c:1590
 #, c-format
 msgid "_Undo delete of %d item"
 msgid_plural "_Undo delete of %d items"
 msgstr[0] "_Desfés la supressió d'%d element"
 msgstr[1] "_Desfés la supressió de %d elements"
 
-#: libcaja-private/caja-undostack-manager.c:1594
+#: libcaja-private/caja-undostack-manager.c:1595
 #, c-format
 msgid "Undo recursive change permissions of %d item"
 msgid_plural "Undo recursive change permissions of %d items"
 msgstr[0] "Desfés el canvi recursiu dels permisos d'%d element"
 msgstr[1] "Desfés el canvi recursiu dels permisos de %d elements"
 
-#: libcaja-private/caja-undostack-manager.c:1600
+#: libcaja-private/caja-undostack-manager.c:1601
 #, c-format
 msgid "Undo change permissions of %d item"
 msgid_plural "Undo change permissions of %d items"
 msgstr[0] "Desfés el canvi dels permisos d'%d element"
 msgstr[1] "Desfés el canvi dels permisos de %d elements"
 
-#: libcaja-private/caja-undostack-manager.c:1605
+#: libcaja-private/caja-undostack-manager.c:1606
 #, c-format
 msgid "Undo change group of %d item"
 msgid_plural "Undo change group of %d items"
 msgstr[0] "Desfés el canvi de grup d'%d element"
 msgstr[1] "Desfés el canvi de grup de %d elements"
 
-#: libcaja-private/caja-undostack-manager.c:1610
+#: libcaja-private/caja-undostack-manager.c:1611
 #, c-format
 msgid "Undo change owner of %d item"
 msgid_plural "Undo change owner of %d items"
 msgstr[0] "Desfés el canvi de propietari d'%d element"
 msgstr[1] "Desfés el canvi de propietari de %d elements"
 
-#: libcaja-private/caja-undostack-manager.c:1638
+#: libcaja-private/caja-undostack-manager.c:1639
 #, c-format
 msgid "_Redo copy of %d item"
 msgid_plural "_Redo copy of %d items"
 msgstr[0] "_Refés la còpia d'%d element"
 msgstr[1] "_Refés la còpia de %d elements"
 
-#: libcaja-private/caja-undostack-manager.c:1643
+#: libcaja-private/caja-undostack-manager.c:1644
 #, c-format
 msgid "_Redo duplicate of %d item"
 msgid_plural "_Redo duplicate of %d items"
 msgstr[0] "_Refés la duplicació d'%d element"
 msgstr[1] "_Refés la duplicació de %d elements"
 
-#: libcaja-private/caja-undostack-manager.c:1648
+#: libcaja-private/caja-undostack-manager.c:1649
 #, c-format
 msgid "_Redo move of %d item"
 msgid_plural "_Redo move of %d items"
 msgstr[0] "_Refés el moviment d'%d element"
 msgstr[1] "_Refés el moviment de %d elements"
 
-#: libcaja-private/caja-undostack-manager.c:1653
+#: libcaja-private/caja-undostack-manager.c:1654
 #, c-format
 msgid "_Redo rename of %d item"
 msgid_plural "_Redo rename of %d items"
 msgstr[0] "_Refés el canvi de nom d'%d element"
 msgstr[1] "_Refés el canvi de nom de %d elements"
 
-#: libcaja-private/caja-undostack-manager.c:1657
+#: libcaja-private/caja-undostack-manager.c:1658
 msgid "_Redo creation of an empty file"
 msgstr "_Refés la creació d'un fitxer en blanc"
 
-#: libcaja-private/caja-undostack-manager.c:1660
+#: libcaja-private/caja-undostack-manager.c:1661
 msgid "_Redo creation of a file from template"
 msgstr "_Refés la creació d'un fitxer a partir d'una plantilla"
 
-#: libcaja-private/caja-undostack-manager.c:1664
+#: libcaja-private/caja-undostack-manager.c:1665
 #, c-format
 msgid "_Redo creation of %d folder"
 msgid_plural "_Redo creation of %d folders"
 msgstr[0] "_Refés la creació d'%d carpeta"
 msgstr[1] "_Refés la creació de %d carpetes"
 
-#: libcaja-private/caja-undostack-manager.c:1669
+#: libcaja-private/caja-undostack-manager.c:1670
 #, c-format
 msgid "_Redo move to trash of %d item"
 msgid_plural "_Redo move to trash of %d items"
 msgstr[0] "_Refés el moviment d'%d element a la paperera "
 msgstr[1] "_Refés el moviment de %d elements a la paperera "
 
-#: libcaja-private/caja-undostack-manager.c:1674
+#: libcaja-private/caja-undostack-manager.c:1675
 #, c-format
 msgid "_Redo restore from trash of %d item"
 msgid_plural "_Redo restore from trash of %d items"
 msgstr[0] "_Refés la restauració d'%d element de la paperera"
 msgstr[1] "_Refés la restauració de %d elements de la paperera"
 
-#: libcaja-private/caja-undostack-manager.c:1679
+#: libcaja-private/caja-undostack-manager.c:1680
 #, c-format
 msgid "_Redo create link to %d item"
 msgid_plural "_Redo create link to %d items"
 msgstr[0] "_Refés la creació de l'enllaç d'%d element"
 msgstr[1] "_Refés la creació dels enllaços de %d elements"
 
-#: libcaja-private/caja-undostack-manager.c:1684
+#: libcaja-private/caja-undostack-manager.c:1685
 #, c-format
 msgid "_Redo delete of %d item"
 msgid_plural "_Redo delete of %d items"
 msgstr[0] "_Refés la supressió d'%d element"
 msgstr[1] "_Refés la supressió de %d elements"
 
-#: libcaja-private/caja-undostack-manager.c:1689
+#: libcaja-private/caja-undostack-manager.c:1690
 #, c-format
 msgid "Redo recursive change permissions of %d item"
 msgid_plural "Redo recursive change permissions of %d items"
 msgstr[0] "Refés el canvi recursiu dels permisos d'%d element"
 msgstr[1] "Refés el canvi recursiu dels permisos de %d elements"
 
-#: libcaja-private/caja-undostack-manager.c:1695
+#: libcaja-private/caja-undostack-manager.c:1696
 #, c-format
 msgid "Redo change permissions of %d item"
 msgid_plural "Redo change permissions of %d items"
 msgstr[0] "Refés el canvi dels permisos d'%d element"
 msgstr[1] "Refés el canvi dels permisos de %d elements"
 
-#: libcaja-private/caja-undostack-manager.c:1700
+#: libcaja-private/caja-undostack-manager.c:1701
 #, c-format
 msgid "Redo change group of %d item"
 msgid_plural "Redo change group of %d items"
 msgstr[0] "Refés el canvi de grup d'%d element"
 msgstr[1] "Refés el canvi de grup de %d elements"
 
-#: libcaja-private/caja-undostack-manager.c:1705
+#: libcaja-private/caja-undostack-manager.c:1706
 #, c-format
 msgid "Redo change owner of %d item"
 msgid_plural "Redo change owner of %d items"
@@ -3890,64 +3891,64 @@ msgstr ""
 "carpeta» en la miniaplicació de preferències. S'obrirà una finestra de "
 "carpeta en introduir els mitjans que coincideixin amb aquests tipus."
 
-#: mate-submodules/libegg/eggdesktopfile.c:168
+#: mate-submodules/libegg/eggdesktopfile.c:169
 msgid "File is not a valid .desktop file"
 msgstr "El fitxer no és un fitxer .desktop vàlid"
 
-#: mate-submodules/libegg/eggdesktopfile.c:193
+#: mate-submodules/libegg/eggdesktopfile.c:194
 #, c-format
 msgid "Unrecognized desktop file Version '%s'"
 msgstr "No es reconeix la versió «%s» del fitxer d'escriptori"
 
-#: mate-submodules/libegg/eggdesktopfile.c:975
+#: mate-submodules/libegg/eggdesktopfile.c:976
 #, c-format
 msgid "Starting %s"
 msgstr "S'està iniciant %s"
 
-#: mate-submodules/libegg/eggdesktopfile.c:1117
+#: mate-submodules/libegg/eggdesktopfile.c:1118
 msgid "Application does not accept documents on command line"
 msgstr "L'aplicació no accepta documents des de la línia d'ordres"
 
-#: mate-submodules/libegg/eggdesktopfile.c:1185
+#: mate-submodules/libegg/eggdesktopfile.c:1186
 #, c-format
 msgid "Unrecognized launch option: %d"
 msgstr "No es reconeix l'opció de llançament: %d"
 
-#: mate-submodules/libegg/eggdesktopfile.c:1401
+#: mate-submodules/libegg/eggdesktopfile.c:1402
 msgid "Can't pass document URIs to a 'Type=Link' desktop entry"
 msgstr ""
 "No es poden passar els URI de document a una entrada d'escriptori "
 "«Type=Link»"
 
-#: mate-submodules/libegg/eggdesktopfile.c:1422
+#: mate-submodules/libegg/eggdesktopfile.c:1423
 msgid "Not a launchable item"
 msgstr "No és un element executable"
 
-#: mate-submodules/libegg/eggsmclient.c:233
+#: mate-submodules/libegg/eggsmclient.c:234
 msgid "Disable connection to session manager"
 msgstr "Inhabilita la connexió al gestor de sessions"
 
-#: mate-submodules/libegg/eggsmclient.c:238
+#: mate-submodules/libegg/eggsmclient.c:239
 msgid "Specify file containing saved configuration"
 msgstr "Especifica el fitxer que conté la configuració desada"
 
-#: mate-submodules/libegg/eggsmclient.c:238
+#: mate-submodules/libegg/eggsmclient.c:239
 msgid "FILE"
 msgstr "FITXER"
 
-#: mate-submodules/libegg/eggsmclient.c:243
+#: mate-submodules/libegg/eggsmclient.c:244
 msgid "Specify session management ID"
 msgstr "Especifica l'ID de gestió de la sessió"
 
-#: mate-submodules/libegg/eggsmclient.c:243
+#: mate-submodules/libegg/eggsmclient.c:244
 msgid "ID"
 msgstr "id."
 
-#: mate-submodules/libegg/eggsmclient.c:269
+#: mate-submodules/libegg/eggsmclient.c:270
 msgid "Session management options:"
 msgstr "Opcions de gestió de la sessió:"
 
-#: mate-submodules/libegg/eggsmclient.c:270
+#: mate-submodules/libegg/eggsmclient.c:271
 msgid "Show session management options"
 msgstr "Mostra les opcions de gestió de la sessió"
 
@@ -4100,15 +4101,15 @@ msgstr ""
 "\n"
 "En cas de dubte, premeu Cancel·la."
 
-#: src/caja-bookmarks-sidebar.c:193 src/caja-bookmarks-window.c:199
+#: src/caja-bookmarks-sidebar.c:194 src/caja-bookmarks-window.c:199
 msgid "No bookmarks defined"
 msgstr "No hi ha cap marcador definit"
 
-#: src/caja-bookmarks-sidebar.c:484 src/caja-places-sidebar.c:325
+#: src/caja-bookmarks-sidebar.c:485 src/caja-places-sidebar.c:325
 msgid "Bookmarks"
 msgstr "Marcadors"
 
-#: src/caja-bookmarks-sidebar.c:490
+#: src/caja-bookmarks-sidebar.c:491
 msgid "Show a list of your personal bookmarks"
 msgstr "Mostra una llista dels vostres marcadors personals"
 
@@ -4479,7 +4480,7 @@ msgstr "Per emblemes"
 
 #: src/caja-file-management-properties.ui:105
 msgid "By Extension"
-msgstr "Per extensió"
+msgstr "Per l'extensió"
 
 #: src/caja-file-management-properties.ui:108
 msgid "By Trashed Date"
@@ -5025,7 +5026,7 @@ msgstr[1] "Voleu visualitzar %d ubicacions?"
 
 #: src/caja-location-dialog.c:160
 msgid "Open Location"
-msgstr "Obre una ubicació"
+msgstr "Obrir una ubicació"
 
 #: src/caja-location-dialog.c:170
 msgid "_Location:"
@@ -5612,7 +5613,7 @@ msgstr "Tipus de fitxer"
 
 #: src/caja-query-editor.c:185
 msgid "Tags"
-msgstr "Etiquetes"
+msgstr "Marcadors"
 
 #: src/caja-query-editor.c:192
 msgid "Modification Time"
@@ -6001,9 +6002,8 @@ msgstr ""
 #: src/caja-window-menus.c:586
 msgid "translator-credits"
 msgstr ""
-"Daniel <danicases@gmail.com>\n"
-"Pere O. <gotrunks@gmail.com>\n"
-"Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>"
+"Aniol Gervasi <tradueix@gmail.com>, 2009\n"
+"Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>, 2018, 2019, 2020, 2021"
 
 #: src/caja-window-menus.c:589
 msgid "Website"
@@ -6519,7 +6519,7 @@ msgstr "«%s» es copiarà si seleccioneu l'ordre Enganxa"
 msgid "The %'d selected item will be moved if you select the Paste command"
 msgid_plural ""
 "The %'d selected items will be moved if you select the Paste command"
-msgstr[0] "Es mourà l'element seleccionat si seleccioneu l'ordre Enganxa"
+msgstr[0] "Es mourà %'d element seleccionat si seleccioneu l'ordre Enganxa"
 msgstr[1] ""
 "Es mouran els %'d elements seleccionats si seleccioneu l'ordre Enganxa"
 
@@ -6528,7 +6528,7 @@ msgstr[1] ""
 msgid "The %'d selected item will be copied if you select the Paste command"
 msgid_plural ""
 "The %'d selected items will be copied if you select the Paste command"
-msgstr[0] "Es copiarà l'element seleccionat si seleccioneu l'ordre Enganxa"
+msgstr[0] "Es copiarà %'d element seleccionat si seleccioneu l'ordre Enganxa"
 msgstr[1] ""
 "Es copiaran els %'d elements seleccionats si seleccioneu l'ordre Enganxa"
 
@@ -7932,22 +7932,22 @@ msgstr "Arbre"
 msgid "Show Tree"
 msgstr "Mostra l'arbre"
 
-#: src/file-manager/fm-widget-view.c:443
+#: src/file-manager/fm-widget-view.c:444
 msgid "Widget View"
 msgstr "Vista d'estri"
 
-#: src/file-manager/fm-widget-view.c:444
+#: src/file-manager/fm-widget-view.c:445
 msgid "_Widget View"
 msgstr "_Vista d'estri"
 
-#: src/file-manager/fm-widget-view.c:445
+#: src/file-manager/fm-widget-view.c:446
 msgid "The widget view encountered an error."
 msgstr "S'ha produït un error en la vista d'estri."
 
-#: src/file-manager/fm-widget-view.c:446
+#: src/file-manager/fm-widget-view.c:447
 msgid "The widget view encountered an error while starting up."
 msgstr "S'ha produït un error en la vista d'estri mentre s'estava iniciant."
 
-#: src/file-manager/fm-widget-view.c:447
+#: src/file-manager/fm-widget-view.c:448
 msgid "Display this location with the widget view."
 msgstr "Mostra aquesta ubicació amb la vista d'estri."
