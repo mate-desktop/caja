@@ -21,10 +21,10 @@ dnl Interface break is not allowed.
 m4_define(caja_extension_current,  5)
 m4_define(caja_extension_revision, 0)
 
-AC_INIT([caja],
+AC_INIT([caja-glib-2.50],
         [1.26.1],
         [https://github.com/mate-desktop/caja/issues],
-        [caja],
+        [caja-glib-2.50],
         [https://mate-desktop.org])
 
 dnl ---------------------------------------------------------------------------
