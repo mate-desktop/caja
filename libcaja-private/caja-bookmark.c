@@ -274,11 +274,13 @@ char *
 caja_bookmark_get_uri (CajaBookmark *bookmark)
 {
     GFile *file;
-    char *uri;
+    char *uri = NULL;
 
-    file = caja_bookmark_get_location (bookmark);
-    uri = g_file_get_uri (file);
-    g_object_unref (file);
+    if ((file = caja_bookmark_get_location (bookmark)) != NULL)
+    {
+        uri = g_file_get_uri (file);
+        g_object_unref (file);
+    }
     return uri;
 }
 
