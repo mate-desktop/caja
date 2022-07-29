@@ -328,10 +328,7 @@ loading_uri_callback (CajaWindowInfo       *window,
             gtk_tree_model_get (model, &iter,
                                 BOOKMARKS_SIDEBAR_COLUMN_BOOKMARK, &bookmark,
                                 -1);
-
-            uri = caja_bookmark_get_uri (bookmark);
-
-            if (uri != NULL)
+            if (bookmark && ((uri = caja_bookmark_get_uri (bookmark)) != NULL))
             {
                 if (strcmp (uri, location) == 0)
                 {
