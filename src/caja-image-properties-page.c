@@ -401,8 +401,29 @@ load_finished (CajaImagePropertiesPage *page)
         g_autofree char *name = NULL;
         g_autofree char *desc = NULL;
         g_autofree char *value = NULL;
+        int width = page->details->width;
+        int height = page->details->height;
 #ifdef HAVE_EXIF
         ExifData *exif_data;
+        ExifEntry *exif_entry;
+        ExifShort orientation;
+
+        exif_data = exif_loader_get_data (page->details->exifldr);
+        if (!exif_data)
+            goto no_exifdata;
+
+        exif_entry = exif_content_get_entry (exif_data->ifd[EXIF_IFD_0], EXIF_TAG_ORIENTATION);
+        if (!exif_entry)
+            goto no_exifdata;
+
+        orientation = exif_get_short (exif_entry->data, exif_data_get_byte_order (exif_data));
+        if (orientation > 4)
+        {
+            height = page->details->width;
+            width = page->details->height;
+        }
+
+no_exifdata:
 #endif /*HAVE_EXIF*/
 
         format = gdk_pixbuf_loader_get_format (page->details->loader);
@@ -421,18 +442,17 @@ load_finished (CajaImagePropertiesPage *page)
 
         value = g_strdup_printf (ngettext ("%d pixel",
                                            "%d pixels",
-                                           page->details->width),
-                                 page->details->width);
+                                           width),
+                                 width);
         add_row (page, _("Width"), value);
 
         value = g_strdup_printf (ngettext ("%d pixel",
                                            "%d pixels",
-                                           page->details->height),
-                                 page->details->height);
+                                           height),
+                                 height);
         add_row (page, _("Height"), value);
 
 #ifdef HAVE_EXIF
-        exif_data = exif_loader_get_data (page->details->exifldr);
         append_exifdata_string (exif_data, page);
         exif_data_unref (exif_data);
 #endif /*HAVE_EXIF*/
