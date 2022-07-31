@@ -677,11 +677,13 @@ get_property_pages (CajaPropertyPageProvider *provider,
     file = CAJA_FILE_INFO (files->data);
 
     if (!
-            (caja_file_info_is_mime_type (file, "image/x-bmp") ||
-             caja_file_info_is_mime_type (file, "image/x-ico") ||
+            (caja_file_info_is_mime_type (file, "image/png") ||
              caja_file_info_is_mime_type (file, "image/jpeg") ||
+             caja_file_info_is_mime_type (file, "image/webp") ||
+             caja_file_info_is_mime_type (file, "image/svg+xml") ||
              caja_file_info_is_mime_type (file, "image/gif") ||
-             caja_file_info_is_mime_type (file, "image/png") ||
+             caja_file_info_is_mime_type (file, "image/x-bmp") ||
+             caja_file_info_is_mime_type (file, "image/x-ico") ||
              caja_file_info_is_mime_type (file, "image/pnm") ||
              caja_file_info_is_mime_type (file, "image/ras") ||
              caja_file_info_is_mime_type (file, "image/tga") ||
