@@ -675,14 +675,46 @@ caja_image_properties_page_init (CajaImagePropertiesPage *page)
     gtk_widget_show_all (GTK_WIDGET (page));
 }
 
+static gboolean
+is_mime_type_supported (const char *mime_type)
+{
+    g_autoptr (GSList) formats = NULL;
+
+    if (mime_type == NULL)
+    {
+        return FALSE;
+    }
+
+    formats = gdk_pixbuf_get_formats ();
+
+    for (GSList *l = formats; l != NULL; l = l->next)
+    {
+        g_auto (GStrv) mime_types = NULL;
+
+        mime_types = gdk_pixbuf_format_get_mime_types (l->data);
+        if (mime_types == NULL)
+        {
+            continue;
+        }
+
+        if (g_strv_contains ((const char * const *) mime_types, mime_type))
+        {
+            return TRUE;
+        }
+    }
+
+    return FALSE;
+}
+
 static GList *
 get_property_pages (CajaPropertyPageProvider *provider,
                     GList *files)
 {
     GList *pages;
     CajaPropertyPage *real_page;
-    CajaFileInfo *file;
-    char *uri;
+    CajaFileInfo *file_info;
+    g_autofree char *mime_type = NULL;
+    g_autofree char *uri = NULL;
     CajaImagePropertiesPage *page;
 
     /* Only show the property page if 1 file is selected */
@@ -691,33 +723,19 @@ get_property_pages (CajaPropertyPageProvider *provider,
         return NULL;
     }
 
-    file = CAJA_FILE_INFO (files->data);
-
-    if (!
-            (caja_file_info_is_mime_type (file, "image/x-bmp") ||
-             caja_file_info_is_mime_type (file, "image/x-ico") ||
-             caja_file_info_is_mime_type (file, "image/jpeg") ||
-             caja_file_info_is_mime_type (file, "image/gif") ||
-             caja_file_info_is_mime_type (file, "image/png") ||
-             caja_file_info_is_mime_type (file, "image/pnm") ||
-             caja_file_info_is_mime_type (file, "image/ras") ||
-             caja_file_info_is_mime_type (file, "image/tga") ||
-             caja_file_info_is_mime_type (file, "image/tiff") ||
-             caja_file_info_is_mime_type (file, "image/wbmp") ||
-             caja_file_info_is_mime_type (file, "image/x-xbitmap") ||
-             caja_file_info_is_mime_type (file, "image/x-xpixmap")))
+    file_info = CAJA_FILE_INFO (files->data);
+    mime_type = caja_file_info_get_mime_type (file_info);
+    if (!is_mime_type_supported (mime_type))
     {
         return NULL;
     }
 
     pages = NULL;
 
-    uri = caja_file_info_get_uri (file);
+    uri = caja_file_info_get_uri (file_info);
 
     page = g_object_new (caja_image_properties_page_get_type (), NULL);
     load_location (page, uri);
-
-    g_free (uri);
 
     real_page = caja_property_page_new
                 ("CajaImagePropertiesPage::property_page",
