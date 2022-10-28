@@ -1,9 +1,10 @@
 [main]
 host = https://www.transifex.com
- 
-[MATE.master--caja]
-file_filter = po/<lang>.po
-source_file = po/caja.pot
-source_lang = en
-type = PO
+
+[o:mate:p:MATE:r:master--caja]
+file_filter  = po/<lang>.po
+source_file  = po/caja.pot
+source_lang  = en
+type         = PO
 minimum_perc = 2
+
