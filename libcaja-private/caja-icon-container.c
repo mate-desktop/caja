@@ -296,14 +296,15 @@ icon_is_positioned (const CajaIcon *icon)
 
 /* x, y are the top-left coordinates of the icon. */
 static void
-icon_set_position (CajaIcon *icon,
-                   double x, double y)
+icon_set_position_full (CajaIcon *icon,
+                        double x, double y,
+                        gboolean force)
 {
     CajaIconContainer *container;
     int x1, x2, y1, y2;
     EelDRect icon_bounds;
 
-    if (icon->x == x && icon->y == y)
+    if (!force && icon->x == x && icon->y == y)
     {
         return;
     }
@@ -389,6 +390,13 @@ icon_set_position (CajaIcon *icon,
 
     icon->x = x;
     icon->y = y;
+}
+
+static void
+icon_set_position (CajaIcon *icon,
+                   double x, double y)
+{
+    icon_set_position_full (icon, x, y, FALSE);
 }
 
 static void
@@ -2387,7 +2395,8 @@ redo_layout (CajaIconContainer *container)
 }
 
 static void
-reload_icon_positions (CajaIconContainer *container)
+reload_icon_positions (CajaIconContainer *container,
+                       gboolean           layout_changed)
 {
     GList *p, *no_position_icons;
     gboolean have_stored_position;
@@ -2417,7 +2426,12 @@ reload_icon_positions (CajaIconContainer *container)
                        &have_stored_position);
         if (have_stored_position)
         {
-            icon_set_position (icon, position.x, position.y);
+            icon_set_position_full (icon, position.x, position.y,
+                                    /* if only layout changed, don't bother
+                                     * updating already valid info.  If however
+                                     * e.g. zoom changed, x and y might now be
+                                     * overflowing and need recomputing */
+                                    !layout_changed);
             item = EEL_CANVAS_ITEM (icon->item);
             caja_icon_canvas_item_get_bounds_for_layout (icon->item,
                     &bounds.x0,
@@ -2435,15 +2449,20 @@ reload_icon_positions (CajaIconContainer *container)
                 bottom = bounds.y1;
             }
         }
-        else
+        else if (layout_changed)
         {
             no_position_icons = g_list_prepend (no_position_icons, icon);
         }
     }
-    no_position_icons = g_list_reverse (no_position_icons);
 
-    /* Place all the other icons. */
-    lay_down_icons (container, no_position_icons, bottom + ICON_PAD_BOTTOM);
+    if (layout_changed)
+    {
+        /* If layout changed, place all the other icons that don't have stored
+         * positions yet */
+        no_position_icons = g_list_reverse (no_position_icons);
+        lay_down_icons (container, no_position_icons, bottom + ICON_PAD_BOTTOM);
+    }
+
     g_list_free (no_position_icons);
 }
 
@@ -8021,6 +8040,11 @@ caja_icon_container_request_update_all (CajaIconContainer *container)
         caja_icon_container_update_icon (container, icon);
     }
 
+    /* on manual layout we need to reload icon positions, as that might be
+     * affected by the view size, zoom, etc. */
+    if (!container->details->auto_layout)
+        reload_icon_positions (container, FALSE);
+
     redo_layout (container);
     container->details->is_loading = FALSE;
 }
@@ -8622,7 +8646,7 @@ caja_icon_container_set_auto_layout (CajaIconContainer *container,
 
     if (!auto_layout)
     {
-        reload_icon_positions (container);
+        reload_icon_positions (container, TRUE);
         caja_icon_container_freeze_icon_positions (container);
     }
 
