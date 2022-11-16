@@ -45,7 +45,7 @@
 #define CAJA_ICON_CONTAINER_ICON_DATA(pointer) \
 	((CajaIconData *) (pointer))
 
-typedef struct CajaIconData CajaIconData;
+typedef void CajaIconData;
 
 typedef void (* CajaIconCallback) (CajaIconData *icon_data,
                                    gpointer callback_data);
