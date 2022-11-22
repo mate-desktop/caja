@@ -7687,19 +7687,6 @@ assign_icon_position (CajaIconContainer *container,
 }
 
 static void
-finish_adding_icon (CajaIconContainer *container,
-                    CajaIcon *icon)
-{
-    caja_icon_container_update_icon (container, icon);
-    eel_canvas_item_show (EEL_CANVAS_ITEM (icon->item));
-
-    g_signal_connect_object (icon->item, "event",
-                             G_CALLBACK (item_event_callback), container, 0);
-
-    g_signal_emit (container, signals[ICON_ADDED], 0, icon->data);
-}
-
-static void
 finish_adding_new_icons (CajaIconContainer *container)
 {
     GList *p, *new_icons, *no_position_icons, *semi_position_icons;
@@ -7717,6 +7704,7 @@ finish_adding_new_icons (CajaIconContainer *container)
     for (p = new_icons; p != NULL; p = p->next)
     {
         icon = p->data;
+        caja_icon_container_update_icon (container, icon);
         if (icon->has_lazy_position)
         {
             assign_icon_position (container, icon);
@@ -7727,7 +7715,12 @@ finish_adding_new_icons (CajaIconContainer *container)
             no_position_icons = g_list_prepend (no_position_icons, icon);
         }
 
-        finish_adding_icon (container, icon);
+        eel_canvas_item_show (EEL_CANVAS_ITEM (icon->item));
+
+        g_signal_connect_object (icon->item, "event",
+                                 G_CALLBACK (item_event_callback), container, 0);
+
+        g_signal_emit (container, signals[ICON_ADDED], 0, icon->data);
     }
     g_list_free (new_icons);
 
