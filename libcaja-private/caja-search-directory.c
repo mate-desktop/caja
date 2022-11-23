@@ -49,7 +49,6 @@ struct CajaSearchDirectoryDetails
     gboolean search_finished;
 
     GList *files;
-    GHashTable *file_hash;
 
     GList *monitor_list;
     GList *callback_list;

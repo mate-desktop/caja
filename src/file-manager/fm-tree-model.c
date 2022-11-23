@@ -119,12 +119,6 @@ struct FMTreeModelRoot
     TreeNode *root_node;
 };
 
-typedef struct
-{
-    CajaDirectory *directory;
-    FMTreeModel *model;
-} DoneLoadingParameters;
-
 static void fm_tree_model_tree_model_init (GtkTreeModelIface *iface);
 static void schedule_monitoring_update     (FMTreeModel *model);
 static void destroy_node_without_reporting (FMTreeModel *model,

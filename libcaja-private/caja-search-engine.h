@@ -35,12 +35,9 @@
 #define CAJA_IS_SEARCH_ENGINE_CLASS(klass)	(G_TYPE_CHECK_CLASS_TYPE ((klass), CAJA_TYPE_SEARCH_ENGINE))
 #define CAJA_SEARCH_ENGINE_GET_CLASS(obj)    (G_TYPE_INSTANCE_GET_CLASS ((obj), CAJA_TYPE_SEARCH_ENGINE, CajaSearchEngineClass))
 
-typedef struct CajaSearchEngineDetails CajaSearchEngineDetails;
-
 typedef struct CajaSearchEngine
 {
     GObject parent;
-    CajaSearchEngineDetails *details;
 } CajaSearchEngine;
 
 typedef struct
