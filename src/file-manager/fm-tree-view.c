@@ -101,7 +101,6 @@ struct FMTreeViewDetails
     GtkWidget *popup_cut;
     GtkWidget *popup_copy;
     GtkWidget *popup_paste;
-    GtkWidget *popup_rename;
     GtkWidget *popup_trash;
     GtkWidget *popup_delete;
     GtkWidget *popup_properties;
@@ -113,12 +112,6 @@ struct FMTreeViewDetails
 
     guint selection_changed_timer;
 };
-
-typedef struct
-{
-    GList *uris;
-    FMTreeView *view;
-} PrependURIParameters;
 
 static GdkAtom copied_files_atom;
 

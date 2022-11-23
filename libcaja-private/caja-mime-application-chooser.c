@@ -52,7 +52,6 @@ struct _CajaMimeApplicationChooserDetails
     guint refresh_timeout;
 
     GtkWidget *label;
-    GtkWidget *entry;
     GtkWidget *treeview;
     GtkWidget *remove_button;
 

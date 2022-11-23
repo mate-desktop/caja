@@ -39,11 +39,6 @@
 #include "caja-file-utilities.h"
 #include "caja-search-directory.h"
 
-struct CajaSearchDirectoryFileDetails
-{
-    CajaSearchDirectory *search_directory;
-};
-
 G_DEFINE_TYPE(CajaSearchDirectoryFile, caja_search_directory_file, CAJA_TYPE_FILE);
 
 static void

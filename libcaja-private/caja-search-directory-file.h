@@ -40,12 +40,9 @@
 #define CAJA_SEARCH_DIRECTORY_FILE_GET_CLASS(obj) \
   (G_TYPE_INSTANCE_GET_CLASS ((obj), CAJA_TYPE_SEARCH_DIRECTORY_FILE, CajaSearchDirectoryFileClass))
 
-typedef struct CajaSearchDirectoryFileDetails CajaSearchDirectoryFileDetails;
-
 typedef struct
 {
     CajaFile parent_slot;
-    CajaSearchDirectoryFileDetails *details;
 } CajaSearchDirectoryFile;
 
 typedef struct

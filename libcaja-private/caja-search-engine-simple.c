@@ -42,7 +42,6 @@ typedef struct
     GList *mime_types;
     GList *tags;
     char **words;
-    GList *found_list;
 
     GQueue *directories; /* GFiles */
 
