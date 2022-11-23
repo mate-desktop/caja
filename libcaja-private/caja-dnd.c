@@ -204,7 +204,7 @@ caja_drag_build_selection_list (GtkSelectionData *data)
         if (*p == '\n' || *p == '\0')
         {
             result = g_list_prepend (result, item);
-            if (p == 0)
+            if (*p != '\n')
             {
                 g_warning ("Invalid x-special/mate-icon-list data received: "
                            "missing newline character.");
