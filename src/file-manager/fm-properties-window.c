@@ -98,7 +98,6 @@ struct _FMPropertiesWindowPrivate {
 
 	GtkLabel *name_label;
 	GtkWidget *name_field;
-	unsigned int name_row;
 	char *pending_name;
 
 	GtkLabel *directory_contents_title_field;
