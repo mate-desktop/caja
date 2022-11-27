@@ -2823,11 +2823,6 @@ deep_count_one (DeepCountState *state,
     CajaFile *file;
     gboolean is_seen_inode;
 
-    if (should_skip_file (NULL, info))
-    {
-        return;
-    }
-
     is_seen_inode = seen_inode (state, info);
     if (!is_seen_inode)
     {
