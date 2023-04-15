@@ -4883,12 +4883,12 @@ caja_file_fit_date_as_string (CajaFile *file,
 	 * internationalization's sake.
 	 */
 
-	if (file_date_age < G_TIME_SPAN_DAY) {
-		formats = TODAY_TIME_FORMATS;
-	} else if (file_date_age < 2 * G_TIME_SPAN_DAY) {
+	if (file_date_age <= 0 || file_date_age > 2 * G_TIME_SPAN_DAY) {
+		formats = CURRENT_WEEK_TIME_FORMATS;
+	} else if (file_date_age > G_TIME_SPAN_DAY) {
 		formats = YESTERDAY_TIME_FORMATS;
 	} else {
-		formats = CURRENT_WEEK_TIME_FORMATS;
+		formats = TODAY_TIME_FORMATS;
 	}
 
 	/* Find the date format that just fits the required width. Instead of measuring
