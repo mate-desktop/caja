@@ -4848,7 +4848,7 @@ caja_file_fit_date_as_string (CajaFile *file,
 	char *date_string;
 	gchar *result = NULL;
 	int i;
-	GDateTime *date_time, *today;
+	GDateTime *date_time, *today, *end_of_today;
 	GTimeSpan file_date_age;
 
 	if (!caja_file_get_date (file, date_type, &file_time_raw)) {
@@ -4866,8 +4866,14 @@ caja_file_fit_date_as_string (CajaFile *file,
 	}
 
 	today = g_date_time_new_now_local ();
-	file_date_age = g_date_time_difference (today, date_time);
+	end_of_today = g_date_time_add_full (today, 0, 0, 1,
+					     -1 * g_date_time_get_hour (today),
+					     -1 * g_date_time_get_minute (today),
+					     -1.0 * g_date_time_get_seconds (today));
 	g_date_time_unref (today);
+
+	file_date_age = g_date_time_difference (end_of_today, date_time);
+	g_date_time_unref (end_of_today);
 
 	/* Format varies depending on how old the date is. This minimizes
 	 * the length (and thus clutter & complication) of typical dates
