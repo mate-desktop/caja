@@ -1042,7 +1042,7 @@ eel_editable_label_ensure_layout (EelEditableLabel *label,
                 scale = gtk_widget_get_scale_factor (widget);
                 width = MIN (width, wrap_width);
                 width = MIN (width,
-                             PANGO_SCALE * (WidthOfScreen (gdk_x11_screen_get_xscreen (gdk_screen_get_default ())) / scale + 1) / 2);
+                PANGO_SCALE * (gdk_screen_width () + 1) / 2);
 
                 pango_layout_set_width (label->layout, width);
                 pango_layout_get_extents (label->layout, NULL, &logical_rect);

@@ -250,8 +250,6 @@ main (int argc, char *argv[])
 
 	g_set_prgname ("caja");
 
-	gdk_set_allowed_backends ("x11");
-
 	if (g_file_test (DATADIR "/applications/caja.desktop", G_FILE_TEST_EXISTS)) {
 		egg_set_desktop_file (DATADIR "/applications/caja.desktop");
 	}

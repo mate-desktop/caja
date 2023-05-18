@@ -324,7 +324,9 @@ icon_set_position_full (CajaIcon *icon,
         int item_width, item_height;
         int height_above, width_left;
         int min_x, max_x, min_y, max_y;
-        int scale;
+        GdkWindow *window;
+        GdkMonitor *monitor;
+        GdkRectangle workarea = {0};
 
         /*  FIXME: This should be:
 
@@ -338,14 +340,17 @@ icon_set_position_full (CajaIcon *icon,
         really bad.
 
         For now, we have a cheesy workaround:
+        note that this version does not require scaling
         */
-        scale = gtk_widget_get_scale_factor (GTK_WIDGET (container));
+        window  = gtk_widget_get_window (GTK_WIDGET(container));
+        monitor = gdk_display_get_monitor_at_window (gdk_display_get_default(), window);
+        gdk_monitor_get_workarea(monitor, &workarea);
         container_x = 0;
         container_y = 0;
-        container_width = WidthOfScreen (gdk_x11_screen_get_xscreen (gdk_screen_get_default ())) / scale - container_x
+        container_width = workarea.width  - container_x
                           - container->details->left_margin
                           - container->details->right_margin;
-        container_height = HeightOfScreen (gdk_x11_screen_get_xscreen (gdk_screen_get_default ())) / scale - container_y
+        container_height = workarea.height - container_y
                            - container->details->top_margin
                            - container->details->bottom_margin;
         pixels_per_unit = EEL_CANVAS (container)->pixels_per_unit;
@@ -5253,16 +5258,18 @@ caja_icon_container_search_position_func (CajaIconContainer *container,
     gint x, y;
     gint cont_x, cont_y;
     gint cont_width, cont_height;
-    gint scale;
     GdkWindow *cont_window;
     GdkScreen *screen;
     GtkRequisition requisition;
     GdkMonitor *monitor_num;
     GdkRectangle monitor;
+    GdkRectangle workarea = {0};
 
     cont_window = gtk_widget_get_window (GTK_WIDGET (container));
-    scale = gtk_widget_get_scale_factor (GTK_WIDGET (container));
     screen = gdk_window_get_screen (cont_window);
+
+    monitor_num = gdk_display_get_monitor_at_window (gdk_display_get_default(), cont_window);
+    gdk_monitor_get_workarea(monitor_num, &workarea);
 
     monitor_num = gdk_display_get_monitor_at_window (gdk_screen_get_display (screen),
                                                      cont_window);
@@ -5277,9 +5284,9 @@ caja_icon_container_search_position_func (CajaIconContainer *container,
 
     gtk_widget_get_preferred_size (search_dialog, &requisition, NULL);
 
-    if (cont_x + cont_width - requisition.width > WidthOfScreen (gdk_x11_screen_get_xscreen (screen)) / scale)
+    if (cont_x + cont_width - requisition.width > workarea.width)
     {
-        x = WidthOfScreen (gdk_x11_screen_get_xscreen (screen)) / scale - requisition.width;
+        x = workarea.width - requisition.width;
     }
     else if (cont_x + cont_width - requisition.width < 0)
     {
@@ -5290,9 +5297,9 @@ caja_icon_container_search_position_func (CajaIconContainer *container,
         x = cont_x + cont_width - requisition.width;
     }
 
-    if (cont_y + cont_height > HeightOfScreen (gdk_x11_screen_get_xscreen (screen)))
+    if (cont_y + cont_height > workarea.height)
     {
-        y = HeightOfScreen (gdk_x11_screen_get_xscreen (screen)) - requisition.height;
+        y = workarea.height - requisition.height;
     }
     else if (cont_y + cont_height < 0)     /* isn't really possible ... */
     {
@@ -6034,13 +6041,13 @@ key_press_event (GtkWidget *widget,
     {
         GdkEvent *new_event;
         GdkWindow *window;
+        GdkDisplay *display;
+        GdkRectangle workarea = {0};
         char *old_text;
         const char *new_text;
         gboolean retval;
-        GdkScreen *screen;
         gboolean text_modified;
         gulong popup_menu_id;
-        gint scale;
 
         caja_icon_container_ensure_interactive_directory (container);
 
@@ -6055,12 +6062,12 @@ key_press_event (GtkWidget *widget,
                                           "popup_menu", G_CALLBACK (gtk_true), NULL);
 
         /* Move the entry off screen */
-        screen = gtk_widget_get_screen (GTK_WIDGET (container));
-        scale = gtk_widget_get_scale_factor (GTK_WIDGET (container));
-        gtk_window_move (GTK_WINDOW (container->details->search_window),
-                         WidthOfScreen (gdk_x11_screen_get_xscreen (screen)) / scale + 1,
-                         HeightOfScreen (gdk_x11_screen_get_xscreen (screen)) / scale + 1);
         gtk_widget_show (container->details->search_window);
+        display = gdk_display_get_default ();
+        gdk_monitor_get_workarea(gdk_display_get_monitor_at_window (display, window), &workarea);
+        gtk_window_move (GTK_WINDOW (container->details->search_window),
+                         workarea.width + 1,
+                        workarea.height + 1);
 
         /* Send the event to the window.  If the preedit_changed signal is emitted
          * during this event, we will set priv->imcontext_changed  */
