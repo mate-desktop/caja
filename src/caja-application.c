@@ -634,38 +634,44 @@ selection_get_cb (GtkWidget          *widget,
 static GtkWidget *
 get_desktop_manager_selection (GdkDisplay *display)
 {
-    char selection_name[32];
-    GdkAtom selection_atom;
-    Window selection_owner;
-    GtkWidget *selection_widget;
+	/*FIXME: for Wayland we need a new desktop canvas anyway
+    *so when that is ready we will need to add a wayland code
+    *path here to support it
+    */
+    if  (GDK_IS_X11_DISPLAY (display)){
+        char selection_name[32];
+        GdkAtom selection_atom;
+        Window selection_owner;
+        GtkWidget *selection_widget;
 
-    g_snprintf (selection_name, sizeof (selection_name), "_NET_DESKTOP_MANAGER_S0");
-    selection_atom = gdk_atom_intern (selection_name, FALSE);
+        g_snprintf (selection_name, sizeof (selection_name), "_NET_DESKTOP_MANAGER_S0");
+        selection_atom = gdk_atom_intern (selection_name, FALSE);
 
-    selection_owner = XGetSelectionOwner (GDK_DISPLAY_XDISPLAY (display),
+        selection_owner = XGetSelectionOwner (GDK_DISPLAY_XDISPLAY (display),
                                           gdk_x11_atom_to_xatom_for_display (display,
                                                   selection_atom));
-    if (selection_owner != None)
-    {
+        if (selection_owner != None)
+        {
         return NULL;
-    }
+        }
 
-    selection_widget = gtk_invisible_new_for_screen (gdk_display_get_default_screen (display));
-    /* We need this for gdk_x11_get_server_time() */
-    gtk_widget_add_events (selection_widget, GDK_PROPERTY_CHANGE_MASK);
+        selection_widget = gtk_invisible_new_for_screen (gdk_display_get_default_screen (display));
+        /* We need this for gdk_x11_get_server_time() */
+        gtk_widget_add_events (selection_widget, GDK_PROPERTY_CHANGE_MASK);
 
-    if (gtk_selection_owner_set_for_display (display,
+        if (gtk_selection_owner_set_for_display (display,
             selection_widget,
             selection_atom,
             gdk_x11_get_server_time (gtk_widget_get_window (selection_widget))))
-    {
+        {
 
-        g_signal_connect (selection_widget, "selection_get",
+            g_signal_connect (selection_widget, "selection_get",
                           G_CALLBACK (selection_get_cb), NULL);
-        return selection_widget;
-    }
+            return selection_widget;
+        }
 
-    gtk_widget_destroy (selection_widget);
+        gtk_widget_destroy (selection_widget);
+    }
 
     return NULL;
 }

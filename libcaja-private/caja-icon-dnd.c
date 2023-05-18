@@ -946,7 +946,6 @@ handle_local_move (CajaIconContainer *container,
     GList *moved_icons, *p;
     CajaFile *file;
     char screen_string[32];
-    GdkScreen *screen;
     time_t now;
     CajaDragSelectionItem *item = NULL;
     CajaIcon *icon = NULL;
@@ -971,13 +970,15 @@ handle_local_move (CajaIconContainer *container,
         {
             /* probably dragged from another screen.  Add it to
              * this screen
+             * Update: since GTK 3.22 there is only ONE screen
+             * even with multiple monitors
              */
 
             file = caja_file_get_by_uri (item->uri);
-
-            screen = gtk_widget_get_screen (GTK_WIDGET (container));
+            
             g_snprintf (screen_string, sizeof (screen_string), "%d",
-                        gdk_x11_screen_get_screen_number (screen));
+                        /*gdk_x11_screen_get_screen_number (screen)); This is ALWAYS 0 since GTK 3.22*/
+                        0);
             caja_file_set_metadata (file,
                                     CAJA_METADATA_KEY_SCREEN,
                                     NULL, screen_string);
@@ -1906,8 +1907,10 @@ drag_data_received_callback (GtkWidget *widget,
                 caja_file_changes_queue_schedule_position_set (
                     location,
                     p,
-                    gdk_x11_screen_get_screen_number (
-                        gtk_widget_get_screen (widget)));
+                    0);
+                    /*gdk_x11_screen_get_screen_number  
+                     *Always returns 0 since GTK 3.22
+                     */
                 g_object_unref (location);
                 caja_file_changes_consume_changes (TRUE);
                 success = TRUE;

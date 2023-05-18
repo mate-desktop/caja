@@ -761,16 +761,22 @@ is_shift_pressed (void)
     Bool status;
 
     ret = FALSE;
-
     display = gdk_display_get_default ();
-    gdk_x11_display_error_trap_push (display);
-    status = XkbGetState (GDK_DISPLAY_XDISPLAY (display),
-                          XkbUseCoreKbd, &state);
-    gdk_x11_display_error_trap_pop_ignored (display);
-
-    if (status == Success)
+    if  (GDK_IS_X11_DISPLAY (display))
     {
-        ret = state.mods & ShiftMask;
+        gdk_x11_display_error_trap_push (display);
+        status = XkbGetState (GDK_DISPLAY_XDISPLAY (display),
+                              XkbUseCoreKbd, &state);
+        gdk_x11_display_error_trap_pop_ignored (display);
+
+        if (status == Success)
+        {
+            ret = state.mods & ShiftMask;
+        }
+    }
+    else
+    {
+        ret=FALSE;
     }
 
     return ret;

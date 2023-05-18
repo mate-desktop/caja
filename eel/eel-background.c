@@ -311,9 +311,20 @@ drawable_get_adjusted_size (EelBackground *self,
     if (self->details->is_desktop)
     {
         GdkScreen *screen = gtk_widget_get_screen (self->details->widget);
-        gint scale = gtk_widget_get_scale_factor (self->details->widget);
-        *width = WidthOfScreen (gdk_x11_screen_get_xscreen (screen)) / scale;
-        *height = HeightOfScreen (gdk_x11_screen_get_xscreen (screen)) / scale;
+        GdkDisplay *display = gdk_screen_get_display (screen);
+        if  (GDK_IS_X11_DISPLAY (display))
+        {
+               gint scale = gtk_widget_get_scale_factor (self->details->widget);
+               *width = WidthOfScreen (gdk_x11_screen_get_xscreen (screen)) / scale;
+               *height = HeightOfScreen (gdk_x11_screen_get_xscreen (screen)) / scale;
+        }
+        else {
+                GdkRectangle workarea = {0};
+                gdk_monitor_get_workarea(gdk_display_get_monitor_at_window(gdk_display_get_default(),
+                                        gtk_widget_get_window (self->details->widget)), &workarea);
+                *width = workarea.width;
+                *height = workarea.height;
+        }
     }
     else
     {

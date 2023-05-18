@@ -962,7 +962,11 @@ init_common (gsize job_size,
 		GdkScreen *screen;
 
 		screen = gtk_widget_get_screen (GTK_WIDGET (parent_window));
-		common->screen_num = gdk_x11_screen_get_screen_number (screen);
+		/*common->screen_num = gdk_x11_screen_get_screen_number (screen);*
+		 *https://discourse.ubuntu.com/t/porting-mate-apps-to-wayland/12670
+         *Screen number is always 0 with >GTK 3.22 so we can just use zero here
+         */
+         common->screen_num = 0;
 	}
 
 	return common;

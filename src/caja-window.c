@@ -591,8 +591,7 @@ caja_window_zoom_to_default (CajaWindow *window)
 static guint
 get_max_forced_height (GdkScreen *screen)
 {
-    gint scale = gdk_window_get_scale_factor (gdk_screen_get_root_window (screen));
-    return (HeightOfScreen (gdk_x11_screen_get_xscreen (screen)) / scale * 90) / 100;
+    return (gdk_screen_get_height (screen) * 90) / 100;
 }
 
 /* Code should never force the window wider than this size.
@@ -601,8 +600,7 @@ get_max_forced_height (GdkScreen *screen)
 static guint
 get_max_forced_width (GdkScreen *screen)
 {
-    gint scale = gdk_window_get_scale_factor (gdk_screen_get_root_window (screen));
-    return (WidthOfScreen (gdk_x11_screen_get_xscreen (screen)) / scale * 90) / 100;
+    return (gdk_screen_get_width (screen) * 90) / 100;
 }
 
 /* This must be called when construction of CajaWindow is finished,
