@@ -5753,7 +5753,7 @@ caja_icon_container_search_init (GtkWidget   *entry,
 static void
 caja_icon_container_ensure_interactive_directory (CajaIconContainer *container)
 {
-    GtkWidget *frame, *vbox;
+    GtkWidget *frame, *vbox, *toplevel;
 
     if (container->details->search_window != NULL)
     {
@@ -5761,8 +5761,14 @@ caja_icon_container_ensure_interactive_directory (CajaIconContainer *container)
     }
 
     container->details->search_window = gtk_window_new (GTK_WINDOW_POPUP);
+    toplevel = gtk_widget_get_toplevel (GTK_WIDGET (container));
 
     gtk_window_set_modal (GTK_WINDOW (container->details->search_window), TRUE);
+    gtk_window_set_decorated (GTK_WINDOW (container->details->search_window), FALSE);
+    gtk_window_set_transient_for (GTK_WINDOW (container->details->search_window),
+                                  GTK_WINDOW (toplevel));
+
+    gtk_window_set_destroy_with_parent (GTK_WINDOW (container->details->search_window), TRUE);
     gtk_window_set_type_hint (GTK_WINDOW (container->details->search_window),
                               GDK_WINDOW_TYPE_HINT_COMBO);
 
@@ -6041,8 +6047,6 @@ key_press_event (GtkWidget *widget,
     {
         GdkEvent *new_event;
         GdkWindow *window;
-        GdkDisplay *display;
-        GdkRectangle workarea = {0};
         char *old_text;
         const char *new_text;
         gboolean retval;
@@ -6061,13 +6065,7 @@ key_press_event (GtkWidget *widget,
         popup_menu_id = g_signal_connect (container->details->search_entry,
                                           "popup_menu", G_CALLBACK (gtk_true), NULL);
 
-        /* Move the entry off screen */
         gtk_widget_show (container->details->search_window);
-        display = gdk_display_get_default ();
-        gdk_monitor_get_workarea(gdk_display_get_monitor_at_window (display, window), &workarea);
-        gtk_window_move (GTK_WINDOW (container->details->search_window),
-                         workarea.width + 1,
-                        workarea.height + 1);
 
         /* Send the event to the window.  If the preedit_changed signal is emitted
          * during this event, we will set priv->imcontext_changed  */
