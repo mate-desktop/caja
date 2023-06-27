@@ -155,12 +155,9 @@ caja_desktop_window_screen_size_changed (GdkScreen             *screen,
         CajaDesktopWindow *window)
 {
     int width_request, height_request;
-    int scale;
 
-    scale = gdk_window_get_scale_factor (gdk_screen_get_root_window (screen));
-
-    width_request = WidthOfScreen (gdk_x11_screen_get_xscreen (screen)) / scale;
-    height_request = HeightOfScreen (gdk_x11_screen_get_xscreen (screen)) / scale;
+    width_request = gdk_screen_get_width(screen);
+    height_request = gdk_screen_get_height(screen);
 
     g_object_set (window,
                   "width_request", width_request,
