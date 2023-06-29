@@ -120,13 +120,27 @@ icon_container_set_workarea (CajaIconContainer *icon_container,
     int screen_width, screen_height;
     int scale;
     int i;
+    GdkDisplay *display;
 
     left = right = top = bottom = 0;
 
-    scale = gdk_window_get_scale_factor (gdk_screen_get_root_window (screen));
-
-    screen_width  = WidthOfScreen (gdk_x11_screen_get_xscreen (screen)) / scale;
-    screen_height = HeightOfScreen (gdk_x11_screen_get_xscreen (screen)) / scale;
+    display = gdk_screen_get_display (screen);
+    if (GDK_IS_X11_DISPLAY (display))
+    {
+       scale = gdk_window_get_scale_factor (gdk_screen_get_root_window (screen));
+       screen_width = WidthOfScreen (gdk_x11_screen_get_xscreen (screen)) / scale;
+       screen_height = HeightOfScreen (gdk_x11_screen_get_xscreen (screen)) / scale;
+    }
+    else
+    {
+        scale = 1; /*wayland handles this for us*/
+        GdkRectangle geometry = {0};
+        GdkMonitor *monitor;
+        monitor = gdk_display_get_monitor(display, 0);
+        gdk_monitor_get_geometry(monitor,&geometry);
+        screen_width = geometry.width;
+        screen_height = geometry.height;
+    }
 
     for (i = 0; i < n_items; i += 4)
     {
@@ -148,6 +162,7 @@ icon_container_set_workarea (CajaIconContainer *icon_container,
                                      left, right, top, bottom);
 }
 
+/*This code is only reached when running in x11*/
 static void
 net_workarea_changed (FMDesktopIconView *icon_view,
                       GdkWindow         *window)
@@ -239,6 +254,7 @@ net_workarea_changed (FMDesktopIconView *icon_view,
         g_free (workareas);
 }
 
+/*This code is reached only in x11*/
 static GdkFilterReturn
 desktop_icon_view_property_filter (GdkXEvent *gdk_xevent,
                                    GdkEvent *event,
@@ -258,7 +274,6 @@ desktop_icon_view_property_filter (GdkXEvent *gdk_xevent,
     default:
         break;
     }
-
     return GDK_FILTER_CONTINUE;
 }
 
@@ -317,6 +332,7 @@ fm_desktop_icon_view_class_init (FMDesktopIconViewClass *class)
     FM_ICON_VIEW_CLASS (class)->supports_labels_beside_icons = real_supports_labels_beside_icons;
 }
 
+/*This code is only reached when running on x11*/
 static void
 fm_desktop_icon_view_handle_middle_click (CajaIconContainer *icon_container,
         GdkEventButton *event,
@@ -373,6 +389,9 @@ fm_desktop_icon_view_handle_middle_click (CajaIconContainer *icon_container,
 static void
 unrealized_callback (GtkWidget *widget, FMDesktopIconView *desktop_icon_view)
 {
+    if (!GDK_IS_X11_DISPLAY (gdk_display_get_default()))
+        return;
+
     g_return_if_fail (desktop_icon_view->priv->root_window != NULL);
 
     /* Remove the property filter */
@@ -387,13 +406,13 @@ realized_callback (GtkWidget *widget, FMDesktopIconView *desktop_icon_view)
 {
     GdkWindow *root_window;
     GdkScreen *screen;
+    GdkDisplay *display;
     GtkAllocation allocation;
-    gint scale;
 
     g_return_if_fail (desktop_icon_view->priv->root_window == NULL);
 
     screen = gtk_widget_get_screen (widget);
-    scale = gtk_widget_get_scale_factor (widget);
+    display = gdk_screen_get_display (screen);
 
     /* Ugly HACK for the problem that the views realize at the
      * wrong size and then get resized. (This is a problem with
@@ -403,24 +422,46 @@ realized_callback (GtkWidget *widget, FMDesktopIconView *desktop_icon_view)
      */
     allocation.x = 0;
     allocation.y = 0;
-    allocation.width = WidthOfScreen (gdk_x11_screen_get_xscreen (screen)) / scale;
-    allocation.height = HeightOfScreen (gdk_x11_screen_get_xscreen (screen)) / scale;
+    if (GDK_IS_X11_DISPLAY (display))
+    {
+           gint scale;
+           scale = gtk_widget_get_scale_factor (widget);
+           allocation.width = WidthOfScreen (gdk_x11_screen_get_xscreen (screen)) / scale;
+           allocation.height = HeightOfScreen (gdk_x11_screen_get_xscreen (screen)) / scale;
+    }
+    else
+    {
+        /*No real root window or primary monitor in wayland unless compositors add it back*/
+        GdkRectangle geometry = {0};
+        GdkMonitor *monitor;
+        monitor = gdk_display_get_monitor(display, 0);
+        gdk_monitor_get_geometry(monitor,&geometry);
+        allocation.width = geometry.width;
+        allocation.height = geometry.height;
+    }
+
     gtk_widget_size_allocate (GTK_WIDGET(get_icon_container(desktop_icon_view)),
                               &allocation);
 
-    root_window = gdk_screen_get_root_window (screen);
+    if (GDK_IS_X11_DISPLAY (display))
+    {
+        root_window = gdk_screen_get_root_window (screen);
+        desktop_icon_view->priv->root_window = root_window;
 
-    desktop_icon_view->priv->root_window = root_window;
+        /* Read out the workarea geometry and update the icon container accordingly */
+        net_workarea_changed (desktop_icon_view, root_window);
 
-    /* Read out the workarea geometry and update the icon container accordingly */
-    net_workarea_changed (desktop_icon_view, root_window);
+        /* Setup the property filter */
 
-    /* Setup the property filter */
-    gdk_window_set_events (root_window, GDK_PROPERTY_CHANGE_MASK);
-    gdk_window_add_filter (root_window,
-                           desktop_icon_view_property_filter,
-                           desktop_icon_view);
-
+        gdk_window_set_events (root_window, GDK_PROPERTY_CHANGE_MASK);
+        gdk_window_add_filter (root_window,
+                               desktop_icon_view_property_filter,
+                               desktop_icon_view);
+    }
+    else
+    {
+        desktop_icon_view->priv->root_window = NULL;
+    }
 }
 
 static CajaZoomLevel
@@ -610,8 +651,13 @@ fm_desktop_icon_view_init (FMDesktopIconView *desktop_icon_view)
                                          CAJA_ICON_LAYOUT_T_B_R_L :
                                          CAJA_ICON_LAYOUT_T_B_L_R);
 
-    g_signal_connect_object (icon_container, "middle_click",
-                             G_CALLBACK (fm_desktop_icon_view_handle_middle_click), desktop_icon_view, 0);
+    /*Handle the middle click on x11 */
+    if (GDK_IS_X11_DISPLAY (gdk_display_get_default ()))
+    {
+        g_signal_connect_object (desktop_icon_view, "middle_click",
+                                 G_CALLBACK (fm_desktop_icon_view_handle_middle_click), desktop_icon_view, 0);
+    }
+
     g_signal_connect_object (desktop_icon_view, "realize",
                              G_CALLBACK (realized_callback), desktop_icon_view, 0);
     g_signal_connect_object (desktop_icon_view, "unrealize",

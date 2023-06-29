@@ -38,6 +38,11 @@ LDADD = \
     -lnotify
 	$(NULL)
 
+if ENABLE_WAYLAND
+LDADD += \
+	$(WAYLAND_LIBS)
+endif
+
 dbus_freedesktop_built_sources =			\
 	caja-freedesktop-generated.c		\
 	caja-freedesktop-generated.h
