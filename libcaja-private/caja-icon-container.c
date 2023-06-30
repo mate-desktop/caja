@@ -303,6 +303,7 @@ icon_set_position_full (CajaIcon *icon,
     CajaIconContainer *container;
     int x1, x2, y1, y2;
     EelDRect icon_bounds;
+    GdkDisplay *display;
 
     if (!force && icon->x == x && icon->y == y)
     {
@@ -315,44 +316,61 @@ icon_set_position_full (CajaIcon *icon,
     {
         end_renaming_mode (container, TRUE);
     }
-
+    double pixels_per_unit;
+    int container_left, container_top, container_right, container_bottom;
+    int container_x, container_y, container_width, container_height;
+    int item_width, item_height;
+    int height_above, width_left;
+    int min_x, max_x, min_y, max_y;
     if (caja_icon_container_get_is_fixed_size (container))
     {
-        double pixels_per_unit;
-        int container_left, container_top, container_right, container_bottom;
-        int container_x, container_y, container_width, container_height;
-        int item_width, item_height;
-        int height_above, width_left;
-        int min_x, max_x, min_y, max_y;
-        GdkWindow *window;
-        GdkMonitor *monitor;
-        GdkRectangle workarea = {0};
+        /*Use the older and well tested code in x11*/
+        display = gdk_screen_get_display (gdk_screen_get_default());
+        if  (GDK_IS_X11_DISPLAY (display))
+        {
+            int scale;
 
-        /*  FIXME: This should be:
+            /*  FIXME: This should be:
 
-        container_x = GTK_WIDGET (container)->allocation.x;
-        container_y = GTK_WIDGET (container)->allocation.y;
-        container_width = GTK_WIDGET (container)->allocation.width;
-        container_height = GTK_WIDGET (container)->allocation.height;
+            container_x = GTK_WIDGET (container)->allocation.x;
+            container_width = GTK_WIDGET (container)->allocation.width;
+            container_height = GTK_WIDGET (container)->allocation.height;
 
-        But for some reason the widget allocation is sometimes not done
-        at startup, and the allocation is then only 45x60. which is
-        really bad.
+            But for some reason the widget allocation is sometimes not done
+            at startup, and the allocation is then only 45x60. which is
+            really bad.
 
-        For now, we have a cheesy workaround:
-        note that this version does not require scaling
-        */
-        window  = gtk_widget_get_window (GTK_WIDGET(container));
-        monitor = gdk_display_get_monitor_at_window (gdk_display_get_default(), window);
-        gdk_monitor_get_workarea(monitor, &workarea);
-        container_x = 0;
-        container_y = 0;
-        container_width = workarea.width  - container_x
+            For now, we have a cheesy workaround:
+            */
+            scale = gtk_widget_get_scale_factor (GTK_WIDGET (container));
+            container_x = 0;
+            container_y = 0;
+            container_width = WidthOfScreen (gdk_x11_screen_get_xscreen (gdk_screen_get_default ())) / scale - container_x
                           - container->details->left_margin
                           - container->details->right_margin;
-        container_height = workarea.height - container_y
+            container_height = HeightOfScreen (gdk_x11_screen_get_xscreen (gdk_screen_get_default ())) / scale - container_y
                            - container->details->top_margin
                            - container->details->bottom_margin;
+        }
+        else
+        {
+            GdkWindow *window;
+            GdkMonitor *monitor;
+            GdkRectangle workarea = {0};
+
+            window  = gtk_widget_get_window (GTK_WIDGET(container));
+            monitor = gdk_display_get_monitor_at_window (gdk_display_get_default(), window);
+            gdk_monitor_get_workarea(monitor, &workarea);
+            container_x = 0;
+            container_y = 0;
+            container_width = workarea.width  - container_x
+                          - container->details->left_margin
+                          - container->details->right_margin;
+            container_height = workarea.height - container_y
+                           - container->details->top_margin
+                           - container->details->bottom_margin;
+        }
+
         pixels_per_unit = EEL_CANVAS (container)->pixels_per_unit;
         /* Clip the position of the icon within our desktop bounds */
         container_left = container_x / pixels_per_unit;
