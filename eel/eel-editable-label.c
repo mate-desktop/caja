@@ -933,6 +933,7 @@ eel_editable_label_ensure_layout (EelEditableLabel *label,
 {
     GtkWidget *widget;
     PangoRectangle logical_rect;
+    GdkDisplay *display;
 
     /* Normalize for comparisons */
     include_preedit = include_preedit != 0;
@@ -1025,6 +1026,7 @@ eel_editable_label_ensure_layout (EelEditableLabel *label,
             gtk_widget_get_size_request (widget, &set_width, NULL);
             if (set_width > 0)
                 pango_layout_set_width (label->layout, set_width * PANGO_SCALE);
+
             else
             {
                 gint wrap_width;
@@ -1040,10 +1042,23 @@ eel_editable_label_ensure_layout (EelEditableLabel *label,
 
                 wrap_width = get_label_wrap_width (label);
                 scale = gtk_widget_get_scale_factor (widget);
+                display = gdk_screen_get_display (gdk_screen_get_default());
                 width = MIN (width, wrap_width);
-                width = MIN (width,
-                PANGO_SCALE * (gdk_screen_width () + 1) / 2);
 
+                if (GDK_IS_X11_DISPLAY (display))
+                {
+                    width = MIN (width,
+                            PANGO_SCALE * (WidthOfScreen (gdk_x11_screen_get_xscreen (gdk_screen_get_default ())) / scale + 1) / 2);
+                }
+                else
+                {
+                    GdkRectangle geometry = {0};
+                    GdkMonitor *monitor;
+                    monitor = gdk_display_get_monitor (display, 0);
+                    gdk_monitor_get_geometry(monitor, &geometry);
+                    width = MIN (width,
+                            PANGO_SCALE * (geometry.width  + 1) / 2);
+                }
                 pango_layout_set_width (label->layout, width);
                 pango_layout_get_extents (label->layout, NULL, &logical_rect);
                 width = logical_rect.width;

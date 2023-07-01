@@ -80,36 +80,49 @@ eel_gtk_window_get_geometry_string (GtkWindow *window)
 static void
 sanity_check_window_position (int *left, int *top)
 {
+    GdkScreen *screen;
+    gint scale;
+    GdkDisplay *display;
+
     g_assert (left != NULL);
     g_assert (top != NULL);
-    GdkDisplay *display;
-    GdkWindow *root_window;
-    GdkRectangle workarea = {0};
 
-    /* Make sure the top of the window is on screen, for
-     * draggability (might not be necessary with all window managers,
-     * but seems reasonable anyway). Make sure the top of the window
-     * isn't off the bottom of the screen, or so close to the bottom
-     * that it might be obscured by the panel.
-     *
-     */
-    root_window = gdk_screen_get_root_window (gdk_screen_get_default());
-    display = gdk_display_get_default ();
-    gdk_monitor_get_workarea(gdk_display_get_monitor_at_window (display, root_window), &workarea);
-    *top = CLAMP (*top, 0, workarea.height - MINIMUM_ON_SCREEN_HEIGHT);
+    screen = gdk_screen_get_default ();
+    display = gdk_screen_get_display (screen);
+    if  (GDK_IS_X11_DISPLAY (display))
+    {
+        scale = gdk_window_get_scale_factor (gdk_screen_get_root_window (screen));
 
-    /* FIXME bugzilla.eazel.com 669:
-     * If window has negative left coordinate, set_uposition sends it
-     * somewhere else entirely. Not sure what level contains this bug (XWindows?).
-     * Hacked around by pinning the left edge to zero, which just means you
-     * can't set a window to be partly off the left of the screen using
-     * this routine.
-     */
-    /* Make sure the left edge of the window isn't off the right edge of
-     * the screen, or so close to the right edge that it might be
-     * obscured by the panel.
-     */
-    *left = CLAMP (*left, 0, workarea.width - MINIMUM_ON_SCREEN_WIDTH);
+        /* Make sure the top of the window is on screen, for
+         * draggability (might not be necessary with all window managers,
+         * but seems reasonable anyway). Make sure the top of the window
+         * isn't off the bottom of the screen, or so close to the bottom
+         * that it might be obscured by the panel.
+         */
+        *top = CLAMP (*top, 0, HeightOfScreen (gdk_x11_screen_get_xscreen (screen)) / scale - MINIMUM_ON_SCREEN_HEIGHT);
+
+        /* FIXME bugzilla.eazel.com 669:
+         * If window has negative left coordinate, set_uposition sends it
+         * somewhere else entirely. Not sure what level contains this bug (XWindows?).
+         * Hacked around by pinning the left edge to zero, which just means you
+         * can't set a window to be partly off the left of the screen using
+         * this routine.
+         */
+        /* Make sure the left edge of the window isn't off the right edge of
+         * the screen, or so close to the right edge that it might be
+         * obscured by the panel.
+         */
+        *left = CLAMP (*left, 0, WidthOfScreen (gdk_x11_screen_get_xscreen (screen)) / scale - MINIMUM_ON_SCREEN_WIDTH);
+    }
+    else
+    {   /*Not running in x11, don't use x11 specific code*/
+        GdkRectangle geometry = {0};
+        GdkMonitor *monitor;
+        monitor = gdk_display_get_monitor (display, 0);
+        gdk_monitor_get_geometry(monitor, &geometry);
+        *top = CLAMP (*top, 0, geometry.height - MINIMUM_ON_SCREEN_HEIGHT);
+        *left = CLAMP (*left, 0, geometry.width - MINIMUM_ON_SCREEN_WIDTH);
+    }
 }
 
 static void
@@ -125,7 +138,7 @@ sanity_check_window_dimensions (guint *width, guint *height)
      */
     *width = MIN ((int)*width, gdk_screen_width());
     *height = MIN ((int)*height, gdk_screen_height());
-    }
+}
 
 /**
  * eel_gtk_window_set_initial_geometry:
@@ -152,8 +165,10 @@ eel_gtk_window_set_initial_geometry (GtkWindow *window,
                                      guint height)
 {
     GdkScreen *screen;
+    GdkDisplay *display;
     int real_left, real_top;
     int screen_width, screen_height;
+    int scale;
 
     g_return_if_fail (GTK_IS_WINDOW (window));
 
@@ -169,8 +184,23 @@ eel_gtk_window_set_initial_geometry (GtkWindow *window,
         real_top = top;
 
         screen = gtk_window_get_screen (window);
-        screen_width  = gdk_screen_get_width  (screen);
-        screen_height = gdk_screen_get_height (screen);
+        display = gdk_screen_get_display (screen);
+
+        if  (GDK_IS_X11_DISPLAY (display))
+        {
+            scale = gtk_widget_get_scale_factor (GTK_WIDGET (window));
+            screen_width  = WidthOfScreen (gdk_x11_screen_get_xscreen (screen)) / scale;
+            screen_height = HeightOfScreen (gdk_x11_screen_get_xscreen (screen)) / scale;
+        }
+        else
+        {
+            GdkRectangle geometry = {0};
+            GdkMonitor *monitor;
+            monitor = gdk_display_get_monitor (display, 0);
+            gdk_monitor_get_geometry(monitor, &geometry);
+            screen_width = geometry.width;
+            screen_height = geometry.height;
+        }
 
         /* This is sub-optimal. GDK doesn't allow us to set win_gravity
          * to South/East types, which should be done if using negative
