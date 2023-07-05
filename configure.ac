@@ -13,7 +13,7 @@ m4_define(exif_minver,                 0.6.14)
 m4_define(exempi_minver,               1.99.5)
 m4_define(gail_minver,                 3.0.0)
 m4_define(notify_minver,               0.7.0)
-m4_define(gtk-layer-shell_minver,      0.8.0)
+m4_define(gtk_layer_shell_minver,      0.8.0)
 
 
 dnl 1. If the library code has changed at all since last release, then increment revision.
@@ -192,13 +192,11 @@ AC_ARG_ENABLE(wayland,
 
 # Check if we have gtk-layer-shell installed, and thus should build with Wayland support
 have_wayland=no
-if test "x$enable_wayland" != "xno"; then
-  PKG_CHECK_MODULES(WAYLAND, gtk-layer-shell-0 >= gtk-layer-shell_minver wayland-client, have_wayland=yes, [
-        if test "x$enable_wayland" = "xyes"; then
-          AC_MSG_ERROR([Wayland enabled but GTK Layer Shell library not found])
-        fi
-    ])
-fi
+m4_define([WAYLAND_DEPS], [gtk-layer-shell-0 >= gtk_layer_shell_minver wayland-client])
+AS_IF([test "x$enable_wayland" = "xyes"],
+      [PKG_CHECK_MODULES([WAYLAND], [WAYLAND_DEPS], [have_wayland=yes])],
+      [test "x$enable_wayland" != "xno"],
+      [PKG_CHECK_MODULES([WAYLAND], [WAYLAND_DEPS], [have_wayland=yes], [have_wayland=no])])
 
 AM_CONDITIONAL(ENABLE_WAYLAND, [test "x$have_wayland" = "xyes"])
 
