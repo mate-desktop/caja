@@ -136,8 +136,8 @@ icon_container_set_workarea (CajaIconContainer *icon_container,
         scale = 1; /*wayland handles this for us*/
         GdkRectangle geometry = {0};
         GdkMonitor *monitor;
-        monitor = gdk_display_get_monitor(display, 0);
-        gdk_monitor_get_geometry(monitor,&geometry);
+        monitor = gdk_display_get_monitor (display, 0);
+        gdk_monitor_get_geometry (monitor, &geometry);
         screen_width = geometry.width;
         screen_height = geometry.height;
     }
@@ -434,8 +434,8 @@ realized_callback (GtkWidget *widget, FMDesktopIconView *desktop_icon_view)
         /*No real root window or primary monitor in wayland unless compositors add it back*/
         GdkRectangle geometry = {0};
         GdkMonitor *monitor;
-        monitor = gdk_display_get_monitor(display, 0);
-        gdk_monitor_get_geometry(monitor,&geometry);
+        monitor = gdk_display_get_monitor (display, 0);
+        gdk_monitor_get_geometry (monitor, &geometry);
         allocation.width = geometry.width;
         allocation.height = geometry.height;
     }

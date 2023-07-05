@@ -171,8 +171,8 @@ caja_desktop_window_screen_size_changed (GdkScreen             *screen,
         /*No root window or primary monitor in wayland unless compositors add it back*/
         GdkRectangle geometry = {0};
         GdkMonitor *monitor;
-        monitor = gdk_display_get_monitor(display, 0);
-        gdk_monitor_get_geometry(monitor,&geometry);
+        monitor = gdk_display_get_monitor (display, 0);
+        gdk_monitor_get_geometry (monitor, &geometry);
         width_request = geometry.width;
         height_request = geometry.height;
     }
@@ -207,8 +207,8 @@ caja_desktop_window_new (CajaApplication *application,
         */
         GdkRectangle geometry = {0};
         GdkMonitor *monitor;
-        monitor = gdk_display_get_monitor(display, 0);
-        gdk_monitor_get_geometry(monitor,&geometry);
+        monitor = gdk_display_get_monitor (display, 0);
+        gdk_monitor_get_geometry (monitor, &geometry);
         width_request = geometry.width;
         height_request = geometry.height;
     }
@@ -380,10 +380,10 @@ realize (GtkWidget *widget)
     /* This is the new way to set up the desktop window in x11 but not for wayland */
     display = gtk_widget_get_display (widget);
     if (GDK_IS_X11_DISPLAY (display))
-        {
-            set_wmspec_desktop_hint (gtk_widget_get_window (widget));
-            set_desktop_window_id (window, gtk_widget_get_window (widget));
-        }
+    {
+        set_wmspec_desktop_hint (gtk_widget_get_window (widget));
+        set_desktop_window_id (window, gtk_widget_get_window (widget));
+    }
 
     details->size_changed_id =
         g_signal_connect (gtk_window_get_screen (GTK_WINDOW (window)), "size_changed",
