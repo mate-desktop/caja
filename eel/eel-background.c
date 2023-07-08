@@ -105,7 +105,7 @@ free_background_surface (EelBackground *self)
            it will live forever, so we need to kill it manually.
            If set as root background it will be killed next time the
            background is changed. */
-        if (self->details->unset_root_surface)
+        if (GDK_IS_X11_DISPLAY (gdk_display_get_default()) && (self->details->unset_root_surface))
         {
             XKillClient (cairo_xlib_surface_get_display (surface),
                          cairo_xlib_surface_get_drawable (surface));
@@ -312,7 +312,7 @@ drawable_get_adjusted_size (EelBackground *self,
     {
         GdkScreen *screen = gtk_widget_get_screen (self->details->widget);
         GdkDisplay *display = gdk_screen_get_display (screen);
-        if  (GDK_IS_X11_DISPLAY (display))
+        if (GDK_IS_X11_DISPLAY (display))
         {
                gint scale = gtk_widget_get_scale_factor (self->details->widget);
                *width = WidthOfScreen (gdk_x11_screen_get_xscreen (screen)) / scale;
@@ -433,8 +433,8 @@ set_root_surface (EelBackground *self,
         self->details->bg_surface = mate_bg_create_surface (self->details->bg, window,
         						    width, height, TRUE);
     }
-
-    if (self->details->bg_surface != NULL)
+    GdkDisplay *display = gdk_screen_get_display (screen);
+    if ((GDK_IS_X11_DISPLAY (display)) && (self->details->bg_surface != NULL))
         mate_bg_set_surface_as_root (screen, self->details->bg_surface);
 }
 
@@ -649,7 +649,7 @@ widget_realized_setup (GtkWidget     *widget,
     }
 
     GdkScreen *screen = gtk_widget_get_screen (widget);
-    GdkWindow *window = gdk_screen_get_root_window (screen);
+    GdkDisplay *display = gdk_screen_get_display (screen);
 
     if (self->details->screen_size_handler > 0)
     {
@@ -665,8 +665,16 @@ widget_realized_setup (GtkWidget     *widget,
     self->details->screen_monitors_handler =
         g_signal_connect (screen, "monitors-changed", G_CALLBACK (screen_size_changed), self);
 
-    self->details->use_common_surface =
-        (gdk_window_get_visual (window) == gtk_widget_get_visual (widget)) ? TRUE : FALSE;
+    if (GDK_IS_X11_DISPLAY (display))
+    {
+        GdkWindow *window = gdk_screen_get_root_window (screen);
+        self->details->use_common_surface =
+            (gdk_window_get_visual (window) == gtk_widget_get_visual (widget)) ? TRUE : FALSE;
+    }
+    else    /*Wayland is always composited*/
+    {
+        self->details->use_common_surface = TRUE;
+    }
 
     init_fade (self);
 }

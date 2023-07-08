@@ -2,7 +2,7 @@ AC_PREREQ(2.60)
 
 dnl ===========================================================================
 
-m4_define(gdkpixbuf_minver,           2.36.5)
+m4_define(gdkpixbuf_minver,            2.36.5)
 m4_define(glib_minver,                 2.58.1)
 m4_define(gio_minver,                  2.50.0)
 m4_define(mate_desktop_minver,         1.17.3)
@@ -13,6 +13,7 @@ m4_define(exif_minver,                 0.6.14)
 m4_define(exempi_minver,               1.99.5)
 m4_define(gail_minver,                 3.0.0)
 m4_define(notify_minver,               0.7.0)
+m4_define(gtk_layer_shell_minver,      0.8.0)
 
 
 dnl 1. If the library code has changed at all since last release, then increment revision.
@@ -177,7 +178,31 @@ if test "x$enable_xmp" != "xno"; then
     AC_SUBST(EXEMPI_LIBS)
 fi
 
-dnl ==========================================================================
+dnl **************************************************************************
+dnl Whether or not to build with wayland support and check for gtk-layer-shell
+dnl **************************************************************************
+
+
+AC_ARG_ENABLE(wayland,
+              [AS_HELP_STRING([--enable-wayland],
+                              [Explicitly enable or disable Wayland support
+                              (default is to enable only if Wayland client development library is detected)])],
+              [enable_wayland=$enableval],
+              [enable_wayland=auto])
+
+# Check if we have gtk-layer-shell installed, and thus should build with Wayland support
+have_wayland=no
+m4_define([WAYLAND_DEPS], [gtk-layer-shell-0 >= gtk_layer_shell_minver wayland-client])
+AS_IF([test "x$enable_wayland" = "xyes"],
+      [PKG_CHECK_MODULES([WAYLAND], [WAYLAND_DEPS], [have_wayland=yes])],
+      [test "x$enable_wayland" != "xno"],
+      [PKG_CHECK_MODULES([WAYLAND], [WAYLAND_DEPS], [have_wayland=yes], [have_wayland=no])])
+
+AM_CONDITIONAL(ENABLE_WAYLAND, [test "x$have_wayland" = "xyes"])
+
+if test "x$have_wayland" = "xyes"; then
+  AC_DEFINE(HAVE_WAYLAND, 1, [Have the Wayland development library])
+fi
 
 dnl ****************************
 dnl *** Check for libselinux ***
@@ -240,7 +265,7 @@ AC_SUBST(LIBCAJA_EXTENSION_LIBS)
 
 dnl core caja
 PKG_CHECK_MODULES(GMODULE, gmodule-2.0, [GMODULE_ADD="gmodule-2.0"],[GMODULE_ADD=""])
-CORE_MODULES="glib-2.0 $GMODULE_ADD mate-desktop-2.0 gthread-2.0 gio-2.0 gio-unix-2.0 gail-3.0 libxml-2.0 $EXTRA_CORE_MODULES gtk+-3.0 x11"
+CORE_MODULES="glib-2.0 $GMODULE_ADD mate-desktop-2.0 gthread-2.0 gio-2.0 gio-unix-2.0 gail-3.0 libxml-2.0 gtk+-3.0 x11"
 CORE_CFLAGS="`$PKG_CONFIG --cflags $CORE_MODULES`"
 AC_SUBST(CORE_CFLAGS)
 CORE_LIBS="`$PKG_CONFIG --libs $CORE_MODULES`"
@@ -323,6 +348,7 @@ Configure summary:
     PackageKit support:           $msg_packagekit
     Native Language support:      $USE_NLS
     Self check:                   $msg_self_check
+    Wayland support:              ${have_wayland}
 
     caja-extension documentation: ${enable_gtk_doc}
     caja-extension introspection: ${found_introspection}

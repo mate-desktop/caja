@@ -93,23 +93,27 @@ sanity_check_window_position (int *left, int *top)
      * that it might be obscured by the panel.
      *
      */
-    root_window = gdk_screen_get_root_window (gdk_screen_get_default());
     display = gdk_display_get_default ();
-    gdk_monitor_get_workarea(gdk_display_get_monitor_at_window (display, root_window), &workarea);
-    *top = CLAMP (*top, 0, workarea.height - MINIMUM_ON_SCREEN_HEIGHT);
+    /*This is x11 only, there is no root window in wayland*/
+    if (GDK_IS_X11_DISPLAY (display))
+    {
+        root_window = gdk_screen_get_root_window (gdk_screen_get_default());
+        gdk_monitor_get_workarea(gdk_display_get_monitor_at_window (display, root_window), &workarea);
+        *top = CLAMP (*top, 0, workarea.height - MINIMUM_ON_SCREEN_HEIGHT);
 
-    /* FIXME bugzilla.eazel.com 669:
-     * If window has negative left coordinate, set_uposition sends it
-     * somewhere else entirely. Not sure what level contains this bug (XWindows?).
-     * Hacked around by pinning the left edge to zero, which just means you
-     * can't set a window to be partly off the left of the screen using
-     * this routine.
-     */
-    /* Make sure the left edge of the window isn't off the right edge of
-     * the screen, or so close to the right edge that it might be
-     * obscured by the panel.
-     */
-    *left = CLAMP (*left, 0, workarea.width - MINIMUM_ON_SCREEN_WIDTH);
+        /* FIXME bugzilla.eazel.com 669:
+         * If window has negative left coordinate, set_uposition sends it
+         * somewhere else entirely. Not sure what level contains this bug (XWindows?).
+         * Hacked around by pinning the left edge to zero, which just means you
+         * can't set a window to be partly off the left of the screen using
+         * this routine.
+         */
+        /* Make sure the left edge of the window isn't off the right edge of
+         * the screen, or so close to the right edge that it might be
+         * obscured by the panel.
+         */
+        *left = CLAMP (*left, 0, workarea.width - MINIMUM_ON_SCREEN_WIDTH);
+    }
 }
 
 static void
