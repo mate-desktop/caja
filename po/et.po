@@ -9,6 +9,7 @@
 # Mattias Põldaru <mahfiaz@gmail.com>, 2019
 # Ivar Smolin <okul@linux.ee>, 2021
 # Stefano Karapetsas <stefano@karapetsas.com>, 2022
+# vaba <vaba@riseup.net>, 2023
 # 
 msgid ""
 msgstr ""
@@ -16,8 +17,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://github.com/mate-desktop/caja/issues\n"
 "POT-Creation-Date: 2022-10-29 15:27+0200\n"
 "PO-Revision-Date: 2018-03-11 14:48+0000\n"
-"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>, 2022\n"
-"Language-Team: Estonian (https://www.transifex.com/mate/teams/13566/et/)\n"
+"Last-Translator: vaba <vaba@riseup.net>, 2023\n"
+"Language-Team: Estonian (https://app.transifex.com/mate/teams/13566/et/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -70,7 +71,7 @@ msgstr "Köögilaud"
 
 #: data/browser.xml:13
 msgid "Dark GNOME"
-msgstr ""
+msgstr "Tume GNOME"
 
 #: data/browser.xml:14
 msgid "Dots"
@@ -311,12 +312,18 @@ msgid ""
 " associated with them. It is also responsible for handling the icons on the "
 "MATE desktop. It works on local and remote file systems."
 msgstr ""
+"Caja on MATE töölaua ametlik failihaldur. See võimaldab sirvida katalooge, "
+"vaadata failide eelvaadet ja käivitada nendega seotud rakendusi. Samuti "
+"vastutab ta MATE töölaual olevate ikoonide haldamise eest. See töötab "
+"kohalikes ja kaugfailisüsteemides."
 
 #: data/caja.appdata.xml.in.in:16
 msgid ""
 "Caja is extensible through a plugin system, similar to that of GNOME "
 "Nautilus, of which Caja is a fork."
 msgstr ""
+"Caja on laiendatav pluginasüsteemi kaudu, mis sarnaneb GNOME Nautiluse "
+"süsteemiga, millest  on Caja arendatud."
 
 #: data/caja-autorun-software.desktop.in.in:3
 msgid "Autorun Prompt"
@@ -363,7 +370,7 @@ msgstr "_Nimi"
 
 #: data/caja-bookmarks-window.ui:241
 msgid "_Location"
-msgstr ""
+msgstr "_Asukoht"
 
 #: data/caja-browser.desktop.in.in:4
 msgid "File Browser"
@@ -377,7 +384,7 @@ msgstr "Failisüsteemi sirvimine failihalduriga"
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/caja-browser.desktop.in.in:15
 msgid "files;browser;manager;MATE;"
-msgstr ""
+msgstr "failid;brauser;haldur;MATE;"
 
 #: data/caja-computer.desktop.in.in:3 libcaja-private/caja-desktop-link.c:114
 #: src/caja-places-sidebar.c:512
@@ -485,7 +492,7 @@ msgstr "Muutmisaja järgi"
 
 #: data/caja-file-management-properties.ui:96
 msgid "By Creation Date"
-msgstr ""
+msgstr "Loomiskuupäeva järgi"
 
 #: data/caja-file-management-properties.ui:99
 msgid "By Access Date"
@@ -639,7 +646,7 @@ msgstr "Vaikimisi suuren_dus:"
 
 #: data/caja-file-management-properties.ui:786
 msgid "_Show icons"
-msgstr ""
+msgstr "_Näita ikoone"
 
 #: data/caja-file-management-properties.ui:825
 msgid "Show _only folders"
@@ -651,7 +658,7 @@ msgstr ""
 
 #: data/caja-file-management-properties.ui:862
 msgid "Defaults"
-msgstr ""
+msgstr "Vaikimisi"
 
 #: data/caja-file-management-properties.ui:881
 msgid "Views"
@@ -1242,11 +1249,11 @@ msgstr "Viimane faili muutmise aeg."
 
 #: libcaja-private/caja-column-utilities.c:84
 msgid "Date Created"
-msgstr ""
+msgstr "Loomise kuupäev"
 
 #: libcaja-private/caja-column-utilities.c:85
 msgid "The date the file was created."
-msgstr ""
+msgstr "Faili loomise kuupäev."
 
 #: libcaja-private/caja-column-utilities.c:92
 msgid "Date Accessed"
@@ -2182,7 +2189,7 @@ msgstr "Failide kustutamine"
 #: libcaja-private/caja-file-operations.c:2142 src/caja-places-sidebar.c:2274
 #: src/caja-places-sidebar.c:2310
 msgid "It is now safe to remove the drive"
-msgstr ""
+msgstr "Nüüd on draivi eemaldamine ohutu"
 
 #: libcaja-private/caja-file-operations.c:2155
 msgid "Unable to eject %V"
@@ -2194,7 +2201,7 @@ msgstr "%V lahtihaakimine pole võimalik"
 
 #: libcaja-private/caja-file-operations.c:2193 src/caja-places-sidebar.c:2344
 msgid "Writing data to the drive -- do not unplug"
-msgstr ""
+msgstr "Andmete kirjutamine draivi – ärge lahti ühendage"
 
 #: libcaja-private/caja-file-operations.c:2315
 msgid "Do you want to empty the trash before you unmount?"
@@ -2982,12 +2989,12 @@ msgstr "lisatakse järjekorda"
 #: libcaja-private/caja-progress-info.c:415
 #: libcaja-private/caja-progress-info.c:416
 msgid "Pause"
-msgstr ""
+msgstr "PAus"
 
 #: libcaja-private/caja-progress-info.c:421
 #: libcaja-private/caja-progress-info.c:422
 msgid "Resume"
-msgstr ""
+msgstr "Jätka"
 
 #: libcaja-private/caja-progress-info.c:609
 #, c-format
@@ -3003,7 +3010,7 @@ msgstr "Tegevus lõpetatud"
 #: libcaja-private/caja-progress-info.c:806
 #: libcaja-private/caja-progress-info.c:807
 msgid "Queue"
-msgstr ""
+msgstr "Järjekord"
 
 #: libcaja-private/caja-progress-info.c:1006
 #: libcaja-private/caja-progress-info.c:1027
@@ -4549,7 +4556,7 @@ msgstr "Järjehoidjad"
 
 #: src/caja-bookmarks-sidebar.c:487
 msgid "Show a list of your personal bookmarks"
-msgstr ""
+msgstr "Kuvage oma isiklike järjehoidjate loend"
 
 #: src/caja-bookmarks-window.c:163 src/caja-file-management-properties.c:226
 #: src/caja-property-browser.c:1685 src/caja-window-menus.c:629
@@ -5568,7 +5575,7 @@ msgstr "Muutmisaeg"
 
 #: src/caja-query-editor.c:205
 msgid "Contained text"
-msgstr ""
+msgstr "Sisaldas teksti"
 
 #: src/caja-query-editor.c:351
 msgid "Select folder to search in"
@@ -5635,7 +5642,7 @@ msgstr "Väiksem või võrdne"
 
 #: src/caja-query-editor.c:1076 src/caja-query-editor.c:1214
 msgid "Greater than or equal to"
-msgstr ""
+msgstr "Suurem või võrdne"
 
 #: src/caja-query-editor.c:1089
 msgid "1 Hour"
@@ -5715,7 +5722,7 @@ msgstr "500 MB"
 
 #: src/caja-query-editor.c:1337 src/caja-query-editor.c:1340
 msgid "Matches files that contains specified text."
-msgstr ""
+msgstr "Sobitab failid, mis sisaldavad määratud teksti."
 
 #: src/caja-query-editor.c:1493
 msgid "Remove this criterion from the search"
@@ -5955,7 +5962,7 @@ msgstr ""
 
 #: src/caja-window-menus.c:589
 msgid "Website"
-msgstr ""
+msgstr "Veebisait"
 
 #: src/caja-window-menus.c:848
 msgid "_File"
@@ -6220,7 +6227,7 @@ msgstr "Tühjenda prügikast"
 
 #: src/file-manager/fm-desktop-icon-view.c:887
 msgid "Desktop View"
-msgstr ""
+msgstr "Töölauavaade"
 
 #: src/file-manager/fm-desktop-icon-view.c:888
 #: src/file-manager/fm-directory-view.c:7669
@@ -7208,11 +7215,11 @@ msgstr ""
 
 #: src/file-manager/fm-empty-view.c:392
 msgid "_Empty"
-msgstr ""
+msgstr "_Tühi"
 
 #: src/file-manager/fm-empty-view.c:394
 msgid "The empty view encountered an error."
-msgstr ""
+msgstr "Tühjas vaates ilmnes viga."
 
 #: src/file-manager/fm-empty-view.c:395
 msgid "Display this location with the empty view."
@@ -7355,7 +7362,7 @@ msgstr "Ikooniridade sortimine muutmisaja järgi"
 
 #: src/file-manager/fm-icon-view.c:164
 msgid "by _Creation Date"
-msgstr ""
+msgstr "_Loomiskuupäeva järgi"
 
 #: src/file-manager/fm-icon-view.c:165 src/file-manager/fm-icon-view.c:1862
 msgid "Keep icons sorted by creation date in rows"
@@ -7480,7 +7487,7 @@ msgstr "_Muutmisaja järgi"
 
 #: src/file-manager/fm-icon-view.c:1861
 msgid "By _Creation Date"
-msgstr ""
+msgstr "_Loomiskuupäeva järgi"
 
 #: src/file-manager/fm-icon-view.c:1867
 msgid "By _Emblems"

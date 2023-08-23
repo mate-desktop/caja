@@ -6,8 +6,8 @@
 # Translators:
 # Martin Wimpress <code@flexion.org>, 2018
 # Steven Maddox <s.maddox@lantizia.me.uk>, 2019
-# Andi Chandler <andi@gowling.com>, 2022
 # Stefano Karapetsas <stefano@karapetsas.com>, 2022
+# Andi Chandler <andi@gowling.com>, 2023
 # 
 msgid ""
 msgstr ""
@@ -15,8 +15,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://github.com/mate-desktop/caja/issues\n"
 "POT-Creation-Date: 2022-10-29 15:27+0200\n"
 "PO-Revision-Date: 2018-03-11 14:48+0000\n"
-"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>, 2022\n"
-"Language-Team: English (United Kingdom) (https://www.transifex.com/mate/teams/13566/en_GB/)\n"
+"Last-Translator: Andi Chandler <andi@gowling.com>, 2023\n"
+"Language-Team: English (United Kingdom) (https://app.transifex.com/mate/teams/13566/en_GB/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2326,7 +2326,7 @@ msgstr ""
 
 #: libcaja-private/caja-file-operations.c:2930
 msgid "There is %"
-msgstr ""
+msgstr "There is %"
 
 #: libcaja-private/caja-file-operations.c:2958
 msgid "The destination is read-only."
@@ -3747,6 +3747,51 @@ msgid ""
 "and may not reflect the actual contents of the file, unlike the \"type\" "
 "setting (above)."
 msgstr ""
+"The default sort-order for items in all view modes. Possible values are: - "
+"\"manually\": In icon- and compact-view modes, lets the user place and "
+"organise items any way the user wants them to be organised, simply by "
+"dragging each item to where the user desires. In list-view mode, this "
+"setting is equivalent to \"name\" (see immediately below). - \"name\": Sort "
+"items by their name; for example, a file named \"a.txt\" will be sorted "
+"before a file named \"b.txt\". This is the default. - \"directory\": Sort "
+"items by their full pathname. For example, a file named \"b.txt\" under the "
+"directory \"/home/a\" will be sorted before a file named \"a.txt\" under the"
+" directory \"/home/zzz\". Since Caja usually only displays files under one "
+"directory at any particular time, this setting will usually be equivalent to"
+" the \"name\" option (above), except in the Caja search tool, which can "
+"traverse files under multiple subdirectories. - \"size\": Sort items by "
+"their file size, or if the items are directories, by the number of items "
+"they contain. - \"type\": Sort items by their human-readable type "
+"description. Such type descriptions take the form of, for instance, \"plain "
+"text document\" or \"SVG image\". The type of the file is not necessarily "
+"related to the file's \"extension\" (see below). - \"mtime\": Sort items by "
+"their respective times of last modification. - \"btime\": Sort items by the "
+"date and time on which each file was created. Note that not all files have a"
+" recorded creation time, so this setting may not always work as expected, "
+"especially on removable media that are \"formatted\" with legacy filesystems"
+" such as FAT. - \"atime\": Sort items by the date and time on which each "
+"file was last accessed. Usually, \"accessed\" refers to the last time the "
+"file was read by a user or a program. Note that, for performance reasons, "
+"some filesystems do not update this timestamp every time the file is read, "
+"so this field may be inaccurate. - \"emblems\": Sort items by the names of "
+"the emblems (if any) associated with each item. - \"trash-time\": Sort items"
+" by the date and time on which the file was moved to the Trash. This setting"
+" is rarely useful, as it only applies to files currently in the Trash. - "
+"\"size_on_disk\": Sort by the amount of actual disk space each item "
+"consumes. This figure is usually slightly larger than the conventional size "
+"of the file, since most filesystems pad files out to an even multiple of the"
+" \"block size\", which on many filesystems is 4096 bytes or about 4 "
+"kilobytes. A few files may use less space on the disk than the conventional "
+"file size may indicate, due to a feature of some filesystems known as "
+"\"holes\". This setting will not necessarily sort directories by the number "
+"of files they contain, since the amount of disk space used by a directory is"
+" not necessarily related to the number of files in a directory; other "
+"factors that can contribute to a directory's actual size include the length "
+"of the names of each file within the directory, and, interestingly, how many"
+" files the directory used to contain. - \"extension\": Sort by each item's "
+"file extension (if any). The file's extension is a part of the file's name, "
+"and may not reflect the actual contents of the file, unlike the \"type\" "
+"setting (above)."
 
 #: libcaja-private/org.mate.caja.gschema.xml:220
 msgid "Reverse sort order in new windows"
@@ -4827,7 +4872,7 @@ msgstr "Show History"
 #: src/caja-image-properties-page.c:170
 #, c-format
 msgid "<b>%s:</b>"
-msgstr ""
+msgstr "<b>%s:</b>"
 
 #: src/caja-image-properties-page.c:292
 msgid "Camera Brand"
@@ -4900,14 +4945,14 @@ msgstr "Rating"
 
 #: src/caja-image-properties-page.c:420
 msgid "Image Type"
-msgstr ""
+msgstr "Image Type"
 
 #: src/caja-image-properties-page.c:422 src/caja-image-properties-page.c:428
 #, c-format
 msgid "%d pixel"
 msgid_plural "%d pixels"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d pixel"
+msgstr[1] "%d pixels"
 
 #: src/caja-image-properties-page.c:426
 msgid "Width"
@@ -5962,7 +6007,9 @@ msgstr ""
 
 #: src/caja-window-menus.c:586
 msgid "translator-credits"
-msgstr "Martin Wimpress"
+msgstr ""
+"Martin Wimpress\n"
+"Andi Chandler"
 
 #: src/caja-window-menus.c:589
 msgid "Website"

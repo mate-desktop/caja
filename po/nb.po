@@ -9,8 +9,8 @@
 # b84df44fb72862b85bae7a669218c6c2, 2019
 # Kim Malmo <berencamlost@msn.com>, 2019
 # Allan Nordhøy <epost@anotheragency.no>, 2021
-# heskjestad <cato@heskjestad.xyz>, 2021
 # Stefano Karapetsas <stefano@karapetsas.com>, 2022
+# heskjestad <cato@heskjestad.xyz>, 2022
 # 
 msgid ""
 msgstr ""
@@ -18,8 +18,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://github.com/mate-desktop/caja/issues\n"
 "POT-Creation-Date: 2022-10-29 15:27+0200\n"
 "PO-Revision-Date: 2018-03-11 14:48+0000\n"
-"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>, 2022\n"
-"Language-Team: Norwegian Bokmål (https://www.transifex.com/mate/teams/13566/nb/)\n"
+"Last-Translator: heskjestad <cato@heskjestad.xyz>, 2022\n"
+"Language-Team: Norwegian Bokmål (https://app.transifex.com/mate/teams/13566/nb/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2326,7 +2326,7 @@ msgstr "Ikke nok plass på målet. Prøv å fjerne filer for å frigjøre plass.
 
 #: libcaja-private/caja-file-operations.c:2930
 msgid "There is %"
-msgstr ""
+msgstr "Det er %"
 
 #: libcaja-private/caja-file-operations.c:2958
 msgid "The destination is read-only."
@@ -3751,6 +3751,38 @@ msgid ""
 "and may not reflect the actual contents of the file, unlike the \"type\" "
 "setting (above)."
 msgstr ""
+"Standard sorteringsrekkefølge for elementer i alle visningsmoduser. Mulige "
+"verdier er: – «manually»: Dra elementene dit du ønsker i ikon-modus og modus"
+" for kompakt visning. I listevisningsmodus er denne innstillingen lik "
+"«name». – «name»: Sorter etter navn, for eksempel vil en fil som heter "
+"«a.txt» plasseres foran en fil som heter «b.txt». Dette er forvalgt. – "
+"«directory»: Sorter elementer etter fullstendig sti. For eksempel vil en fil"
+" som heter «b.txt» i mappa «/home/a» vises foran en fil som heter «a.txt» i "
+"mappa «/home/zzz». Caja viser som standard kun én mappe om gangen, så denne "
+"innstillingen vil tilsvare «name», bortsett fra i søkeverktøyet som kan vise"
+" flere mapper om gangen. – «size»: Sorterer etter filstørrelse, eller mapper"
+" etter antall elementer de inneholder. – «type»: Sorterer etter "
+"menneskelesbar typebeskrivelse, for eksempel «plain text document» eller "
+"«SVG image». Denne beskrivelsen er ikke nødvendigvis relatert til "
+"filetternavnet, se nedenfor. – «mtime»: Sorterer etter siste endringstid. – "
+"«btime»: Sorterer etter opprettelsesdato. Ikke alle filer har en slik dato, "
+"og sorteringen kan derfor være ulogisk. Dette gjelder spesielt filer på "
+"flyttbare medier som er formatert med gamle filsystemer slik som FAT. – "
+"«atime»: Sorterer etter aksesstid, det vil si når filen sist ble aksessert "
+"av en bruker eller et program. Ikke alle filsystemer registrerer aksesstid, "
+"slik at sorteringen kan være unøyaktig. – «emblems»: Sorterer etter "
+"emblemer, hvis noen. – «trash-time»: Sorterer etter når filen ble flyttet "
+"til papirkurven. Denne innstillingen er kun relevant for filer som ligger i "
+"papirkurven. – «size_on_disk»: Sorterer etter faktisk diskbruk. Den er "
+"vanligvis litt større enn filstørrelsen, fordi de fleste filsystemer runder "
+"opp til 4096 byte, dvs. 4 kB. Noen få filer kan bruke mindre diskplass enn "
+"filstørrelsen skulle tilsi fordi noen filsystemer kan ta vekk «hull» i "
+"filer. Denne innstillingen vil ikke nødvendigvis sortere mapper etter antall"
+" filer. Andre faktorer som spiller inn er lengden på filnavn i mappa, og "
+"hvor mange filer som mappa pleide å inneholde. – «extension»: Sorter etter "
+"filetternavn, hvis det finnes. Filetternavnet inngår i filnavnet, og behøver"
+" ikke gjenspeile det faktiske innholdet. Dette er i motsetning til valget "
+"«type», se over."
 
 #: libcaja-private/org.mate.caja.gschema.xml:220
 msgid "Reverse sort order in new windows"
@@ -4830,7 +4862,7 @@ msgstr "Vis historikk"
 #: src/caja-image-properties-page.c:170
 #, c-format
 msgid "<b>%s:</b>"
-msgstr ""
+msgstr "<b>%s:</b>"
 
 #: src/caja-image-properties-page.c:292
 msgid "Camera Brand"
@@ -4903,14 +4935,14 @@ msgstr "Poeng"
 
 #: src/caja-image-properties-page.c:420
 msgid "Image Type"
-msgstr ""
+msgstr "Bildetype"
 
 #: src/caja-image-properties-page.c:422 src/caja-image-properties-page.c:428
 #, c-format
 msgid "%d pixel"
 msgid_plural "%d pixels"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d piksel"
+msgstr[1] "%d piksler"
 
 #: src/caja-image-properties-page.c:426
 msgid "Width"

@@ -14,8 +14,8 @@
 # Emre FIRAT <emrefirat93@gmail.com>, 2020
 # 0d1bdb3b9a0d4e8f77bc854af8bf3dfc_e6913f4, 2021
 # Butterfly <gokhanlnx@gmail.com>, 2021
-# Sabri Ünal <libreajans@gmail.com>, 2022
 # Stefano Karapetsas <stefano@karapetsas.com>, 2022
+# Sabri Ünal <libreajans@gmail.com>, 2023
 # 
 msgid ""
 msgstr ""
@@ -23,8 +23,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://github.com/mate-desktop/caja/issues\n"
 "POT-Creation-Date: 2022-10-29 15:27+0200\n"
 "PO-Revision-Date: 2018-03-11 14:48+0000\n"
-"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>, 2022\n"
-"Language-Team: Turkish (https://www.transifex.com/mate/teams/13566/tr/)\n"
+"Last-Translator: Sabri Ünal <libreajans@gmail.com>, 2023\n"
+"Language-Team: Turkish (https://app.transifex.com/mate/teams/13566/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -910,7 +910,7 @@ msgstr "Kişisel klasörünüzü açın"
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/caja-home.desktop.in.in:14
 msgid "home;personal;folder;open;MATE;"
-msgstr "ev;bireysel;klasör;dizin;aç;MATE;"
+msgstr "ev;bireysel;kişisel;klasör;dizin;aç;MATE;"
 
 #: data/caja.xml.in:5
 msgid "Saved search"
@@ -1183,7 +1183,7 @@ msgstr "_Bağı Kaldır"
 
 #: libcaja-private/caja-clipboard.c:464
 msgid "Cut the selected text to the clipboard"
-msgstr "Seçili metni kes ve panoya yapıştır"
+msgstr "Seçili metni panoya kes"
 
 #: libcaja-private/caja-clipboard.c:469
 msgid "Copy the selected text to the clipboard"
@@ -1191,7 +1191,7 @@ msgstr "Seçili metni panoya kopyala"
 
 #: libcaja-private/caja-clipboard.c:474
 msgid "Paste the text stored on the clipboard"
-msgstr "Panoda saklanan resmi yapıştır"
+msgstr "Panoda saklanan metni yapıştır"
 
 #: libcaja-private/caja-clipboard.c:478
 #: src/file-manager/fm-directory-view.c:7449
@@ -3508,7 +3508,7 @@ msgid ""
 "If set to true, then Caja will ask for confirmation when you attempt to move"
 " files to the Trash."
 msgstr ""
-"Doğru olarak ayarlanırsa, dosyalar Çöp Kutusuna taşınırken Caja onay "
+"True (doğru) olarak ayarlanırsa, dosyalar Çöp Kutusuna taşınırken Caja onay "
 "isteyecektir."
 
 #: libcaja-private/org.mate.caja.gschema.xml:112
@@ -3892,9 +3892,9 @@ msgid ""
 "If set to true, then hidden files are shown by default in the file manager. "
 "Hidden files are either dotfiles or listed in the folder's .hidden file."
 msgstr ""
-"Eğer doğru olarak ayarlanırsa, gizli dosyalar dosya yöneticisinde varsayılan"
-" olarak gösterilir. Gizli dosyalar nokta ile başlayan ya da klasörün .hidden"
-" dosyasında içerilenlerdir."
+"Eğer true (doğru) olarak ayarlanırsa, gizli dosyalar dosya yöneticisinde "
+"varsayılan olarak gösterilir. Gizli dosyalar nokta ile başlayan ya da "
+"klasörün .hidden dosyasında içerilenlerdir."
 
 #: libcaja-private/org.mate.caja.gschema.xml:280
 msgid "Whether to show backup files"
@@ -3905,9 +3905,9 @@ msgid ""
 "If set to true, then backup files are shown by default in the file manager. "
 "Backup files are backup files ending with a tilde (~)."
 msgstr ""
-"Eğer doğru olarak ayarlanırsa, yedekleme dosyaları dosya yöneticisinde "
-"varsayılan olarak gösterilir. Yedekleme dosyaları, tilde (~) ile biten "
-"yedekleme dosyalarıdır."
+"Eğer true (doğru) olarak ayarlanırsa, yedekleme dosyaları dosya "
+"yöneticisinde varsayılan olarak gösterilir. Yedekleme dosyaları, tilde (~) "
+"ile biten yedekleme dosyalarıdır."
 
 #: libcaja-private/org.mate.caja.gschema.xml:286
 msgid "Whether to show file sizes with IEC units"
@@ -3928,7 +3928,8 @@ msgstr "Liste görünümünde ikonların gösterilip gösterilmeyeceği"
 #: libcaja-private/org.mate.caja.gschema.xml:292
 msgid "If set to true, show file icons in list view."
 msgstr ""
-"Eğer doğru olarak ayarlanırsa, liste görünümünde dosya ikonları gösterilir. "
+"Eğer true (doğru) olarak ayarlanırsa, liste görünümünde dosya simgeleri "
+"gösterilir. "
 
 #: libcaja-private/org.mate.caja.gschema.xml:296
 msgid "Whether to show desktop notifications"
@@ -3936,7 +3937,8 @@ msgstr "Masaüstü bildirimlerinin gösterilip gösterilmeyeceği"
 
 #: libcaja-private/org.mate.caja.gschema.xml:297
 msgid "If set to true, Caja will show desktop notifications."
-msgstr "Eğer doğru olarak ayarlanırsa, Caja masaüstü bildirimlerini gösterir"
+msgstr ""
+"Eğer true (doğru) olarak ayarlanırsa, Caja masaüstü bildirimlerini gösterir"
 
 #: libcaja-private/org.mate.caja.gschema.xml:304
 msgid "List of possible captions on icons"
@@ -4849,7 +4851,7 @@ msgstr "Geçmişi Göster"
 #: src/caja-image-properties-page.c:170
 #, c-format
 msgid "<b>%s:</b>"
-msgstr ""
+msgstr "<b>%s:</b>"
 
 #: src/caja-image-properties-page.c:292
 msgid "Camera Brand"
@@ -4922,14 +4924,14 @@ msgstr "Değerlendirme"
 
 #: src/caja-image-properties-page.c:420
 msgid "Image Type"
-msgstr ""
+msgstr "Resim Türü"
 
 #: src/caja-image-properties-page.c:422 src/caja-image-properties-page.c:428
 #, c-format
 msgid "%d pixel"
 msgid_plural "%d pixels"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d piksel"
+msgstr[1] "%d piksel"
 
 #: src/caja-image-properties-page.c:426
 msgid "Width"
