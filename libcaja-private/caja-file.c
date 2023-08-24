@@ -2398,7 +2398,7 @@ update_info_internal (CajaFile *file,
 	}
 	file->details->size_on_disk = size_on_disk;
 
-	sort_order = g_file_info_get_sort_order (info);
+	sort_order = g_file_info_get_attribute_int32 (info, G_FILE_ATTRIBUTE_STANDARD_SORT_ORDER);
 	if (file->details->sort_order != sort_order) {
 		changed = TRUE;
 	}
@@ -2453,7 +2453,8 @@ update_info_internal (CajaFile *file,
 		file->details->thumbnailing_failed = thumbnailing_failed;
 	}
 
-	symlink_name = g_file_info_get_symlink_target (info);
+	symlink_name = g_file_info_get_attribute_byte_string (info, G_FILE_ATTRIBUTE_STANDARD_SYMLINK_TARGET);
+
 	if (eel_strcmp (file->details->symlink_name, symlink_name) != 0) {
 		changed = TRUE;
 		g_free (file->details->symlink_name);
