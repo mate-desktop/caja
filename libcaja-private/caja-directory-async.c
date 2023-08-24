@@ -3807,7 +3807,7 @@ static gboolean is_trusted_system_desktop_file (GFile *file)
         return FALSE;
     }
 
-    target = g_file_info_get_symlink_target (info);
+    target = g_file_info_get_attribute_byte_string (info, G_FILE_ATTRIBUTE_STANDARD_SYMLINK_TARGET);
     if (!target) {
         goto done;
     }
