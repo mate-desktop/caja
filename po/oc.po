@@ -8,7 +8,7 @@
 # Tot en òc <totenoc@gmail.com>, 2021
 # Stefano Karapetsas <stefano@karapetsas.com>, 2021
 # Cédric Valmary <cvalmary@yahoo.fr>, 2021
-# Quentin PAGÈS, 2022
+# Quentin PAGÈS, 2023
 # 
 msgid ""
 msgstr ""
@@ -16,8 +16,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://github.com/mate-desktop/caja/issues\n"
 "POT-Creation-Date: 2021-08-04 14:26+0200\n"
 "PO-Revision-Date: 2021-09-18 16:24+0000\n"
-"Last-Translator: Quentin PAGÈS, 2022\n"
-"Language-Team: Occitan (post 1500) (https://www.transifex.com/mate/teams/13566/oc/)\n"
+"Last-Translator: Quentin PAGÈS, 2023\n"
+"Language-Team: Occitan (post 1500) (https://app.transifex.com/mate/teams/13566/oc/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1539,7 +1539,11 @@ msgid_plural ""
 "Are you sure you want to permanently delete the %'d selected items from the "
 "trash?"
 msgstr[0] ""
+"Volètz vertadièrament suprimir per totjorn %'d element seleccionats de "
+"l’escobilhièr ?"
 msgstr[1] ""
+"Volètz vertadièrament suprimir per totjorn %'d elements seleccionats de "
+"l’escobilhièr ?"
 
 #: libcaja-private/caja-file-operations.c:1382
 #: libcaja-private/caja-file-operations.c:1448
@@ -1570,7 +1574,9 @@ msgid "Are you sure you want to permanently delete the %'d selected item?"
 msgid_plural ""
 "Are you sure you want to permanently delete the %'d selected items?"
 msgstr[0] ""
+"Volètz vertadièrament suprimir per totjorn %'d element seleccionats ?"
 msgstr[1] ""
+"Volètz vertadièrament suprimir per totjorn %'d elements seleccionats ?"
 
 #: libcaja-private/caja-file-operations.c:1478
 msgid "Are you sure you want to trash \"%B\"?"
@@ -1581,7 +1587,9 @@ msgstr "Volètz vertadièrament suprimir per totjorn « %B » ?"
 msgid "Are you sure you want to trash the %'d selected item?"
 msgid_plural "Are you sure you want to trash the %'d selected items?"
 msgstr[0] ""
+"Volètz vertadièrament metre a l’escobilhièr %'d element seleccionats ?"
 msgstr[1] ""
+"Volètz vertadièrament metre a l’escobilhièr %'d elements seleccionats ?"
 
 #: libcaja-private/caja-file-operations.c:1490
 msgid "Items moved to the trash may be recovered until the trash is emptied."
@@ -1888,8 +1896,8 @@ msgstr[1] ""
 #, c-format
 msgid "Duplicating %'d file"
 msgid_plural "Duplicating %'d files"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Duplicacion de %'d fichièr"
+msgstr[1] "Duplicacion de %'d fichièrs"
 
 #. Translators: %S will expand to a size like "2 bytes" or "3 MB", so
 #. something like "4 kb of 4 MB"
@@ -3059,6 +3067,12 @@ msgid ""
 "previews for local file systems. If set to \"never\" then never bother to "
 "read preview data."
 msgstr ""
+"Optimizacion de la velocitat al moment de la previsualizacion del contengut "
+"d'un fichièr tèxt dins l'icòna del fichièr. S'es definit a « always », se "
+"visualiza totjorn la previsualizacion, e mai lo repertòri siá sus un "
+"servidor distant. S'es definit a « local-only », se visualiza la "
+"previsualizacion sonque pels sistèmas de fichièrs locals. S'es definit a "
+"« never », las donadas de la previsualizacion son jamai legidas."
 
 #: libcaja-private/org.mate.caja.gschema.xml:123
 msgid "When to show number of items in a folder"
@@ -3178,6 +3192,12 @@ msgid ""
 "If set to \"never\" then never bother to thumbnail images, just use a "
 "generic icon."
 msgstr ""
+"Optimizacion de la velocitat de visualizacion d'un fichièr imatge en "
+"miniatura. S'es definit a « always », la miniatura se visualiza totjorn, e "
+"mai lo repertòri es sus un servidor distant. S'es definit a « local-only », "
+"las miniaturas se visualizan pas que pels sistèmas de fichièrs locals. S'es "
+"definit a « never », las miniaturas son pas jamai visualizadas, s'utilizan "
+"sonque d'icòna genericas."
 
 #: libcaja-private/org.mate.caja.gschema.xml:164
 msgid "Maximum image size for thumbnailing"
@@ -3196,7 +3216,7 @@ msgstr ""
 #: libcaja-private/org.mate.caja.gschema.xml:170
 msgid "Whether to preview sounds when mousing over an icon"
 msgstr ""
-"Indica se cal una escota previa quand la mirga passa endessús d'una icòna"
+"Indica se cal una escota previa quand la mirga passa en dessús d'una icòna"
 
 #: libcaja-private/org.mate.caja.gschema.xml:171
 msgid ""
@@ -3205,6 +3225,11 @@ msgid ""
 "on a remote server. If set to \"local-only\" then only plays previews on "
 "local file systems. If set to \"never\" then it never previews sound."
 msgstr ""
+"Optimizacion de la velocitat al moment de la previsualizacion d'un fichièr "
+"son quand la mirga es en dessús de l'icòna del fichièr. S'es definit a "
+"« always », lo son es totjorn jogat, e mai lo fichièr siá sus un servidor "
+"distant. S'es definit a « local-only », lo son es jogat sonque pels sistèmas"
+" de fichièrs locals. S'es definit a « never », lo son es jamai jogat."
 
 #: libcaja-private/org.mate.caja.gschema.xml:175
 msgid "Show advanced permissions in the file property dialog"
@@ -3447,13 +3472,13 @@ msgstr ""
 
 #: libcaja-private/org.mate.caja.gschema.xml:291
 msgid "Put labels beside icons"
-msgstr "Botar las etiquetas endessús de las icònas"
+msgstr "Botar las etiquetas a costat de las icònas"
 
 #: libcaja-private/org.mate.caja.gschema.xml:292
 msgid ""
 "If true, labels will be placed beside icons rather than underneath them."
 msgstr ""
-"Se es verai, las etiquetas seràn endessús las icònas al luòc de jos elas."
+"Se es verai, las etiquetas seràn a costat de las icònas al luòc de jos elas."
 
 #: libcaja-private/org.mate.caja.gschema.xml:296
 msgid "Default icon zoom level"
@@ -3571,11 +3596,11 @@ msgstr ""
 
 #: libcaja-private/org.mate.caja.gschema.xml:375
 msgid "Desktop font"
-msgstr "Poliça del burèu"
+msgstr "Polissa del burèu"
 
 #: libcaja-private/org.mate.caja.gschema.xml:376
 msgid "The font description used for the icons on the desktop."
-msgstr "La descripcion de la poliça utilisada per las icònas del burèu."
+msgstr "La descripcion de la polissa utilizada per las icònas del burèu."
 
 #: libcaja-private/org.mate.caja.gschema.xml:380
 msgid "Home icon visible on desktop"
@@ -4584,7 +4609,7 @@ msgstr "_Utilizar la disposicion compacta"
 
 #: src/caja-file-management-properties.ui:622
 msgid "_Text beside icons"
-msgstr "_Tèxt endessús de las icònas"
+msgstr "_Tèxt prèp de las icònas"
 
 #: src/caja-file-management-properties.ui:664
 msgid "_Default zoom level:"
@@ -4921,15 +4946,15 @@ msgstr "Tipe d'imatge :"
 #, c-format
 msgid "<b>Width:</b> %d pixel"
 msgid_plural "<b>Width:</b> %d pixels"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "<b>Largor :</b> %d pixèl"
+msgstr[1] "<b>Largor :</b> %d pixèls"
 
 #: src/caja-image-properties-page.c:411
 #, c-format
 msgid "<b>Height:</b> %d pixel"
 msgid_plural "<b>Height:</b> %d pixels"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "<b>Nautor :</b> %d pixèl"
+msgstr[1] "<b>Nautor :</b> %d pixèls"
 
 #: src/caja-image-properties-page.c:430
 msgid "Failed to load image information"
@@ -6077,7 +6102,7 @@ msgstr "Zo_om +"
 #: src/caja-window-menus.c:904 src/caja-zoom-control.c:99
 #: src/caja-zoom-control.c:312
 msgid "Increase the view size"
-msgstr "Augmentar la visualizacion"
+msgstr "Aumentar la visualizacion"
 
 #: src/caja-window-menus.c:918
 msgid "Zoom _Out"
@@ -7121,8 +7146,8 @@ msgstr "Explorar dins una _fenèstra novèla"
 #: src/file-manager/fm-directory-view.c:9039
 msgid "_Browse Folder"
 msgid_plural "_Browse Folders"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Percórrer lo dossièr"
+msgstr[1] "_Percórrer los dossièrs"
 
 #: src/file-manager/fm-directory-view.c:8716
 #: src/file-manager/fm-directory-view.c:9070
@@ -7657,8 +7682,8 @@ msgstr "Podètz pas atribuir mai d'una icòna personalizada a l'encòp !"
 #: src/file-manager/fm-properties-window.c:645
 msgid "_Name:"
 msgid_plural "_Names:"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Nom :"
+msgstr[1] "_Noms :"
 
 #: src/file-manager/fm-properties-window.c:1001
 msgid "Properties"

@@ -4,13 +4,13 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Marko Silluste <vaba@riseup.net>, 2021
 # clefebvre <clement.lefebvre@linuxmint.com>, 2021
 # Mattias Põldaru <mahfiaz@gmail.com>, 2021
 # Ivar Smolin <okul@linux.ee>, 2021
 # Rivo Zängov <eraser@eraser.ee>, 2021
 # Stefano Karapetsas <stefano@karapetsas.com>, 2021
 # xpander0 <xpander0@gmail.com>, 2021
+# vaba <vaba@riseup.net>, 2023
 # 
 msgid ""
 msgstr ""
@@ -18,8 +18,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://github.com/mate-desktop/caja/issues\n"
 "POT-Creation-Date: 2021-08-04 14:26+0200\n"
 "PO-Revision-Date: 2021-09-18 16:24+0000\n"
-"Last-Translator: xpander0 <xpander0@gmail.com>, 2021\n"
-"Language-Team: Estonian (https://www.transifex.com/mate/teams/13566/et/)\n"
+"Last-Translator: vaba <vaba@riseup.net>, 2023\n"
+"Language-Team: Estonian (https://app.transifex.com/mate/teams/13566/et/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -72,7 +72,7 @@ msgstr "Köögilaud"
 
 #: data/browser.xml:13
 msgid "Dark GNOME"
-msgstr ""
+msgstr "Tume GNOME"
 
 #: data/browser.xml:14
 msgid "Dots"
@@ -313,12 +313,18 @@ msgid ""
 " associated with them. It is also responsible for handling the icons on the "
 "MATE desktop. It works on local and remote file systems."
 msgstr ""
+"Caja on MATE töölaua ametlik failihaldur. See võimaldab sirvida katalooge, "
+"vaadata failide eelvaadet ja käivitada nendega seotud rakendusi. Samuti "
+"vastutab ta MATE töölaual olevate ikoonide haldamise eest. See töötab "
+"kohalikes ja kaugfailisüsteemides."
 
 #: data/caja.appdata.xml.in.in:16
 msgid ""
 "Caja is extensible through a plugin system, similar to that of GNOME "
 "Nautilus, of which Caja is a fork."
 msgstr ""
+"Caja on laiendatav pluginasüsteemi kaudu, mis sarnaneb GNOME Nautiluse "
+"süsteemiga, millest  on Caja arendatud."
 
 #: data/caja-autorun-software.desktop.in.in:3
 msgid "Autorun Prompt"
@@ -336,7 +342,7 @@ msgstr "Failisüsteemi sirvimine failihalduriga"
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/caja-browser.desktop.in.in:15
 msgid "files;browser;manager;MATE;"
-msgstr ""
+msgstr "failid;brauser;haldur;MATE;"
 
 #: data/caja-computer.desktop.in.in:3 libcaja-private/caja-desktop-link.c:114
 #: src/caja-places-sidebar.c:512
@@ -737,11 +743,11 @@ msgstr "Viimane faili muutmise aeg."
 
 #: libcaja-private/caja-column-utilities.c:84
 msgid "Date Created"
-msgstr ""
+msgstr "Loomise kuupäev"
 
 #: libcaja-private/caja-column-utilities.c:85
 msgid "The date the file was created."
-msgstr ""
+msgstr "Faili loomise kuupäev."
 
 #: libcaja-private/caja-column-utilities.c:92
 msgid "Date Accessed"
@@ -1112,22 +1118,22 @@ msgstr "Määratud gruppi '%s' pole olemas"
 #, c-format
 msgid "%'u item"
 msgid_plural "%'u items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'u üksus"
+msgstr[1] "%'u üksust"
 
 #: libcaja-private/caja-file.c:6230
 #, c-format
 msgid "%'u folder"
 msgid_plural "%'u folders"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'u kaust"
+msgstr[1] "%'u kausta"
 
 #: libcaja-private/caja-file.c:6231
 #, c-format
 msgid "%'u file"
 msgid_plural "%'u files"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'u fail"
+msgstr[1] "%'u faili"
 
 #: libcaja-private/caja-file.c:6335
 msgid "%"
@@ -1361,30 +1367,30 @@ msgstr "Ko_peeri ikka"
 #, c-format
 msgid "%'d second"
 msgid_plural "%'d seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'d sekund"
+msgstr[1] "%'d sekundit"
 
 #: libcaja-private/caja-file-operations.c:310
 #: libcaja-private/caja-file-operations.c:322
 #, c-format
 msgid "%'d minute"
 msgid_plural "%'d minutes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'d minut"
+msgstr[1] "%'d minutit"
 
 #: libcaja-private/caja-file-operations.c:321
 #, c-format
 msgid "%'d hour"
 msgid_plural "%'d hours"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'d tund"
+msgstr[1] "%'d tundi"
 
 #: libcaja-private/caja-file-operations.c:329
 #, c-format
 msgid "approximately %'d hour"
 msgid_plural "approximately %'d hours"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "umbes %'d tund"
+msgstr[1] "umbes %'d tundi"
 
 #: libcaja-private/caja-file-operations.c:409
 #, c-format
@@ -1524,7 +1530,11 @@ msgid_plural ""
 "Are you sure you want to permanently delete the %'d selected items from the "
 "trash?"
 msgstr[0] ""
+"Kas olete kindel, et soovite %'d valitud üksuse prügikastist jäädavalt "
+"kustutada?"
 msgstr[1] ""
+"Kas olete kindel, et soovite %'d valitud üksused prügikastist jäädavalt "
+"kustutada?"
 
 #: libcaja-private/caja-file-operations.c:1382
 #: libcaja-private/caja-file-operations.c:1448
@@ -1555,7 +1565,9 @@ msgid "Are you sure you want to permanently delete the %'d selected item?"
 msgid_plural ""
 "Are you sure you want to permanently delete the %'d selected items?"
 msgstr[0] ""
+"Kas olete kindel, et soovite %'d valitud üksuse jäädavalt kustutada?"
 msgstr[1] ""
+"Kas olete kindel, et soovite %'d valitud üksused jäädavalt kustutada?"
 
 #: libcaja-private/caja-file-operations.c:1478
 msgid "Are you sure you want to trash \"%B\"?"
@@ -1565,8 +1577,8 @@ msgstr "Kas oled kindel, et soovid visata \"%B\" prügikasti?"
 #, c-format
 msgid "Are you sure you want to trash the %'d selected item?"
 msgid_plural "Are you sure you want to trash the %'d selected items?"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Kas soovite kindlasti %'d valitud üksuse prügikasti visata?"
+msgstr[1] "Kas soovite kindlasti %'d valitud üksused prügikasti visata?"
 
 #: libcaja-private/caja-file-operations.c:1490
 msgid "Items moved to the trash may be recovered until the trash is emptied."
@@ -1581,8 +1593,8 @@ msgstr "_Viska prügikasti"
 #, c-format
 msgid "%'d file left to delete"
 msgid_plural "%'d files left to delete"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'d fail jäänud kustutada"
+msgstr[1] "%'d faili jäänud kustutada"
 
 #: libcaja-private/caja-file-operations.c:1529
 msgid "Deleting files"
@@ -1594,8 +1606,8 @@ msgstr "Failide kustutamine"
 #: libcaja-private/caja-file-operations.c:1546
 msgid "%T left"
 msgid_plural "%T left"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%T on jäänud"
+msgstr[1] "%T on jäänud"
 
 #: libcaja-private/caja-file-operations.c:1613
 #: libcaja-private/caja-file-operations.c:1647
@@ -1655,8 +1667,8 @@ msgstr "Failide prügikasti viskamine"
 #, c-format
 msgid "%'d file left to trash"
 msgid_plural "%'d files left to trash"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'d fail jäeti prügikasti"
+msgstr[1] "%'d faili jäeti prügikasti"
 
 #: libcaja-private/caja-file-operations.c:1903
 msgid "Cannot move file to trash, do you want to delete immediately?"
@@ -1678,7 +1690,7 @@ msgstr "Failide kustutamine"
 #: libcaja-private/caja-file-operations.c:2156 src/caja-places-sidebar.c:2277
 #: src/caja-places-sidebar.c:2313
 msgid "It is now safe to remove the drive"
-msgstr ""
+msgstr "Nüüd on draivi eemaldamine ohutu"
 
 #: libcaja-private/caja-file-operations.c:2169
 msgid "Unable to eject %V"
@@ -1690,7 +1702,7 @@ msgstr "%V lahtihaakimine pole võimalik"
 
 #: libcaja-private/caja-file-operations.c:2207 src/caja-places-sidebar.c:2347
 msgid "Writing data to the drive -- do not unplug"
-msgstr ""
+msgstr "Andmete kirjutamine draivi – ärge lahti ühendage"
 
 #: libcaja-private/caja-file-operations.c:2331
 msgid "Do you want to empty the trash before you unmount?"
@@ -1717,29 +1729,29 @@ msgstr "%s ühendamine pole võimalik"
 #, c-format
 msgid "Preparing to copy %'d file (%S)"
 msgid_plural "Preparing to copy %'d files (%S)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Ettevalmistused %'d faili kopeerimiseks (%S)"
+msgstr[1] "Ettevalmistused %'d faili kopeerimiseks (%S)"
 
 #: libcaja-private/caja-file-operations.c:2545
 #, c-format
 msgid "Preparing to move %'d file (%S)"
 msgid_plural "Preparing to move %'d files (%S)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Ettevalmistused %'d faili liigutamiseks (%S)"
+msgstr[1] "Ettevalmistused %'d faili liigutamiseks (%S)"
 
 #: libcaja-private/caja-file-operations.c:2551
 #, c-format
 msgid "Preparing to delete %'d file (%S)"
 msgid_plural "Preparing to delete %'d files (%S)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Ettevalmistused %'d faili kustutamiseks (%S)"
+msgstr[1] "Ettevalmistused %'d faili kustutamiseks (%S)"
 
 #: libcaja-private/caja-file-operations.c:2557
 #, c-format
 msgid "Preparing to trash %'d file"
 msgid_plural "Preparing to trash %'d files"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Ettevalmistused %'d faili viskamiseks prügikasti"
+msgstr[1] "Ettevalmistused %'d faili viskamiseks prügikasti"
 
 #: libcaja-private/caja-file-operations.c:2588
 #: libcaja-private/caja-file-operations.c:3499
@@ -1989,8 +2001,8 @@ msgstr "Sihtkohta \"%B\" ümbertõstmise ettevalmistamine"
 #, c-format
 msgid "Preparing to move %'d file"
 msgid_plural "Preparing to move %'d files"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Ettevalmistused %'d faili liigutamiseks"
+msgstr[1] "Ettevalmistused %'d faili liigutamiseks"
 
 #: libcaja-private/caja-file-operations.c:5029
 #, c-format
@@ -2009,8 +2021,8 @@ msgstr "\"%B\" alla viitade loomine"
 #, c-format
 msgid "Making link to %'d file"
 msgid_plural "Making links to %'d files"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'d faili lingi loomine"
+msgstr[1] "%'d faili linkide loomine"
 
 #: libcaja-private/caja-file-operations.c:5467
 msgid "Error while creating link to %B."
@@ -2071,7 +2083,7 @@ msgstr ""
 #: libcaja-private/caja-file-utilities.c:1261
 #, c-format
 msgid "Could not determine original location of \"%s\" "
-msgstr "\"%s\" algset asukohta pole võimalik tuvastada"
+msgstr "\"%s\" algset asukohta pole võimalik tuvastada "
 
 #: libcaja-private/caja-file-utilities.c:1265
 msgid "The item cannot be restored from trash"
@@ -2230,8 +2242,8 @@ msgstr "\"%s\" avamine."
 #, c-format
 msgid "Opening %d item."
 msgid_plural "Opening %d items."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Avatakse %d kirje."
+msgstr[1] "Avatakse %d kirjed."
 
 #: libcaja-private/caja-mime-application-chooser.c:164
 #: libcaja-private/caja-open-with-dialog.c:304
@@ -2484,12 +2496,12 @@ msgstr "lisatakse järjekorda"
 #: libcaja-private/caja-progress-info.c:415
 #: libcaja-private/caja-progress-info.c:416
 msgid "Pause"
-msgstr ""
+msgstr "PAus"
 
 #: libcaja-private/caja-progress-info.c:421
 #: libcaja-private/caja-progress-info.c:422
 msgid "Resume"
-msgstr ""
+msgstr "Jätka"
 
 #: libcaja-private/caja-progress-info.c:609
 #, c-format
@@ -2505,7 +2517,7 @@ msgstr "Tegevus lõpetatud"
 #: libcaja-private/caja-progress-info.c:806
 #: libcaja-private/caja-progress-info.c:807
 msgid "Queue"
-msgstr ""
+msgstr "Järjekord"
 
 #: libcaja-private/caja-progress-info.c:1007
 #: libcaja-private/caja-progress-info.c:1028
@@ -2641,7 +2653,7 @@ msgstr "Liiguta '%s' '%s'-i"
 #: libcaja-private/caja-undostack-manager.c:1423
 #, c-format
 msgid "Create new file '%s' from template "
-msgstr "Loo uus fail '%s' näidisest"
+msgstr "Loo uus fail '%s' näidisest "
 
 #: libcaja-private/caja-undostack-manager.c:1430
 #, c-format
@@ -2851,8 +2863,8 @@ msgstr[1] ""
 #, c-format
 msgid "_Redo restore from trash of %d item"
 msgid_plural "_Redo restore from trash of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d kirje taastamine prügikastist"
+msgstr[1] "%d kirjete taastamine prügikastist"
 
 #: libcaja-private/caja-undostack-manager.c:1680
 #, c-format
@@ -4011,7 +4023,7 @@ msgstr "Järjehoidjad"
 
 #: src/caja-bookmarks-sidebar.c:491
 msgid "Show a list of your personal bookmarks"
-msgstr ""
+msgstr "Kuvage oma isiklike järjehoidjate loend"
 
 #: src/caja-bookmarks-window.c:163 src/caja-file-management-properties.c:226
 #: src/caja-property-browser.c:1693 src/caja-window-menus.c:629
@@ -4057,7 +4069,7 @@ msgstr "_Nimi"
 
 #: src/caja-bookmarks-window.ui:241
 msgid "_Location"
-msgstr ""
+msgstr "_Asukoht"
 
 #: src/caja-connect-server-dialog.c:135
 msgid "SSH"
@@ -4107,7 +4119,7 @@ msgstr "Kausta \"%s\" pole võimalik serverist \"%s\" avada."
 #: src/caja-connect-server-dialog.c:308
 #, c-format
 msgid "The server at \"%s\" cannot be found."
-msgstr "Serverit \"%s\" ei leitud"
+msgstr "Serverit \"%s\" ei leitud."
 
 #: src/caja-connect-server-dialog.c:343
 msgid "Try Again"
@@ -4240,7 +4252,7 @@ msgid ""
 "other places to identify the emblem."
 msgstr ""
 "Sisesta iga embleemi järele kirjeldav nimi. Seda kasutatakse edaspidi "
-"teistes kohtades embleemi nimena"
+"teistes kohtades embleemi nimena."
 
 #: src/caja-emblem-sidebar.c:576
 msgid ""
@@ -4248,7 +4260,7 @@ msgid ""
 "other places to identify the emblem."
 msgstr ""
 "Sisesta embleemi järele kirjeldav nimi. Seda kasutatakse edaspidi teistes "
-"kohtades embleemi nimena"
+"kohtades embleemi nimena."
 
 #: src/caja-emblem-sidebar.c:818
 msgid "Some of the files could not be added as emblems."
@@ -4273,7 +4285,7 @@ msgstr "Lohistatud fail ei ole sobilik pildi fail."
 
 #: src/caja-emblem-sidebar.c:873 src/caja-emblem-sidebar.c:930
 msgid "The emblem cannot be added."
-msgstr "Embleemi pole võimalik lisada"
+msgstr "Embleemi pole võimalik lisada."
 
 #: src/caja-emblem-sidebar.c:1102 src/file-manager/fm-properties-window.c:3490
 msgid "Emblems"
@@ -4368,7 +4380,7 @@ msgstr "Muutmisaja järgi"
 
 #: src/caja-file-management-properties.ui:96
 msgid "By Creation Date"
-msgstr ""
+msgstr "Loomiskuupäeva järgi"
 
 #: src/caja-file-management-properties.ui:99
 msgid "By Access Date"
@@ -4522,7 +4534,7 @@ msgstr "Vaikimisi suuren_dus:"
 
 #: src/caja-file-management-properties.ui:786
 msgid "_Show icons"
-msgstr ""
+msgstr "_Näita ikoone"
 
 #: src/caja-file-management-properties.ui:825
 msgid "Show _only folders"
@@ -4534,7 +4546,7 @@ msgstr ""
 
 #: src/caja-file-management-properties.ui:862
 msgid "Defaults"
-msgstr ""
+msgstr "Vaikimisi"
 
 #: src/caja-file-management-properties.ui:881
 msgid "Views"
@@ -5519,7 +5531,7 @@ msgstr "Muutmisaeg"
 
 #: src/caja-query-editor.c:206
 msgid "Contained text"
-msgstr ""
+msgstr "Sisaldas teksti"
 
 #: src/caja-query-editor.c:352
 msgid "Select folder to search in"
@@ -5586,7 +5598,7 @@ msgstr "Väiksem või võrdne"
 
 #: src/caja-query-editor.c:1084 src/caja-query-editor.c:1223
 msgid "Greater than or equal to"
-msgstr ""
+msgstr "Suurem või võrdne"
 
 #: src/caja-query-editor.c:1097
 msgid "1 Hour"
@@ -5666,7 +5678,7 @@ msgstr "500 MB"
 
 #: src/caja-query-editor.c:1346 src/caja-query-editor.c:1349
 msgid "Matches files that contains specified text."
-msgstr ""
+msgstr "Sobitab failid, mis sisaldavad määratud teksti."
 
 #: src/caja-query-editor.c:1503
 msgid "Remove this criterion from the search"
@@ -5903,11 +5915,11 @@ msgstr ""
 "Tõivo Leedjärv <toivo linux ee>, 2002, 2003.\n"
 "Priit Laes <plaes plaes org>, 2004–2006, 2008, 2009\n"
 "Ivar Smolin <okul linux ee>, 2005–2010, 2014–2015, 2018.\n"
-"Marko Silluste, 2021."
+"vaba, 2023"
 
 #: src/caja-window-menus.c:589
 msgid "Website"
-msgstr ""
+msgstr "Veebisait"
 
 #: src/caja-window-menus.c:849
 msgid "_File"
@@ -5933,7 +5945,7 @@ msgstr "_Taustad ja embleemid..."
 msgid ""
 "Display patterns, colors, and emblems that can be used to customize "
 "appearance"
-msgstr "Välimuse kohandamise mustrit, värvide ja embleemide kuvamine."
+msgstr "Välimuse kohandamise mustrit, värvide ja embleemide kuvamine"
 
 #: src/caja-window-menus.c:870
 msgid "Prefere_nces"
@@ -6172,7 +6184,7 @@ msgstr "Tühjenda prügikast"
 
 #: src/file-manager/fm-desktop-icon-view.c:888
 msgid "Desktop View"
-msgstr ""
+msgstr "Töölauavaade"
 
 #: src/file-manager/fm-desktop-icon-view.c:889
 #: src/file-manager/fm-directory-view.c:7694
@@ -6216,7 +6228,7 @@ msgstr "_Muster:"
 
 #: src/file-manager/fm-directory-view.c:1240
 msgid "Examples: "
-msgstr "Näited:"
+msgstr "Näited: "
 
 #: src/file-manager/fm-directory-view.c:1366
 msgid "Save Search as"
@@ -6271,8 +6283,8 @@ msgstr[1] ""
 #, c-format
 msgid "%'d item selected"
 msgid_plural "%'d items selected"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "valitud %'d kirje"
+msgstr[1] "valitud %'d kirjed"
 
 #: src/file-manager/fm-directory-view.c:2357
 #, c-format
@@ -6619,8 +6631,8 @@ msgstr "Kõigist valitud kirjetest duplikaadi loomine"
 #: src/file-manager/fm-directory-view.c:9161
 msgid "Ma_ke Link"
 msgid_plural "Ma_ke Links"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Loo lin_k"
+msgstr[1] "Loo lin_gid"
 
 #: src/file-manager/fm-directory-view.c:7491
 msgid "Create a symbolic link for each selected item"
@@ -6650,7 +6662,7 @@ msgstr "_Taasta"
 
 #: src/file-manager/fm-directory-view.c:7514
 msgid "_Undo"
-msgstr "_Unusta"
+msgstr "Võta _tagasi"
 
 #: src/file-manager/fm-directory-view.c:7515
 #: src/file-manager/fm-directory-view.c:11365
@@ -7039,7 +7051,7 @@ msgstr "Avatud kausta lõplik kustutamine"
 
 #: src/file-manager/fm-directory-view.c:8776
 msgid "Move the open folder to the Trash"
-msgstr "Avatud kausta viskamine prügikasti "
+msgstr "Avatud kausta viskamine prügikasti"
 
 #: src/file-manager/fm-directory-view.c:8967
 #, c-format
@@ -7160,11 +7172,11 @@ msgstr ""
 
 #: src/file-manager/fm-empty-view.c:398
 msgid "_Empty"
-msgstr ""
+msgstr "_Tühi"
 
 #: src/file-manager/fm-empty-view.c:400
 msgid "The empty view encountered an error."
-msgstr ""
+msgstr "Tühjas vaates ilmnes viga."
 
 #: src/file-manager/fm-empty-view.c:401
 msgid "Display this location with the empty view."
@@ -7283,7 +7295,7 @@ msgstr "Ikooniridade sortimine suuruse järgi"
 
 #: src/file-manager/fm-icon-view.c:144
 msgid "by S_ize on Disk"
-msgstr "Suuruse järgi _kettal"
+msgstr "suuruse järgi _kettal"
 
 #: src/file-manager/fm-icon-view.c:145 src/file-manager/fm-icon-view.c:1850
 msgid "Keep icons sorted by disk usage in rows"
@@ -7307,7 +7319,7 @@ msgstr "Ikooniridade sortimine muutmisaja järgi"
 
 #: src/file-manager/fm-icon-view.c:165
 msgid "by _Creation Date"
-msgstr ""
+msgstr "_Loomiskuupäeva järgi"
 
 #: src/file-manager/fm-icon-view.c:166 src/file-manager/fm-icon-view.c:1868
 msgid "Keep icons sorted by creation date in rows"
@@ -7432,7 +7444,7 @@ msgstr "_Muutmisaja järgi"
 
 #: src/file-manager/fm-icon-view.c:1867
 msgid "By _Creation Date"
-msgstr ""
+msgstr "_Loomiskuupäeva järgi"
 
 #: src/file-manager/fm-icon-view.c:1873
 msgid "By _Emblems"
@@ -7538,8 +7550,8 @@ msgstr "Korraga pole võimalik määrata rohkem kui ühte kohandatud ikooni!"
 #: src/file-manager/fm-properties-window.c:645
 msgid "_Name:"
 msgid_plural "_Names:"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Nimi:"
+msgstr[1] "_Nimed:"
 
 #: src/file-manager/fm-properties-window.c:1001
 msgid "Properties"
@@ -7603,7 +7615,7 @@ msgstr "Kogumahtuvus:"
 
 #: src/file-manager/fm-properties-window.c:3163
 msgid "Filesystem type:"
-msgstr "Failisüsteemi liik: "
+msgstr "Failisüsteemi liik:"
 
 #: src/file-manager/fm-properties-window.c:3248
 msgid "Basic"

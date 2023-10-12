@@ -7,7 +7,7 @@
 # Stefano Karapetsas <stefano@karapetsas.com>, 2021
 # Martin Wimpress <code@flexion.org>, 2021
 # Steven Maddox <s.maddox@lantizia.me.uk>, 2021
-# Andi Chandler <andi@gowling.com>, 2022
+# Andi Chandler <andi@gowling.com>, 2023
 # 
 msgid ""
 msgstr ""
@@ -15,8 +15,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://github.com/mate-desktop/caja/issues\n"
 "POT-Creation-Date: 2021-08-04 14:26+0200\n"
 "PO-Revision-Date: 2021-09-18 16:24+0000\n"
-"Last-Translator: Andi Chandler <andi@gowling.com>, 2022\n"
-"Language-Team: English (United Kingdom) (https://www.transifex.com/mate/teams/13566/en_GB/)\n"
+"Last-Translator: Andi Chandler <andi@gowling.com>, 2023\n"
+"Language-Team: English (United Kingdom) (https://app.transifex.com/mate/teams/13566/en_GB/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1117,22 +1117,22 @@ msgstr "Specified group '%s' doesn't exist"
 #, c-format
 msgid "%'u item"
 msgid_plural "%'u items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'u item"
+msgstr[1] "%'u items"
 
 #: libcaja-private/caja-file.c:6230
 #, c-format
 msgid "%'u folder"
 msgid_plural "%'u folders"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'u folder"
+msgstr[1] "%'u folders"
 
 #: libcaja-private/caja-file.c:6231
 #, c-format
 msgid "%'u file"
 msgid_plural "%'u files"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'u file"
+msgstr[1] "%'u files"
 
 #: libcaja-private/caja-file.c:6335
 msgid "%"
@@ -1366,30 +1366,30 @@ msgstr "Copy _Anyway"
 #, c-format
 msgid "%'d second"
 msgid_plural "%'d seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'d second"
+msgstr[1] "%'d seconds"
 
 #: libcaja-private/caja-file-operations.c:310
 #: libcaja-private/caja-file-operations.c:322
 #, c-format
 msgid "%'d minute"
 msgid_plural "%'d minutes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'d minute"
+msgstr[1] "%'d minutes"
 
 #: libcaja-private/caja-file-operations.c:321
 #, c-format
 msgid "%'d hour"
 msgid_plural "%'d hours"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'d hour"
+msgstr[1] "%'d hours"
 
 #: libcaja-private/caja-file-operations.c:329
 #, c-format
 msgid "approximately %'d hour"
 msgid_plural "approximately %'d hours"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "approximately %'d hour"
+msgstr[1] "approximately %'d hours"
 
 #: libcaja-private/caja-file-operations.c:409
 #, c-format
@@ -1529,7 +1529,11 @@ msgid_plural ""
 "Are you sure you want to permanently delete the %'d selected items from the "
 "trash?"
 msgstr[0] ""
+"Are you sure you want to permanently delete the %'d selected item from the "
+"Rubbish Bin?"
 msgstr[1] ""
+"Are you sure you want to permanently delete the %'d selected items from the "
+"Rubbish Bin?"
 
 #: libcaja-private/caja-file-operations.c:1382
 #: libcaja-private/caja-file-operations.c:1448
@@ -1559,8 +1563,9 @@ msgstr "Are you sure you want to permanently delete \"%B\"?"
 msgid "Are you sure you want to permanently delete the %'d selected item?"
 msgid_plural ""
 "Are you sure you want to permanently delete the %'d selected items?"
-msgstr[0] ""
+msgstr[0] "Are you sure you want to permanently delete the %'d selected item?"
 msgstr[1] ""
+"Are you sure you want to permanently delete the %'d selected items?"
 
 #: libcaja-private/caja-file-operations.c:1478
 msgid "Are you sure you want to trash \"%B\"?"
@@ -1570,8 +1575,8 @@ msgstr "Are you sure you want to bin \"%B\"?"
 #, c-format
 msgid "Are you sure you want to trash the %'d selected item?"
 msgid_plural "Are you sure you want to trash the %'d selected items?"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Are you sure you want to delete the %'d selected item?"
+msgstr[1] "Are you sure you want to delete the %'d selected items?"
 
 #: libcaja-private/caja-file-operations.c:1490
 msgid "Items moved to the trash may be recovered until the trash is emptied."
@@ -1585,8 +1590,8 @@ msgstr "Move to _Bin"
 #, c-format
 msgid "%'d file left to delete"
 msgid_plural "%'d files left to delete"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'d file left to delete"
+msgstr[1] "%'d files left to delete"
 
 #: libcaja-private/caja-file-operations.c:1529
 msgid "Deleting files"
@@ -1598,8 +1603,8 @@ msgstr "Deleting files"
 #: libcaja-private/caja-file-operations.c:1546
 msgid "%T left"
 msgid_plural "%T left"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%T left"
+msgstr[1] "%T left"
 
 #: libcaja-private/caja-file-operations.c:1613
 #: libcaja-private/caja-file-operations.c:1647
@@ -1660,8 +1665,8 @@ msgstr "Moving files to the bin"
 #, c-format
 msgid "%'d file left to trash"
 msgid_plural "%'d files left to trash"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'d file left to delete"
+msgstr[1] "%'d files left to delete"
 
 #: libcaja-private/caja-file-operations.c:1903
 msgid "Cannot move file to trash, do you want to delete immediately?"
@@ -1682,7 +1687,7 @@ msgstr "Deleting Files"
 #: libcaja-private/caja-file-operations.c:2156 src/caja-places-sidebar.c:2277
 #: src/caja-places-sidebar.c:2313
 msgid "It is now safe to remove the drive"
-msgstr ""
+msgstr "It is now safe to remove the drive"
 
 #: libcaja-private/caja-file-operations.c:2169
 msgid "Unable to eject %V"
@@ -1694,7 +1699,7 @@ msgstr "Unable to unmount %V"
 
 #: libcaja-private/caja-file-operations.c:2207 src/caja-places-sidebar.c:2347
 msgid "Writing data to the drive -- do not unplug"
-msgstr ""
+msgstr "Writing data to the drive -- do not unplug"
 
 #: libcaja-private/caja-file-operations.c:2331
 msgid "Do you want to empty the trash before you unmount?"
@@ -1721,29 +1726,29 @@ msgstr "Unable to mount %s"
 #, c-format
 msgid "Preparing to copy %'d file (%S)"
 msgid_plural "Preparing to copy %'d files (%S)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Preparing to copy %'d file (%S)"
+msgstr[1] "Preparing to copy %'d files (%S)"
 
 #: libcaja-private/caja-file-operations.c:2545
 #, c-format
 msgid "Preparing to move %'d file (%S)"
 msgid_plural "Preparing to move %'d files (%S)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Preparing to move %'d file (%S)"
+msgstr[1] "Preparing to move %'d files (%S)"
 
 #: libcaja-private/caja-file-operations.c:2551
 #, c-format
 msgid "Preparing to delete %'d file (%S)"
 msgid_plural "Preparing to delete %'d files (%S)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Preparing to delete %'d file (%S)"
+msgstr[1] "Preparing to delete %'d files (%S)"
 
 #: libcaja-private/caja-file-operations.c:2557
 #, c-format
 msgid "Preparing to trash %'d file"
 msgid_plural "Preparing to trash %'d files"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Preparing to delete %'d file"
+msgstr[1] "Preparing to delete %'d files"
 
 #: libcaja-private/caja-file-operations.c:2588
 #: libcaja-private/caja-file-operations.c:3499
@@ -1841,39 +1846,39 @@ msgstr "Duplicating \"%B\""
 #: libcaja-private/caja-file-operations.c:3047
 msgid "Moving %'d file (in \"%B\") to \"%B\""
 msgid_plural "Moving %'d files (in \"%B\") to \"%B\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Moving %'d file (in \"%B\") to \"%B\""
+msgstr[1] "Moving %'d files (in \"%B\") to \"%B\""
 
 #: libcaja-private/caja-file-operations.c:3051
 msgid "Copying %'d file (in \"%B\") to \"%B\""
 msgid_plural "Copying %'d files (in \"%B\") to \"%B\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Copying %'d file (in \"%B\") to \"%B\""
+msgstr[1] "Copying %'d files (in \"%B\") to \"%B\""
 
 #: libcaja-private/caja-file-operations.c:3059
 msgid "Duplicating %'d file (in \"%B\")"
 msgid_plural "Duplicating %'d files (in \"%B\")"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Duplicating %'d file (in \"%B\")"
+msgstr[1] "Duplicating %'d files (in \"%B\")"
 
 #: libcaja-private/caja-file-operations.c:3069
 msgid "Moving %'d file to \"%B\""
 msgid_plural "Moving %'d files to \"%B\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Moving %'d file to \"%B\""
+msgstr[1] "Moving %'d files to \"%B\""
 
 #: libcaja-private/caja-file-operations.c:3073
 msgid "Copying %'d file to \"%B\""
 msgid_plural "Copying %'d files to \"%B\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Copying %'d file to \"%B\""
+msgstr[1] "Copying %'d files to \"%B\""
 
 #: libcaja-private/caja-file-operations.c:3079
 #, c-format
 msgid "Duplicating %'d file"
 msgid_plural "Duplicating %'d files"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Duplicating %'d file"
+msgstr[1] "Duplicating %'d files"
 
 #. Translators: %S will expand to a size like "2 bytes" or "3 MB", so
 #. something like "4 kb of 4 MB"
@@ -1892,8 +1897,8 @@ msgstr "%S of %S"
 #: libcaja-private/caja-file-operations.c:3112
 msgid "%S of %S — %T left (%S/sec)"
 msgid_plural "%S of %S — %T left (%S/sec)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%S of %S — %T left (%S/sec)"
+msgstr[1] "%S of %S — %T left (%S/sec)"
 
 #: libcaja-private/caja-file-operations.c:3503
 msgid ""
@@ -1999,8 +2004,8 @@ msgstr "Preparing to Move to \"%B\""
 #, c-format
 msgid "Preparing to move %'d file"
 msgid_plural "Preparing to move %'d files"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Preparing to move %'d file"
+msgstr[1] "Preparing to move %'d files"
 
 #: libcaja-private/caja-file-operations.c:5029
 #, c-format
@@ -2019,8 +2024,8 @@ msgstr "Creating links in \"%B\""
 #, c-format
 msgid "Making link to %'d file"
 msgid_plural "Making links to %'d files"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Making link to %'d file"
+msgstr[1] "Making links to %'d files"
 
 #: libcaja-private/caja-file-operations.c:5467
 msgid "Error while creating link to %B."
@@ -2149,15 +2154,15 @@ msgstr "Are you sure you want to open all files?"
 #, c-format
 msgid "This will open %d separate tab."
 msgid_plural "This will open %d separate tabs."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "This will open %d separate tab."
+msgstr[1] "This will open %d separate tabs."
 
 #: libcaja-private/caja-mime-actions.c:1198 src/caja-location-bar.c:194
 #, c-format
 msgid "This will open %d separate window."
 msgid_plural "This will open %d separate windows."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "This will open %d separate window."
+msgstr[1] "This will open %d separate windows."
 
 #: libcaja-private/caja-mime-actions.c:1277
 #: src/caja-window-manage-views.c:2142 src/caja-window-manage-views.c:2150
@@ -2238,8 +2243,8 @@ msgstr "Opening \"%s\"."
 #, c-format
 msgid "Opening %d item."
 msgid_plural "Opening %d items."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Opening %d item."
+msgstr[1] "Opening %d items."
 
 #: libcaja-private/caja-mime-application-chooser.c:164
 #: libcaja-private/caja-open-with-dialog.c:304
@@ -2492,28 +2497,28 @@ msgstr "queuing"
 #: libcaja-private/caja-progress-info.c:415
 #: libcaja-private/caja-progress-info.c:416
 msgid "Pause"
-msgstr ""
+msgstr "Pause"
 
 #: libcaja-private/caja-progress-info.c:421
 #: libcaja-private/caja-progress-info.c:422
 msgid "Resume"
-msgstr ""
+msgstr "Resume"
 
 #: libcaja-private/caja-progress-info.c:609
 #, c-format
 msgid "%'d file operation active"
 msgid_plural "%'d file operations active"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'d file operation active"
+msgstr[1] "%'d file operations active"
 
 #: libcaja-private/caja-progress-info.c:631
 msgid "Process completed"
-msgstr ""
+msgstr "Process completed"
 
 #: libcaja-private/caja-progress-info.c:806
 #: libcaja-private/caja-progress-info.c:807
 msgid "Queue"
-msgstr ""
+msgstr "Queue"
 
 #: libcaja-private/caja-progress-info.c:1007
 #: libcaja-private/caja-progress-info.c:1028
@@ -2710,29 +2715,29 @@ msgstr "Set owner of '%s' to '%s'"
 #, c-format
 msgid "_Undo copy of %d item"
 msgid_plural "_Undo copy of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Undo copy of %d item"
+msgstr[1] "_Undo copy of %d items"
 
 #: libcaja-private/caja-undostack-manager.c:1549
 #, c-format
 msgid "_Undo duplicate of %d item"
 msgid_plural "_Undo duplicate of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Undo duplicate of %d item"
+msgstr[1] "_Undo duplicate of %d items"
 
 #: libcaja-private/caja-undostack-manager.c:1554
 #, c-format
 msgid "_Undo move of %d item"
 msgid_plural "_Undo move of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Undo move of %d item"
+msgstr[1] "_Undo move of %d items"
 
 #: libcaja-private/caja-undostack-manager.c:1559
 #, c-format
 msgid "_Undo rename of %d item"
 msgid_plural "_Undo rename of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Undo rename of %d item"
+msgstr[1] "_Undo rename of %d items"
 
 #: libcaja-private/caja-undostack-manager.c:1563
 msgid "_Undo creation of an empty file"
@@ -2746,92 +2751,92 @@ msgstr "_Undo creation of a file from template"
 #, c-format
 msgid "_Undo creation of %d folder"
 msgid_plural "_Undo creation of %d folders"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Undo creation of %d folder"
+msgstr[1] "_Undo creation of %d folders"
 
 #: libcaja-private/caja-undostack-manager.c:1575
 #, c-format
 msgid "_Undo move to trash of %d item"
 msgid_plural "_Undo move to trash of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Undo move to the Rubbish Bin of %d item"
+msgstr[1] "_Undo move to the Rubbish Bin of %d items"
 
 #: libcaja-private/caja-undostack-manager.c:1580
 #, c-format
 msgid "_Undo restore from trash of %d item"
 msgid_plural "_Undo restore from trash of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Undo restore from the Rubbish Bin of %d item"
+msgstr[1] "_Undo restore from the Rubbish Bin of %d items"
 
 #: libcaja-private/caja-undostack-manager.c:1585
 #, c-format
 msgid "_Undo create link to %d item"
 msgid_plural "_Undo create link to %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Undo create link to %d item"
+msgstr[1] "_Undo create link to %d items"
 
 #: libcaja-private/caja-undostack-manager.c:1590
 #, c-format
 msgid "_Undo delete of %d item"
 msgid_plural "_Undo delete of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Undo delete of %d item"
+msgstr[1] "_Undo delete of %d items"
 
 #: libcaja-private/caja-undostack-manager.c:1595
 #, c-format
 msgid "Undo recursive change permissions of %d item"
 msgid_plural "Undo recursive change permissions of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Undo recursive change permissions of %d item"
+msgstr[1] "Undo recursive change permissions of %d items"
 
 #: libcaja-private/caja-undostack-manager.c:1601
 #, c-format
 msgid "Undo change permissions of %d item"
 msgid_plural "Undo change permissions of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Undo change permissions of %d item"
+msgstr[1] "Undo change permissions of %d items"
 
 #: libcaja-private/caja-undostack-manager.c:1606
 #, c-format
 msgid "Undo change group of %d item"
 msgid_plural "Undo change group of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Undo change group of %d item"
+msgstr[1] "Undo change group of %d items"
 
 #: libcaja-private/caja-undostack-manager.c:1611
 #, c-format
 msgid "Undo change owner of %d item"
 msgid_plural "Undo change owner of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Undo change owner of %d item"
+msgstr[1] "Undo change owner of %d items"
 
 #: libcaja-private/caja-undostack-manager.c:1639
 #, c-format
 msgid "_Redo copy of %d item"
 msgid_plural "_Redo copy of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Redo copy of %d item"
+msgstr[1] "_Redo copy of %d items"
 
 #: libcaja-private/caja-undostack-manager.c:1644
 #, c-format
 msgid "_Redo duplicate of %d item"
 msgid_plural "_Redo duplicate of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Redo duplicate of %d item"
+msgstr[1] "_Redo duplicate of %d items"
 
 #: libcaja-private/caja-undostack-manager.c:1649
 #, c-format
 msgid "_Redo move of %d item"
 msgid_plural "_Redo move of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Redo move of %d item"
+msgstr[1] "_Redo move of %d items"
 
 #: libcaja-private/caja-undostack-manager.c:1654
 #, c-format
 msgid "_Redo rename of %d item"
 msgid_plural "_Redo rename of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Redo rename of %d item"
+msgstr[1] "_Redo rename of %d items"
 
 #: libcaja-private/caja-undostack-manager.c:1658
 msgid "_Redo creation of an empty file"
@@ -2845,64 +2850,64 @@ msgstr "_Redo creation of a file from template"
 #, c-format
 msgid "_Redo creation of %d folder"
 msgid_plural "_Redo creation of %d folders"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Redo creation of %d folder"
+msgstr[1] "_Redo creation of %d folders"
 
 #: libcaja-private/caja-undostack-manager.c:1670
 #, c-format
 msgid "_Redo move to trash of %d item"
 msgid_plural "_Redo move to trash of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Redo move to the Rubbish Bin of %d item"
+msgstr[1] "_Redo move to the Rubbish Bin of %d items"
 
 #: libcaja-private/caja-undostack-manager.c:1675
 #, c-format
 msgid "_Redo restore from trash of %d item"
 msgid_plural "_Redo restore from trash of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Redo restore from the Rubbish Bin of %d item"
+msgstr[1] "_Redo restore from the Rubbish Bin of %d items"
 
 #: libcaja-private/caja-undostack-manager.c:1680
 #, c-format
 msgid "_Redo create link to %d item"
 msgid_plural "_Redo create link to %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Redo create link to %d item"
+msgstr[1] "_Redo create link to %d items"
 
 #: libcaja-private/caja-undostack-manager.c:1685
 #, c-format
 msgid "_Redo delete of %d item"
 msgid_plural "_Redo delete of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Redo delete of %d item"
+msgstr[1] "_Redo delete of %d items"
 
 #: libcaja-private/caja-undostack-manager.c:1690
 #, c-format
 msgid "Redo recursive change permissions of %d item"
 msgid_plural "Redo recursive change permissions of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Redo recursive change permissions of %d item"
+msgstr[1] "Redo recursive change permissions of %d items"
 
 #: libcaja-private/caja-undostack-manager.c:1696
 #, c-format
 msgid "Redo change permissions of %d item"
 msgid_plural "Redo change permissions of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Redo change permissions of %d item"
+msgstr[1] "Redo change permissions of %d items"
 
 #: libcaja-private/caja-undostack-manager.c:1701
 #, c-format
 msgid "Redo change group of %d item"
 msgid_plural "Redo change group of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Redo change group of %d item"
+msgstr[1] "Redo change group of %d items"
 
 #: libcaja-private/caja-undostack-manager.c:1706
 #, c-format
 msgid "Redo change owner of %d item"
 msgid_plural "Redo change owner of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Redo change owner of %d item"
+msgstr[1] "Redo change owner of %d items"
 
 #: libcaja-private/org.mate.caja.gschema.xml:76
 msgid "Where to position newly open tabs in browser windows."
@@ -3331,6 +3336,8 @@ msgid ""
 "If set to true, then hidden files are shown by default in the file manager. "
 "Hidden files are either dotfiles or listed in the folder's .hidden file."
 msgstr ""
+"If set to true, then hidden files are shown by default in the file manager. "
+"Hidden files are either dotfiles or listed in the folder's .hidden file."
 
 #: libcaja-private/org.mate.caja.gschema.xml:253
 msgid "Whether to show backup files"
@@ -3341,6 +3348,8 @@ msgid ""
 "If set to true, then backup files are shown by default in the file manager. "
 "Backup files are backup files ending with a tilde (~)."
 msgstr ""
+"If set to true, then backup files are shown by default in the file manager. "
+"Backup files are backup files ending with a tilde (~)."
 
 #: libcaja-private/org.mate.caja.gschema.xml:259
 msgid "Whether to show file sizes with IEC units"
@@ -3356,11 +3365,11 @@ msgstr ""
 
 #: libcaja-private/org.mate.caja.gschema.xml:264
 msgid "Whether to show icons in list view"
-msgstr ""
+msgstr "Whether to show icons in list view"
 
 #: libcaja-private/org.mate.caja.gschema.xml:265
 msgid "If set to true, show file icons in list view."
-msgstr ""
+msgstr "If set to true, show file icons in list view."
 
 #: libcaja-private/org.mate.caja.gschema.xml:269
 msgid "Whether to show desktop notifications"
@@ -3368,7 +3377,7 @@ msgstr "Whether to show desktop notifications"
 
 #: libcaja-private/org.mate.caja.gschema.xml:270
 msgid "If set to true, Caja will show desktop notifications."
-msgstr ""
+msgstr "If set to true, Caja will show desktop notifications."
 
 #: libcaja-private/org.mate.caja.gschema.xml:277
 msgid "List of possible captions on icons"
@@ -3382,6 +3391,11 @@ msgid ""
 "\"date_changed\", \"date_accessed\", \"owner\", \"group\", \"permissions\", "
 "\"octal_permissions\" and \"mime_type\"."
 msgstr ""
+"A list of captions below an icon in the icon view and the desktop. The "
+"actual number of captions shown depends on the zoom level. Some possible "
+"values are: \"size\", \"type\", \"date_modified\", \"date_created\", "
+"\"date_changed\", \"date_accessed\", \"owner\", \"group\", \"permissions\", "
+"\"octal_permissions\" and \"mime_type\"."
 
 #: libcaja-private/org.mate.caja.gschema.xml:286
 msgid "Use tighter layout in new windows"
@@ -3906,7 +3920,7 @@ msgstr "--geometry cannot be used with more than one URI."
 
 #: src/caja-application.c:1814
 msgid "--select must be used with at least an URI."
-msgstr ""
+msgstr "--select must be used with at least an URI."
 
 #: src/caja-application.c:1928
 msgid "Perform a quick set of self-check tests."
@@ -3946,7 +3960,7 @@ msgstr ""
 
 #: src/caja-application.c:1941
 msgid "Open URIs in tabs."
-msgstr ""
+msgstr "Open URIs in tabs."
 
 #: src/caja-application.c:1943
 msgid "Open a browser window."
@@ -3958,7 +3972,7 @@ msgstr "Quit Caja."
 
 #: src/caja-application.c:1947
 msgid "Select specified URI in parent folder."
-msgstr ""
+msgstr "Select specified URI in parent folder."
 
 #: src/caja-application.c:1948
 msgid "[URI...]"
@@ -4016,7 +4030,7 @@ msgstr "Bookmarks"
 
 #: src/caja-bookmarks-sidebar.c:491
 msgid "Show a list of your personal bookmarks"
-msgstr ""
+msgstr "Show a list of your personal bookmarks"
 
 #: src/caja-bookmarks-window.c:163 src/caja-file-management-properties.c:226
 #: src/caja-property-browser.c:1693 src/caja-window-menus.c:629
@@ -4043,7 +4057,7 @@ msgstr "_Help"
 
 #: src/caja-bookmarks-window.ui:63
 msgid "_Jump to"
-msgstr ""
+msgstr "_Jump to"
 
 #: src/caja-bookmarks-window.ui:95 src/caja-file-management-properties.ui:325
 #: src/caja-property-browser.c:397 src/caja-window-menus.c:858
@@ -4058,11 +4072,11 @@ msgstr "_Bookmarks"
 
 #: src/caja-bookmarks-window.ui:196
 msgid "_Name"
-msgstr ""
+msgstr "_Name"
 
 #: src/caja-bookmarks-window.ui:241
 msgid "_Location"
-msgstr ""
+msgstr "_Location"
 
 #: src/caja-connect-server-dialog.c:135
 msgid "SSH"
@@ -4361,7 +4375,7 @@ msgstr "By Size"
 
 #: src/caja-file-management-properties.ui:87
 msgid "By Size on Disk"
-msgstr ""
+msgstr "By Size on Disk"
 
 #: src/caja-file-management-properties.ui:90
 msgid "By Type"
@@ -4373,7 +4387,7 @@ msgstr "By Modification Date"
 
 #: src/caja-file-management-properties.ui:96
 msgid "By Creation Date"
-msgstr ""
+msgstr "By Creation Date"
 
 #: src/caja-file-management-properties.ui:99
 msgid "By Access Date"
@@ -4495,11 +4509,11 @@ msgstr "Sort _folders before files"
 
 #: src/caja-file-management-properties.ui:494
 msgid "Show hidden files"
-msgstr ""
+msgstr "Show hidden files"
 
 #: src/caja-file-management-properties.ui:510
 msgid "Show backup files"
-msgstr ""
+msgstr "Show backup files"
 
 #: src/caja-file-management-properties.ui:568
 msgid "Default _zoom level:"
@@ -4527,7 +4541,7 @@ msgstr "D_efault zoom level:"
 
 #: src/caja-file-management-properties.ui:786
 msgid "_Show icons"
-msgstr ""
+msgstr "_Show icons"
 
 #: src/caja-file-management-properties.ui:825
 msgid "Show _only folders"
@@ -4535,11 +4549,11 @@ msgstr "Show _only folders"
 
 #: src/caja-file-management-properties.ui:848
 msgid "Tree View"
-msgstr ""
+msgstr "Tree View"
 
 #: src/caja-file-management-properties.ui:862
 msgid "Defaults"
-msgstr ""
+msgstr "Defaults"
 
 #: src/caja-file-management-properties.ui:881
 msgid "Views"
@@ -4845,15 +4859,15 @@ msgstr "Image Type:"
 #, c-format
 msgid "<b>Width:</b> %d pixel"
 msgid_plural "<b>Width:</b> %d pixels"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "<b>Width:</b> %d pixelg"
+msgstr[1] "<b>Width:</b> %d pixels"
 
 #: src/caja-image-properties-page.c:411
 #, c-format
 msgid "<b>Height:</b> %d pixel"
 msgid_plural "<b>Height:</b> %d pixels"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "<b>Height:</b> %d pixel"
+msgstr[1] "<b>Height:</b> %d pixels"
 
 #: src/caja-image-properties-page.c:430
 msgid "Failed to load image information"
@@ -4925,8 +4939,8 @@ msgstr "Go To:"
 #, c-format
 msgid "Do you want to view %d location?"
 msgid_plural "Do you want to view %d locations?"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Do you want to view %d location?"
+msgstr[1] "Do you want to view %d locations?"
 
 #: src/caja-location-dialog.c:160
 msgid "Open Location"
@@ -4938,7 +4952,7 @@ msgstr "_Location:"
 
 #: src/caja-navigation-action.c:147
 msgid "folder removed"
-msgstr ""
+msgstr "folder removed"
 
 #: src/caja-navigation-window.c:801
 #, c-format
@@ -5519,11 +5533,11 @@ msgstr "Tags"
 
 #: src/caja-query-editor.c:192
 msgid "Modification Time"
-msgstr ""
+msgstr "Modification Time"
 
 #: src/caja-query-editor.c:206
 msgid "Contained text"
-msgstr ""
+msgstr "Contained text"
 
 #: src/caja-query-editor.c:352
 msgid "Select folder to search in"
@@ -5585,27 +5599,27 @@ msgstr "Other Type…"
 
 #: src/caja-query-editor.c:1082 src/caja-query-editor.c:1221
 msgid "Less than or equal to"
-msgstr ""
+msgstr "Less than or equal to"
 
 #: src/caja-query-editor.c:1084 src/caja-query-editor.c:1223
 msgid "Greater than or equal to"
-msgstr ""
+msgstr "Greater than or equal to"
 
 #: src/caja-query-editor.c:1097
 msgid "1 Hour"
-msgstr ""
+msgstr "1 Hour"
 
 #: src/caja-query-editor.c:1099
 msgid "1 Day"
-msgstr ""
+msgstr "1 Day"
 
 #: src/caja-query-editor.c:1101
 msgid "1 Week"
-msgstr ""
+msgstr "1 Week"
 
 #: src/caja-query-editor.c:1103
 msgid "1 Month"
-msgstr ""
+msgstr "1 Month"
 
 #: src/caja-query-editor.c:1105
 msgid "6 Months"
@@ -5617,59 +5631,59 @@ msgstr "1 Year"
 
 #: src/caja-query-editor.c:1238
 msgid "10 KiB"
-msgstr ""
+msgstr "10 KiB"
 
 #: src/caja-query-editor.c:1240
 msgid "100 KiB"
-msgstr ""
+msgstr "100 KiB"
 
 #: src/caja-query-editor.c:1242
 msgid "500 KiB"
-msgstr ""
+msgstr "500 KiB"
 
 #: src/caja-query-editor.c:1244
 msgid "1 MiB"
-msgstr ""
+msgstr "1 MiB"
 
 #: src/caja-query-editor.c:1246
 msgid "5 MiB"
-msgstr ""
+msgstr "5 MiB"
 
 #: src/caja-query-editor.c:1248
 msgid "10 MiB"
-msgstr ""
+msgstr "10 MiB"
 
 #: src/caja-query-editor.c:1250
 msgid "100 MiB"
-msgstr ""
+msgstr "100 MiB"
 
 #: src/caja-query-editor.c:1252
 msgid "500 MiB"
-msgstr ""
+msgstr "500 MiB"
 
 #: src/caja-query-editor.c:1254
 msgid "1 GiB"
-msgstr ""
+msgstr "1 GiB"
 
 #: src/caja-query-editor.c:1256
 msgid "2 GiB"
-msgstr ""
+msgstr "2 GiB"
 
 #: src/caja-query-editor.c:1258
 msgid "4 GiB"
-msgstr ""
+msgstr "4 GiB"
 
 #: src/caja-query-editor.c:1261
 msgid "10 KB"
-msgstr ""
+msgstr "10 KB"
 
 #: src/caja-query-editor.c:1275
 msgid "500 MB"
-msgstr ""
+msgstr "500 MB"
 
 #: src/caja-query-editor.c:1346 src/caja-query-editor.c:1349
 msgid "Matches files that contains specified text."
-msgstr ""
+msgstr "Matches files that contains specified text."
 
 #: src/caja-query-editor.c:1503
 msgid "Remove this criterion from the search"
@@ -5882,7 +5896,7 @@ msgstr ""
 
 #: src/caja-window-menus.c:575
 msgid "About Caja"
-msgstr ""
+msgstr "About Caja"
 
 #: src/caja-window-menus.c:577
 msgid ""
@@ -5895,14 +5909,18 @@ msgid ""
 "Copyright © 1999-2009 The Nautilus authors\n"
 "Copyright © 2011-2021 The Caja authors"
 msgstr ""
+"Copyright © 1999-2009 The Nautilus authors\n"
+"Copyright © 2011-2021 The Caja authors"
 
 #: src/caja-window-menus.c:586
 msgid "translator-credits"
-msgstr "Martin Wimpress"
+msgstr ""
+"Martin Wimpress\n"
+"Andi Chandler"
 
 #: src/caja-window-menus.c:589
 msgid "Website"
-msgstr ""
+msgstr "Website"
 
 #: src/caja-window-menus.c:849
 msgid "_File"
@@ -6050,11 +6068,11 @@ msgstr "Toggle the display of hidden files in the current window"
 
 #: src/caja-window-menus.c:973
 msgid "Show Bac_kup Files"
-msgstr ""
+msgstr "Show Bac_kup Files"
 
 #: src/caja-window-menus.c:974
 msgid "Toggle the display of backup files in the current window"
-msgstr ""
+msgstr "Toggle the display of backup files in the current window"
 
 #: src/caja-window-menus.c:1009
 msgid "_Up"
@@ -6170,7 +6188,7 @@ msgstr "Empty Bin"
 
 #: src/file-manager/fm-desktop-icon-view.c:888
 msgid "Desktop View"
-msgstr ""
+msgstr "Desktop View"
 
 #: src/file-manager/fm-desktop-icon-view.c:889
 #: src/file-manager/fm-directory-view.c:7694
@@ -6188,21 +6206,21 @@ msgstr "The desktop view encountered an error while starting up."
 
 #: src/file-manager/fm-desktop-icon-view.c:892
 msgid "Display this location with the desktop view."
-msgstr ""
+msgstr "Display this location with the desktop view."
 
 #: src/file-manager/fm-directory-view.c:660
 #, c-format
 msgid "This will open %'d separate tab."
 msgid_plural "This will open %'d separate tabs."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "This will open %'d separate tab."
+msgstr[1] "This will open %'d separate tabs."
 
 #: src/file-manager/fm-directory-view.c:663
 #, c-format
 msgid "This will open %'d separate window."
 msgid_plural "This will open %'d separate windows."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "This will open %'d separate window."
+msgstr[1] "This will open %'d separate windows."
 
 #: src/file-manager/fm-directory-view.c:1209
 msgid "Select Items Matching"
@@ -6246,15 +6264,15 @@ msgstr "\"%s\" selected"
 #, c-format
 msgid "%'d folder selected"
 msgid_plural "%'d folders selected"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'d folder selected"
+msgstr[1] "%'d folders selected"
 
 #: src/file-manager/fm-directory-view.c:2322
 #, c-format
 msgid " (containing %'d item)"
 msgid_plural " (containing %'d items)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] " (containing %'d item)"
+msgstr[1] " (containing %'d items)"
 
 #. Translators: this is preceded with a string of form 'N folders' (N more
 #. than 1)
@@ -6262,22 +6280,22 @@ msgstr[1] ""
 #, c-format
 msgid " (containing a total of %'d item)"
 msgid_plural " (containing a total of %'d items)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] " (containing a total of %'d item)"
+msgstr[1] " (containing a total of %'d items)"
 
 #: src/file-manager/fm-directory-view.c:2350
 #, c-format
 msgid "%'d item selected"
 msgid_plural "%'d items selected"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'d item selected"
+msgstr[1] "%'d items selected"
 
 #: src/file-manager/fm-directory-view.c:2357
 #, c-format
 msgid "%'d other item selected"
 msgid_plural "%'d other items selected"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'d other item selected"
+msgstr[1] "%'d other items selected"
 
 #. Translators: This is marked for translation in case a localiser
 #. * needs to use something other than parentheses. The
@@ -6318,8 +6336,8 @@ msgstr "%s%s, %s, %s"
 #, c-format
 msgid "Use \"%s\" to open the selected item"
 msgid_plural "Use \"%s\" to open the selected items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Use \"%s\" to open the selected item"
+msgstr[1] "Use \"%s\" to open the selected items"
 
 #: src/file-manager/fm-directory-view.c:4612
 msgid "Open parent location"
@@ -6411,7 +6429,9 @@ msgid "The %'d selected item will be moved if you select the Paste command"
 msgid_plural ""
 "The %'d selected items will be moved if you select the Paste command"
 msgstr[0] ""
+"The %'d selected item will be moved if you select the Paste command"
 msgstr[1] ""
+"The %'d selected items will be moved if you select the Paste command"
 
 #: src/file-manager/fm-directory-view.c:6098
 #, c-format
@@ -6419,7 +6439,9 @@ msgid "The %'d selected item will be copied if you select the Paste command"
 msgid_plural ""
 "The %'d selected items will be copied if you select the Paste command"
 msgstr[0] ""
+"The %'d selected item will be copied if you select the Paste command"
 msgstr[1] ""
+"The %'d selected items will be copied if you select the Paste command"
 
 #: src/file-manager/fm-directory-view.c:6278
 #: src/file-manager/fm-tree-view.c:1060
@@ -6613,8 +6635,8 @@ msgstr "Duplicate each selected item"
 #: src/file-manager/fm-directory-view.c:9161
 msgid "Ma_ke Link"
 msgid_plural "Ma_ke Links"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Ma_ke Link"
+msgstr[1] "Ma_ke Links"
 
 #: src/file-manager/fm-directory-view.c:7491
 msgid "Create a symbolic link for each selected item"
@@ -6863,40 +6885,40 @@ msgstr "Move the open folder out of the bin to \"%s\""
 #, c-format
 msgid "Move the selected folder out of the trash to \"%s\""
 msgid_plural "Move the selected folders out of the trash to \"%s\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Move the selected folder out of the Rubbish Bin to \"%s\""
+msgstr[1] "Move the selected folders out of the Rubbish Bin to \"%s\""
 
 #: src/file-manager/fm-directory-view.c:8217
 msgid "Move the selected folder out of the trash"
 msgid_plural "Move the selected folders out of the trash"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Move the selected folder out of the Rubbish Bin"
+msgstr[1] "Move the selected folders out of the Rubbish Bin"
 
 #: src/file-manager/fm-directory-view.c:8223
 #, c-format
 msgid "Move the selected file out of the trash to \"%s\""
 msgid_plural "Move the selected files out of the trash to \"%s\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Move the selected file out of the Rubbish Bin to \"%s\""
+msgstr[1] "Move the selected files out of the Rubbish Bin to \"%s\""
 
 #: src/file-manager/fm-directory-view.c:8227
 msgid "Move the selected file out of the trash"
 msgid_plural "Move the selected files out of the trash"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Move the selected file out of the Rubbish Bin"
+msgstr[1] "Move the selected files out of the Rubbish Bin"
 
 #: src/file-manager/fm-directory-view.c:8233
 #, c-format
 msgid "Move the selected item out of the trash to \"%s\""
 msgid_plural "Move the selected items out of the trash to \"%s\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Move the selected item out of the Rubbish Bin to \"%s\""
+msgstr[1] "Move the selected items out of the Rubbish Bin to \"%s\""
 
 #: src/file-manager/fm-directory-view.c:8237
 msgid "Move the selected item out of the trash"
 msgid_plural "Move the selected items out of the trash"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Move the selected item out of the Rubbish Bin"
+msgstr[1] "Move the selected items out of the Rubbish Bin"
 
 #: src/file-manager/fm-directory-view.c:8366
 #: src/file-manager/fm-directory-view.c:8370
@@ -7012,8 +7034,8 @@ msgstr "Browse in New _Window"
 #: src/file-manager/fm-directory-view.c:9039
 msgid "_Browse Folder"
 msgid_plural "_Browse Folders"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Browse Folder"
+msgstr[1] "_Browse Folders"
 
 #: src/file-manager/fm-directory-view.c:8716
 #: src/file-manager/fm-directory-view.c:9070
@@ -7042,29 +7064,29 @@ msgstr "_Open With %s"
 #, c-format
 msgid "Open in %'d New _Window"
 msgid_plural "Open in %'d New _Windows"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Open in %'d New _Window"
+msgstr[1] "Open in %'d New _Windows"
 
 #: src/file-manager/fm-directory-view.c:9031
 #, c-format
 msgid "Browse in %'d New _Window"
 msgid_plural "Browse in %'d New _Windows"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Browse in %'d New _Window"
+msgstr[1] "Browse in %'d New _Windows"
 
 #: src/file-manager/fm-directory-view.c:9063
 #, c-format
 msgid "Open in %'d New _Tab"
 msgid_plural "Open in %'d New _Tabs"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Open in %'d New _Tab"
+msgstr[1] "Open in %'d New _Tabs"
 
 #: src/file-manager/fm-directory-view.c:9072
 #, c-format
 msgid "Browse in %'d New _Tab"
 msgid_plural "Browse in %'d New _Tabs"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Browse in %'d New _Tab"
+msgstr[1] "Browse in %'d New _Tabs"
 
 #: src/file-manager/fm-directory-view.c:9116
 msgid "Delete all selected items permanently"
@@ -7108,12 +7130,12 @@ msgstr "An invalid drag type was used."
 #: src/file-manager/fm-directory-view.c:10766
 #: src/file-manager/fm-directory-view.c:10771
 msgid "Link Creation Failed"
-msgstr ""
+msgstr "Link Creation Failed"
 
 #: src/file-manager/fm-directory-view.c:10770
 #, c-format
 msgid "Cannot create the link to %s"
-msgstr ""
+msgstr "Cannot create the link to %s"
 
 #. Translators: This is the filename used for when you dnd text to a directory
 #: src/file-manager/fm-directory-view.c:10921
@@ -7148,19 +7170,19 @@ msgstr "Command"
 
 #: src/file-manager/fm-empty-view.c:397 src/file-manager/fm-empty-view.c:399
 msgid "Empty View"
-msgstr ""
+msgstr "Empty View"
 
 #: src/file-manager/fm-empty-view.c:398
 msgid "_Empty"
-msgstr ""
+msgstr "_Empty"
 
 #: src/file-manager/fm-empty-view.c:400
 msgid "The empty view encountered an error."
-msgstr ""
+msgstr "The empty view encountered an error."
 
 #: src/file-manager/fm-empty-view.c:401
 msgid "Display this location with the empty view."
-msgstr ""
+msgstr "Display this location with the empty view."
 
 #: src/file-manager/fm-error-reporting.c:72
 #, c-format
@@ -7276,7 +7298,7 @@ msgstr "Keep icons sorted by size in rows"
 
 #: src/file-manager/fm-icon-view.c:144
 msgid "by S_ize on Disk"
-msgstr ""
+msgstr "by S_ize on Disk"
 
 #: src/file-manager/fm-icon-view.c:145 src/file-manager/fm-icon-view.c:1850
 msgid "Keep icons sorted by disk usage in rows"
@@ -7300,11 +7322,11 @@ msgstr "Keep icons sorted by modification date in rows"
 
 #: src/file-manager/fm-icon-view.c:165
 msgid "by _Creation Date"
-msgstr ""
+msgstr "by _Creation Date"
 
 #: src/file-manager/fm-icon-view.c:166 src/file-manager/fm-icon-view.c:1868
 msgid "Keep icons sorted by creation date in rows"
-msgstr ""
+msgstr "Keep icons sorted by creation date in rows"
 
 #: src/file-manager/fm-icon-view.c:172
 msgid "by _Emblems"
@@ -7324,11 +7346,11 @@ msgstr "Keep icons sorted by binned time in rows"
 
 #: src/file-manager/fm-icon-view.c:186
 msgid "by E_xtension"
-msgstr ""
+msgstr "by E_xtension"
 
 #: src/file-manager/fm-icon-view.c:187
 msgid "Keep icons sorted by reversed extension segments in rows"
-msgstr ""
+msgstr "Keep icons sorted by reversed extension segments in rows"
 
 #: src/file-manager/fm-icon-view.c:801
 msgid "_Organize Desktop by Name"
@@ -7388,11 +7410,11 @@ msgstr "Keep icons lined up on a grid"
 
 #: src/file-manager/fm-icon-view.c:1820
 msgid "_Lock Icons Position"
-msgstr ""
+msgstr "_Lock Icons Position"
 
 #: src/file-manager/fm-icon-view.c:1821
 msgid "Prevent repositioning icons"
-msgstr ""
+msgstr "Prevent repositioning icons"
 
 #: src/file-manager/fm-icon-view.c:1831
 msgid "_Manually"
@@ -7412,7 +7434,7 @@ msgstr "By _Size"
 
 #: src/file-manager/fm-icon-view.c:1849
 msgid "By S_ize on Disk"
-msgstr ""
+msgstr "By S_ize on Disk"
 
 #: src/file-manager/fm-icon-view.c:1855
 msgid "By _Type"
@@ -7424,7 +7446,7 @@ msgstr "By Modification _Date"
 
 #: src/file-manager/fm-icon-view.c:1867
 msgid "By _Creation Date"
-msgstr ""
+msgstr "By _Creation Date"
 
 #: src/file-manager/fm-icon-view.c:1873
 msgid "By _Emblems"
@@ -7436,11 +7458,11 @@ msgstr "By _Wastebasket Time"
 
 #: src/file-manager/fm-icon-view.c:1885
 msgid "By E_xtension"
-msgstr ""
+msgstr "By E_xtension"
 
 #: src/file-manager/fm-icon-view.c:1886
 msgid "Keep icons sorted by reverse extension segments in rows"
-msgstr ""
+msgstr "Keep icons sorted by reverse extension segments in rows"
 
 #: src/file-manager/fm-icon-view.c:2022
 msgid "Restore Icon's Original Si_ze"
@@ -7530,8 +7552,8 @@ msgstr "You cannot assign more than one custom icon at a time!"
 #: src/file-manager/fm-properties-window.c:645
 msgid "_Name:"
 msgid_plural "_Names:"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Name:"
+msgstr[1] "_Names:"
 
 #: src/file-manager/fm-properties-window.c:1001
 msgid "Properties"
@@ -7568,8 +7590,8 @@ msgstr "unreadable"
 #, c-format
 msgid "%'d item, with size %s (%s on disk)"
 msgid_plural "%'d items, totalling %s (%s on disk)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'d item, with size %s (%s on disk)"
+msgstr[1] "%'d items, totalling %s (%s on disk)"
 
 #: src/file-manager/fm-properties-window.c:2324
 msgid "(some contents unreadable)"
@@ -7810,20 +7832,20 @@ msgstr "Show Tree"
 
 #: src/file-manager/fm-widget-view.c:444
 msgid "Widget View"
-msgstr ""
+msgstr "Widget View"
 
 #: src/file-manager/fm-widget-view.c:445
 msgid "_Widget View"
-msgstr ""
+msgstr "_Widget View"
 
 #: src/file-manager/fm-widget-view.c:446
 msgid "The widget view encountered an error."
-msgstr ""
+msgstr "The widget view encountered an error."
 
 #: src/file-manager/fm-widget-view.c:447
 msgid "The widget view encountered an error while starting up."
-msgstr ""
+msgstr "The widget view encountered an error while starting up."
 
 #: src/file-manager/fm-widget-view.c:448
 msgid "Display this location with the widget view."
-msgstr ""
+msgstr "Display this location with the widget view."

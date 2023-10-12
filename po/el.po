@@ -23,6 +23,7 @@
 # Le Pa <lepa.22@hotmail.com>, 2021
 # Efstathios Iosifidis <iefstathios@gmail.com>, 2021
 # Alkis Georgopoulos <alkisg@gmail.com>, 2021
+# Chris Balabanis, 2023
 # 
 msgid ""
 msgstr ""
@@ -30,8 +31,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://github.com/mate-desktop/caja/issues\n"
 "POT-Creation-Date: 2021-08-04 14:26+0200\n"
 "PO-Revision-Date: 2021-09-18 16:24+0000\n"
-"Last-Translator: Alkis Georgopoulos <alkisg@gmail.com>, 2021\n"
-"Language-Team: Greek (https://www.transifex.com/mate/teams/13566/el/)\n"
+"Last-Translator: Chris Balabanis, 2023\n"
+"Language-Team: Greek (https://app.transifex.com/mate/teams/13566/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -326,12 +327,21 @@ msgid ""
 " associated with them. It is also responsible for handling the icons on the "
 "MATE desktop. It works on local and remote file systems."
 msgstr ""
+"Ο Caja είναι ο επίσημος διαχειριστής αρχείων για το γραφικό περιβάλλον MATE."
+" Παρέχει τη δυνατότητα πλοήγησης σε φακέλους, όπως επίσης την προεπισκόπηση "
+"αρχείων και την εκκίνηση εφαρμογών που σχετίζονται με αυτά. Είναι επίσης "
+"υπεύθυνος να διαχειρίζεται τα εικονίδια στο περιβάλλον MATE. Λειτουργεί σε "
+"τοπικά και απομακρυσμένα συστήματα αρχείων. Ο διαχειριστής αρχείων Caja "
+"είναι επεκτάσιμος μέσω συστήματος προσθέτων, παρόμοιο με εκείνο του GNOME "
+"Nautilus, από τον οποίο προέρχεται ο Caja."
 
 #: data/caja.appdata.xml.in.in:16
 msgid ""
 "Caja is extensible through a plugin system, similar to that of GNOME "
 "Nautilus, of which Caja is a fork."
 msgstr ""
+"Ο Caja είναι επεκτάσιμος μέσω ενός συστήματος προσθέτων, παρόμοιο με αυτό "
+"του GNOME Nautilus, από τον οποίο προέρχεται ο Caja."
 
 #: data/caja-autorun-software.desktop.in.in:3
 msgid "Autorun Prompt"
@@ -349,7 +359,7 @@ msgstr "Περιήγηση στο σύστημα αρχείων με το δια
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/caja-browser.desktop.in.in:15
 msgid "files;browser;manager;MATE;"
-msgstr ""
+msgstr "αρχεία;περιηγητής;διαχειριστής;MATE;"
 
 #: data/caja-computer.desktop.in.in:3 libcaja-private/caja-desktop-link.c:114
 #: src/caja-places-sidebar.c:512
@@ -761,7 +771,7 @@ msgstr "Ημερομηνία δημιουργίας"
 
 #: libcaja-private/caja-column-utilities.c:85
 msgid "The date the file was created."
-msgstr ""
+msgstr "Η ημερομηνία που δημιουργήθηκε το αρχείο."
 
 #: libcaja-private/caja-column-utilities.c:92
 msgid "Date Accessed"
@@ -1705,7 +1715,7 @@ msgstr "Διαγραφή αρχείων..."
 #: libcaja-private/caja-file-operations.c:2156 src/caja-places-sidebar.c:2277
 #: src/caja-places-sidebar.c:2313
 msgid "It is now safe to remove the drive"
-msgstr ""
+msgstr "Είναι πλέον ασφαλές να αφαιρέσετε τη μονάδα δίσκου"
 
 #: libcaja-private/caja-file-operations.c:2169
 msgid "Unable to eject %V"
@@ -1717,7 +1727,7 @@ msgstr "Αδυναμία αποπροσάρτησης %V"
 
 #: libcaja-private/caja-file-operations.c:2207 src/caja-places-sidebar.c:2347
 msgid "Writing data to the drive -- do not unplug"
-msgstr ""
+msgstr "Εγγραφή δεδομένων στην μονάδα δίσκου -- μην την αποσυνδέσετε"
 
 #: libcaja-private/caja-file-operations.c:2331
 msgid "Do you want to empty the trash before you unmount?"
@@ -2957,13 +2967,15 @@ msgstr ""
 
 #: libcaja-private/org.mate.caja.gschema.xml:81
 msgid "Switch tabs with [ctrl] + [tab]"
-msgstr ""
+msgstr "Εναλλάξτε καρτέλες με [ctrl] + [tab]"
 
 #: libcaja-private/org.mate.caja.gschema.xml:82
 msgid ""
 "If true, it enables the ability to switch tabs using [ctrl + tab] and [ctrl "
 "+ shift + tab]."
 msgstr ""
+"Αν είναι αληθές, επιτρέπει τη δυνατότητα εναλλαγής καρτελών χρησιμοποιώντας "
+"[ctrl + tab] και [ctrl + shift + tab]."
 
 #: libcaja-private/org.mate.caja.gschema.xml:86
 msgid "Caja will exit when last window destroyed."
@@ -3395,6 +3407,9 @@ msgid ""
 "If set to true, then hidden files are shown by default in the file manager. "
 "Hidden files are either dotfiles or listed in the folder's .hidden file."
 msgstr ""
+"Αν οριστεί σε αληθές, τα κρυφά αρχεία θα εμφανίζονται από προεπιλογή στον "
+"διαχειριστή αρχείων. Τα κρυφά αρχεία είτε αρχίζουν με τελεία ή περιέχονται "
+"στο αρχείο .hidden του φακέλου."
 
 #: libcaja-private/org.mate.caja.gschema.xml:253
 msgid "Whether to show backup files"
@@ -3421,11 +3436,11 @@ msgstr ""
 
 #: libcaja-private/org.mate.caja.gschema.xml:264
 msgid "Whether to show icons in list view"
-msgstr ""
+msgstr "Εάν θα εμφανίζονται εικονίδια σε προβολή λίστας"
 
 #: libcaja-private/org.mate.caja.gschema.xml:265
 msgid "If set to true, show file icons in list view."
-msgstr ""
+msgstr "Εάν οριστεί σε αληθές, εμφάνιση εικονιδίων σε προβολή λίστας"
 
 #: libcaja-private/org.mate.caja.gschema.xml:269
 msgid "Whether to show desktop notifications"
@@ -3995,7 +4010,7 @@ msgstr "--γεωμετρία χρησιμοποιείται μόνο με ένα
 
 #: src/caja-application.c:1814
 msgid "--select must be used with at least an URI."
-msgstr ""
+msgstr "--επιλογή πρέπει να χρησιμοποιηθεί με τουλάχιστον ένα URI."
 
 #: src/caja-application.c:1928
 msgid "Perform a quick set of self-check tests."
@@ -4035,7 +4050,7 @@ msgstr ""
 
 #: src/caja-application.c:1941
 msgid "Open URIs in tabs."
-msgstr ""
+msgstr "Άνοιγμα των URI σε καρτέλες"
 
 #: src/caja-application.c:1943
 msgid "Open a browser window."
@@ -4047,7 +4062,7 @@ msgstr "Τερματισμός του Caja."
 
 #: src/caja-application.c:1947
 msgid "Select specified URI in parent folder."
-msgstr ""
+msgstr "Επιλογή καθορισμένου URI στον γονικό φάκελο."
 
 #: src/caja-application.c:1948
 msgid "[URI...]"
@@ -4105,7 +4120,7 @@ msgstr "Σελιδοδείκτες"
 
 #: src/caja-bookmarks-sidebar.c:491
 msgid "Show a list of your personal bookmarks"
-msgstr ""
+msgstr "Εμφάνιση μιας λίστας με τους προσωπικούς σας σελιδοδείκτες"
 
 #: src/caja-bookmarks-window.c:163 src/caja-file-management-properties.c:226
 #: src/caja-property-browser.c:1693 src/caja-window-menus.c:629
@@ -5032,7 +5047,7 @@ msgstr "_Τοποθεσία:"
 
 #: src/caja-navigation-action.c:147
 msgid "folder removed"
-msgstr ""
+msgstr "Ο φάκελος αφαιρέθηκε"
 
 #: src/caja-navigation-window.c:801
 #, c-format
@@ -5688,7 +5703,7 @@ msgstr "Άλλος τύπος..."
 
 #: src/caja-query-editor.c:1082 src/caja-query-editor.c:1221
 msgid "Less than or equal to"
-msgstr ""
+msgstr "Χαμηλότερο ή ίσο με"
 
 #: src/caja-query-editor.c:1084 src/caja-query-editor.c:1223
 msgid "Greater than or equal to"

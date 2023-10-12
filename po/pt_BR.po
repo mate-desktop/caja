@@ -36,6 +36,9 @@
 # Fabiano Pontes <fabiano.pontesc@gmail.com>, 2021
 # George Silva <algoritmo.linux@gmail.com>, 2021
 # Luciano Luck, 2022
+# y “nhehguy” g, 2022
+# jose, 2023
+# Vitor Henrique, 2023
 # 
 msgid ""
 msgstr ""
@@ -43,8 +46,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://github.com/mate-desktop/caja/issues\n"
 "POT-Creation-Date: 2021-08-04 14:26+0200\n"
 "PO-Revision-Date: 2021-09-18 16:24+0000\n"
-"Last-Translator: Luciano Luck, 2022\n"
-"Language-Team: Portuguese (Brazil) (https://www.transifex.com/mate/teams/13566/pt_BR/)\n"
+"Last-Translator: Vitor Henrique, 2023\n"
+"Language-Team: Portuguese (Brazil) (https://app.transifex.com/mate/teams/13566/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -185,7 +188,7 @@ msgstr "C_ores"
 
 #: data/browser.xml:36
 msgid "Drag a color to an object to change it to that color"
-msgstr "Arraste uma cor a um objeto para alterá-lo para esta cor"
+msgstr "Arraste uma cor a um objeto para mudá-lo para esta cor"
 
 #: data/browser.xml:37
 msgid "Mango"
@@ -1152,25 +1155,25 @@ msgstr "Grupo especificado \"%s\" não existe"
 #, c-format
 msgid "%'u item"
 msgid_plural "%'u items"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%'u item"
+msgstr[1] "%'u itens"
+msgstr[2] "%'u itens"
 
 #: libcaja-private/caja-file.c:6230
 #, c-format
 msgid "%'u folder"
 msgid_plural "%'u folders"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%'u pasta"
+msgstr[1] "%'u pastas"
+msgstr[2] "%'u pastas"
 
 #: libcaja-private/caja-file.c:6231
 #, c-format
 msgid "%'u file"
 msgid_plural "%'u files"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%'u arquivo"
+msgstr[1] "%'u arquivos"
+msgstr[2] "%'u arquivos"
 
 #: libcaja-private/caja-file.c:6335
 msgid "%"
@@ -1404,34 +1407,34 @@ msgstr "Copiar _de qualquer maneira"
 #, c-format
 msgid "%'d second"
 msgid_plural "%'d seconds"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%'d segundo"
+msgstr[1] "%'d segundos "
+msgstr[2] "%'d segundos "
 
 #: libcaja-private/caja-file-operations.c:310
 #: libcaja-private/caja-file-operations.c:322
 #, c-format
 msgid "%'d minute"
 msgid_plural "%'d minutes"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%'d minuto"
+msgstr[1] "%'d minutos"
+msgstr[2] "%'d minutos"
 
 #: libcaja-private/caja-file-operations.c:321
 #, c-format
 msgid "%'d hour"
 msgid_plural "%'d hours"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%'d hora"
+msgstr[1] "%'d horas"
+msgstr[2] "%'d horas"
 
 #: libcaja-private/caja-file-operations.c:329
 #, c-format
 msgid "approximately %'d hour"
 msgid_plural "approximately %'d hours"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "aproximadamente %'d hora"
+msgstr[1] "aproximadamente %'d horas"
+msgstr[2] "aproximadamente %'d horas"
 
 #: libcaja-private/caja-file-operations.c:409
 #, c-format
@@ -1571,8 +1574,14 @@ msgid_plural ""
 "Are you sure you want to permanently delete the %'d selected items from the "
 "trash?"
 msgstr[0] ""
+"Você tem certeza que quer excluír permanentemente o %'d arquivo selecionado "
+"da lixeira?"
 msgstr[1] ""
+"Você tem certeza que quer excluír permanentemente os %'d arquivos "
+"selecionados da lixeira?"
 msgstr[2] ""
+"Você tem certeza que quer excluír permanentemente os %'d arquivos "
+"selecionados da lixeira?"
 
 #: libcaja-private/caja-file-operations.c:1382
 #: libcaja-private/caja-file-operations.c:1448
@@ -1632,9 +1641,9 @@ msgstr "Mover para _Lixeira"
 #, c-format
 msgid "%'d file left to delete"
 msgid_plural "%'d files left to delete"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%'d arquivo restante para excluír"
+msgstr[1] "%'d arquivos restantes para excluír"
+msgstr[2] "%'d arquivos restantes para excluír"
 
 #: libcaja-private/caja-file-operations.c:1529
 msgid "Deleting files"
@@ -1646,9 +1655,9 @@ msgstr "Excluindo arquivos"
 #: libcaja-private/caja-file-operations.c:1546
 msgid "%T left"
 msgid_plural "%T left"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%T restante"
+msgstr[1] "%T restantes"
+msgstr[2] "%T restantes"
 
 #: libcaja-private/caja-file-operations.c:1613
 #: libcaja-private/caja-file-operations.c:1647
@@ -2221,9 +2230,9 @@ msgstr[2] ""
 #, c-format
 msgid "This will open %d separate window."
 msgid_plural "This will open %d separate windows."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Isso abrirá %d janela separada."
+msgstr[1] "Isso abrirá %d janelas separadas."
+msgstr[2] "Isso abrirá %d janelas separadas."
 
 #: libcaja-private/caja-mime-actions.c:1277
 #: src/caja-window-manage-views.c:2142 src/caja-window-manage-views.c:2150
@@ -2288,12 +2297,12 @@ msgstr "Marcar como _confiável"
 #: libcaja-private/caja-mime-actions.c:2348
 #: src/file-manager/fm-directory-view.c:6475
 msgid "Unable to mount location"
-msgstr "Não foi possível montar a localização"
+msgstr "Não foi possível montar o local"
 
 #: libcaja-private/caja-mime-actions.c:2436
 #: src/file-manager/fm-directory-view.c:6649
 msgid "Unable to start location"
-msgstr "Não foi possível iniciar a localização"
+msgstr "Não foi possível iniciar o local"
 
 #: libcaja-private/caja-mime-actions.c:2530
 #, c-format
@@ -2372,11 +2381,11 @@ msgstr "Não foi possível executar o aplicativo"
 #: libcaja-private/caja-open-with-dialog.c:165
 #, c-format
 msgid "Could not find '%s'"
-msgstr "Não foi possível localizar \"%s\""
+msgstr "Não foi possível encontrar \"%s\""
 
 #: libcaja-private/caja-open-with-dialog.c:168
 msgid "Could not find application"
-msgstr "Não foi possível localizar o aplicativo"
+msgstr "Não foi possível encontrar o aplicativo"
 
 #: libcaja-private/caja-open-with-dialog.c:252
 #, c-format
@@ -2417,7 +2426,7 @@ msgstr "_Selecionar..."
 #: libcaja-private/caja-open-with-dialog.c:1071
 #, c-format
 msgid "Open %s and other %s document with:"
-msgstr "Abrir %s e outros documentos %s com:"
+msgstr "Abrir %se outro %s documento com:"
 
 #. Translators: the %s here is a file name
 #. Translators: %s is a filename
@@ -2490,16 +2499,16 @@ msgid ""
 "No other applications are available to view this file. If you copy this file"
 " onto your computer, you may be able to open it."
 msgstr ""
-"Nenhum outro aplicativo está disponível para ver esse arquivo. Se você "
-"copiar este arquivo para o seu computador, você pode ser capaz de abri-lo."
+"Nenhum outros aplicativos estão disponíveis para ver esse arquivo. Se você "
+"copiar este arquivo para o seu computador, você poderá ser capaz de abri-lo."
 
 #: libcaja-private/caja-program-choosing.c:132
 msgid ""
 "No other actions are available to view this file. If you copy this file onto"
 " your computer, you may be able to open it."
 msgstr ""
-"Nenhuma outra ação está disponível para ver este arquivo. Se você copiar "
-"este arquivo para o seu computador, você pode ser capaz de abri-lo."
+"Nenhuma outras ações estão disponíveis para ver este arquivo. Se você copiar"
+" este arquivo para o seu computador, você poderá ser capaz de abri-lo."
 
 #: libcaja-private/caja-program-choosing.c:463
 msgid "Sorry, but you cannot execute commands from a remote site."
@@ -2568,7 +2577,7 @@ msgstr "Pausar"
 #: libcaja-private/caja-progress-info.c:421
 #: libcaja-private/caja-progress-info.c:422
 msgid "Resume"
-msgstr ""
+msgstr "Resumir"
 
 #: libcaja-private/caja-progress-info.c:609
 #, c-format
@@ -2585,7 +2594,7 @@ msgstr "Processo concluído"
 #: libcaja-private/caja-progress-info.c:806
 #: libcaja-private/caja-progress-info.c:807
 msgid "Queue"
-msgstr ""
+msgstr "Fila"
 
 #: libcaja-private/caja-progress-info.c:1007
 #: libcaja-private/caja-progress-info.c:1028
@@ -3471,7 +3480,7 @@ msgstr ""
 
 #: libcaja-private/org.mate.caja.gschema.xml:264
 msgid "Whether to show icons in list view"
-msgstr ""
+msgstr "Se os ícones devem ser exibidos no modo de exibição de lista"
 
 #: libcaja-private/org.mate.caja.gschema.xml:265
 msgid "If set to true, show file icons in list view."
@@ -4035,7 +4044,7 @@ msgstr "--geometry não pode ser usado com mais de uma URI."
 
 #: src/caja-application.c:1814
 msgid "--select must be used with at least an URI."
-msgstr ""
+msgstr "--select deve ser utilizado com pelo menos um URI."
 
 #: src/caja-application.c:1928
 msgid "Perform a quick set of self-check tests."
@@ -4087,7 +4096,7 @@ msgstr "Sai do Caja."
 
 #: src/caja-application.c:1947
 msgid "Select specified URI in parent folder."
-msgstr ""
+msgstr "Selecione o URI especificado na pasta superior."
 
 #: src/caja-application.c:1948
 msgid "[URI...]"
@@ -4145,7 +4154,7 @@ msgstr "Marcadores"
 
 #: src/caja-bookmarks-sidebar.c:491
 msgid "Show a list of your personal bookmarks"
-msgstr ""
+msgstr "Exibir uma lista dos seus favoritos."
 
 #: src/caja-bookmarks-window.c:163 src/caja-file-management-properties.c:226
 #: src/caja-property-browser.c:1693 src/caja-window-menus.c:629
@@ -4191,7 +4200,7 @@ msgstr "_Nome"
 
 #: src/caja-bookmarks-window.ui:241
 msgid "_Location"
-msgstr ""
+msgstr "_Local"
 
 #: src/caja-connect-server-dialog.c:135
 msgid "SSH"
@@ -4500,7 +4509,7 @@ msgstr "Por data de modificação"
 
 #: src/caja-file-management-properties.ui:96
 msgid "By Creation Date"
-msgstr ""
+msgstr "Por data de criação"
 
 #: src/caja-file-management-properties.ui:99
 msgid "By Access Date"
@@ -4654,7 +4663,7 @@ msgstr "Nível padrão de _zoom:"
 
 #: src/caja-file-management-properties.ui:786
 msgid "_Show icons"
-msgstr ""
+msgstr "_Mostrar ícones"
 
 #: src/caja-file-management-properties.ui:825
 msgid "Show _only folders"
@@ -4662,11 +4671,11 @@ msgstr "Mostrar apenas pa_stas"
 
 #: src/caja-file-management-properties.ui:848
 msgid "Tree View"
-msgstr ""
+msgstr "Visão em árvore"
 
 #: src/caja-file-management-properties.ui:862
 msgid "Defaults"
-msgstr ""
+msgstr "Padrões"
 
 #: src/caja-file-management-properties.ui:881
 msgid "Views"
@@ -5656,7 +5665,7 @@ msgstr "Tempo de modificação"
 
 #: src/caja-query-editor.c:206
 msgid "Contained text"
-msgstr ""
+msgstr "Texto contido"
 
 #: src/caja-query-editor.c:352
 msgid "Select folder to search in"
@@ -5803,7 +5812,7 @@ msgstr "500 MB"
 
 #: src/caja-query-editor.c:1346 src/caja-query-editor.c:1349
 msgid "Matches files that contains specified text."
-msgstr ""
+msgstr "Procura arquivos que contenham o texto especificado."
 
 #: src/caja-query-editor.c:1503
 msgid "Remove this criterion from the search"
@@ -6031,6 +6040,8 @@ msgid ""
 "Copyright © 1999-2009 The Nautilus authors\n"
 "Copyright © 2011-2021 The Caja authors"
 msgstr ""
+"Copyright © 1999-2009 Os autores do Nautilus\n"
+"Copyright © 2011-2021 Os autores do Caja"
 
 #: src/caja-window-menus.c:586
 msgid "translator-credits"
@@ -6062,7 +6073,7 @@ msgstr ""
 
 #: src/caja-window-menus.c:589
 msgid "Website"
-msgstr ""
+msgstr "Website"
 
 #: src/caja-window-menus.c:849
 msgid "_File"
@@ -6331,7 +6342,7 @@ msgstr "Esvaziar lixeira"
 
 #: src/file-manager/fm-desktop-icon-view.c:888
 msgid "Desktop View"
-msgstr ""
+msgstr "Visão de Desktop"
 
 #: src/file-manager/fm-desktop-icon-view.c:889
 #: src/file-manager/fm-directory-view.c:7694
@@ -6349,7 +6360,7 @@ msgstr "A visão de área de trabalho encontrou um erro ao iniciar."
 
 #: src/file-manager/fm-desktop-icon-view.c:892
 msgid "Display this location with the desktop view."
-msgstr ""
+msgstr "Mostrar este local com a visão em desktop."
 
 #: src/file-manager/fm-directory-view.c:660
 #, c-format
@@ -7298,12 +7309,12 @@ msgstr "Um tipo de arraste inválido foi usado."
 #: src/file-manager/fm-directory-view.c:10766
 #: src/file-manager/fm-directory-view.c:10771
 msgid "Link Creation Failed"
-msgstr ""
+msgstr "Falha de criação de link"
 
 #: src/file-manager/fm-directory-view.c:10770
 #, c-format
 msgid "Cannot create the link to %s"
-msgstr ""
+msgstr "Não foi possível criar o link para %s"
 
 #. Translators: This is the filename used for when you dnd text to a directory
 #: src/file-manager/fm-directory-view.c:10921
@@ -7338,19 +7349,19 @@ msgstr "Comando"
 
 #: src/file-manager/fm-empty-view.c:397 src/file-manager/fm-empty-view.c:399
 msgid "Empty View"
-msgstr ""
+msgstr "Visão em vazio"
 
 #: src/file-manager/fm-empty-view.c:398
 msgid "_Empty"
-msgstr ""
+msgstr "_Vazio"
 
 #: src/file-manager/fm-empty-view.c:400
 msgid "The empty view encountered an error."
-msgstr ""
+msgstr "A visão vazia encontrou um erro."
 
 #: src/file-manager/fm-empty-view.c:401
 msgid "Display this location with the empty view."
-msgstr ""
+msgstr "Exiba esse local com a visão vazia."
 
 #: src/file-manager/fm-error-reporting.c:72
 #, c-format
@@ -7490,11 +7501,11 @@ msgstr "Mantém ícones ordenados por data de modificação nas linhas"
 
 #: src/file-manager/fm-icon-view.c:165
 msgid "by _Creation Date"
-msgstr ""
+msgstr "por _Data de Criação"
 
 #: src/file-manager/fm-icon-view.c:166 src/file-manager/fm-icon-view.c:1868
 msgid "Keep icons sorted by creation date in rows"
-msgstr ""
+msgstr "Deixe os arquivos ordenados por data de criação em linhas."
 
 #: src/file-manager/fm-icon-view.c:172
 msgid "by _Emblems"
@@ -7581,11 +7592,11 @@ msgstr "Mantém ícones alinhados"
 
 #: src/file-manager/fm-icon-view.c:1820
 msgid "_Lock Icons Position"
-msgstr ""
+msgstr "_Bloquear a posição dos ícones"
 
 #: src/file-manager/fm-icon-view.c:1821
 msgid "Prevent repositioning icons"
-msgstr ""
+msgstr "Prevenir o reposicionamento de ícones"
 
 #: src/file-manager/fm-icon-view.c:1831
 msgid "_Manually"
@@ -7617,7 +7628,7 @@ msgstr "Por _data de modificação"
 
 #: src/file-manager/fm-icon-view.c:1867
 msgid "By _Creation Date"
-msgstr ""
+msgstr "Por _data de criação"
 
 #: src/file-manager/fm-icon-view.c:1873
 msgid "By _Emblems"

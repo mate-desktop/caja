@@ -14,10 +14,13 @@
 # Taras Panchenko <top39@ukr.net>, 2021
 # Stefano Karapetsas <stefano@karapetsas.com>, 2021
 # zubr139, 2021
-# Микола Ткач <chistomov@gmail.com>, 2021
 # 8368efb4263ae7005ba7cc0c0f943bdd_16f29c1, 2021
 # clefebvre <clement.lefebvre@linuxmint.com>, 2021
 # Шаповалов Анатолій Романович <elrond.716.smith@gmail.com>, 2021
+# Yaroslav Belograd, 2022
+# Sergiy <sergiy@gorichenko.com>, 2022
+# Микола Ткач <chistomov@gmail.com>, 2023
+# Gordon Freeman, 2023
 # 
 msgid ""
 msgstr ""
@@ -25,8 +28,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://github.com/mate-desktop/caja/issues\n"
 "POT-Creation-Date: 2021-08-04 14:26+0200\n"
 "PO-Revision-Date: 2021-09-18 16:24+0000\n"
-"Last-Translator: Шаповалов Анатолій Романович <elrond.716.smith@gmail.com>, 2021\n"
-"Language-Team: Ukrainian (https://www.transifex.com/mate/teams/13566/uk/)\n"
+"Last-Translator: Gordon Freeman, 2023\n"
+"Language-Team: Ukrainian (https://app.transifex.com/mate/teams/13566/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1129,28 +1132,28 @@ msgstr "Вказаної групи «%s» не існує"
 #, c-format
 msgid "%'u item"
 msgid_plural "%'u items"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%'u елемент"
+msgstr[1] "%'u елементи"
+msgstr[2] "%'u елементів"
+msgstr[3] "%'u елементів"
 
 #: libcaja-private/caja-file.c:6230
 #, c-format
 msgid "%'u folder"
 msgid_plural "%'u folders"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%'u тека"
+msgstr[1] "%'u теки"
+msgstr[2] "%'u тек"
+msgstr[3] "%'u тек"
 
 #: libcaja-private/caja-file.c:6231
 #, c-format
 msgid "%'u file"
 msgid_plural "%'u files"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%'u файл"
+msgstr[1] "%'u файли"
+msgstr[2] "%'u файлів"
+msgstr[3] "%'u файлів"
 
 #: libcaja-private/caja-file.c:6335
 msgid "%"
@@ -1384,38 +1387,38 @@ msgstr "Копіювати _попри все"
 #, c-format
 msgid "%'d second"
 msgid_plural "%'d seconds"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%'d секунда"
+msgstr[1] "%'d секунди"
+msgstr[2] "%'d секунд"
+msgstr[3] "%'d секунд"
 
 #: libcaja-private/caja-file-operations.c:310
 #: libcaja-private/caja-file-operations.c:322
 #, c-format
 msgid "%'d minute"
 msgid_plural "%'d minutes"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%'d хвилина"
+msgstr[1] "%'d хвилини"
+msgstr[2] "%'d хвилин"
+msgstr[3] "%'d хвилин"
 
 #: libcaja-private/caja-file-operations.c:321
 #, c-format
 msgid "%'d hour"
 msgid_plural "%'d hours"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%'d година"
+msgstr[1] "%'d години"
+msgstr[2] "%'d годин"
+msgstr[3] "%'d годин"
 
 #: libcaja-private/caja-file-operations.c:329
 #, c-format
 msgid "approximately %'d hour"
 msgid_plural "approximately %'d hours"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "приблизно %'d година"
+msgstr[1] "приблизно %'d години"
+msgstr[2] "приблизно %'d годин"
+msgstr[3] "приблизно %'d годин"
 
 #: libcaja-private/caja-file-operations.c:409
 #, c-format
@@ -1600,10 +1603,10 @@ msgstr "Ви впевнені, що волієте вилучити \"%B\"?"
 #, c-format
 msgid "Are you sure you want to trash the %'d selected item?"
 msgid_plural "Are you sure you want to trash the %'d selected items?"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "Ви справді бажаєте перенести у смітник %'d виділений елемент?"
+msgstr[1] "Ви справді бажаєте перенести у смітник %'d виділені елементи?"
+msgstr[2] "Ви справді бажаєте перенести у смітник %'d виділених елементів?"
+msgstr[3] "Ви справді бажаєте перенести у смітник %'d виділених елементів?"
 
 #: libcaja-private/caja-file-operations.c:1490
 msgid "Items moved to the trash may be recovered until the trash is emptied."
@@ -3511,6 +3514,10 @@ msgid ""
 "\"date_changed\", \"date_accessed\", \"owner\", \"group\", \"permissions\", "
 "\"octal_permissions\" and \"mime_type\"."
 msgstr ""
+"Список назв, наведених нижче піктограми. Реальна кількість наведених назв "
+"залежить від масштабування. Деякі з назв: \"розмір\", \"тип\", \"дата "
+"останньої зміни\", \"дата створення\", \"дата зміни\", \"дата доступу\", "
+"\"власник\", \"група\", \"дозволи\", \"вісімкові дозволи\" та \"тип файлу\"."
 
 #: libcaja-private/org.mate.caja.gschema.xml:286
 msgid "Use tighter layout in new windows"
@@ -4194,7 +4201,7 @@ msgstr "_Ім’я"
 
 #: src/caja-bookmarks-window.ui:241
 msgid "_Location"
-msgstr ""
+msgstr "_Місцеперебування:"
 
 #: src/caja-connect-server-dialog.c:135
 msgid "SSH"
@@ -7245,10 +7252,10 @@ msgstr[3] ""
 #, c-format
 msgid "Open in %'d New _Tab"
 msgid_plural "Open in %'d New _Tabs"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "Відкрити у %'d новій в_кладці"
+msgstr[1] "Відкрити у %'d нових в_кладках"
+msgstr[2] "Відкрити у %'d нових в_кладках"
+msgstr[3] "Відкрити у %'d нових в_кладках"
 
 #: src/file-manager/fm-directory-view.c:9072
 #, c-format
@@ -7493,7 +7500,7 @@ msgstr "Лишити піктограми ґатункованими за дат
 
 #: src/file-manager/fm-icon-view.c:165
 msgid "by _Creation Date"
-msgstr ""
+msgstr "за Датою _Створення"
 
 #: src/file-manager/fm-icon-view.c:166 src/file-manager/fm-icon-view.c:1868
 msgid "Keep icons sorted by creation date in rows"
@@ -7586,7 +7593,7 @@ msgstr "Лишити піктограми вирівняними за ґратк
 
 #: src/file-manager/fm-icon-view.c:1820
 msgid "_Lock Icons Position"
-msgstr ""
+msgstr "_Заблокувати розташування піктограм"
 
 #: src/file-manager/fm-icon-view.c:1821
 msgid "Prevent repositioning icons"
@@ -7622,7 +7629,7 @@ msgstr "за датою _зміни"
 
 #: src/file-manager/fm-icon-view.c:1867
 msgid "By _Creation Date"
-msgstr ""
+msgstr "За датою _створення"
 
 #: src/file-manager/fm-icon-view.c:1873
 msgid "By _Emblems"
@@ -7731,10 +7738,10 @@ msgstr ""
 #: src/file-manager/fm-properties-window.c:645
 msgid "_Name:"
 msgid_plural "_Names:"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "_Ім'я:"
+msgstr[1] "_Імена:"
+msgstr[2] "_Імена:"
+msgstr[3] "_Імена:"
 
 #: src/file-manager/fm-properties-window.c:1001
 msgid "Properties"
