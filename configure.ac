@@ -22,7 +22,7 @@ m4_define(caja_extension_current,  5)
 m4_define(caja_extension_revision, 0)
 
 AC_INIT([caja],
-        [1.26.1],
+        [1.26.2],
         [https://github.com/mate-desktop/caja/issues],
         [caja],
         [https://mate-desktop.org])
