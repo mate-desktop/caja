@@ -32,6 +32,7 @@
 #include <unistd.h>
 #include <fcntl.h>
 
+#include <libxml/parser.h>
 #include <libxml/xmlsave.h>
 #include <glib/gstdio.h>
 #include <glib/gi18n.h>
