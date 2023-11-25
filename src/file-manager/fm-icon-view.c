@@ -1674,10 +1674,16 @@ action_lock_icons_position_callback (GtkAction *action,
     FMIconView *icon_view;
     CajaFile *file;
     gboolean lock_icons_position;
+    GtkAction *action_other;
 
     icon_view = FM_ICON_VIEW (user_data);
 
     lock_icons_position = gtk_toggle_action_get_active (GTK_TOGGLE_ACTION (action));
+
+    action_other = gtk_action_group_get_action (icon_view->details->icon_action_group,
+                                                FM_ACTION_CLEAN_UP);
+    gtk_action_set_visible (action_other, !lock_icons_position);
+
 
     file = fm_directory_view_get_directory_as_file (FM_DIRECTORY_VIEW (icon_view));
     fm_icon_view_set_directory_lock_icons_position (icon_view,
