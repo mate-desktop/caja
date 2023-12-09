@@ -313,6 +313,7 @@ caja_spatial_window_show (GtkWidget *widget)
     CajaWindow *window;
     CajaWindowSlot *slot;
     GFile *location;
+    GdkDisplay *display;
 
     window = CAJA_WINDOW (widget);
     slot = caja_window_get_active_slot (window);
@@ -325,7 +326,17 @@ caja_spatial_window_show (GtkWidget *widget)
     }
 
     location = caja_window_slot_get_location (slot);
-    g_return_if_fail (location != NULL);
+    display = gtk_widget_get_display (widget);
+
+    if (GDK_IS_X11_DISPLAY (display))
+        g_return_if_fail (location != NULL);
+
+    /*Return silently if this is a wayland desktop
+     *as the location isn't ready yet on first rendering
+     *but contents show fine, presumably from an update
+     */
+    else if (location == NULL)
+        return;
 
     while (location != NULL) {
         CajaFile *file;
