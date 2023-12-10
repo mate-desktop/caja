@@ -42,6 +42,7 @@
 #include <eel/eel-glib-extensions.h>
 #include <eel/eel-gtk-extensions.h>
 #include <eel/eel-vfs-extensions.h>
+#include <eel/eel-stock-dialogs.h>
 
 #include <libcaja-private/caja-desktop-icon-file.h>
 #include <libcaja-private/caja-directory-background.h>
@@ -708,11 +709,14 @@ action_change_background_callback (GtkAction *action,
 {
     g_assert (FM_DIRECTORY_VIEW (data));
 
-    caja_launch_application_from_command (gtk_widget_get_screen (GTK_WIDGET (data)),
-                                          _("Background"),
-                                          "mate-appearance-properties",
-                                          FALSE,
-                                          "--show-page=background", NULL);
+    if (GDK_IS_X11_DISPLAY (gdk_screen_get_display (gdk_screen_get_default())))
+        caja_launch_application_from_command (gtk_widget_get_screen (GTK_WIDGET (data)),
+                                              _("Background"),
+                                              "mate-appearance-properties",
+                                              FALSE,
+                                              "--show-page=background", NULL);
+    else
+    eel_show_error_dialog (_("Caja cannot change the desktop background in Wayland."), ("Image and color backgrounds on the wayland desktop are managed by the compositor. The background can be changed from the compositor's configuration utility"), NULL);
 }
 
 static void
