@@ -449,6 +449,15 @@ init_fade (EelBackground *self)
         return;
     }
 
+    GdkDisplay *display = gdk_screen_get_display (gdk_screen_get_default());
+
+    /*do not attempt to manage desktop background on wayland
+     *as the compositor handles this
+     */
+
+    if (!(GDK_IS_X11_DISPLAY (display)))
+        return;
+
     mate_background_preferences = g_settings_new ("org.mate.background");
     do_fade = g_settings_get_boolean (mate_background_preferences,
                                       MATE_BG_KEY_BACKGROUND_FADE);
