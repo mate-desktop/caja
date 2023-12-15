@@ -62,6 +62,12 @@
 #include "fm-desktop-icon-view.h"
 #include "fm-actions.h"
 
+#ifdef HAVE_WAYLAND
+#include <gdk/gdkwayland.h>
+#include "fm-desktop-wayland-bg-dialog.h"
+
+#endif
+
 /* Timeout to check the desktop directory for updates */
 #define RESCAN_TIMEOUT 4
 
@@ -707,12 +713,22 @@ action_change_background_callback (GtkAction *action,
                                    gpointer data)
 {
     g_assert (FM_DIRECTORY_VIEW (data));
-
-    caja_launch_application_from_command (gtk_widget_get_screen (GTK_WIDGET (data)),
-                                          _("Background"),
-                                          "mate-appearance-properties",
-                                          FALSE,
-                                          "--show-page=background", NULL);
+#ifdef HAVE_WAYLAND
+    /*Get the new background and switch to it in wayland*/
+    if (GDK_IS_WAYLAND_DISPLAY (gdk_display_get_default()))
+    {
+        wayland_bg_dialog_new ();
+    }
+    else
+#endif
+    /*Get the new background and switch to it in x11*/
+    {
+        caja_launch_application_from_command (gtk_widget_get_screen (GTK_WIDGET (data)),
+                                              _("Background"),
+                                              "mate-appearance-properties",
+                                              FALSE,
+                                              "--show-page=background", NULL);
+    }
 }
 
 static void

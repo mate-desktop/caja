@@ -390,10 +390,12 @@ realize (GtkWidget *widget)
                           G_CALLBACK (caja_desktop_window_screen_size_changed), window);
 }
 
+/* Should only reached in x11*/
 static gboolean
 draw (GtkWidget *widget,
       cairo_t   *cr)
 {
+    g_assert (GDK_IS_X11_DISPLAY (gdk_display_get_default()));
     eel_background_draw (widget, cr);
     return GTK_WIDGET_CLASS (caja_desktop_window_parent_class)->draw (widget, cr);
 }
@@ -415,6 +417,9 @@ caja_desktop_window_class_init (CajaDesktopWindowClass *klass)
     wclass->realize = realize;
     wclass->unrealize = unrealize;
     wclass->map = map;
+   /*Drawing the desktop background from here gives a black background in wayland
+    *So manage desktop background from the icon container as in navigation windows
+    */
     if (GDK_IS_X11_DISPLAY (gdk_display_get_default()))
         wclass->draw = draw;
 
