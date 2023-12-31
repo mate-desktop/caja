@@ -5232,6 +5232,8 @@ move_job (GIOSchedulerJob *io_job,
 		goto aborted;
 	}
 
+	g_timer_start (job->common.time);
+
 	memset (&transfer_info, 0, sizeof (transfer_info));
 	move_files (job,
 		    fallbacks,
