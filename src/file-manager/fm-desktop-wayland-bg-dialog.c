@@ -371,17 +371,17 @@ wayland_bg_dialog_new (void)
     hbox2 = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
 
     /*Pack the filechooser and image options*/
-    gtk_box_pack_start (GTK_BOX (hbox1), stylelabel, FALSE, FALSE, 7);
-    gtk_box_pack_start (GTK_BOX (hbox1), stylebox, FALSE, FALSE, 3);
-    gtk_box_pack_end (GTK_BOX (hbox1), filebutton, FALSE, FALSE, 5);
-    gtk_box_pack_end (GTK_BOX (hbox1), filelabel, FALSE, FALSE, 2);
+    gtk_box_pack_start (GTK_BOX (hbox1), filelabel, FALSE, FALSE, 7);
+    gtk_box_pack_start (GTK_BOX (hbox1), filebutton, FALSE, FALSE, 3);
+    gtk_box_pack_end (GTK_BOX (hbox1), stylebox, FALSE, FALSE, 5);
+    gtk_box_pack_end (GTK_BOX (hbox1), stylelabel, FALSE, FALSE, 2);
 
     /*Pack the colorpickers and color options*/
 
-    gtk_box_pack_start (GTK_BOX (hbox2), colorbox, FALSE, FALSE, 7);
+    gtk_box_pack_start (GTK_BOX (hbox2), colorlabel, FALSE, FALSE, 7);
+    gtk_box_pack_start (GTK_BOX (hbox2), colorbox, FALSE, FALSE, 5);
     gtk_box_pack_end (GTK_BOX (hbox2), colorbutton2, FALSE, FALSE, 5);
     gtk_box_pack_end (GTK_BOX (hbox2), colorbutton1, FALSE, FALSE, 2);
-    gtk_box_pack_end (GTK_BOX (hbox2), colorlabel, FALSE, FALSE, 2);
 
     gtk_box_pack_start (GTK_BOX (preview), preview_image, FALSE, FALSE, 0);
     gtk_box_pack_start (GTK_BOX (vbox2), preview, FALSE, FALSE, 0);
