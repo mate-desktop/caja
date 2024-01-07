@@ -132,8 +132,6 @@ update_preview()
 static void
 update_primary_color(GtkWidget *colorbutton1)
 {
-    GdkRGBA color1;
-
     filename = "";
     gtk_color_chooser_get_rgba (GTK_COLOR_CHOOSER (colorbutton1), &color1);
     primary_color_str = gdk_rgba_to_string (&color1);
@@ -148,8 +146,6 @@ update_primary_color(GtkWidget *colorbutton1)
 static void
 update_secondary_color(GtkWidget *colorbutton2)
 {
-    GdkRGBA color2;
-
     filename = "";
     gtk_color_chooser_get_rgba (GTK_COLOR_CHOOSER (colorbutton2), &color2);
     secondary_color_str = gdk_rgba_to_string (&color2);
