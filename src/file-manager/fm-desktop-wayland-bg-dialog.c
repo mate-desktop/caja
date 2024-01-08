@@ -1,7 +1,7 @@
 
 /* -*- Mode: C; indent-tabs-mode: t; c-basic-offset: 8; tab-width: 8 -*- */
 
-/* fm-icon-container.h - the container widget for file manager icons
+/* fm-desktop-wayland-bg-dialog.c background changing dialog for wayland
 
    Copyright (C) 2024 Luke <lukefromdc@hushmail.com>
 
@@ -52,116 +52,168 @@
 #ifdef HAVE_WAYLAND
 
 GSettings   *background_settings;
-GtkWidget   *filebutton;
-GtkWidget   *preview;
-GtkWidget   *preview_image;
-const gchar *filename;
-GdkRGBA      color1, color2;
-const gchar  *primary_color_str,  *secondary_color_str, *shading_type;
 
 static void
-update_preview()
+update_preview (gboolean starting, GtkWidget *box, const gchar *filename,
+               const gchar *shading_type, const gchar *primary_color_str, const gchar  *secondary_color_str)
 {
+    static GtkWidget *preview;
+    static GtkWidget *preview_image;
     static GtkCssProvider *provider;
-    gchar           *css;
-    GString         *string;
+    gchar *css;
+    GString *string;
+    static GdkRectangle geometry = {0};
 
-    if (!provider)
-        provider =  gtk_css_provider_new ();
-
-    /*Build a color preview using a cssprovider due to requirement to handle RBGA values*/
-    string = g_string_new(NULL);
-    g_string_append (string, "#caja-wayland-bg-preview {");
-
-    if (strcmp (shading_type, "vertical-gradient") == 0)
-        g_string_append (string, "background-image: linear-gradient(to bottom,");
-
-    else if  (strcmp (shading_type, "horizontal-gradient") == 0)
-        g_string_append (string, "background-image: linear-gradient(to right,");
-
-    else
+    /* setup the preview only once*/
+    if (starting == TRUE)
     {
-        g_string_append (string, "background-color:");
-        g_string_append (string, primary_color_str);
-    }
-
-    if ((strcmp (shading_type, "vertical-gradient") == 0) ||
-       (strcmp (shading_type, "horizontal-gradient") == 0))
-    {
-        g_string_append (string, primary_color_str);
-        g_string_append (string, ",");
-        g_string_append (string, secondary_color_str);
-        g_string_append (string, ");");
-    }
-        g_string_append (string, "}");
-
-    css = g_string_free (string, FALSE);
-    gtk_style_context_add_provider (gtk_widget_get_style_context (preview),
-                                    GTK_STYLE_PROVIDER (provider),
-                                    GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
-
-    gtk_css_provider_load_from_data (provider, css, -1, NULL);
-
-    if ((!filename) || (strcmp (filename, "") == 0) || (strcmp (filename, " ") == 0))
-        gtk_image_clear(GTK_IMAGE(preview_image));
-
-    else
-    {
-        GdkRectangle geometry = {0};
-        GdkPixbuf  *pixbuf;
-        GdkMonitor *monitor;
-        GdkDisplay *display;
-
-        display = gdk_screen_get_display (gdk_screen_get_default());
-        monitor = gdk_display_get_monitor (display, 0);
+        /*Get the size and shape of the desktop*/
+        GdkDisplay *display = gdk_screen_get_display (gdk_screen_get_default());
+        GdkMonitor *monitor = gdk_display_get_monitor (display, 0);
         gdk_monitor_get_geometry (monitor, &geometry);
 
-        gtk_style_context_remove_provider (gtk_widget_get_style_context (preview),
-                                           GTK_STYLE_PROVIDER (provider));
-
+        preview = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
         gtk_widget_set_size_request (preview, geometry.width / 5, geometry.height / 5);
+        gtk_widget_set_name (GTK_WIDGET (preview), "caja-wayland-bg-preview");
 
-        pixbuf = gdk_pixbuf_new_from_file_at_scale (filename, geometry.width / 5, 
+        preview_image = gtk_image_new ();
+        provider = gtk_css_provider_new ();
+        gtk_box_pack_start (GTK_BOX (preview), preview_image, FALSE, FALSE, 0);
+        gtk_box_pack_start (GTK_BOX (box), preview, FALSE, FALSE, 0);
+    }
+
+    /* No image filename means we are previewing a color or gradient background*/
+    if ((!filename) || (strcmp (filename, "") == 0) || (strcmp (filename, " ") == 0))
+
+    {
+        gtk_image_clear (GTK_IMAGE(preview_image));
+
+        /*Build a color preview using a cssprovider due to requirement to handle RBGA values*/
+        string = g_string_new(NULL);
+        g_string_append (string, "#caja-wayland-bg-preview {");
+
+        if (strcmp (shading_type, "vertical-gradient") == 0)
+            g_string_append (string, "background-image: linear-gradient(to bottom,");
+
+        else if  (strcmp (shading_type, "horizontal-gradient") == 0)
+            g_string_append (string, "background-image: linear-gradient(to right,");
+
+        else
+        {
+            g_string_append (string, "background-color:");
+            g_string_append (string, primary_color_str);
+        }
+
+        if ((strcmp (shading_type, "vertical-gradient") == 0) ||
+           (strcmp (shading_type, "horizontal-gradient") == 0))
+        {
+            g_string_append (string, primary_color_str);
+            g_string_append (string, ",");
+            g_string_append (string, secondary_color_str);
+            g_string_append (string, ");");
+        }
+            g_string_append (string, "}");
+
+        css = g_string_free (string, FALSE);
+        gtk_style_context_add_provider (gtk_widget_get_style_context (preview),
+                                        GTK_STYLE_PROVIDER (provider),
+                                        GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+
+        gtk_css_provider_load_from_data (provider, css, -1, NULL);
+
+        g_free (css);
+
+    }
+    else
+    /*Preview a background image*/
+    {
+        GdkPixbuf  *pixbuf;
+
+        pixbuf = gdk_pixbuf_new_from_file_at_scale (filename, geometry.width / 5,
                                                     geometry.height / 5, FALSE, NULL);
 
         gtk_image_set_from_pixbuf (GTK_IMAGE (preview_image), pixbuf);
-        g_object_unref(pixbuf);
+
+
+        /*Clear the color preview*/
+        string = g_string_new (NULL);
+        g_string_append (string, "#caja-wayland-bg-preview {");
+
+        g_string_append (string, "background-image: none;");
+        g_string_append (string, "background-color: transparent;");
+        g_string_append (string, "}");
+
+        css = g_string_free (string, FALSE);
+        gtk_css_provider_load_from_data (provider, css, -1, NULL);
+
+        g_free (css);
+        g_object_unref (pixbuf);
     }
 }
 
 static void
-update_primary_color(GtkWidget *colorbutton1)
+update_primary_color (GtkWidget *colorbutton1)
 {
-    filename = "";
+    const gchar *shading_type, *primary_color_str, *secondary_color_str;
+    GdkRGBA color1;
+
+    shading_type = g_settings_get_string (background_settings,
+                                          "color-shading-type");
+
+    secondary_color_str = g_settings_get_string (background_settings,
+                                               "secondary-color");
+
     gtk_color_chooser_get_rgba (GTK_COLOR_CHOOSER (colorbutton1), &color1);
     primary_color_str = gdk_rgba_to_string (&color1);
+
+    update_preview (FALSE, NULL, "", shading_type,
+                    primary_color_str, secondary_color_str);
+
     g_settings_set_string (background_settings,
                            "primary-color", primary_color_str);
 
     g_settings_set_string (background_settings,
                        "picture-filename", "");
-    update_preview();
 }
 
 static void
-update_secondary_color(GtkWidget *colorbutton2)
+update_secondary_color (GtkWidget *colorbutton2)
 {
-    filename = "";
+    const gchar *shading_type, *primary_color_str, *secondary_color_str;
+    GdkRGBA color2;
+
+    shading_type = g_settings_get_string (background_settings,
+                                          "color-shading-type");
+
+    primary_color_str = g_settings_get_string (background_settings,
+                                               "primary-color");
+
     gtk_color_chooser_get_rgba (GTK_COLOR_CHOOSER (colorbutton2), &color2);
     secondary_color_str = gdk_rgba_to_string (&color2);
+
     g_settings_set_string (background_settings,
                            "secondary-color", secondary_color_str);
 
     g_settings_set_string (background_settings,
                        "picture-filename", "");
-    update_preview();
+
+    update_preview (FALSE, NULL, "", shading_type,
+                    primary_color_str, secondary_color_str);
 
 }
 
 static void
 update_color_background_options (GtkWidget *colorbox)
 {
-    filename = "";
+    const gchar *shading_type, *primary_color_str, *secondary_color_str;
+    shading_type = g_settings_get_string (background_settings,
+                                          "color-shading-type");
+
+    primary_color_str = g_settings_get_string (background_settings,
+                                               "primary-color");
+
+    secondary_color_str = g_settings_get_string (background_settings,
+                                               "secondary-color");
 
     shading_type = gtk_combo_box_get_active_id (GTK_COMBO_BOX (colorbox));
     /*write to gsettings*/
@@ -169,7 +221,9 @@ update_color_background_options (GtkWidget *colorbox)
                            "color-shading-type", shading_type);
     g_settings_set_string (background_settings,
                        "picture-filename", "");
-    update_preview();
+
+    update_preview (FALSE, NULL, "", shading_type,
+                    primary_color_str, secondary_color_str);
 }
 
 static void
@@ -177,30 +231,26 @@ update_image_background_options(GtkWidget *stylebox)
 {
     const gchar *options;
     options = gtk_combo_box_get_active_id (GTK_COMBO_BOX(stylebox));
-    filename = gtk_file_chooser_get_filename (GTK_FILE_CHOOSER (filebutton));
-    if ((!filename) || (strcmp (filename, " ") == 0))
-        filename = "";
 
     /*write to gsettings*/
     g_settings_set_string (background_settings,
                            "picture-options", options);
 
-    g_settings_set_string (background_settings,
-                       "picture-filename", filename);
-    update_preview();
+    /*Only the image changes here, we are not thumbnailing image options yet*/
 }
 
 static void
 update_background_image (GtkWidget *filebutton)
 {
-    filename = gtk_file_chooser_get_filename (GTK_FILE_CHOOSER (filebutton));
+    const gchar *filename = gtk_file_chooser_get_filename (GTK_FILE_CHOOSER (filebutton));
     if (strcmp (filename, " ") == 0)
         filename = "";
 
     /*write to gsettings*/
     g_settings_set_string (background_settings,
                        "picture-filename", filename);
-    update_preview ();
+
+    update_preview (FALSE, NULL, filename, NULL, NULL, NULL);
 }
 
 void
@@ -210,10 +260,10 @@ wayland_bg_dialog_new (void)
     GtkWidget *close_button, *colorlabel, *stylelabel;
     GtkWidget *filelabel, *stylebox;
     GtkWidget *colorbox, *colorbutton1, *colorbutton2;
-    const gchar *options;
-    GdkRectangle geometry = {0};
-    GdkDisplay *display;
-    GdkMonitor *monitor;
+    GtkWidget *filebutton;
+    GdkRGBA    color1, color2;
+    const gchar *filename, *options;
+    const gchar *shading_type, *primary_color_str, *secondary_color_str;
 
     background_settings = g_settings_new ("org.mate.background");
 
@@ -335,18 +385,6 @@ wayland_bg_dialog_new (void)
         gtk_file_chooser_set_current_folder (GTK_FILE_CHOOSER (filebutton), "/usr/share/backgrounds/");
     }
 
-    preview = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
-
-    /*Get the size and shape of the desktop*/
-    display = gdk_screen_get_display (gdk_screen_get_default());
-    monitor = gdk_display_get_monitor (display, 0);
-    gdk_monitor_get_geometry (monitor, &geometry);
-
-    gtk_widget_set_size_request (preview, geometry.width / 5, geometry.height / 5);
-    gtk_widget_set_name (GTK_WIDGET (preview), "caja-wayland-bg-preview");
-    preview_image = gtk_image_new ();
-    update_preview ();
-
     g_signal_connect (filebutton, "file-set",
               G_CALLBACK (update_background_image), NULL);
 
@@ -379,8 +417,10 @@ wayland_bg_dialog_new (void)
     gtk_box_pack_end (GTK_BOX (hbox2), colorbutton2, FALSE, FALSE, 5);
     gtk_box_pack_end (GTK_BOX (hbox2), colorbutton1, FALSE, FALSE, 2);
 
-    gtk_box_pack_start (GTK_BOX (preview), preview_image, FALSE, FALSE, 0);
-    gtk_box_pack_start (GTK_BOX (vbox2), preview, FALSE, FALSE, 0);
+    /*Get the preview and pack it*/
+    update_preview (TRUE, vbox2, filename, shading_type,
+                    primary_color_str, secondary_color_str);
+
     gtk_box_pack_start (GTK_BOX (vbox2), hbox1, FALSE, FALSE, 0);
 
     /*Pack the other boxes into the final vertical box*/
@@ -400,6 +440,7 @@ wayland_bg_dialog_new (void)
 
     /*Run the dialog*/
     gtk_dialog_run (GTK_DIALOG (dialog));
+
     /*cleanup*/
     g_signal_handlers_disconnect_by_func (stylebox, update_image_background_options, stylebox);
     g_signal_handlers_disconnect_by_func (colorbox, update_color_background_options, colorbox);
