@@ -130,7 +130,7 @@ update_preview (gboolean starting, GtkWidget *box, const gchar *filename,
         GdkPixbuf  *pixbuf;
 
         pixbuf = gdk_pixbuf_new_from_file_at_scale (filename, geometry.width / 5,
-                                                    geometry.height / 5, FALSE, NULL);
+                                                    geometry.height / 5, TRUE, NULL);
 
         gtk_image_set_from_pixbuf (GTK_IMAGE (preview_image), pixbuf);
 
