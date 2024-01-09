@@ -431,7 +431,7 @@ set_root_surface (EelBackground *self,
     } else {
         int width, height;
         drawable_get_adjusted_size (self, &width, &height);
-        if ((GDK_IS_X11_DISPLAY (display)) || (self->details->bg_surface == NULL))
+        if ((GDK_IS_X11_DISPLAY (display)) && (self->details->bg_surface == NULL))
             self->details->bg_surface = mate_bg_create_surface (self->details->bg, window,
                                                                 width, height, TRUE);
     }
