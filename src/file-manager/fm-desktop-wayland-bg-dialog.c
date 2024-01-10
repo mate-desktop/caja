@@ -78,6 +78,9 @@ update_preview (gboolean starting, GtkWidget *box, const gchar *filename,
 
         preview_image = gtk_image_new ();
         provider = gtk_css_provider_new ();
+        gtk_style_context_add_provider (gtk_widget_get_style_context (preview),
+                                        GTK_STYLE_PROVIDER (provider),
+                                        GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
         gtk_box_pack_start (GTK_BOX (preview), preview_image, FALSE, FALSE, 0);
         gtk_box_pack_start (GTK_BOX (box), preview, FALSE, FALSE, 0);
     }
@@ -115,9 +118,6 @@ update_preview (gboolean starting, GtkWidget *box, const gchar *filename,
             g_string_append (string, "}");
 
         css = g_string_free (string, FALSE);
-        gtk_style_context_add_provider (gtk_widget_get_style_context (preview),
-                                        GTK_STYLE_PROVIDER (provider),
-                                        GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
 
         gtk_css_provider_load_from_data (provider, css, -1, NULL);
 
