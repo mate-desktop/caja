@@ -57,7 +57,6 @@ static void
 update_preview (gboolean starting, GtkWidget *box, const gchar *filename,
                const gchar *shading_type, const gchar *primary_color_str, const gchar  *secondary_color_str)
 {
-    static GtkWidget *preview;
     static GtkWidget *preview_image;
     static GtkCssProvider *provider;
     gchar *css;
@@ -67,6 +66,8 @@ update_preview (gboolean starting, GtkWidget *box, const gchar *filename,
     /* setup the preview only once*/
     if (starting == TRUE)
     {
+        static GtkWidget *preview;
+
         /*Get the size and shape of the desktop*/
         GdkDisplay *display = gdk_screen_get_display (gdk_screen_get_default());
         GdkMonitor *monitor = gdk_display_get_monitor (display, 0);
@@ -206,8 +207,6 @@ static void
 update_color_background_options (GtkWidget *colorbox)
 {
     const gchar *shading_type, *primary_color_str, *secondary_color_str;
-    shading_type = g_settings_get_string (background_settings,
-                                          "color-shading-type");
 
     primary_color_str = g_settings_get_string (background_settings,
                                                "primary-color");
