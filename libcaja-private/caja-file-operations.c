@@ -1495,7 +1495,7 @@ report_delete_progress (CommonJob *job,
 			TransferInfo *transfer_info)
 {
 	int files_left;
-	double elapsed;
+	double elapsed, transfer_rate;
 	gint64 now;
 	char *files_left_s;
 
@@ -1522,15 +1522,19 @@ report_delete_progress (CommonJob *job,
 					    f (_("Deleting files")));
 
 	elapsed = g_timer_elapsed (job->time, NULL);
-	if (elapsed < SECONDS_NEEDED_FOR_RELIABLE_TRANSFER_RATE) {
+	transfer_rate = 0;
+	if (elapsed > 0) {
+		transfer_rate = transfer_info->num_files / elapsed;
+	}
+
+	if (elapsed < SECONDS_NEEDED_FOR_RELIABLE_TRANSFER_RATE ||
+		transfer_rate <= 0) {
 
 		caja_progress_info_set_details (job->progress, files_left_s);
 	} else {
 		char *details, *time_left_s;
 		int remaining_time;
-		double transfer_rate;
 
-		transfer_rate = transfer_info->num_files / elapsed;
 		remaining_time = files_left / transfer_rate;
 
 		/* Translators: %T will expand to a time like "2 minutes".
