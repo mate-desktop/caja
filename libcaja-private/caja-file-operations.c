@@ -3079,8 +3079,8 @@ report_copy_progress (CopyMoveJob *copy_job,
 		transfer_rate = transfer_info->num_bytes / elapsed;
 	}
 
-	if (elapsed < SECONDS_NEEDED_FOR_RELIABLE_TRANSFER_RATE &&
-	    transfer_rate > 0) {
+	if (elapsed < SECONDS_NEEDED_FOR_RELIABLE_TRANSFER_RATE ||
+	    transfer_rate <= 0) {
 		char *s;
 		/* Translators: %S will expand to a size like "2 bytes" or "3 MB", so something like "4 kb of 4 MB" */
 		s = f (_("%S of %S"), transfer_info->num_bytes, total_size);
