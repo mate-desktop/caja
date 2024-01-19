@@ -54,8 +54,8 @@
 GSettings   *background_settings;
 
 static void
-update_preview (gboolean starting, GtkWidget *box, const gchar *filename,
-               const gchar *shading_type, const gchar *primary_color_str, const gchar  *secondary_color_str)
+update_preview (gboolean starting, GtkWidget *box, gchar *filename,
+               const gchar *shading_type, gchar *primary_color_str, gchar  *secondary_color_str)
 {
     static GtkWidget *preview_image;
     static GtkCssProvider *provider;
@@ -88,9 +88,9 @@ update_preview (gboolean starting, GtkWidget *box, const gchar *filename,
 
     /* No image filename means we are previewing a color or gradient background*/
     if ((!filename) || (strcmp (filename, "") == 0) || (strcmp (filename, " ") == 0))
-
     {
-        gtk_image_clear (GTK_IMAGE(preview_image));
+        if (GTK_IS_IMAGE(preview_image))
+            gtk_image_clear (GTK_IMAGE(preview_image));
 
         /*Build a color preview using a cssprovider due to requirement to handle RBGA values*/
         string = g_string_new(NULL);
@@ -123,7 +123,6 @@ update_preview (gboolean starting, GtkWidget *box, const gchar *filename,
         gtk_css_provider_load_from_data (provider, css, -1, NULL);
 
         g_free (css);
-
     }
     else
     /*Preview a background image*/
@@ -133,8 +132,8 @@ update_preview (gboolean starting, GtkWidget *box, const gchar *filename,
         pixbuf = gdk_pixbuf_new_from_file_at_scale (filename, geometry.width / 5,
                                                     geometry.height / 5, TRUE, NULL);
 
-        gtk_image_set_from_pixbuf (GTK_IMAGE (preview_image), pixbuf);
-
+        if (GTK_IS_IMAGE(preview_image))
+            gtk_image_set_from_pixbuf (GTK_IMAGE (preview_image), pixbuf);
 
         /*Clear the color preview*/
         string = g_string_new (NULL);
@@ -155,7 +154,7 @@ update_preview (gboolean starting, GtkWidget *box, const gchar *filename,
 static void
 update_primary_color (GtkWidget *colorbutton1)
 {
-    const gchar *shading_type, *primary_color_str, *secondary_color_str;
+    gchar *shading_type, *primary_color_str, *secondary_color_str;
     GdkRGBA color1;
 
     shading_type = g_settings_get_string (background_settings,
@@ -175,12 +174,16 @@ update_primary_color (GtkWidget *colorbutton1)
 
     g_settings_set_string (background_settings,
                        "picture-filename", "");
+
+    g_free (shading_type);
+    g_free (primary_color_str);
+    g_free (secondary_color_str);
 }
 
 static void
 update_secondary_color (GtkWidget *colorbutton2)
 {
-    const gchar *shading_type, *primary_color_str, *secondary_color_str;
+    gchar *shading_type, *primary_color_str, *secondary_color_str;
     GdkRGBA color2;
 
     shading_type = g_settings_get_string (background_settings,
@@ -201,12 +204,16 @@ update_secondary_color (GtkWidget *colorbutton2)
     update_preview (FALSE, NULL, "", shading_type,
                     primary_color_str, secondary_color_str);
 
+    g_free (shading_type);
+    g_free (primary_color_str);
+    g_free (secondary_color_str);
 }
 
 static void
 update_color_background_options (GtkWidget *colorbox)
 {
-    const gchar *shading_type, *primary_color_str, *secondary_color_str;
+    gchar *primary_color_str, *secondary_color_str;
+    const gchar *shading_type;
 
     primary_color_str = g_settings_get_string (background_settings,
                                                "primary-color");
@@ -223,6 +230,9 @@ update_color_background_options (GtkWidget *colorbox)
 
     update_preview (FALSE, NULL, "", shading_type,
                     primary_color_str, secondary_color_str);
+
+    g_free (primary_color_str);
+    g_free (secondary_color_str);
 }
 
 static void
@@ -241,7 +251,7 @@ update_image_background_options(GtkWidget *stylebox)
 static void
 update_background_image (GtkWidget *filebutton)
 {
-    const gchar *filename = gtk_file_chooser_get_filename (GTK_FILE_CHOOSER (filebutton));
+    gchar *filename = gtk_file_chooser_get_filename (GTK_FILE_CHOOSER (filebutton));
     if (strcmp (filename, " ") == 0)
         filename = "";
 
@@ -250,6 +260,7 @@ update_background_image (GtkWidget *filebutton)
                        "picture-filename", filename);
 
     update_preview (FALSE, NULL, filename, NULL, NULL, NULL);
+    g_free (filename);
 }
 
 void
@@ -261,8 +272,8 @@ wayland_bg_dialog_new (void)
     GtkWidget *colorbox, *colorbutton1, *colorbutton2;
     GtkWidget *filebutton;
     GdkRGBA    color1, color2;
-    const gchar *filename, *options;
-    const gchar *shading_type, *primary_color_str, *secondary_color_str;
+    gchar *filename, *options;
+    gchar *shading_type, *primary_color_str, *secondary_color_str;
 
     background_settings = g_settings_new ("org.mate.background");
 
@@ -441,6 +452,12 @@ wayland_bg_dialog_new (void)
     gtk_dialog_run (GTK_DIALOG (dialog));
 
     /*cleanup*/
+    g_free(filename);
+    g_free(options);
+    g_free(shading_type);
+    g_free(primary_color_str);
+    g_free(secondary_color_str);
+
     g_signal_handlers_disconnect_by_func (stylebox, update_image_background_options, stylebox);
     g_signal_handlers_disconnect_by_func (colorbox, update_color_background_options, colorbox);
     g_signal_handlers_disconnect_by_func (colorbutton1, update_primary_color, colorbutton1);
