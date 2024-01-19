@@ -88,9 +88,9 @@ update_preview (gboolean starting, GtkWidget *box, gchar *filename,
 
     /* No image filename means we are previewing a color or gradient background*/
     if ((!filename) || (strcmp (filename, "") == 0) || (strcmp (filename, " ") == 0))
-
     {
-        gtk_image_clear (GTK_IMAGE(preview_image));
+        if (GTK_IS_IMAGE(preview_image))
+            gtk_image_clear (GTK_IMAGE(preview_image));
 
         /*Build a color preview using a cssprovider due to requirement to handle RBGA values*/
         string = g_string_new(NULL);
@@ -132,8 +132,8 @@ update_preview (gboolean starting, GtkWidget *box, gchar *filename,
         pixbuf = gdk_pixbuf_new_from_file_at_scale (filename, geometry.width / 5,
                                                     geometry.height / 5, TRUE, NULL);
 
-        gtk_image_set_from_pixbuf (GTK_IMAGE (preview_image), pixbuf);
-
+        if (GTK_IS_IMAGE(preview_image))
+            gtk_image_set_from_pixbuf (GTK_IMAGE (preview_image), pixbuf);
 
         /*Clear the color preview*/
         string = g_string_new (NULL);
