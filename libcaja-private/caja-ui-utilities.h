@@ -42,4 +42,6 @@ GtkAction * caja_toolbar_action_from_menu_item (CajaMenuItem  *item, GtkWidget *
 const char *caja_ui_string_get                 (const char        *filename);
 void   caja_ui_frame_image                     (GdkPixbuf        **pixbuf);
 
+char *      caja_remove_mnemonics                 (const char *str);
+
 #endif /* CAJA_UI_UTILITIES_H */

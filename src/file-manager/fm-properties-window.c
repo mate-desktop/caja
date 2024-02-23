@@ -55,6 +55,7 @@
 #include <libcaja-private/caja-metadata.h>
 #include <libcaja-private/caja-module.h>
 #include <libcaja-private/caja-mime-actions.h>
+#include <libcaja-private/caja-ui-utilities.h>
 
 #include "fm-properties-window.h"
 #include "fm-ditem-page.h"
@@ -546,8 +547,10 @@ create_image_widget (FMPropertiesWindow *window,
 
 	button = NULL;
 	if (is_customizable) {
+		AtkObject *button_acc;
+		gchar     *icon_msg;
 		button = gtk_button_new ();
-		gtk_container_add (GTK_CONTAINER (button), image);
+		gtk_button_set_image (GTK_BUTTON (button), image);
 
 		/* prepare the image to receive dropped objects to assign custom images */
 		gtk_drag_dest_set (GTK_WIDGET (image),
@@ -559,6 +562,15 @@ create_image_widget (FMPropertiesWindow *window,
 				  G_CALLBACK (fm_properties_window_drag_data_received), NULL);
 		g_signal_connect (button, "clicked",
 				  G_CALLBACK (select_image_button_callback), window);
+
+		button_acc = gtk_widget_get_accessible (GTK_WIDGET (button));
+		get_image_for_properties_window (window, &icon_msg, NULL);
+		if (! icon_msg)
+			icon_msg = g_strdup (_("Current icon"));
+		atk_object_set_name (button_acc, icon_msg);
+		atk_object_set_description (button_acc,
+				            _("Change this object’s icon."));
+		g_free (icon_msg);
 	}
 
 	window->details->icon_button = button;
@@ -3505,6 +3517,7 @@ create_emblems_page (FMPropertiesWindow *window)
 		button = eel_labeled_image_check_button_new (label, pixbuf);
 		eel_labeled_image_set_fixed_image_height (EEL_LABELED_IMAGE (gtk_bin_get_child (GTK_BIN (button))), STANDARD_EMBLEM_HEIGHT * scale);
 		eel_labeled_image_set_spacing (EEL_LABELED_IMAGE (gtk_bin_get_child (GTK_BIN (button))), EMBLEM_LABEL_SPACING * scale);
+		atk_object_set_name (gtk_widget_get_accessible (GTK_WIDGET (button)), label);
 
 		g_free (label);
 		g_object_unref (pixbuf);
@@ -3862,8 +3875,17 @@ add_permissions_checkbox_with_label (FMPropertiesWindow *window,
 
 	a11y_enabled = GTK_IS_ACCESSIBLE (gtk_widget_get_accessible (check_button));
 	if (a11y_enabled && label_for != NULL) {
+		/* Work around Orca bug #218, which ignores an accessible
+		* object’s description if equal to its name. */
+		gchar *msg = caja_remove_mnemonics (label);
+		gchar *desc = g_strconcat (msg, " ", NULL);
+		g_free (msg);
+
 		eel_accessibility_set_up_label_widget_relation (GTK_WIDGET (label_for),
 								check_button);
+		atk_object_set_description (gtk_widget_get_accessible (check_button),
+					    desc);
+		g_free (desc);
 	}
 
 	return check_button;
@@ -4393,6 +4415,7 @@ create_simple_permissions (FMPropertiesWindow *window, GtkGrid *page_grid)
 {
 	gboolean has_file, has_directory;
 	GtkLabel *group_label;
+	GtkLabel *others_label;
 	GtkLabel *owner_label;
 	GtkLabel *execute_label;
 	GtkWidget *value;
@@ -4468,6 +4491,12 @@ create_simple_permissions (FMPropertiesWindow *window, GtkGrid *page_grid)
 	append_blank_slim_row (page_grid);
 
 	group_label = attach_title_field (page_grid, _("Others"));
+	/* Adding an empty focusable widget to ease keyboard navigation
+	 * and screen reader accessibility. */
+	others_label = attach_label (page_grid, GTK_WIDGET (group_label),
+				     NULL, FALSE, TRUE, FALSE);
+	gtk_label_set_mnemonic_widget (group_label,
+				       GTK_WIDGET (others_label));
 
 	if (has_directory) {
 		add_permissions_combo_box (window, page_grid,
