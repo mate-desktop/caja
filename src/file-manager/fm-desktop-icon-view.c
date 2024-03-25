@@ -717,7 +717,22 @@ action_change_background_callback (GtkAction *action,
     /*Get the new background and switch to it in wayland*/
     if (GDK_IS_WAYLAND_DISPLAY (gdk_display_get_default()))
     {
-        wayland_bg_dialog_new ();
+        /*Find out if we have mate-settings-daemon running
+         *and mate-control-center installed
+         *if we have them use mate-appearance-properties background tab as in x11
+         *if not, use the standalone wayland background dialog
+         *If we don't have xwayland, we cannot run mate-settings-daemon
+         *and the standalone dialog will show
+         */
+        int ret0, ret1;
+        ret0 = system ("killall -0 -e mate-settings-daemon");
+        ret1 = system ("which -s mate-control-center");
+
+        if ((ret0 == 0) && (ret1 == 0))
+            system ("GDK_BACKEND=x11 mate-appearance-properties --show-page=background &");
+
+        else
+            wayland_bg_dialog_new ();
     }
     else
 #endif
