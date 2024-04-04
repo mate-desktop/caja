@@ -717,7 +717,16 @@ action_change_background_callback (GtkAction *action,
     /*Get the new background and switch to it in wayland*/
     if (GDK_IS_WAYLAND_DISPLAY (gdk_display_get_default()))
     {
-        wayland_bg_dialog_new ();
+        /*We can use the appearance capplet with some versions of mate-control-center
+         *in which the appearance capplet works in wayland
+         *Try it first, and fall back to the standalone dialog if it fails
+         */
+        GError *error = NULL;
+
+        g_spawn_command_line_async ("mate-appearance-properties --show-page=background",
+                                          &error);
+        if (error != NULL)
+            wayland_bg_dialog_new ();
     }
     else
 #endif
