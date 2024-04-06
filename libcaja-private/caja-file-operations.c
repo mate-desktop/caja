@@ -1875,7 +1875,7 @@ trash_files (CommonJob *job, GList *files, guint *files_skipped)
 	for (l = files;
 	     l != NULL && !job_aborted (job);
 	     l = l->next) {
-        caja_progress_info_get_ready (job->progress);
+        caja_progress_info_get_ready (job->progress, job->time);
 
 		file = l->data;
 
@@ -3628,7 +3628,7 @@ copy_move_directory (CopyMoveJob *copy_job,
 		nextinfo = g_file_enumerator_next_file (enumerator, job->cancellable, skip_error?NULL:&error);
 		while (!job_aborted (job) &&
 		       (info = nextinfo) != NULL) {
-			caja_progress_info_get_ready (job->progress);
+			caja_progress_info_get_ready (job->progress, job->time);
 
 			nextinfo = g_file_enumerator_next_file (enumerator, job->cancellable, skip_error?NULL:&error);
 			src_file = g_file_get_child (src,
@@ -4594,7 +4594,7 @@ copy_files (CopyMoveJob *job,
 	for (l = job->files;
 	     l != NULL && !job_aborted (common);
 	     l = l->next) {
-		caja_progress_info_get_ready (common->progress);
+		caja_progress_info_get_ready (common->progress, common->time);
 
 		src = l->data;
 
@@ -4911,7 +4911,7 @@ move_file_prepare (CopyMoveJob *move_job,
 	}
 
  retry:
-    caja_progress_info_get_ready (job->progress);
+	caja_progress_info_get_ready (job->progress, job->time);
 
 	flags = G_FILE_COPY_NOFOLLOW_SYMLINKS | G_FILE_COPY_NO_FALLBACK_FOR_MOVE;
 	if (overwrite) {
@@ -5087,7 +5087,7 @@ move_files_prepare (CopyMoveJob *job,
 
 	total = left = g_list_length (job->files);
 
-	caja_progress_info_get_ready (common->progress);
+	caja_progress_info_get_ready (common->progress, common->time);
 	report_move_progress (job, total, left);
 
 	i = 0;
@@ -5151,7 +5151,7 @@ move_files (CopyMoveJob *job,
 	for (l = fallbacks;
 	     l != NULL && !job_aborted (common);
 	     l = l->next) {
-		caja_progress_info_get_ready (common->progress);
+		caja_progress_info_get_ready (common->progress, common->time);
 
 		fallback = l->data;
 		src = fallback->file;
@@ -5264,6 +5264,8 @@ move_job (GIOSchedulerJob *io_job,
 	if (job_aborted (common)) {
 		goto aborted;
 	}
+
+	g_timer_start (job->common.time);
 
 	memset (&transfer_info, 0, sizeof (transfer_info));
 	move_files (job,
@@ -5575,7 +5577,7 @@ link_job (GIOSchedulerJob *io_job,
 	for (l = job->files;
 	     l != NULL && !job_aborted (common);
 	     l = l->next) {
-        caja_progress_info_get_ready (common->progress);
+        caja_progress_info_get_ready (common->progress, common->time);
 
 		src = l->data;
 
@@ -5717,7 +5719,7 @@ set_permissions_file (SetPermissionsJob *job,
 
 	caja_progress_info_pulse_progress (common->progress);
 
-	caja_progress_info_get_ready (common->progress);
+	caja_progress_info_get_ready (common->progress, common->time);
 
 	free_info = FALSE;
 	if (info == NULL) {
@@ -6082,7 +6084,7 @@ create_job (GIOSchedulerJob *io_job,
 	count = 1;
 
  retry:
-    caja_progress_info_get_ready (common->progress);
+	caja_progress_info_get_ready (common->progress, common->time);
 
 	error = NULL;
 	if (job->make_dir) {
@@ -6412,7 +6414,7 @@ delete_trash_file (CommonJob *job,
 		   gboolean del_file,
 		   gboolean del_children)
 {
-	caja_progress_info_get_ready (job->progress);
+	caja_progress_info_get_ready (job->progress, job->time);
 
 	if (job_aborted (job)) {
 		return;
@@ -6561,7 +6563,7 @@ mark_desktop_file_trusted (CommonJob *common,
 	GFileInfo *info;
 
  retry:
-    caja_progress_info_get_ready (common->progress);
+	caja_progress_info_get_ready (common->progress, common->time);
 
 	error = NULL;
 	if (!g_file_load_contents (file,
