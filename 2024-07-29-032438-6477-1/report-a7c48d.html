@@ -1,0 +1,933 @@
+<!doctype html>
+<html>
+<head>
+<title>caja-extensions.c</title>
+
+<style type="text/css">
+body { color:#000000; background-color:#ffffff }
+body { font-family:Helvetica, sans-serif; font-size:10pt }
+h1 { font-size:14pt }
+.FileName { margin-top: 5px; margin-bottom: 5px; display: inline; }
+.FileNav { margin-left: 5px; margin-right: 5px; display: inline; }
+.FileNav a { text-decoration:none; font-size: larger; }
+.divider { margin-top: 30px; margin-bottom: 30px; height: 15px; }
+.divider { background-color: gray; }
+.code { border-collapse:collapse; width:100%; }
+.code { font-family: "Monospace", monospace; font-size:10pt }
+.code { line-height: 1.2em }
+.comment { color: green; font-style: oblique }
+.keyword { color: blue }
+.string_literal { color: red }
+.directive { color: darkmagenta }
+
+/* Macros and variables could have pop-up notes hidden by default.
+  - Macro pop-up:    expansion of the macro
+  - Variable pop-up: value (table) of the variable */
+.macro_popup, .variable_popup { display: none; }
+
+/* Pop-up appears on mouse-hover event. */
+.macro:hover .macro_popup, .variable:hover .variable_popup {
+  display: block;
+  padding: 2px;
+  -webkit-border-radius:5px;
+  -webkit-box-shadow:1px 1px 7px #000;
+  border-radius:5px;
+  box-shadow:1px 1px 7px #000;
+  position: absolute;
+  top: -1em;
+  left:10em;
+  z-index: 1
+}
+
+.macro_popup {
+  border: 2px solid red;
+  background-color:#FFF0F0;
+  font-weight: normal;
+}
+
+.variable_popup {
+  border: 2px solid blue;
+  background-color:#F0F0FF;
+  font-weight: bold;
+  font-family: Helvetica, sans-serif;
+  font-size: 9pt;
+}
+
+/* Pop-up notes needs a relative position as a base where they pops up. */
+.macro, .variable {
+  background-color: PaleGoldenRod;
+  position: relative;
+}
+.macro { color: DarkMagenta; }
+
+#tooltiphint {
+  position: fixed;
+  width: 50em;
+  margin-left: -25em;
+  left: 50%;
+  padding: 10px;
+  border: 1px solid #b0b0b0;
+  border-radius: 2px;
+  box-shadow: 1px 1px 7px black;
+  background-color: #c0c0c0;
+  z-index: 2;
+}
+
+.num { width:2.5em; padding-right:2ex; background-color:#eeeeee }
+.num { text-align:right; font-size:8pt }
+.num { color:#444444 }
+.line { padding-left: 1ex; border-left: 3px solid #ccc }
+.line { white-space: pre }
+.msg { -webkit-box-shadow:1px 1px 7px #000 }
+.msg { box-shadow:1px 1px 7px #000 }
+.msg { -webkit-border-radius:5px }
+.msg { border-radius:5px }
+.msg { font-family:Helvetica, sans-serif; font-size:8pt }
+.msg { float:left }
+.msg { position:relative }
+.msg { padding:0.25em 1ex 0.25em 1ex }
+.msg { margin-top:10px; margin-bottom:10px }
+.msg { font-weight:bold }
+.msg { max-width:60em; word-wrap: break-word; white-space: pre-wrap }
+.msgT { padding:0x; spacing:0x }
+.msgEvent { background-color:#fff8b4; color:#000000 }
+.msgControl { background-color:#bbbbbb; color:#000000 }
+.msgNote { background-color:#ddeeff; color:#000000 }
+.mrange { background-color:#dfddf3 }
+.mrange { border-bottom:1px solid #6F9DBE }
+.PathIndex { font-weight: bold; padding:0px 5px; margin-right:5px; }
+.PathIndex { -webkit-border-radius:8px }
+.PathIndex { border-radius:8px }
+.PathIndexEvent { background-color:#bfba87 }
+.PathIndexControl { background-color:#8c8c8c }
+.PathIndexPopUp { background-color: #879abc; }
+.PathNav a { text-decoration:none; font-size: larger }
+.CodeInsertionHint { font-weight: bold; background-color: #10dd10 }
+.CodeRemovalHint { background-color:#de1010 }
+.CodeRemovalHint { border-bottom:1px solid #6F9DBE }
+.msg.selected{ background-color:orange !important; }
+
+table.simpletable {
+  padding: 5px;
+  font-size:12pt;
+  margin:20px;
+  border-collapse: collapse; border-spacing: 0px;
+}
+td.rowname {
+  text-align: right;
+  vertical-align: top;
+  font-weight: bold;
+  color:#444444;
+  padding-right:2ex;
+}
+
+/* Hidden text. */
+input.spoilerhider + label {
+  cursor: pointer;
+  text-decoration: underline;
+  display: block;
+}
+input.spoilerhider {
+ display: none;
+}
+input.spoilerhider ~ .spoiler {
+  overflow: hidden;
+  margin: 10px auto 0;
+  height: 0;
+  opacity: 0;
+}
+input.spoilerhider:checked + label + .spoiler{
+  height: auto;
+  opacity: 1;
+}
+</style>
+</head>
+<body>
+<!-- BUGDESC Access to field 'filename' results in a dereference of a null pointer (loaded from variable 'ext') -->
+
+<!-- BUGTYPE Dereference of null pointer -->
+
+<!-- BUGCATEGORY Logic error -->
+
+<!-- BUGFILE /rootdir/libcaja-private/caja-extensions.c -->
+
+<!-- FILENAME caja-extensions.c -->
+
+<!-- FUNCTIONNAME caja_extension_set_state -->
+
+<!-- ISSUEHASHCONTENTOFLINEINCONTEXT a7c48d28855fc0d2f9f9a8ba5ba5578b -->
+
+<!-- BUGLINE 237 -->
+
+<!-- BUGCOLUMN 44 -->
+
+<!-- BUGPATHLENGTH 5 -->
+
+<!-- BUGMETAEND -->
+<!-- REPORTHEADER -->
+<h3>Bug Summary</h3>
+<table class="simpletable">
+<tr><td class="rowname">File:</td><td>libcaja-private/caja-extensions.c</td></tr>
+<tr><td class="rowname">Warning:</td><td><a href="#EndPath">line 237, column 44</a><br />Access to field 'filename' results in a dereference of a null pointer (loaded from variable 'ext')</td></tr>
+
+</table>
+<!-- REPORTSUMMARYEXTRA -->
+<h3>Annotated Source Code</h3>
+<p>Press <a href="#" onclick="toggleHelp(); return false;">'?'</a>
+   to see keyboard shortcuts</p>
+<input type="checkbox" class="spoilerhider" id="showinvocation" />
+<label for="showinvocation" >Show analyzer invocation</label>
+<div class="spoiler">clang -cc1 -cc1 -triple x86_64-redhat-linux-gnu -analyze -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name caja-extensions.c -analyzer-checker=core -analyzer-checker=apiModeling -analyzer-checker=unix -analyzer-checker=deadcode -analyzer-checker=security.insecureAPI.UncheckedReturn -analyzer-checker=security.insecureAPI.getpw -analyzer-checker=security.insecureAPI.gets -analyzer-checker=security.insecureAPI.mktemp -analyzer-checker=security.insecureAPI.mkstemp -analyzer-checker=security.insecureAPI.vfork -analyzer-checker=nullability.NullPassedToNonnull -analyzer-checker=nullability.NullReturnedFromNonnull -analyzer-output plist -w -setup-static-analyzer -mrelocation-model pic -pic-level 2 -fhalf-no-semantic-interposition -mframe-pointer=none -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -target-cpu x86-64 -tune-cpu generic -debugger-tuning=gdb -fdebug-compilation-dir=/rootdir/libcaja-private -fcoverage-compilation-dir=/rootdir/libcaja-private -resource-dir /usr/bin/../lib/clang/18 -D HAVE_CONFIG_H -I . -I .. -I .. -I .. -I /usr/include/mate-desktop-2.0 -I /usr/include/gtk-3.0 -I /usr/include/pango-1.0 -I /usr/include/cairo -I /usr/include/gdk-pixbuf-2.0 -I /usr/include/freetype2 -I /usr/include/harfbuzz -I /usr/include/startup-notification-1.0 -I /usr/include/glib-2.0 -I /usr/lib64/glib-2.0/include -I /usr/include/gio-unix-2.0 -I /usr/include/gail-3.0 -I /usr/include/atk-1.0 -I /usr/include/libxml2 -I /usr/include/libmount -I /usr/include/blkid -I /usr/include/sysprof-6 -I /usr/include/webp -I /usr/include/libpng16 -I /usr/include/pixman-1 -I /usr/include/cloudproviders -I /usr/include/at-spi2-atk/2.0 -I /usr/include/at-spi-2.0 -I /usr/include/dbus-1.0 -I /usr/lib64/dbus-1.0/include -I /usr/include/fribidi -I /usr/include/dconf -D WITH_GZFILEOP -D G_DISABLE_DEPRECATED -D GDK_PIXBUF_DISABLE_DEPRECATED -D DATADIR="/usr/local/share" -D SYSCONFDIR="/usr/local/etc" -D CAJA_DATADIR="/usr/local/share/caja" -D CAJA_EXTENSIONDIR="/usr/local/lib/caja/extensions-2.0" -D PIC -internal-isystem /usr/bin/../lib/clang/18/include -internal-isystem /usr/local/include -internal-isystem /usr/bin/../lib/gcc/x86_64-redhat-linux/14/../../../../x86_64-redhat-linux/include -internal-externc-isystem /include -internal-externc-isystem /usr/include -O2 -ferror-limit 19 -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -vectorize-loops -vectorize-slp -analyzer-checker deadcode.DeadStores -analyzer-checker alpha.deadcode.UnreachableCode -analyzer-checker alpha.core.CastSize -analyzer-checker alpha.core.CastToStruct -analyzer-checker alpha.core.IdenticalExpr -analyzer-checker alpha.core.SizeofPtr -analyzer-checker alpha.security.ArrayBoundV2 -analyzer-checker alpha.security.MallocOverflow -analyzer-checker alpha.security.ReturnPtrRange -analyzer-checker alpha.unix.SimpleStream -analyzer-checker alpha.unix.cstring.BufferOverlap -analyzer-checker alpha.unix.cstring.NotNullTerminated -analyzer-checker alpha.unix.cstring.OutOfBounds -analyzer-checker alpha.core.FixedAddr -analyzer-checker security.insecureAPI.strcpy -analyzer-output=html -faddrsig -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o /rootdir/html-report/2024-07-29-032438-6477-1 -x c caja-extensions.c
+</div>
+<div id='tooltiphint' hidden="true">
+  <p>Keyboard shortcuts: </p>
+  <ul>
+    <li>Use 'j/k' keys for keyboard navigation</li>
+    <li>Use 'Shift+S' to show/hide relevant lines</li>
+    <li>Use '?' to toggle this window</li>
+  </ul>
+  <a href="#" onclick="toggleHelp(); return false;">Close</a>
+</div>
+<script type='text/javascript'>
+var relevant_lines = {"1": {"223": 1, "224": 1, "225": 1, "226": 1, "232": 1, "233": 1, "237": 1}};
+
+var filterCounterexample = function (hide) {
+  var tables = document.getElementsByClassName("code");
+  for (var t=0; t<tables.length; t++) {
+    var table = tables[t];
+    var file_id = table.getAttribute("data-fileid");
+    var lines_in_fid = relevant_lines[file_id];
+    if (!lines_in_fid) {
+      lines_in_fid = {};
+    }
+    var lines = table.getElementsByClassName("codeline");
+    for (var i=0; i<lines.length; i++) {
+        var el = lines[i];
+        var lineNo = el.getAttribute("data-linenumber");
+        if (!lines_in_fid[lineNo]) {
+          if (hide) {
+            el.setAttribute("hidden", "");
+          } else {
+            el.removeAttribute("hidden");
+          }
+        }
+    }
+  }
+}
+
+window.addEventListener("keydown", function (event) {
+  if (event.defaultPrevented) {
+    return;
+  }
+  // SHIFT + S
+  if (event.shiftKey && event.keyCode == 83) {
+    var checked = document.getElementsByName("showCounterexample")[0].checked;
+    filterCounterexample(!checked);
+    document.getElementsByName("showCounterexample")[0].click();
+  } else {
+    return;
+  }
+  event.preventDefault();
+}, true);
+
+document.addEventListener("DOMContentLoaded", function() {
+    document.querySelector('input[name="showCounterexample"]').onchange=
+        function (event) {
+      filterCounterexample(this.checked);
+    };
+});
+</script>
+
+<form>
+    <input type="checkbox" name="showCounterexample" id="showCounterexample" />
+    <label for="showCounterexample">
+       Show only relevant lines
+    </label>
+    <input type="checkbox" name="showArrows"
+           id="showArrows" style="margin-left: 10px" />
+    <label for="showArrows">
+       Show control flow arrows
+    </label>
+</form>
+
+<script type='text/javascript'>
+// Return range of numbers from a range [lower, upper).
+function range(lower, upper) {
+  var array = [];
+  for (var i = lower; i <= upper; ++i) {
+      array.push(i);
+  }
+  return array;
+}
+
+var getRelatedArrowIndices = function(pathId) {
+  // HTML numeration of events is a bit different than it is in the path.
+  // Everything is rotated one step to the right, so the last element
+  // (error diagnostic) has index 0.
+  if (pathId == 0) {
+    // arrowIndices has at least 2 elements
+    pathId = arrowIndices.length - 1;
+  }
+
+  return range(arrowIndices[pathId], arrowIndices[pathId - 1]);
+}
+
+var highlightArrowsForSelectedEvent = function() {
+  const selectedNum = findNum();
+  const arrowIndicesToHighlight = getRelatedArrowIndices(selectedNum);
+  arrowIndicesToHighlight.forEach((index) => {
+    var arrow = document.querySelector("#arrow" + index);
+    if(arrow) {
+      classListAdd(arrow, "selected")
+    }
+  });
+}
+
+var getAbsoluteBoundingRect = function(element) {
+  const relative = element.getBoundingClientRect();
+  return {
+    left: relative.left + window.pageXOffset,
+    right: relative.right + window.pageXOffset,
+    top: relative.top + window.pageYOffset,
+    bottom: relative.bottom + window.pageYOffset,
+    height: relative.height,
+    width: relative.width
+  };
+}
+
+var drawArrow = function(index) {
+  // This function is based on the great answer from SO:
+  //   https://stackoverflow.com/a/39575674/11582326
+  var start = document.querySelector("#start" + index);
+  var end   = document.querySelector("#end" + index);
+  var arrow = document.querySelector("#arrow" + index);
+
+  var startRect = getAbsoluteBoundingRect(start);
+  var endRect   = getAbsoluteBoundingRect(end);
+
+  // It is an arrow from a token to itself, no need to visualize it.
+  if (startRect.top == endRect.top &&
+      startRect.left == endRect.left)
+    return;
+
+  // Each arrow is a very simple Bézier curve, with two nodes and
+  // two handles.  So, we need to calculate four points in the window:
+  //   * start node
+  var posStart    = { x: 0, y: 0 };
+  //   * end node
+  var posEnd      = { x: 0, y: 0 };
+  //   * handle for the start node
+  var startHandle = { x: 0, y: 0 };
+  //   * handle for the end node
+  var endHandle   = { x: 0, y: 0 };
+  // One can visualize it as follows:
+  //
+  //         start handle
+  //        /
+  //       X"""_.-""""X
+  //         .'        \
+  //        /           start node
+  //       |
+  //       |
+  //       |      end node
+  //        \    /
+  //         `->X
+  //        X-'
+  //         \
+  //          end handle
+  //
+  // NOTE: (0, 0) is the top left corner of the window.
+
+  // We have 3 similar, but still different scenarios to cover:
+  //
+  //   1. Two tokens on different lines.
+  //             -xxx
+  //           /
+  //           \
+  //             -> xxx
+  //      In this situation, we draw arrow on the left curving to the left.
+  //   2. Two tokens on the same line, and the destination is on the right.
+  //             ____
+  //            /    \
+  //           /      V
+  //        xxx        xxx
+  //      In this situation, we draw arrow above curving upwards.
+  //   3. Two tokens on the same line, and the destination is on the left.
+  //        xxx        xxx
+  //           ^      /
+  //            \____/
+  //      In this situation, we draw arrow below curving downwards.
+  const onDifferentLines = startRect.top <= endRect.top - 5 ||
+    startRect.top >= endRect.top + 5;
+  const leftToRight = startRect.left < endRect.left;
+
+  // NOTE: various magic constants are chosen empirically for
+  //       better positioning and look
+  if (onDifferentLines) {
+    // Case #1
+    const topToBottom = startRect.top < endRect.top;
+    posStart.x = startRect.left - 1;
+    // We don't want to start it at the top left corner of the token,
+    // it doesn't feel like this is where the arrow comes from.
+    // For this reason, we start it in the middle of the left side
+    // of the token.
+    posStart.y = startRect.top + startRect.height / 2;
+
+    // End node has arrow head and we give it a bit more space.
+    posEnd.x = endRect.left - 4;
+    posEnd.y = endRect.top;
+
+    // Utility object with x and y offsets for handles.
+    var curvature = {
+      // We want bottom-to-top arrow to curve a bit more, so it doesn't
+      // overlap much with top-to-bottom curves (much more frequent).
+      x: topToBottom ? 15 : 25,
+      y: Math.min((posEnd.y - posStart.y) / 3, 10)
+    }
+
+    // When destination is on the different line, we can make a
+    // curvier arrow because we have space for it.
+    // So, instead of using
+    //
+    //   startHandle.x = posStart.x - curvature.x
+    //   endHandle.x   = posEnd.x - curvature.x
+    //
+    // We use the leftmost of these two values for both handles.
+    startHandle.x = Math.min(posStart.x, posEnd.x) - curvature.x;
+    endHandle.x = startHandle.x;
+
+    // Curving downwards from the start node...
+    startHandle.y = posStart.y + curvature.y;
+    // ... and upwards from the end node.
+    endHandle.y = posEnd.y - curvature.y;
+
+  } else if (leftToRight) {
+    // Case #2
+    // Starting from the top right corner...
+    posStart.x = startRect.right - 1;
+    posStart.y = startRect.top;
+
+    // ...and ending at the top left corner of the end token.
+    posEnd.x = endRect.left + 1;
+    posEnd.y = endRect.top - 1;
+
+    // Utility object with x and y offsets for handles.
+    var curvature = {
+      x: Math.min((posEnd.x - posStart.x) / 3, 15),
+      y: 5
+    }
+
+    // Curving to the right...
+    startHandle.x = posStart.x + curvature.x;
+    // ... and upwards from the start node.
+    startHandle.y = posStart.y - curvature.y;
+
+    // And to the left...
+    endHandle.x = posEnd.x - curvature.x;
+    // ... and upwards from the end node.
+    endHandle.y = posEnd.y - curvature.y;
+
+  } else {
+    // Case #3
+    // Starting from the bottom right corner...
+    posStart.x = startRect.right;
+    posStart.y = startRect.bottom;
+
+    // ...and ending also at the bottom right corner, but of the end token.
+    posEnd.x = endRect.right - 1;
+    posEnd.y = endRect.bottom + 1;
+
+    // Utility object with x and y offsets for handles.
+    var curvature = {
+      x: Math.min((posStart.x - posEnd.x) / 3, 15),
+      y: 5
+    }
+
+    // Curving to the left...
+    startHandle.x = posStart.x - curvature.x;
+    // ... and downwards from the start node.
+    startHandle.y = posStart.y + curvature.y;
+
+    // And to the right...
+    endHandle.x = posEnd.x + curvature.x;
+    // ... and downwards from the end node.
+    endHandle.y = posEnd.y + curvature.y;
+  }
+
+  // Put it all together into a path.
+  // More information on the format:
+  //   https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths
+  var pathStr = "M" + posStart.x + "," + posStart.y + " " +
+    "C" + startHandle.x + "," + startHandle.y + " " +
+    endHandle.x + "," + endHandle.y + " " +
+    posEnd.x + "," + posEnd.y;
+
+  arrow.setAttribute("d", pathStr);
+};
+
+var drawArrows = function() {
+  const numOfArrows = document.querySelectorAll("path[id^=arrow]").length;
+  for (var i = 0; i < numOfArrows; ++i) {
+    drawArrow(i);
+  }
+}
+
+var toggleArrows = function(event) {
+  const arrows = document.querySelector("#arrows");
+  if (event.target.checked) {
+    arrows.setAttribute("visibility", "visible");
+  } else {
+    arrows.setAttribute("visibility", "hidden");
+  }
+}
+
+window.addEventListener("resize", drawArrows);
+document.addEventListener("DOMContentLoaded", function() {
+  // Whenever we show invocation, locations change, i.e. we
+  // need to redraw arrows.
+  document
+    .querySelector('input[id="showinvocation"]')
+    .addEventListener("click", drawArrows);
+  // Hiding irrelevant lines also should cause arrow rerender.
+  document
+    .querySelector('input[name="showCounterexample"]')
+    .addEventListener("change", drawArrows);
+  document
+    .querySelector('input[name="showArrows"]')
+    .addEventListener("change", toggleArrows);
+  drawArrows();
+  // Default highlighting for the last event.
+  highlightArrowsForSelectedEvent();
+});
+</script>
+  
+<script type='text/javascript'>
+var digitMatcher = new RegExp("[0-9]+");
+
+var querySelectorAllArray = function(selector) {
+  return Array.prototype.slice.call(
+    document.querySelectorAll(selector));
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    querySelectorAllArray(".PathNav > a").forEach(
+        function(currentValue, currentIndex) {
+            var hrefValue = currentValue.getAttribute("href");
+            currentValue.onclick = function() {
+                scrollTo(document.querySelector(hrefValue));
+                return false;
+            };
+        });
+});
+
+var findNum = function() {
+    var s = document.querySelector(".msg.selected");
+    if (!s || s.id == "EndPath") {
+        return 0;
+    }
+    var out = parseInt(digitMatcher.exec(s.id)[0]);
+    return out;
+};
+
+var classListAdd = function(el, theClass) {
+  if(!el.className.baseVal)
+    el.className += " " + theClass;
+  else
+    el.className.baseVal += " " + theClass;
+};
+
+var classListRemove = function(el, theClass) {
+  var className = (!el.className.baseVal) ?
+      el.className : el.className.baseVal;
+    className = className.replace(" " + theClass, "");
+  if(!el.className.baseVal)
+    el.className = className;
+  else
+    el.className.baseVal = className;
+};
+
+var scrollTo = function(el) {
+    querySelectorAllArray(".selected").forEach(function(s) {
+      classListRemove(s, "selected");
+    });
+    classListAdd(el, "selected");
+    window.scrollBy(0, el.getBoundingClientRect().top -
+        (window.innerHeight / 2));
+    highlightArrowsForSelectedEvent();
+};
+
+var move = function(num, up, numItems) {
+  if (num == 1 && up || num == numItems - 1 && !up) {
+    return 0;
+  } else if (num == 0 && up) {
+    return numItems - 1;
+  } else if (num == 0 && !up) {
+    return 1 % numItems;
+  }
+  return up ? num - 1 : num + 1;
+}
+
+var numToId = function(num) {
+  if (num == 0) {
+    return document.getElementById("EndPath")
+  }
+  return document.getElementById("Path" + num);
+};
+
+var navigateTo = function(up) {
+  var numItems = document.querySelectorAll(
+      ".line > .msgEvent, .line > .msgControl").length;
+  var currentSelected = findNum();
+  var newSelected = move(currentSelected, up, numItems);
+  var newEl = numToId(newSelected, numItems);
+
+  // Scroll element into center.
+  scrollTo(newEl);
+};
+
+window.addEventListener("keydown", function (event) {
+  if (event.defaultPrevented) {
+    return;
+  }
+  // key 'j'
+  if (event.keyCode == 74) {
+    navigateTo(/*up=*/false);
+  // key 'k'
+  } else if (event.keyCode == 75) {
+    navigateTo(/*up=*/true);
+  } else {
+    return;
+  }
+  event.preventDefault();
+}, true);
+</script>
+  
+<script type='text/javascript'>
+
+var toggleHelp = function() {
+    var hint = document.querySelector("#tooltiphint");
+    var attributeName = "hidden";
+    if (hint.hasAttribute(attributeName)) {
+      hint.removeAttribute(attributeName);
+    } else {
+      hint.setAttribute("hidden", "true");
+    }
+};
+window.addEventListener("keydown", function (event) {
+  if (event.defaultPrevented) {
+    return;
+  }
+  if (event.key == "?") {
+    toggleHelp();
+  } else {
+    return;
+  }
+  event.preventDefault();
+});
+</script>
+
+<style type="text/css">
+  svg {
+      position:absolute;
+      top:0;
+      left:0;
+      height:100%;
+      width:100%;
+      pointer-events: none;
+      overflow: visible
+  }
+  .arrow {
+      stroke-opacity: 0.2;
+      stroke-width: 1;
+      marker-end: url(#arrowhead);
+  }
+
+  .arrow.selected {
+      stroke-opacity: 0.6;
+      stroke-width: 2;
+      marker-end: url(#arrowheadSelected);
+  }
+
+  .arrowhead {
+      orient: auto;
+      stroke: none;
+      opacity: 0.6;
+      fill: blue;
+  }
+</style>
+<svg xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arrowheadSelected" class="arrowhead" opacity="0.6"
+            viewBox="0 0 10 10" refX="3" refY="5"
+            markerWidth="4" markerHeight="4">
+      <path d="M 0 0 L 10 5 L 0 10 z" />
+    </marker>
+    <marker id="arrowhead" class="arrowhead" opacity="0.2"
+            viewBox="0 0 10 10" refX="3" refY="5"
+            markerWidth="4" markerHeight="4">
+      <path d="M 0 0 L 10 5 L 0 10 z" />
+    </marker>
+  </defs>
+  <g id="arrows" fill="none" stroke="blue" visibility="hidden">
+    <path class="arrow" id="arrow0"/>
+    <path class="arrow" id="arrow1"/>
+    <path class="arrow" id="arrow2"/>
+    <path class="arrow" id="arrow3"/>
+    <path class="arrow" id="arrow4"/>
+    <path class="arrow" id="arrow5"/>
+
+  </g>
+</svg>
+<script type='text/javascript'>
+const arrowIndices = [ 6,5,4,2,0,0 ]
+</script>
+<table class="code" data-fileid="1">
+<tr class="codeline" data-linenumber="1"><td class="num" id="LN1">1</td><td class="line"><span class='comment'>/*</span></td></tr>
+<tr class="codeline" data-linenumber="2"><td class="num" id="LN2">2</td><td class="line"> <span class='comment'>*  caja-extension.c - extension management functions</span></td></tr>
+<tr class="codeline" data-linenumber="3"><td class="num" id="LN3">3</td><td class="line"> <span class='comment'>*</span></td></tr>
+<tr class="codeline" data-linenumber="4"><td class="num" id="LN4">4</td><td class="line"> <span class='comment'>*  Copyright (C) 2012-2021 The MATE developers</span></td></tr>
+<tr class="codeline" data-linenumber="5"><td class="num" id="LN5">5</td><td class="line"> <span class='comment'>*</span></td></tr>
+<tr class="codeline" data-linenumber="6"><td class="num" id="LN6">6</td><td class="line"> <span class='comment'>*  This library is free software; you can redistribute it and/or</span></td></tr>
+<tr class="codeline" data-linenumber="7"><td class="num" id="LN7">7</td><td class="line"> <span class='comment'>*  modify it under the terms of the GNU Library General Public</span></td></tr>
+<tr class="codeline" data-linenumber="8"><td class="num" id="LN8">8</td><td class="line"> <span class='comment'>*  License as published by the Free Software Foundation; either</span></td></tr>
+<tr class="codeline" data-linenumber="9"><td class="num" id="LN9">9</td><td class="line"> <span class='comment'>*  version 2 of the License, or (at your option) any later version.</span></td></tr>
+<tr class="codeline" data-linenumber="10"><td class="num" id="LN10">10</td><td class="line"> <span class='comment'>*</span></td></tr>
+<tr class="codeline" data-linenumber="11"><td class="num" id="LN11">11</td><td class="line"> <span class='comment'>*  This library is distributed in the hope that it will be useful,</span></td></tr>
+<tr class="codeline" data-linenumber="12"><td class="num" id="LN12">12</td><td class="line"> <span class='comment'>*  but WITHOUT ANY WARRANTY; without even the implied warranty of</span></td></tr>
+<tr class="codeline" data-linenumber="13"><td class="num" id="LN13">13</td><td class="line"> <span class='comment'>*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU</span></td></tr>
+<tr class="codeline" data-linenumber="14"><td class="num" id="LN14">14</td><td class="line"> <span class='comment'>*  Library General Public License for more details.</span></td></tr>
+<tr class="codeline" data-linenumber="15"><td class="num" id="LN15">15</td><td class="line"> <span class='comment'>*</span></td></tr>
+<tr class="codeline" data-linenumber="16"><td class="num" id="LN16">16</td><td class="line"> <span class='comment'>*  You should have received a copy of the GNU Library General Public</span></td></tr>
+<tr class="codeline" data-linenumber="17"><td class="num" id="LN17">17</td><td class="line"> <span class='comment'>*  License along with this library; if not, write to the Free</span></td></tr>
+<tr class="codeline" data-linenumber="18"><td class="num" id="LN18">18</td><td class="line"> <span class='comment'>*  Software Foundation, Inc., 51 Franklin St, Fifth Floor,</span></td></tr>
+<tr class="codeline" data-linenumber="19"><td class="num" id="LN19">19</td><td class="line"> <span class='comment'>*  Boston, MA 02110-1301, USA.</span></td></tr>
+<tr class="codeline" data-linenumber="20"><td class="num" id="LN20">20</td><td class="line"> <span class='comment'>*</span></td></tr>
+<tr class="codeline" data-linenumber="21"><td class="num" id="LN21">21</td><td class="line"> <span class='comment'>*  Author: Alexander van der Meij &lt;alexandervdm@gliese.me&gt;</span></td></tr>
+<tr class="codeline" data-linenumber="22"><td class="num" id="LN22">22</td><td class="line"> <span class='comment'>*/</span></td></tr>
+<tr class="codeline" data-linenumber="23"><td class="num" id="LN23">23</td><td class="line"> </td></tr>
+<tr class="codeline" data-linenumber="24"><td class="num" id="LN24">24</td><td class="line"><span class='directive'>#include "caja-extensions.h"</span></td></tr>
+<tr class="codeline" data-linenumber="25"><td class="num" id="LN25">25</td><td class="line"> </td></tr>
+<tr class="codeline" data-linenumber="26"><td class="num" id="LN26">26</td><td class="line"><span class='directive'>#include "caja-global-preferences.h"</span></td></tr>
+<tr class="codeline" data-linenumber="27"><td class="num" id="LN27">27</td><td class="line"><span class='directive'>#include "caja-module.h"</span></td></tr>
+<tr class="codeline" data-linenumber="28"><td class="num" id="LN28">28</td><td class="line"><span class='directive'>#include "caja-debug-log.h"</span></td></tr>
+<tr class="codeline" data-linenumber="29"><td class="num" id="LN29">29</td><td class="line"> </td></tr>
+<tr class="codeline" data-linenumber="30"><td class="num" id="LN30">30</td><td class="line"><span class='directive'>#include &lt;string.h&gt;</span></td></tr>
+<tr class="codeline" data-linenumber="31"><td class="num" id="LN31">31</td><td class="line"> </td></tr>
+<tr class="codeline" data-linenumber="32"><td class="num" id="LN32">32</td><td class="line"><span class='directive'>#define <span class='macro'>CAJA_EXTENSION_GROUP<span class='macro_popup'>"Caja Extension"</span></span> "Caja Extension"</span></td></tr>
+<tr class="codeline" data-linenumber="33"><td class="num" id="LN33">33</td><td class="line"> </td></tr>
+<tr class="codeline" data-linenumber="34"><td class="num" id="LN34">34</td><td class="line"><span class='keyword'>static</span> GList *caja_extensions = <span class='macro'>NULL<span class='macro_popup'>((void*)0)</span></span>;</td></tr>
+<tr class="codeline" data-linenumber="35"><td class="num" id="LN35">35</td><td class="line"> </td></tr>
+<tr class="codeline" data-linenumber="36"><td class="num" id="LN36">36</td><td class="line"> </td></tr>
+<tr class="codeline" data-linenumber="37"><td class="num" id="LN37">37</td><td class="line"><span class='keyword'>static</span> Extension *</td></tr>
+<tr class="codeline" data-linenumber="38"><td class="num" id="LN38">38</td><td class="line">extension_new (gchar *filename, gboolean state, gboolean python, GObject *module)</td></tr>
+<tr class="codeline" data-linenumber="39"><td class="num" id="LN39">39</td><td class="line">{</td></tr>
+<tr class="codeline" data-linenumber="40"><td class="num" id="LN40">40</td><td class="line">    GError *error = <span class='macro'>NULL<span class='macro_popup'>((void*)0)</span></span>;</td></tr>
+<tr class="codeline" data-linenumber="41"><td class="num" id="LN41">41</td><td class="line">    Extension *ext;</td></tr>
+<tr class="codeline" data-linenumber="42"><td class="num" id="LN42">42</td><td class="line">    GKeyFile *extension_file;</td></tr>
+<tr class="codeline" data-linenumber="43"><td class="num" id="LN43">43</td><td class="line">    gchar *extension_filename;</td></tr>
+<tr class="codeline" data-linenumber="44"><td class="num" id="LN44">44</td><td class="line"> </td></tr>
+<tr class="codeline" data-linenumber="45"><td class="num" id="LN45">45</td><td class="line">    ext = <span class='macro'>g_new0 (Extension, 1)<span class='macro_popup'>(Extension *) (__extension__ ({ gsize __n = (gsize) (1); gsize<br> __s = sizeof (Extension); gpointer __p; if (__s == 1) __p = g_malloc0<br> (__n); else if (__builtin_constant_p (__n) &amp;&amp; (__s ==<br> 0 || __n &lt;= (9223372036854775807L *2UL+1UL) / __s)) __p =<br> g_malloc0 (__n * __s); else __p = g_malloc0_n (__n, __s); __p<br>; }))</span></span>;</td></tr>
+<tr class="codeline" data-linenumber="46"><td class="num" id="LN46">46</td><td class="line">    ext-&gt;filename = filename;</td></tr>
+<tr class="codeline" data-linenumber="47"><td class="num" id="LN47">47</td><td class="line">    ext-&gt;name = <span class='macro'>NULL<span class='macro_popup'>((void*)0)</span></span>;</td></tr>
+<tr class="codeline" data-linenumber="48"><td class="num" id="LN48">48</td><td class="line">    ext-&gt;description = <span class='macro'>NULL<span class='macro_popup'>((void*)0)</span></span>;</td></tr>
+<tr class="codeline" data-linenumber="49"><td class="num" id="LN49">49</td><td class="line">    ext-&gt;author = <span class='macro'>NULL<span class='macro_popup'>((void*)0)</span></span>;</td></tr>
+<tr class="codeline" data-linenumber="50"><td class="num" id="LN50">50</td><td class="line">    ext-&gt;copyright = <span class='macro'>NULL<span class='macro_popup'>((void*)0)</span></span>;</td></tr>
+<tr class="codeline" data-linenumber="51"><td class="num" id="LN51">51</td><td class="line">    ext-&gt;version = <span class='macro'>NULL<span class='macro_popup'>((void*)0)</span></span>;</td></tr>
+<tr class="codeline" data-linenumber="52"><td class="num" id="LN52">52</td><td class="line">    ext-&gt;website = <span class='macro'>NULL<span class='macro_popup'>((void*)0)</span></span>;</td></tr>
+<tr class="codeline" data-linenumber="53"><td class="num" id="LN53">53</td><td class="line">    ext-&gt;state = state;</td></tr>
+<tr class="codeline" data-linenumber="54"><td class="num" id="LN54">54</td><td class="line">    ext-&gt;module = module;</td></tr>
+<tr class="codeline" data-linenumber="55"><td class="num" id="LN55">55</td><td class="line"> </td></tr>
+<tr class="codeline" data-linenumber="56"><td class="num" id="LN56">56</td><td class="line">    extension_file = g_key_file_new ();</td></tr>
+<tr class="codeline" data-linenumber="57"><td class="num" id="LN57">57</td><td class="line">    extension_filename = g_strdup_printf(<span class='macro'>CAJA_DATADIR<span class='macro_popup'>"/usr/local/share/caja"</span></span> <span class='string_literal'>"/extensions/%s.caja-extension"</span>, filename);</td></tr>
+<tr class="codeline" data-linenumber="58"><td class="num" id="LN58">58</td><td class="line">    <span class='keyword'>if</span> (g_key_file_load_from_file (extension_file, extension_filename, G_KEY_FILE_NONE, &amp;error))</td></tr>
+<tr class="codeline" data-linenumber="59"><td class="num" id="LN59">59</td><td class="line">    {</td></tr>
+<tr class="codeline" data-linenumber="60"><td class="num" id="LN60">60</td><td class="line">        ext-&gt;name = g_key_file_get_locale_string (extension_file, <span class='macro'>CAJA_EXTENSION_GROUP<span class='macro_popup'>"Caja Extension"</span></span>, <span class='string_literal'>"Name"</span>, <span class='macro'>NULL<span class='macro_popup'>((void*)0)</span></span>, <span class='macro'>NULL<span class='macro_popup'>((void*)0)</span></span>);</td></tr>
+<tr class="codeline" data-linenumber="61"><td class="num" id="LN61">61</td><td class="line">        ext-&gt;description = g_key_file_get_locale_string (extension_file, <span class='macro'>CAJA_EXTENSION_GROUP<span class='macro_popup'>"Caja Extension"</span></span>, <span class='string_literal'>"Description"</span>, <span class='macro'>NULL<span class='macro_popup'>((void*)0)</span></span>, <span class='macro'>NULL<span class='macro_popup'>((void*)0)</span></span>);</td></tr>
+<tr class="codeline" data-linenumber="62"><td class="num" id="LN62">62</td><td class="line">        ext-&gt;icon = g_key_file_get_string (extension_file, <span class='macro'>CAJA_EXTENSION_GROUP<span class='macro_popup'>"Caja Extension"</span></span>, <span class='string_literal'>"Icon"</span>, <span class='macro'>NULL<span class='macro_popup'>((void*)0)</span></span>);</td></tr>
+<tr class="codeline" data-linenumber="63"><td class="num" id="LN63">63</td><td class="line">        ext-&gt;author = g_key_file_get_string_list (extension_file, <span class='macro'>CAJA_EXTENSION_GROUP<span class='macro_popup'>"Caja Extension"</span></span>, <span class='string_literal'>"Author"</span>, <span class='macro'>NULL<span class='macro_popup'>((void*)0)</span></span>, <span class='macro'>NULL<span class='macro_popup'>((void*)0)</span></span>);</td></tr>
+<tr class="codeline" data-linenumber="64"><td class="num" id="LN64">64</td><td class="line">        ext-&gt;copyright = g_key_file_get_locale_string (extension_file, <span class='macro'>CAJA_EXTENSION_GROUP<span class='macro_popup'>"Caja Extension"</span></span>, <span class='string_literal'>"Copyright"</span>, <span class='macro'>NULL<span class='macro_popup'>((void*)0)</span></span>, <span class='macro'>NULL<span class='macro_popup'>((void*)0)</span></span>);</td></tr>
+<tr class="codeline" data-linenumber="65"><td class="num" id="LN65">65</td><td class="line">        ext-&gt;version = g_key_file_get_string (extension_file, <span class='macro'>CAJA_EXTENSION_GROUP<span class='macro_popup'>"Caja Extension"</span></span>, <span class='string_literal'>"Version"</span>, <span class='macro'>NULL<span class='macro_popup'>((void*)0)</span></span>);</td></tr>
+<tr class="codeline" data-linenumber="66"><td class="num" id="LN66">66</td><td class="line">        ext-&gt;website = g_key_file_get_string (extension_file, <span class='macro'>CAJA_EXTENSION_GROUP<span class='macro_popup'>"Caja Extension"</span></span>, <span class='string_literal'>"Website"</span>, <span class='macro'>NULL<span class='macro_popup'>((void*)0)</span></span>);</td></tr>
+<tr class="codeline" data-linenumber="67"><td class="num" id="LN67">67</td><td class="line">        g_key_file_free (extension_file);</td></tr>
+<tr class="codeline" data-linenumber="68"><td class="num" id="LN68">68</td><td class="line">    }</td></tr>
+<tr class="codeline" data-linenumber="69"><td class="num" id="LN69">69</td><td class="line">    <span class='keyword'>else</span></td></tr>
+<tr class="codeline" data-linenumber="70"><td class="num" id="LN70">70</td><td class="line">    {</td></tr>
+<tr class="codeline" data-linenumber="71"><td class="num" id="LN71">71</td><td class="line">        caja_debug_log (<span class='macro'>FALSE<span class='macro_popup'>(0)</span></span>, <span class='macro'>CAJA_DEBUG_LOG_DOMAIN_USER<span class='macro_popup'>"USER"</span></span>, <span class='string_literal'>"Error loading keys from file: %s\n"</span>, error-&gt;message);</td></tr>
+<tr class="codeline" data-linenumber="72"><td class="num" id="LN72">72</td><td class="line">        g_error_free (error);</td></tr>
+<tr class="codeline" data-linenumber="73"><td class="num" id="LN73">73</td><td class="line">    }</td></tr>
+<tr class="codeline" data-linenumber="74"><td class="num" id="LN74">74</td><td class="line">    g_free (extension_filename);</td></tr>
+<tr class="codeline" data-linenumber="75"><td class="num" id="LN75">75</td><td class="line"> </td></tr>
+<tr class="codeline" data-linenumber="76"><td class="num" id="LN76">76</td><td class="line">    <span class='keyword'>if</span> (python)</td></tr>
+<tr class="codeline" data-linenumber="77"><td class="num" id="LN77">77</td><td class="line">    {</td></tr>
+<tr class="codeline" data-linenumber="78"><td class="num" id="LN78">78</td><td class="line">        ext-&gt;name = g_strconcat(<span class='string_literal'>"Python: "</span>, filename, <span class='macro'>NULL<span class='macro_popup'>((void*)0)</span></span>);</td></tr>
+<tr class="codeline" data-linenumber="79"><td class="num" id="LN79">79</td><td class="line">        ext-&gt;description = <span class='string_literal'>"Python-caja extension"</span>;</td></tr>
+<tr class="codeline" data-linenumber="80"><td class="num" id="LN80">80</td><td class="line">    }</td></tr>
+<tr class="codeline" data-linenumber="81"><td class="num" id="LN81">81</td><td class="line"> </td></tr>
+<tr class="codeline" data-linenumber="82"><td class="num" id="LN82">82</td><td class="line">    <span class='keyword'>return</span> ext;</td></tr>
+<tr class="codeline" data-linenumber="83"><td class="num" id="LN83">83</td><td class="line">}</td></tr>
+<tr class="codeline" data-linenumber="84"><td class="num" id="LN84">84</td><td class="line"> </td></tr>
+<tr class="codeline" data-linenumber="85"><td class="num" id="LN85">85</td><td class="line"><span class='comment'>/* functions related to persistent configuration through gsettings: */</span></td></tr>
+<tr class="codeline" data-linenumber="86"><td class="num" id="LN86">86</td><td class="line"> </td></tr>
+<tr class="codeline" data-linenumber="87"><td class="num" id="LN87">87</td><td class="line"><span class='keyword'>static</span> gboolean</td></tr>
+<tr class="codeline" data-linenumber="88"><td class="num" id="LN88">88</td><td class="line">gsettings_key_has_value (<span class='keyword'>const</span> gchar *value)</td></tr>
+<tr class="codeline" data-linenumber="89"><td class="num" id="LN89">89</td><td class="line">{</td></tr>
+<tr class="codeline" data-linenumber="90"><td class="num" id="LN90">90</td><td class="line">    gchar **list;</td></tr>
+<tr class="codeline" data-linenumber="91"><td class="num" id="LN91">91</td><td class="line">    gint i;</td></tr>
+<tr class="codeline" data-linenumber="92"><td class="num" id="LN92">92</td><td class="line"> </td></tr>
+<tr class="codeline" data-linenumber="93"><td class="num" id="LN93">93</td><td class="line">    list = g_settings_get_strv (caja_extension_preferences,</td></tr>
+<tr class="codeline" data-linenumber="94"><td class="num" id="LN94">94</td><td class="line">                                <span class='macro'>CAJA_PREFERENCES_DISABLED_EXTENSIONS<span class='macro_popup'>"disabled-extensions"</span></span>);</td></tr>
+<tr class="codeline" data-linenumber="95"><td class="num" id="LN95">95</td><td class="line"> </td></tr>
+<tr class="codeline" data-linenumber="96"><td class="num" id="LN96">96</td><td class="line">    <span class='keyword'>if</span> (list != <span class='macro'>NULL<span class='macro_popup'>((void*)0)</span></span>)</td></tr>
+<tr class="codeline" data-linenumber="97"><td class="num" id="LN97">97</td><td class="line">    {</td></tr>
+<tr class="codeline" data-linenumber="98"><td class="num" id="LN98">98</td><td class="line">        <span class='keyword'>for</span> (i = 0; list[i]; i++)</td></tr>
+<tr class="codeline" data-linenumber="99"><td class="num" id="LN99">99</td><td class="line">        {</td></tr>
+<tr class="codeline" data-linenumber="100"><td class="num" id="LN100">100</td><td class="line">            <span class='keyword'>if</span> (g_ascii_strcasecmp (value, list[i]) == 0)</td></tr>
+<tr class="codeline" data-linenumber="101"><td class="num" id="LN101">101</td><td class="line">            {</td></tr>
+<tr class="codeline" data-linenumber="102"><td class="num" id="LN102">102</td><td class="line">                g_strfreev (list);</td></tr>
+<tr class="codeline" data-linenumber="103"><td class="num" id="LN103">103</td><td class="line">                <span class='keyword'>return</span> <span class='macro'>TRUE<span class='macro_popup'>(!(0))</span></span>;</td></tr>
+<tr class="codeline" data-linenumber="104"><td class="num" id="LN104">104</td><td class="line">            }</td></tr>
+<tr class="codeline" data-linenumber="105"><td class="num" id="LN105">105</td><td class="line">        }</td></tr>
+<tr class="codeline" data-linenumber="106"><td class="num" id="LN106">106</td><td class="line">    }</td></tr>
+<tr class="codeline" data-linenumber="107"><td class="num" id="LN107">107</td><td class="line">    g_strfreev (list);</td></tr>
+<tr class="codeline" data-linenumber="108"><td class="num" id="LN108">108</td><td class="line">    <span class='keyword'>return</span> <span class='macro'>FALSE<span class='macro_popup'>(0)</span></span>;</td></tr>
+<tr class="codeline" data-linenumber="109"><td class="num" id="LN109">109</td><td class="line">}</td></tr>
+<tr class="codeline" data-linenumber="110"><td class="num" id="LN110">110</td><td class="line"> </td></tr>
+<tr class="codeline" data-linenumber="111"><td class="num" id="LN111">111</td><td class="line"><span class='keyword'>static</span> gboolean</td></tr>
+<tr class="codeline" data-linenumber="112"><td class="num" id="LN112">112</td><td class="line">gsettings_append_to_list (<span class='keyword'>const</span> <span class='keyword'>char</span> *value)</td></tr>
+<tr class="codeline" data-linenumber="113"><td class="num" id="LN113">113</td><td class="line">{</td></tr>
+<tr class="codeline" data-linenumber="114"><td class="num" id="LN114">114</td><td class="line">    gchar **current;</td></tr>
+<tr class="codeline" data-linenumber="115"><td class="num" id="LN115">115</td><td class="line">    gchar **new;</td></tr>
+<tr class="codeline" data-linenumber="116"><td class="num" id="LN116">116</td><td class="line">    gint size;</td></tr>
+<tr class="codeline" data-linenumber="117"><td class="num" id="LN117">117</td><td class="line">    gboolean retval;</td></tr>
+<tr class="codeline" data-linenumber="118"><td class="num" id="LN118">118</td><td class="line"> </td></tr>
+<tr class="codeline" data-linenumber="119"><td class="num" id="LN119">119</td><td class="line">    current = g_settings_get_strv (caja_extension_preferences,</td></tr>
+<tr class="codeline" data-linenumber="120"><td class="num" id="LN120">120</td><td class="line">                                   <span class='macro'>CAJA_PREFERENCES_DISABLED_EXTENSIONS<span class='macro_popup'>"disabled-extensions"</span></span>);</td></tr>
+<tr class="codeline" data-linenumber="121"><td class="num" id="LN121">121</td><td class="line"> </td></tr>
+<tr class="codeline" data-linenumber="122"><td class="num" id="LN122">122</td><td class="line">    <span class='keyword'>for</span> (size = 0; current[size] != <span class='macro'>NULL<span class='macro_popup'>((void*)0)</span></span>; size++);</td></tr>
+<tr class="codeline" data-linenumber="123"><td class="num" id="LN123">123</td><td class="line"> </td></tr>
+<tr class="codeline" data-linenumber="124"><td class="num" id="LN124">124</td><td class="line">    size += 1;</td></tr>
+<tr class="codeline" data-linenumber="125"><td class="num" id="LN125">125</td><td class="line">    size += 1;</td></tr>
+<tr class="codeline" data-linenumber="126"><td class="num" id="LN126">126</td><td class="line"> </td></tr>
+<tr class="codeline" data-linenumber="127"><td class="num" id="LN127">127</td><td class="line">    new = g_realloc_n (current, size, <span class='keyword'>sizeof</span> (gchar *));</td></tr>
+<tr class="codeline" data-linenumber="128"><td class="num" id="LN128">128</td><td class="line"> </td></tr>
+<tr class="codeline" data-linenumber="129"><td class="num" id="LN129">129</td><td class="line">    new[size - 2] = <span class='macro'>g_strdup (value)<span class='macro_popup'>g_strdup_inline (value)</span></span>;</td></tr>
+<tr class="codeline" data-linenumber="130"><td class="num" id="LN130">130</td><td class="line">    new[size - 1] = <span class='macro'>NULL<span class='macro_popup'>((void*)0)</span></span>;</td></tr>
+<tr class="codeline" data-linenumber="131"><td class="num" id="LN131">131</td><td class="line"> </td></tr>
+<tr class="codeline" data-linenumber="132"><td class="num" id="LN132">132</td><td class="line">    retval = g_settings_set_strv (caja_extension_preferences,</td></tr>
+<tr class="codeline" data-linenumber="133"><td class="num" id="LN133">133</td><td class="line">                                  <span class='macro'>CAJA_PREFERENCES_DISABLED_EXTENSIONS<span class='macro_popup'>"disabled-extensions"</span></span>,</td></tr>
+<tr class="codeline" data-linenumber="134"><td class="num" id="LN134">134</td><td class="line">                                 (<span class='keyword'>const</span> gchar **) new);</td></tr>
+<tr class="codeline" data-linenumber="135"><td class="num" id="LN135">135</td><td class="line"> </td></tr>
+<tr class="codeline" data-linenumber="136"><td class="num" id="LN136">136</td><td class="line">    g_strfreev (new);</td></tr>
+<tr class="codeline" data-linenumber="137"><td class="num" id="LN137">137</td><td class="line">    <span class='keyword'>return</span> retval;</td></tr>
+<tr class="codeline" data-linenumber="138"><td class="num" id="LN138">138</td><td class="line">}</td></tr>
+<tr class="codeline" data-linenumber="139"><td class="num" id="LN139">139</td><td class="line"> </td></tr>
+<tr class="codeline" data-linenumber="140"><td class="num" id="LN140">140</td><td class="line"><span class='keyword'>static</span> gboolean</td></tr>
+<tr class="codeline" data-linenumber="141"><td class="num" id="LN141">141</td><td class="line">gsettings_remove_from_list (<span class='keyword'>const</span> <span class='keyword'>char</span> *value)</td></tr>
+<tr class="codeline" data-linenumber="142"><td class="num" id="LN142">142</td><td class="line">{</td></tr>
+<tr class="codeline" data-linenumber="143"><td class="num" id="LN143">143</td><td class="line">    gchar **current;</td></tr>
+<tr class="codeline" data-linenumber="144"><td class="num" id="LN144">144</td><td class="line">    GArray *array;</td></tr>
+<tr class="codeline" data-linenumber="145"><td class="num" id="LN145">145</td><td class="line">    gint i;</td></tr>
+<tr class="codeline" data-linenumber="146"><td class="num" id="LN146">146</td><td class="line">    gboolean retval;</td></tr>
+<tr class="codeline" data-linenumber="147"><td class="num" id="LN147">147</td><td class="line"> </td></tr>
+<tr class="codeline" data-linenumber="148"><td class="num" id="LN148">148</td><td class="line">    current = g_settings_get_strv (caja_extension_preferences,</td></tr>
+<tr class="codeline" data-linenumber="149"><td class="num" id="LN149">149</td><td class="line">                                   <span class='macro'>CAJA_PREFERENCES_DISABLED_EXTENSIONS<span class='macro_popup'>"disabled-extensions"</span></span>);</td></tr>
+<tr class="codeline" data-linenumber="150"><td class="num" id="LN150">150</td><td class="line"> </td></tr>
+<tr class="codeline" data-linenumber="151"><td class="num" id="LN151">151</td><td class="line">    array = g_array_new (<span class='macro'>TRUE<span class='macro_popup'>(!(0))</span></span>, <span class='macro'>TRUE<span class='macro_popup'>(!(0))</span></span>, <span class='keyword'>sizeof</span> (gchar *));</td></tr>
+<tr class="codeline" data-linenumber="152"><td class="num" id="LN152">152</td><td class="line"> </td></tr>
+<tr class="codeline" data-linenumber="153"><td class="num" id="LN153">153</td><td class="line">    <span class='keyword'>for</span> (i = 0; current[i] != <span class='macro'>NULL<span class='macro_popup'>((void*)0)</span></span>; i++)</td></tr>
+<tr class="codeline" data-linenumber="154"><td class="num" id="LN154">154</td><td class="line">    {</td></tr>
+<tr class="codeline" data-linenumber="155"><td class="num" id="LN155">155</td><td class="line">        <span class='keyword'>if</span> (g_strcmp0 (current[i], value) != 0)</td></tr>
+<tr class="codeline" data-linenumber="156"><td class="num" id="LN156">156</td><td class="line">            array = <span class='macro'>g_array_append_val (array, current[i])<span class='macro_popup'>g_array_append_vals (array, &amp;(current[i]), 1)</span></span>;</td></tr>
+<tr class="codeline" data-linenumber="157"><td class="num" id="LN157">157</td><td class="line">    }</td></tr>
+<tr class="codeline" data-linenumber="158"><td class="num" id="LN158">158</td><td class="line"> </td></tr>
+<tr class="codeline" data-linenumber="159"><td class="num" id="LN159">159</td><td class="line">    retval = g_settings_set_strv (caja_extension_preferences,</td></tr>
+<tr class="codeline" data-linenumber="160"><td class="num" id="LN160">160</td><td class="line">                                  <span class='macro'>CAJA_PREFERENCES_DISABLED_EXTENSIONS<span class='macro_popup'>"disabled-extensions"</span></span>,</td></tr>
+<tr class="codeline" data-linenumber="161"><td class="num" id="LN161">161</td><td class="line">                                 (<span class='keyword'>const</span> gchar **) array-&gt;data);</td></tr>
+<tr class="codeline" data-linenumber="162"><td class="num" id="LN162">162</td><td class="line"> </td></tr>
+<tr class="codeline" data-linenumber="163"><td class="num" id="LN163">163</td><td class="line">    g_strfreev (current);</td></tr>
+<tr class="codeline" data-linenumber="164"><td class="num" id="LN164">164</td><td class="line">    g_array_free (array, <span class='macro'>TRUE<span class='macro_popup'>(!(0))</span></span>);</td></tr>
+<tr class="codeline" data-linenumber="165"><td class="num" id="LN165">165</td><td class="line">    <span class='keyword'>return</span> retval;</td></tr>
+<tr class="codeline" data-linenumber="166"><td class="num" id="LN166">166</td><td class="line">}</td></tr>
+<tr class="codeline" data-linenumber="167"><td class="num" id="LN167">167</td><td class="line"> </td></tr>
+<tr class="codeline" data-linenumber="168"><td class="num" id="LN168">168</td><td class="line"><span class='comment'>/* functions related to the extension management */</span></td></tr>
+<tr class="codeline" data-linenumber="169"><td class="num" id="LN169">169</td><td class="line"> </td></tr>
+<tr class="codeline" data-linenumber="170"><td class="num" id="LN170">170</td><td class="line"><span class='keyword'>static</span> gboolean</td></tr>
+<tr class="codeline" data-linenumber="171"><td class="num" id="LN171">171</td><td class="line">caja_extension_get_state (<span class='keyword'>const</span> gchar *extname)</td></tr>
+<tr class="codeline" data-linenumber="172"><td class="num" id="LN172">172</td><td class="line">{</td></tr>
+<tr class="codeline" data-linenumber="173"><td class="num" id="LN173">173</td><td class="line">    <span class='keyword'>return</span> !gsettings_key_has_value (extname);</td></tr>
+<tr class="codeline" data-linenumber="174"><td class="num" id="LN174">174</td><td class="line">}</td></tr>
+<tr class="codeline" data-linenumber="175"><td class="num" id="LN175">175</td><td class="line"> </td></tr>
+<tr class="codeline" data-linenumber="176"><td class="num" id="LN176">176</td><td class="line">GList *</td></tr>
+<tr class="codeline" data-linenumber="177"><td class="num" id="LN177">177</td><td class="line">caja_extensions_get_for_type (GType type)</td></tr>
+<tr class="codeline" data-linenumber="178"><td class="num" id="LN178">178</td><td class="line">{</td></tr>
+<tr class="codeline" data-linenumber="179"><td class="num" id="LN179">179</td><td class="line">    GList *l;</td></tr>
+<tr class="codeline" data-linenumber="180"><td class="num" id="LN180">180</td><td class="line">    GList *ret = <span class='macro'>NULL<span class='macro_popup'>((void*)0)</span></span>;</td></tr>
+<tr class="codeline" data-linenumber="181"><td class="num" id="LN181">181</td><td class="line"> </td></tr>
+<tr class="codeline" data-linenumber="182"><td class="num" id="LN182">182</td><td class="line">    <span class='keyword'>for</span> (l = caja_extensions; l != <span class='macro'>NULL<span class='macro_popup'>((void*)0)</span></span>; l = l-&gt;next)</td></tr>
+<tr class="codeline" data-linenumber="183"><td class="num" id="LN183">183</td><td class="line">    {</td></tr>
+<tr class="codeline" data-linenumber="184"><td class="num" id="LN184">184</td><td class="line">        Extension *ext = l-&gt;data;</td></tr>
+<tr class="codeline" data-linenumber="185"><td class="num" id="LN185">185</td><td class="line">        ext-&gt;state = caja_extension_get_state (ext-&gt;filename);</td></tr>
+<tr class="codeline" data-linenumber="186"><td class="num" id="LN186">186</td><td class="line">        <span class='keyword'>if</span> (ext-&gt;state) <span class='comment'>// only load enabled extensions</span></td></tr>
+<tr class="codeline" data-linenumber="187"><td class="num" id="LN187">187</td><td class="line">        {</td></tr>
+<tr class="codeline" data-linenumber="188"><td class="num" id="LN188">188</td><td class="line">            <span class='keyword'>if</span> (<span class='macro'>G_TYPE_CHECK_INSTANCE_TYPE (G_OBJECT (ext-&gt;module), type)<span class='macro_popup'>((__extension__ ({ GTypeInstance *__inst = (GTypeInstance*) (<br>((((GObject*) (void *) ((ext-&gt;module)))))); GType __t = (type<br>); gboolean __r; if (!__inst) __r = (0); else if (__inst-&gt;<br>g_class &amp;&amp; __inst-&gt;g_class-&gt;g_type == __t) __r =<br> (!(0)); else __r = g_type_check_instance_is_a (__inst, __t);<br> __r; })))</span></span>)</td></tr>
+<tr class="codeline" data-linenumber="189"><td class="num" id="LN189">189</td><td class="line">            {</td></tr>
+<tr class="codeline" data-linenumber="190"><td class="num" id="LN190">190</td><td class="line">                <span class='macro'>g_object_ref (ext-&gt;module)<span class='macro_popup'>((__typeof__ (ext-&gt;module)) (g_object_ref) (ext-&gt;module<br>))</span></span>;</td></tr>
+<tr class="codeline" data-linenumber="191"><td class="num" id="LN191">191</td><td class="line">                ret = g_list_prepend (ret, ext-&gt;module);</td></tr>
+<tr class="codeline" data-linenumber="192"><td class="num" id="LN192">192</td><td class="line">            }</td></tr>
+<tr class="codeline" data-linenumber="193"><td class="num" id="LN193">193</td><td class="line">        }</td></tr>
+<tr class="codeline" data-linenumber="194"><td class="num" id="LN194">194</td><td class="line">    }</td></tr>
+<tr class="codeline" data-linenumber="195"><td class="num" id="LN195">195</td><td class="line"> </td></tr>
+<tr class="codeline" data-linenumber="196"><td class="num" id="LN196">196</td><td class="line">    <span class='keyword'>return</span> ret;</td></tr>
+<tr class="codeline" data-linenumber="197"><td class="num" id="LN197">197</td><td class="line">}</td></tr>
+<tr class="codeline" data-linenumber="198"><td class="num" id="LN198">198</td><td class="line"> </td></tr>
+<tr class="codeline" data-linenumber="199"><td class="num" id="LN199">199</td><td class="line">GList *</td></tr>
+<tr class="codeline" data-linenumber="200"><td class="num" id="LN200">200</td><td class="line">caja_extensions_get_list (<span class='keyword'>void</span>)</td></tr>
+<tr class="codeline" data-linenumber="201"><td class="num" id="LN201">201</td><td class="line">{</td></tr>
+<tr class="codeline" data-linenumber="202"><td class="num" id="LN202">202</td><td class="line">    <span class='keyword'>return</span> caja_extensions;</td></tr>
+<tr class="codeline" data-linenumber="203"><td class="num" id="LN203">203</td><td class="line">}</td></tr>
+<tr class="codeline" data-linenumber="204"><td class="num" id="LN204">204</td><td class="line"> </td></tr>
+<tr class="codeline" data-linenumber="205"><td class="num" id="LN205">205</td><td class="line"><span class='keyword'>void</span></td></tr>
+<tr class="codeline" data-linenumber="206"><td class="num" id="LN206">206</td><td class="line">caja_extension_register (gchar *filename, GObject *module)</td></tr>
+<tr class="codeline" data-linenumber="207"><td class="num" id="LN207">207</td><td class="line">{</td></tr>
+<tr class="codeline" data-linenumber="208"><td class="num" id="LN208">208</td><td class="line">    gboolean ext_state = <span class='macro'>TRUE<span class='macro_popup'>(!(0))</span></span>; <span class='comment'>// new extensions are enabled by default.</span></td></tr>
+<tr class="codeline" data-linenumber="209"><td class="num" id="LN209">209</td><td class="line">    gboolean ext_python = <span class='macro'>FALSE<span class='macro_popup'>(0)</span></span>;</td></tr>
+<tr class="codeline" data-linenumber="210"><td class="num" id="LN210">210</td><td class="line">    gchar *ext_filename;</td></tr>
+<tr class="codeline" data-linenumber="211"><td class="num" id="LN211">211</td><td class="line"> </td></tr>
+<tr class="codeline" data-linenumber="212"><td class="num" id="LN212">212</td><td class="line">    ext_filename = g_strndup (filename, strlen(filename) - 3);</td></tr>
+<tr class="codeline" data-linenumber="213"><td class="num" id="LN213">213</td><td class="line">    ext_state = caja_extension_get_state (ext_filename);</td></tr>
+<tr class="codeline" data-linenumber="214"><td class="num" id="LN214">214</td><td class="line"> </td></tr>
+<tr class="codeline" data-linenumber="215"><td class="num" id="LN215">215</td><td class="line">    <span class='keyword'>if</span> (<span class='macro'>g_str_has_suffix (filename, <span class='string_literal'>".py"</span>)<span class='macro_popup'>(__builtin_constant_p (".py")? __extension__ ({ const char * const<br> __str = (filename); const char * const __suffix = (".py"); gboolean<br> __result = (0); if (__builtin_expect (__extension__ ({ int _g_boolean_var_16<br>; if (__str == ((void*)0) || __suffix == ((void*)0)) _g_boolean_var_16<br> = 1; else _g_boolean_var_16 = 0; _g_boolean_var_16; }), 0)) __result<br> = (g_str_has_suffix) (__str, __suffix); else { const size_t __str_len<br> = strlen (((__str) + !(__str))); const size_t __suffix_len =<br> strlen (((__suffix) + !(__suffix))); if (__str_len &gt;= __suffix_len<br>) __result = memcmp (__str + __str_len - __suffix_len, ((__suffix<br>) + !(__suffix)), __suffix_len) == 0; } __result; }) : (g_str_has_suffix<br>) (filename, ".py") )</span></span>) {</td></tr>
+<tr class="codeline" data-linenumber="216"><td class="num" id="LN216">216</td><td class="line">        ext_python = <span class='macro'>TRUE<span class='macro_popup'>(!(0))</span></span>;</td></tr>
+<tr class="codeline" data-linenumber="217"><td class="num" id="LN217">217</td><td class="line">    }</td></tr>
+<tr class="codeline" data-linenumber="218"><td class="num" id="LN218">218</td><td class="line"> </td></tr>
+<tr class="codeline" data-linenumber="219"><td class="num" id="LN219">219</td><td class="line">    Extension *ext = extension_new (ext_filename, ext_state, ext_python, module);</td></tr>
+<tr class="codeline" data-linenumber="220"><td class="num" id="LN220">220</td><td class="line">    caja_extensions = g_list_append (caja_extensions, ext);</td></tr>
+<tr class="codeline" data-linenumber="221"><td class="num" id="LN221">221</td><td class="line">}</td></tr>
+<tr class="codeline" data-linenumber="222"><td class="num" id="LN222">222</td><td class="line"> </td></tr>
+<tr class="codeline" data-linenumber="223"><td class="num" id="LN223">223</td><td class="line">gboolean</td></tr>
+<tr class="codeline" data-linenumber="224"><td class="num" id="LN224">224</td><td class="line">caja_extension_set_state (Extension *ext, gboolean new_state)</td></tr>
+<tr class="codeline" data-linenumber="225"><td class="num" id="LN225">225</td><td class="line">{</td></tr>
+<tr class="codeline" data-linenumber="226"><td class="num" id="LN226">226</td><td class="line">    <span id="start5"><span class='keyword'>if</span></span> (<span id="start4"><span class="mrange"><span id="end5">ext</span></span></span>)</td></tr>
+<tr><td class="num"></td><td class="line"><div id="Path1" class="msg msgEvent" style="margin-left:9ex"><table class="msgT"><tr><td valign="top"><div class="PathIndex PathIndexEvent">1</div></td><td>Assuming 'ext' is null</td><td><div class="PathNav"><a href="#Path2" title="Next event (2)">&#x2192;</a></div></td></tr></table></div></td></tr>
+<tr><td class="num"></td><td class="line"><div id="Path2" class="msg msgControl" style="margin-left:5ex"><table class="msgT"><tr><td valign="top"><div class="PathIndex PathIndexControl">2</div></td><td><div class="PathNav"><a href="#Path1" title="Previous event (1)">&#x2190;</a></div></td><td>Taking false branch</td><td><div class="PathNav"><a href="#Path3" title="Next event (3)">&#x2192;</a></div></td></tr></table></div></td></tr>
+<tr class="codeline" data-linenumber="227"><td class="num" id="LN227">227</td><td class="line">    {</td></tr>
+<tr class="codeline" data-linenumber="228"><td class="num" id="LN228">228</td><td class="line">        <span class='macro'>g_return_val_if_fail (ext-&gt;state != new_state, FALSE)<span class='macro_popup'>do { if ((__builtin_expect (__extension__ ({ int _g_boolean_var_17<br>; if (ext-&gt;state != new_state) _g_boolean_var_17 = 1; else<br> _g_boolean_var_17 = 0; _g_boolean_var_17; }), 1))) { } else {<br> g_return_if_fail_warning (((gchar*) 0), ((const char*) (__func__<br>)), "ext-&gt;state != new_state"); return ((0)); } } while (0<br>)</span></span>;</td></tr>
+<tr class="codeline" data-linenumber="229"><td class="num" id="LN229">229</td><td class="line">        ext-&gt;state = new_state;</td></tr>
+<tr class="codeline" data-linenumber="230"><td class="num" id="LN230">230</td><td class="line">    }</td></tr>
+<tr class="codeline" data-linenumber="231"><td class="num" id="LN231">231</td><td class="line"> </td></tr>
+<tr class="codeline" data-linenumber="232"><td class="num" id="LN232">232</td><td class="line">    <span id="start3"><span id="end4">gboolean</span></span> retval;</td></tr>
+<tr class="codeline" data-linenumber="233"><td class="num" id="LN233">233</td><td class="line">    <span id="start2"><span id="end3"><span class='keyword'>if</span></span></span> (<span id="start1"><span class="mrange"><span id="end2">new_state</span></span></span>) {</td></tr>
+<tr><td class="num"></td><td class="line"><div id="Path3" class="msg msgEvent" style="margin-left:9ex"><table class="msgT"><tr><td valign="top"><div class="PathIndex PathIndexEvent">3</div></td><td><div class="PathNav"><a href="#Path2" title="Previous event (2)">&#x2190;</a></div></td><td>Assuming 'new_state' is 0</td><td><div class="PathNav"><a href="#Path4" title="Next event (4)">&#x2192;</a></div></td></tr></table></div></td></tr>
+<tr><td class="num"></td><td class="line"><div id="Path4" class="msg msgControl" style="margin-left:5ex"><table class="msgT"><tr><td valign="top"><div class="PathIndex PathIndexControl">4</div></td><td><div class="PathNav"><a href="#Path3" title="Previous event (3)">&#x2190;</a></div></td><td>Taking false branch</td><td><div class="PathNav"><a href="#EndPath" title="Next event (5)">&#x2192;</a></div></td></tr></table></div></td></tr>
+<tr class="codeline" data-linenumber="234"><td class="num" id="LN234">234</td><td class="line">        retval = gsettings_remove_from_list (ext-&gt;filename);</td></tr>
+<tr class="codeline" data-linenumber="235"><td class="num" id="LN235">235</td><td class="line">    }</td></tr>
+<tr class="codeline" data-linenumber="236"><td class="num" id="LN236">236</td><td class="line">    <span class='keyword'>else</span> {</td></tr>
+<tr class="codeline" data-linenumber="237"><td class="num" id="LN237">237</td><td class="line">        <span id="start0"><span id="end1">retval</span></span> = gsettings_append_to_list (<span class="mrange"><span id="end0">ext</span></span>-&gt;filename);</td></tr>
+<tr><td class="num"></td><td class="line"><div id="EndPath" class="msg msgEvent" style="margin-left:44ex"><table class="msgT"><tr><td valign="top"><div class="PathIndex PathIndexEvent">5</div></td><td><div class="PathNav"><a href="#Path4" title="Previous event (4)">&#x2190;</a></div></td><td>Access to field 'filename' results in a dereference of a null pointer (loaded from variable 'ext')</td></tr></table></div></td></tr>
+<tr class="codeline" data-linenumber="238"><td class="num" id="LN238">238</td><td class="line">    }</td></tr>
+<tr class="codeline" data-linenumber="239"><td class="num" id="LN239">239</td><td class="line"> </td></tr>
+<tr class="codeline" data-linenumber="240"><td class="num" id="LN240">240</td><td class="line">    <span class='macro'>g_return_val_if_fail (retval == TRUE, FALSE)<span class='macro_popup'>do { if ((__builtin_expect (__extension__ ({ int _g_boolean_var_18<br>; if (retval == (!(0))) _g_boolean_var_18 = 1; else _g_boolean_var_18<br> = 0; _g_boolean_var_18; }), 1))) { } else { g_return_if_fail_warning<br> (((gchar*) 0), ((const char*) (__func__)), "retval == TRUE")<br>; return ((0)); } } while (0)</span></span>;</td></tr>
+<tr class="codeline" data-linenumber="241"><td class="num" id="LN241">241</td><td class="line">    <span class='keyword'>return</span> <span class='macro'>TRUE<span class='macro_popup'>(!(0))</span></span>;</td></tr>
+<tr class="codeline" data-linenumber="242"><td class="num" id="LN242">242</td><td class="line">}</td></tr>
+<tr class="codeline" data-linenumber="243"><td class="num" id="LN243">243</td><td class="line"> </td></tr>
+</table></body></html>
