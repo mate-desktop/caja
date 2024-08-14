@@ -632,17 +632,6 @@ caja_window_set_initial_window_geometry (CajaWindow *window)
 }
 
 static void
-caja_window_constructed (GObject *self)
-{
-    CajaWindow *window;
-
-    window = CAJA_WINDOW (self);
-
-    caja_window_initialize_bookmarks_menu (window);
-    caja_window_set_initial_window_geometry (window);
-}
-
-static void
 caja_window_set_property (GObject *object,
                           guint arg_id,
                           const GValue *value,
@@ -742,6 +731,12 @@ caja_window_constructor (GType type,
 
     slot = caja_window_open_slot (window->details->active_pane, 0);
     caja_window_set_active_slot (window, slot);
+    /*We can now do this here instead of in a separate constructed function
+     *and we need to because the separate constructed function causes the
+     *window to be un-draggable/un-resizable with the mouse in wayland
+     */
+    caja_window_initialize_bookmarks_menu (window);
+    caja_window_set_initial_window_geometry (window);
 
     return object;
 }
@@ -2170,7 +2165,6 @@ caja_window_class_init (CajaWindowClass *class)
     GtkBindingSet *binding_set;
 
     G_OBJECT_CLASS (class)->constructor = caja_window_constructor;
-    G_OBJECT_CLASS (class)->constructed = caja_window_constructed;
     G_OBJECT_CLASS (class)->get_property = caja_window_get_property;
     G_OBJECT_CLASS (class)->set_property = caja_window_set_property;
     G_OBJECT_CLASS (class)->finalize = caja_window_finalize;
