@@ -1,0 +1,761 @@
+<!doctype html>
+<html>
+<head>
+<title>test-eel-labeled-image.c</title>
+
+<style type="text/css">
+body { color:#000000; background-color:#ffffff }
+body { font-family:Helvetica, sans-serif; font-size:10pt }
+h1 { font-size:14pt }
+.FileName { margin-top: 5px; margin-bottom: 5px; display: inline; }
+.FileNav { margin-left: 5px; margin-right: 5px; display: inline; }
+.FileNav a { text-decoration:none; font-size: larger; }
+.divider { margin-top: 30px; margin-bottom: 30px; height: 15px; }
+.divider { background-color: gray; }
+.code { border-collapse:collapse; width:100%; }
+.code { font-family: "Monospace", monospace; font-size:10pt }
+.code { line-height: 1.2em }
+.comment { color: green; font-style: oblique }
+.keyword { color: blue }
+.string_literal { color: red }
+.directive { color: darkmagenta }
+
+/* Macros and variables could have pop-up notes hidden by default.
+  - Macro pop-up:    expansion of the macro
+  - Variable pop-up: value (table) of the variable */
+.macro_popup, .variable_popup { display: none; }
+
+/* Pop-up appears on mouse-hover event. */
+.macro:hover .macro_popup, .variable:hover .variable_popup {
+  display: block;
+  padding: 2px;
+  -webkit-border-radius:5px;
+  -webkit-box-shadow:1px 1px 7px #000;
+  border-radius:5px;
+  box-shadow:1px 1px 7px #000;
+  position: absolute;
+  top: -1em;
+  left:10em;
+  z-index: 1
+}
+
+.macro_popup {
+  border: 2px solid red;
+  background-color:#FFF0F0;
+  font-weight: normal;
+}
+
+.variable_popup {
+  border: 2px solid blue;
+  background-color:#F0F0FF;
+  font-weight: bold;
+  font-family: Helvetica, sans-serif;
+  font-size: 9pt;
+}
+
+/* Pop-up notes needs a relative position as a base where they pops up. */
+.macro, .variable {
+  background-color: PaleGoldenRod;
+  position: relative;
+}
+.macro { color: DarkMagenta; }
+
+#tooltiphint {
+  position: fixed;
+  width: 50em;
+  margin-left: -25em;
+  left: 50%;
+  padding: 10px;
+  border: 1px solid #b0b0b0;
+  border-radius: 2px;
+  box-shadow: 1px 1px 7px black;
+  background-color: #c0c0c0;
+  z-index: 2;
+}
+
+.num { width:2.5em; padding-right:2ex; background-color:#eeeeee }
+.num { text-align:right; font-size:8pt }
+.num { color:#444444 }
+.line { padding-left: 1ex; border-left: 3px solid #ccc }
+.line { white-space: pre }
+.msg { -webkit-box-shadow:1px 1px 7px #000 }
+.msg { box-shadow:1px 1px 7px #000 }
+.msg { -webkit-border-radius:5px }
+.msg { border-radius:5px }
+.msg { font-family:Helvetica, sans-serif; font-size:8pt }
+.msg { float:left }
+.msg { position:relative }
+.msg { padding:0.25em 1ex 0.25em 1ex }
+.msg { margin-top:10px; margin-bottom:10px }
+.msg { font-weight:bold }
+.msg { max-width:60em; word-wrap: break-word; white-space: pre-wrap }
+.msgT { padding:0x; spacing:0x }
+.msgEvent { background-color:#fff8b4; color:#000000 }
+.msgControl { background-color:#bbbbbb; color:#000000 }
+.msgNote { background-color:#ddeeff; color:#000000 }
+.mrange { background-color:#dfddf3 }
+.mrange { border-bottom:1px solid #6F9DBE }
+.PathIndex { font-weight: bold; padding:0px 5px; margin-right:5px; }
+.PathIndex { -webkit-border-radius:8px }
+.PathIndex { border-radius:8px }
+.PathIndexEvent { background-color:#bfba87 }
+.PathIndexControl { background-color:#8c8c8c }
+.PathIndexPopUp { background-color: #879abc; }
+.PathNav a { text-decoration:none; font-size: larger }
+.CodeInsertionHint { font-weight: bold; background-color: #10dd10 }
+.CodeRemovalHint { background-color:#de1010 }
+.CodeRemovalHint { border-bottom:1px solid #6F9DBE }
+.msg.selected{ background-color:orange !important; }
+
+table.simpletable {
+  padding: 5px;
+  font-size:12pt;
+  margin:20px;
+  border-collapse: collapse; border-spacing: 0px;
+}
+td.rowname {
+  text-align: right;
+  vertical-align: top;
+  font-weight: bold;
+  color:#444444;
+  padding-right:2ex;
+}
+
+/* Hidden text. */
+input.spoilerhider + label {
+  cursor: pointer;
+  text-decoration: underline;
+  display: block;
+}
+input.spoilerhider {
+ display: none;
+}
+input.spoilerhider ~ .spoiler {
+  overflow: hidden;
+  margin: 10px auto 0;
+  height: 0;
+  opacity: 0;
+}
+input.spoilerhider:checked + label + .spoiler{
+  height: auto;
+  opacity: 1;
+}
+</style>
+</head>
+<body>
+<!-- BUGDESC This statement is never executed -->
+
+<!-- BUGTYPE Unreachable code -->
+
+<!-- BUGCATEGORY Unused code -->
+
+<!-- BUGFILE /rootdir/test/test-eel-labeled-image.c -->
+
+<!-- FILENAME test-eel-labeled-image.c -->
+
+<!-- FUNCTIONNAME main -->
+
+<!-- ISSUEHASHCONTENTOFLINEINCONTEXT 337a867547b097331dede1fd6d8fc46c -->
+
+<!-- BUGLINE 75 -->
+
+<!-- BUGCOLUMN 28 -->
+
+<!-- BUGPATHLENGTH 1 -->
+
+<!-- BUGMETAEND -->
+<!-- REPORTHEADER -->
+<h3>Bug Summary</h3>
+<table class="simpletable">
+<tr><td class="rowname">File:</td><td>test/test-eel-labeled-image.c</td></tr>
+<tr><td class="rowname">Warning:</td><td><a href="#EndPath">line 75, column 28</a><br />This statement is never executed</td></tr>
+
+</table>
+<!-- REPORTSUMMARYEXTRA -->
+<h3>Annotated Source Code</h3>
+<p>Press <a href="#" onclick="toggleHelp(); return false;">'?'</a>
+   to see keyboard shortcuts</p>
+<input type="checkbox" class="spoilerhider" id="showinvocation" />
+<label for="showinvocation" >Show analyzer invocation</label>
+<div class="spoiler">clang -cc1 -cc1 -triple x86_64-redhat-linux-gnu -analyze -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name test-eel-labeled-image.c -analyzer-checker=core -analyzer-checker=apiModeling -analyzer-checker=unix -analyzer-checker=deadcode -analyzer-checker=security.insecureAPI.UncheckedReturn -analyzer-checker=security.insecureAPI.getpw -analyzer-checker=security.insecureAPI.gets -analyzer-checker=security.insecureAPI.mktemp -analyzer-checker=security.insecureAPI.mkstemp -analyzer-checker=security.insecureAPI.vfork -analyzer-checker=nullability.NullPassedToNonnull -analyzer-checker=nullability.NullReturnedFromNonnull -analyzer-output plist -w -setup-static-analyzer -mrelocation-model static -mframe-pointer=none -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -target-cpu x86-64 -tune-cpu generic -debugger-tuning=gdb -fdebug-compilation-dir=/rootdir/test -fcoverage-compilation-dir=/rootdir/test -resource-dir /usr/bin/../lib/clang/18 -D HAVE_CONFIG_H -I . -I .. -I .. -I /usr/include/mate-desktop-2.0 -I /usr/include/gtk-3.0 -I /usr/include/pango-1.0 -I /usr/include/cairo -I /usr/include/gdk-pixbuf-2.0 -I /usr/include/freetype2 -I /usr/include/harfbuzz -I /usr/include/startup-notification-1.0 -I /usr/include/glib-2.0 -I /usr/lib64/glib-2.0/include -I /usr/include/gio-unix-2.0 -I /usr/include/gail-3.0 -I /usr/include/atk-1.0 -I /usr/include/libxml2 -I /usr/include/libmount -I /usr/include/blkid -I /usr/include/sysprof-6 -I /usr/include/webp -I /usr/include/libpng16 -I /usr/include/pixman-1 -I /usr/include/cloudproviders -I /usr/include/at-spi2-atk/2.0 -I /usr/include/at-spi-2.0 -I /usr/include/dbus-1.0 -I /usr/lib64/dbus-1.0/include -I /usr/include/fribidi -I /usr/include/dconf -D WITH_GZFILEOP -D VERSION="1.29.0" -D CAJA_DATADIR="/usr/local/share/caja" -D MATELOCALEDIR="/usr/local//locale" -D PIXBUFDIR="/usr/local/share/pixmaps" -internal-isystem /usr/bin/../lib/clang/18/include -internal-isystem /usr/local/include -internal-isystem /usr/bin/../lib/gcc/x86_64-redhat-linux/14/../../../../x86_64-redhat-linux/include -internal-externc-isystem /include -internal-externc-isystem /usr/include -O2 -Wno-unused-parameter -ferror-limit 19 -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -vectorize-loops -vectorize-slp -analyzer-checker deadcode.DeadStores -analyzer-checker alpha.deadcode.UnreachableCode -analyzer-checker alpha.core.CastSize -analyzer-checker alpha.core.CastToStruct -analyzer-checker alpha.core.IdenticalExpr -analyzer-checker alpha.core.SizeofPtr -analyzer-checker alpha.security.ArrayBoundV2 -analyzer-checker alpha.security.MallocOverflow -analyzer-checker alpha.security.ReturnPtrRange -analyzer-checker alpha.unix.SimpleStream -analyzer-checker alpha.unix.cstring.BufferOverlap -analyzer-checker alpha.unix.cstring.NotNullTerminated -analyzer-checker alpha.unix.cstring.OutOfBounds -analyzer-checker alpha.core.FixedAddr -analyzer-checker security.insecureAPI.strcpy -analyzer-output=html -faddrsig -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o /rootdir/html-report/2024-08-14-045705-6707-1 -x c test-eel-labeled-image.c
+</div>
+<div id='tooltiphint' hidden="true">
+  <p>Keyboard shortcuts: </p>
+  <ul>
+    <li>Use 'j/k' keys for keyboard navigation</li>
+    <li>Use 'Shift+S' to show/hide relevant lines</li>
+    <li>Use '?' to toggle this window</li>
+  </ul>
+  <a href="#" onclick="toggleHelp(); return false;">Close</a>
+</div>
+<script type='text/javascript'>
+var relevant_lines = {"1": {"75": 1}};
+
+var filterCounterexample = function (hide) {
+  var tables = document.getElementsByClassName("code");
+  for (var t=0; t<tables.length; t++) {
+    var table = tables[t];
+    var file_id = table.getAttribute("data-fileid");
+    var lines_in_fid = relevant_lines[file_id];
+    if (!lines_in_fid) {
+      lines_in_fid = {};
+    }
+    var lines = table.getElementsByClassName("codeline");
+    for (var i=0; i<lines.length; i++) {
+        var el = lines[i];
+        var lineNo = el.getAttribute("data-linenumber");
+        if (!lines_in_fid[lineNo]) {
+          if (hide) {
+            el.setAttribute("hidden", "");
+          } else {
+            el.removeAttribute("hidden");
+          }
+        }
+    }
+  }
+}
+
+window.addEventListener("keydown", function (event) {
+  if (event.defaultPrevented) {
+    return;
+  }
+  // SHIFT + S
+  if (event.shiftKey && event.keyCode == 83) {
+    var checked = document.getElementsByName("showCounterexample")[0].checked;
+    filterCounterexample(!checked);
+    document.getElementsByName("showCounterexample")[0].click();
+  } else {
+    return;
+  }
+  event.preventDefault();
+}, true);
+
+document.addEventListener("DOMContentLoaded", function() {
+    document.querySelector('input[name="showCounterexample"]').onchange=
+        function (event) {
+      filterCounterexample(this.checked);
+    };
+});
+</script>
+
+<form>
+    <input type="checkbox" name="showCounterexample" id="showCounterexample" />
+    <label for="showCounterexample">
+       Show only relevant lines
+    </label>
+    <input type="checkbox" name="showArrows"
+           id="showArrows" style="margin-left: 10px" />
+    <label for="showArrows">
+       Show control flow arrows
+    </label>
+</form>
+
+<script type='text/javascript'>
+// Return range of numbers from a range [lower, upper).
+function range(lower, upper) {
+  var array = [];
+  for (var i = lower; i <= upper; ++i) {
+      array.push(i);
+  }
+  return array;
+}
+
+var getRelatedArrowIndices = function(pathId) {
+  // HTML numeration of events is a bit different than it is in the path.
+  // Everything is rotated one step to the right, so the last element
+  // (error diagnostic) has index 0.
+  if (pathId == 0) {
+    // arrowIndices has at least 2 elements
+    pathId = arrowIndices.length - 1;
+  }
+
+  return range(arrowIndices[pathId], arrowIndices[pathId - 1]);
+}
+
+var highlightArrowsForSelectedEvent = function() {
+  const selectedNum = findNum();
+  const arrowIndicesToHighlight = getRelatedArrowIndices(selectedNum);
+  arrowIndicesToHighlight.forEach((index) => {
+    var arrow = document.querySelector("#arrow" + index);
+    if(arrow) {
+      classListAdd(arrow, "selected")
+    }
+  });
+}
+
+var getAbsoluteBoundingRect = function(element) {
+  const relative = element.getBoundingClientRect();
+  return {
+    left: relative.left + window.pageXOffset,
+    right: relative.right + window.pageXOffset,
+    top: relative.top + window.pageYOffset,
+    bottom: relative.bottom + window.pageYOffset,
+    height: relative.height,
+    width: relative.width
+  };
+}
+
+var drawArrow = function(index) {
+  // This function is based on the great answer from SO:
+  //   https://stackoverflow.com/a/39575674/11582326
+  var start = document.querySelector("#start" + index);
+  var end   = document.querySelector("#end" + index);
+  var arrow = document.querySelector("#arrow" + index);
+
+  var startRect = getAbsoluteBoundingRect(start);
+  var endRect   = getAbsoluteBoundingRect(end);
+
+  // It is an arrow from a token to itself, no need to visualize it.
+  if (startRect.top == endRect.top &&
+      startRect.left == endRect.left)
+    return;
+
+  // Each arrow is a very simple Bézier curve, with two nodes and
+  // two handles.  So, we need to calculate four points in the window:
+  //   * start node
+  var posStart    = { x: 0, y: 0 };
+  //   * end node
+  var posEnd      = { x: 0, y: 0 };
+  //   * handle for the start node
+  var startHandle = { x: 0, y: 0 };
+  //   * handle for the end node
+  var endHandle   = { x: 0, y: 0 };
+  // One can visualize it as follows:
+  //
+  //         start handle
+  //        /
+  //       X"""_.-""""X
+  //         .'        \
+  //        /           start node
+  //       |
+  //       |
+  //       |      end node
+  //        \    /
+  //         `->X
+  //        X-'
+  //         \
+  //          end handle
+  //
+  // NOTE: (0, 0) is the top left corner of the window.
+
+  // We have 3 similar, but still different scenarios to cover:
+  //
+  //   1. Two tokens on different lines.
+  //             -xxx
+  //           /
+  //           \
+  //             -> xxx
+  //      In this situation, we draw arrow on the left curving to the left.
+  //   2. Two tokens on the same line, and the destination is on the right.
+  //             ____
+  //            /    \
+  //           /      V
+  //        xxx        xxx
+  //      In this situation, we draw arrow above curving upwards.
+  //   3. Two tokens on the same line, and the destination is on the left.
+  //        xxx        xxx
+  //           ^      /
+  //            \____/
+  //      In this situation, we draw arrow below curving downwards.
+  const onDifferentLines = startRect.top <= endRect.top - 5 ||
+    startRect.top >= endRect.top + 5;
+  const leftToRight = startRect.left < endRect.left;
+
+  // NOTE: various magic constants are chosen empirically for
+  //       better positioning and look
+  if (onDifferentLines) {
+    // Case #1
+    const topToBottom = startRect.top < endRect.top;
+    posStart.x = startRect.left - 1;
+    // We don't want to start it at the top left corner of the token,
+    // it doesn't feel like this is where the arrow comes from.
+    // For this reason, we start it in the middle of the left side
+    // of the token.
+    posStart.y = startRect.top + startRect.height / 2;
+
+    // End node has arrow head and we give it a bit more space.
+    posEnd.x = endRect.left - 4;
+    posEnd.y = endRect.top;
+
+    // Utility object with x and y offsets for handles.
+    var curvature = {
+      // We want bottom-to-top arrow to curve a bit more, so it doesn't
+      // overlap much with top-to-bottom curves (much more frequent).
+      x: topToBottom ? 15 : 25,
+      y: Math.min((posEnd.y - posStart.y) / 3, 10)
+    }
+
+    // When destination is on the different line, we can make a
+    // curvier arrow because we have space for it.
+    // So, instead of using
+    //
+    //   startHandle.x = posStart.x - curvature.x
+    //   endHandle.x   = posEnd.x - curvature.x
+    //
+    // We use the leftmost of these two values for both handles.
+    startHandle.x = Math.min(posStart.x, posEnd.x) - curvature.x;
+    endHandle.x = startHandle.x;
+
+    // Curving downwards from the start node...
+    startHandle.y = posStart.y + curvature.y;
+    // ... and upwards from the end node.
+    endHandle.y = posEnd.y - curvature.y;
+
+  } else if (leftToRight) {
+    // Case #2
+    // Starting from the top right corner...
+    posStart.x = startRect.right - 1;
+    posStart.y = startRect.top;
+
+    // ...and ending at the top left corner of the end token.
+    posEnd.x = endRect.left + 1;
+    posEnd.y = endRect.top - 1;
+
+    // Utility object with x and y offsets for handles.
+    var curvature = {
+      x: Math.min((posEnd.x - posStart.x) / 3, 15),
+      y: 5
+    }
+
+    // Curving to the right...
+    startHandle.x = posStart.x + curvature.x;
+    // ... and upwards from the start node.
+    startHandle.y = posStart.y - curvature.y;
+
+    // And to the left...
+    endHandle.x = posEnd.x - curvature.x;
+    // ... and upwards from the end node.
+    endHandle.y = posEnd.y - curvature.y;
+
+  } else {
+    // Case #3
+    // Starting from the bottom right corner...
+    posStart.x = startRect.right;
+    posStart.y = startRect.bottom;
+
+    // ...and ending also at the bottom right corner, but of the end token.
+    posEnd.x = endRect.right - 1;
+    posEnd.y = endRect.bottom + 1;
+
+    // Utility object with x and y offsets for handles.
+    var curvature = {
+      x: Math.min((posStart.x - posEnd.x) / 3, 15),
+      y: 5
+    }
+
+    // Curving to the left...
+    startHandle.x = posStart.x - curvature.x;
+    // ... and downwards from the start node.
+    startHandle.y = posStart.y + curvature.y;
+
+    // And to the right...
+    endHandle.x = posEnd.x + curvature.x;
+    // ... and downwards from the end node.
+    endHandle.y = posEnd.y + curvature.y;
+  }
+
+  // Put it all together into a path.
+  // More information on the format:
+  //   https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths
+  var pathStr = "M" + posStart.x + "," + posStart.y + " " +
+    "C" + startHandle.x + "," + startHandle.y + " " +
+    endHandle.x + "," + endHandle.y + " " +
+    posEnd.x + "," + posEnd.y;
+
+  arrow.setAttribute("d", pathStr);
+};
+
+var drawArrows = function() {
+  const numOfArrows = document.querySelectorAll("path[id^=arrow]").length;
+  for (var i = 0; i < numOfArrows; ++i) {
+    drawArrow(i);
+  }
+}
+
+var toggleArrows = function(event) {
+  const arrows = document.querySelector("#arrows");
+  if (event.target.checked) {
+    arrows.setAttribute("visibility", "visible");
+  } else {
+    arrows.setAttribute("visibility", "hidden");
+  }
+}
+
+window.addEventListener("resize", drawArrows);
+document.addEventListener("DOMContentLoaded", function() {
+  // Whenever we show invocation, locations change, i.e. we
+  // need to redraw arrows.
+  document
+    .querySelector('input[id="showinvocation"]')
+    .addEventListener("click", drawArrows);
+  // Hiding irrelevant lines also should cause arrow rerender.
+  document
+    .querySelector('input[name="showCounterexample"]')
+    .addEventListener("change", drawArrows);
+  document
+    .querySelector('input[name="showArrows"]')
+    .addEventListener("change", toggleArrows);
+  drawArrows();
+  // Default highlighting for the last event.
+  highlightArrowsForSelectedEvent();
+});
+</script>
+  
+<script type='text/javascript'>
+var digitMatcher = new RegExp("[0-9]+");
+
+var querySelectorAllArray = function(selector) {
+  return Array.prototype.slice.call(
+    document.querySelectorAll(selector));
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    querySelectorAllArray(".PathNav > a").forEach(
+        function(currentValue, currentIndex) {
+            var hrefValue = currentValue.getAttribute("href");
+            currentValue.onclick = function() {
+                scrollTo(document.querySelector(hrefValue));
+                return false;
+            };
+        });
+});
+
+var findNum = function() {
+    var s = document.querySelector(".msg.selected");
+    if (!s || s.id == "EndPath") {
+        return 0;
+    }
+    var out = parseInt(digitMatcher.exec(s.id)[0]);
+    return out;
+};
+
+var classListAdd = function(el, theClass) {
+  if(!el.className.baseVal)
+    el.className += " " + theClass;
+  else
+    el.className.baseVal += " " + theClass;
+};
+
+var classListRemove = function(el, theClass) {
+  var className = (!el.className.baseVal) ?
+      el.className : el.className.baseVal;
+    className = className.replace(" " + theClass, "");
+  if(!el.className.baseVal)
+    el.className = className;
+  else
+    el.className.baseVal = className;
+};
+
+var scrollTo = function(el) {
+    querySelectorAllArray(".selected").forEach(function(s) {
+      classListRemove(s, "selected");
+    });
+    classListAdd(el, "selected");
+    window.scrollBy(0, el.getBoundingClientRect().top -
+        (window.innerHeight / 2));
+    highlightArrowsForSelectedEvent();
+};
+
+var move = function(num, up, numItems) {
+  if (num == 1 && up || num == numItems - 1 && !up) {
+    return 0;
+  } else if (num == 0 && up) {
+    return numItems - 1;
+  } else if (num == 0 && !up) {
+    return 1 % numItems;
+  }
+  return up ? num - 1 : num + 1;
+}
+
+var numToId = function(num) {
+  if (num == 0) {
+    return document.getElementById("EndPath")
+  }
+  return document.getElementById("Path" + num);
+};
+
+var navigateTo = function(up) {
+  var numItems = document.querySelectorAll(
+      ".line > .msgEvent, .line > .msgControl").length;
+  var currentSelected = findNum();
+  var newSelected = move(currentSelected, up, numItems);
+  var newEl = numToId(newSelected, numItems);
+
+  // Scroll element into center.
+  scrollTo(newEl);
+};
+
+window.addEventListener("keydown", function (event) {
+  if (event.defaultPrevented) {
+    return;
+  }
+  // key 'j'
+  if (event.keyCode == 74) {
+    navigateTo(/*up=*/false);
+  // key 'k'
+  } else if (event.keyCode == 75) {
+    navigateTo(/*up=*/true);
+  } else {
+    return;
+  }
+  event.preventDefault();
+}, true);
+</script>
+  
+<script type='text/javascript'>
+
+var toggleHelp = function() {
+    var hint = document.querySelector("#tooltiphint");
+    var attributeName = "hidden";
+    if (hint.hasAttribute(attributeName)) {
+      hint.removeAttribute(attributeName);
+    } else {
+      hint.setAttribute("hidden", "true");
+    }
+};
+window.addEventListener("keydown", function (event) {
+  if (event.defaultPrevented) {
+    return;
+  }
+  if (event.key == "?") {
+    toggleHelp();
+  } else {
+    return;
+  }
+  event.preventDefault();
+});
+</script>
+
+<style type="text/css">
+  svg {
+      position:absolute;
+      top:0;
+      left:0;
+      height:100%;
+      width:100%;
+      pointer-events: none;
+      overflow: visible
+  }
+  .arrow {
+      stroke-opacity: 0.2;
+      stroke-width: 1;
+      marker-end: url(#arrowhead);
+  }
+
+  .arrow.selected {
+      stroke-opacity: 0.6;
+      stroke-width: 2;
+      marker-end: url(#arrowheadSelected);
+  }
+
+  .arrowhead {
+      orient: auto;
+      stroke: none;
+      opacity: 0.6;
+      fill: blue;
+  }
+</style>
+<svg xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arrowheadSelected" class="arrowhead" opacity="0.6"
+            viewBox="0 0 10 10" refX="3" refY="5"
+            markerWidth="4" markerHeight="4">
+      <path d="M 0 0 L 10 5 L 0 10 z" />
+    </marker>
+    <marker id="arrowhead" class="arrowhead" opacity="0.2"
+            viewBox="0 0 10 10" refX="3" refY="5"
+            markerWidth="4" markerHeight="4">
+      <path d="M 0 0 L 10 5 L 0 10 z" />
+    </marker>
+  </defs>
+  <g id="arrows" fill="none" stroke="blue" visibility="hidden">
+
+  </g>
+</svg>
+<script type='text/javascript'>
+const arrowIndices = [ 0,0 ]
+</script>
+<table class="code" data-fileid="1">
+<tr class="codeline" data-linenumber="1"><td class="num" id="LN1">1</td><td class="line"><span class='directive'>#include &lt;eel/eel-labeled-image.h&gt;</span></td></tr>
+<tr class="codeline" data-linenumber="2"><td class="num" id="LN2">2</td><td class="line"> </td></tr>
+<tr class="codeline" data-linenumber="3"><td class="num" id="LN3">3</td><td class="line"><span class='directive'>#include "test.h"</span></td></tr>
+<tr class="codeline" data-linenumber="4"><td class="num" id="LN4">4</td><td class="line"> </td></tr>
+<tr class="codeline" data-linenumber="5"><td class="num" id="LN5">5</td><td class="line"><span class='keyword'>static</span> <span class='keyword'>const</span> <span class='keyword'>char</span> icon_name[] = <span class='string_literal'>"gnome-globe"</span>;</td></tr>
+<tr class="codeline" data-linenumber="6"><td class="num" id="LN6">6</td><td class="line"> </td></tr>
+<tr class="codeline" data-linenumber="7"><td class="num" id="LN7">7</td><td class="line"><span class='keyword'>static</span> <span class='keyword'>void</span></td></tr>
+<tr class="codeline" data-linenumber="8"><td class="num" id="LN8">8</td><td class="line">button_callback (GtkWidget *button,</td></tr>
+<tr class="codeline" data-linenumber="9"><td class="num" id="LN9">9</td><td class="line">		 gpointer callback_data)</td></tr>
+<tr class="codeline" data-linenumber="10"><td class="num" id="LN10">10</td><td class="line">{</td></tr>
+<tr class="codeline" data-linenumber="11"><td class="num" id="LN11">11</td><td class="line">	<span class='keyword'>const</span> <span class='keyword'>char</span> *info = callback_data;</td></tr>
+<tr class="codeline" data-linenumber="12"><td class="num" id="LN12">12</td><td class="line">	<span class='macro'>g_return_if_fail (GTK_IS_BUTTON (button))<span class='macro_popup'>do { if ((__builtin_expect (__extension__ ({ int _g_boolean_var_11<br>; if ((((__extension__ ({ GTypeInstance *__inst = (GTypeInstance<br>*) ((button)); GType __t = ((gtk_button_get_type ())); gboolean<br> __r; if (!__inst) __r = (0); else if (__inst-&gt;g_class &amp;&amp;<br> __inst-&gt;g_class-&gt;g_type == __t) __r = (!(0)); else __r<br> = g_type_check_instance_is_a (__inst, __t); __r; }))))) _g_boolean_var_11<br> = 1; else _g_boolean_var_11 = 0; _g_boolean_var_11; }), 1)))<br> { } else { g_return_if_fail_warning (((gchar*) 0), ((const char<br>*) (__func__)), "GTK_IS_BUTTON (button)"); return; } } while (<br>0)</span></span>;</td></tr>
+<tr class="codeline" data-linenumber="13"><td class="num" id="LN13">13</td><td class="line"> </td></tr>
+<tr class="codeline" data-linenumber="14"><td class="num" id="LN14">14</td><td class="line">	g_print (<span class='string_literal'>"%s(%p)\n"</span>, info, button);</td></tr>
+<tr class="codeline" data-linenumber="15"><td class="num" id="LN15">15</td><td class="line">}</td></tr>
+<tr class="codeline" data-linenumber="16"><td class="num" id="LN16">16</td><td class="line"> </td></tr>
+<tr class="codeline" data-linenumber="17"><td class="num" id="LN17">17</td><td class="line"><span class='keyword'>static</span> GtkWidget *</td></tr>
+<tr class="codeline" data-linenumber="18"><td class="num" id="LN18">18</td><td class="line">labeled_image_button_window_new (<span class='keyword'>const</span> <span class='keyword'>char</span> *title,</td></tr>
+<tr class="codeline" data-linenumber="19"><td class="num" id="LN19">19</td><td class="line">				 GdkPixbuf *pixbuf)</td></tr>
+<tr class="codeline" data-linenumber="20"><td class="num" id="LN20">20</td><td class="line">{</td></tr>
+<tr class="codeline" data-linenumber="21"><td class="num" id="LN21">21</td><td class="line">	GtkWidget *window;</td></tr>
+<tr class="codeline" data-linenumber="22"><td class="num" id="LN22">22</td><td class="line">	GtkWidget *vbox;</td></tr>
+<tr class="codeline" data-linenumber="23"><td class="num" id="LN23">23</td><td class="line">	GtkWidget *button;</td></tr>
+<tr class="codeline" data-linenumber="24"><td class="num" id="LN24">24</td><td class="line">	GtkWidget *toggle_button;</td></tr>
+<tr class="codeline" data-linenumber="25"><td class="num" id="LN25">25</td><td class="line">	GtkWidget *check_button;</td></tr>
+<tr class="codeline" data-linenumber="26"><td class="num" id="LN26">26</td><td class="line">	GtkWidget *plain;</td></tr>
+<tr class="codeline" data-linenumber="27"><td class="num" id="LN27">27</td><td class="line"> </td></tr>
+<tr class="codeline" data-linenumber="28"><td class="num" id="LN28">28</td><td class="line">	window = test_window_new (title, 20);</td></tr>
+<tr class="codeline" data-linenumber="29"><td class="num" id="LN29">29</td><td class="line">	vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 10);</td></tr>
+<tr class="codeline" data-linenumber="30"><td class="num" id="LN30">30</td><td class="line">	gtk_container_add (<span class='macro'>GTK_CONTAINER (window)<span class='macro_popup'>((((GtkContainer*) (void *) ((window)))))</span></span>, vbox);</td></tr>
+<tr class="codeline" data-linenumber="31"><td class="num" id="LN31">31</td><td class="line"> </td></tr>
+<tr class="codeline" data-linenumber="32"><td class="num" id="LN32">32</td><td class="line">	<span class='keyword'>if</span> (1) button = eel_labeled_image_button_new (<span class='string_literal'>"GtkButton with LabeledImage"</span>, pixbuf);</td></tr>
+<tr class="codeline" data-linenumber="33"><td class="num" id="LN33">33</td><td class="line">	<span class='keyword'>if</span> (1) toggle_button = eel_labeled_image_toggle_button_new (<span class='string_literal'>"GtkToggleButton with LabeledImage"</span>, pixbuf);</td></tr>
+<tr class="codeline" data-linenumber="34"><td class="num" id="LN34">34</td><td class="line">	<span class='keyword'>if</span> (1) check_button = eel_labeled_image_check_button_new (<span class='string_literal'>"GtkCheckButton with LabeledImage"</span>, pixbuf);</td></tr>
+<tr class="codeline" data-linenumber="35"><td class="num" id="LN35">35</td><td class="line">	<span class='keyword'>if</span> (1) {</td></tr>
+<tr class="codeline" data-linenumber="36"><td class="num" id="LN36">36</td><td class="line">		plain = eel_labeled_image_new (<span class='string_literal'>"Plain LabeledImage"</span>, pixbuf);</td></tr>
+<tr class="codeline" data-linenumber="37"><td class="num" id="LN37">37</td><td class="line">		eel_labeled_image_set_can_focus (<span class='macro'>EEL_LABELED_IMAGE (plain)<span class='macro_popup'>((((EelLabeledImage*) (void *) ((plain)))))</span></span>, <span class='macro'>TRUE<span class='macro_popup'>(!(0))</span></span>);</td></tr>
+<tr class="codeline" data-linenumber="38"><td class="num" id="LN38">38</td><td class="line">	}</td></tr>
+<tr class="codeline" data-linenumber="39"><td class="num" id="LN39">39</td><td class="line"> </td></tr>
+<tr class="codeline" data-linenumber="40"><td class="num" id="LN40">40</td><td class="line">	<span class='keyword'>if</span> (button) gtk_box_pack_start (<span class='macro'>GTK_BOX (vbox)<span class='macro_popup'>((((GtkBox*) (void *) ((vbox)))))</span></span>, button, <span class='macro'>TRUE<span class='macro_popup'>(!(0))</span></span>, <span class='macro'>TRUE<span class='macro_popup'>(!(0))</span></span>, 0);</td></tr>
+<tr class="codeline" data-linenumber="41"><td class="num" id="LN41">41</td><td class="line">	<span class='keyword'>if</span> (toggle_button) gtk_box_pack_start (<span class='macro'>GTK_BOX (vbox)<span class='macro_popup'>((((GtkBox*) (void *) ((vbox)))))</span></span>, toggle_button, <span class='macro'>TRUE<span class='macro_popup'>(!(0))</span></span>, <span class='macro'>TRUE<span class='macro_popup'>(!(0))</span></span>, 0);</td></tr>
+<tr class="codeline" data-linenumber="42"><td class="num" id="LN42">42</td><td class="line">	<span class='keyword'>if</span> (check_button) gtk_box_pack_start (<span class='macro'>GTK_BOX (vbox)<span class='macro_popup'>((((GtkBox*) (void *) ((vbox)))))</span></span>, check_button, <span class='macro'>TRUE<span class='macro_popup'>(!(0))</span></span>, <span class='macro'>TRUE<span class='macro_popup'>(!(0))</span></span>, 0);</td></tr>
+<tr class="codeline" data-linenumber="43"><td class="num" id="LN43">43</td><td class="line">	<span class='keyword'>if</span> (plain) gtk_box_pack_start (<span class='macro'>GTK_BOX (vbox)<span class='macro_popup'>((((GtkBox*) (void *) ((vbox)))))</span></span>, plain, <span class='macro'>TRUE<span class='macro_popup'>(!(0))</span></span>, <span class='macro'>TRUE<span class='macro_popup'>(!(0))</span></span>, 0);</td></tr>
+<tr class="codeline" data-linenumber="44"><td class="num" id="LN44">44</td><td class="line"> </td></tr>
+<tr class="codeline" data-linenumber="45"><td class="num" id="LN45">45</td><td class="line">	<span class='keyword'>if</span> (button) {</td></tr>
+<tr class="codeline" data-linenumber="46"><td class="num" id="LN46">46</td><td class="line">		<span class='macro'>g_signal_connect (button, <span class='string_literal'>"enter"</span>, G_CALLBACK (button_callback), <span class='string_literal'>"enter"</span>)<span class='macro_popup'>g_signal_connect_data ((button), ("enter"), (((GCallback) (button_callback<br>))), ("enter"), ((void*)0), (GConnectFlags) 0)</span></span>;</td></tr>
+<tr class="codeline" data-linenumber="47"><td class="num" id="LN47">47</td><td class="line">		<span class='macro'>g_signal_connect (button, <span class='string_literal'>"leave"</span>, G_CALLBACK (button_callback), <span class='string_literal'>"leave"</span>)<span class='macro_popup'>g_signal_connect_data ((button), ("leave"), (((GCallback) (button_callback<br>))), ("leave"), ((void*)0), (GConnectFlags) 0)</span></span>;</td></tr>
+<tr class="codeline" data-linenumber="48"><td class="num" id="LN48">48</td><td class="line">		<span class='macro'>g_signal_connect (button, <span class='string_literal'>"pressed"</span>, G_CALLBACK (button_callback), <span class='string_literal'>"pressed"</span>)<span class='macro_popup'>g_signal_connect_data ((button), ("pressed"), (((GCallback) (<br>button_callback))), ("pressed"), ((void*)0), (GConnectFlags) 0<br>)</span></span>;</td></tr>
+<tr class="codeline" data-linenumber="49"><td class="num" id="LN49">49</td><td class="line">		<span class='macro'>g_signal_connect (button, <span class='string_literal'>"released"</span>, G_CALLBACK (button_callback), <span class='string_literal'>"released"</span>)<span class='macro_popup'>g_signal_connect_data ((button), ("released"), (((GCallback) (<br>button_callback))), ("released"), ((void*)0), (GConnectFlags)<br> 0)</span></span>;</td></tr>
+<tr class="codeline" data-linenumber="50"><td class="num" id="LN50">50</td><td class="line">		<span class='macro'>g_signal_connect (button, <span class='string_literal'>"clicked"</span>, G_CALLBACK (button_callback), <span class='string_literal'>"clicked"</span>)<span class='macro_popup'>g_signal_connect_data ((button), ("clicked"), (((GCallback) (<br>button_callback))), ("clicked"), ((void*)0), (GConnectFlags) 0<br>)</span></span>;</td></tr>
+<tr class="codeline" data-linenumber="51"><td class="num" id="LN51">51</td><td class="line">	}</td></tr>
+<tr class="codeline" data-linenumber="52"><td class="num" id="LN52">52</td><td class="line"> </td></tr>
+<tr class="codeline" data-linenumber="53"><td class="num" id="LN53">53</td><td class="line">	gtk_widget_show_all (vbox);</td></tr>
+<tr class="codeline" data-linenumber="54"><td class="num" id="LN54">54</td><td class="line"> </td></tr>
+<tr class="codeline" data-linenumber="55"><td class="num" id="LN55">55</td><td class="line">	<span class='keyword'>return</span> window;</td></tr>
+<tr class="codeline" data-linenumber="56"><td class="num" id="LN56">56</td><td class="line">}</td></tr>
+<tr class="codeline" data-linenumber="57"><td class="num" id="LN57">57</td><td class="line"> </td></tr>
+<tr class="codeline" data-linenumber="58"><td class="num" id="LN58">58</td><td class="line"><span class='keyword'>int</span></td></tr>
+<tr class="codeline" data-linenumber="59"><td class="num" id="LN59">59</td><td class="line">main (<span class='keyword'>int</span> argc, <span class='keyword'>char</span>* argv[])</td></tr>
+<tr class="codeline" data-linenumber="60"><td class="num" id="LN60">60</td><td class="line">{</td></tr>
+<tr class="codeline" data-linenumber="61"><td class="num" id="LN61">61</td><td class="line">	GtkWidget *labeled_image_window = <span class='macro'>NULL<span class='macro_popup'>((void*)0)</span></span>;</td></tr>
+<tr class="codeline" data-linenumber="62"><td class="num" id="LN62">62</td><td class="line">	GtkWidget *labeled_image_button_window = <span class='macro'>NULL<span class='macro_popup'>((void*)0)</span></span>;</td></tr>
+<tr class="codeline" data-linenumber="63"><td class="num" id="LN63">63</td><td class="line">	GdkPixbuf *pixbuf = <span class='macro'>NULL<span class='macro_popup'>((void*)0)</span></span>;</td></tr>
+<tr class="codeline" data-linenumber="64"><td class="num" id="LN64">64</td><td class="line">	GtkIconTheme *icon_theme = <span class='macro'>NULL<span class='macro_popup'>((void*)0)</span></span>;</td></tr>
+<tr class="codeline" data-linenumber="65"><td class="num" id="LN65">65</td><td class="line"> </td></tr>
+<tr class="codeline" data-linenumber="66"><td class="num" id="LN66">66</td><td class="line">	test_init (&amp;argc, &amp;argv);</td></tr>
+<tr class="codeline" data-linenumber="67"><td class="num" id="LN67">67</td><td class="line"> </td></tr>
+<tr class="codeline" data-linenumber="68"><td class="num" id="LN68">68</td><td class="line">	icon_theme = gtk_icon_theme_get_default ();</td></tr>
+<tr class="codeline" data-linenumber="69"><td class="num" id="LN69">69</td><td class="line"> </td></tr>
+<tr class="codeline" data-linenumber="70"><td class="num" id="LN70">70</td><td class="line">	<span class='keyword'>if</span> (1) pixbuf = gtk_icon_theme_load_icon (icon_theme, icon_name, 32, GTK_ICON_LOOKUP_USE_BUILTIN, <span class='macro'>NULL<span class='macro_popup'>((void*)0)</span></span>);</td></tr>
+<tr class="codeline" data-linenumber="71"><td class="num" id="LN71">71</td><td class="line">	<span class='keyword'>if</span> (1) labeled_image_button_window = labeled_image_button_window_new (<span class='string_literal'>"LabeledImage in GtkButton Test"</span>, pixbuf);</td></tr>
+<tr class="codeline" data-linenumber="72"><td class="num" id="LN72">72</td><td class="line"> </td></tr>
+<tr class="codeline" data-linenumber="73"><td class="num" id="LN73">73</td><td class="line">	eel_gdk_pixbuf_unref_if_not_null (pixbuf);</td></tr>
+<tr class="codeline" data-linenumber="74"><td class="num" id="LN74">74</td><td class="line"> </td></tr>
+<tr class="codeline" data-linenumber="75"><td class="num" id="LN75">75</td><td class="line">	<span class='keyword'>if</span> (labeled_image_window) <span class="mrange">gtk_widget_show</span> (labeled_image_window);</td></tr>
+<tr><td class="num"></td><td class="line"><div id="EndPath" class="msg msgEvent" style="margin-left:35ex">This statement is never executed</div></td></tr>
+<tr class="codeline" data-linenumber="76"><td class="num" id="LN76">76</td><td class="line">	<span class='keyword'>if</span> (labeled_image_button_window) gtk_widget_show (labeled_image_button_window);</td></tr>
+<tr class="codeline" data-linenumber="77"><td class="num" id="LN77">77</td><td class="line"> </td></tr>
+<tr class="codeline" data-linenumber="78"><td class="num" id="LN78">78</td><td class="line">	gtk_main ();</td></tr>
+<tr class="codeline" data-linenumber="79"><td class="num" id="LN79">79</td><td class="line"> </td></tr>
+<tr class="codeline" data-linenumber="80"><td class="num" id="LN80">80</td><td class="line">	<span class='keyword'>return</span> test_quit (<span class='macro'>EXIT_SUCCESS<span class='macro_popup'>0</span></span>);</td></tr>
+<tr class="codeline" data-linenumber="81"><td class="num" id="LN81">81</td><td class="line">}</td></tr>
+</table></body></html>
