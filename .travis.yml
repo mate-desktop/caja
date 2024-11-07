@@ -48,7 +48,7 @@ before_deploy:
 deploy:
   - provider: pages
     edge:
-    branch: v2.0.5
+      branch: v2.0.5
     token: $GITHUB_TOKEN
     keep_history: false
     committer_from_gh: true
@@ -60,7 +60,7 @@ deploy:
       condition: ${DISTRO} =~ ^fedora.*$
   - provider: script
     edge:
-    branch: v2.0.5
+      branch: v2.0.5
     script: ./docker-build --verbose --config .build.yml --release github
     on:
       tags: true
