@@ -12,15 +12,15 @@
 # LuKePicci <luca.piccirillo@gmail.com>, 2018
 # l3nn4rt, 2018
 # Enrico B. <enricobe@hotmail.com>, 2021
-# Giuseppe Pignataro <rogepix@gmail.com>, 2021
+# Giuseppe Pignataro (Fastbyte01) <rogepix@gmail.com>, 2021
 # Stefano Karapetsas <stefano@karapetsas.com>, 2022
 # Alessandro Volturno <alelvb@inwind.it>, 2022
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: caja 1.26.0\n"
+"Project-Id-Version: caja 1.27.2\n"
 "Report-Msgid-Bugs-To: https://github.com/mate-desktop/caja/issues\n"
-"POT-Creation-Date: 2022-10-29 15:27+0200\n"
+"POT-Creation-Date: 2023-08-31 17:54+0200\n"
 "PO-Revision-Date: 2018-03-11 14:48+0000\n"
 "Last-Translator: Alessandro Volturno <alelvb@inwind.it>, 2022\n"
 "Language-Team: Italian (https://app.transifex.com/mate/teams/13566/it/)\n"
@@ -344,7 +344,7 @@ msgstr "Modifica i segnalibri"
 #: src/caja-emblem-sidebar.c:555 src/caja-location-dialog.c:192
 #: src/caja-property-browser.c:387 src/caja-window-menus.c:854
 #: src/file-manager/fm-directory-view.c:1206
-#: src/file-manager/fm-properties-window.c:5238
+#: src/file-manager/fm-properties-window.c:5237
 msgid "_Help"
 msgstr "_Aiuto"
 
@@ -353,7 +353,7 @@ msgid "_Jump to"
 msgstr "_Salta a"
 
 #: data/caja-bookmarks-window.ui:79
-#: libcaja-private/caja-mime-application-chooser.c:431
+#: libcaja-private/caja-mime-application-chooser.c:430
 #: libcaja-private/caja-open-with-dialog.c:955
 msgid "_Remove"
 msgstr "_Rimuovi"
@@ -361,7 +361,7 @@ msgstr "_Rimuovi"
 #: data/caja-bookmarks-window.ui:95
 #: data/caja-file-management-properties.ui:325 src/caja-property-browser.c:395
 #: src/caja-window-menus.c:857 src/file-manager/fm-list-view.c:2551
-#: src/file-manager/fm-properties-window.c:5243
+#: src/file-manager/fm-properties-window.c:5242
 msgid "_Close"
 msgstr "_Chiudi"
 
@@ -432,7 +432,7 @@ msgstr "file;manager;change;properties;behaviour;appearance;windows;MATE;"
 #: data/caja-file-management-properties.ui:44
 #: data/caja-file-management-properties.ui:642
 #: src/file-manager/fm-icon-container.c:620
-#: src/file-manager/fm-icon-view.c:3498
+#: src/file-manager/fm-icon-view.c:3478
 msgid "Icon View"
 msgstr "Vista ad icone"
 
@@ -448,7 +448,7 @@ msgstr "Vista ad elenco"
 #. * of navigation windows and in the preferences dialog
 #: data/caja-file-management-properties.ui:50
 #: data/caja-file-management-properties.ui:725
-#: src/file-manager/fm-icon-view.c:3513
+#: src/file-manager/fm-icon-view.c:3493
 msgid "Compact View"
 msgstr "Vista compatta"
 
@@ -900,7 +900,7 @@ msgstr "Estensioni"
 msgid "Open Folder"
 msgstr "Apri cartella"
 
-#: data/caja-home.desktop.in.in:3 src/file-manager/fm-tree-view.c:1417
+#: data/caja-home.desktop.in.in:3 src/file-manager/fm-tree-view.c:1410
 msgid "Home Folder"
 msgstr "Cartella home"
 
@@ -989,36 +989,36 @@ msgid ""
 msgstr ""
 "La posizione opposta della selezione rispetto al cursore, in caratteri."
 
-#: eel/eel-editable-label.c:3051 libcaja-private/caja-clipboard.c:463
+#: eel/eel-editable-label.c:3049 libcaja-private/caja-clipboard.c:463
 #: src/file-manager/fm-directory-view.c:7427
 #: src/file-manager/fm-directory-view.c:7596
-#: src/file-manager/fm-tree-view.c:1307
+#: src/file-manager/fm-tree-view.c:1300
 msgid "Cu_t"
 msgstr "_Taglia"
 
-#: eel/eel-editable-label.c:3053 libcaja-private/caja-clipboard.c:468
+#: eel/eel-editable-label.c:3051 libcaja-private/caja-clipboard.c:468
 #: src/file-manager/fm-directory-view.c:7431
 #: src/file-manager/fm-directory-view.c:7600
-#: src/file-manager/fm-tree-view.c:1316
+#: src/file-manager/fm-tree-view.c:1309
 msgid "_Copy"
 msgstr "_Copia"
 
-#: eel/eel-editable-label.c:3055 libcaja-private/caja-clipboard.c:473
+#: eel/eel-editable-label.c:3053 libcaja-private/caja-clipboard.c:473
 #: src/file-manager/fm-directory-view.c:7435
 msgid "_Paste"
 msgstr "_Incolla"
 
-#: eel/eel-editable-label.c:3058
+#: eel/eel-editable-label.c:3056
 msgid "Select All"
 msgstr "Seleziona tutto"
 
-#: eel/eel-gtk-extensions.c:431
+#: eel/eel-gtk-extensions.c:423
 msgid "Show more _details"
 msgstr "Mostra maggiori _dettagli"
 
 #: eel/eel-stock-dialogs.c:236 eel/eel-stock-dialogs.c:292
 #: eel/eel-stock-dialogs.c:448 eel/eel-stock-dialogs.c:647
-#: libcaja-private/caja-autorun.c:1150
+#: libcaja-private/caja-autorun.c:1156
 #: libcaja-private/caja-file-conflict-dialog.c:644
 #: libcaja-private/caja-file-operations.c:183
 #: libcaja-private/caja-mime-actions.c:820
@@ -1038,7 +1038,7 @@ msgstr "A_nnulla"
 #: src/caja-location-dialog.c:202 src/caja-places-sidebar.c:2732
 #: src/file-manager/fm-directory-view.c:7391
 #: src/file-manager/fm-directory-view.c:8953
-#: src/file-manager/fm-tree-view.c:1267
+#: src/file-manager/fm-tree-view.c:1260
 msgid "_Open"
 msgstr "_Apri"
 
@@ -1051,7 +1051,7 @@ msgid "You can stop this operation by clicking cancel."
 msgstr "È possibile fermare questa operazione facendo clic su «Annulla»."
 
 #: eel/eel-stock-dialogs.c:294 eel/eel-stock-dialogs.c:450
-#: eel/eel-stock-dialogs.c:652 libcaja-private/caja-autorun.c:1155
+#: eel/eel-stock-dialogs.c:652 libcaja-private/caja-autorun.c:1161
 #: libcaja-private/caja-mime-actions.c:1381 src/caja-emblem-sidebar.c:298
 #: src/caja-emblem-sidebar.c:550 src/caja-property-browser.c:1121
 #: src/caja-property-browser.c:1201 src/caja-query-editor.c:771
@@ -1088,59 +1088,59 @@ msgstr "Apri «%s»"
 msgid "Open with other Application..."
 msgstr "Apri con un'altra Applicazione..."
 
-#: libcaja-private/caja-autorun.c:1044
+#: libcaja-private/caja-autorun.c:1050
 msgid "You have just inserted an Audio CD."
 msgstr "È stato appena inserito un CD audio."
 
-#: libcaja-private/caja-autorun.c:1048
+#: libcaja-private/caja-autorun.c:1054
 msgid "You have just inserted an Audio DVD."
 msgstr "È stato appena inserito un DVD audio."
 
-#: libcaja-private/caja-autorun.c:1052
+#: libcaja-private/caja-autorun.c:1058
 msgid "You have just inserted a Video DVD."
 msgstr "È stato appena inserito un DVD video."
 
-#: libcaja-private/caja-autorun.c:1056
+#: libcaja-private/caja-autorun.c:1062
 msgid "You have just inserted a Video CD."
 msgstr "È stato appena inserito un Video CD."
 
-#: libcaja-private/caja-autorun.c:1060
+#: libcaja-private/caja-autorun.c:1066
 msgid "You have just inserted a Super Video CD."
 msgstr "È stato appena inserito un Super Video CD."
 
-#: libcaja-private/caja-autorun.c:1064
+#: libcaja-private/caja-autorun.c:1070
 msgid "You have just inserted a blank CD."
 msgstr "È stato appena inserito un CD vuoto."
 
-#: libcaja-private/caja-autorun.c:1068
+#: libcaja-private/caja-autorun.c:1074
 msgid "You have just inserted a blank DVD."
 msgstr "È stato appena inserito un DVD vuoto."
 
-#: libcaja-private/caja-autorun.c:1072
+#: libcaja-private/caja-autorun.c:1078
 msgid "You have just inserted a blank Blu-Ray disc."
 msgstr "È stato appena inserito un disco Blu-Ray vuoto."
 
-#: libcaja-private/caja-autorun.c:1076
+#: libcaja-private/caja-autorun.c:1082
 msgid "You have just inserted a blank HD DVD."
 msgstr "È stato appena inserito un HD DVD vuoto."
 
-#: libcaja-private/caja-autorun.c:1080
+#: libcaja-private/caja-autorun.c:1086
 msgid "You have just inserted a Photo CD."
 msgstr "È stato appena inserito un Photo CD."
 
-#: libcaja-private/caja-autorun.c:1084
+#: libcaja-private/caja-autorun.c:1090
 msgid "You have just inserted a Picture CD."
 msgstr "È stato appena inserito un Picture CD."
 
-#: libcaja-private/caja-autorun.c:1088
+#: libcaja-private/caja-autorun.c:1094
 msgid "You have just inserted a medium with digital photos."
 msgstr "È stato appena inserito un supporto con fotografie digitali."
 
-#: libcaja-private/caja-autorun.c:1092
+#: libcaja-private/caja-autorun.c:1098
 msgid "You have just inserted a digital audio player."
 msgstr "È stato appena collegato un lettore audio digitale."
 
-#: libcaja-private/caja-autorun.c:1096
+#: libcaja-private/caja-autorun.c:1102
 msgid ""
 "You have just inserted a medium with software intended to be automatically "
 "started."
@@ -1148,15 +1148,15 @@ msgstr ""
 "È stato appena inserito un supporto con software progettato per essere "
 "avviato automaticamente."
 
-#: libcaja-private/caja-autorun.c:1101
+#: libcaja-private/caja-autorun.c:1107
 msgid "You have just inserted a medium."
 msgstr "È stato appena inserito un supporto."
 
-#: libcaja-private/caja-autorun.c:1103
+#: libcaja-private/caja-autorun.c:1109
 msgid "Choose what application to launch."
 msgstr "Scegliere quale applicazione lanciare."
 
-#: libcaja-private/caja-autorun.c:1113
+#: libcaja-private/caja-autorun.c:1119
 #, c-format
 msgid ""
 "Select how to open \"%s\" and whether to perform this action in the future "
@@ -1165,23 +1165,23 @@ msgstr ""
 "Seleziona come aprire «%s» e se eseguire sempre questa azione per supporti "
 "di tipo «%s»."
 
-#: libcaja-private/caja-autorun.c:1141
+#: libcaja-private/caja-autorun.c:1147
 msgid "_Always perform this action"
 msgstr "Esegui sempre questa _azione"
 
-#: libcaja-private/caja-autorun.c:1164 src/caja-places-sidebar.c:2789
+#: libcaja-private/caja-autorun.c:1170 src/caja-places-sidebar.c:2789
 #: src/file-manager/fm-directory-view.c:7520
 #: src/file-manager/fm-directory-view.c:7548
 #: src/file-manager/fm-directory-view.c:7629
-#: src/file-manager/fm-tree-view.c:1365
+#: src/file-manager/fm-tree-view.c:1358
 msgid "_Eject"
 msgstr "_Espelli"
 
-#: libcaja-private/caja-autorun.c:1179 src/caja-places-sidebar.c:2782
+#: libcaja-private/caja-autorun.c:1185 src/caja-places-sidebar.c:2782
 #: src/file-manager/fm-directory-view.c:7516
 #: src/file-manager/fm-directory-view.c:7544
 #: src/file-manager/fm-directory-view.c:7625
-#: src/file-manager/fm-tree-view.c:1356
+#: src/file-manager/fm-tree-view.c:1349
 msgid "_Unmount"
 msgstr "_Smonta"
 
@@ -1219,7 +1219,7 @@ msgid "Use De_fault"
 msgstr "Utilizza il _predefinito"
 
 #: libcaja-private/caja-column-utilities.c:46
-#: libcaja-private/caja-mime-application-chooser.c:275
+#: libcaja-private/caja-mime-application-chooser.c:274
 #: src/file-manager/fm-list-view.c:1793
 msgid "Name"
 msgstr "Nome"
@@ -1294,7 +1294,7 @@ msgid "The group of the file."
 msgstr "Il gruppo del file."
 
 #: libcaja-private/caja-column-utilities.c:116
-#: src/file-manager/fm-properties-window.c:4795
+#: src/file-manager/fm-properties-window.c:4794
 msgid "Permissions"
 msgstr "Permessi"
 
@@ -1357,7 +1357,7 @@ msgstr "Posizione originale del file prima di essere spostato nel Cestino"
 
 #: libcaja-private/caja-customization-data.c:426
 #: libcaja-private/caja-file-conflict-dialog.c:613
-#: libcaja-private/caja-mime-application-chooser.c:443
+#: libcaja-private/caja-mime-application-chooser.c:442
 #: src/caja-property-browser.c:2006
 msgid "Reset"
 msgstr "Reimposta"
@@ -1384,7 +1384,7 @@ msgid "Network Servers"
 msgstr "Server di rete"
 
 #: libcaja-private/caja-desktop-link.c:120 src/caja-places-sidebar.c:615
-#: src/caja-trash-bar.c:185 src/file-manager/fm-tree-view.c:1424
+#: src/caja-trash-bar.c:185 src/file-manager/fm-tree-view.c:1417
 msgid "Trash"
 msgstr "Cestino"
 
@@ -1496,141 +1496,141 @@ msgstr "Impossibile rinominare l'icona sul desktop"
 msgid "Unable to rename desktop file"
 msgstr "Impossibile rinominare il file sul desktop"
 
-#: libcaja-private/caja-file.c:4773
+#: libcaja-private/caja-file.c:4774
 msgid "today at 00:00:00 PM"
 msgstr "oggi alle 00.00.00 PM"
 
-#: libcaja-private/caja-file.c:4774 src/caja-file-management-properties.c:501
+#: libcaja-private/caja-file.c:4775 src/caja-file-management-properties.c:501
 msgid "today at %-I:%M:%S %p"
 msgstr "oggi alle %-I:%M:%S %p"
 
-#: libcaja-private/caja-file.c:4776
+#: libcaja-private/caja-file.c:4777
 msgid "today at 00:00 PM"
 msgstr "oggi alle 00.00 PM"
 
-#: libcaja-private/caja-file.c:4777
+#: libcaja-private/caja-file.c:4778
 msgid "today at %-I:%M %p"
 msgstr "oggi alle %-I:%M %p"
 
-#: libcaja-private/caja-file.c:4779
+#: libcaja-private/caja-file.c:4780
 msgid "today, 00:00 PM"
 msgstr "oggi, 00.00 PM"
 
-#: libcaja-private/caja-file.c:4780
+#: libcaja-private/caja-file.c:4781
 msgid "today, %-I:%M %p"
 msgstr "oggi, %-I.%M %p"
 
-#: libcaja-private/caja-file.c:4782 libcaja-private/caja-file.c:4783
+#: libcaja-private/caja-file.c:4783 libcaja-private/caja-file.c:4784
 msgid "today"
 msgstr "oggi"
 
-#: libcaja-private/caja-file.c:4792
+#: libcaja-private/caja-file.c:4793
 msgid "yesterday at 00:00:00 PM"
 msgstr "ieri alle 00.00.00 PM"
 
-#: libcaja-private/caja-file.c:4793
+#: libcaja-private/caja-file.c:4794
 msgid "yesterday at %-I:%M:%S %p"
 msgstr "ieri alle %-I.%M.%S %p"
 
-#: libcaja-private/caja-file.c:4795
+#: libcaja-private/caja-file.c:4796
 msgid "yesterday at 00:00 PM"
 msgstr "ieri alle 00.00 PM"
 
-#: libcaja-private/caja-file.c:4796
+#: libcaja-private/caja-file.c:4797
 msgid "yesterday at %-I:%M %p"
 msgstr "ieri alle %-I.%M %p"
 
-#: libcaja-private/caja-file.c:4798
+#: libcaja-private/caja-file.c:4799
 msgid "yesterday, 00:00 PM"
 msgstr "ieri, 00.00 PM"
 
-#: libcaja-private/caja-file.c:4799
+#: libcaja-private/caja-file.c:4800
 msgid "yesterday, %-I:%M %p"
 msgstr "ieri, %-I.%M %p"
 
-#: libcaja-private/caja-file.c:4801 libcaja-private/caja-file.c:4802
+#: libcaja-private/caja-file.c:4802 libcaja-private/caja-file.c:4803
 msgid "yesterday"
 msgstr "ieri"
 
-#: libcaja-private/caja-file.c:4813
+#: libcaja-private/caja-file.c:4814
 msgid "Wednesday, September 00 0000 at 00:00:00 PM"
 msgstr "Mercoledì, 00 settembre 0000 alle 00.00.00 PM"
 
-#: libcaja-private/caja-file.c:4814
+#: libcaja-private/caja-file.c:4815
 msgid "%A, %B %-d %Y at %-I:%M:%S %p"
 msgstr "%A, %B %-d %Y alle %-I:%M:%S %p"
 
-#: libcaja-private/caja-file.c:4816
+#: libcaja-private/caja-file.c:4817
 msgid "Mon, Oct 00 0000 at 00:00:00 PM"
 msgstr "Lun, 00 Ott 0000 alle 00.00.00 PM"
 
-#: libcaja-private/caja-file.c:4817
+#: libcaja-private/caja-file.c:4818
 msgid "%a, %b %-d %Y at %-I:%M:%S %p"
 msgstr "%a, %b %-d %Y alle %-I:%M:%S %p"
 
-#: libcaja-private/caja-file.c:4819
+#: libcaja-private/caja-file.c:4820
 msgid "Mon, Oct 00 0000 at 00:00 PM"
 msgstr "Lun, 00 Ott 0000 alle 00.00 PM"
 
-#: libcaja-private/caja-file.c:4820
+#: libcaja-private/caja-file.c:4821
 msgid "%a, %b %-d %Y at %-I:%M %p"
 msgstr "%a, %b %-d %Y at %-I:%M %p"
 
-#: libcaja-private/caja-file.c:4822
+#: libcaja-private/caja-file.c:4823
 msgid "Oct 00 0000 at 00:00 PM"
 msgstr "00 Ott 0000 alle 00.00"
 
-#: libcaja-private/caja-file.c:4823
+#: libcaja-private/caja-file.c:4824
 msgid "%b %-d %Y at %-I:%M %p"
 msgstr "%b %-d %Y alle %-I:%M %p"
 
-#: libcaja-private/caja-file.c:4825
+#: libcaja-private/caja-file.c:4826
 msgid "Oct 00 0000, 00:00 PM"
 msgstr "00 Ott 0000, 00.00 PM"
 
-#: libcaja-private/caja-file.c:4826
+#: libcaja-private/caja-file.c:4827
 msgid "%b %-d %Y, %-I:%M %p"
 msgstr "%b %-d %Y, %-I:%M %p"
 
-#: libcaja-private/caja-file.c:4828
+#: libcaja-private/caja-file.c:4829
 msgid "00/00/00, 00:00 PM"
 msgstr "00/00/00, 00.00 PM"
 
-#: libcaja-private/caja-file.c:4829
+#: libcaja-private/caja-file.c:4830
 msgid "%m/%-d/%y, %-I:%M %p"
 msgstr "%-d/%m/%y, %-I.%M %p"
 
-#: libcaja-private/caja-file.c:4831
+#: libcaja-private/caja-file.c:4832
 msgid "00/00/00"
 msgstr "00/00/00"
 
-#: libcaja-private/caja-file.c:4832
+#: libcaja-private/caja-file.c:4833
 msgid "%m/%d/%y"
 msgstr "%d/%m/%y"
 
-#: libcaja-private/caja-file.c:5465
+#: libcaja-private/caja-file.c:5472
 msgid "Not allowed to set permissions"
 msgstr "Non è consentito impostare i permessi"
 
-#: libcaja-private/caja-file.c:5757
+#: libcaja-private/caja-file.c:5764
 msgid "Not allowed to set owner"
 msgstr "Non è consentito impostare il proprietario"
 
-#: libcaja-private/caja-file.c:5775
+#: libcaja-private/caja-file.c:5782
 #, c-format
 msgid "Specified owner '%s' doesn't exist"
 msgstr "L'utente «%s» specificato non esiste"
 
-#: libcaja-private/caja-file.c:6036
+#: libcaja-private/caja-file.c:6043
 msgid "Not allowed to set group"
 msgstr "Non è consentito impostare il gruppo"
 
-#: libcaja-private/caja-file.c:6054
+#: libcaja-private/caja-file.c:6061
 #, c-format
 msgid "Specified group '%s' doesn't exist"
 msgstr "Il gruppo «%s» specificato non esiste"
 
-#: libcaja-private/caja-file.c:6208 src/file-manager/fm-directory-view.c:2384
+#: libcaja-private/caja-file.c:6215 src/file-manager/fm-directory-view.c:2384
 #, c-format
 msgid "%'u item"
 msgid_plural "%'u items"
@@ -1638,7 +1638,7 @@ msgstr[0] "%'u oggetto"
 msgstr[1] "%'u oggetti"
 msgstr[2] "%'u oggetti"
 
-#: libcaja-private/caja-file.c:6209
+#: libcaja-private/caja-file.c:6216
 #, c-format
 msgid "%'u folder"
 msgid_plural "%'u folders"
@@ -1646,7 +1646,7 @@ msgstr[0] "%'u cartella"
 msgstr[1] "%'u cartelle"
 msgstr[2] "%'u cartelle"
 
-#: libcaja-private/caja-file.c:6210
+#: libcaja-private/caja-file.c:6217
 #, c-format
 msgid "%'u file"
 msgid_plural "%'u files"
@@ -1654,51 +1654,51 @@ msgstr[0] "%'u file"
 msgstr[1] "%'u file"
 msgstr[2] "%'u file"
 
-#: libcaja-private/caja-file.c:6314
+#: libcaja-private/caja-file.c:6321
 msgid "%"
 msgstr "%"
 
-#: libcaja-private/caja-file.c:6315
+#: libcaja-private/caja-file.c:6322
 #, c-format
 msgid "%s (%s bytes)"
 msgstr "%s (%s byte)"
 
-#: libcaja-private/caja-file.c:6668 libcaja-private/caja-file.c:6692
+#: libcaja-private/caja-file.c:6675 libcaja-private/caja-file.c:6699
 msgid "? items"
 msgstr "? oggetti"
 
-#: libcaja-private/caja-file.c:6674 libcaja-private/caja-file.c:6682
+#: libcaja-private/caja-file.c:6681 libcaja-private/caja-file.c:6689
 msgid "? bytes"
 msgstr "? byte"
 
-#: libcaja-private/caja-file.c:6697
+#: libcaja-private/caja-file.c:6704
 msgid "unknown type"
 msgstr "tipo sconosciuto"
 
-#: libcaja-private/caja-file.c:6700
+#: libcaja-private/caja-file.c:6707
 msgid "unknown MIME type"
 msgstr "tipo MIME sconosciuto"
 
-#: libcaja-private/caja-file.c:6714
-#: src/file-manager/fm-properties-window.c:1295
+#: libcaja-private/caja-file.c:6721
+#: src/file-manager/fm-properties-window.c:1294
 msgid "unknown"
 msgstr "sconosciuto"
 
-#: libcaja-private/caja-file.c:6766
+#: libcaja-private/caja-file.c:6773
 msgid "program"
 msgstr "programma"
 
-#: libcaja-private/caja-file.c:6786
+#: libcaja-private/caja-file.c:6793
 msgid "link"
 msgstr "collegamento"
 
-#: libcaja-private/caja-file.c:6792 libcaja-private/caja-file-operations.c:403
+#: libcaja-private/caja-file.c:6799 libcaja-private/caja-file-operations.c:403
 #: src/file-manager/fm-directory-view.c:10711
 #, c-format
 msgid "Link to %s"
 msgstr "Collegamento a %s"
 
-#: libcaja-private/caja-file.c:6808
+#: libcaja-private/caja-file.c:6815
 msgid "link (broken)"
 msgstr "collegamento (rotto)"
 
@@ -1784,14 +1784,14 @@ msgstr "File originale"
 
 #: libcaja-private/caja-file-conflict-dialog.c:266
 #: libcaja-private/caja-file-conflict-dialog.c:305
-#: src/file-manager/fm-properties-window.c:3306
+#: src/file-manager/fm-properties-window.c:3305
 msgid "Size:"
 msgstr "Dimensione:"
 
 #: libcaja-private/caja-file-conflict-dialog.c:271
 #: libcaja-private/caja-file-conflict-dialog.c:310
 #: src/caja-connect-server-dialog.c:933
-#: src/file-manager/fm-properties-window.c:3288
+#: src/file-manager/fm-properties-window.c:3287
 msgid "Type:"
 msgstr "Tipo:"
 
@@ -1863,7 +1863,7 @@ msgstr "_Riprova"
 #: src/file-manager/fm-directory-view.c:7481
 #: src/file-manager/fm-directory-view.c:7613
 #: src/file-manager/fm-directory-view.c:9114
-#: src/file-manager/fm-tree-view.c:1345
+#: src/file-manager/fm-tree-view.c:1338
 msgid "_Delete"
 msgstr "Elimina"
 
@@ -2041,11 +2041,11 @@ msgstr " ("
 msgid " (%'d"
 msgstr " (%'d"
 
-#: libcaja-private/caja-file-operations.c:1358
+#: libcaja-private/caja-file-operations.c:1362
 msgid "Are you sure you want to permanently delete \"%B\" from the trash?"
 msgstr "Si vuole veramente eliminare in modo permanente «%B» dal cestino?"
 
-#: libcaja-private/caja-file-operations.c:1361
+#: libcaja-private/caja-file-operations.c:1365
 #, c-format
 msgid ""
 "Are you sure you want to permanently delete the %'d selected item from the "
@@ -2063,30 +2063,30 @@ msgstr[2] ""
 "Si vuole veramente eliminare in modo permanente dal cestino %'d oggetti "
 "selezionati?"
 
-#: libcaja-private/caja-file-operations.c:1371
-#: libcaja-private/caja-file-operations.c:1437
+#: libcaja-private/caja-file-operations.c:1375
+#: libcaja-private/caja-file-operations.c:1441
 msgid "If you delete an item, it will be permanently lost."
 msgstr "Se elimini un oggetto, questo sarà perso per sempre."
 
-#: libcaja-private/caja-file-operations.c:1391
+#: libcaja-private/caja-file-operations.c:1395
 msgid "Empty all items from Trash?"
 msgstr "Eliminare tutti gli oggetti dal Cestino?"
 
-#: libcaja-private/caja-file-operations.c:1395
+#: libcaja-private/caja-file-operations.c:1399
 msgid "All items in the Trash will be permanently deleted."
 msgstr "Tutti gli oggetti nel Cestino verranno eliminati in modo definitivo."
 
-#: libcaja-private/caja-file-operations.c:1398
-#: libcaja-private/caja-file-operations.c:2330 src/caja-places-sidebar.c:2826
+#: libcaja-private/caja-file-operations.c:1402
+#: libcaja-private/caja-file-operations.c:2334 src/caja-places-sidebar.c:2826
 #: src/caja-trash-bar.c:192
 msgid "Empty _Trash"
 msgstr "Svuota il Cestino"
 
-#: libcaja-private/caja-file-operations.c:1425
+#: libcaja-private/caja-file-operations.c:1429
 msgid "Are you sure you want to permanently delete \"%B\"?"
 msgstr "Sei sicuro di voler eliminare «%B» in modo definitivo?"
 
-#: libcaja-private/caja-file-operations.c:1428
+#: libcaja-private/caja-file-operations.c:1432
 #, c-format
 msgid "Are you sure you want to permanently delete the %'d selected item?"
 msgid_plural ""
@@ -2097,11 +2097,11 @@ msgstr[1] ""
 msgstr[2] ""
 "Si vuole veramente eliminare in modo definitivo %'d oggetti selezionati?"
 
-#: libcaja-private/caja-file-operations.c:1467
+#: libcaja-private/caja-file-operations.c:1471
 msgid "Are you sure you want to trash \"%B\"?"
 msgstr "Vuoi davvero cestinare \"%B\"?"
 
-#: libcaja-private/caja-file-operations.c:1470
+#: libcaja-private/caja-file-operations.c:1474
 #, c-format
 msgid "Are you sure you want to trash the %'d selected item?"
 msgid_plural "Are you sure you want to trash the %'d selected items?"
@@ -2109,17 +2109,17 @@ msgstr[0] "Si vuole veramente spostare nel cestino %'d oggetto selezionato?"
 msgstr[1] "Si vuole veramente spostare nel cestino %'d oggetti selezionati?"
 msgstr[2] "Si vuole veramente spostare nel cestino %'d oggetti selezionati?"
 
-#: libcaja-private/caja-file-operations.c:1479
+#: libcaja-private/caja-file-operations.c:1483
 msgid "Items moved to the trash may be recovered until the trash is emptied."
 msgstr ""
 "Gli oggetti spostati nel cestino possono essere recuperati finché il cestino"
 " non viene svuotato."
 
-#: libcaja-private/caja-file-operations.c:1482
+#: libcaja-private/caja-file-operations.c:1486
 msgid "Move to _Trash"
 msgstr "Sposta nel Cestino"
 
-#: libcaja-private/caja-file-operations.c:1512
+#: libcaja-private/caja-file-operations.c:1516
 #, c-format
 msgid "%'d file left to delete"
 msgid_plural "%'d files left to delete"
@@ -2127,29 +2127,29 @@ msgstr[0] "%'d file ancora da eliminare"
 msgstr[1] "%'d file ancora da eliminare"
 msgstr[2] "%'d file ancora da eliminare"
 
-#: libcaja-private/caja-file-operations.c:1518
+#: libcaja-private/caja-file-operations.c:1522
 msgid "Deleting files"
 msgstr "Eliminazione dei file"
 
 #. Translators: %T will expand to a time like "2 minutes".
 #. * The singular/plural form will be used depending on the remaining time
 #. (i.e. the %T argument).
-#: libcaja-private/caja-file-operations.c:1535
+#: libcaja-private/caja-file-operations.c:1539
 msgid "%T left"
 msgid_plural "%T left"
 msgstr[0] "%T rimanente"
 msgstr[1] "%T rimanenti"
 msgstr[2] "%T rimanenti"
 
-#: libcaja-private/caja-file-operations.c:1602
-#: libcaja-private/caja-file-operations.c:1636
-#: libcaja-private/caja-file-operations.c:1675
-#: libcaja-private/caja-file-operations.c:1752
-#: libcaja-private/caja-file-operations.c:2575
+#: libcaja-private/caja-file-operations.c:1606
+#: libcaja-private/caja-file-operations.c:1640
+#: libcaja-private/caja-file-operations.c:1679
+#: libcaja-private/caja-file-operations.c:1756
+#: libcaja-private/caja-file-operations.c:2579
 msgid "Error while deleting."
 msgstr "Errore durante l'eliminazione."
 
-#: libcaja-private/caja-file-operations.c:1606
+#: libcaja-private/caja-file-operations.c:1610
 msgid ""
 "Files in the folder \"%B\" cannot be deleted because you do not have "
 "permissions to see them."
@@ -2157,21 +2157,21 @@ msgstr ""
 "Impossibile eliminare i file nella cartella «%B» perché non si hanno i "
 "permessi sufficienti per visualizzarli."
 
-#: libcaja-private/caja-file-operations.c:1609
-#: libcaja-private/caja-file-operations.c:2635
-#: libcaja-private/caja-file-operations.c:3630
+#: libcaja-private/caja-file-operations.c:1613
+#: libcaja-private/caja-file-operations.c:2639
+#: libcaja-private/caja-file-operations.c:3634
 msgid ""
 "There was an error getting information about the files in the folder \"%B\"."
 msgstr ""
 "Si è verificato un errore nell'ottenere informazioni sui file nella cartella"
 " «%B»."
 
-#: libcaja-private/caja-file-operations.c:1618
-#: libcaja-private/caja-file-operations.c:3639
+#: libcaja-private/caja-file-operations.c:1622
+#: libcaja-private/caja-file-operations.c:3643
 msgid "_Skip files"
 msgstr "Ignora i file"
 
-#: libcaja-private/caja-file-operations.c:1639
+#: libcaja-private/caja-file-operations.c:1643
 msgid ""
 "The folder \"%B\" cannot be deleted because you do not have permissions to "
 "read it."
@@ -2179,25 +2179,25 @@ msgstr ""
 "Impossibile eliminare la cartella «%B» perché non si hanno i permessi "
 "sufficienti per leggerla."
 
-#: libcaja-private/caja-file-operations.c:1642
-#: libcaja-private/caja-file-operations.c:2674
-#: libcaja-private/caja-file-operations.c:3675
+#: libcaja-private/caja-file-operations.c:1646
+#: libcaja-private/caja-file-operations.c:2678
+#: libcaja-private/caja-file-operations.c:3679
 msgid "There was an error reading the folder \"%B\"."
 msgstr "Si è verificato un errore nel leggere la cartella «%B»."
 
-#: libcaja-private/caja-file-operations.c:1676
+#: libcaja-private/caja-file-operations.c:1680
 msgid "Could not remove the folder %B."
 msgstr "Impossibile rimuovere la cartella «%B»."
 
-#: libcaja-private/caja-file-operations.c:1753
+#: libcaja-private/caja-file-operations.c:1757
 msgid "There was an error deleting %B."
 msgstr "Si è verificato un errore nell'eliminare «%B»."
 
-#: libcaja-private/caja-file-operations.c:1833
+#: libcaja-private/caja-file-operations.c:1837
 msgid "Moving files to trash"
 msgstr "Spostamento dei file nel cestino"
 
-#: libcaja-private/caja-file-operations.c:1835
+#: libcaja-private/caja-file-operations.c:1839
 #, c-format
 msgid "%'d file left to trash"
 msgid_plural "%'d files left to trash"
@@ -2205,46 +2205,46 @@ msgstr[0] "%'d file ancora da cestinare"
 msgstr[1] "%'d file ancora da cestinare"
 msgstr[2] "%'d file ancora da cestinare"
 
-#: libcaja-private/caja-file-operations.c:1891
+#: libcaja-private/caja-file-operations.c:1895
 msgid "Cannot move file to trash, do you want to delete immediately?"
 msgstr ""
 "Impossibile spostare il file nel cestino: si vuole eliminarlo "
 "immediatamente?"
 
-#: libcaja-private/caja-file-operations.c:1892
+#: libcaja-private/caja-file-operations.c:1896
 msgid "The file \"%B\" cannot be moved to the trash."
 msgstr "Impossibile spostare il file «%B» nel cestino."
 
-#: libcaja-private/caja-file-operations.c:2077
+#: libcaja-private/caja-file-operations.c:2081
 msgid "Trashing Files"
 msgstr "Cestinamento dei file"
 
-#: libcaja-private/caja-file-operations.c:2079
+#: libcaja-private/caja-file-operations.c:2083
 msgid "Deleting Files"
 msgstr "Eliminazione dei file"
 
-#: libcaja-private/caja-file-operations.c:2142 src/caja-places-sidebar.c:2274
+#: libcaja-private/caja-file-operations.c:2146 src/caja-places-sidebar.c:2274
 #: src/caja-places-sidebar.c:2310
 msgid "It is now safe to remove the drive"
 msgstr "Adesso è possibile rimuovere il dispositivo"
 
-#: libcaja-private/caja-file-operations.c:2155
+#: libcaja-private/caja-file-operations.c:2159
 msgid "Unable to eject %V"
 msgstr "Impossibile espellere «%V»"
 
-#: libcaja-private/caja-file-operations.c:2157
+#: libcaja-private/caja-file-operations.c:2161
 msgid "Unable to unmount %V"
 msgstr "Impossibile smontare «%V»"
 
-#: libcaja-private/caja-file-operations.c:2193 src/caja-places-sidebar.c:2344
+#: libcaja-private/caja-file-operations.c:2197 src/caja-places-sidebar.c:2344
 msgid "Writing data to the drive -- do not unplug"
 msgstr "Scrittura dei dati sul dispositivo -- non scollegare"
 
-#: libcaja-private/caja-file-operations.c:2315
+#: libcaja-private/caja-file-operations.c:2319
 msgid "Do you want to empty the trash before you unmount?"
 msgstr "Svuotare il cestino prima di smontare?"
 
-#: libcaja-private/caja-file-operations.c:2317
+#: libcaja-private/caja-file-operations.c:2321
 msgid ""
 "In order to regain the free space on this volume the trash must be emptied. "
 "All trashed items on the volume will be permanently lost."
@@ -2253,16 +2253,16 @@ msgstr ""
 "svuotare il cestino. Tutti gli oggetti cestinati sul volume saranno persi in"
 " modo definitivo."
 
-#: libcaja-private/caja-file-operations.c:2324
+#: libcaja-private/caja-file-operations.c:2328
 msgid "Do _not Empty Trash"
 msgstr "_Non svuotare il Cestino"
 
-#: libcaja-private/caja-file-operations.c:2445
+#: libcaja-private/caja-file-operations.c:2449
 #, c-format
 msgid "Unable to mount %s"
 msgstr "Impossibile montare «%s»"
 
-#: libcaja-private/caja-file-operations.c:2522
+#: libcaja-private/caja-file-operations.c:2526
 #, c-format
 msgid "Preparing to copy %'d file (%S)"
 msgid_plural "Preparing to copy %'d files (%S)"
@@ -2270,7 +2270,7 @@ msgstr[0] "Preparazione alla copia di %'d file (%S)"
 msgstr[1] "Preparazione alla copia di %'d file (%S)"
 msgstr[2] "Preparazione alla copia di %'d file (%S)"
 
-#: libcaja-private/caja-file-operations.c:2528
+#: libcaja-private/caja-file-operations.c:2532
 #, c-format
 msgid "Preparing to move %'d file (%S)"
 msgid_plural "Preparing to move %'d files (%S)"
@@ -2278,7 +2278,7 @@ msgstr[0] "Preparazione allo spostamento di %'d file (%S)"
 msgstr[1] "Preparazione allo spostamento di %'d file (%S)"
 msgstr[2] "Preparazione allo spostamento di %'d file (%S)"
 
-#: libcaja-private/caja-file-operations.c:2534
+#: libcaja-private/caja-file-operations.c:2538
 #, c-format
 msgid "Preparing to delete %'d file (%S)"
 msgid_plural "Preparing to delete %'d files (%S)"
@@ -2286,7 +2286,7 @@ msgstr[0] "Preparazione all'eliminazione di %'d file (%S)"
 msgstr[1] "Preparazione all'eliminazione di %'d file (%S)"
 msgstr[2] "Preparazione all'eliminazione di %'d file (%S)"
 
-#: libcaja-private/caja-file-operations.c:2540
+#: libcaja-private/caja-file-operations.c:2544
 #, c-format
 msgid "Preparing to trash %'d file"
 msgid_plural "Preparing to trash %'d files"
@@ -2294,24 +2294,24 @@ msgstr[0] "Preparazione allo spostamento nel cestino di %'d file"
 msgstr[1] "Preparazione al cestinamento di %'d file"
 msgstr[2] "Preparazione al cestinamento di %'d file"
 
-#: libcaja-private/caja-file-operations.c:2571
-#: libcaja-private/caja-file-operations.c:3482
-#: libcaja-private/caja-file-operations.c:3622
-#: libcaja-private/caja-file-operations.c:3667
+#: libcaja-private/caja-file-operations.c:2575
+#: libcaja-private/caja-file-operations.c:3486
+#: libcaja-private/caja-file-operations.c:3626
+#: libcaja-private/caja-file-operations.c:3671
 msgid "Error while copying."
 msgstr "Errore durante la copia."
 
-#: libcaja-private/caja-file-operations.c:2573
-#: libcaja-private/caja-file-operations.c:3620
-#: libcaja-private/caja-file-operations.c:3665
+#: libcaja-private/caja-file-operations.c:2577
+#: libcaja-private/caja-file-operations.c:3624
+#: libcaja-private/caja-file-operations.c:3669
 msgid "Error while moving."
 msgstr "Errore durante lo spostamento."
 
-#: libcaja-private/caja-file-operations.c:2577
+#: libcaja-private/caja-file-operations.c:2581
 msgid "Error while moving files to trash."
 msgstr "Errore durante lo spostamento dei file nel cestino."
 
-#: libcaja-private/caja-file-operations.c:2632
+#: libcaja-private/caja-file-operations.c:2636
 msgid ""
 "Files in the folder \"%B\" cannot be handled because you do not have "
 "permissions to see them."
@@ -2319,7 +2319,7 @@ msgstr ""
 "Impossibile gestire i file nella cartella «%B» perché non si hanno i "
 "permessi sufficienti per visualizzarli."
 
-#: libcaja-private/caja-file-operations.c:2671
+#: libcaja-private/caja-file-operations.c:2675
 msgid ""
 "The folder \"%B\" cannot be handled because you do not have permissions to "
 "read it."
@@ -2327,7 +2327,7 @@ msgstr ""
 "Impossibile gestire la cartella «%B» perché non si hanno i permessi "
 "sufficienti per leggerla."
 
-#: libcaja-private/caja-file-operations.c:2749
+#: libcaja-private/caja-file-operations.c:2753
 msgid ""
 "The file \"%B\" cannot be handled because you do not have permissions to "
 "read it."
@@ -2335,32 +2335,32 @@ msgstr ""
 "Impossibile gestire il file «%B» perché non si hanno i permessi sufficienti "
 "per leggerlo."
 
-#: libcaja-private/caja-file-operations.c:2752
+#: libcaja-private/caja-file-operations.c:2756
 msgid "There was an error getting information about \"%B\"."
 msgstr "Si è verificato un errore nell'ottenere informazioni su «%B»."
 
-#: libcaja-private/caja-file-operations.c:2852
-#: libcaja-private/caja-file-operations.c:2894
-#: libcaja-private/caja-file-operations.c:2927
-#: libcaja-private/caja-file-operations.c:2957
+#: libcaja-private/caja-file-operations.c:2856
+#: libcaja-private/caja-file-operations.c:2898
+#: libcaja-private/caja-file-operations.c:2931
+#: libcaja-private/caja-file-operations.c:2961
 msgid "Error while copying to \"%B\"."
 msgstr "Errore durante la copia su «%B»."
 
-#: libcaja-private/caja-file-operations.c:2856
+#: libcaja-private/caja-file-operations.c:2860
 msgid "You do not have permissions to access the destination folder."
 msgstr ""
 "Non si dispone dei permessi per accedere alla cartella di destinazione."
 
-#: libcaja-private/caja-file-operations.c:2858
+#: libcaja-private/caja-file-operations.c:2862
 msgid "There was an error getting information about the destination."
 msgstr ""
 "Si è verificato un errore nell'ottenere informazioni sulla destinazione."
 
-#: libcaja-private/caja-file-operations.c:2895
+#: libcaja-private/caja-file-operations.c:2899
 msgid "The destination is not a folder."
 msgstr "La destinazione non è una cartella."
 
-#: libcaja-private/caja-file-operations.c:2928
+#: libcaja-private/caja-file-operations.c:2932
 msgid ""
 "There is not enough space on the destination. Try to remove files to make "
 "space."
@@ -2368,62 +2368,62 @@ msgstr ""
 "Non c'è spazio ai sufficienza sulla destinazione. Prova a rimuovere dei file"
 " per fare spazio."
 
-#: libcaja-private/caja-file-operations.c:2930
+#: libcaja-private/caja-file-operations.c:2934
 msgid "There is %"
 msgstr "C'è %"
 
-#: libcaja-private/caja-file-operations.c:2958
+#: libcaja-private/caja-file-operations.c:2962
 msgid "The destination is read-only."
 msgstr "La destinazione è in sola lettura."
 
-#: libcaja-private/caja-file-operations.c:3016
+#: libcaja-private/caja-file-operations.c:3020
 msgid "Moving \"%B\" to \"%B\""
 msgstr "Spostamento di «%B» su «%B»"
 
-#: libcaja-private/caja-file-operations.c:3017
+#: libcaja-private/caja-file-operations.c:3021
 msgid "Copying \"%B\" to \"%B\""
 msgstr "Copia di «%B» su «%B»."
 
-#: libcaja-private/caja-file-operations.c:3022
+#: libcaja-private/caja-file-operations.c:3026
 msgid "Duplicating \"%B\""
 msgstr "Duplicazione di «%B»"
 
-#: libcaja-private/caja-file-operations.c:3030
+#: libcaja-private/caja-file-operations.c:3034
 msgid "Moving %'d file (in \"%B\") to \"%B\""
 msgid_plural "Moving %'d files (in \"%B\") to \"%B\""
 msgstr[0] "Spostamento di %'d file (in «%B») su «%B»"
 msgstr[1] "Spostamento di %'d file (in «%B») su «%B»"
 msgstr[2] "Spostamento di %'d file (in «%B») su «%B»"
 
-#: libcaja-private/caja-file-operations.c:3034
+#: libcaja-private/caja-file-operations.c:3038
 msgid "Copying %'d file (in \"%B\") to \"%B\""
 msgid_plural "Copying %'d files (in \"%B\") to \"%B\""
 msgstr[0] "Copia di %'d file (in «%B») su «%B»"
 msgstr[1] "Copia di %'d file (in «%B») su «%B»"
 msgstr[2] "Copia di %'d file (in «%B») su «%B»"
 
-#: libcaja-private/caja-file-operations.c:3042
+#: libcaja-private/caja-file-operations.c:3046
 msgid "Duplicating %'d file (in \"%B\")"
 msgid_plural "Duplicating %'d files (in \"%B\")"
 msgstr[0] "Duplicazione di %'d file (in «%B»)"
 msgstr[1] "Duplicazione di %'d file (in «%B»)"
 msgstr[2] "Duplicazione di %'d file (in «%B»)"
 
-#: libcaja-private/caja-file-operations.c:3052
+#: libcaja-private/caja-file-operations.c:3056
 msgid "Moving %'d file to \"%B\""
 msgid_plural "Moving %'d files to \"%B\""
 msgstr[0] "Spostamento di %'d file su «%B»"
 msgstr[1] "Spostamento di %'d file su «%B»"
 msgstr[2] "Spostamento di %'d file su «%B»"
 
-#: libcaja-private/caja-file-operations.c:3056
+#: libcaja-private/caja-file-operations.c:3060
 msgid "Copying %'d file to \"%B\""
 msgid_plural "Copying %'d files to \"%B\""
 msgstr[0] "Copia di %'d file su «%B»"
 msgstr[1] "Copia di %'d file su «%B»"
 msgstr[2] "Copia di %'d file su «%B»"
 
-#: libcaja-private/caja-file-operations.c:3062
+#: libcaja-private/caja-file-operations.c:3066
 #, c-format
 msgid "Duplicating %'d file"
 msgid_plural "Duplicating %'d files"
@@ -2433,7 +2433,7 @@ msgstr[2] "Duplicazione di %'d file"
 
 #. Translators: %S will expand to a size like "2 bytes" or "3 MB", so
 #. something like "4 kb of 4 MB"
-#: libcaja-private/caja-file-operations.c:3082
+#: libcaja-private/caja-file-operations.c:3086
 #, c-format
 msgid "%S of %S"
 msgstr "%S su %S"
@@ -2445,14 +2445,14 @@ msgstr "%S su %S"
 #. *
 #. * The singular/plural form will be used depending on the remaining time
 #. (i.e. the %T argument).
-#: libcaja-private/caja-file-operations.c:3095
+#: libcaja-private/caja-file-operations.c:3099
 msgid "%S of %S — %T left (%S/sec)"
 msgid_plural "%S of %S — %T left (%S/sec)"
 msgstr[0] "%S su %S - %T rimanente (%S/sec)"
 msgstr[1] "%S su %S - %T rimanenti (%S/sec)"
 msgstr[2] "%S su %S - %T rimanenti (%S/sec)"
 
-#: libcaja-private/caja-file-operations.c:3486
+#: libcaja-private/caja-file-operations.c:3490
 msgid ""
 "The folder \"%B\" cannot be copied because you do not have permissions to "
 "create it in the destination."
@@ -2460,11 +2460,11 @@ msgstr ""
 "Impossibile copiare la cartella «%B» perché non si hanno i permessi "
 "sufficienti per crearla nella destinazione."
 
-#: libcaja-private/caja-file-operations.c:3489
+#: libcaja-private/caja-file-operations.c:3493
 msgid "There was an error creating the folder \"%B\"."
 msgstr "Si è verificato un errore nel creare la cartella «%B»."
 
-#: libcaja-private/caja-file-operations.c:3627
+#: libcaja-private/caja-file-operations.c:3631
 msgid ""
 "Files in the folder \"%B\" cannot be copied because you do not have "
 "permissions to see them."
@@ -2472,7 +2472,7 @@ msgstr ""
 "Impossibile copiare i file nella cartella «%B» perché non si hanno i "
 "permessi sufficienti per visualizzarli."
 
-#: libcaja-private/caja-file-operations.c:3672
+#: libcaja-private/caja-file-operations.c:3676
 msgid ""
 "The folder \"%B\" cannot be copied because you do not have permissions to "
 "read it."
@@ -2480,81 +2480,81 @@ msgstr ""
 "Impossibile copiare la cartella «%B» perché non si hanno i permessi "
 "sufficienti per leggerla."
 
-#: libcaja-private/caja-file-operations.c:3717
-#: libcaja-private/caja-file-operations.c:4416
-#: libcaja-private/caja-file-operations.c:5007
+#: libcaja-private/caja-file-operations.c:3721
+#: libcaja-private/caja-file-operations.c:4420
+#: libcaja-private/caja-file-operations.c:5011
 msgid "Error while moving \"%B\"."
 msgstr "Errore durante lo spostamento di «%B»."
 
-#: libcaja-private/caja-file-operations.c:3718
+#: libcaja-private/caja-file-operations.c:3722
 msgid "Could not remove the source folder."
 msgstr "Impossibile rimuovere la cartella d'origine."
 
-#: libcaja-private/caja-file-operations.c:3803
-#: libcaja-private/caja-file-operations.c:3844
-#: libcaja-private/caja-file-operations.c:4418
-#: libcaja-private/caja-file-operations.c:4490
+#: libcaja-private/caja-file-operations.c:3807
+#: libcaja-private/caja-file-operations.c:3848
+#: libcaja-private/caja-file-operations.c:4422
+#: libcaja-private/caja-file-operations.c:4494
 msgid "Error while copying \"%B\"."
 msgstr "Errore durante la copia di «%B»."
 
-#: libcaja-private/caja-file-operations.c:3804
+#: libcaja-private/caja-file-operations.c:3808
 #, c-format
 msgid "Could not remove files from the already existing folder %F."
 msgstr "Impossibile rimuovere i file dalla cartella già esistente «%F»."
 
-#: libcaja-private/caja-file-operations.c:3845
+#: libcaja-private/caja-file-operations.c:3849
 #, c-format
 msgid "Could not remove the already existing file %F."
 msgstr "Impossibile rimuovere il file «%F» già esistente."
 
-#: libcaja-private/caja-file-operations.c:4163
-#: libcaja-private/caja-file-operations.c:4853
+#: libcaja-private/caja-file-operations.c:4167
+#: libcaja-private/caja-file-operations.c:4857
 msgid "You cannot move a folder into itself."
 msgstr "Impossibile spostare una cartella all'interno di se stessa."
 
-#: libcaja-private/caja-file-operations.c:4164
-#: libcaja-private/caja-file-operations.c:4854
+#: libcaja-private/caja-file-operations.c:4168
+#: libcaja-private/caja-file-operations.c:4858
 msgid "You cannot copy a folder into itself."
 msgstr "Impossibile copiare una cartella all'interno di se stessa."
 
-#: libcaja-private/caja-file-operations.c:4165
-#: libcaja-private/caja-file-operations.c:4855
+#: libcaja-private/caja-file-operations.c:4169
+#: libcaja-private/caja-file-operations.c:4859
 msgid "The destination folder is inside the source folder."
 msgstr "La cartella di destinazione è all'interno della cartella sorgente."
 
-#: libcaja-private/caja-file-operations.c:4196
+#: libcaja-private/caja-file-operations.c:4200
 msgid "You cannot move a file over itself."
 msgstr "Impossibile spostare un file su se stesso."
 
-#: libcaja-private/caja-file-operations.c:4197
+#: libcaja-private/caja-file-operations.c:4201
 msgid "You cannot copy a file over itself."
 msgstr "Impossibile copiare un file su se stesso."
 
-#: libcaja-private/caja-file-operations.c:4198
+#: libcaja-private/caja-file-operations.c:4202
 msgid "The source file would be overwritten by the destination."
 msgstr ""
 "Il file sorgente potrebbe essere sovrascritto dal quello di destinazione."
 
-#: libcaja-private/caja-file-operations.c:4420
+#: libcaja-private/caja-file-operations.c:4424
 #, c-format
 msgid "Could not remove the already existing file with the same name in %F."
 msgstr ""
 "Impossibile rimuovere il file già presente con lo stesso nome in «%F»."
 
-#: libcaja-private/caja-file-operations.c:4491
+#: libcaja-private/caja-file-operations.c:4495
 #, c-format
 msgid "There was an error copying the file into %F."
 msgstr "Si è verificato un errore nel copiare il file all'interno di «%F»."
 
-#: libcaja-private/caja-file-operations.c:4737
+#: libcaja-private/caja-file-operations.c:4741
 msgid "Copying Files"
 msgstr "Copia dei file in corso"
 
-#: libcaja-private/caja-file-operations.c:4764
+#: libcaja-private/caja-file-operations.c:4768
 msgid "Preparing to Move to \"%B\""
 msgstr "Preparazione allo spostamento su «%B»"
 
-#: libcaja-private/caja-file-operations.c:4768
+#: libcaja-private/caja-file-operations.c:4772
 #, c-format
 msgid "Preparing to move %'d file"
 msgid_plural "Preparing to move %'d files"
@@ -2562,20 +2562,20 @@ msgstr[0] "Preparazione allo spostamento di %'d file"
 msgstr[1] "Preparazione allo spostamento di %'d file"
 msgstr[2] "Preparazione allo spostamento di %'d file"
 
-#: libcaja-private/caja-file-operations.c:5008
+#: libcaja-private/caja-file-operations.c:5012
 #, c-format
 msgid "There was an error moving the file into %F."
 msgstr "Si è verificato un errore nello spostamento del file in «%F»."
 
-#: libcaja-private/caja-file-operations.c:5276
+#: libcaja-private/caja-file-operations.c:5280
 msgid "Moving Files"
 msgstr "Spostamento dei file in corso"
 
-#: libcaja-private/caja-file-operations.c:5307
+#: libcaja-private/caja-file-operations.c:5311
 msgid "Creating links in \"%B\""
 msgstr "Creazione dei collegamenti in «%B»"
 
-#: libcaja-private/caja-file-operations.c:5311
+#: libcaja-private/caja-file-operations.c:5315
 #, c-format
 msgid "Making link to %'d file"
 msgid_plural "Making links to %'d files"
@@ -2583,59 +2583,59 @@ msgstr[0] "Creazione del collegamento a %'d file"
 msgstr[1] "Creazione dei collegamenti a %'d file"
 msgstr[2] "Creazione dei collegamenti a %'d file"
 
-#: libcaja-private/caja-file-operations.c:5442
+#: libcaja-private/caja-file-operations.c:5446
 msgid "Error while creating link to %B."
 msgstr "Errore durante la creazione del collegamento a «%B»."
 
-#: libcaja-private/caja-file-operations.c:5444
+#: libcaja-private/caja-file-operations.c:5448
 msgid "Symbolic links only supported for local files"
 msgstr "I collegamenti simbolici sono supportati soltanto sui file locali"
 
-#: libcaja-private/caja-file-operations.c:5447
+#: libcaja-private/caja-file-operations.c:5451
 msgid "The target doesn't support symbolic links."
 msgstr "La destinazione non supporta i collegamenti simbolici."
 
-#: libcaja-private/caja-file-operations.c:5450
+#: libcaja-private/caja-file-operations.c:5454
 #, c-format
 msgid "There was an error creating the symlink in %F."
 msgstr ""
 "Si è verificato un errore nel creare il collegamento simbolico in «%F»."
 
-#: libcaja-private/caja-file-operations.c:5763
+#: libcaja-private/caja-file-operations.c:5767
 msgid "Setting permissions"
 msgstr "Impostazione dei permessi"
 
 #. Translators: the initial name of a new folder
-#: libcaja-private/caja-file-operations.c:6022
+#: libcaja-private/caja-file-operations.c:6026
 msgid "untitled folder"
 msgstr "cartella senza nome"
 
 #. Translators: the initial name of a new empty file
-#: libcaja-private/caja-file-operations.c:6030
+#: libcaja-private/caja-file-operations.c:6034
 msgid "new file"
 msgstr "nuovo file"
 
-#: libcaja-private/caja-file-operations.c:6204
+#: libcaja-private/caja-file-operations.c:6208
 msgid "Error while creating directory %B."
 msgstr "Errore durante la creazione della directory «%B»."
 
-#: libcaja-private/caja-file-operations.c:6206
+#: libcaja-private/caja-file-operations.c:6210
 msgid "Error while creating file %B."
 msgstr "Errore durante la creazione del file «%B»."
 
-#: libcaja-private/caja-file-operations.c:6208
+#: libcaja-private/caja-file-operations.c:6212
 #, c-format
 msgid "There was an error creating the directory in %F."
 msgstr "Si è verificato un errore nel creare la directory in «%F»."
 
-#: libcaja-private/caja-file-operations.c:6485
+#: libcaja-private/caja-file-operations.c:6489
 msgid "Emptying Trash"
 msgstr "Svuotamento del Cestino in corso"
 
-#: libcaja-private/caja-file-operations.c:6534
-#: libcaja-private/caja-file-operations.c:6574
-#: libcaja-private/caja-file-operations.c:6609
-#: libcaja-private/caja-file-operations.c:6643
+#: libcaja-private/caja-file-operations.c:6538
+#: libcaja-private/caja-file-operations.c:6578
+#: libcaja-private/caja-file-operations.c:6613
+#: libcaja-private/caja-file-operations.c:6647
 msgid "Unable to mark launcher trusted (executable)"
 msgstr "Impossibile contrassegnare il lanciatore come fidato (eseguibile)"
 
@@ -2648,7 +2648,7 @@ msgstr "Impossibile determinare la posizione originale di «%s»"
 msgid "The item cannot be restored from trash"
 msgstr "Impossibile ripristinare l'oggetto dal cestino"
 
-#: libcaja-private/caja-icon-container.c:2909
+#: libcaja-private/caja-icon-container.c:2951
 msgid "The selection rectangle"
 msgstr "Il rettangolo di selezione"
 
@@ -2680,7 +2680,7 @@ msgstr ""
 #: src/file-manager/fm-directory-view.c:7609
 #: src/file-manager/fm-directory-view.c:8748
 #: src/file-manager/fm-directory-view.c:9092
-#: src/file-manager/fm-tree-view.c:1336
+#: src/file-manager/fm-tree-view.c:1329
 msgid "Mo_ve to Trash"
 msgstr "Sposta nel Cestino"
 
@@ -2811,55 +2811,55 @@ msgstr[0] "Apertura di %d oggetto."
 msgstr[1] "Apertura di %d oggetti."
 msgstr[2] "Apertura di %d oggetti."
 
-#: libcaja-private/caja-mime-application-chooser.c:163
+#: libcaja-private/caja-mime-application-chooser.c:162
 #: libcaja-private/caja-open-with-dialog.c:304
 #, c-format
 msgid "Could not set application as the default: %s"
 msgstr "Impossibile impostare l'applicazione come predefinita: %s"
 
-#: libcaja-private/caja-mime-application-chooser.c:164
+#: libcaja-private/caja-mime-application-chooser.c:163
 #: libcaja-private/caja-open-with-dialog.c:305
 msgid "Could not set as default application"
 msgstr "Impossibile impostare come applicazione predefinita"
 
-#: libcaja-private/caja-mime-application-chooser.c:257
+#: libcaja-private/caja-mime-application-chooser.c:256
 msgid "Default"
 msgstr "Predefinito"
 
-#: libcaja-private/caja-mime-application-chooser.c:267
+#: libcaja-private/caja-mime-application-chooser.c:266
 msgid "Icon"
 msgstr "Icona"
 
-#: libcaja-private/caja-mime-application-chooser.c:333
+#: libcaja-private/caja-mime-application-chooser.c:332
 msgid "Could not remove application"
 msgstr "Impossibile rimuovere l'applicazione"
 
-#: libcaja-private/caja-mime-application-chooser.c:421
+#: libcaja-private/caja-mime-application-chooser.c:420
 #: libcaja-private/caja-open-with-dialog.c:1135
 msgid "_Add"
 msgstr "A_ggiungi"
 
-#: libcaja-private/caja-mime-application-chooser.c:560
+#: libcaja-private/caja-mime-application-chooser.c:559
 msgid "No applications selected"
 msgstr "Nessuna applicazione selezionata"
 
-#: libcaja-private/caja-mime-application-chooser.c:590
+#: libcaja-private/caja-mime-application-chooser.c:589
 #, c-format
 msgid "%s document"
 msgstr "documento %s"
 
-#: libcaja-private/caja-mime-application-chooser.c:600
+#: libcaja-private/caja-mime-application-chooser.c:599
 #: libcaja-private/caja-open-with-dialog.c:1094
 msgid "Unknown"
 msgstr "Sconosciuto"
 
-#: libcaja-private/caja-mime-application-chooser.c:633
+#: libcaja-private/caja-mime-application-chooser.c:632
 #, c-format
 msgid "Select an application to open %s and other files of type \"%s\""
 msgstr ""
 "Seleziona un'applicazione per aprire «%s» e gli altri file di tipo «%s»"
 
-#: libcaja-private/caja-mime-application-chooser.c:705
+#: libcaja-private/caja-mime-application-chooser.c:704
 #, c-format
 msgid "Open all files of type \"%s\" with:"
 msgstr "Apri tutti i file di tipo «%s» con:"
@@ -2896,7 +2896,7 @@ msgid "Select an Application"
 msgstr "Seleziona una Applicazione"
 
 #: libcaja-private/caja-open-with-dialog.c:863
-#: src/file-manager/fm-properties-window.c:5129
+#: src/file-manager/fm-properties-window.c:5128
 msgid "Open With"
 msgstr "Apri con"
 
@@ -3092,9 +3092,9 @@ msgid "Preparing"
 msgstr "Preparazione"
 
 #: libcaja-private/caja-query.c:163
-#: libcaja-private/caja-search-directory-file.c:177
-#: libcaja-private/caja-search-directory-file.c:206
-#: libcaja-private/caja-search-directory-file.c:239
+#: libcaja-private/caja-search-directory-file.c:172
+#: libcaja-private/caja-search-directory-file.c:201
+#: libcaja-private/caja-search-directory-file.c:234
 msgid "Search"
 msgstr "Ricerca"
 
@@ -4572,64 +4572,64 @@ msgstr ""
 " nel capplet delle preferenze. All'inserimento di un supporto che "
 "corrisponde a questi tipi, verrà aperta una finestra della cartella."
 
-#: mate-submodules/libegg/eggdesktopfile.c:168
+#: mate-submodules/libegg/eggdesktopfile.c:169
 msgid "File is not a valid .desktop file"
 msgstr "Il file non è un file .desktop valido"
 
-#: mate-submodules/libegg/eggdesktopfile.c:193
+#: mate-submodules/libegg/eggdesktopfile.c:194
 #, c-format
 msgid "Unrecognized desktop file Version '%s'"
 msgstr "Versione «%s» del file desktop non riconosciuta"
 
-#: mate-submodules/libegg/eggdesktopfile.c:975
+#: mate-submodules/libegg/eggdesktopfile.c:984
 #, c-format
 msgid "Starting %s"
 msgstr "Avvio di «%s»"
 
-#: mate-submodules/libegg/eggdesktopfile.c:1117
+#: mate-submodules/libegg/eggdesktopfile.c:1126
 msgid "Application does not accept documents on command line"
 msgstr "L'applicazione non accetta documenti sulla riga di comando"
 
-#: mate-submodules/libegg/eggdesktopfile.c:1185
+#: mate-submodules/libegg/eggdesktopfile.c:1194
 #, c-format
 msgid "Unrecognized launch option: %d"
 msgstr "Opzione di lancio non riconosciuta: %d"
 
-#: mate-submodules/libegg/eggdesktopfile.c:1401
+#: mate-submodules/libegg/eggdesktopfile.c:1410
 msgid "Can't pass document URIs to a 'Type=Link' desktop entry"
 msgstr ""
 "Impossibile passare URI di documenti ad un elemento desktop con "
 "\"Type=Link\""
 
-#: mate-submodules/libegg/eggdesktopfile.c:1422
+#: mate-submodules/libegg/eggdesktopfile.c:1431
 msgid "Not a launchable item"
 msgstr "Non è un oggetto lanciabile"
 
-#: mate-submodules/libegg/eggsmclient.c:233
+#: mate-submodules/libegg/eggsmclient.c:234
 msgid "Disable connection to session manager"
 msgstr "Disabilita la connessione al gestore di sessione"
 
-#: mate-submodules/libegg/eggsmclient.c:238
+#: mate-submodules/libegg/eggsmclient.c:239
 msgid "Specify file containing saved configuration"
 msgstr "Specifica il file contenente la configurazione salvata"
 
-#: mate-submodules/libegg/eggsmclient.c:238
+#: mate-submodules/libegg/eggsmclient.c:239
 msgid "FILE"
 msgstr "FILE"
 
-#: mate-submodules/libegg/eggsmclient.c:243
+#: mate-submodules/libegg/eggsmclient.c:244
 msgid "Specify session management ID"
 msgstr "Specifica l'ID di gestione della sessione"
 
-#: mate-submodules/libegg/eggsmclient.c:243
+#: mate-submodules/libegg/eggsmclient.c:244
 msgid "ID"
 msgstr "ID"
 
-#: mate-submodules/libegg/eggsmclient.c:269
+#: mate-submodules/libegg/eggsmclient.c:270
 msgid "Session management options:"
 msgstr "Opzioni di gestione della sessione:"
 
-#: mate-submodules/libegg/eggsmclient.c:270
+#: mate-submodules/libegg/eggsmclient.c:271
 msgid "Show session management options"
 msgstr "Mostra le opzioni di gestione della sessione"
 
@@ -4659,49 +4659,49 @@ msgstr ""
 "Prima di eseguire Caja, creare queste cartelle oppure impostare i permessi "
 "in modo che Caja possa crearle."
 
-#: src/caja-application.c:1165 src/caja-places-sidebar.c:2231
+#: src/caja-application.c:1174 src/caja-places-sidebar.c:2231
 #: src/caja-places-sidebar.c:2263 src/caja-places-sidebar.c:2299
 #, c-format
 msgid "Unable to eject %s"
 msgstr "Impossibile espellere «%s»"
 
-#: src/caja-application.c:1794
+#: src/caja-application.c:1803
 msgid "--check cannot be used with other options."
 msgstr "-check non può essere usato con altre opzioni."
 
-#: src/caja-application.c:1800
+#: src/caja-application.c:1809
 msgid "--quit cannot be used with URIs."
 msgstr "-quit non può essere usato con degli URI"
 
-#: src/caja-application.c:1807
+#: src/caja-application.c:1816
 msgid "--geometry cannot be used with more than one URI."
 msgstr "-geometry non può essere usato con più di un URI."
 
-#: src/caja-application.c:1813
+#: src/caja-application.c:1822
 msgid "--select must be used with at least an URI."
 msgstr "--select deve essere utilizzato con almeno un URI."
 
-#: src/caja-application.c:1927
+#: src/caja-application.c:1936
 msgid "Perform a quick set of self-check tests."
 msgstr "Effettua un rapido insieme di test diagnostici."
 
-#: src/caja-application.c:1930
+#: src/caja-application.c:1939
 msgid "Show the version of the program."
 msgstr "Mostra la versione del programma."
 
-#: src/caja-application.c:1932
+#: src/caja-application.c:1941
 msgid "Create the initial window with the given geometry."
 msgstr "Crea la finestra iniziale con la geometria indicata."
 
-#: src/caja-application.c:1932
+#: src/caja-application.c:1941
 msgid "GEOMETRY"
 msgstr "GEOMETRIA"
 
-#: src/caja-application.c:1934
+#: src/caja-application.c:1943
 msgid "Only create windows for explicitly specified URIs."
 msgstr "Crea solo le finestre per gli URI espressamente specificati."
 
-#: src/caja-application.c:1936
+#: src/caja-application.c:1945
 msgid ""
 "Do not manage the desktop (ignore the preference set in the preferences "
 "dialog)."
@@ -4709,7 +4709,7 @@ msgstr ""
 "Non gestire la scrivania (ignora le preferenze nella finestra di dialogo "
 "delle impostazioni)."
 
-#: src/caja-application.c:1938
+#: src/caja-application.c:1947
 msgid ""
 "Manage the desktop regardless of set preferences or environment (on new "
 "startup only)"
@@ -4717,27 +4717,27 @@ msgstr ""
 "Gestisci il desktop ignorando le preferenze o l'ambiente impostato (solo al "
 "nuovo avvio)"
 
-#: src/caja-application.c:1940
+#: src/caja-application.c:1949
 msgid "Open URIs in tabs."
 msgstr "Apri gli URI in schede."
 
-#: src/caja-application.c:1942
+#: src/caja-application.c:1951
 msgid "Open a browser window."
 msgstr "Apri una finestra del browser."
 
-#: src/caja-application.c:1944
+#: src/caja-application.c:1953
 msgid "Quit Caja."
 msgstr "Esci da Caja."
 
-#: src/caja-application.c:1946
+#: src/caja-application.c:1955
 msgid "Select specified URI in parent folder."
 msgstr "Selezionare l'URI specificato nella cartella genitrice."
 
-#: src/caja-application.c:1947
+#: src/caja-application.c:1956
 msgid "[URI...]"
 msgstr "[URI...]"
 
-#: src/caja-application.c:1957
+#: src/caja-application.c:1966
 msgid ""
 "\n"
 "\n"
@@ -4865,7 +4865,7 @@ msgstr "Continua"
 
 #: src/caja-connect-server-dialog.c:723 src/caja-location-dialog.c:105
 #: src/file-manager/fm-directory-view.c:1180
-#: src/file-manager/fm-properties-window.c:5477
+#: src/file-manager/fm-properties-window.c:5476
 msgid "There was an error displaying help."
 msgstr "Si è verificato un errore nel visualizzare la guida."
 
@@ -4937,7 +4937,7 @@ msgstr ""
 "\n"
 "Aggiungi connetti al montaggio del server "
 
-#: src/caja-desktop-window.c:128 src/caja-desktop-window.c:209
+#: src/caja-desktop-window.c:131 src/caja-desktop-window.c:277
 #: src/caja-pathbar.c:1445 src/caja-places-sidebar.c:541
 msgid "Desktop"
 msgstr "Scrivania"
@@ -5017,7 +5017,7 @@ msgstr "Il file trascinato non sembra essere una immagine valida."
 msgid "The emblem cannot be added."
 msgstr "Impossibile aggiungere il simbolo."
 
-#: src/caja-emblem-sidebar.c:1094 src/file-manager/fm-properties-window.c:3474
+#: src/caja-emblem-sidebar.c:1094 src/file-manager/fm-properties-window.c:3473
 msgid "Emblems"
 msgstr "Simboli"
 
@@ -5029,8 +5029,8 @@ msgstr "Mostra i simboli"
 #. Translators: this is referred to the permissions
 #. * the user has in a directory.
 #: src/caja-file-management-properties.c:318
-#: src/file-manager/fm-properties-window.c:4248
-#: src/file-manager/fm-properties-window.c:4259
+#: src/file-manager/fm-properties-window.c:4247
+#: src/file-manager/fm-properties-window.c:4258
 msgid "None"
 msgstr "Nessuno"
 
@@ -5169,23 +5169,23 @@ msgid "You cannot assign more than one custom icon at a time."
 msgstr "Non si può assegnare più di un'icona personalizzata per volta."
 
 #: src/caja-information-panel.c:525
-#: src/file-manager/fm-properties-window.c:508
+#: src/file-manager/fm-properties-window.c:507
 msgid "Please drag just one image to set a custom icon."
 msgstr "Trascina una sola immagine per impostare l'icona personalizzata."
 
 #: src/caja-information-panel.c:552
-#: src/file-manager/fm-properties-window.c:519
+#: src/file-manager/fm-properties-window.c:518
 msgid "The file that you dropped is not local."
 msgstr "Il file trascinato non è locale."
 
 #: src/caja-information-panel.c:553
-#: src/file-manager/fm-properties-window.c:520
-#: src/file-manager/fm-properties-window.c:526
+#: src/file-manager/fm-properties-window.c:519
+#: src/file-manager/fm-properties-window.c:525
 msgid "You can only use local images as custom icons."
 msgstr "È possibile usare solo immagini locali come icone personalizzate."
 
 #: src/caja-information-panel.c:560
-#: src/file-manager/fm-properties-window.c:525
+#: src/file-manager/fm-properties-window.c:524
 msgid "The file that you dropped is not an image."
 msgstr "Il file che è stato trascinato non è una immagine."
 
@@ -5198,7 +5198,7 @@ msgstr "È possibile usare solo immagini come icone personalizzate."
 msgid "Open With %s"
 msgstr "Apri con %s"
 
-#: src/caja-location-bar.c:60 src/file-manager/fm-properties-window.c:3319
+#: src/caja-location-bar.c:60 src/file-manager/fm-properties-window.c:3318
 msgid "Location:"
 msgstr "Posizione:"
 
@@ -5495,7 +5495,7 @@ msgstr "Dispositivi"
 msgid "Open the contents of your desktop in a folder"
 msgstr "Apre in una cartella il contenuto della vostra scrivania"
 
-#: src/caja-places-sidebar.c:557 src/file-manager/fm-tree-view.c:1421
+#: src/caja-places-sidebar.c:557 src/file-manager/fm-tree-view.c:1414
 msgid "File System"
 msgstr "File system"
 
@@ -5599,13 +5599,13 @@ msgstr "Impossibile fermare «%s»"
 #: src/file-manager/fm-directory-view.c:7586
 #: src/file-manager/fm-directory-view.c:8687
 #: src/file-manager/fm-directory-view.c:9034
-#: src/file-manager/fm-tree-view.c:1276
+#: src/file-manager/fm-tree-view.c:1269
 msgid "Open in New _Tab"
 msgstr "Apri in nuova sche_da"
 
 #: src/caja-places-sidebar.c:2746 src/file-manager/fm-directory-view.c:8662
 #: src/file-manager/fm-directory-view.c:8993
-#: src/file-manager/fm-tree-view.c:1285
+#: src/file-manager/fm-tree-view.c:1278
 msgid "Open in New _Window"
 msgstr "Apri in una nuova _finestra"
 
@@ -6045,7 +6045,7 @@ msgid "Locate documents and folders on this computer by name or content"
 msgstr ""
 "Individua documenti e cartelle in questo computer per nome o contenuto"
 
-#: src/caja-trash-bar.c:199 src/file-manager/fm-desktop-icon-view.c:785
+#: src/caja-trash-bar.c:199 src/file-manager/fm-desktop-icon-view.c:831
 #: src/file-manager/fm-directory-view.c:7424
 msgid "Delete all items in the Trash"
 msgstr "Elimina tutti gli oggetti nel Cestino"
@@ -6370,7 +6370,7 @@ msgid "_Home"
 msgstr "_Home"
 
 #: src/caja-window-slot.c:207 src/file-manager/fm-list-model.c:483
-#: src/file-manager/fm-tree-model.c:1380
+#: src/file-manager/fm-tree-model.c:1374
 msgid "Loading..."
 msgstr "Caricamento..."
 
@@ -6439,61 +6439,61 @@ msgstr "Ingrandimento"
 msgid "Set the zoom level of the current view"
 msgstr "Imposta il livello di ingrandimento della visualizzazione corrente"
 
-#: src/file-manager/fm-desktop-icon-view.c:666
+#: src/file-manager/fm-desktop-icon-view.c:712
 msgid "Background"
 msgstr "Sfondo"
 
-#: src/file-manager/fm-desktop-icon-view.c:749
+#: src/file-manager/fm-desktop-icon-view.c:795
 #: src/file-manager/fm-directory-view.c:7423
 #: src/file-manager/fm-directory-view.c:9163
 msgid "E_mpty Trash"
 msgstr "Svuota il cestino"
 
-#: src/file-manager/fm-desktop-icon-view.c:765
+#: src/file-manager/fm-desktop-icon-view.c:811
 #: src/file-manager/fm-directory-view.c:7387
 msgid "Create L_auncher..."
 msgstr "Crea un l_anciatore..."
 
-#: src/file-manager/fm-desktop-icon-view.c:767
+#: src/file-manager/fm-desktop-icon-view.c:813
 #: src/file-manager/fm-directory-view.c:7388
 msgid "Create a new launcher"
 msgstr "Crea un nuovo lanciatore"
 
-#: src/file-manager/fm-desktop-icon-view.c:774
+#: src/file-manager/fm-desktop-icon-view.c:820
 msgid "Change Desktop _Background"
 msgstr "Cam_bia lo sfondo della scrivania"
 
-#: src/file-manager/fm-desktop-icon-view.c:776
+#: src/file-manager/fm-desktop-icon-view.c:822
 msgid ""
 "Show a window that lets you set your desktop background's pattern or color"
 msgstr ""
 "Mostra una finestra che permette d'impostare il colore o il motivo per lo "
 "sfondo della vostra scrivania"
 
-#: src/file-manager/fm-desktop-icon-view.c:783
+#: src/file-manager/fm-desktop-icon-view.c:829
 msgid "Empty Trash"
 msgstr "Svuota il cestino"
 
-#: src/file-manager/fm-desktop-icon-view.c:887
+#: src/file-manager/fm-desktop-icon-view.c:933
 msgid "Desktop View"
 msgstr "Visualizzazione della scrivania"
 
-#: src/file-manager/fm-desktop-icon-view.c:888
+#: src/file-manager/fm-desktop-icon-view.c:934
 #: src/file-manager/fm-directory-view.c:7669
 #: src/file-manager/fm-directory-view.c:7673
 msgid "_Desktop"
 msgstr "_Scrivania"
 
-#: src/file-manager/fm-desktop-icon-view.c:889
+#: src/file-manager/fm-desktop-icon-view.c:935
 msgid "The desktop view encountered an error."
 msgstr "La visualizzazione della scrivania ha riscontrato un errore."
 
-#: src/file-manager/fm-desktop-icon-view.c:890
+#: src/file-manager/fm-desktop-icon-view.c:936
 msgid "The desktop view encountered an error while starting up."
 msgstr ""
 "La visualizzazione scrivania ha riscontrato un errore durante l'avvio."
 
-#: src/file-manager/fm-desktop-icon-view.c:891
+#: src/file-manager/fm-desktop-icon-view.c:937
 msgid "Display this location with the desktop view."
 msgstr "Mostra questa posizione con la visualizzazione della scrivania"
 
@@ -6710,13 +6710,13 @@ msgstr ""
 "CAJA_SCRIPT_NEXT_PANE_CURRENT_URI: URI per la posizione corrente nel riquadro inattivo di una finestra con vista divisa"
 
 #: src/file-manager/fm-directory-view.c:6055
-#: src/file-manager/fm-tree-view.c:1011
+#: src/file-manager/fm-tree-view.c:1004
 #, c-format
 msgid "\"%s\" will be moved if you select the Paste command"
 msgstr "Seleziona il comando «Incolla» per spostare «%s»"
 
 #: src/file-manager/fm-directory-view.c:6059
-#: src/file-manager/fm-tree-view.c:1017
+#: src/file-manager/fm-tree-view.c:1010
 #, c-format
 msgid "\"%s\" will be copied if you select the Paste command"
 msgstr "Seleziona il comando «Incolla» per copiare «%s»"
@@ -6746,7 +6746,7 @@ msgstr[2] ""
 "%'d oggetti selezionati verranno copiati selezionando il comando «Incolla»"
 
 #: src/file-manager/fm-directory-view.c:6253
-#: src/file-manager/fm-tree-view.c:1057
+#: src/file-manager/fm-tree-view.c:1050
 msgid "There is nothing on the clipboard to paste."
 msgstr "Gli appunti non contengono nulla da incollare."
 
@@ -6792,7 +6792,7 @@ msgstr "Seleziona un programma con il quale aprire l'oggetto selezionato"
 
 #: src/file-manager/fm-directory-view.c:7369
 #: src/file-manager/fm-directory-view.c:7650
-#: src/file-manager/fm-tree-view.c:1378
+#: src/file-manager/fm-tree-view.c:1371
 msgid "_Properties"
 msgstr "Pr_oprietà"
 
@@ -6802,7 +6802,7 @@ msgid "View or modify the properties of each selected item"
 msgstr "Visualizza o modifica le proprietà di ogni oggetto selezionato"
 
 #: src/file-manager/fm-directory-view.c:7377
-#: src/file-manager/fm-tree-view.c:1296
+#: src/file-manager/fm-tree-view.c:1289
 msgid "Create _Folder"
 msgstr "C_rea cartella"
 
@@ -6889,7 +6889,7 @@ msgstr ""
 
 #: src/file-manager/fm-directory-view.c:7441
 #: src/file-manager/fm-directory-view.c:7604
-#: src/file-manager/fm-tree-view.c:1325
+#: src/file-manager/fm-tree-view.c:1318
 msgid "_Paste Into Folder"
 msgstr "_Incolla nella cartella"
 
@@ -7606,239 +7606,197 @@ msgstr "Non è stato possibile modificare i permessi."
 msgid "Renaming \"%s\" to \"%s\"."
 msgstr "Modifica del nome di «%s» in «%s»."
 
-#: src/file-manager/fm-icon-view.c:129
-msgid "by _Name"
-msgstr "Per _Nome"
-
-#: src/file-manager/fm-icon-view.c:130 src/file-manager/fm-icon-view.c:1832
-msgid "Keep icons sorted by name in rows"
-msgstr "Mantieni le icone in righe ordinate per nome"
-
-#: src/file-manager/fm-icon-view.c:136
-msgid "by _Size"
-msgstr "Per Dimen_sione"
-
-#: src/file-manager/fm-icon-view.c:137 src/file-manager/fm-icon-view.c:1838
-msgid "Keep icons sorted by size in rows"
-msgstr "Mantieni le icone in righe ordinate per dimensione"
-
-#: src/file-manager/fm-icon-view.c:143
-msgid "by S_ize on Disk"
-msgstr "per D_imensione sul disco"
-
-#: src/file-manager/fm-icon-view.c:144 src/file-manager/fm-icon-view.c:1844
-msgid "Keep icons sorted by disk usage in rows"
-msgstr "Mantieni le icone in righe ordinate secondo la dimensione sul disco"
-
-#: src/file-manager/fm-icon-view.c:150
-msgid "by _Type"
-msgstr "per _Tipo"
-
-#: src/file-manager/fm-icon-view.c:151 src/file-manager/fm-icon-view.c:1850
-msgid "Keep icons sorted by type in rows"
-msgstr "Mantieni le icone in righe ordinate per tipo"
-
-#: src/file-manager/fm-icon-view.c:157
-msgid "by Modification _Date"
-msgstr "per _Data di modifica"
-
-#: src/file-manager/fm-icon-view.c:158 src/file-manager/fm-icon-view.c:1856
-msgid "Keep icons sorted by modification date in rows"
-msgstr "Mantieni le icone in righe ordinate per data di modifica"
-
-#: src/file-manager/fm-icon-view.c:164
-msgid "by _Creation Date"
-msgstr "per Data di _creazione"
-
-#: src/file-manager/fm-icon-view.c:165 src/file-manager/fm-icon-view.c:1862
-msgid "Keep icons sorted by creation date in rows"
-msgstr "Mantieni le icone in righe ordinate per data di creazione"
-
-#: src/file-manager/fm-icon-view.c:171
-msgid "by _Emblems"
-msgstr "per Simbolo"
-
-#: src/file-manager/fm-icon-view.c:172 src/file-manager/fm-icon-view.c:1868
-msgid "Keep icons sorted by emblems in rows"
-msgstr "Mantieni le icone in righe ordinate per simbolo"
-
-#: src/file-manager/fm-icon-view.c:178
-msgid "by T_rash Time"
-msgstr "per Sata di _rimozione"
-
-#: src/file-manager/fm-icon-view.c:179 src/file-manager/fm-icon-view.c:1874
-msgid "Keep icons sorted by trash time in rows"
-msgstr ""
-"Mantieni le icone in righe ordinate per data di spostamento nel cestino"
-
-#: src/file-manager/fm-icon-view.c:185
-msgid "by E_xtension"
-msgstr "Per Estensione"
-
-#: src/file-manager/fm-icon-view.c:186
-msgid "Keep icons sorted by reversed extension segments in rows"
-msgstr ""
-"Mantieni le icone in righe ordinate per segmenti di estensione in ordine "
-"inverso"
-
-#: src/file-manager/fm-icon-view.c:798
+#: src/file-manager/fm-icon-view.c:778
 msgid "_Organize Desktop by Name"
 msgstr "_Ordina la Scrivania per Nome"
 
-#: src/file-manager/fm-icon-view.c:1777
+#: src/file-manager/fm-icon-view.c:1757
 msgid "Arran_ge Items"
 msgstr "Disponi gli o_ggetti"
 
-#: src/file-manager/fm-icon-view.c:1780
+#: src/file-manager/fm-icon-view.c:1760
 msgid "Resize Icon..."
 msgstr "Ridimensiona l'icona..."
 
-#: src/file-manager/fm-icon-view.c:1781
+#: src/file-manager/fm-icon-view.c:1761
 msgid "Make the selected icon resizable"
 msgstr "Rendi ridimensionabile l'icona selezionata"
 
-#: src/file-manager/fm-icon-view.c:1784 src/file-manager/fm-icon-view.c:2015
+#: src/file-manager/fm-icon-view.c:1764 src/file-manager/fm-icon-view.c:1995
 msgid "Restore Icons' Original Si_zes"
 msgstr "Ripristina le dimensioni originali delle icone"
 
-#: src/file-manager/fm-icon-view.c:1785
+#: src/file-manager/fm-icon-view.c:1765
 msgid "Restore each selected icon to its original size"
 msgstr "Ripristina ogni icona selezionata alle sue dimensioni originali"
 
-#: src/file-manager/fm-icon-view.c:1788
+#: src/file-manager/fm-icon-view.c:1768
 msgid "_Organize by Name"
 msgstr "_Ordina per Nome"
 
-#: src/file-manager/fm-icon-view.c:1789
+#: src/file-manager/fm-icon-view.c:1769
 msgid "Reposition icons to better fit in the window and avoid overlapping"
 msgstr ""
 "Riposiziona le icone per migliorare la disposizione nella finestra e per "
 "evitare la loro sovrapposizione"
 
-#: src/file-manager/fm-icon-view.c:1796
+#: src/file-manager/fm-icon-view.c:1776
 msgid "Compact _Layout"
 msgstr "Disposizione compatta"
 
-#: src/file-manager/fm-icon-view.c:1797
+#: src/file-manager/fm-icon-view.c:1777
 msgid "Toggle using a tighter layout scheme"
 msgstr "Commuta l'utilizzo dello schema di disposizione più stretta"
 
-#: src/file-manager/fm-icon-view.c:1802
+#: src/file-manager/fm-icon-view.c:1782
 msgid "Re_versed Order"
 msgstr "Ordine in_verso"
 
-#: src/file-manager/fm-icon-view.c:1803
+#: src/file-manager/fm-icon-view.c:1783
 msgid "Display icons in the opposite order"
 msgstr "Mostra le icone in ordine inverso"
 
-#: src/file-manager/fm-icon-view.c:1808
+#: src/file-manager/fm-icon-view.c:1788
 msgid "_Keep Aligned"
 msgstr "Mantieni allineate"
 
-#: src/file-manager/fm-icon-view.c:1809
+#: src/file-manager/fm-icon-view.c:1789
 msgid "Keep icons lined up on a grid"
 msgstr "Mantieni le icone allineate su una griglia"
 
-#: src/file-manager/fm-icon-view.c:1814
+#: src/file-manager/fm-icon-view.c:1794
 msgid "_Lock Icons Position"
 msgstr "Blocca la posizione delle icone"
 
-#: src/file-manager/fm-icon-view.c:1815
+#: src/file-manager/fm-icon-view.c:1795
 msgid "Prevent repositioning icons"
 msgstr "Impedisci il riposizionamento delle icone"
 
-#: src/file-manager/fm-icon-view.c:1825
+#: src/file-manager/fm-icon-view.c:1805
 msgid "_Manually"
 msgstr "_Manuale"
 
-#: src/file-manager/fm-icon-view.c:1826
+#: src/file-manager/fm-icon-view.c:1806
 msgid "Leave icons wherever they are dropped"
 msgstr "Lascia le icone dove sono state trascinate"
 
-#: src/file-manager/fm-icon-view.c:1831
+#: src/file-manager/fm-icon-view.c:1811
 msgid "By _Name"
 msgstr "Per _Nome"
 
-#: src/file-manager/fm-icon-view.c:1837
+#: src/file-manager/fm-icon-view.c:1812
+msgid "Keep icons sorted by name in rows"
+msgstr "Mantieni le icone in righe ordinate per nome"
+
+#: src/file-manager/fm-icon-view.c:1817
 msgid "By _Size"
 msgstr "Per Dimen_sione"
 
-#: src/file-manager/fm-icon-view.c:1843
+#: src/file-manager/fm-icon-view.c:1818
+msgid "Keep icons sorted by size in rows"
+msgstr "Mantieni le icone in righe ordinate per dimensione"
+
+#: src/file-manager/fm-icon-view.c:1823
 msgid "By S_ize on Disk"
 msgstr "per D_imensione sul Disco"
 
-#: src/file-manager/fm-icon-view.c:1849
+#: src/file-manager/fm-icon-view.c:1824
+msgid "Keep icons sorted by disk usage in rows"
+msgstr "Mantieni le icone in righe ordinate secondo la dimensione sul disco"
+
+#: src/file-manager/fm-icon-view.c:1829
 msgid "By _Type"
 msgstr "Per _Tipo"
 
-#: src/file-manager/fm-icon-view.c:1855
+#: src/file-manager/fm-icon-view.c:1830
+msgid "Keep icons sorted by type in rows"
+msgstr "Mantieni le icone in righe ordinate per tipo"
+
+#: src/file-manager/fm-icon-view.c:1835
 msgid "By Modification _Date"
 msgstr "Per _Data di Modifica"
 
-#: src/file-manager/fm-icon-view.c:1861
+#: src/file-manager/fm-icon-view.c:1836
+msgid "Keep icons sorted by modification date in rows"
+msgstr "Mantieni le icone in righe ordinate per data di modifica"
+
+#: src/file-manager/fm-icon-view.c:1841
 msgid "By _Creation Date"
 msgstr "Per Data di _Creazione"
 
-#: src/file-manager/fm-icon-view.c:1867
+#: src/file-manager/fm-icon-view.c:1842
+msgid "Keep icons sorted by creation date in rows"
+msgstr "Mantieni le icone in righe ordinate per data di creazione"
+
+#: src/file-manager/fm-icon-view.c:1847
 msgid "By _Emblems"
 msgstr "Per Simbolo"
 
-#: src/file-manager/fm-icon-view.c:1873
+#: src/file-manager/fm-icon-view.c:1848
+msgid "Keep icons sorted by emblems in rows"
+msgstr "Mantieni le icone in righe ordinate per simbolo"
+
+#: src/file-manager/fm-icon-view.c:1853
 msgid "By T_rash Time"
 msgstr "Per Data di _Rimozione"
 
-#: src/file-manager/fm-icon-view.c:1879
+#: src/file-manager/fm-icon-view.c:1854
+msgid "Keep icons sorted by trash time in rows"
+msgstr ""
+"Mantieni le icone in righe ordinate per data di spostamento nel cestino"
+
+#: src/file-manager/fm-icon-view.c:1859
 msgid "By E_xtension"
 msgstr "Per _Estensione"
 
-#: src/file-manager/fm-icon-view.c:1880
+#: src/file-manager/fm-icon-view.c:1860
 msgid "Keep icons sorted by reverse extension segments in rows"
 msgstr "Mantieni le icone in righe ordinate per estensione in ordine inverso"
 
-#: src/file-manager/fm-icon-view.c:2016
+#: src/file-manager/fm-icon-view.c:1996
 msgid "Restore Icon's Original Si_ze"
 msgstr "Ripristina le dimensioni originali dell'icona"
 
-#: src/file-manager/fm-icon-view.c:2487
+#: src/file-manager/fm-icon-view.c:2467
 #, c-format
 msgid "pointing at \"%s\""
 msgstr "puntamento a «%s»"
 
 #. Translators: this is used in the view menu
-#: src/file-manager/fm-icon-view.c:3500
+#: src/file-manager/fm-icon-view.c:3480
 msgid "_Icons"
 msgstr "_Icone"
 
-#: src/file-manager/fm-icon-view.c:3501
+#: src/file-manager/fm-icon-view.c:3481
 msgid "The icon view encountered an error."
 msgstr "La visualizzazione ad icone ha riscontrato un errore."
 
-#: src/file-manager/fm-icon-view.c:3502
+#: src/file-manager/fm-icon-view.c:3482
 msgid "The icon view encountered an error while starting up."
 msgstr "La visualizzazione ad icone ha riscontrato un errore durante l'avvio."
 
-#: src/file-manager/fm-icon-view.c:3503
+#: src/file-manager/fm-icon-view.c:3483
 msgid "Display this location with the icon view."
 msgstr "Mostra questa posizione con la vista ad icone."
 
 #. Translators: this is used in the view menu
-#: src/file-manager/fm-icon-view.c:3515
+#: src/file-manager/fm-icon-view.c:3495
 msgid "_Compact"
 msgstr "_Compatta"
 
-#: src/file-manager/fm-icon-view.c:3516
+#: src/file-manager/fm-icon-view.c:3496
 msgid "The compact view encountered an error."
 msgstr "La visualizzazione compatta ha riscontrato un errore."
 
-#: src/file-manager/fm-icon-view.c:3517
+#: src/file-manager/fm-icon-view.c:3497
 msgid "The compact view encountered an error while starting up."
 msgstr "La visualizzazione compatta ha riscontrato un errore durante l'avvio."
 
-#: src/file-manager/fm-icon-view.c:3518
+#: src/file-manager/fm-icon-view.c:3498
 msgid "Display this location with the compact view."
 msgstr "Mostra questa posizione con la vistualizzazione compatta."
 
-#: src/file-manager/fm-list-model.c:479 src/file-manager/fm-tree-model.c:1380
+#: src/file-manager/fm-list-model.c:479 src/file-manager/fm-tree-model.c:1374
 msgid "(Empty)"
 msgstr "(Vuoto)"
 
@@ -7878,49 +7836,49 @@ msgstr ""
 msgid "Display this location with the list view."
 msgstr "Mostra questa posizione con la visualizzazione ad elenco."
 
-#: src/file-manager/fm-properties-window.c:507
+#: src/file-manager/fm-properties-window.c:506
 msgid "You cannot assign more than one custom icon at a time!"
 msgstr "Non si può assegnare più di un'icona personalizzata per volta."
 
-#: src/file-manager/fm-properties-window.c:641
+#: src/file-manager/fm-properties-window.c:640
 msgid "_Name:"
 msgid_plural "_Names:"
 msgstr[0] "_Nome:"
 msgstr[1] "_Nomi:"
 msgstr[2] "_Nomi:"
 
-#: src/file-manager/fm-properties-window.c:997
+#: src/file-manager/fm-properties-window.c:996
 msgid "Properties"
 msgstr "Proprietà"
 
-#: src/file-manager/fm-properties-window.c:1009
+#: src/file-manager/fm-properties-window.c:1008
 #, c-format
 msgid "%s Properties"
 msgstr "Proprietà di «%s»"
 
-#: src/file-manager/fm-properties-window.c:1338
+#: src/file-manager/fm-properties-window.c:1337
 #, c-format
 msgctxt "MIME type description (MIME type)"
 msgid "%s (%s)"
 msgstr "%s (%s)"
 
-#: src/file-manager/fm-properties-window.c:1546
+#: src/file-manager/fm-properties-window.c:1545
 msgid "Cancel Group Change?"
 msgstr "Annullare la modifica del gruppo?"
 
-#: src/file-manager/fm-properties-window.c:1960
+#: src/file-manager/fm-properties-window.c:1959
 msgid "Cancel Owner Change?"
 msgstr "Annullare la modifica del proprietario?"
 
-#: src/file-manager/fm-properties-window.c:2287
+#: src/file-manager/fm-properties-window.c:2286
 msgid "nothing"
 msgstr "niente"
 
-#: src/file-manager/fm-properties-window.c:2289
+#: src/file-manager/fm-properties-window.c:2288
 msgid "unreadable"
 msgstr "illeggibile"
 
-#: src/file-manager/fm-properties-window.c:2308
+#: src/file-manager/fm-properties-window.c:2307
 #, c-format
 msgid "%'d item, with size %s (%s on disk)"
 msgid_plural "%'d items, totalling %s (%s on disk)"
@@ -7928,240 +7886,240 @@ msgstr[0] "%'d oggetto, in totale %s (%s sul disco)"
 msgstr[1] "%'d oggetti, in totale %s (%s sul disco)"
 msgstr[2] "%'d oggetti, in totale %s (%s sul disco)"
 
-#: src/file-manager/fm-properties-window.c:2318
+#: src/file-manager/fm-properties-window.c:2317
 msgid "(some contents unreadable)"
 msgstr "(qualche contenuto illeggibile)"
 
-#: src/file-manager/fm-properties-window.c:2335
+#: src/file-manager/fm-properties-window.c:2334
 msgid "Contents:"
 msgstr "Contenuti:"
 
 #. Translators: "used" refers to the capacity of the filesystem
-#: src/file-manager/fm-properties-window.c:3120
+#: src/file-manager/fm-properties-window.c:3119
 msgid "used"
 msgstr "usato"
 
 #. Translators: "free" refers to the capacity of the filesystem
-#: src/file-manager/fm-properties-window.c:3131
+#: src/file-manager/fm-properties-window.c:3130
 msgid "free"
 msgstr "libero"
 
-#: src/file-manager/fm-properties-window.c:3135
+#: src/file-manager/fm-properties-window.c:3134
 msgid "Total capacity:"
 msgstr "Capacità totale:"
 
-#: src/file-manager/fm-properties-window.c:3149
+#: src/file-manager/fm-properties-window.c:3148
 msgid "Filesystem type:"
 msgstr "Tipo di file system:"
 
-#: src/file-manager/fm-properties-window.c:3234
+#: src/file-manager/fm-properties-window.c:3233
 msgid "Basic"
 msgstr "Di base"
 
-#: src/file-manager/fm-properties-window.c:3296
+#: src/file-manager/fm-properties-window.c:3295
 msgid "Link target:"
 msgstr "Collegamento a:"
 
-#: src/file-manager/fm-properties-window.c:3310
+#: src/file-manager/fm-properties-window.c:3309
 msgid "Size on Disk:"
 msgstr "Dimensione sul Disco"
 
-#: src/file-manager/fm-properties-window.c:3325
+#: src/file-manager/fm-properties-window.c:3324
 msgid "Volume:"
 msgstr "Volume:"
 
-#: src/file-manager/fm-properties-window.c:3339
+#: src/file-manager/fm-properties-window.c:3338
 msgid "Accessed:"
 msgstr "Ultimo accesso:"
 
-#: src/file-manager/fm-properties-window.c:3347
+#: src/file-manager/fm-properties-window.c:3346
 msgid "Modified:"
 msgstr "Modificato il:"
 
-#: src/file-manager/fm-properties-window.c:3351
+#: src/file-manager/fm-properties-window.c:3350
 msgid "Created:"
 msgstr "Creato:"
 
-#: src/file-manager/fm-properties-window.c:3360
+#: src/file-manager/fm-properties-window.c:3359
 msgid "Free space:"
 msgstr "Spazio libero:"
 
-#: src/file-manager/fm-properties-window.c:3885
+#: src/file-manager/fm-properties-window.c:3884
 msgid "_Read"
 msgstr "_Lettura"
 
-#: src/file-manager/fm-properties-window.c:3887
+#: src/file-manager/fm-properties-window.c:3886
 msgid "_Write"
 msgstr "_Scrittura"
 
-#: src/file-manager/fm-properties-window.c:3889
+#: src/file-manager/fm-properties-window.c:3888
 msgid "E_xecute"
 msgstr "Esecuzione"
 
 #. Translators: this gets concatenated to "no read",
 #. * "no access", etc. (see following strings)
-#: src/file-manager/fm-properties-window.c:4156
-#: src/file-manager/fm-properties-window.c:4167
-#: src/file-manager/fm-properties-window.c:4179
+#: src/file-manager/fm-properties-window.c:4155
+#: src/file-manager/fm-properties-window.c:4166
+#: src/file-manager/fm-properties-window.c:4178
 msgid "no "
 msgstr "no"
 
-#: src/file-manager/fm-properties-window.c:4159
+#: src/file-manager/fm-properties-window.c:4158
 msgid "list"
 msgstr "elenco"
 
-#: src/file-manager/fm-properties-window.c:4161
+#: src/file-manager/fm-properties-window.c:4160
 msgid "read"
 msgstr "lettura"
 
-#: src/file-manager/fm-properties-window.c:4170
+#: src/file-manager/fm-properties-window.c:4169
 msgid "create/delete"
 msgstr "crea/elimina"
 
-#: src/file-manager/fm-properties-window.c:4172
+#: src/file-manager/fm-properties-window.c:4171
 msgid "write"
 msgstr "scrittura"
 
-#: src/file-manager/fm-properties-window.c:4181
+#: src/file-manager/fm-properties-window.c:4180
 msgid "access"
 msgstr "accesso"
 
-#: src/file-manager/fm-properties-window.c:4229
+#: src/file-manager/fm-properties-window.c:4228
 msgid "Access:"
 msgstr "Accesso:"
 
-#: src/file-manager/fm-properties-window.c:4231
+#: src/file-manager/fm-properties-window.c:4230
 msgid "Folder access:"
 msgstr "Accesso alla cartella:"
 
-#: src/file-manager/fm-properties-window.c:4233
+#: src/file-manager/fm-properties-window.c:4232
 msgid "File access:"
 msgstr "Accesso al file:"
 
-#: src/file-manager/fm-properties-window.c:4251
+#: src/file-manager/fm-properties-window.c:4250
 msgid "List files only"
 msgstr "Elenca soltanto i file"
 
-#: src/file-manager/fm-properties-window.c:4253
+#: src/file-manager/fm-properties-window.c:4252
 msgid "Access files"
 msgstr "Accedi ai file"
 
-#: src/file-manager/fm-properties-window.c:4255
+#: src/file-manager/fm-properties-window.c:4254
 msgid "Create and delete files"
 msgstr "Crea ed elimina i file"
 
-#: src/file-manager/fm-properties-window.c:4262
+#: src/file-manager/fm-properties-window.c:4261
 msgid "Read-only"
 msgstr "Sola lettura"
 
-#: src/file-manager/fm-properties-window.c:4264
+#: src/file-manager/fm-properties-window.c:4263
 msgid "Read and write"
 msgstr "Lettura e scrittura"
 
-#: src/file-manager/fm-properties-window.c:4328
+#: src/file-manager/fm-properties-window.c:4327
 msgid "Special flags:"
 msgstr "Flag speciali:"
 
-#: src/file-manager/fm-properties-window.c:4330
+#: src/file-manager/fm-properties-window.c:4329
 msgid "Set _user ID"
 msgstr "Imposta ID _utente"
 
-#: src/file-manager/fm-properties-window.c:4331
+#: src/file-manager/fm-properties-window.c:4330
 msgid "Set gro_up ID"
 msgstr "Imposta ID _gruppo"
 
-#: src/file-manager/fm-properties-window.c:4332
+#: src/file-manager/fm-properties-window.c:4331
 msgid "_Sticky"
 msgstr "Stick_y"
 
-#: src/file-manager/fm-properties-window.c:4407
-#: src/file-manager/fm-properties-window.c:4599
+#: src/file-manager/fm-properties-window.c:4406
+#: src/file-manager/fm-properties-window.c:4598
 msgid "_Owner:"
 msgstr "_Proprietario:"
 
-#: src/file-manager/fm-properties-window.c:4415
-#: src/file-manager/fm-properties-window.c:4505
-#: src/file-manager/fm-properties-window.c:4608
+#: src/file-manager/fm-properties-window.c:4414
+#: src/file-manager/fm-properties-window.c:4504
+#: src/file-manager/fm-properties-window.c:4607
 msgid "Owner:"
 msgstr "Proprietario:"
 
-#: src/file-manager/fm-properties-window.c:4439
-#: src/file-manager/fm-properties-window.c:4623
+#: src/file-manager/fm-properties-window.c:4438
+#: src/file-manager/fm-properties-window.c:4622
 msgid "_Group:"
 msgstr "_Gruppo:"
 
-#: src/file-manager/fm-properties-window.c:4447
-#: src/file-manager/fm-properties-window.c:4506
-#: src/file-manager/fm-properties-window.c:4631
+#: src/file-manager/fm-properties-window.c:4446
+#: src/file-manager/fm-properties-window.c:4505
+#: src/file-manager/fm-properties-window.c:4630
 msgid "Group:"
 msgstr "Gruppo:"
 
-#: src/file-manager/fm-properties-window.c:4471
+#: src/file-manager/fm-properties-window.c:4470
 msgid "Others"
 msgstr "Altri"
 
-#: src/file-manager/fm-properties-window.c:4486
+#: src/file-manager/fm-properties-window.c:4485
 msgid "Execute:"
 msgstr "Esegui:"
 
-#: src/file-manager/fm-properties-window.c:4489
+#: src/file-manager/fm-properties-window.c:4488
 msgid "Allow _executing file as program"
 msgstr "Consenti l'_esecuzione del file come programma"
 
-#: src/file-manager/fm-properties-window.c:4507
+#: src/file-manager/fm-properties-window.c:4506
 msgid "Others:"
 msgstr "Altri:"
 
-#: src/file-manager/fm-properties-window.c:4647
+#: src/file-manager/fm-properties-window.c:4646
 msgid "Folder Permissions:"
 msgstr "Permessi sulla cartella:"
 
-#: src/file-manager/fm-properties-window.c:4654
+#: src/file-manager/fm-properties-window.c:4653
 msgid "File Permissions:"
 msgstr "Permessi sui file:"
 
-#: src/file-manager/fm-properties-window.c:4663
+#: src/file-manager/fm-properties-window.c:4662
 msgid "Text view:"
 msgstr "Visualizzazione testuale:"
 
-#: src/file-manager/fm-properties-window.c:4810
+#: src/file-manager/fm-properties-window.c:4809
 msgid "You are not the owner, so you cannot change these permissions."
 msgstr "Solo il proprietario del file può modificare questi permessi."
 
-#: src/file-manager/fm-properties-window.c:4830
+#: src/file-manager/fm-properties-window.c:4829
 msgid "SELinux context:"
 msgstr "Contesto SELinux:"
 
-#: src/file-manager/fm-properties-window.c:4835
+#: src/file-manager/fm-properties-window.c:4834
 msgid "Last changed:"
 msgstr "Ultimo cambiamento:"
 
-#: src/file-manager/fm-properties-window.c:4848
+#: src/file-manager/fm-properties-window.c:4847
 msgid "Apply Permissions to Enclosed Files"
 msgstr "Applica i permessi ai file contenuti"
 
-#: src/file-manager/fm-properties-window.c:4862
+#: src/file-manager/fm-properties-window.c:4861
 #, c-format
 msgid "The permissions of \"%s\" could not be determined."
 msgstr "Non è stato possibile determinare i permessi di «%s»."
 
-#: src/file-manager/fm-properties-window.c:4865
+#: src/file-manager/fm-properties-window.c:4864
 msgid "The permissions of the selected file could not be determined."
 msgstr "Non è stato possibile determinare i permessi del file selezionato."
 
-#: src/file-manager/fm-properties-window.c:5451
+#: src/file-manager/fm-properties-window.c:5450
 msgid "Creating Properties window."
 msgstr "Creazione della finestra delle proprietà."
 
-#: src/file-manager/fm-properties-window.c:5749
+#: src/file-manager/fm-properties-window.c:5748
 msgid "Select Custom Icon"
 msgstr "Seleziona un'icona personalizzata"
 
-#: src/file-manager/fm-tree-view.c:1707
+#: src/file-manager/fm-tree-view.c:1700
 msgid "Tree"
 msgstr "Albero"
 
-#: src/file-manager/fm-tree-view.c:1713
+#: src/file-manager/fm-tree-view.c:1706
 msgid "Show Tree"
 msgstr "Mostra l'albero"
 

@@ -62,6 +62,12 @@
 #include "fm-desktop-icon-view.h"
 #include "fm-actions.h"
 
+#ifdef HAVE_WAYLAND
+#include <gdk/gdkwayland.h>
+#include "fm-desktop-wayland-bg-dialog.h"
+
+#endif
+
 /* Timeout to check the desktop directory for updates */
 #define RESCAN_TIMEOUT 4
 
@@ -707,12 +713,31 @@ action_change_background_callback (GtkAction *action,
                                    gpointer data)
 {
     g_assert (FM_DIRECTORY_VIEW (data));
+#ifdef HAVE_WAYLAND
+    /*Get the new background and switch to it in wayland*/
+    if (GDK_IS_WAYLAND_DISPLAY (gdk_display_get_default()))
+    {
+        /*We can use the appearance capplet with some versions of mate-control-center
+         *in which the appearance capplet works in wayland
+         *Try it first, and fall back to the standalone dialog if it fails
+         */
+        GError *error = NULL;
 
-    caja_launch_application_from_command (gtk_widget_get_screen (GTK_WIDGET (data)),
-                                          _("Background"),
-                                          "mate-appearance-properties",
-                                          FALSE,
-                                          "--show-page=background", NULL);
+        g_spawn_command_line_async ("mate-appearance-properties --show-page=background",
+                                          &error);
+        if (error != NULL)
+            wayland_bg_dialog_new ();
+    }
+    else
+#endif
+    /*Get the new background and switch to it in x11*/
+    {
+        caja_launch_application_from_command (gtk_widget_get_screen (GTK_WIDGET (data)),
+                                              _("Background"),
+                                              "mate-appearance-properties",
+                                              FALSE,
+                                              "--show-page=background", NULL);
+    }
 }
 
 static void

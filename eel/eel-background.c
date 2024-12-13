@@ -424,16 +424,17 @@ set_root_surface (EelBackground *self,
                   GdkScreen     *screen)
 {
     eel_background_ensure_realized (self);
+    GdkDisplay *display = gdk_screen_get_display (screen);
 
     if (self->details->use_common_surface) {
         self->details->unset_root_surface = FALSE;
     } else {
         int width, height;
         drawable_get_adjusted_size (self, &width, &height);
-        self->details->bg_surface = mate_bg_create_surface (self->details->bg, window,
-        						    width, height, TRUE);
+        if ((GDK_IS_X11_DISPLAY (display)) && (self->details->bg_surface == NULL))
+            self->details->bg_surface = mate_bg_create_surface (self->details->bg, window,
+                                                                width, height, TRUE);
     }
-    GdkDisplay *display = gdk_screen_get_display (screen);
     if ((GDK_IS_X11_DISPLAY (display)) && (self->details->bg_surface != NULL))
         mate_bg_set_surface_as_root (screen, self->details->bg_surface);
 }
@@ -671,11 +672,10 @@ widget_realized_setup (GtkWidget     *widget,
         self->details->use_common_surface =
             (gdk_window_get_visual (window) == gtk_widget_get_visual (widget)) ? TRUE : FALSE;
     }
-    else    /*Wayland is always composited*/
+    else    /*Wayland is always composited but never has a root window*/
     {
-        self->details->use_common_surface = TRUE;
+        self->details->use_common_surface = FALSE;
     }
-
     init_fade (self);
 }
 

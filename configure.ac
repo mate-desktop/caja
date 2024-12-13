@@ -23,7 +23,7 @@ m4_define(caja_extension_current,  5)
 m4_define(caja_extension_revision, 0)
 
 AC_INIT([caja],
-        [1.27.2],
+        [1.29.0],
         [https://github.com/mate-desktop/caja/issues],
         [caja],
         [https://mate-desktop.org])
@@ -134,7 +134,6 @@ fi
 
 dnl ==========================================================================
 
-AC_CHECK_PROGS(PERL, perl5 perl)
 AC_PATH_PROG(GLIB_GENMARSHAL, glib-genmarshal)
 
 dnl ==========================================================================

@@ -152,6 +152,8 @@ typedef struct {
 } SetPermissionsJob;
 
 typedef enum {
+	OP_KIND_CREATE,
+	OP_KIND_LINK,
 	OP_KIND_COPY,
 	OP_KIND_MOVE,
 	OP_KIND_DELETE,
@@ -188,7 +190,7 @@ typedef struct {
 #define DELETE_ALL _("Delete _All")
 #define REPLACE_ALL _("Replace _All")
 #define MERGE_ALL _("Merge _All")
-#define COPY_FORCE _("Copy _Anyway")
+#define CONTINUE_FORCE _("Continue _Anyway")
 
 NotifyNotification *unmount_notify;
 
@@ -1495,7 +1497,7 @@ report_delete_progress (CommonJob *job,
 			TransferInfo *transfer_info)
 {
 	int files_left;
-	double elapsed;
+	double elapsed, transfer_rate;
 	gint64 now;
 	char *files_left_s;
 
@@ -1522,15 +1524,19 @@ report_delete_progress (CommonJob *job,
 					    f (_("Deleting files")));
 
 	elapsed = g_timer_elapsed (job->time, NULL);
-	if (elapsed < SECONDS_NEEDED_FOR_RELIABLE_TRANSFER_RATE) {
+	transfer_rate = 0;
+	if (elapsed > 0) {
+		transfer_rate = transfer_info->num_files / elapsed;
+	}
+
+	if (elapsed < SECONDS_NEEDED_FOR_RELIABLE_TRANSFER_RATE ||
+		transfer_rate <= 0) {
 
 		caja_progress_info_set_details (job->progress, files_left_s);
 	} else {
 		char *details, *time_left_s;
 		int remaining_time;
-		double transfer_rate;
 
-		transfer_rate = transfer_info->num_files / elapsed;
 		remaining_time = files_left / transfer_rate;
 
 		/* Translators: %T will expand to a time like "2 minutes".
@@ -2522,6 +2528,10 @@ report_count_progress (CommonJob *job,
 
 	switch (source_info->op) {
 	default:
+		// OP_KIND_CREATE and OP_KIND_LINK don't have a source
+		g_assert_not_reached ();
+		s = f ("");
+		break;
 	case OP_KIND_COPY:
 		s = f (ngettext("Preparing to copy %'d file (%S)",
 		                "Preparing to copy %'d files (%S)",
@@ -2571,6 +2581,9 @@ get_scan_primary (OpKind kind)
 {
 	switch (kind) {
 	default:
+		// OP_KIND_CREATE and OP_KIND_LINK don't have a source
+		g_assert_not_reached ();
+		return f ("");
 	case OP_KIND_COPY:
 		return f (_("Error while copying."));
 	case OP_KIND_MOVE:
@@ -2820,8 +2833,29 @@ scan_sources (GList *files,
 	report_count_progress (job, source_info);
 }
 
+static char *
+get_verify_primary (OpKind kind,
+		GFile *dest)
+{
+	switch (kind) {
+	default:
+		// OP_KIND_DELETE and OP_KIND_TRASH don't have a destination
+		g_assert_not_reached ();
+		return f ("");
+	case OP_KIND_CREATE:
+		return f (_("Error while creating file/directory in \"%B\"."), dest);
+	case OP_KIND_LINK:
+		return f (_("Error while creating link in \"%B\"."), dest);
+	case OP_KIND_COPY:
+		return f (_("Error while copying to \"%B\"."), dest);
+	case OP_KIND_MOVE:
+		return f (_("Error while moving to \"%B\"."), dest);
+	}
+}
+
 static void
 verify_destination (CommonJob *job,
+		    OpKind kind,
 		    GFile *dest,
 		    char **dest_fs_id,
 		    goffset required_size)
@@ -2853,7 +2887,7 @@ verify_destination (CommonJob *job,
 			return;
 		}
 
-		primary = f (_("Error while copying to \"%B\"."), dest);
+		primary = get_verify_primary (kind, dest);
 		details = NULL;
 
 		if (IS_IO_ERROR (error, PERMISSION_DENIED)) {
@@ -2895,7 +2929,7 @@ verify_destination (CommonJob *job,
 	g_object_unref (info);
 
 	if (file_type != G_FILE_TYPE_DIRECTORY) {
-		primary = f (_("Error while copying to \"%B\"."), dest);
+		primary = get_verify_primary (kind, dest);
 		secondary = f (_("The destination is not a folder."));
 
 		response = run_error (job,
@@ -2928,7 +2962,7 @@ verify_destination (CommonJob *job,
 							      G_FILE_ATTRIBUTE_FILESYSTEM_FREE);
 
 		if (free_size < (guint64) required_size) {
-			primary = f (_("Error while copying to \"%B\"."), dest);
+			primary = get_verify_primary (kind, dest);
 			secondary = f(_("There is not enough space on the destination. Try to remove files to make space."));
 
 			details = f (_("There is %" G_GUINT64_FORMAT  " available, but %" G_GOFFSET_FORMAT " is required."), free_size, required_size);
@@ -2939,7 +2973,7 @@ verify_destination (CommonJob *job,
 						details,
 						FALSE,
 						CANCEL,
-						COPY_FORCE,
+						CONTINUE_FORCE,
 						RETRY,
 						NULL);
 
@@ -2948,7 +2982,7 @@ verify_destination (CommonJob *job,
 			} else if (response == 2) {
 				goto retry;
 			} else if (response == 1) {
-				/* We are forced to copy - just fall through ... */
+				/* We are forced to continue - just fall through ... */
 			} else {
 				g_assert_not_reached ();
 			}
@@ -2958,7 +2992,7 @@ verify_destination (CommonJob *job,
 	if (!job_aborted (job) &&
 	    g_file_info_get_attribute_boolean (fsinfo,
 					       G_FILE_ATTRIBUTE_FILESYSTEM_READONLY)) {
-		primary = f (_("Error while copying to \"%B\"."), dest);
+		primary = get_verify_primary (kind, dest);
 		secondary = f (_("The destination is read-only."));
 
 		response = run_error (job,
@@ -3079,8 +3113,8 @@ report_copy_progress (CopyMoveJob *copy_job,
 		transfer_rate = transfer_info->num_bytes / elapsed;
 	}
 
-	if (elapsed < SECONDS_NEEDED_FOR_RELIABLE_TRANSFER_RATE &&
-	    transfer_rate > 0) {
+	if (elapsed < SECONDS_NEEDED_FOR_RELIABLE_TRANSFER_RATE ||
+	    transfer_rate <= 0) {
 		char *s;
 		/* Translators: %S will expand to a size like "2 bytes" or "3 MB", so something like "4 kb of 4 MB" */
 		s = f (_("%S of %S"), transfer_info->num_bytes, total_size);
@@ -4668,6 +4702,7 @@ copy_job (GIOSchedulerJob *io_job,
 	}
 
 	verify_destination (&job->common,
+			    OP_KIND_COPY,
 			    dest,
 			    &dest_fs_id,
 			    source_info.num_bytes);
@@ -5196,6 +5231,7 @@ move_job (GIOSchedulerJob *io_job,
 	caja_progress_info_start (job->common.progress);
 
 	verify_destination (&job->common,
+			    OP_KIND_MOVE,
 			    job->destination,
 			    &dest_fs_id,
 			    -1);
@@ -5225,6 +5261,7 @@ move_job (GIOSchedulerJob *io_job,
 	}
 
 	verify_destination (&job->common,
+			    OP_KIND_MOVE,
 			    job->destination,
 			    NULL,
 			    source_info.num_bytes);
@@ -5528,6 +5565,7 @@ link_job (GIOSchedulerJob *io_job,
 	caja_progress_info_start (job->common.progress);
 
 	verify_destination (&job->common,
+			    OP_KIND_LINK,
 			    job->destination,
 			    NULL,
 			    -1);
@@ -6011,6 +6049,7 @@ create_job (GIOSchedulerJob *io_job,
 	max_length = get_max_name_length (job->dest_dir);
 
 	verify_destination (common,
+			    OP_KIND_CREATE,
 			    job->dest_dir,
 			    NULL, -1);
 	if (job_aborted (common)) {

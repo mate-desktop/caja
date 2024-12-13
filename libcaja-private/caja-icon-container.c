@@ -4606,6 +4606,19 @@ draw (GtkWidget *widget, cairo_t *cr)
     {
         eel_background_draw (widget, cr);
     }
+    /*If this is the desktop on wayland, we must draw it from here
+     *Calling eel_background_draw() from caja_desktop_window_class_init()
+     *as we do in x11 gives a black background on wayland
+     *Wayland is always composited but never has a root window
+     *We don't have a root window to draw on
+     *the code used for x11 without compositing somehow fails too
+     *But we can get caja's toplevel window from here and draw on it
+     */
+    if  ((!(GDK_IS_X11_DISPLAY (gdk_display_get_default()))) && (CAJA_ICON_CONTAINER (widget)->details->is_desktop))
+    {
+        GtkWidget *toplevel = gtk_widget_get_toplevel(widget);
+        eel_background_draw (toplevel, cr);
+    }
 
     return GTK_WIDGET_CLASS (caja_icon_container_parent_class)->draw (widget,
                                                                       cr);
