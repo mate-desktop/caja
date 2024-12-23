@@ -502,6 +502,10 @@ caja_navigation_window_pane_remove_page (CajaNavigationWindowPane *pane, int pag
     g_signal_handlers_block_by_func (notebook,
                                      G_CALLBACK (notebook_switch_page_cb),
                                      pane);
+    /*catch crash on closing windows in wayland*/
+    if (!notebook)
+        return;
+
     gtk_notebook_remove_page (notebook, page_num);
     g_signal_handlers_unblock_by_func (notebook,
                                        G_CALLBACK (notebook_switch_page_cb),
