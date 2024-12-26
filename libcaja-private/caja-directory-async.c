@@ -494,6 +494,11 @@ async_job_wake_up (void)
         return;
     }
 
+    if (waiting_directories == NULL)
+    {
+        return;
+    }
+
     already_waking_up = TRUE;
     while (async_job_count < MAX_ASYNC_JOBS)
     {
