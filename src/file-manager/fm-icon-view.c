@@ -358,6 +358,12 @@ real_set_sort_criterion (FMIconView *icon_view,
     else
     {
         /* Store the new sort setting. */
+        if (!(sort))
+            return;
+
+        if (!(sort->metadata_text))
+            return;
+
         fm_icon_view_set_directory_sort_by (icon_view,
                                             file,
                                             sort->metadata_text);
