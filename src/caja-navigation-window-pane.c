@@ -503,7 +503,7 @@ caja_navigation_window_pane_remove_page (CajaNavigationWindowPane *pane, int pag
                                      G_CALLBACK (notebook_switch_page_cb),
                                      pane);
     /*catch crash on closing windows in wayland*/
-    if (!notebook)
+    if (!(GTK_IS_NOTEBOOK(notebook)))
         return;
 
     gtk_notebook_remove_page (notebook, page_num);
