@@ -4416,7 +4416,10 @@ destroy (GtkWidget *object)
     /* destroy interactive search dialog */
     if (container->details->search_window)
     {
-        gtk_widget_destroy (container->details->search_window);
+        /*current GTK docs do not advise calling gtk_widget_destroy on child widgets
+         *gtk_widget_destroy (container->details->search_window);
+         *also note that GtkContainer destroys it's child widgets when it is destroyed
+         */
         container->details->search_window = NULL;
         container->details->search_entry = NULL;
         if (container->details->typeselect_flush_timeout)
