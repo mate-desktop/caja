@@ -1,3 +1,91 @@
+### caja 1.29.0
+
+### caja 1.28.0
+
+  * Translation update
+  * Wl bgleaks fixes (#1763)
+  * wayland-background-dialog: fix two issues found by cppcheck
+  * wayland-background-dialog: ensure style provider is added only once
+  * eel-background: fix logic error in x11/wayland detection
+  * wayland-background-dialog: Preview images at original aspect ratio
+  * wayland-background-dialog: fix memory leaks
+  * wayland background dialog: fix build warning
+  * Make wayland background dialog more intuitive
+  * Manage desktop backgrounds when running in wayland
+  * wayland desktop: suppress spatial window warning
+  * Do not show "Organize Desktop by Name" when desktop icons are locked
+  * fix building with libxml 2.12.0
+
+### caja 1.27.2
+
+  * fix gfile sort and symlink warnings w glib2.76 or later
+
+### caja 1.27.1
+
+  * update translations
+  * wayland: initial support for showing the desktop
+  * ensure all of the desktop is usable in x11
+  * Replace deprecated code from xrandr fix
+  * caja-desktop-window: Fix the xrandr error
+  * caja-icon-container.c: Set a transient parent on the interactive search popup
+  * Initial wayland support
+  * caja-file: fix future informal date bug
+  * caja-file: fix yesterday/today informal date bug
+  * directory: Include hidden files in properties window
+  * Fix handling of invalid x-special/mate-icon-list drops
+  * icon view: Fix positioning overflowing icons on the desktop
+  * Make CajaIconData type less confusing
+  * Remove dead assignment
+  * Remove unused members and structures
+  * Remove unused member
+  * Enable showing in Budgie Desktop and XFCE
+  * icon view: Refresh icon positions for manual layout on zoom change (#1676)
+
+### caja 1.27.0
+
+  * update translations
+  * tx: update resource
+  * tx: migrate config file
+  * image properties: Look for supported mime types at runtime
+  * caja-extensions: print filename when caja failed to open keys file
+  * caja-bookmark: 'caja_bookmark_get_uri (CajaBookmark *)' may return NULL
+  * configure.ac: Bump Autoconf version because of LT_INIT
+  * image properties: Improve the layout
+  * Fix build warning -Wmissing-field-initializers
+  * Fix build warning -Wbad-function-cast
+  * Document and fix default-sort-order preference
+  * caja-file-conflict-dialog: Move to automatic signal disconnection
+  * caja-file-conflict-dialog: Properly release references on dispose()
+  * caja-file-conflict-dialog: update the icons once
+  * build: Cleanup long deprecated macros usage
+  * Properly initialize IconKey::scale
+  * caja-bookmark: Fix build warning -Wlogical-not-parentheses
+  * caja-application: Variable is assigned a value that is never used
+  * caja-bookmark: fix memory leak
+  * caja-bookmark: drop create_image_cairo_for_bookmark
+  * Fix implicit conversion changes signedness: 'gboolean' to 'guint'
+  * Fix some -Wsign-compare warnings
+  * caja-file-operations: overlapping comparisons always evaluate to true
+  * remove '-' from a m4_define
+  * CI: Drop -Wunused-parameter for debian build
+  * eel-editable-label: remove unused method get_font_description
+  * eel-editable-label: drop eel_editable_label_clear_layout
+  * caja-property-browser: 'gdk_color_parse' is deprecated
+  * caja-property-browser: Fix build warning -Wconstant-conversion
+  * caja-module: fix memory leak
+  * caja-sidebar-title: fix memory leak
+  * fm-directory-view: fix memory leak
+  * eel-background: fix memory leak
+  * caja-application: avoid SEGV when profiling/debugging code
+  * Use gresources for ui files
+  * caja-mime-actions: fix memory leak
+  * Remove whitespaces before #define, #if, and #endif
+  * Use a blank line at most
+  * caja-file: Remove unreachable code
+  * caja-places-sidebar: fix right-click menu height
+  * caja-dnd: wrong type field in printf format string
+  * Fix Caja does not show icons of application launchers
+
 ### caja 1.26.0
 
   * update translations

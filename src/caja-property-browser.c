@@ -29,6 +29,7 @@
  */
 
 #include <config.h>
+#include <limits.h>
 #include <math.h>
 
 #include <libxml/parser.h>
@@ -168,7 +169,6 @@ static GdkPixbuf * make_color_drag_image                        (CajaPropertyBro
         const char                    *color_spec,
         gboolean                       trim_edges);
 
-
 #define BROWSER_CATEGORIES_FILE_NAME "browser.xml"
 
 #define PROPERTY_BROWSER_WIDTH 540
@@ -196,9 +196,7 @@ static GtkTargetEntry drag_types[] =
     { "text/uri-list",  0, PROPERTY_TYPE }
 };
 
-
 G_DEFINE_TYPE_WITH_PRIVATE (CajaPropertyBrowser, caja_property_browser, GTK_TYPE_WINDOW)
-
 
 /* Destroy the three dialogs for adding patterns/colors/emblems if any of them
    exist. */
@@ -433,7 +431,6 @@ caja_property_browser_init (CajaPropertyBrowser *property_browser)
     g_signal_connect_object (property_browser->details->add_button, "clicked",
                              G_CALLBACK (add_new_button_callback), property_browser, 0);
 
-
     /* now create the actual content, with the category pane and the content frame */
 
     /* the actual contents are created when necessary */
@@ -581,7 +578,6 @@ caja_property_browser_drag_begin (GtkWidget *widget,
 
 }
 
-
 /* drag and drop data get handler */
 
 static void
@@ -620,18 +616,18 @@ caja_property_browser_drag_data_get (GtkWidget *widget,
         else if (strcmp (property_browser->details->drag_type,
                          "application/x-color") == 0)
         {
-            GdkColor color;
-            guint16 colorArray[4];
-
             /* handle the "reset" case as an image */
             if (g_strcmp0 (property_browser->details->dragged_file, RESET_IMAGE_NAME) != 0)
             {
-                gdk_color_parse (property_browser->details->dragged_file, &color);
+                GdkRGBA color;
+                guint16 colorArray [4];
 
-                colorArray[0] = color.red;
-                colorArray[1] = color.green;
-                colorArray[2] = color.blue;
-                colorArray[3] = 0xffff;
+                gdk_rgba_parse (&color, property_browser->details->dragged_file);
+
+                colorArray [0] = (guint16) (color.red   * 65535.0);
+                colorArray [1] = (guint16) (color.green * 65535.0);
+                colorArray [2] = (guint16) (color.blue  * 65535.0);
+                colorArray [3] = USHRT_MAX;
 
                 gtk_selection_data_set(selection_data,
                                        target, 16, (const char *) &colorArray[0], 8);
@@ -800,7 +796,6 @@ make_drag_image (CajaPropertyBrowser *property_browser, const char* file_name)
     return pixbuf;
 }
 
-
 /* create a pixbuf and fill it with a color */
 
 static GdkPixbuf*
@@ -809,15 +804,16 @@ make_color_drag_image (CajaPropertyBrowser *property_browser, const char *color_
     GdkPixbuf *color_square;
     GdkPixbuf *ret;
     int row, col, stride;
-    char *pixels;
-    GdkColor color;
+    guchar *pixels;
+    GdkRGBA color;
+    guchar red, green, blue;
 
     color_square = gdk_pixbuf_new (GDK_COLORSPACE_RGB, TRUE, 8, COLOR_SQUARE_SIZE, COLOR_SQUARE_SIZE);
 
-    gdk_color_parse (color_spec, &color);
-    color.red >>= 8;
-    color.green >>= 8;
-    color.blue >>= 8;
+    gdk_rgba_parse (&color, color_spec);
+    red   = (guchar) (color.red * 255.0);
+    green = (guchar) (color.green * 255.0);
+    blue  = (guchar) (color.blue * 255.0);
 
     pixels = gdk_pixbuf_get_pixels (color_square);
     stride = gdk_pixbuf_get_rowstride (color_square);
@@ -825,16 +821,16 @@ make_color_drag_image (CajaPropertyBrowser *property_browser, const char *color_
     /* loop through and set each pixel */
     for (row = 0; row < COLOR_SQUARE_SIZE; row++)
     {
-        char *row_pixels;
+        guchar *row_pixels;
 
         row_pixels =  (pixels + (row * stride));
 
         for (col = 0; col < COLOR_SQUARE_SIZE; col++)
         {
-            *row_pixels++ = color.red;
-            *row_pixels++ = color.green;
-            *row_pixels++ = color.blue;
-            *row_pixels++ = 255;
+            *row_pixels++ = red;
+            *row_pixels++ = green;
+            *row_pixels++ = blue;
+            *row_pixels++ = UCHAR_MAX;
         }
     }
 
@@ -1274,7 +1270,6 @@ add_pattern_to_browser (GtkDialog *dialog, gint response_id, gpointer data)
         return;
     }
 
-
     user_directory = caja_get_user_directory ();
 
     /* copy the image file to the patterns directory */
@@ -1304,7 +1299,6 @@ add_pattern_to_browser (GtkDialog *dialog, gint response_id, gpointer data)
     g_object_unref (selected);
     g_object_unref (dest);
     g_free (basename);
-
 
     /* update the property browser's contents to show the new one */
     caja_property_browser_update_contents (property_browser);
@@ -1486,7 +1480,6 @@ show_color_selection_window (GtkWidget *widget, gpointer data)
     gtk_widget_show (GTK_WIDGET(property_browser->details->colors_dialog));
 }
 
-
 /* here's the routine to add a new color, by putting up a color selector */
 
 static void
@@ -1579,7 +1572,6 @@ emblem_dialog_clicked (GtkWidget *dialog, int which_button, CajaPropertyBrowser 
         {
             stripped_keyword = g_strstrip (g_strdup (new_keyword));
         }
-
 
         caja_emblem_install_custom_emblem (pixbuf,
                                            stripped_keyword,
@@ -1947,7 +1939,6 @@ make_properties_from_directories (CajaPropertyBrowser *property_browser)
 
         blank = eel_image_table_add_empty_image (image_table);
         labeled_image_configure (EEL_LABELED_IMAGE (blank));
-
 
         num_images = eel_wrap_table_get_num_children (EEL_WRAP_TABLE (image_table));
         g_assert (num_images > 0);
@@ -2373,7 +2364,6 @@ caja_property_browser_update_contents (CajaPropertyBrowser *property_browser)
         }
         gtk_widget_show (property_browser->details->add_button);
 
-
         if (property_browser->details->remove_mode)
         {
 
@@ -2488,7 +2478,6 @@ caja_property_browser_set_category (CajaPropertyBrowser *property_browser,
     caja_property_browser_update_contents (property_browser);
 }
 
-
 /* here is the routine that populates the property browser with the appropriate information
    when the path changes */
 
@@ -2515,7 +2504,6 @@ emblems_changed_callback (GObject *signaller,
 {
     caja_property_browser_update_contents (property_browser);
 }
-
 
 static void
 emit_emblems_changed_signal (void)

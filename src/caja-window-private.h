@@ -214,7 +214,6 @@ gboolean           caja_add_to_history_list_no_notify                (GFile     
 GList *            caja_get_history_list                             (void);
 void               caja_window_bookmarks_preference_changed_callback (gpointer           user_data);
 
-
 /* sync window GUI with current slot. Used when changing slots,
  * and when updating the slot state.
  */

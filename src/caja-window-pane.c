@@ -36,7 +36,6 @@ G_DEFINE_TYPE (CajaWindowPane,
                G_TYPE_OBJECT)
 #define parent_class caja_window_pane_parent_class
 
-
 static inline CajaWindowSlot *
 get_first_inactive_slot (CajaWindowPane *pane)
 {
@@ -197,7 +196,6 @@ real_sync_location_widgets (CajaWindowPane *pane)
     caja_spatial_window_set_location_button (CAJA_SPATIAL_WINDOW (pane->window),
             slot->location);
 }
-
 
 void
 caja_window_pane_sync_location_widgets (CajaWindowPane *pane)

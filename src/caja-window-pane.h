@@ -78,7 +78,6 @@ struct _CajaWindowPane
 GType caja_window_pane_get_type (void);
 CajaWindowPane *caja_window_pane_new (CajaWindow *window);
 
-
 void caja_window_pane_show (CajaWindowPane *pane);
 void caja_window_pane_zoom_in (CajaWindowPane *pane);
 void caja_window_pane_zoom_to_level (CajaWindowPane *pane, CajaZoomLevel level);
@@ -92,6 +91,5 @@ void caja_window_pane_slot_close (CajaWindowPane *pane, CajaWindowSlot *slot);
 CajaWindowSlot* caja_window_pane_get_slot_for_content_box (CajaWindowPane *pane, GtkWidget *content_box);
 void caja_window_pane_switch_to (CajaWindowPane *pane);
 void caja_window_pane_grab_focus (CajaWindowPane *pane);
-
 
 #endif /* CAJA_WINDOW_PANE_H */

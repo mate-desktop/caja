@@ -44,7 +44,6 @@ caja_view_factory_lookup (const char *id)
 
     g_return_val_if_fail (id != NULL, NULL);
 
-
     for (l = registered_views; l != NULL; l = l->next)
     {
         view_info = l->data;
@@ -129,5 +128,4 @@ caja_view_factory_get_views_for_uri (const char *uri,
 
     return g_list_reverse (res);
 }
-
 

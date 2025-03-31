@@ -342,7 +342,6 @@ eel_stretch_frame_image (GdkPixbuf *frame_image, int left_offset, int top_offset
     return result_pixbuf;
 }
 
-
 /* draw an arbitrary frame around an image, with the result passed back in a newly allocated pixbuf */
 GdkPixbuf *
 eel_embed_image_in_frame (GdkPixbuf *source_image, GdkPixbuf *frame_image, int left_offset, int top_offset, int right_offset, int bottom_offset)

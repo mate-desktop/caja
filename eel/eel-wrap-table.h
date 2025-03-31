@@ -105,4 +105,3 @@ extern "C" {
 
 #endif /* EEL_WRAP_TABLE_H */
 
-

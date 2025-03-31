@@ -290,7 +290,6 @@ caja_sidebar_title_select_text_color (CajaSidebarTitle *sidebar_title,
     setup_gc_with_fg (sidebar_title, LABEL_INFO_COLOR_ACTIVE,
                       eel_gdk_rgba_is_dark (&color) ? light_info_color : dark_info_color);
 
-
     /* If EelBackground is not set in the widget, we can safely
      * use the foreground color from the theme, because it will
      * always be displayed against the gtk background */
@@ -441,6 +440,7 @@ override_title_font (GtkWidget   *widget,
 
     css = g_strdup_printf ("label { font-family: %s; font-size: %spt; }", tempfont, tempsize);
     gtk_css_provider_load_from_data (provider, css, -1, NULL);
+    g_free (tempsize);
     g_free (css);
 
     gtk_style_context_add_provider (gtk_widget_get_style_context (widget),
@@ -459,6 +459,7 @@ update_title_font (CajaSidebarTitle *sidebar_title)
     GtkAllocation allocation;
     PangoFontDescription *title_font, *tmp_font;
     PangoLayout *layout;
+    char *title_font_str;
 
     /* Make sure theres work to do */
     if (sidebar_title->details->title_text == NULL
@@ -508,7 +509,9 @@ update_title_font (CajaSidebarTitle *sidebar_title)
     pango_font_description_set_size (title_font, max_fit_font_size * PANGO_SCALE);
     pango_font_description_set_weight (title_font, PANGO_WEIGHT_BOLD);
 
-    override_title_font (sidebar_title->details->title_label, pango_font_description_to_string (title_font));
+    title_font_str = pango_font_description_to_string (title_font);
+    override_title_font (sidebar_title->details->title_label, title_font_str);
+    g_free (title_font_str);
 
     pango_font_description_free (title_font);
 }

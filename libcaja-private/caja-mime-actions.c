@@ -114,7 +114,6 @@ static void activate_callback                       (GList              *files,
         gpointer            callback_data);
 static void activation_mount_not_mounted            (ActivateParameters *parameters);
 
-
 static void
 launch_location_free (LaunchLocation *location)
 {
@@ -146,7 +145,6 @@ get_file_list_for_launch_locations (GList *locations)
     }
     return g_list_reverse (files);
 }
-
 
 static LaunchLocation *
 launch_location_from_file (CajaFile *file)
@@ -285,7 +283,6 @@ filter_non_uri_apps (GList *apps)
     return apps;
 }
 
-
 static gboolean
 caja_mime_actions_check_if_required_attributes_ready (CajaFile *file)
 {
@@ -311,7 +308,6 @@ file_has_local_path (CajaFile *file)
     GFile *location;
     char *path;
     gboolean res;
-
 
     /* Don't only check _is_native, because we want to support
        using the fuse path */
@@ -438,7 +434,6 @@ application_compare_by_id (const GAppInfo *app_a,
     {
         return 1;
     }
-
 
     return strcmp (id_a, id_b);
 }
@@ -808,7 +803,6 @@ get_executable_text_file_action (GtkWindow *parent_window, CajaFile *file)
 
     }
 
-
     file_name = caja_file_get_display_name (file);
     prompt = g_strdup_printf (_("Do you want to run \"%s\", or display its contents?"),
                               file_name);
@@ -937,7 +931,6 @@ caja_mime_file_opens_in_external_app (CajaFile *file)
     return (activation_action == ACTIVATION_ACTION_OPEN_IN_APPLICATION);
 }
 
-
 static unsigned int
 mime_application_hash (GAppInfo *app)
 {
@@ -966,7 +959,6 @@ list_to_parameters_foreach (GAppInfo *application,
                  (application, uris);
     *ret = g_list_prepend (*ret, parameters);
 }
-
 
 /**
  * make_activation_parameters
@@ -1151,7 +1143,6 @@ unpause_activation_timed_cancel (ActivateParameters *parameters)
         activation_start_timed_cancel (parameters);
     }
 }
-
 
 static void
 activate_mount_op_active (GtkMountOperation *operation,
@@ -1365,7 +1356,11 @@ show_unhandled_type_error (ActivateParametersInstall *parameters)
         	      NULL);
     } else {
         char *text;
-        text = g_strdup_printf (_("There is no application installed for %s files"), g_content_type_get_description (mime_type));
+        char *description;
+
+        description = g_content_type_get_description (mime_type);
+        text = g_strdup_printf (_("There is no application installed for %s files"), description);
+        g_free (description);
 
         dialog = gtk_message_dialog_new (parameters->parent_window,
         				 GTK_DIALOG_DESTROY_WITH_PARENT,
@@ -1519,6 +1514,7 @@ pk_proxy_appeared_cb (GObject *source,
 {
     ActivateParametersInstall *parameters_install = user_data;
     char *mime_type;
+    char *description;
     char *error_message;
     GtkWidget *dialog;
     GDBusProxy *proxy;
@@ -1548,10 +1544,12 @@ pk_proxy_appeared_cb (GObject *source,
                                      GTK_MESSAGE_ERROR,
                                      GTK_BUTTONS_YES_NO,
                                      "%s", error_message);
+    description = g_content_type_get_description (mime_type);
     gtk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG (dialog),
             _("There is no application installed for %s files.\n"
               "Do you want to search for an application to open this file?"),
-            g_content_type_get_description (mime_type));
+            description);
+    g_free (description);
     gtk_window_set_resizable (GTK_WINDOW (dialog), FALSE);
 
     parameters_install->dialog = dialog;
@@ -1942,7 +1940,6 @@ activate_files (ActivateParameters *parameters)
             open_in_view_files = g_list_reverse (open_in_view_files);
         }
 
-
         for (l = open_in_view_files; l != NULL; l = l->next)
         {
             GFile *f;
@@ -2116,7 +2113,6 @@ activation_mount_not_mounted (ActivateParameters *parameters)
     caja_file_list_free (files);
 }
 
-
 static void
 activate_callback (GList *files, gpointer callback_data)
 {
@@ -2155,7 +2151,6 @@ activate_callback (GList *files, gpointer callback_data)
             continue;
         }
     }
-
 
     if (parameters->not_mounted != NULL)
     {
@@ -2236,7 +2231,6 @@ activate_activation_uris_ready_callback (GList *files_ignore,
         g_free (uri);
     }
 
-
     /* get the parameters for the actual files */
     files = get_file_list_for_launch_locations (parameters->locations);
     caja_file_list_call_when_ready
@@ -2305,7 +2299,6 @@ activation_mountable_mounted (CajaFile  *file,
     parameters->mountables = g_list_remove (parameters->mountables, file);
     caja_file_unref (file);
 
-
     if (error == NULL)
     {
         CajaFile *target_file;
@@ -2360,7 +2353,6 @@ activation_mountable_mounted (CajaFile  *file,
     activation_mount_mountables (parameters);
 }
 
-
 static void
 activation_mount_mountables (ActivateParameters *parameters)
 {
@@ -2386,7 +2378,6 @@ activation_mount_mountables (ActivateParameters *parameters)
     if (parameters->mountables == NULL && parameters->start_mountables == NULL)
         activation_get_activation_uris (parameters);
 }
-
 
 static void
 activation_mountable_started (CajaFile  *file,
@@ -2537,7 +2528,6 @@ caja_mime_activate_files (GtkWindow *parent_window,
                                         file_count),
                                         file_count);
     }
-
 
     for (l = parameters->locations; l != NULL; l = next)
     {

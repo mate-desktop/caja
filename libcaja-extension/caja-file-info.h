@@ -155,7 +155,6 @@ gboolean      caja_file_info_is_mime_type         (CajaFileInfo *file,
 gboolean      caja_file_info_is_directory         (CajaFileInfo *file);
 gboolean      caja_file_info_can_write            (CajaFileInfo *file);
 
-
 /* Modifying the CajaFileInfo */
 void          caja_file_info_add_emblem           (CajaFileInfo *file,
                                                    const char   *emblem_name);

@@ -431,7 +431,6 @@ vfs_file_mount_callback (GObject *source_object,
     }
 }
 
-
 static void
 vfs_file_mount (CajaFile                   *file,
                 GMountOperation                *mount_op,
@@ -619,7 +618,6 @@ vfs_file_start_callback (GObject *source_object,
         g_error_free (error);
     }
 }
-
 
 static void
 vfs_file_start (CajaFile                   *file,

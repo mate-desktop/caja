@@ -73,7 +73,6 @@ typedef struct
     CajaFileAttributes non_delegated_attributes;
 } DesktopMonitor;
 
-
 static void caja_desktop_directory_file_init       (gpointer   object,
         gpointer   klass);
 static void caja_desktop_directory_file_class_init (gpointer   klass);
@@ -104,7 +103,6 @@ desktop_callback_equal (gconstpointer desktop_callback_as_pointer,
     return desktop_callback->callback == desktop_callback_2->callback
            && desktop_callback->callback_data == desktop_callback_2->callback_data;
 }
-
 
 static void
 real_file_changed_callback (CajaFile *real_file,
@@ -458,7 +456,6 @@ desktop_directory_file_get_where_string (CajaFile *file)
     return g_strdup (_("on the desktop"));
 }
 
-
 static void
 monitor_destroy (gpointer data)
 {
@@ -515,7 +512,6 @@ caja_desktop_directory_file_init (gpointer object, gpointer klass)
                              G_CALLBACK (real_file_changed_callback), desktop_file, 0);
 }
 
-
 static void
 desktop_callback_remove_file_cover (gpointer key,
                                     gpointer value,
@@ -524,7 +520,6 @@ desktop_callback_remove_file_cover (gpointer key,
     desktop_callback_remove_file
     (value, CAJA_FILE (callback_data));
 }
-
 
 static void
 desktop_finalize (GObject *object)

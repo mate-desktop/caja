@@ -142,7 +142,6 @@ static gboolean caja_path_bar_update_path              (CajaPathBar *path_bar,
         GFile           *file_path,
         gboolean         emit_signal);
 
-
 static GtkWidget *
 get_slider_button (CajaPathBar  *path_bar,
                    const gchar  *arrow_type)
@@ -185,7 +184,6 @@ update_button_types (CajaPathBar *path_bar)
         g_object_unref (path);
     }
 }
-
 
 static void
 desktop_location_changed_callback (gpointer user_data)
@@ -431,7 +429,6 @@ caja_path_bar_class_init (CajaPathBarClass *path_bar_class)
     gtk_container_class_handle_border_width (container_class);
 }
 
-
 static void
 caja_path_bar_finalize (GObject *object)
 {
@@ -547,7 +544,6 @@ caja_path_bar_get_preferred_width (GtkWidget *widget,
     gtk_widget_get_preferred_width (path_bar->up_slider_button,
                                     &slider_width,
                                     NULL);
-
 
     if (path_bar->button_list) {
         *minimum += (path_bar->spacing + slider_width) * 2;
@@ -930,7 +926,6 @@ caja_path_bar_scroll (GtkWidget      *widget,
     return FALSE;
 }
 
-
 static void
 caja_path_bar_add (GtkContainer *container,
                    GtkWidget    *widget)
@@ -1247,8 +1242,6 @@ caja_path_bar_state_flags_changed (GtkWidget     *widget,
     }
 }
 
-
-
 /* Changes the icons wherever it is needed */
 static void
 reload_icons (CajaPathBar *path_bar)
@@ -1383,7 +1376,6 @@ button_drag_begin_cb (GtkWidget *widget,
 	g_object_set_data (G_OBJECT (widget), "handle-button-release",
 			   GINT_TO_POINTER (FALSE));
 }
-
 
 static CajaIconInfo *
 get_type_icon_info (ButtonData *button_data)
@@ -1949,7 +1941,7 @@ make_directory_button (CajaPathBar  *path_bar,
                               button_data);
     }
 
-    button_data->file_is_hidden = file_is_hidden;
+    button_data->file_is_hidden = (file_is_hidden != FALSE);
 
     gtk_container_add (GTK_CONTAINER (button_data->button), child);
     gtk_widget_show_all (button_data->button);

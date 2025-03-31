@@ -56,7 +56,6 @@ EEL_CLASS_BOILERPLATE (CajaSearchBar,
                        caja_search_bar,
                        GTK_TYPE_EVENT_BOX)
 
-
 static void
 finalize (GObject *object)
 {

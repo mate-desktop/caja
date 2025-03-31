@@ -119,12 +119,6 @@ struct FMTreeModelRoot
     TreeNode *root_node;
 };
 
-typedef struct
-{
-    CajaDirectory *directory;
-    FMTreeModel *model;
-} DoneLoadingParameters;
-
 static void fm_tree_model_tree_model_init (GtkTreeModelIface *iface);
 static void schedule_monitoring_update     (FMTreeModel *model);
 static void destroy_node_without_reporting (FMTreeModel *model,
@@ -1101,7 +1095,7 @@ set_done_loading (FMTreeModel *model, TreeNode *node, gboolean done_loading)
 
     had_dummy = tree_node_has_dummy_child (node);
 
-    node->done_loading = done_loading;
+    node->done_loading = (done_loading != FALSE);
 
     if (tree_node_has_dummy_child (node))
     {
@@ -2113,5 +2107,4 @@ fm_tree_model_tree_model_init (GtkTreeModelIface *iface)
     iface->ref_node = fm_tree_model_ref_node;
     iface->unref_node = fm_tree_model_unref_node;
 }
-
 

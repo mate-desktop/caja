@@ -136,14 +136,11 @@ typedef enum
 #define CAJA_COMPACT_VIEW_IID	"OAFIID:Caja_File_Manager_Compact_View"
 #define CAJA_LIST_VIEW_IID		"OAFIID:Caja_File_Manager_List_View"
 
-
     /* Icon View */
 #define CAJA_PREFERENCES_ICON_VIEW_DEFAULT_USE_TIGHTER_LAYOUT	    "default-use-tighter-layout"
 #define CAJA_PREFERENCES_ICON_VIEW_DEFAULT_ZOOM_LEVEL		        "default-zoom-level"
 
 #define CAJA_PREFERENCES_ICON_VIEW_LABELS_BESIDE_ICONS      	"labels-beside-icons"
-
-
 
     /* Which text attributes appear beneath icon names */
 #define CAJA_PREFERENCES_ICON_VIEW_CAPTIONS				"captions"

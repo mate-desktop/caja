@@ -26,7 +26,6 @@
 #ifndef __EEL_EDITABLE_LABEL_H__
 #define __EEL_EDITABLE_LABEL_H__
 
-
 #include <gdk/gdk.h>
 #include <gtk/gtk.h>
 
@@ -86,7 +85,6 @@ extern "C" {
     {
         GtkWidgetClass parent_class;
 
-
         void (* move_cursor)        (EelEditableLabel  *label,
                                      GtkMovementStep    step,
                                      gint               count,
@@ -131,13 +129,11 @@ extern "C" {
     void                  eel_editable_label_get_layout_offsets   (EelEditableLabel *label,
             gint             *x,
             gint             *y);
-    PangoFontDescription *eel_editable_label_get_font_description (EelEditableLabel *label);
     void                  eel_editable_label_set_font_description (EelEditableLabel *label,
             const PangoFontDescription *desc);
 
 #ifdef __cplusplus
 }
 #endif /* __cplusplus */
-
 
 #endif /* __EEL_EDITABLE_LABEL_H__ */

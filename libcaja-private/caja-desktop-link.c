@@ -390,7 +390,6 @@ caja_desktop_link_get_activation_uri (CajaDesktopLink *link)
     return NULL;
 }
 
-
 gboolean
 caja_desktop_link_get_date (CajaDesktopLink *link,
                             CajaDateType     date_type,

@@ -57,6 +57,7 @@ caja_configurable_get_type (void)
             NULL,
             0,
             0,
+            NULL,
             NULL
         };
 
@@ -84,5 +85,4 @@ caja_configurable_run_config (CajaConfigurable *provider)
         CAJA_CONFIGURABLE_GET_IFACE (provider)->run_config(provider);
     }
 }
-
 

@@ -53,7 +53,6 @@ enum
     PROP_WIDTH_UNITS
 };
 
-
 static void eel_canvas_re_class_init (EelCanvasREClass *klass);
 static void eel_canvas_re_init       (EelCanvasRE      *re);
 static void eel_canvas_re_set_property (GObject              *object,
@@ -85,7 +84,6 @@ static void  diff_rects (Rect r1, Rect r2, int *count, Rect result[4]);
 static EelCanvasItemClass *re_parent_class;
 static EelCanvasREClass *rect_parent_class;
 
-
 GType
 eel_canvas_re_get_type (void)
 {
@@ -103,7 +101,8 @@ eel_canvas_re_get_type (void)
             NULL,           /* class_data */
             sizeof (EelCanvasRE),
             0,              /* n_preallocs */
-            (GInstanceInitFunc) eel_canvas_re_init
+            (GInstanceInitFunc) eel_canvas_re_init,
+            NULL            /* value_table */
         };
 
         re_type = g_type_register_static (eel_canvas_item_get_type (),
@@ -206,7 +205,7 @@ eel_canvas_re_set_fill (EelCanvasRE *re, gboolean fill_set)
 {
     if (re->fill_set != fill_set)
     {
-        re->fill_set = fill_set;
+        re->fill_set = (fill_set != FALSE);
         eel_canvas_item_request_update (EEL_CANVAS_ITEM (re));
     }
 }
@@ -216,7 +215,7 @@ eel_canvas_re_set_outline (EelCanvasRE *re, gboolean outline_set)
 {
     if (re->outline_set != outline_set)
     {
-        re->outline_set = outline_set;
+        re->outline_set = (outline_set != FALSE);
         eel_canvas_item_request_update (EEL_CANVAS_ITEM (re));
     }
 }
@@ -410,7 +409,6 @@ eel_canvas_re_translate (EelCanvasItem *item, double dx, double dy)
     re->y2 += dy;
 }
 
-
 static void
 eel_canvas_re_bounds (EelCanvasItem *item, double *x1, double *y1, double *x2, double *y2)
 {
@@ -434,7 +432,6 @@ eel_canvas_re_bounds (EelCanvasItem *item, double *x1, double *y1, double *x2, d
 }
 
 /* Rectangle item */
-
 
 static void eel_canvas_rect_class_init (EelCanvasRectClass *klass);
 static void eel_canvas_rect_init (EelCanvasRect *rect);
@@ -469,7 +466,8 @@ eel_canvas_rect_get_type (void)
             NULL,           /* class_data */
             sizeof (EelCanvasRect),
             0,              /* n_preallocs */
-            (GInstanceInitFunc) eel_canvas_rect_init
+            (GInstanceInitFunc) eel_canvas_rect_init,
+            NULL            /* value_table */
         };
 
         rect_type = g_type_register_static (eel_canvas_re_get_type (),
@@ -695,7 +693,6 @@ request_redraw_borders (EelCanvas *canvas,
                                update_rect->x1,       update_rect->y1);
 }
 
-
 static void
 eel_canvas_rect_update (EelCanvasItem *item, double i2w_dx, double i2w_dy, gint flags)
 {
@@ -740,7 +737,12 @@ eel_canvas_rect_update (EelCanvasItem *item, double i2w_dx, double i2w_dy, gint 
         if (re->width_pixels)
             width_pixels = (int) re->width;
         else
-            width_pixels = (int) floor (re->width * re->item.canvas->pixels_per_unit + 0.5);
+        {
+            double pixels;
+
+            pixels = floor (re->width * re->item.canvas->pixels_per_unit + 0.5);
+            width_pixels = (int) pixels;
+        }
 
         width_lt = width_pixels / 2;
         width_rb = (width_pixels + 1) / 2;

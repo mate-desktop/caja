@@ -153,7 +153,6 @@ eel_irect_get_height (EelIRect rectangle)
     return rectangle.y1 - rectangle.y0;
 }
 
-
 static void
 eel_drect_copy (EelDRect *dest,
                 const EelDRect *src)
@@ -191,7 +190,6 @@ eel_drect_union (EelDRect *dest,
         dest->y1 = MAX (src1->y1, src2->y1);
     }
 }
-
 
 /**
  * eel_irect_contains_point:
@@ -283,7 +281,6 @@ eel_irect_align (EelIRect container,
 
     return aligned;
 }
-
 
 /**
  * eel_dimensions_are_empty:

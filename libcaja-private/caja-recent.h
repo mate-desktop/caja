@@ -1,5 +1,4 @@
 
-
 #ifndef __CAJA_RECENT_H__
 #define __CAJA_RECENT_H__
 

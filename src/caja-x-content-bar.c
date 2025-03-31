@@ -110,7 +110,6 @@ caja_x_content_bar_set_x_content_type (CajaXContentBar *bar, const char *x_conte
         message = g_strdup_printf (_("The media has been detected as \"%s\"."), description);
     }
 
-
     gtk_label_set_text (GTK_LABEL (bar->priv->label), message);
     gtk_widget_show (bar->priv->label);
 
@@ -183,7 +182,6 @@ caja_x_content_bar_set_mount (CajaXContentBar *bar, GMount *mount)
     }
     bar->priv->mount = mount != NULL ? g_object_ref (mount) : NULL;
 }
-
 
 static void
 caja_x_content_bar_set_property (GObject      *object,

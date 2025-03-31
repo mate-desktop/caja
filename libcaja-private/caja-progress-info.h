@@ -51,7 +51,7 @@ GType caja_progress_info_get_type (void) G_GNUC_CONST;
  */
 
 CajaProgressInfo *caja_progress_info_new (gboolean should_start, gboolean can_pause);
-void caja_progress_info_get_ready (CajaProgressInfo *info);
+void caja_progress_info_get_ready (CajaProgressInfo *info, GTimer *time);
 void caja_progress_info_disable_pause (CajaProgressInfo *info);
 
 GList *       caja_get_all_progress_info (void);
@@ -81,6 +81,5 @@ void          caja_progress_info_set_progress    (CajaProgressInfo *info,
         double                current,
         double                total);
 void          caja_progress_info_pulse_progress  (CajaProgressInfo *info);
-
 
 #endif /* CAJA_PROGRESS_INFO_H */

@@ -317,7 +317,6 @@ create_rename_emblem_dialog (CajaEmblemSidebar *emblem_sidebar,
     gtk_box_pack_start (GTK_BOX (gtk_dialog_get_content_area (GTK_DIALOG (dialog))), label,
                         FALSE, FALSE, 8);
 
-
     hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 8);
     gtk_box_pack_start (GTK_BOX (hbox), image, TRUE, TRUE, 8);
 
@@ -334,7 +333,6 @@ create_rename_emblem_dialog (CajaEmblemSidebar *emblem_sidebar,
 
     gtk_box_pack_start (GTK_BOX (gtk_dialog_get_content_area (GTK_DIALOG (dialog))), hbox,
                         TRUE, TRUE, 8);
-
 
     return dialog;
 }
@@ -407,14 +405,11 @@ create_emblem_widget_with_pixbuf (CajaEmblemSidebar *emblem_sidebar,
 
     prelight_pixbuf = eel_create_spotlight_pixbuf (pixbuf);
 
-
     gtk_drag_source_set (event_box, GDK_BUTTON1_MASK, drag_types,
                          G_N_ELEMENTS (drag_types),
                          GDK_ACTION_COPY | GDK_ACTION_MOVE);
 
     gtk_drag_source_set_icon_pixbuf (event_box, pixbuf);
-
-
 
     g_signal_connect (event_box, "button_press_event",
                       G_CALLBACK (caja_emblem_sidebar_button_press_cb),
@@ -489,12 +484,10 @@ emblem_name_entry_changed_cb (GtkWidget *entry, Emblem *emblem)
     emblem->name = g_strdup (text);
 }
 
-
 static void
 destroy_emblem (Emblem *emblem, gpointer user_data)
 {
     g_return_if_fail (emblem != NULL);
-
 
     if (emblem->pixbuf != NULL)
     {
@@ -1003,7 +996,6 @@ caja_emblem_sidebar_populate (CajaEmblemSidebar *emblem_sidebar)
                            (emblem_sidebar->details->emblems_table),
                            emblem_widget);
     }
-
 
     icons = caja_emblem_list_available ();
 

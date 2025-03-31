@@ -31,7 +31,6 @@ main  (int argc, char *argv[])
 #endif
 	g_free (image_uri);
 
-
 	gtk_widget_show_all (window);
 	gtk_main ();
 

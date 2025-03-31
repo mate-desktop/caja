@@ -30,11 +30,6 @@
 #include "caja-search-engine-simple.h"
 #include "caja-search-engine-tracker.h"
 
-struct CajaSearchEngineDetails
-{
-    int none;
-};
-
 enum
 {
     HITS_ADDED,
@@ -50,30 +45,9 @@ G_DEFINE_ABSTRACT_TYPE (CajaSearchEngine,
                         caja_search_engine,
                         G_TYPE_OBJECT);
 
-static GObjectClass *parent_class = NULL;
-
-static void
-finalize (GObject *object)
-{
-    CajaSearchEngine *engine;
-
-    engine = CAJA_SEARCH_ENGINE (object);
-
-    g_free (engine->details);
-
-    EEL_CALL_PARENT (G_OBJECT_CLASS, finalize, (object));
-}
-
 static void
 caja_search_engine_class_init (CajaSearchEngineClass *class)
 {
-    GObjectClass *gobject_class;
-
-    parent_class = g_type_class_peek_parent (class);
-
-    gobject_class = G_OBJECT_CLASS (class);
-    gobject_class->finalize = finalize;
-
     signals[HITS_ADDED] =
         g_signal_new ("hits-added",
                       G_TYPE_FROM_CLASS (class),
@@ -118,7 +92,6 @@ caja_search_engine_class_init (CajaSearchEngineClass *class)
 static void
 caja_search_engine_init (CajaSearchEngine *engine)
 {
-    engine->details = g_new0 (CajaSearchEngineDetails, 1);
 }
 
 CajaSearchEngine *
@@ -160,7 +133,6 @@ caja_search_engine_start (CajaSearchEngine *engine)
     CAJA_SEARCH_ENGINE_GET_CLASS (engine)->start (engine);
 }
 
-
 void
 caja_search_engine_stop (CajaSearchEngine *engine)
 {
@@ -187,7 +159,6 @@ caja_search_engine_hits_added (CajaSearchEngine *engine, GList *hits)
     g_signal_emit (engine, signals[HITS_ADDED], 0, hits);
 }
 
-
 void
 caja_search_engine_hits_subtracted (CajaSearchEngine *engine, GList *hits)
 {
@@ -195,7 +166,6 @@ caja_search_engine_hits_subtracted (CajaSearchEngine *engine, GList *hits)
 
     g_signal_emit (engine, signals[HITS_SUBTRACTED], 0, hits);
 }
-
 
 void
 caja_search_engine_finished (CajaSearchEngine *engine)

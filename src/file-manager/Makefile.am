@@ -23,6 +23,8 @@ libcaja_file_manager_la_SOURCES = \
 	fm-actions.h \
 	fm-desktop-icon-view.c \
 	fm-desktop-icon-view.h \
+	fm-desktop-wayland-bg-dialog.c \
+	fm-desktop-wayland-bg-dialog.h \
 	fm-directory-view.c \
 	fm-directory-view.h \
 	fm-widget-view.c \

@@ -206,7 +206,6 @@ fm_report_error_setting_group (CajaFile *file,
                                    error->message);
     }
 
-
     eel_show_error_dialog (_("The group could not be changed."), message, parent_window);
 
     g_free (file_name);

@@ -35,7 +35,6 @@
  * abbreviation to mean a case-insensitive char *.
  */
 
-
 /* NULL is allowed for all the str parameters to these functions. */
 
 /* Versions of basic string functions that allow NULL, and handle
@@ -68,7 +67,6 @@ char *   eel_str_capitalize                (const char    *str);
  */
 char *   eel_str_middle_truncate           (const char    *str,
         guint          truncate_length);
-
 
 /* Remove all characters after the passed-in substring. */
 char *   eel_str_strip_substring_and_after (const char    *str,

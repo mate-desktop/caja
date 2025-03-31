@@ -535,7 +535,6 @@ eel_labeled_image_class_init (EelLabeledImageClass *labeled_image_class)
 
     widget_class->destroy = eel_labeled_image_destroy;
 
-
     /* GtkWidgetClass */
     widget_class->size_allocate = eel_labeled_image_size_allocate;
     widget_class->get_preferred_width = eel_labeled_image_get_preferred_width;
@@ -546,7 +545,6 @@ eel_labeled_image_class_init (EelLabeledImageClass *labeled_image_class)
     widget_class->unmap = eel_labeled_image_unmap;
 
     gtk_widget_class_set_accessible_type (widget_class, eel_labeled_image_accessible_get_type ());
-
 
     /* GtkContainerClass */
     container_class->add = eel_labeled_image_add;
@@ -576,7 +574,6 @@ eel_labeled_image_class_init (EelLabeledImageClass *labeled_image_class)
                                   GDK_KEY_space, 0,
                                   "activate", 0);
 
-
     /* Properties */
     g_object_class_install_property (
         gobject_class,
@@ -589,7 +586,6 @@ eel_labeled_image_class_init (EelLabeledImageClass *labeled_image_class)
         PROP_LABEL,
         g_param_spec_string ("label", NULL, NULL,
                              "", G_PARAM_READWRITE));
-
 
     g_object_class_install_property (
         gobject_class,
@@ -610,7 +606,6 @@ eel_labeled_image_class_init (EelLabeledImageClass *labeled_image_class)
         PROP_SHOW_IMAGE,
         g_param_spec_boolean ("show_image", NULL, NULL,
                               TRUE, G_PARAM_READWRITE));
-
 
     g_object_class_install_property (
         gobject_class,
@@ -1488,7 +1483,6 @@ eel_labeled_image_get_show_image (const EelLabeledImage *labeled_image)
     return labeled_image->details->show_image;
 }
 
-
 /**
  * eel_labeled_image_set_fixed_image_height:
  * @labeled_image: A EelLabeledImage.
@@ -2309,7 +2303,8 @@ eel_labeled_image_button_get_type (void)
             NULL, /* class_data */
             sizeof (GtkButton),
             0, /* n_preallocs */
-            (GInstanceInitFunc) NULL
+            (GInstanceInitFunc) NULL,
+            NULL /* value_table */
         };
 
         type = g_type_register_static
@@ -2337,7 +2332,8 @@ eel_labeled_image_check_button_get_type (void)
             NULL, /* class_data */
             sizeof (GtkCheckButton),
             0, /* n_preallocs */
-            (GInstanceInitFunc) NULL
+            (GInstanceInitFunc) NULL,
+            NULL /* value_table */
         };
 
         type = g_type_register_static
@@ -2365,7 +2361,8 @@ eel_labeled_image_toggle_button_get_type (void)
             NULL, /* class_data */
             sizeof (GtkToggleButton),
             0, /* n_preallocs */
-            (GInstanceInitFunc) NULL
+            (GInstanceInitFunc) NULL,
+            NULL /* value_table */
         };
 
         type = g_type_register_static
@@ -2375,7 +2372,6 @@ eel_labeled_image_toggle_button_get_type (void)
 
     return type;
 }
-
 
 static GType
 eel_labeled_image_radio_button_get_type (void)
@@ -2394,7 +2390,8 @@ eel_labeled_image_radio_button_get_type (void)
             NULL, /* class_data */
             sizeof (GtkRadioButton),
             0, /* n_preallocs */
-            (GInstanceInitFunc) NULL
+            (GInstanceInitFunc) NULL,
+            NULL /* value_table */
         };
 
         type = g_type_register_static

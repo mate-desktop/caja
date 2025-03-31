@@ -58,6 +58,7 @@ caja_property_page_provider_get_type (void)
             NULL,
             0,
             0,
+            NULL,
             NULL
         };
 
@@ -93,5 +94,4 @@ caja_property_page_provider_get_pages (CajaPropertyPageProvider *provider,
     return CAJA_PROPERTY_PAGE_PROVIDER_GET_IFACE (provider)->get_pages
            (provider, files);
 }
-
 

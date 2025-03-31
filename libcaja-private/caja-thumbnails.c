@@ -152,7 +152,6 @@ get_thumbnail_factory (void)
     return thumbnail_factory;
 }
 
-
 /* This function is added as a very low priority idle function to start the
    thread to create any needed thumbnails. It is added with a very low priority
    so that it doesn't delay showing the directory in the icon/list views.
@@ -258,11 +257,9 @@ caja_thumbnail_prioritize (const char *file_uri)
     g_mutex_unlock (&thumbnails_mutex);
 }
 
-
 /***************************************************************************
  * Thumbnail Thread Functions.
  ***************************************************************************/
-
 
 /* This is a one-shot idle callback called from the main loop to call
    notify_file_changed() for a thumbnail. It frees the uri afterwards.
@@ -410,7 +407,6 @@ caja_create_thumbnail (CajaFile *file)
     }
 
     info->original_file_mtime = file_mtime;
-
 
 #ifdef DEBUG_THUMBNAILS
     g_message ("(Main Thread) Locking mutex\n");

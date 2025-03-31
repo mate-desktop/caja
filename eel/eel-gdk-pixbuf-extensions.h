@@ -36,7 +36,6 @@ GdkPixbuf *          eel_gdk_pixbuf_load_from_stream          (GInputStream     
 GdkPixbuf *          eel_gdk_pixbuf_load_from_stream_at_size  (GInputStream          *stream,
         int                    size);
 
-
 GdkPixbuf *          eel_gdk_pixbuf_scale_down_to_fit         (GdkPixbuf             *pixbuf,
         int                    max_width,
         int                    max_height);
@@ -59,13 +58,11 @@ double              eel_gdk_scale_to_min_factor               (int              
         int                   *scaled_width,
         int                   *scaled_height);
 
-
 /* Save a pixbuf to a png file.  Return value indicates succss/TRUE or failure/FALSE */
 gboolean             eel_gdk_pixbuf_save_to_file              (const GdkPixbuf       *pixbuf,
         const char            *file_name);
 void                 eel_gdk_pixbuf_ref_if_not_null           (GdkPixbuf             *pixbuf_or_null);
 void                 eel_gdk_pixbuf_unref_if_not_null         (GdkPixbuf             *pixbuf_or_null);
-
 
 /* Scales large pixbufs down fast */
 GdkPixbuf *          eel_gdk_pixbuf_scale_down                (GdkPixbuf *pixbuf,

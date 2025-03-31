@@ -41,7 +41,6 @@
  * #CajaMenuItem objects, using caja_menu_item_set_submenu().
  */
 
-
 struct _CajaMenuPrivate {
     GList *item_list;
 };

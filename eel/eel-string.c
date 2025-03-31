@@ -365,7 +365,6 @@ enum
 
 typedef int ArgType; /* An int, because custom are < 0 */
 
-
 static const char *
 get_position (const char *format, int *i)
 {
@@ -406,7 +405,6 @@ is_length_modifier (char c)
 {
     return strchr ("hlLjzt", c) != NULL;
 }
-
 
 static ArgType
 get_arg_type_from_format (EelPrintfHandler *custom_handlers,

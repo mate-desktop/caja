@@ -82,7 +82,6 @@ caja_compute_title_for_location (GFile *location)
     return title;
 }
 
-
 /**
  * caja_get_user_directory:
  *
@@ -186,7 +185,6 @@ typedef struct {
 	char*path;
 	CajaFile* file;
 } XdgDirEntry;
-
 
 static XdgDirEntry *
 parse_xdg_dirs (const char *config_file)
@@ -559,7 +557,6 @@ caja_get_desktop_location (void)
     return res;
 }
 
-
 /**
  * caja_get_desktop_directory_uri:
  *
@@ -585,7 +582,6 @@ caja_get_home_directory_uri (void)
 {
     return  g_filename_to_uri (g_get_home_dir (), NULL, NULL);
 }
-
 
 gboolean
 caja_should_use_templates_directory (void)
@@ -634,7 +630,6 @@ static GFile *desktop_dir = NULL;
 static GFile *desktop_dir_dir = NULL;
 static char *desktop_dir_filename = NULL;
 static gboolean desktop_dir_changed_callback_installed = FALSE;
-
 
 static void
 desktop_dir_changed (void)
@@ -721,7 +716,6 @@ caja_is_root_directory (GFile *dir)
 
     return g_file_equal (dir, root_dir);
 }
-
 
 gboolean
 caja_is_desktop_directory_file (GFile *dir,

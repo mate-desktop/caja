@@ -25,11 +25,9 @@
 	    Andy Hertzfeld <andy@eazel.com>
 	    Pavel Cisler <pavel@eazel.com>
 
-
    XDS support: Benedikt Meurer <benny@xfce.org> (adapted by Amos Brocco <amos.brocco@unifr.ch>)
 
 */
-
 
 #include <config.h>
 #include <math.h>
@@ -182,7 +180,6 @@ set_shadow_position (EelCanvasItem *shadow,
                          "x", x, "y", y,
                          NULL);
 }
-
 
 /* Source-side handling of the drag. */
 
@@ -338,7 +335,6 @@ drag_data_get_callback (GtkWidget *widget,
     caja_drag_drag_data_get (widget, context, selection_data,
                              info, time, widget, each_icon_get_data_binder);
 }
-
 
 /* Target-side handling of the drag.  */
 
@@ -623,8 +619,6 @@ caja_icon_container_selection_items_local (CajaIconContainer *container,
 
     /* must have at least one item */
     g_assert (items);
-
-    result = FALSE;
 
     /* get the URI associated with the container */
     container_uri_string = get_container_uri (container);
@@ -952,7 +946,6 @@ handle_local_move (CajaIconContainer *container,
     GList *moved_icons, *p;
     CajaFile *file;
     char screen_string[32];
-    GdkScreen *screen;
     time_t now;
     CajaDragSelectionItem *item = NULL;
     CajaIcon *icon = NULL;
@@ -977,13 +970,15 @@ handle_local_move (CajaIconContainer *container,
         {
             /* probably dragged from another screen.  Add it to
              * this screen
+             * Update: since GTK 3.22 there is only ONE screen
+             * even with multiple monitors
              */
 
             file = caja_file_get_by_uri (item->uri);
-
-            screen = gtk_widget_get_screen (GTK_WIDGET (container));
+            
             g_snprintf (screen_string, sizeof (screen_string), "%d",
-                        gdk_x11_screen_get_screen_number (screen));
+                        /*gdk_x11_screen_get_screen_number (screen)); This is ALWAYS 0 since GTK 3.22*/
+                        0);
             caja_file_set_metadata (file,
                                     CAJA_METADATA_KEY_SCREEN,
                                     NULL, screen_string);
@@ -1220,7 +1215,6 @@ selection_is_image_file (GList *selection_list)
 
     return result;
 }
-
 
 static void
 caja_icon_container_receive_dropped_icons (CajaIconContainer *container,
@@ -1913,8 +1907,10 @@ drag_data_received_callback (GtkWidget *widget,
                 caja_file_changes_queue_schedule_position_set (
                     location,
                     p,
-                    gdk_x11_screen_get_screen_number (
-                        gtk_widget_get_screen (widget)));
+                    0);
+                    /*gdk_x11_screen_get_screen_number  
+                     *Always returns 0 since GTK 3.22
+                     */
                 g_object_unref (location);
                 caja_file_changes_consume_changes (TRUE);
                 success = TRUE;
@@ -1943,7 +1939,6 @@ caja_icon_dnd_init (CajaIconContainer *container)
     g_return_if_fail (container != NULL);
     g_return_if_fail (CAJA_IS_ICON_CONTAINER (container));
 
-
     container->details->dnd_info = g_new0 (CajaIconDndInfo, 1);
     caja_drag_init (&container->details->dnd_info->drag_info,
                     drag_types, G_N_ELEMENTS (drag_types), TRUE);
@@ -1965,7 +1960,6 @@ caja_icon_dnd_init (CajaIconContainer *container)
 
     targets = gtk_drag_dest_get_target_list (GTK_WIDGET (container));
     gtk_target_list_add_text_targets (targets, CAJA_ICON_DND_TEXT);
-
 
     /* Messages for outgoing drag. */
     g_signal_connect (container, "drag_begin",

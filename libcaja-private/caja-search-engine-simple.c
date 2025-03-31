@@ -42,7 +42,6 @@ typedef struct
     GList *mime_types;
     GList *tags;
     char **words;
-    GList *found_list;
 
     GQueue *directories; /* GFiles */
 
@@ -53,7 +52,6 @@ typedef struct
     gint64 timestamp;
     gint64 size;
 } SearchThreadData;
-
 
 struct CajaSearchEngineSimpleDetails
 {
@@ -173,7 +171,6 @@ typedef struct
     SearchThreadData *thread_data;
 } SearchHits;
 
-
 static gboolean
 search_thread_add_hits_idle (gpointer user_data)
 {
@@ -218,7 +215,6 @@ send_batch (SearchThreadData *data)
 	G_FILE_ATTRIBUTE_STANDARD_IS_HIDDEN "," \
 	G_FILE_ATTRIBUTE_STANDARD_TYPE "," \
 	G_FILE_ATTRIBUTE_ID_FILE
-
 
 /* Stolen code
  * file: glocalfileinfo.c
@@ -620,7 +616,6 @@ next:
     g_object_unref (enumerator);
 }
 
-
 static gpointer
 search_thread_func (gpointer user_data)
 {
@@ -748,7 +743,6 @@ caja_search_engine_simple_init (CajaSearchEngineSimple *engine)
 {
     engine->details = g_new0 (CajaSearchEngineSimpleDetails, 1);
 }
-
 
 CajaSearchEngine *
 caja_search_engine_simple_new (void)

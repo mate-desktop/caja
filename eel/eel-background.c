@@ -105,7 +105,7 @@ free_background_surface (EelBackground *self)
            it will live forever, so we need to kill it manually.
            If set as root background it will be killed next time the
            background is changed. */
-        if (self->details->unset_root_surface)
+        if (GDK_IS_X11_DISPLAY (gdk_display_get_default()) && (self->details->unset_root_surface))
         {
             XKillClient (cairo_xlib_surface_get_display (surface),
                          cairo_xlib_surface_get_drawable (surface));
@@ -311,9 +311,20 @@ drawable_get_adjusted_size (EelBackground *self,
     if (self->details->is_desktop)
     {
         GdkScreen *screen = gtk_widget_get_screen (self->details->widget);
-        gint scale = gtk_widget_get_scale_factor (self->details->widget);
-        *width = WidthOfScreen (gdk_x11_screen_get_xscreen (screen)) / scale;
-        *height = HeightOfScreen (gdk_x11_screen_get_xscreen (screen)) / scale;
+        GdkDisplay *display = gdk_screen_get_display (screen);
+        if (GDK_IS_X11_DISPLAY (display))
+        {
+               gint scale = gtk_widget_get_scale_factor (self->details->widget);
+               *width = WidthOfScreen (gdk_x11_screen_get_xscreen (screen)) / scale;
+               *height = HeightOfScreen (gdk_x11_screen_get_xscreen (screen)) / scale;
+        }
+        else {
+                GdkRectangle workarea = {0};
+                gdk_monitor_get_workarea(gdk_display_get_monitor_at_window(gdk_display_get_default(),
+                                        gtk_widget_get_window (self->details->widget)), &workarea);
+                *width = workarea.width;
+                *height = workarea.height;
+        }
     }
     else
     {
@@ -413,17 +424,18 @@ set_root_surface (EelBackground *self,
                   GdkScreen     *screen)
 {
     eel_background_ensure_realized (self);
+    GdkDisplay *display = gdk_screen_get_display (screen);
 
     if (self->details->use_common_surface) {
         self->details->unset_root_surface = FALSE;
     } else {
         int width, height;
         drawable_get_adjusted_size (self, &width, &height);
-        self->details->bg_surface = mate_bg_create_surface (self->details->bg, window,
-        						    width, height, TRUE);
+        if ((GDK_IS_X11_DISPLAY (display)) && (self->details->bg_surface == NULL))
+            self->details->bg_surface = mate_bg_create_surface (self->details->bg, window,
+                                                                width, height, TRUE);
     }
-
-    if (self->details->bg_surface != NULL)
+    if ((GDK_IS_X11_DISPLAY (display)) && (self->details->bg_surface != NULL))
         mate_bg_set_surface_as_root (screen, self->details->bg_surface);
 }
 
@@ -638,7 +650,7 @@ widget_realized_setup (GtkWidget     *widget,
     }
 
     GdkScreen *screen = gtk_widget_get_screen (widget);
-    GdkWindow *window = gdk_screen_get_root_window (screen);
+    GdkDisplay *display = gdk_screen_get_display (screen);
 
     if (self->details->screen_size_handler > 0)
     {
@@ -654,9 +666,16 @@ widget_realized_setup (GtkWidget     *widget,
     self->details->screen_monitors_handler =
         g_signal_connect (screen, "monitors-changed", G_CALLBACK (screen_size_changed), self);
 
-    self->details->use_common_surface =
-        (gdk_window_get_visual (window) == gtk_widget_get_visual (widget)) ? TRUE : FALSE;
-
+    if (GDK_IS_X11_DISPLAY (display))
+    {
+        GdkWindow *window = gdk_screen_get_root_window (screen);
+        self->details->use_common_surface =
+            (gdk_window_get_visual (window) == gtk_widget_get_visual (widget)) ? TRUE : FALSE;
+    }
+    else    /*Wayland is always composited but never has a root window*/
+    {
+        self->details->use_common_surface = FALSE;
+    }
     init_fade (self);
 }
 
@@ -1001,13 +1020,19 @@ void
 eel_bg_load_from_gsettings (EelBackground *self,
 			    GSettings     *settings)
 {
-    char *keyfile = g_settings_get_string (settings, MATE_BG_KEY_PICTURE_FILENAME);
+    char *picture_filename;
 
-    if (!g_file_test (keyfile, G_FILE_TEST_EXISTS) && (*keyfile != '\0'))
+    picture_filename = g_settings_get_string (settings,
+                                              MATE_BG_KEY_PICTURE_FILENAME);
+    if ((*picture_filename != '\0') &&
+        !g_file_test (picture_filename, G_FILE_TEST_EXISTS))
     {
-        *keyfile = '\0';
-        g_settings_set_string (settings, MATE_BG_KEY_PICTURE_FILENAME, keyfile);
+        *picture_filename = '\0';
+        g_settings_set_string (settings,
+                               MATE_BG_KEY_PICTURE_FILENAME,
+                               picture_filename);
     }
+    g_free (picture_filename);
 
     if (self->details->bg)
         mate_bg_load_from_gsettings (self->details->bg,
@@ -1136,7 +1161,6 @@ eel_background_new (void)
 {
     return EEL_BACKGROUND (g_object_new (EEL_TYPE_BACKGROUND, NULL));
 }
-
 
 /*
  * self check code

@@ -27,7 +27,6 @@
 typedef struct _CajaPathBar      CajaPathBar;
 typedef struct _CajaPathBarClass CajaPathBarClass;
 
-
 #define CAJA_TYPE_PATH_BAR                 (caja_path_bar_get_type ())
 #define CAJA_PATH_BAR(obj)                 (G_TYPE_CHECK_INSTANCE_CAST ((obj), CAJA_TYPE_PATH_BAR, CajaPathBar))
 #define CAJA_PATH_BAR_CLASS(klass)         (G_TYPE_CHECK_CLASS_CAST ((klass), CAJA_TYPE_PATH_BAR, CajaPathBarClass))

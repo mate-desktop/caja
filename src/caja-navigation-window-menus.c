@@ -65,7 +65,6 @@
 
 static void                  schedule_refresh_go_menu                      (CajaNavigationWindow   *window);
 
-
 static void
 action_close_all_windows_callback (GtkAction *action,
                                    gpointer user_data)
@@ -201,8 +200,6 @@ action_show_hide_toolbar_callback (GtkAction *action,
     }
     G_GNUC_END_IGNORE_DEPRECATIONS;
 }
-
-
 
 static void
 action_show_hide_sidebar_callback (GtkAction *action,
@@ -611,7 +608,6 @@ action_new_window_callback (GtkAction *action,
     current_window = CAJA_WINDOW (user_data);
     caja_window_new_window (current_window);
 }
-
 
 static void
 action_new_tab_callback (GtkAction *action,
@@ -1064,7 +1060,6 @@ caja_navigation_window_initialize_actions (CajaNavigationWindow *window)
 
     caja_navigation_window_update_split_view_actions_sensitivity (window);
 }
-
 
 /**
  * caja_window_initialize_menus

@@ -30,7 +30,6 @@
 typedef struct CajaNavigationWindowSlot CajaNavigationWindowSlot;
 typedef struct CajaNavigationWindowSlotClass CajaNavigationWindowSlotClass;
 
-
 #define CAJA_TYPE_NAVIGATION_WINDOW_SLOT         (caja_navigation_window_slot_get_type())
 #define CAJA_NAVIGATION_WINDOW_SLOT_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), CAJA_NAVIGATION_WINDOW_SLOT_CLASS, CajaNavigationWindowSlotClass))
 #define CAJA_NAVIGATION_WINDOW_SLOT(obj)         (G_TYPE_CHECK_INSTANCE_CAST ((obj), CAJA_TYPE_NAVIGATION_WINDOW_SLOT, CajaNavigationWindowSlot))

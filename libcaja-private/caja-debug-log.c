@@ -358,7 +358,7 @@ caja_debug_log_load_configuration (const char *filename, GError **error)
         g_error_free (my_error);
     else
     {
-        int i;
+        gsize i;
 
         for (i = 0; i < num_strings; i++)
             strings[i] = g_strstrip (strings[i]);

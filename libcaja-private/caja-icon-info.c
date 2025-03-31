@@ -184,7 +184,6 @@ caja_icon_info_new_for_icon_info (GtkIconInfo *icon_info,
     return icon;
 }
 
-
 typedef struct
 {
     GIcon *icon;
@@ -308,6 +307,7 @@ icon_key_new (GIcon *icon,
 
     key = g_slice_new (IconKey);
     key->icon = g_object_ref (icon);
+    key->scale = scale;
     key->size = size;
 
     return key;
@@ -377,7 +377,6 @@ caja_icon_info_lookup (GIcon *icon,
                                                                  GTK_ICON_LOOKUP_FORCE_SIZE);
             pixbuf = gtk_icon_info_load_icon (gtkicon_info, NULL);
         }
-
 
         icon_info = caja_icon_info_new_for_pixbuf (pixbuf, scale);
 
@@ -684,7 +683,10 @@ caja_get_icon_size_for_zoom_level (CajaZoomLevel zoom_level)
 float
 caja_get_relative_icon_size_for_zoom_level (CajaZoomLevel zoom_level)
 {
-    return (float)caja_get_icon_size_for_zoom_level (zoom_level) / CAJA_ICON_SIZE_STANDARD;
+    guint icon_size;
+
+    icon_size = caja_get_icon_size_for_zoom_level (zoom_level);
+    return ((float) icon_size) / ((float) CAJA_ICON_SIZE_STANDARD);
 }
 
 guint
@@ -758,7 +760,6 @@ caja_get_icon_size_for_stock_size (GtkIconSize size)
     }
     return CAJA_ZOOM_LEVEL_STANDARD;
 }
-
 
 guint
 caja_icon_get_emblem_size_for_icon_size (guint size)

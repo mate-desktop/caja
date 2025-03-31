@@ -80,8 +80,6 @@ typedef struct
     const CajaFileSortType sort_type;
     const char *metadata_text;
     const char *action;
-    const char *menu_label;
-    const char *menu_hint;
 } SortCriterion;
 
 typedef enum
@@ -116,7 +114,6 @@ struct FMIconViewDetails
     gulong clipboard_handler_id;
 };
 
-
 /* Note that the first item in this list is the default sort,
  * and that the items show up in the menu in the order they
  * appear in this list.
@@ -126,65 +123,47 @@ static const SortCriterion sort_criteria[] =
     {
         CAJA_FILE_SORT_BY_DISPLAY_NAME,
         "name",
-        "Sort by Name",
-        N_("by _Name"),
-        N_("Keep icons sorted by name in rows")
+        "Sort by Name"
     },
     {
         CAJA_FILE_SORT_BY_SIZE,
         "size",
-        "Sort by Size",
-        N_("by _Size"),
-        N_("Keep icons sorted by size in rows")
+        "Sort by Size"
     },
     {
         CAJA_FILE_SORT_BY_SIZE_ON_DISK,
         "size_on_disk",
-        "Sort by Size on Disk",
-        N_("by S_ize on Disk"),
-        N_("Keep icons sorted by disk usage in rows")
+        "Sort by Size on Disk"
     },
     {
         CAJA_FILE_SORT_BY_TYPE,
         "type",
-        "Sort by Type",
-        N_("by _Type"),
-        N_("Keep icons sorted by type in rows")
+        "Sort by Type"
     },
     {
         CAJA_FILE_SORT_BY_MTIME,
         "modification date",
-        "Sort by Modification Date",
-        N_("by Modification _Date"),
-        N_("Keep icons sorted by modification date in rows")
+        "Sort by Modification Date"
     },
     {
         CAJA_FILE_SORT_BY_BTIME,
         "creation date",
-        "Sort by Creation Date",
-        N_("by _Creation Date"),
-        N_("Keep icons sorted by creation date in rows")
+        "Sort by Creation Date"
     },
     {
         CAJA_FILE_SORT_BY_EMBLEMS,
         "emblems",
-        "Sort by Emblems",
-        N_("by _Emblems"),
-        N_("Keep icons sorted by emblems in rows")
+        "Sort by Emblems"
     },
     {
         CAJA_FILE_SORT_BY_TRASHED_TIME,
         "trashed",
-        "Sort by Trash Time",
-        N_("by T_rash Time"),
-        N_("Keep icons sorted by trash time in rows")
+        "Sort by Trash Time"
     },
     {
         CAJA_FILE_SORT_BY_EXTENSION,
         "extension",
-        "Sort by Extension",
-        N_("by E_xtension"),
-        N_("Keep icons sorted by reversed extension segments in rows")
+        "Sort by Extension"
     }
 };
 
@@ -483,7 +462,6 @@ action_tighter_layout_callback (GtkAction *action,
     G_GNUC_END_IGNORE_DEPRECATIONS;
 }
 
-
 static gboolean
 fm_icon_view_using_auto_layout (FMIconView *icon_view)
 {
@@ -557,7 +535,6 @@ fm_icon_view_clear (FMDirectoryView *view)
     g_slist_foreach (file_list, (GFunc)unref_cover, NULL);
     g_slist_free (file_list);
 }
-
 
 static gboolean
 should_show_file_on_screen (FMDirectoryView *view, CajaFile *file)
@@ -817,7 +794,6 @@ update_layout_menus (FMIconView *view)
     G_GNUC_END_IGNORE_DEPRECATIONS;
 }
 
-
 static char *
 fm_icon_view_get_directory_sort_by (FMIconView *icon_view,
                                     CajaFile *file)
@@ -1063,7 +1039,6 @@ static gboolean
 fm_icon_view_real_get_directory_auto_layout (FMIconView *icon_view,
         CajaFile *file)
 {
-
 
     return caja_file_get_boolean_metadata
            (file, CAJA_METADATA_KEY_ICON_VIEW_AUTO_LAYOUT, TRUE);
@@ -1651,7 +1626,6 @@ set_sort_criterion_by_sort_type (FMIconView *icon_view,
     fm_icon_view_reveal_selection (FM_DIRECTORY_VIEW (icon_view));
 }
 
-
 static void
 action_reversed_order_callback (GtkAction *action,
                                 gpointer user_data)
@@ -1700,10 +1674,16 @@ action_lock_icons_position_callback (GtkAction *action,
     FMIconView *icon_view;
     CajaFile *file;
     gboolean lock_icons_position;
+    GtkAction *action_other;
 
     icon_view = FM_ICON_VIEW (user_data);
 
     lock_icons_position = gtk_toggle_action_get_active (GTK_TOGGLE_ACTION (action));
+
+    action_other = gtk_action_group_get_action (icon_view->details->icon_action_group,
+                                                FM_ACTION_CLEAN_UP);
+    gtk_action_set_visible (action_other, !lock_icons_position);
+
 
     file = fm_directory_view_get_directory_as_file (FM_DIRECTORY_VIEW (icon_view));
     fm_icon_view_set_directory_lock_icons_position (icon_view,
@@ -2101,7 +2081,6 @@ fm_icon_view_get_selected_icon_locations (FMDirectoryView *view)
            (get_icon_container (FM_ICON_VIEW (view)));
 }
 
-
 static void
 fm_icon_view_set_selection (FMDirectoryView *view, GList *selection)
 {
@@ -2409,7 +2388,6 @@ sound_preview_type_supported (CajaFile *file)
     return FALSE;
 }
 
-
 static gboolean
 should_preview_sound (CajaFile *file)
 {
@@ -2541,7 +2519,6 @@ compare_files (FMDirectoryView   *icon_view,
 {
     return fm_icon_view_compare_files ((FMIconView *)icon_view, a, b);
 }
-
 
 void
 fm_icon_view_filter_by_screen (FMIconView *icon_view,
@@ -2726,7 +2703,6 @@ icon_position_changed_callback (CajaIconContainer *container,
          NULL, position_string);
         g_free (position_string);
     }
-
 
     g_ascii_dtostr (scale_string, sizeof (scale_string), position->scale);
     caja_file_set_metadata
@@ -2937,7 +2913,6 @@ all_columns_same_width_changed_callback (gpointer callback_data)
 
     set_columns_same_width (icon_view);
 }
-
 
 static void
 fm_icon_view_sort_directories_first_changed (FMDirectoryView *directory_view)
@@ -3259,8 +3234,6 @@ fm_icon_view_set_property (GObject         *object,
     }
 }
 
-
-
 static void
 fm_icon_view_class_init (FMIconViewClass *klass)
 {
@@ -3502,7 +3475,6 @@ fm_icon_view_supports_uri (const char *uri,
 	view_info.error_label = _(view_info.error_label); \
 	view_info.startup_error_label = _(view_info.startup_error_label); \
 	view_info.display_location_label = _(view_info.display_location_label); \
-
 
 static CajaViewInfo fm_icon_view =
 {

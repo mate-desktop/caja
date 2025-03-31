@@ -76,7 +76,6 @@ caja_emblem_get_icon_name_from_keyword (const char *keyword)
     return g_strconcat ("emblem-", keyword, NULL);
 }
 
-
 /* check for reserved keywords */
 static gboolean
 is_reserved_keyword (const char *keyword)
@@ -463,7 +462,6 @@ caja_emblem_rename_emblem (const char *keyword, const char *name)
         g_free (stat_dir);
         return FALSE;
     }
-
 
     /* write the new icon description */
     fprintf (file, "\n[Icon Data]\n\nDisplayName=%s\n", name);

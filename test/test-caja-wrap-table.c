@@ -52,7 +52,6 @@ main (int argc, char* argv[])
 			  NULL);
 #endif
 
-
 	/* Use caja_customization to make the emblem widgets */
 	customization_data = caja_customization_data_new ("emblems", TRUE,
 							      CAJA_ICON_SIZE_SMALL,

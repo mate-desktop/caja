@@ -98,7 +98,6 @@ struct _FMPropertiesWindowPrivate {
 
 	GtkLabel *name_label;
 	GtkWidget *name_field;
-	unsigned int name_row;
 	char *pending_name;
 
 	GtkLabel *directory_contents_title_field;
@@ -414,7 +413,6 @@ get_image_for_properties_window (FMPropertiesWindow *window,
 	g_object_unref (icon);
 }
 
-
 static void
 update_properties_window_icon (FMPropertiesWindow *window)
 {
@@ -461,7 +459,6 @@ uri_is_local_image (const char *uri)
 	return TRUE;
 }
 
-
 static void
 reset_icon (FMPropertiesWindow *properties_window)
 {
@@ -480,7 +477,6 @@ reset_icon (FMPropertiesWindow *properties_window)
 					    NULL, NULL);
 	}
 }
-
 
 static void
 fm_properties_window_drag_data_received (GtkWidget *widget, GdkDragContext *context,
@@ -504,7 +500,6 @@ fm_properties_window_drag_data_received (GtkWidget *widget, GdkDragContext *cont
 
 	uris = g_strsplit (gtk_selection_data_get_data (selection_data), "\r\n", 0);
 	exactly_one = uris[0] != NULL && (uris[1] == NULL || uris[1][0] == '\0');
-
 
 	if (!exactly_one) {
 		eel_show_error_dialog
@@ -1302,7 +1297,6 @@ file_list_get_string_attribute (GList *file_list,
 	}
 }
 
-
 static gboolean
 file_list_all_directories (GList *file_list)
 {
@@ -1748,7 +1742,6 @@ tree_model_get_entry_index (GtkTreeModel *model,
 
 	return -1;
 }
-
 
 static void
 synch_groups_combo_box (GtkComboBox *combo_box, CajaFile *file)
@@ -2418,8 +2411,6 @@ attach_title_field (GtkGrid *grid,
 	return attach_label (grid, NULL, title, FALSE, FALSE, TRUE);
 }
 
-
-
 #define INCONSISTENT_STATE_STRING \
 	"\xE2\x80\x92"
 
@@ -2627,7 +2618,6 @@ should_show_file_type (FMPropertiesWindow *window)
 		return FALSE;
 	}
 
-
 	return TRUE;
 }
 
@@ -2806,7 +2796,6 @@ paint_pie_chart (GtkWidget *widget,
 	width  = allocation.width;
   	height = allocation.height;
 
-
 	free = (double)window->details->volume_free / (double)window->details->volume_capacity;
 	used =  1.0 - free;
 
@@ -2860,7 +2849,6 @@ paint_pie_chart (GtkWidget *widget,
 			cairo_line_to (cr,xc,yc);
 		}
 
-
 		gdk_cairo_set_source_rgba (cr, &window->details->free_color);
 		cairo_fill_preserve(cr);
 
@@ -2869,7 +2857,6 @@ paint_pie_chart (GtkWidget *widget,
 		cairo_stroke (cr);
 	}
 }
-
 
 /* Copied from gtk/gtkstyle.c */
 
@@ -3057,7 +3044,6 @@ _pie_style_shade (GdkRGBA *a,
   b->alpha = a->alpha;
 }
 
-
 static GtkWidget*
 create_pie_widget (FMPropertiesWindow *window)
 {
@@ -3108,7 +3094,6 @@ create_pie_widget (FMPropertiesWindow *window)
 		window->details->used_color.alpha = 1;
 
 	}
-
 
 	if (!gtk_style_context_lookup_color (style, "chart_rgba_2", &window->details->free_color)) {
 		window->details->free_color.red = FREE_FILL_R;
@@ -3447,7 +3432,6 @@ files_has_changable_permissions_directory (FMPropertiesWindow *window)
 	return FALSE;
 }
 
-
 static gboolean
 files_has_file (FMPropertiesWindow *window)
 {
@@ -3464,7 +3448,6 @@ files_has_file (FMPropertiesWindow *window)
 
 	return FALSE;
 }
-
 
 static void
 create_emblems_page (FMPropertiesWindow *window)
@@ -3810,7 +3793,6 @@ permission_button_update (FMPropertiesWindow *window,
 		sensitive |= window->details->has_recursive_apply;
 	}
 
-
 	g_signal_handlers_block_by_func (G_OBJECT (button),
 					 G_CALLBACK (permission_button_toggled),
 					 window);
@@ -3969,7 +3951,6 @@ permission_to_vfs (PermissionType type, PermissionValue perm)
 
 	return vfs_perm;
 }
-
 
 static PermissionValue
 permission_from_vfs (PermissionType type, guint32 vfs_perm)
@@ -4157,7 +4138,7 @@ permission_combo_update (FMPropertiesWindow *window,
 			int current_perm;
 			gtk_tree_model_get (model, &iter, 1, &current_perm, -1);
 
-			if (current_perm == all_perm) {
+			if (((PermissionValue) current_perm) == all_perm) {
 				found = TRUE;
 				break;
 			}
@@ -4305,7 +4286,6 @@ add_permissions_combo_box (FMPropertiesWindow *window, GtkGrid *grid,
 	gtk_grid_attach_next_to (grid, combo, GTK_WIDGET (label),
 				 GTK_POS_RIGHT, 1, 1);
 }
-
 
 static GtkWidget *
 append_special_execution_checkbox (FMPropertiesWindow *window,
@@ -4694,7 +4674,6 @@ set_recursive_permissions_done (gpointer callback_data)
 
 	g_object_unref (window);
 }
-
 
 static void
 apply_recursive_clicked (GtkWidget *recursive_button,
@@ -5149,7 +5128,6 @@ create_open_with_page (FMPropertiesWindow *window)
 				  vbox, gtk_label_new (_("Open With")));
 }
 
-
 static FMPropertiesWindow *
 create_properties_window (StartupData *startup_data)
 {
@@ -5405,7 +5383,6 @@ is_directory_ready_callback (CajaFile *file,
 	}
 }
 
-
 void
 fm_properties_window_present (GList *original_files,
 			      GtkWidget *parent_widget)
@@ -5440,7 +5417,6 @@ fm_properties_window_present (GList *original_files,
 		return;
 	}
 
-
 	pending_key = get_pending_key (original_files);
 
 	/* Look to see if we're already waiting for a window for this file. */
@@ -5473,7 +5449,6 @@ fm_properties_window_present (GList *original_files,
 		 startup_data,
 		 _("Creating Properties window."),
 		 parent_window == NULL ? NULL : GTK_WINDOW (parent_window));
-
 
 	for (l = startup_data->target_files; l != NULL; l = next) {
 		next = l->next;
@@ -5699,14 +5674,17 @@ update_preview_callback (GtkFileChooser *icon_chooser,
 
 		if (gdk_pixbuf_get_width (pixbuf) > PREVIEW_IMAGE_WIDTH) {
 			double scale;
+			gint   height;
+			gint   width;
 
-			scale = (double)gdk_pixbuf_get_height (pixbuf) /
-				gdk_pixbuf_get_width (pixbuf);
+			height = gdk_pixbuf_get_height (pixbuf);
+			width = gdk_pixbuf_get_width (pixbuf);
+			scale = ((double) height) / ((double) width);
 
 			scaled_pixbuf = gdk_pixbuf_scale_simple
 				(pixbuf,
 				 PREVIEW_IMAGE_WIDTH,
-				 scale * PREVIEW_IMAGE_WIDTH,
+				 (int) (scale * (double) PREVIEW_IMAGE_WIDTH),
 				 GDK_INTERP_HYPER);
 			g_object_unref (pixbuf);
 			pixbuf = scaled_pixbuf;

@@ -78,6 +78,7 @@ caja_window_slot_info_get_type (void)
             NULL,
             0,
             0,
+            NULL,
             NULL
         };
 

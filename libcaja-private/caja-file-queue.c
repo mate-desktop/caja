@@ -87,7 +87,6 @@ caja_file_queue_dequeue (CajaFileQueue *queue)
     return file;
 }
 
-
 void
 caja_file_queue_remove (CajaFileQueue *queue,
                         CajaFile *file)

@@ -33,7 +33,6 @@
 
 static GList *caja_extensions = NULL;
 
-
 static Extension *
 extension_new (gchar *filename, gboolean state, gboolean python, GObject *module)
 {
@@ -68,7 +67,7 @@ extension_new (gchar *filename, gboolean state, gboolean python, GObject *module
     }
     else
     {
-        caja_debug_log (FALSE, CAJA_DEBUG_LOG_DOMAIN_USER, "Error loading keys from file: %s\n", error->message);
+        caja_debug_log (FALSE, CAJA_DEBUG_LOG_DOMAIN_USER, "Error loading keys from file \"%s\": %s\n", extension_filename, error->message);
         g_error_free (error);
     }
     g_free (extension_filename);

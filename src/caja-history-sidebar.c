@@ -58,7 +58,6 @@ typedef struct
     GObjectClass parent;
 } CajaHistorySidebarProviderClass;
 
-
 enum
 {
     HISTORY_SIDEBAR_COLUMN_ICON,

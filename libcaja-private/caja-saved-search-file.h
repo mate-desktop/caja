@@ -40,7 +40,6 @@
 #define CAJA_SAVED_SEARCH_FILE_GET_CLASS(obj) \
   (G_TYPE_INSTANCE_GET_CLASS ((obj), CAJA_TYPE_SAVED_SEARCH_FILE, CajaSavedSearchFileClass))
 
-
 typedef struct CajaSavedSearchFileDetails CajaSavedSearchFileDetails;
 
 typedef struct

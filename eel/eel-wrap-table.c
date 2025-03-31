@@ -69,7 +69,6 @@ static gboolean      wrap_table_child_focus_in           (GtkWidget           *w
         gpointer             data);
 static void          wrap_table_layout                   (EelWrapTable        *wrap_table);
 
-
 G_DEFINE_TYPE_WITH_PRIVATE (EelWrapTable, eel_wrap_table, GTK_TYPE_CONTAINER)
 
 static void
@@ -878,7 +877,6 @@ eel_wrap_table_get_y_spacing (const EelWrapTable *wrap_table)
 
     return wrap_table->details->y_spacing;
 }
-
 
 /**
  * eel_wrap_table_find_child_at_event_point:

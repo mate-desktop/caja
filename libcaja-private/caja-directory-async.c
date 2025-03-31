@@ -151,8 +151,6 @@ struct DeepCountState
     char *fs_id;
 };
 
-
-
 typedef struct
 {
     CajaFile *file; /* Which file, NULL means all. */
@@ -838,7 +836,6 @@ caja_directory_monitor_add_internal (CajaDirectory *directory,
         directory->details->monitor = caja_monitor_directory (directory->details->location);
     }
 
-
     if (REQUEST_WANTS_TYPE (monitor->request, REQUEST_FILE_INFO) &&
             directory->details->mime_db_monitor == 0)
     {
@@ -874,7 +871,7 @@ set_file_unconfirmed (CajaFile *file, gboolean unconfirmed)
     {
         return;
     }
-    file->details->unconfirmed = unconfirmed;
+    file->details->unconfirmed = (unconfirmed != FALSE);
 
     directory = file->details->directory;
     if (unconfirmed)
@@ -2116,7 +2113,6 @@ caja_directory_has_active_request_for_file (CajaDirectory *directory,
     return FALSE;
 }
 
-
 /* This checks if there's a request for monitoring the file list. */
 gboolean
 caja_directory_is_anyone_monitoring_file_list (CajaDirectory *directory)
@@ -2278,7 +2274,6 @@ enumerate_children_callback (GObject *source_object,
     }
 }
 
-
 /* Start monitoring the file list if it isn't already. */
 static void
 start_monitoring_file_list (CajaDirectory *directory)
@@ -2370,7 +2365,6 @@ caja_file_invalidate_count_and_mime_list (CajaFile *file)
 
     caja_file_invalidate_attributes (file, attributes);
 }
-
 
 /* Reset count and mime list. Invalidating deep counts is handled by
  * itself elsewhere because it's a relatively heavyweight and
@@ -2829,11 +2823,6 @@ deep_count_one (DeepCountState *state,
     CajaFile *file;
     gboolean is_seen_inode;
 
-    if (should_skip_file (NULL, info))
-    {
-        return;
-    }
-
     is_seen_inode = seen_inode (state, info);
     if (!is_seen_inode)
     {
@@ -3045,7 +3034,6 @@ deep_count_callback (GObject *source_object,
     }
 }
 
-
 static void
 deep_count_load (DeepCountState *state, GFile *location)
 {
@@ -3221,7 +3209,6 @@ mime_list_state_free (MimeListState *state)
     caja_directory_unref (state->directory);
     g_free (state);
 }
-
 
 static void
 mime_list_done (MimeListState *state, gboolean success)
@@ -3432,7 +3419,6 @@ mime_list_start (CajaDirectory *directory,
         return;
     }
 
-
     state = g_new0 (MimeListState, 1);
     state->mime_list_file = file;
     state->directory = caja_directory_ref (directory);
@@ -3530,7 +3516,7 @@ top_left_read_callback (GObject *source_object,
     {
         file_details->top_left_text = caja_extract_top_left_text (file_contents, state->large, file_size);
         file_details->got_top_left_text = TRUE;
-        file_details->got_large_top_left_text = state->large;
+        file_details->got_large_top_left_text = (state->large != FALSE);
         g_free (file_contents);
     }
     else
@@ -3821,7 +3807,7 @@ static gboolean is_trusted_system_desktop_file (GFile *file)
         return FALSE;
     }
 
-    target = g_file_info_get_symlink_target (info);
+    target = g_file_info_get_attribute_byte_string (info, G_FILE_ATTRIBUTE_STANDARD_SYMLINK_TARGET);
     if (!target) {
         goto done;
     }
@@ -3850,7 +3836,7 @@ is_link_trusted (CajaFile *file,
         return TRUE;
     }
 
-    if (caja_file_can_execute (file) && caja_file_is_local (file))
+    if (caja_file_is_local (file))
     {
         GFile *location;
 
@@ -3911,9 +3897,9 @@ link_info_done (CajaDirectory *directory,
     {
         file->details->custom_icon = g_strdup (icon);
     }
-    file->details->is_launcher = is_launcher;
-    file->details->is_foreign_link = is_foreign;
-    file->details->is_trusted_link = is_trusted;
+    file->details->is_launcher = (is_launcher != FALSE);
+    file->details->is_foreign_link = (is_foreign != FALSE);
+    file->details->is_trusted_link = (is_trusted != FALSE);
 
     caja_directory_async_state_changed (directory);
 }
@@ -4120,7 +4106,7 @@ thumbnail_done (CajaDirectory *directory,
                 gboolean tried_original)
 {
     file->details->thumbnail_is_up_to_date = TRUE;
-    file->details->thumbnail_tried_original  = tried_original;
+    file->details->thumbnail_tried_original = (tried_original != FALSE);
     if (file->details->thumbnail)
     {
         g_object_unref (file->details->thumbnail);
@@ -4290,7 +4276,6 @@ get_pixbuf_for_content (goffset file_len,
     }
     return pixbuf;
 }
-
 
 static void
 thumbnail_read_callback (GObject *source_object,
@@ -4677,7 +4662,7 @@ got_filesystem_info (FilesystemInfoState *state, GFileInfo *info)
         file->details->filesystem_use_preview =
             g_file_info_get_attribute_uint32 (info, G_FILE_ATTRIBUTE_FILESYSTEM_USE_PREVIEW);
         file->details->filesystem_readonly =
-            g_file_info_get_attribute_boolean (info, G_FILE_ATTRIBUTE_FILESYSTEM_READONLY);
+            (g_file_info_get_attribute_boolean (info, G_FILE_ATTRIBUTE_FILESYSTEM_READONLY) != FALSE);
     }
 
     caja_directory_async_state_changed (directory);
@@ -4827,7 +4812,6 @@ finish_info_provider (CajaDirectory *directory,
         caja_file_info_providers_done (file);
     }
 }
-
 
 static gboolean
 info_provider_idle_callback (gpointer user_data)
@@ -5177,7 +5161,6 @@ cancel_link_info_for_file (CajaDirectory *directory,
     }
 }
 
-
 static void
 cancel_loading_attributes (CajaDirectory *directory,
                            CajaFileAttributes file_attributes)
@@ -5294,7 +5277,6 @@ caja_directory_add_file_to_work_queue (CajaDirectory *directory,
                              file);
 }
 
-
 static void
 add_all_files_to_work_queue (CajaDirectory *directory)
 {
@@ -5321,7 +5303,6 @@ caja_directory_remove_file_from_work_queue (CajaDirectory *directory,
     caja_file_queue_remove (directory->details->extension_queue,
                             file);
 }
-
 
 static void
 move_file_to_low_priority_queue (CajaDirectory *directory,

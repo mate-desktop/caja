@@ -92,6 +92,12 @@ enum
     RESPONSE_CONNECT
 };
 
+enum {
+    COL_TYPE_COMBO_INDEX = 0,
+    COL_TYPE_COMBO_DESCRIPTION,
+    COL_TYPE_COMBO_NUM
+};
+
 struct MethodInfo
 {
     const char *scheme;
@@ -532,7 +538,7 @@ connect_dialog_connect_to_server (CajaConnectServerDialog *dialog)
     gtk_combo_box_get_active_iter (GTK_COMBO_BOX (dialog->details->type_combo), &iter);
     gtk_tree_model_get (gtk_combo_box_get_model (GTK_COMBO_BOX (dialog->details->type_combo)),
                         &iter, 0, &index, -1);
-    g_assert (index < G_N_ELEMENTS (methods) && index >= 0);
+    g_assert (index >= 0 && ((gsize) index) < G_N_ELEMENTS (methods));
     meth = &(methods[index]);
 
     server = gtk_editable_get_chars (GTK_EDITABLE (dialog->details->server_entry), 0, -1);
@@ -778,7 +784,7 @@ connect_dialog_setup_for_type (CajaConnectServerDialog *dialog)
 
     gtk_tree_model_get (gtk_combo_box_get_model (GTK_COMBO_BOX (dialog->details->type_combo)),
                         &iter, 0, &index, -1);
-    g_assert (index < G_N_ELEMENTS (methods) && index >= 0);
+    g_assert (index >= 0 && ((gsize) index) < G_N_ELEMENTS (methods));
     meth = &(methods[index]);
 
     g_object_set (dialog->details->share_entry,
@@ -847,7 +853,7 @@ caja_connect_server_dialog_init (CajaConnectServerDialog *dialog)
     GtkListStore *store;
     GtkCellRenderer *renderer;
     gchar *str;
-    int i;
+    gsize i;
 
     dialog->details = caja_connect_server_dialog_get_instance_private (dialog);
 
@@ -932,13 +938,16 @@ caja_connect_server_dialog_init (CajaConnectServerDialog *dialog)
     dialog->details->type_combo = combo = gtk_combo_box_new ();
 
     /* each row contains: method index, textual description */
-    store = gtk_list_store_new (2, G_TYPE_INT, G_TYPE_STRING);
+    store = gtk_list_store_new (COL_TYPE_COMBO_NUM,
+                                G_TYPE_INT,      /* COL_TYPE_COMBO_INDEX */
+                                G_TYPE_STRING);  /* COL_TYPE_COMBO_DESCRIPTION */
     gtk_combo_box_set_model (GTK_COMBO_BOX (combo), GTK_TREE_MODEL (store));
     g_object_unref (store);
 
     renderer = gtk_cell_renderer_text_new ();
     gtk_cell_layout_pack_start (GTK_CELL_LAYOUT (combo), renderer, TRUE);
-    gtk_cell_layout_add_attribute (GTK_CELL_LAYOUT (combo), renderer, "text", 1);
+    gtk_cell_layout_add_attribute (GTK_CELL_LAYOUT (combo), renderer, "text",
+                                   COL_TYPE_COMBO_DESCRIPTION);
 
     for (i = 0; i < G_N_ELEMENTS (methods); i++)
     {
@@ -971,10 +980,9 @@ caja_connect_server_dialog_init (CajaConnectServerDialog *dialog)
 
         gtk_list_store_append (store, &iter);
         gtk_list_store_set (store, &iter,
-                            0, i,
-                            1, get_method_description (&(methods[i])),
+                            COL_TYPE_COMBO_INDEX, (int) i,
+                            COL_TYPE_COMBO_DESCRIPTION, get_method_description (&(methods[i])),
                             -1);
-
 
         if (methods[i].flags & DEFAULT_METHOD)
         {

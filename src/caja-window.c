@@ -591,8 +591,7 @@ caja_window_zoom_to_default (CajaWindow *window)
 static guint
 get_max_forced_height (GdkScreen *screen)
 {
-    gint scale = gdk_window_get_scale_factor (gdk_screen_get_root_window (screen));
-    return (HeightOfScreen (gdk_x11_screen_get_xscreen (screen)) / scale * 90) / 100;
+    return (gdk_screen_get_height (screen) * 90) / 100;
 }
 
 /* Code should never force the window wider than this size.
@@ -601,8 +600,7 @@ get_max_forced_height (GdkScreen *screen)
 static guint
 get_max_forced_width (GdkScreen *screen)
 {
-    gint scale = gdk_window_get_scale_factor (gdk_screen_get_root_window (screen));
-    return (WidthOfScreen (gdk_x11_screen_get_xscreen (screen)) / scale * 90) / 100;
+    return (gdk_screen_get_width (screen) * 90) / 100;
 }
 
 /* This must be called when construction of CajaWindow is finished,
@@ -631,17 +629,6 @@ caja_window_set_initial_window_geometry (CajaWindow *window)
                                       max_width_for_screen),
                                  MIN (default_height,
                                       max_height_for_screen));
-}
-
-static void
-caja_window_constructed (GObject *self)
-{
-    CajaWindow *window;
-
-    window = CAJA_WINDOW (self);
-
-    caja_window_initialize_bookmarks_menu (window);
-    caja_window_set_initial_window_geometry (window);
 }
 
 static void
@@ -744,6 +731,12 @@ caja_window_constructor (GType type,
 
     slot = caja_window_open_slot (window->details->active_pane, 0);
     caja_window_set_active_slot (window, slot);
+    /*We can now do this here instead of in a separate constructed function
+     *and we need to because the separate constructed function causes the
+     *window to be un-draggable/un-resizable with the mouse in wayland
+     */
+    caja_window_initialize_bookmarks_menu (window);
+    caja_window_set_initial_window_geometry (window);
 
     return object;
 }
@@ -1073,7 +1066,7 @@ caja_window_key_press_event (GtkWidget *widget,
         return TRUE;
 
     CajaWindow *window;
-    int i;
+    gsize i;
 
     window = CAJA_WINDOW (widget);
 
@@ -1416,7 +1409,6 @@ load_view_as_menu (CajaWindow *window)
         window->details->view_as_action_group = NULL;
     }
 
-
     refresh_stored_viewers (window);
 
     merge_id = gtk_ui_manager_new_merge_id (window->details->ui_manager);
@@ -1605,7 +1597,6 @@ zoom_level_changed_callback (CajaView *view,
     caja_window_sync_zoom_widgets (window);
 }
 
-
 /* These are called
  *   A) when switching the view within the active slot
  *   B) when switching the active slot
@@ -1708,7 +1699,6 @@ caja_window_get_next_pane (CajaWindow *window)
 
     return next_pane;
 }
-
 
 void
 caja_window_slot_set_viewed_file (CajaWindowSlot *slot,
@@ -1988,7 +1978,6 @@ caja_window_get_history (CajaWindow *window)
     return g_list_copy_deep (history_list, caja_window_copy_history_item, NULL);
 }
 
-
 static CajaWindowType
 caja_window_get_window_type (CajaWindow *window)
 {
@@ -2101,7 +2090,6 @@ caja_window_get_extra_slot (CajaWindow *window)
 
     g_assert (CAJA_IS_WINDOW (window));
 
-
     /* return NULL if there is only one pane */
     if (window->details->panes == NULL ||
             window->details->panes->next == NULL)
@@ -2177,7 +2165,6 @@ caja_window_class_init (CajaWindowClass *class)
     GtkBindingSet *binding_set;
 
     G_OBJECT_CLASS (class)->constructor = caja_window_constructor;
-    G_OBJECT_CLASS (class)->constructed = caja_window_constructed;
     G_OBJECT_CLASS (class)->get_property = caja_window_get_property;
     G_OBJECT_CLASS (class)->set_property = caja_window_set_property;
     G_OBJECT_CLASS (class)->finalize = caja_window_finalize;

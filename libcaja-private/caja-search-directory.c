@@ -49,7 +49,6 @@ struct CajaSearchDirectoryDetails
     gboolean search_finished;
 
     GList *files;
-    GHashTable *file_hash;
 
     GList *monitor_list;
     GList *callback_list;
@@ -493,7 +492,6 @@ search_cancel_callback (CajaDirectory *directory,
     }
 }
 
-
 static void
 search_engine_hits_added (CajaSearchEngine *engine, GList *hits,
                           CajaSearchDirectory *search)
@@ -686,7 +684,6 @@ search_get_file_list (CajaDirectory *directory)
     return caja_file_list_copy (search->details->files);
 }
 
-
 static gboolean
 search_is_editable (CajaDirectory *directory)
 {
@@ -806,7 +803,6 @@ caja_search_directory_generate_new_uri (void)
     return uri;
 }
 
-
 void
 caja_search_directory_set_query (CajaSearchDirectory *search,
                                  CajaQuery *query)
@@ -900,7 +896,6 @@ caja_search_directory_is_indexed (CajaSearchDirectory *search)
     ensure_search_engine (search);
     return caja_search_engine_is_indexed (search->details->engine);
 }
-
 
 void
 caja_search_directory_save_to_file (CajaSearchDirectory *search,

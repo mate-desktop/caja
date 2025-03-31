@@ -147,7 +147,6 @@ add_elem_to_str_array (char **v, const char *s)
     return r;
 }
 
-
 void
 caja_autorun_set_preferences (const char *x_content_type,
                               gboolean pref_start_app,
@@ -762,16 +761,22 @@ is_shift_pressed (void)
     Bool status;
 
     ret = FALSE;
-
     display = gdk_display_get_default ();
-    gdk_x11_display_error_trap_push (display);
-    status = XkbGetState (GDK_DISPLAY_XDISPLAY (display),
-                          XkbUseCoreKbd, &state);
-    gdk_x11_display_error_trap_pop_ignored (display);
-
-    if (status == Success)
+    if  (GDK_IS_X11_DISPLAY (display))
     {
-        ret = state.mods & ShiftMask;
+        gdk_x11_display_error_trap_push (display);
+        status = XkbGetState (GDK_DISPLAY_XDISPLAY (display),
+                              XkbUseCoreKbd, &state);
+        gdk_x11_display_error_trap_pop_ignored (display);
+
+        if (status == Success)
+        {
+            ret = state.mods & ShiftMask;
+        }
+    }
+    else
+    {
+        ret=FALSE;
     }
 
     return ret;
@@ -800,7 +805,6 @@ typedef struct
     CajaAutorunOpenWindow open_window_func;
     gpointer user_data;
 } AutorunDialogData;
-
 
 void
 caja_autorun_launch_for_mount (GMount *mount, GAppInfo *app_info)
@@ -915,7 +919,6 @@ autorun_combo_changed (gboolean selected_ask,
     data->selected_ignore = selected_ignore;
     data->selected_open_folder = selected_open_folder;
 }
-
 
 static void
 autorun_always_toggled (GtkToggleButton *togglebutton, AutorunDialogData *data)
@@ -1040,7 +1043,6 @@ show_dialog:
     gtk_box_pack_start (GTK_BOX (hbox), vbox, TRUE, TRUE, 0);
 
     label = gtk_label_new (NULL);
-
 
     /* Customize greeting for well-known x-content types */
     if (strcmp (x_content_type, "x-content/audio-cdda") == 0)
@@ -1357,7 +1359,6 @@ caja_autorun_get_x_content_types_for_mount_async (GMount *mount,
                                 get_types_cb,
                                 data);
 }
-
 
 char **
 caja_autorun_get_cached_x_content_types_for_mount (GMount      *mount)

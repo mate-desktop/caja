@@ -188,7 +188,6 @@ void               caja_directory_cancel_callback          (CajaDirectory       
         CajaDirectoryCallback  callback,
         gpointer                   callback_data);
 
-
 /* Monitor the files in a directory. */
 void               caja_directory_file_monitor_add         (CajaDirectory         *directory,
         gconstpointer              client,
@@ -205,7 +204,6 @@ GList *            caja_directory_get_file_list            (CajaDirectory       
 
 GList *            caja_directory_match_pattern            (CajaDirectory         *directory,
         const char *glob);
-
 
 /* Return true if the directory has information about all the files.
  * This will be false until the directory has been read at least once.

@@ -54,6 +54,5 @@ gboolean   caja_emblem_can_rename_emblem          (const char *keyword);
 
 char *     caja_emblem_create_unique_keyword      (const char *base);
 
-
 #endif	/* __CAJA_EMBLEM_UTILS_H__ */
 

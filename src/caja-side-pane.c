@@ -519,7 +519,6 @@ caja_side_pane_show_panel (CajaSidePane *side_pane,
                                    page_num);
 }
 
-
 static void
 shortcut_clicked_callback (GtkWidget *button,
                            gpointer user_data)

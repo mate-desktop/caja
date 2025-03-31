@@ -94,7 +94,6 @@ char *              eel_gradient_set_right_color_spec      (const char          
 char *              eel_gradient_set_bottom_color_spec     (const char          *gradient_spec,
         const char          *bottom_color);
 
-
 /* A version of parse_color that substitutes a default color instead of returning
    a boolean to indicate it cannot be parsed.
 */
@@ -110,7 +109,6 @@ GdkRGBA             eel_gdk_rgb_to_rgba                    (guint32             
 char *              eel_gdk_rgb_to_color_spec              (guint32              color);
 
 gboolean            eel_gdk_rgba_is_dark                   (const GdkRGBA       *color);
-
 
 /* Wrapper for XParseGeometry */
 EelGdkGeometryFlags eel_gdk_parse_geometry                 (const char          *string,

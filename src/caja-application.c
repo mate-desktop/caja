@@ -32,6 +32,7 @@
 #include <unistd.h>
 #include <fcntl.h>
 
+#include <libxml/parser.h>
 #include <libxml/xmlsave.h>
 #include <glib/gstdio.h>
 #include <glib/gi18n.h>
@@ -283,6 +284,7 @@ open_tabs (CajaApplication *application,
     CajaApplication *self = CAJA_APPLICATION (application);
     CajaWindow *window;
     gchar *uri = NULL;
+    guint i;
 
     /* monitor the preference to use browser or spatial windows */
     /* connect before trying to read or this preference won't be read by root or after change */
@@ -307,7 +309,7 @@ open_tabs (CajaApplication *application,
     g_debug ("Opening new tab at uri %s\n", uri);
     caja_window_go_to (window, locations[0]);
     g_free (uri);
-    for (int i = 1; i< n_files;i++) {
+    for (i = 1; i < n_files; i++) {
         /* open tabs in reverse order because each
          * tab is opened before the previous one */
         guint tab = n_files-i;
@@ -368,13 +370,12 @@ caja_application_open (GApplication *app,
     gboolean browser_window = FALSE;
     gboolean open_in_tabs = FALSE;
     const gchar *geometry = NULL;
-    const char splitter = '=';
 
     g_debug ("Open called on the GApplication instance; %d files", n_files);
 
     /* Check if local command line passed --browser, --geometry or --tabs */
     if (strlen (options) > 0) {
-        gchar** splitedOptions = g_strsplit (options, &splitter, 3);
+        gchar** splitedOptions = g_strsplit (options, "=", 3);
         sscanf (splitedOptions[0], "%d", &browser_window);
         if (strcmp (splitedOptions[1], "NULL") != 0) {
             geometry = splitedOptions[1];
@@ -641,25 +642,34 @@ get_desktop_manager_selection (GdkDisplay *display)
 
     g_snprintf (selection_name, sizeof (selection_name), "_NET_DESKTOP_MANAGER_S0");
     selection_atom = gdk_atom_intern (selection_name, FALSE);
-
-    selection_owner = XGetSelectionOwner (GDK_DISPLAY_XDISPLAY (display),
+    if (GDK_IS_X11_DISPLAY (display))
+    {
+        selection_owner = XGetSelectionOwner (GDK_DISPLAY_XDISPLAY (display),
                                           gdk_x11_atom_to_xatom_for_display (display,
                                                   selection_atom));
-    if (selection_owner != None)
-    {
+        if (selection_owner != None)
+        {
         return NULL;
+        }
     }
-
     selection_widget = gtk_invisible_new_for_screen (gdk_display_get_default_screen (display));
     /* We need this for gdk_x11_get_server_time() */
     gtk_widget_add_events (selection_widget, GDK_PROPERTY_CHANGE_MASK);
 
-    if (gtk_selection_owner_set_for_display (display,
+    if (GDK_IS_X11_DISPLAY (display))
+    {
+        if (gtk_selection_owner_set_for_display (display,
             selection_widget,
             selection_atom,
             gdk_x11_get_server_time (gtk_widget_get_window (selection_widget))))
+        {
+            g_signal_connect (selection_widget, "selection_get",
+                              G_CALLBACK (selection_get_cb), NULL);
+            return selection_widget;
+        }
+    }
+    else
     {
-
         g_signal_connect (selection_widget, "selection_get",
                           G_CALLBACK (selection_get_cb), NULL);
         return selection_widget;
@@ -924,7 +934,6 @@ caja_window_delete_event_callback (GtkWidget *widget,
 
     return TRUE;
 }
-
 
 static CajaWindow *
 create_window (CajaApplication *application,
@@ -1946,8 +1955,7 @@ caja_application_local_command_line (GApplication *application,
         { "select", 's', 0, G_OPTION_ARG_NONE, &select_uris,
           N_("Select specified URI in parent folder."), NULL },
         { G_OPTION_REMAINING, 0, 0, G_OPTION_ARG_STRING_ARRAY, &remaining, NULL,  N_("[URI...]") },
-
-        { NULL }
+        { NULL, '\0', 0, G_OPTION_ARG_NONE, NULL, NULL, NULL }
     };
     GOptionContext *context;
     GError *error = NULL;
@@ -1962,7 +1970,6 @@ caja_application_local_command_line (GApplication *application,
 
 	g_option_context_add_group (context, egg_sm_client_get_option_group ());
 
-
     /* we need to do this here, as parsing the EggSMClient option context,
 	 * unsets this variable.
 	 */
@@ -1971,7 +1978,6 @@ caja_application_local_command_line (GApplication *application,
         no_default_window = TRUE;
         self->priv->autostart = TRUE;
     }
-
 
     argv = *arguments;
     argc = g_strv_length (argv);
@@ -2237,13 +2243,10 @@ init_gtk_accels (void)
               G_CALLBACK (queue_accel_map_save_callback), NULL);
 }
 
-
 static void
 caja_application_startup (GApplication *app)
 {
     CajaApplication *self = CAJA_APPLICATION (app);
-    gboolean exit_with_last_window;
-    exit_with_last_window = TRUE;
 
     /* chain up to the GTK+ implementation early, so gtk_init()
      * is called for us.
@@ -2333,6 +2336,7 @@ caja_application_startup (GApplication *app)
     if (running_in_mate () && !running_as_root())
     {
         GApplication *instance;
+        gboolean      exit_with_last_window;
 
         exit_with_last_window = g_settings_get_boolean (caja_preferences,
                                 CAJA_PREFERENCES_EXIT_WITH_LAST_WINDOW);

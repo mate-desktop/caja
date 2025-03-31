@@ -38,5 +38,4 @@ void caja_file_changes_queue_schedule_position_remove        (GFile      *locati
 
 void caja_file_changes_consume_changes                       (gboolean    consume_all);
 
-
 #endif /* CAJA_FILE_CHANGES_QUEUE_H */

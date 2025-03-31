@@ -249,7 +249,6 @@ typedef struct
     CajaUndoStackActionData* undo_redo_data;
 } CajaFileOperation;
 
-
 CajaFile *caja_file_new_from_info                  (CajaDirectory      *directory,
         GFileInfo              *info);
 void          caja_file_emit_changed                   (CajaFile           *file);
@@ -263,7 +262,6 @@ gboolean      caja_file_get_date                       (CajaFile           *file
         CajaDateType        date_type,
         time_t                 *date);
 void          caja_file_updated_deep_count_in_progress (CajaFile           *file);
-
 
 void          caja_file_clear_info                     (CajaFile           *file);
 /* Compare file's state with a fresh file info struct, return FALSE if
@@ -303,7 +301,6 @@ void                   caja_file_invalidate_count_and_mime_list     (CajaFile   
 gboolean               caja_file_rename_in_progress                 (CajaFile           *file);
 void                   caja_file_invalidate_extension_info_internal (CajaFile           *file);
 void                   caja_file_info_providers_done                (CajaFile           *file);
-
 
 /* Thumbnailing: */
 void          caja_file_set_is_thumbnailing            (CajaFile           *file,

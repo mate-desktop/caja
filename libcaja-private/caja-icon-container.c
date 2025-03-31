@@ -294,17 +294,18 @@ icon_is_positioned (const CajaIcon *icon)
     return icon->x != ICON_UNPOSITIONED_VALUE && icon->y != ICON_UNPOSITIONED_VALUE;
 }
 
-
 /* x, y are the top-left coordinates of the icon. */
 static void
-icon_set_position (CajaIcon *icon,
-                   double x, double y)
+icon_set_position_full (CajaIcon *icon,
+                        double x, double y,
+                        gboolean force)
 {
     CajaIconContainer *container;
     int x1, x2, y1, y2;
     EelDRect icon_bounds;
+    GdkDisplay *display;
 
-    if (icon->x == x && icon->y == y)
+    if (!force && icon->x == x && icon->y == y)
     {
         return;
     }
@@ -315,39 +316,61 @@ icon_set_position (CajaIcon *icon,
     {
         end_renaming_mode (container, TRUE);
     }
-
+    double pixels_per_unit;
+    int container_left, container_top, container_right, container_bottom;
+    int container_x, container_y, container_width, container_height;
+    int item_width, item_height;
+    int height_above, width_left;
+    int min_x, max_x, min_y, max_y;
     if (caja_icon_container_get_is_fixed_size (container))
     {
-        double pixels_per_unit;
-        int container_left, container_top, container_right, container_bottom;
-        int container_x, container_y, container_width, container_height;
-        int item_width, item_height;
-        int height_above, width_left;
-        int min_x, max_x, min_y, max_y;
-        int scale;
+        /*Use the older and well tested code in x11*/
+        display = gdk_screen_get_display (gdk_screen_get_default());
+        if  (GDK_IS_X11_DISPLAY (display))
+        {
+            int scale;
 
-        /*  FIXME: This should be:
+            /*  FIXME: This should be:
 
-        container_x = GTK_WIDGET (container)->allocation.x;
-        container_y = GTK_WIDGET (container)->allocation.y;
-        container_width = GTK_WIDGET (container)->allocation.width;
-        container_height = GTK_WIDGET (container)->allocation.height;
+            container_x = GTK_WIDGET (container)->allocation.x;
+            container_width = GTK_WIDGET (container)->allocation.width;
+            container_height = GTK_WIDGET (container)->allocation.height;
 
-        But for some reason the widget allocation is sometimes not done
-        at startup, and the allocation is then only 45x60. which is
-        really bad.
+            But for some reason the widget allocation is sometimes not done
+            at startup, and the allocation is then only 45x60. which is
+            really bad.
 
-        For now, we have a cheesy workaround:
-        */
-        scale = gtk_widget_get_scale_factor (GTK_WIDGET (container));
-        container_x = 0;
-        container_y = 0;
-        container_width = WidthOfScreen (gdk_x11_screen_get_xscreen (gdk_screen_get_default ())) / scale - container_x
+            For now, we have a cheesy workaround:
+            */
+            scale = gtk_widget_get_scale_factor (GTK_WIDGET (container));
+            container_x = 0;
+            container_y = 0;
+            container_width = WidthOfScreen (gdk_x11_screen_get_xscreen (gdk_screen_get_default ())) / scale - container_x
                           - container->details->left_margin
                           - container->details->right_margin;
-        container_height = HeightOfScreen (gdk_x11_screen_get_xscreen (gdk_screen_get_default ())) / scale - container_y
+            container_height = HeightOfScreen (gdk_x11_screen_get_xscreen (gdk_screen_get_default ())) / scale - container_y
                            - container->details->top_margin
                            - container->details->bottom_margin;
+        }
+        else
+        {
+            GdkWindow *window;
+            GdkMonitor *monitor;
+            GdkRectangle workarea = {0};
+
+            window  = gtk_widget_get_window (GTK_WIDGET(container));
+            monitor = gdk_display_get_monitor_at_window (gdk_display_get_default(), window);
+            gdk_monitor_get_workarea(monitor, &workarea);
+            container_x = 0;
+            container_y = 0;
+            container_width = workarea.width  - container_x
+                          - container->details->left_margin
+                          - container->details->right_margin;
+            container_height = workarea.height - container_y
+                           - container->details->top_margin
+                           - container->details->bottom_margin;
+        }
+
         pixels_per_unit = EEL_CANVAS (container)->pixels_per_unit;
         /* Clip the position of the icon within our desktop bounds */
         container_left = container_x / pixels_per_unit;
@@ -390,6 +413,13 @@ icon_set_position (CajaIcon *icon,
 
     icon->x = x;
     icon->y = y;
+}
+
+static void
+icon_set_position (CajaIcon *icon,
+                   double x, double y)
+{
+    icon_set_position_full (icon, x, y, FALSE);
 }
 
 static void
@@ -711,7 +741,6 @@ icon_get_row_and_column_bounds (CajaIconContainer *container,
             bounds->y1 = MAX (bounds->y1, one_bounds.y1);
         }
     }
-
 
 }
 
@@ -1411,7 +1440,6 @@ lay_down_icons_horizontal (CajaIconContainer *container,
         {
             icon_width = ceil ((bounds.x1 - bounds.x0)/grid_width) * grid_width;
 
-
         }
         else
         {
@@ -1753,7 +1781,6 @@ snap_position (CajaIconContainer *container,
     {
         *x = get_mirror_x_position (container, icon, *x);
     }
-
 
     /* Find the grid position vertically and place on the proper baseline */
     baseline_y = *y + icon_height;
@@ -2294,7 +2321,6 @@ lay_down_icons_vertical_desktop (CajaIconContainer *container, GList *icons)
     caja_icon_container_freeze_icon_positions (container);
 }
 
-
 static void
 lay_down_icons (CajaIconContainer *container, GList *icons, double start_y)
 {
@@ -2392,7 +2418,8 @@ redo_layout (CajaIconContainer *container)
 }
 
 static void
-reload_icon_positions (CajaIconContainer *container)
+reload_icon_positions (CajaIconContainer *container,
+                       gboolean           layout_changed)
 {
     GList *p, *no_position_icons;
     gboolean have_stored_position;
@@ -2422,7 +2449,12 @@ reload_icon_positions (CajaIconContainer *container)
                        &have_stored_position);
         if (have_stored_position)
         {
-            icon_set_position (icon, position.x, position.y);
+            icon_set_position_full (icon, position.x, position.y,
+                                    /* if only layout changed, don't bother
+                                     * updating already valid info.  If however
+                                     * e.g. zoom changed, x and y might now be
+                                     * overflowing and need recomputing */
+                                    !layout_changed);
             item = EEL_CANVAS_ITEM (icon->item);
             caja_icon_canvas_item_get_bounds_for_layout (icon->item,
                     &bounds.x0,
@@ -2440,15 +2472,20 @@ reload_icon_positions (CajaIconContainer *container)
                 bottom = bounds.y1;
             }
         }
-        else
+        else if (layout_changed)
         {
             no_position_icons = g_list_prepend (no_position_icons, icon);
         }
     }
-    no_position_icons = g_list_reverse (no_position_icons);
 
-    /* Place all the other icons. */
-    lay_down_icons (container, no_position_icons, bottom + ICON_PAD_BOTTOM);
+    if (layout_changed)
+    {
+        /* If layout changed, place all the other icons that don't have stored
+         * positions yet */
+        no_position_icons = g_list_reverse (no_position_icons);
+        lay_down_icons (container, no_position_icons, bottom + ICON_PAD_BOTTOM);
+    }
+
     g_list_free (no_position_icons);
 }
 
@@ -2543,7 +2580,6 @@ select_range (CajaIconContainer *container,
     }
     return selection_changed;
 }
-
 
 static gboolean
 select_one_unselect_others (CajaIconContainer *container,
@@ -3081,7 +3117,6 @@ get_cmp_point_y (CajaIconContainer *container,
         return icon_rect.y1;
     }
 }
-
 
 static int
 compare_icons_horizontal (CajaIconContainer *container,
@@ -3626,7 +3661,6 @@ previous_column_highest (CajaIconContainer *container,
     return best_so_far == NULL;
 }
 
-
 static gboolean
 next_column_highest (CajaIconContainer *container,
                      CajaIcon *start_icon,
@@ -3721,7 +3755,6 @@ closest_in_90_degrees (CajaIconContainer *container,
     int dx, dy;
     int dist;
     int *best_dist;
-
 
     world_rect = caja_icon_canvas_item_get_icon_rectangle (candidate->item);
     eel_canvas_w2c
@@ -4383,7 +4416,10 @@ destroy (GtkWidget *object)
     /* destroy interactive search dialog */
     if (container->details->search_window)
     {
-        gtk_widget_destroy (container->details->search_window);
+        /*current GTK docs do not advise calling gtk_widget_destroy on child widgets
+         *gtk_widget_destroy (container->details->search_window);
+         *also note that GtkContainer destroys it's child widgets when it is destroyed
+         */
         container->details->search_window = NULL;
         container->details->search_entry = NULL;
         if (container->details->typeselect_flush_timeout)
@@ -4572,6 +4608,19 @@ draw (GtkWidget *widget, cairo_t *cr)
     if (!CAJA_ICON_CONTAINER (widget)->details->is_desktop)
     {
         eel_background_draw (widget, cr);
+    }
+    /*If this is the desktop on wayland, we must draw it from here
+     *Calling eel_background_draw() from caja_desktop_window_class_init()
+     *as we do in x11 gives a black background on wayland
+     *Wayland is always composited but never has a root window
+     *We don't have a root window to draw on
+     *the code used for x11 without compositing somehow fails too
+     *But we can get caja's toplevel window from here and draw on it
+     */
+    if  ((!(GDK_IS_X11_DISPLAY (gdk_display_get_default()))) && (CAJA_ICON_CONTAINER (widget)->details->is_desktop))
+    {
+        GtkWidget *toplevel = gtk_widget_get_toplevel(widget);
+        eel_background_draw (toplevel, cr);
     }
 
     return GTK_WIDGET_CLASS (caja_icon_container_parent_class)->draw (widget,
@@ -4804,7 +4853,6 @@ caja_icon_container_did_not_drag (CajaIconContainer *container,
         /* If single-click mode, activate the selected icons, unless modifying
          * the selection or pressing for a very long time, or double clicking.
          */
-
 
         if (click_count == 0 &&
                 event->time - details->button_down_time < MAX_CLICK_TIME &&
@@ -5244,17 +5292,18 @@ caja_icon_container_search_position_func (CajaIconContainer *container,
     gint x, y;
     gint cont_x, cont_y;
     gint cont_width, cont_height;
-    gint scale;
     GdkWindow *cont_window;
     GdkScreen *screen;
     GtkRequisition requisition;
     GdkMonitor *monitor_num;
     GdkRectangle monitor;
-
+    GdkRectangle workarea = {0};
 
     cont_window = gtk_widget_get_window (GTK_WIDGET (container));
-    scale = gtk_widget_get_scale_factor (GTK_WIDGET (container));
     screen = gdk_window_get_screen (cont_window);
+
+    monitor_num = gdk_display_get_monitor_at_window (gdk_display_get_default(), cont_window);
+    gdk_monitor_get_workarea(monitor_num, &workarea);
 
     monitor_num = gdk_display_get_monitor_at_window (gdk_screen_get_display (screen),
                                                      cont_window);
@@ -5269,9 +5318,9 @@ caja_icon_container_search_position_func (CajaIconContainer *container,
 
     gtk_widget_get_preferred_size (search_dialog, &requisition, NULL);
 
-    if (cont_x + cont_width - requisition.width > WidthOfScreen (gdk_x11_screen_get_xscreen (screen)) / scale)
+    if (cont_x + cont_width - requisition.width > workarea.width)
     {
-        x = WidthOfScreen (gdk_x11_screen_get_xscreen (screen)) / scale - requisition.width;
+        x = workarea.width - requisition.width;
     }
     else if (cont_x + cont_width - requisition.width < 0)
     {
@@ -5282,9 +5331,9 @@ caja_icon_container_search_position_func (CajaIconContainer *container,
         x = cont_x + cont_width - requisition.width;
     }
 
-    if (cont_y + cont_height > HeightOfScreen (gdk_x11_screen_get_xscreen (screen)))
+    if (cont_y + cont_height > workarea.height)
     {
-        y = HeightOfScreen (gdk_x11_screen_get_xscreen (screen)) - requisition.height;
+        y = workarea.height - requisition.height;
     }
     else if (cont_y + cont_height < 0)     /* isn't really possible ... */
     {
@@ -5738,7 +5787,7 @@ caja_icon_container_search_init (GtkWidget   *entry,
 static void
 caja_icon_container_ensure_interactive_directory (CajaIconContainer *container)
 {
-    GtkWidget *frame, *vbox;
+    GtkWidget *frame, *vbox, *toplevel;
 
     if (container->details->search_window != NULL)
     {
@@ -5746,8 +5795,14 @@ caja_icon_container_ensure_interactive_directory (CajaIconContainer *container)
     }
 
     container->details->search_window = gtk_window_new (GTK_WINDOW_POPUP);
+    toplevel = gtk_widget_get_toplevel (GTK_WIDGET (container));
 
     gtk_window_set_modal (GTK_WINDOW (container->details->search_window), TRUE);
+    gtk_window_set_decorated (GTK_WINDOW (container->details->search_window), FALSE);
+    gtk_window_set_transient_for (GTK_WINDOW (container->details->search_window),
+                                  GTK_WINDOW (toplevel));
+
+    gtk_window_set_destroy_with_parent (GTK_WINDOW (container->details->search_window), TRUE);
     gtk_window_set_type_hint (GTK_WINDOW (container->details->search_window),
                               GDK_WINDOW_TYPE_HINT_COMBO);
 
@@ -6029,10 +6084,8 @@ key_press_event (GtkWidget *widget,
         char *old_text;
         const char *new_text;
         gboolean retval;
-        GdkScreen *screen;
         gboolean text_modified;
         gulong popup_menu_id;
-        gint scale;
 
         caja_icon_container_ensure_interactive_directory (container);
 
@@ -6046,12 +6099,6 @@ key_press_event (GtkWidget *widget,
         popup_menu_id = g_signal_connect (container->details->search_entry,
                                           "popup_menu", G_CALLBACK (gtk_true), NULL);
 
-        /* Move the entry off screen */
-        screen = gtk_widget_get_screen (GTK_WIDGET (container));
-        scale = gtk_widget_get_scale_factor (GTK_WIDGET (container));
-        gtk_window_move (GTK_WINDOW (container->details->search_window),
-                         WidthOfScreen (gdk_x11_screen_get_xscreen (screen)) / scale + 1,
-                         HeightOfScreen (gdk_x11_screen_get_xscreen (screen)) / scale + 1);
         gtk_widget_show (container->details->search_window);
 
         /* Send the event to the window.  If the preedit_changed signal is emitted
@@ -6589,7 +6636,6 @@ caja_icon_container_class_init (CajaIconContainerClass *class)
                                   FALSE,
                                   G_PARAM_READABLE));
 
-
     binding_set = gtk_binding_set_by_class (class);
 
     gtk_binding_entry_add_signal (binding_set, GDK_KEY_f, GDK_CONTROL_MASK, "start_interactive_search", 0);
@@ -6638,7 +6684,6 @@ handle_scale_factor_changed (GObject    *object,
     invalidate_labels (CAJA_ICON_CONTAINER (object));
     caja_icon_container_request_update_all (CAJA_ICON_CONTAINER (object));
 }
-
 
 static int text_ellipsis_limits[CAJA_ZOOM_LEVEL_N_ENTRIES];
 static int desktop_text_ellipsis_limit;
@@ -6945,7 +6990,6 @@ handle_icon_button_press (CajaIconContainer *container,
                        signals[CONTEXT_CLICK_SELECTION], 0,
                        event);
     }
-
 
     return TRUE;
 }
@@ -7438,7 +7482,6 @@ caja_icon_container_stop_monitor_top_left (CajaIconContainer *container,
     klass->stop_monitor_top_left (container, data, client);
 }
 
-
 static void
 caja_icon_container_prioritize_thumbnailing (CajaIconContainer *container,
         CajaIcon *icon)
@@ -7542,7 +7585,6 @@ handle_hadjustment_changed (GtkAdjustment *adjustment,
     }
 }
 
-
 void
 caja_icon_container_update_icon (CajaIconContainer *container,
                                  CajaIcon *icon)
@@ -7584,7 +7626,6 @@ caja_icon_container_update_icon (CajaIconContainer *container,
         icon_get_size (container, icon, &icon_size);
     }
 
-
     icon_size = MAX (icon_size, min_image_size);
     icon_size = MIN (icon_size, max_image_size);
 
@@ -7598,7 +7639,6 @@ caja_icon_container_update_icon (CajaIconContainer *container,
                 icon == details->drop_target,
                 large_embedded_text, &embedded_text_needs_loading,
                 &has_open_window);
-
 
     if (container->details->forced_icon_size > 0)
         pixbuf = caja_icon_info_get_pixbuf_at_size (icon_info, icon_size);
@@ -7686,19 +7726,6 @@ assign_icon_position (CajaIconContainer *container,
 }
 
 static void
-finish_adding_icon (CajaIconContainer *container,
-                    CajaIcon *icon)
-{
-    caja_icon_container_update_icon (container, icon);
-    eel_canvas_item_show (EEL_CANVAS_ITEM (icon->item));
-
-    g_signal_connect_object (icon->item, "event",
-                             G_CALLBACK (item_event_callback), container, 0);
-
-    g_signal_emit (container, signals[ICON_ADDED], 0, icon->data);
-}
-
-static void
 finish_adding_new_icons (CajaIconContainer *container)
 {
     GList *p, *new_icons, *no_position_icons, *semi_position_icons;
@@ -7716,6 +7743,7 @@ finish_adding_new_icons (CajaIconContainer *container)
     for (p = new_icons; p != NULL; p = p->next)
     {
         icon = p->data;
+        caja_icon_container_update_icon (container, icon);
         if (icon->has_lazy_position)
         {
             assign_icon_position (container, icon);
@@ -7726,7 +7754,12 @@ finish_adding_new_icons (CajaIconContainer *container)
             no_position_icons = g_list_prepend (no_position_icons, icon);
         }
 
-        finish_adding_icon (container, icon);
+        eel_canvas_item_show (EEL_CANVAS_ITEM (icon->item));
+
+        g_signal_connect_object (icon->item, "event",
+                                 G_CALLBACK (item_event_callback), container, 0);
+
+        g_signal_emit (container, signals[ICON_ADDED], 0, icon->data);
     }
     g_list_free (new_icons);
 
@@ -7870,7 +7903,7 @@ caja_icon_container_add (CajaIconContainer *container,
      * if the previous icon position is free. If the position
      * is occupied, another position near the last one will
      */
-    icon->has_lazy_position = is_old_or_unknown_icon_data (container, data);
+    icon->has_lazy_position = (is_old_or_unknown_icon_data (container, data) != FALSE);
     icon->scale = 1.0;
     icon->item = CAJA_ICON_CANVAS_ITEM
                  (eel_canvas_item_new (EEL_CANVAS_GROUP (EEL_CANVAS (container)->root),
@@ -7986,6 +8019,7 @@ caja_icon_container_set_zoom_level (CajaIconContainer *container, int new_level)
     CajaIconContainerDetails *details;
     int pinned_level;
     double pixels_per_unit;
+    guint icon_size;
 
     details = container->details;
 
@@ -8008,8 +8042,8 @@ caja_icon_container_set_zoom_level (CajaIconContainer *container, int new_level)
 
     details->zoom_level = pinned_level;
 
-    pixels_per_unit = (double) caja_get_icon_size_for_zoom_level (pinned_level)
-                      / CAJA_ICON_SIZE_STANDARD;
+    icon_size = caja_get_icon_size_for_zoom_level (pinned_level);
+    pixels_per_unit = ((double) icon_size) / ((double) CAJA_ICON_SIZE_STANDARD);
     eel_canvas_set_pixels_per_unit (EEL_CANVAS (container), pixels_per_unit);
 
     invalidate_labels (container);
@@ -8037,6 +8071,11 @@ caja_icon_container_request_update_all (CajaIconContainer *container)
         icon = node->data;
         caja_icon_container_update_icon (container, icon);
     }
+
+    /* on manual layout we need to reload icon positions, as that might be
+     * affected by the view size, zoom, etc. */
+    if (!container->details->auto_layout)
+        reload_icon_positions (container, FALSE);
 
     redo_layout (container);
     container->details->is_loading = FALSE;
@@ -8140,7 +8179,6 @@ caja_icon_container_invert_selection (CajaIconContainer *container)
 
     g_signal_emit (container, signals[SELECTION_CHANGED], 0);
 }
-
 
 /* Returns an array of GdkPoints of locations of the icons. */
 static GArray *
@@ -8640,7 +8678,7 @@ caja_icon_container_set_auto_layout (CajaIconContainer *container,
 
     if (!auto_layout)
     {
-        reload_icon_positions (container);
+        reload_icon_positions (container, TRUE);
         caja_icon_container_freeze_icon_positions (container);
     }
 
@@ -8648,7 +8686,6 @@ caja_icon_container_set_auto_layout (CajaIconContainer *container,
 
     g_signal_emit (container, signals[LAYOUT_CHANGED], 0);
 }
-
 
 /* Toggle the tighter layout boolean. */
 void
@@ -8966,7 +9003,6 @@ caja_icon_container_start_renaming_selected_item (CajaIconContainer *container,
     }
 
     g_assert (!has_multiple_selection (container));
-
 
     if (!icon_is_positioned (icon))
     {
@@ -9655,7 +9691,6 @@ caja_icon_container_accessible_cleared_cb (CajaIconContainer *container,
     g_signal_emit_by_name (data, "children_changed", 0, NULL, NULL);
 }
 
-
 static gboolean
 caja_icon_container_accessible_add_selection (AtkSelection *accessible,
         int i)
@@ -9858,7 +9893,6 @@ caja_icon_container_accessible_selection_interface_init (AtkSelectionIface *ifac
     iface->remove_selection = caja_icon_container_accessible_remove_selection;
     iface->select_all_selection = caja_icon_container_accessible_select_all_selection;
 }
-
 
 static gint
 caja_icon_container_accessible_get_n_children (AtkObject *accessible)
@@ -10176,7 +10210,7 @@ caja_icon_container_get_store_layout_timestamps (CajaIconContainer *container)
 
 void
 caja_icon_container_set_store_layout_timestamps (CajaIconContainer *container,
-        gboolean               store_layout_timestamps)
+                                                 gboolean           store_layout_timestamps)
 {
-    container->details->store_layout_timestamps = store_layout_timestamps;
+    container->details->store_layout_timestamps = (store_layout_timestamps != FALSE);
 }

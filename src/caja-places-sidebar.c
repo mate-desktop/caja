@@ -562,7 +562,6 @@ update_places (CajaPlacesSidebar *sidebar)
                            location, mount_uri, last_uri,
                            &last_iter, &select_path);
 
-
     /* XDG directories */
     xdg_dirs = NULL;
     for (index = 0; index < G_USER_N_DIRECTORIES; index++) {
@@ -808,7 +807,6 @@ update_places (CajaPlacesSidebar *sidebar)
         g_free (tooltip);
     }
     g_list_free (mounts);
-
 
     /* add bookmarks */
     bookmark_count = caja_bookmark_list_length (sidebar->bookmarks);
@@ -1463,6 +1461,7 @@ reorder_bookmarks (CajaPlacesSidebar *sidebar,
     GtkTreeIter iter;
     PlaceType type;
     int old_position;
+    guint list_length;
 
     /* Get the selected path */
 
@@ -1474,12 +1473,12 @@ reorder_bookmarks (CajaPlacesSidebar *sidebar,
                         PLACES_SIDEBAR_COLUMN_INDEX, &old_position,
                         -1);
 
-    if (type != PLACES_BOOKMARK ||
-            old_position < 0 ||
-            old_position >= caja_bookmark_list_length (sidebar->bookmarks))
-    {
+    if (type != PLACES_BOOKMARK || old_position < 0)
         return;
-    }
+
+    list_length = caja_bookmark_list_length (sidebar->bookmarks);
+    if (((guint) old_position) >= list_length)
+        return;
 
     caja_bookmark_list_move_item (sidebar->bookmarks, old_position,
                                   new_position);
@@ -1853,7 +1852,6 @@ bookmarks_check_popup_sensitivity (CajaPlacesSidebar *sidebar)
         }
     }
 
-
     g_free (uri);
 }
 
@@ -1905,7 +1903,6 @@ volume_mounted_cb (GVolume *volume,
         g_object_unref (G_OBJECT (location));
         g_object_unref (G_OBJECT (mount));
     }
-
 
     eel_remove_weak_pointer (&(sidebar->go_to_after_mount_slot));
 }
@@ -2884,15 +2881,15 @@ bookmarks_button_release_event_cb (GtkWidget *widget,
     }
 
     tree_view = GTK_TREE_VIEW (widget);
-    model = gtk_tree_view_get_model (tree_view);
 
     if (event->button == 1)
     {
-
         if (event->window != gtk_tree_view_get_bin_window (tree_view))
         {
             return FALSE;
         }
+
+        model = gtk_tree_view_get_model (tree_view);
 
         gtk_tree_view_get_path_at_pos (tree_view, (int) event->x, (int) event->y,
                                        &path, NULL, NULL, NULL);
@@ -2900,6 +2897,21 @@ bookmarks_button_release_event_cb (GtkWidget *widget,
         open_selected_bookmark (sidebar, model, path, 0);
 
         gtk_tree_path_free (path);
+    }
+    else if (event->button == 3)
+    {
+        gtk_tree_view_get_path_at_pos (tree_view, (int) event->x, (int) event->y,
+                                       &path, NULL, NULL, NULL);
+
+        if (path != NULL)
+        {
+            gtk_tree_view_set_cursor(tree_view, path, NULL, FALSE);
+            gtk_tree_path_free (path);
+
+            bookmarks_popup_menu (sidebar, event);
+
+            return TRUE;
+        }
     }
 
     return FALSE;
@@ -3016,11 +3028,7 @@ bookmarks_button_press_event_cb (GtkWidget             *widget,
         return TRUE;
     }
 
-    if (event->button == 3)
-    {
-        bookmarks_popup_menu (sidebar, event);
-    }
-    else if (event->button == 2)
+    if (event->button == 2)
     {
         GtkTreeModel *model;
         GtkTreePath *path;
@@ -3048,7 +3056,6 @@ bookmarks_button_press_event_cb (GtkWidget             *widget,
 
     return FALSE;
 }
-
 
 static void
 bookmarks_edited (GtkCellRenderer       *cell,

@@ -34,7 +34,6 @@ extern "C" {
     GList *caja_module_get_extensions_for_type (GType  type);
     void   caja_module_extension_list_free     (GList *list);
 
-
     /* Add a type to the module interface - allows caja to add its own modules
      * without putting them in separate shared libraries */
     GObject *caja_module_add_type              (GType  type);

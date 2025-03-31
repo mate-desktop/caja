@@ -163,4 +163,3 @@ extern "C" {
 
 #endif /* EEL_LABELED_IMAGE_H */
 
-

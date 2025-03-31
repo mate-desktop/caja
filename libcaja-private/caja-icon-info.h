@@ -45,14 +45,12 @@ extern "C" {
     typedef struct _CajaIconInfo      CajaIconInfo;
     typedef struct _CajaIconInfoClass CajaIconInfoClass;
 
-
 #define CAJA_TYPE_ICON_INFO                 (caja_icon_info_get_type ())
 #define CAJA_ICON_INFO(obj)                 (G_TYPE_CHECK_INSTANCE_CAST ((obj), CAJA_TYPE_ICON_INFO, CajaIconInfo))
 #define CAJA_ICON_INFO_CLASS(klass)         (G_TYPE_CHECK_CLASS_CAST ((klass), CAJA_TYPE_ICON_INFO, CajaIconInfoClass))
 #define CAJA_IS_ICON_INFO(obj)              (G_TYPE_CHECK_INSTANCE_TYPE ((obj), CAJA_TYPE_ICON_INFO))
 #define CAJA_IS_ICON_INFO_CLASS(klass)      (G_TYPE_CHECK_CLASS_TYPE ((klass), CAJA_TYPE_ICON_INFO))
 #define CAJA_ICON_INFO_GET_CLASS(obj)       (G_TYPE_INSTANCE_GET_CLASS ((obj), CAJA_TYPE_ICON_INFO, CajaIconInfoClass))
-
 
     GType    caja_icon_info_get_type (void) G_GNUC_CONST;
 
@@ -102,8 +100,6 @@ extern "C" {
 
 gboolean caja_icon_theme_can_render              (GThemedIcon *icon);
 GIcon * caja_user_special_directory_get_gicon (GUserDirectory directory);
-
-
 
 #ifdef __cplusplus
 }

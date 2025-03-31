@@ -52,7 +52,6 @@ struct _CajaMimeApplicationChooserDetails
     guint refresh_timeout;
 
     GtkWidget *label;
-    GtkWidget *entry;
     GtkWidget *treeview;
     GtkWidget *remove_button;
 
@@ -93,7 +92,6 @@ caja_mime_application_chooser_finalize (GObject *object)
     g_signal_handlers_disconnect_by_func (caja_signaller_get_current (),
                                           G_CALLBACK (mime_type_data_changed_cb),
                                           chooser);
-
 
     g_free (chooser->details->uri);
     g_free (chooser->details->content_type);

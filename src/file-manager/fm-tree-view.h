@@ -25,7 +25,6 @@
 
 /* fm-tree-view.h - tree view. */
 
-
 #ifndef FM_TREE_VIEW_H
 #define FM_TREE_VIEW_H
 

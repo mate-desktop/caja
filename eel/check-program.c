@@ -40,7 +40,6 @@ main (int argc, char *argv[])
 
     eel_make_warnings_and_criticals_stop_in_debugger ();
 
-
     LIBXML_TEST_VERSION
     gtk_init (&argc, &argv);
 

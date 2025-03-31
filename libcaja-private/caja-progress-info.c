@@ -707,7 +707,7 @@ widget_state_notify_paused_callback (ProgressWidgetData *data)
 }
 
 void
-caja_progress_info_get_ready (CajaProgressInfo *info)
+caja_progress_info_get_ready (CajaProgressInfo *info, GTimer *time)
 {
     if (info->waiting) {
         G_LOCK (progress_info);
@@ -717,8 +717,10 @@ caja_progress_info_get_ready (CajaProgressInfo *info)
             g_source_set_callback (source, (GSourceFunc)widget_state_notify_paused_callback, info->widget, NULL);
             g_source_attach (source, NULL);
 
+            g_timer_stop (time);
             while (info->waiting)
                 g_cond_wait (&info->waiting_c, &G_LOCK_NAME(progress_info));
+            g_timer_continue (time);
         }
         G_UNLOCK (progress_info);
     }
@@ -821,7 +823,6 @@ progress_widget_new (CajaProgressInfo *info)
 
     vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
     gtk_box_set_spacing (GTK_BOX (vbox), 5);
-
 
     data->widget = vbox;
     g_object_set_data_full (G_OBJECT (data->widget),
@@ -1328,7 +1329,6 @@ caja_progress_info_set_status (CajaProgressInfo *info,
 
     G_UNLOCK (progress_info);
 }
-
 
 void
 caja_progress_info_take_details (CajaProgressInfo *info,

@@ -235,7 +235,6 @@ preferences_show_help (GtkWindow *parent,
     }
 }
 
-
 static void
 caja_file_management_properties_dialog_response_cb (GtkDialog *parent,
         int response_id,
@@ -385,7 +384,7 @@ update_caption_combo_box (GtkBuilder *builder,
                           const char *name)
 {
     GtkWidget *combo_box;
-    int i;
+    guint i;
     GPtrArray *column_names;
 
     combo_box = GTK_WIDGET (gtk_builder_get_object (builder, combo_box_name));
@@ -402,7 +401,7 @@ update_caption_combo_box (GtkBuilder *builder,
     {
         if (!strcmp (name, g_ptr_array_index (column_names, i)))
         {
-            gtk_combo_box_set_active (GTK_COMBO_BOX (combo_box), i);
+            gtk_combo_box_set_active (GTK_COMBO_BOX (combo_box), (int) i);
             break;
         }
     }
@@ -721,7 +720,6 @@ extension_state_toggled (GtkCellRendererToggle *cell, gchar *path_str, gpointer 
     gtk_tree_path_free (path);
 }
 
-
 static void
 caja_file_management_properties_dialog_setup_media_page (GtkBuilder *builder)
 {
@@ -755,7 +753,6 @@ caja_file_management_properties_dialog_setup_media_page (GtkBuilder *builder)
 
     gtk_tree_sortable_set_sort_column_id (GTK_TREE_SORTABLE (other_type_list_store),
                                           1, GTK_SORT_ASCENDING);
-
 
     content_types = g_content_types_get_registered ();
 
@@ -845,7 +842,7 @@ caja_file_management_properties_dialog_setup_extension_page (GtkBuilder *builder
     gchar *ext_text_info;
 
     GList *extensions;
-    int i;
+    guint i;
 
     extensions = caja_extensions_get_list ();
 
@@ -1220,7 +1217,6 @@ caja_file_management_properties_dialog_setup (GtkBuilder *builder, GtkWindow *wi
                               G_CALLBACK(caja_file_management_properties_dialog_update_media_sensitivity),
                               builder);
 
-
     /* UI callbacks */
     dialog = GTK_WIDGET (gtk_builder_get_object (builder, "file_management_dialog"));
     g_signal_connect_data (dialog, "response",
@@ -1265,7 +1261,7 @@ caja_file_management_properties_dialog_show (GCallback close_callback, GtkWindow
 {
     GtkBuilder *builder;
 
-    builder = gtk_builder_new_from_file (UIDIR "/caja-file-management-properties.ui");
+    builder = gtk_builder_new_from_resource ("/org/mate/caja/caja-file-management-properties.ui");
 
     g_signal_connect (gtk_builder_get_object (builder, "file_management_dialog"), "response",
                       close_callback, NULL);

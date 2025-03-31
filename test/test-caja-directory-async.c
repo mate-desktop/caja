@@ -99,7 +99,6 @@ main (int argc, char **argv)
 					     CAJA_FILE_ATTRIBUTE_INFO,
 					     NULL, NULL);
 
-
 	gtk_main ();
 	return 0;
 }

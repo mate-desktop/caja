@@ -75,7 +75,6 @@ struct _CajaZoomControlPrivate
     gboolean marking_menu_items;
 };
 
-
 static guint signals[LAST_SIGNAL] = { 0 };
 
 static gpointer accessible_parent_class;
@@ -576,8 +575,6 @@ caja_zoom_control_scroll_event (GtkWidget *widget, GdkEventScroll *event)
     return TRUE;
 }
 
-
-
 static void
 caja_zoom_control_class_init (CajaZoomControlClass *class)
 {
@@ -587,7 +584,6 @@ caja_zoom_control_class_init (CajaZoomControlClass *class)
     G_OBJECT_CLASS (class)->finalize = caja_zoom_control_finalize;
 
     widget_class = GTK_WIDGET_CLASS (class);
-
 
     gtk_widget_class_set_accessible_type (widget_class,
                                           caja_zoom_control_accessible_get_type ());

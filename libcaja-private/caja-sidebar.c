@@ -72,6 +72,7 @@ caja_sidebar_get_type (void)
             NULL,
             0,
             0,
+            NULL,
             NULL
         };
 
@@ -83,7 +84,6 @@ caja_sidebar_get_type (void)
 
     return type;
 }
-
 
 const char *
 caja_sidebar_get_sidebar_id (CajaSidebar *sidebar)

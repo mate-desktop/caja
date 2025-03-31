@@ -91,7 +91,6 @@ void                  caja_bookmark_set_scroll_pos         (CajaBookmark      *b
         const char            *uri);
 char *                caja_bookmark_get_scroll_pos         (CajaBookmark      *bookmark);
 
-
 /* Helper functions for displaying bookmarks */
 cairo_surface_t *     caja_bookmark_get_surface            (CajaBookmark      *bookmark,
         GtkIconSize            icon_size);

@@ -79,7 +79,5 @@ void caja_get_clipboard_callback   (GtkClipboard     *clipboard,
                                     guint             info,
                                     gpointer          user_data);
 
-
-
 #endif /* CAJA_CLIPBOARD_MONITOR_H */
 

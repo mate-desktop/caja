@@ -74,7 +74,6 @@ typedef struct
     GObjectClass parent;
 } FMTreeViewProviderClass;
 
-
 struct FMTreeViewDetails
 {
     CajaWindowInfo *window;
@@ -102,7 +101,6 @@ struct FMTreeViewDetails
     GtkWidget *popup_cut;
     GtkWidget *popup_copy;
     GtkWidget *popup_paste;
-    GtkWidget *popup_rename;
     GtkWidget *popup_trash;
     GtkWidget *popup_delete;
     GtkWidget *popup_properties;
@@ -114,12 +112,6 @@ struct FMTreeViewDetails
 
     guint selection_changed_timer;
 };
-
-typedef struct
-{
-    GList *uris;
-    FMTreeView *view;
-} PrependURIParameters;
 
 static GdkAtom copied_files_atom;
 
@@ -156,7 +148,6 @@ notify_clipboard_info (CajaClipboardMonitor *monitor,
         fm_tree_model_set_highlight_for_files (view->details->child_model, NULL);
     }
 }
-
 
 static gboolean
 show_iter_for_file (FMTreeView *view, CajaFile *file, GtkTreeIter *iter)
@@ -621,7 +612,6 @@ compare_rows (GtkTreeModel *model, GtkTreeIter *a, GtkTreeIter *b, gpointer call
 
     return result;
 }
-
 
 static char *
 get_root_uri_callback (CajaTreeViewDragDest *dest,
@@ -1266,7 +1256,6 @@ create_popup_menu (FMTreeView *view)
                       G_CALLBACK (popup_menu_deactivated),
                       view);
 
-
     /* add the "open" menu item */
     menu_item = eel_image_menu_item_new_from_icon ("document-open", _("_Open"));
     g_signal_connect (menu_item, "activate",
@@ -1427,7 +1416,6 @@ create_tree (FMTreeView *view)
     icon = g_themed_icon_new (CAJA_ICON_TRASH);
     fm_tree_model_add_root_uri (view->details->child_model, "trash:///", _("Trash"), icon, NULL);
     g_object_unref (icon);
-
 
     volume_monitor = g_volume_monitor_get ();
     view->details->volume_monitor = volume_monitor;

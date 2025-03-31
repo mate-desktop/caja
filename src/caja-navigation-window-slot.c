@@ -124,7 +124,6 @@ query_editor_changed_callback (CajaSearchBar *bar,
     caja_directory_unref (directory);
 }
 
-
 static void
 caja_navigation_window_slot_update_query_editor (CajaWindowSlot *slot)
 {

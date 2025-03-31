@@ -75,7 +75,6 @@ labeled_image_new (const char *text,
 	return image;
 }
 
-
 static void
 image_table_child_enter_callback (GtkWidget *image_table,
 			       GtkWidget *item,

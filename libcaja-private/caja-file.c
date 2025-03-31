@@ -257,7 +257,7 @@ caja_file_set_display_name (CajaFile *file,
 		}
 	}
 
-	file->details->got_custom_display_name = custom;
+	file->details->got_custom_display_name = (custom != FALSE);
 	return changed;
 }
 
@@ -288,7 +288,6 @@ foreach_metadata_free (gpointer  key,
 	}
 	return TRUE;
 }
-
 
 static void
 metadata_hash_free (GHashTable *hash)
@@ -1152,7 +1151,6 @@ caja_file_is_media_check_automatic (CajaFile *file)
  out:
 	return ret;
 }
-
 
 gboolean
 caja_file_can_stop (CajaFile *file)
@@ -2190,7 +2188,7 @@ update_info_internal (CajaFile *file,
 	if (file->details->is_symlink != is_symlink) {
 		changed = TRUE;
 	}
-	file->details->is_symlink = is_symlink;
+	file->details->is_symlink = (is_symlink != FALSE);
 
 	is_hidden = g_file_info_get_is_hidden (info);
 	is_backup = g_file_info_get_is_backup (info);
@@ -2198,14 +2196,14 @@ update_info_internal (CajaFile *file,
 	    file->details->is_backup != is_backup) {
 		changed = TRUE;
 	}
-	file->details->is_hidden = is_hidden;
-	file->details->is_backup = is_backup;
+	file->details->is_hidden = (is_hidden != FALSE);
+	file->details->is_backup = (is_backup != FALSE);
 
 	is_mountpoint = g_file_info_get_attribute_boolean (info, G_FILE_ATTRIBUTE_UNIX_IS_MOUNTPOINT);
 	if (file->details->is_mountpoint != is_mountpoint) {
 		changed = TRUE;
 	}
-	file->details->is_mountpoint = is_mountpoint;
+	file->details->is_mountpoint = (is_mountpoint != FALSE);
 
 	has_permissions = g_file_info_has_attribute (info, G_FILE_ATTRIBUTE_UNIX_MODE);
 	permissions = g_file_info_get_attribute_uint32 (info, G_FILE_ATTRIBUTE_UNIX_MODE);;
@@ -2213,7 +2211,7 @@ update_info_internal (CajaFile *file,
 	    file->details->permissions != permissions) {
 		changed = TRUE;
 	}
-	file->details->has_permissions = has_permissions;
+	file->details->has_permissions = (has_permissions != FALSE);
 	file->details->permissions = permissions;
 
 	/* We default to TRUE for this if we can't know */
@@ -2310,21 +2308,21 @@ update_info_internal (CajaFile *file,
 		changed = TRUE;
 	}
 
-	file->details->can_read = can_read;
-	file->details->can_write = can_write;
-	file->details->can_execute = can_execute;
-	file->details->can_delete = can_delete;
-	file->details->can_trash = can_trash;
-	file->details->can_rename = can_rename;
-	file->details->can_mount = can_mount;
-	file->details->can_unmount = can_unmount;
-	file->details->can_eject = can_eject;
-	file->details->can_start = can_start;
-	file->details->can_start_degraded = can_start_degraded;
-	file->details->can_stop = can_stop;
+	file->details->can_read = (can_read != FALSE);
+	file->details->can_write = (can_write != FALSE);
+	file->details->can_execute = (can_execute != FALSE);
+	file->details->can_delete = (can_delete != FALSE);
+	file->details->can_trash = (can_trash != FALSE);
+	file->details->can_rename = (can_rename != FALSE);
+	file->details->can_mount = (can_mount != FALSE);
+	file->details->can_unmount = (can_unmount != FALSE);
+	file->details->can_eject = (can_eject != FALSE);
+	file->details->can_start = (can_start != FALSE);
+	file->details->can_start_degraded = (can_start_degraded != FALSE);
+	file->details->can_stop = (can_stop != FALSE);
 	file->details->start_stop_type = start_stop_type;
-	file->details->can_poll_for_media = can_poll_for_media;
-	file->details->is_media_check_automatic = is_media_check_automatic;
+	file->details->can_poll_for_media = (can_poll_for_media != FALSE);
+	file->details->is_media_check_automatic = (is_media_check_automatic != FALSE);
 
 	free_owner = FALSE;
 	owner = g_file_info_get_attribute_string (info, G_FILE_ATTRIBUTE_OWNER_USER);
@@ -2398,7 +2396,7 @@ update_info_internal (CajaFile *file,
 	}
 	file->details->size_on_disk = size_on_disk;
 
-	sort_order = g_file_info_get_sort_order (info);
+	sort_order = g_file_info_get_attribute_int32 (info, G_FILE_ATTRIBUTE_STANDARD_SORT_ORDER);
 	if (file->details->sort_order != sort_order) {
 		changed = TRUE;
 	}
@@ -2450,10 +2448,11 @@ update_info_internal (CajaFile *file,
 	thumbnailing_failed =  g_file_info_get_attribute_boolean (info, G_FILE_ATTRIBUTE_THUMBNAILING_FAILED);
 	if (file->details->thumbnailing_failed != thumbnailing_failed) {
 		changed = TRUE;
-		file->details->thumbnailing_failed = thumbnailing_failed;
+		file->details->thumbnailing_failed = (thumbnailing_failed != FALSE);
 	}
 
-	symlink_name = g_file_info_get_symlink_target (info);
+	symlink_name = g_file_info_get_attribute_byte_string (info, G_FILE_ATTRIBUTE_STANDARD_SYMLINK_TARGET);
+
 	if (eel_strcmp (file->details->symlink_name, symlink_name) != 0) {
 		changed = TRUE;
 		g_free (file->details->symlink_name);
@@ -3034,7 +3033,6 @@ prepend_automatic_keywords (CajaFile *file,
 		caja_file_unref (parent);
 	}
 
-
 	return names;
 }
 
@@ -3101,7 +3099,6 @@ compare_by_emblems (CajaFile *file_1, CajaFile *file_2)
 		keyword_cache_1 += length + 1;
 		keyword_cache_2 += length + 1;
 	}
-
 
 	/* One or both is now NULL. */
 	if (*keyword_cache_1 != '\0') {
@@ -3303,7 +3300,6 @@ compare_by_extension_segments (CajaFile *file_1, CajaFile *file_2)
 	gboolean done_1, done_2;
 	gboolean is_directory_1, is_directory_2;
 	int segment_index;
-
 
 	/* Directories do not have an extension */
 	is_directory_1 = caja_file_is_directory (file_1);
@@ -3659,7 +3655,6 @@ caja_file_compare_for_sort_by_attribute     (CajaFile                   *file_1,
 							      reversed);
 }
 
-
 /**
  * caja_file_compare_name:
  * @file: A file object
@@ -3681,7 +3676,6 @@ caja_file_compare_display_name (CajaFile *file,
 	result = g_utf8_collate (name, pattern);
 	return result;
 }
-
 
 gboolean
 caja_file_is_hidden_file (CajaFile *file)
@@ -3894,7 +3888,6 @@ caja_file_set_metadata_list (CajaFile *file,
 	g_free (val);
 }
 
-
 gboolean
 caja_file_get_boolean_metadata (CajaFile *file,
 				    const char   *key,
@@ -3922,7 +3915,6 @@ caja_file_get_boolean_metadata (CajaFile *file,
 		result = FALSE;
 	} else {
 		g_error ("boolean metadata with value other than true or false");
-		result = default_metadata;
 	}
 
 	g_free (result_as_string);
@@ -4021,7 +4013,6 @@ caja_file_set_time_metadata (CajaFile *file,
 
 	caja_file_set_metadata (file, key, NULL, metadata);
 }
-
 
 void
 caja_file_set_boolean_metadata (CajaFile *file,
@@ -4201,7 +4192,6 @@ caja_file_has_activation_uri (CajaFile *file)
 	return file->details->activation_uri != NULL;
 }
 
-
 /* Return the uri associated with the passed-in file, which may not be
  * the actual uri if the file is an desktop file or a caja
  * xml link file.
@@ -4229,7 +4219,6 @@ caja_file_get_activation_location (CajaFile *file)
 
 	return caja_file_get_location (file);
 }
-
 
 char *
 caja_file_get_drop_target_uri (CajaFile *file)
@@ -4343,7 +4332,6 @@ get_custom_icon (CajaFile *file)
 
 	return icon;
 }
-
 
 static guint64 cached_thumbnail_limit;
 int cached_thumbnail_size;
@@ -4726,7 +4714,6 @@ caja_file_get_custom_icon (CajaFile *file)
 	return custom_icon;
 }
 
-
 gboolean
 caja_file_get_date (CajaFile *file,
 			CajaDateType date_type,
@@ -4862,7 +4849,7 @@ caja_file_fit_date_as_string (CajaFile *file,
 	char *date_string;
 	gchar *result = NULL;
 	int i;
-	GDateTime *date_time, *today;
+	GDateTime *date_time, *today, *end_of_today;
 	GTimeSpan file_date_age;
 
 	if (!caja_file_get_date (file, date_type, &file_time_raw)) {
@@ -4880,8 +4867,14 @@ caja_file_fit_date_as_string (CajaFile *file,
 	}
 
 	today = g_date_time_new_now_local ();
-	file_date_age = g_date_time_difference (today, date_time);
+	end_of_today = g_date_time_add_full (today, 0, 0, 1,
+					     -1 * g_date_time_get_hour (today),
+					     -1 * g_date_time_get_minute (today),
+					     -1.0 * g_date_time_get_seconds (today));
 	g_date_time_unref (today);
+
+	file_date_age = g_date_time_difference (end_of_today, date_time);
+	g_date_time_unref (end_of_today);
 
 	/* Format varies depending on how old the date is. This minimizes
 	 * the length (and thus clutter & complication) of typical dates
@@ -4891,12 +4884,12 @@ caja_file_fit_date_as_string (CajaFile *file,
 	 * internationalization's sake.
 	 */
 
-	if (file_date_age < G_TIME_SPAN_DAY) {
-		formats = TODAY_TIME_FORMATS;
-	} else if (file_date_age < 2 * G_TIME_SPAN_DAY) {
+	if (file_date_age <= 0 || file_date_age > 2 * G_TIME_SPAN_DAY) {
+		formats = CURRENT_WEEK_TIME_FORMATS;
+	} else if (file_date_age > G_TIME_SPAN_DAY) {
 		formats = YESTERDAY_TIME_FORMATS;
 	} else {
-		formats = CURRENT_WEEK_TIME_FORMATS;
+		formats = TODAY_TIME_FORMATS;
 	}
 
 	/* Find the date format that just fits the required width. Instead of measuring
@@ -5262,7 +5255,6 @@ caja_file_can_get_size (CajaFile *file)
 	return file->details->size == -1;
 }
 
-
 /**
  * caja_file_get_size
  *
@@ -5308,7 +5300,6 @@ caja_file_get_mtime (CajaFile *file)
 	return file->details->mtime;
 }
 
-
 static void
 set_attributes_get_info_callback (GObject *source_object,
 				  GAsyncResult *res,
@@ -5333,7 +5324,6 @@ set_attributes_get_info_callback (GObject *source_object,
 		g_error_free (error);
 	}
 }
-
 
 static void
 set_attributes_callback (GObject *source_object,
@@ -5386,7 +5376,6 @@ caja_file_set_attributes (CajaFile *file,
 				     op);
 	g_object_unref (location);
 }
-
 
 /**
  * caja_file_can_get_permissions:
@@ -5527,7 +5516,6 @@ caja_file_can_get_selinux_context (CajaFile *file)
 	return file->details->selinux_context != NULL;
 }
 
-
 /**
  * caja_file_get_selinux_context:
  *
@@ -5601,7 +5589,6 @@ get_real_name (const char *name, const char *gecos)
 			(part_before_comma, "&", capitalized_login_name);
 		g_free (part_before_comma);
 	}
-
 
 	if (eel_str_is_empty (real_name)
 	    || eel_strcmp (name, real_name) == 0
@@ -5949,7 +5936,6 @@ caja_get_group_names_for_user (void)
 	gid_t gid_list[NGROUPS_MAX + 1];
 	struct group *group = NULL;
 
-
 	list = NULL;
 
 	count = getgroups (NGROUPS_MAX + 1, gid_list);
@@ -6275,9 +6261,9 @@ caja_file_get_size_as_string (CajaFile *file,
 	}
 
 	if (g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_USE_IEC_UNITS))
-		return g_format_size_full (size, G_FORMAT_SIZE_IEC_UNITS);
+		return g_format_size_full ((guint64) size, G_FORMAT_SIZE_IEC_UNITS);
 	else
-		return g_format_size (size);
+		return g_format_size ((guint64) size);
 }
 
 /**
@@ -6644,7 +6630,6 @@ caja_file_get_string_attribute (CajaFile *file, const char *attribute_name)
 	return caja_file_get_string_attribute_q (file, g_quark_from_string (attribute_name));
 }
 
-
 /**
  * caja_file_get_string_attribute_with_default:
  *
@@ -6916,7 +6901,6 @@ caja_file_is_launchable (CajaFile *file)
 		!caja_file_is_directory (file);
 }
 
-
 /**
  * caja_file_get_emblem_icons
  *
@@ -6975,7 +6959,6 @@ caja_file_get_emblem_icons (CajaFile *file,
 			}
 		}
 
-
 		icon_names[0] = g_strconcat ("emblem-", keyword, NULL);
 		icon_names[1] = keyword;
 		icon = g_themed_icon_new_from_names (icon_names, 2);
@@ -7018,14 +7001,12 @@ caja_file_get_emblem_pixbufs (CajaFile *file,
 			pixbufs = g_list_prepend (pixbufs, pixbuf);
 		}
 
-
 		g_object_unref (icon_info);
 		g_object_unref (icon);
 	}
 	g_list_free (icons);
 
 	return g_list_reverse (pixbufs);
-
 
 }
 
@@ -7258,7 +7239,6 @@ caja_file_get_volume_free_space (CajaFile *file)
 		caja_directory_unref (directory);
 	}
 
-
 	res = NULL;
 
 	if (directory->details->free_space != (guint64) -1)
@@ -7465,7 +7445,6 @@ caja_file_is_archive (CajaFile *file)
 
 	return FALSE;
 }
-
 
 /**
  * caja_file_is_in_trash
@@ -7770,7 +7749,6 @@ caja_file_emit_changed (CajaFile *file)
 
 	g_assert (CAJA_IS_FILE (file));
 
-
 	/* Invalidate the emblem compare cache. -- This is not the cleanest
 	 * place to do it but it is the one guaranteed bottleneck through
 	 * which all change notifications pass.
@@ -8016,11 +7994,10 @@ caja_file_set_has_open_window (CajaFile *file,
 	has_open_window = (has_open_window != FALSE);
 
 	if (file->details->has_open_window != has_open_window) {
-		file->details->has_open_window = has_open_window;
+		file->details->has_open_window = (has_open_window != FALSE);
 		caja_file_changed (file);
 	}
 }
-
 
 gboolean
 caja_file_is_thumbnailing (CajaFile *file)
@@ -8036,9 +8013,8 @@ caja_file_set_is_thumbnailing (CajaFile *file,
 {
 	g_return_if_fail (CAJA_IS_FILE (file));
 
-	file->details->is_thumbnailing = is_thumbnailing;
+	file->details->is_thumbnailing = (is_thumbnailing != FALSE);
 }
-
 
 /**
  * caja_file_invalidate_attributes
@@ -8089,7 +8065,6 @@ caja_file_invalidate_all_attributes (CajaFile *file)
 	all_attributes = caja_file_get_all_attributes ();
 	caja_file_invalidate_attributes (file, all_attributes);
 }
-
 
 /**
  * caja_file_dump
@@ -8377,7 +8352,6 @@ caja_file_list_call_when_ready (GList *file_list,
 		*handle = (CajaFileListHandle *) data;
 	}
 
-
 	l = file_list;
 	while (l != NULL) {
 		file = CAJA_FILE (l->data);
@@ -8458,8 +8432,6 @@ try_to_make_utf8 (const char *text, int *length)
 	return utf8_text;
 }
 
-
-
 /* Extract the top left part of the read-in text. */
 char *
 caja_extract_top_left_text (const char *text,
@@ -8485,8 +8457,6 @@ caja_extract_top_left_text (const char *text,
 		max_lines = CAJA_FILE_TOP_LEFT_TEXT_MAXIMUM_LINES;
 		max_cols = CAJA_FILE_TOP_LEFT_TEXT_MAXIMUM_CHARACTERS_PER_LINE;
 	}
-
-
 
         text_copy = NULL;
         if (text != NULL) {
@@ -8841,7 +8811,6 @@ caja_self_check_file (void)
 	caja_file_list_free (list);
 
         EEL_CHECK_INTEGER_RESULT (caja_directory_number_outstanding (), 0);
-
 
         /* name checks */
 	file_1 = caja_file_get_by_uri ("file:///home/");

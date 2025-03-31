@@ -264,13 +264,7 @@ create_bookmarks_window (CajaBookmarkList *list, CajaWindow *window_source)
 
     bookmarks = list;
 
-    builder = gtk_builder_new ();
-    if (!gtk_builder_add_from_file (builder,
-                                    UIDIR  "/caja-bookmarks-window.ui",
-                                    NULL))
-    {
-        return NULL;
-    }
+    builder = gtk_builder_new_from_resource ("/org/mate/caja/caja-bookmarks-window.ui");
 
     window = (GtkWidget *)gtk_builder_get_object (builder, "bookmarks_dialog");
     bookmark_list_widget = (GtkTreeView *)gtk_builder_get_object (builder, "bookmark_tree_view");
@@ -673,7 +667,6 @@ on_remove_button_clicked (GtkButton *button,
     bookmarks_delete_bookmark ();
 }
 
-
 /* This is a bit of a kludge to get DnD to work. We check if the row in the
    GtkListStore matches the one in the bookmark list. If it doesn't, we assume
    the bookmark has just been dragged here and we insert it into the bookmark
@@ -838,7 +831,6 @@ on_selection_changed (GtkTreeSelection *treeselection,
     g_free (name);
     g_free (entry_text);
 }
-
 
 static void
 update_bookmark_from_text (void)

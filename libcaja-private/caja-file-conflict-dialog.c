@@ -46,8 +46,6 @@ struct _CajaFileConflictDialogPrivate
 
     gchar *conflict_name;
     CajaFileListHandle *handle;
-    gulong src_handler_id;
-    gulong dest_handler_id;
 
     /* UI objects */
     GtkWidget *titles_vbox;
@@ -68,27 +66,18 @@ G_DEFINE_TYPE_WITH_PRIVATE (CajaFileConflictDialog,
                             GTK_TYPE_DIALOG);
 
 static void
-file_icons_changed (CajaFile *file,
-                    CajaFileConflictDialog *fcd)
+file_icons_changed (CajaFile  *file,
+                    GtkWidget *widget)
 {
     cairo_surface_t *surface;
 
-    surface = caja_file_get_icon_surface (fcd->details->destination,
+    surface = caja_file_get_icon_surface (file,
                                           CAJA_ICON_SIZE_LARGE,
                                           FALSE,
-                                          gtk_widget_get_scale_factor (fcd->details->dest_image),
+                                          gtk_widget_get_scale_factor (widget),
                                           CAJA_FILE_ICON_FLAGS_USE_THUMBNAILS);
 
-    gtk_image_set_from_surface (GTK_IMAGE (fcd->details->dest_image), surface);
-    cairo_surface_destroy (surface);
-
-    surface = caja_file_get_icon_surface (fcd->details->source,
-                                          CAJA_ICON_SIZE_LARGE,
-                                          FALSE,
-                                          gtk_widget_get_scale_factor (fcd->details->src_image),
-                                          CAJA_FILE_ICON_FLAGS_USE_THUMBNAILS);
-
-    gtk_image_set_from_surface (GTK_IMAGE (fcd->details->src_image), surface);
+    gtk_image_set_from_surface (GTK_IMAGE (widget), surface);
     cairo_surface_destroy (surface);
 }
 
@@ -370,10 +359,12 @@ file_list_ready_cb (GList *files,
     caja_file_monitor_add (src, fcd, CAJA_FILE_ATTRIBUTES_FOR_ICON);
     caja_file_monitor_add (dest, fcd, CAJA_FILE_ATTRIBUTES_FOR_ICON);
 
-    details->src_handler_id = g_signal_connect (src, "changed",
-                              G_CALLBACK (file_icons_changed), fcd);
-    details->dest_handler_id = g_signal_connect (dest, "changed",
-                               G_CALLBACK (file_icons_changed), fcd);
+    g_signal_connect_object (src, "changed",
+                             G_CALLBACK (file_icons_changed),
+                             fcd->details->src_image, 0);
+    g_signal_connect_object (dest, "changed",
+                             G_CALLBACK (file_icons_changed),
+                             fcd->details->dest_image, 0);
 }
 
 static void
@@ -679,6 +670,32 @@ caja_file_conflict_dialog_init (CajaFileConflictDialog *fcd)
 }
 
 static void
+do_dispose (GObject *self)
+{
+    CajaFileConflictDialogPrivate *details =
+        CAJA_FILE_CONFLICT_DIALOG (self)->details;
+
+    if (details->handle != NULL)
+    {
+        caja_file_list_cancel_call_when_ready (details->handle);
+        details->handle = NULL;
+    }
+    else
+    {
+        if (details->source)
+            caja_file_monitor_remove (details->source, self);
+        if (details->destination)
+            caja_file_monitor_remove (details->destination, self);
+    }
+
+    g_clear_pointer (&details->source, caja_file_unref);
+    g_clear_pointer (&details->destination, caja_file_unref);
+    g_clear_pointer (&details->dest_dir, caja_file_unref);
+
+    G_OBJECT_CLASS (caja_file_conflict_dialog_parent_class)->dispose (self);
+}
+
+static void
 do_finalize (GObject *self)
 {
     CajaFileConflictDialogPrivate *details =
@@ -686,33 +703,13 @@ do_finalize (GObject *self)
 
     g_free (details->conflict_name);
 
-    if (details->handle != NULL)
-    {
-        caja_file_list_cancel_call_when_ready (details->handle);
-    }
-
-    if (details->src_handler_id)
-    {
-        g_signal_handler_disconnect (details->source, details->src_handler_id);
-        caja_file_monitor_remove (details->source, self);
-    }
-
-    if (details->dest_handler_id)
-    {
-        g_signal_handler_disconnect (details->destination, details->dest_handler_id);
-        caja_file_monitor_remove (details->destination, self);
-    }
-
-    caja_file_unref (details->source);
-    caja_file_unref (details->destination);
-    caja_file_unref (details->dest_dir);
-
     G_OBJECT_CLASS (caja_file_conflict_dialog_parent_class)->finalize (self);
 }
 
 static void
 caja_file_conflict_dialog_class_init (CajaFileConflictDialogClass *klass)
 {
+    G_OBJECT_CLASS (klass)->dispose = do_dispose;
     G_OBJECT_CLASS (klass)->finalize = do_finalize;
 }
 
