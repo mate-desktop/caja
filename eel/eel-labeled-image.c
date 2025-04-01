@@ -2178,17 +2178,6 @@ eel_labeled_image_set_can_focus (EelLabeledImage *labeled_image,
     gtk_widget_set_can_focus (GTK_WIDGET (labeled_image), can_focus);
 }
 
-static AtkObjectClass *a11y_parent_class = NULL;
-
-static void
-eel_labeled_image_accessible_initialize (AtkObject *accessible,
-        gpointer   widget)
-{
-    a11y_parent_class->initialize (accessible, widget);
-    atk_object_set_role (accessible, ATK_ROLE_IMAGE);
-
-}
-
 static EelLabeledImage *
 get_image (gpointer object)
 {
@@ -2248,29 +2237,27 @@ eel_labeled_image_accessible_image_interface_init (AtkImageIface *iface)
     iface->get_image_size = eel_labeled_image_accessible_image_get_size;
 }
 
-typedef struct _EelLabeledImageAccessible EelLabeledImageAccessible;
-typedef struct _EelLabeledImageAccessibleClass EelLabeledImageAccessibleClass;
-
-struct _EelLabeledImageAccessible
-{
-    GtkContainerAccessible parent;
-};
-
-struct _EelLabeledImageAccessibleClass
-{
-    GtkContainerAccessibleClass parent_class;
-};
+typedef GtkContainerAccessible EelLabeledImageAccessible;
+typedef GtkContainerAccessibleClass EelLabeledImageAccessibleClass;
 
 G_DEFINE_TYPE_WITH_CODE (EelLabeledImageAccessible,
                          eel_labeled_image_accessible,
                          GTK_TYPE_CONTAINER_ACCESSIBLE,
                          G_IMPLEMENT_INTERFACE (ATK_TYPE_IMAGE,
                                                 eel_labeled_image_accessible_image_interface_init));
+
+static void
+eel_labeled_image_accessible_initialize (AtkObject *accessible,
+                                         gpointer   widget)
+{
+    ATK_OBJECT_CLASS (eel_labeled_image_accessible_parent_class)->initialize (accessible, widget);
+    atk_object_set_role (accessible, ATK_ROLE_IMAGE);
+}
+
 static void
 eel_labeled_image_accessible_class_init (EelLabeledImageAccessibleClass *klass)
 {
     AtkObjectClass *atk_class = ATK_OBJECT_CLASS (klass);
-    a11y_parent_class = g_type_class_peek_parent (klass);
 
     atk_class->get_name = eel_labeled_image_accessible_get_name;
     atk_class->initialize = eel_labeled_image_accessible_initialize;
