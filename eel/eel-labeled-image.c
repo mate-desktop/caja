@@ -91,6 +91,7 @@ static GType         eel_labeled_image_toggle_button_get_type (void);
 /* GtkWidgetClass methods */
 static GType eel_labeled_image_accessible_get_type (void);
 static GType eel_labeled_image_button_accessible_get_type (void);
+static GType eel_labeled_image_check_button_accessible_get_type (void);
 static GType eel_labeled_image_toggle_button_accessible_get_type (void);
 static GType eel_labeled_image_radio_button_accessible_get_type (void);
 
@@ -2271,146 +2272,63 @@ eel_labeled_image_accessible_init (EelLabeledImageAccessible *accessible)
 {
 }
 
-/* Actual accessible implementations for Button, CheckButton, ToggleButton and
- * RadioButton are the same as EelLabeledImageAccessible, which handles those
- * cases as well.  We have different objects just to inherit from the correct
- * GTK accessible parent.  CheckButton and ToggleButton accessible objects
- * share the same type as GTK uses the same there. */
+/* Defines GObject types for the various buttons.  This takes care of creating
+ * the related accessible type as well and to plug it to the base
+ * EelLabeledImageAccessible which handles those cases as well -- having
+ * different accessible types for each of those is only required to inherit
+ * from the correct GTK accessible parent. */
 
-typedef GtkButton EelLabeledImageButton;
-typedef GtkButtonClass EelLabeledImageButtonClass;
+#define DEFINE_LABELLED_IMAGE_BUTTON_TYPE(TN, t_n, TP, T_P, ATP, A_T_P)         \
+    typedef TP TN;                                                              \
+    typedef TP##Class TN##Class;                                                \
+    typedef ATP TN##Accessible;                                                 \
+    typedef ATP##Class TN##AccessibleClass;                                     \
+    G_DEFINE_TYPE (TN, t_n, T_P)                                                \
+    G_DEFINE_TYPE_WITH_CODE (TN##Accessible, t_n##_accessible, A_T_P,           \
+                             G_IMPLEMENT_INTERFACE (ATK_TYPE_IMAGE,             \
+                                                    eel_labeled_image_accessible_image_interface_init)) \
+    static void t_n##_class_init(TN##Class *klass)                              \
+    {                                                                           \
+        gtk_widget_class_set_accessible_type (GTK_WIDGET_CLASS (klass),         \
+                                              t_n##_accessible_get_type ());    \
+    }                                                                           \
+    static void t_n##_init (TN *obj)                                            \
+    {                                                                           \
+    }                                                                           \
+    static void t_n##_accessible_class_init(TN##AccessibleClass *klass)         \
+    {                                                                           \
+        AtkObjectClass *atk_class = ATK_OBJECT_CLASS (klass);                   \
+        atk_class->get_name = eel_labeled_image_accessible_get_name;            \
+    }                                                                           \
+    static void t_n##_accessible_init (TN##Accessible *obj)                     \
+    {                                                                           \
+    }
 
-G_DEFINE_TYPE (EelLabeledImageButton,
-               eel_labeled_image_button,
-               GTK_TYPE_BUTTON)
 
-static void
-eel_labeled_image_button_class_init (EelLabeledImageButtonClass *klass)
-{
-    gtk_widget_class_set_accessible_type (GTK_WIDGET_CLASS (klass), eel_labeled_image_button_accessible_get_type ());
-}
+DEFINE_LABELLED_IMAGE_BUTTON_TYPE (EelLabeledImageButton,
+                                   eel_labeled_image_button,
+                                   GtkButton,
+                                   GTK_TYPE_BUTTON,
+                                   GtkButtonAccessible,
+                                   GTK_TYPE_BUTTON_ACCESSIBLE)
 
-static void
-eel_labeled_image_button_init (EelLabeledImageButton *obj)
-{
-}
+DEFINE_LABELLED_IMAGE_BUTTON_TYPE (EelLabeledImageCheckButton,
+                                   eel_labeled_image_check_button,
+                                   GtkCheckButton,
+                                   GTK_TYPE_CHECK_BUTTON,
+                                   GtkToggleButtonAccessible,
+                                   GTK_TYPE_TOGGLE_BUTTON_ACCESSIBLE)
 
-typedef GtkCheckButton EelLabeledImageCheckButton;
-typedef GtkCheckButtonClass EelLabeledImageCheckButtonClass;
+DEFINE_LABELLED_IMAGE_BUTTON_TYPE (EelLabeledImageToggleButton,
+                                   eel_labeled_image_toggle_button,
+                                   GtkToggleButton,
+                                   GTK_TYPE_TOGGLE_BUTTON,
+                                   GtkToggleButtonAccessible,
+                                   GTK_TYPE_TOGGLE_BUTTON_ACCESSIBLE)
 
-G_DEFINE_TYPE (EelLabeledImageCheckButton,
-               eel_labeled_image_check_button,
-               GTK_TYPE_CHECK_BUTTON)
-
-static void
-eel_labeled_image_check_button_class_init (EelLabeledImageCheckButtonClass *klass)
-{
-    gtk_widget_class_set_accessible_type (GTK_WIDGET_CLASS (klass), eel_labeled_image_toggle_button_accessible_get_type ());
-}
-
-static void
-eel_labeled_image_check_button_init (EelLabeledImageCheckButton *obj)
-{
-}
-
-typedef GtkToggleButton EelLabeledImageToggleButton;
-typedef GtkToggleButtonClass EelLabeledImageToggleButtonClass;
-
-G_DEFINE_TYPE (EelLabeledImageToggleButton,
-               eel_labeled_image_toggle_button,
-               GTK_TYPE_TOGGLE_BUTTON)
-
-static void
-eel_labeled_image_toggle_button_class_init (EelLabeledImageToggleButtonClass *klass)
-{
-    gtk_widget_class_set_accessible_type (GTK_WIDGET_CLASS (klass), eel_labeled_image_toggle_button_accessible_get_type ());
-}
-
-static void
-eel_labeled_image_toggle_button_init (EelLabeledImageToggleButton *obj)
-{
-}
-
-typedef GtkRadioButton EelLabeledImageRadioButton;
-typedef GtkRadioButtonClass EelLabeledImageRadioButtonClass;
-
-G_DEFINE_TYPE (EelLabeledImageRadioButton,
-               eel_labeled_image_radio_button,
-               GTK_TYPE_RADIO_BUTTON)
-
-static void
-eel_labeled_image_radio_button_class_init (EelLabeledImageRadioButtonClass *klass)
-{
-    gtk_widget_class_set_accessible_type (GTK_WIDGET_CLASS (klass), eel_labeled_image_radio_button_accessible_get_type ());
-}
-
-static void
-eel_labeled_image_radio_button_init (EelLabeledImageRadioButton *obj)
-{
-}
-
-typedef GtkButtonAccessible EelLabeledImageButtonAccessible;
-typedef GtkButtonAccessibleClass EelLabeledImageButtonAccessibleClass;
-
-G_DEFINE_TYPE_WITH_CODE (EelLabeledImageButtonAccessible,
-                         eel_labeled_image_button_accessible,
-                         GTK_TYPE_BUTTON_ACCESSIBLE,
-                         G_IMPLEMENT_INTERFACE (ATK_TYPE_IMAGE,
-                                                eel_labeled_image_accessible_image_interface_init));
-
-static void
-eel_labeled_image_button_accessible_class_init (EelLabeledImageButtonAccessibleClass *klass)
-{
-    AtkObjectClass *atk_class = ATK_OBJECT_CLASS (klass);
-
-    atk_class->get_name = eel_labeled_image_accessible_get_name;
-}
-
-static void
-eel_labeled_image_button_accessible_init (EelLabeledImageButtonAccessible *obj)
-{
-}
-
-typedef GtkToggleButtonAccessible EelLabeledImageToggleButtonAccessible;
-typedef GtkToggleButtonAccessibleClass EelLabeledImageToggleButtonAccessibleClass;
-
-G_DEFINE_TYPE_WITH_CODE (EelLabeledImageToggleButtonAccessible,
-                         eel_labeled_image_toggle_button_accessible,
-                         GTK_TYPE_TOGGLE_BUTTON_ACCESSIBLE,
-                         G_IMPLEMENT_INTERFACE (ATK_TYPE_IMAGE,
-                                                eel_labeled_image_accessible_image_interface_init));
-
-static void
-eel_labeled_image_toggle_button_accessible_class_init (EelLabeledImageToggleButtonAccessibleClass *klass)
-{
-    AtkObjectClass *atk_class = ATK_OBJECT_CLASS (klass);
-
-    atk_class->get_name = eel_labeled_image_accessible_get_name;
-}
-
-static void
-eel_labeled_image_toggle_button_accessible_init (EelLabeledImageToggleButtonAccessible *obj)
-{
-}
-
-typedef GtkRadioButtonAccessible EelLabeledImageRadioButtonAccessible;
-typedef GtkRadioButtonAccessibleClass EelLabeledImageRadioButtonAccessibleClass;
-
-G_DEFINE_TYPE_WITH_CODE (EelLabeledImageRadioButtonAccessible,
-                         eel_labeled_image_radio_button_accessible,
-                         GTK_TYPE_RADIO_BUTTON_ACCESSIBLE,
-                         G_IMPLEMENT_INTERFACE (ATK_TYPE_IMAGE,
-                                                eel_labeled_image_accessible_image_interface_init));
-
-static void
-eel_labeled_image_radio_button_accessible_class_init (EelLabeledImageRadioButtonAccessibleClass *klass)
-{
-    AtkObjectClass *atk_class = ATK_OBJECT_CLASS (klass);
-
-    atk_class->get_name = eel_labeled_image_accessible_get_name;
-}
-
-static void
-eel_labeled_image_radio_button_accessible_init (EelLabeledImageRadioButtonAccessible *obj)
-{
-}
+DEFINE_LABELLED_IMAGE_BUTTON_TYPE (EelLabeledImageRadioButton,
+                                   eel_labeled_image_radio_button,
+                                   GtkRadioButton,
+                                   GTK_TYPE_RADIO_BUTTON,
+                                   GtkRadioButtonAccessible,
+                                   GTK_TYPE_RADIO_BUTTON_ACCESSIBLE)
