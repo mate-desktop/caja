@@ -4245,13 +4245,23 @@ add_permissions_combo_box (FMPropertiesWindow *window, GtkGrid *grid,
 	GtkListStore *store;
 	GtkCellRenderer *cell;
 	GtkTreeIter iter;
+	AtkObject *atk_object;
+	static const gchar *const descriptions[4][3] = {
+		{ N_("Access:"), N_("Folder access:"), N_("File access:") },
+		/* As the UI lacks semantic grouping, provide more context for accessibility */
+		{ N_("User access:"), N_("User folder access:"), N_("User file access:") },
+		{ N_("Group access:"), N_("Group folder access:"), N_("Group file access:") },
+		{ N_("Others access:"), N_("Others folder access:"), N_("Others file access:") }
+	};
+	const guint group = short_label ? 0 : is_folder ? 1 : 2;
 
-	if (short_label) {
-		label = attach_title_field (grid, _("Access:"));
-	} else if (is_folder) {
-		label = attach_title_field (grid, _("Folder access:"));
-	} else {
-		label = attach_title_field (grid, _("File access:"));
+	g_return_if_fail (type + 1 < G_N_ELEMENTS (descriptions));
+
+	label = attach_title_field (grid, _(descriptions[0][group]));
+
+	atk_object = gtk_widget_get_accessible (GTK_WIDGET (label));
+	if (GTK_IS_ACCESSIBLE (atk_object)) {
+		atk_object_set_name (atk_object, _(descriptions[type + 1][group]));
 	}
 
 	store = gtk_list_store_new (3, G_TYPE_STRING, G_TYPE_INT, G_TYPE_BOOLEAN);
