@@ -2277,22 +2277,76 @@ eel_labeled_image_accessible_init (EelLabeledImageAccessible *accessible)
  * GTK accessible parent.  CheckButton and ToggleButton accessible objects
  * share the same type as GTK uses the same there. */
 
+typedef GtkButton EelLabeledImageButton;
+typedef GtkButtonClass EelLabeledImageButtonClass;
+
+G_DEFINE_TYPE (EelLabeledImageButton,
+               eel_labeled_image_button,
+               GTK_TYPE_BUTTON)
+
 static void
-eel_labeled_image_button_class_init (GtkWidgetClass *klass)
+eel_labeled_image_button_class_init (EelLabeledImageButtonClass *klass)
 {
-    gtk_widget_class_set_accessible_type (klass, eel_labeled_image_button_accessible_get_type ());
+    gtk_widget_class_set_accessible_type (GTK_WIDGET_CLASS (klass), eel_labeled_image_button_accessible_get_type ());
 }
 
 static void
-eel_labeled_image_toggle_button_class_init (GtkWidgetClass *klass)
+eel_labeled_image_button_init (EelLabeledImageButton *obj)
 {
-    gtk_widget_class_set_accessible_type (klass, eel_labeled_image_toggle_button_accessible_get_type ());
+}
+
+typedef GtkCheckButton EelLabeledImageCheckButton;
+typedef GtkCheckButtonClass EelLabeledImageCheckButtonClass;
+
+G_DEFINE_TYPE (EelLabeledImageCheckButton,
+               eel_labeled_image_check_button,
+               GTK_TYPE_CHECK_BUTTON)
+
+static void
+eel_labeled_image_check_button_class_init (EelLabeledImageCheckButtonClass *klass)
+{
+    gtk_widget_class_set_accessible_type (GTK_WIDGET_CLASS (klass), eel_labeled_image_toggle_button_accessible_get_type ());
 }
 
 static void
-eel_labeled_image_radio_button_class_init (GtkWidgetClass *klass)
+eel_labeled_image_check_button_init (EelLabeledImageCheckButton *obj)
 {
-    gtk_widget_class_set_accessible_type (klass, eel_labeled_image_radio_button_accessible_get_type ());
+}
+
+typedef GtkToggleButton EelLabeledImageToggleButton;
+typedef GtkToggleButtonClass EelLabeledImageToggleButtonClass;
+
+G_DEFINE_TYPE (EelLabeledImageToggleButton,
+               eel_labeled_image_toggle_button,
+               GTK_TYPE_TOGGLE_BUTTON)
+
+static void
+eel_labeled_image_toggle_button_class_init (EelLabeledImageToggleButtonClass *klass)
+{
+    gtk_widget_class_set_accessible_type (GTK_WIDGET_CLASS (klass), eel_labeled_image_toggle_button_accessible_get_type ());
+}
+
+static void
+eel_labeled_image_toggle_button_init (EelLabeledImageToggleButton *obj)
+{
+}
+
+typedef GtkRadioButton EelLabeledImageRadioButton;
+typedef GtkRadioButtonClass EelLabeledImageRadioButtonClass;
+
+G_DEFINE_TYPE (EelLabeledImageRadioButton,
+               eel_labeled_image_radio_button,
+               GTK_TYPE_RADIO_BUTTON)
+
+static void
+eel_labeled_image_radio_button_class_init (EelLabeledImageRadioButtonClass *klass)
+{
+    gtk_widget_class_set_accessible_type (GTK_WIDGET_CLASS (klass), eel_labeled_image_radio_button_accessible_get_type ());
+}
+
+static void
+eel_labeled_image_radio_button_init (EelLabeledImageRadioButton *obj)
+{
 }
 
 typedef GtkButtonAccessible EelLabeledImageButtonAccessible;
@@ -2359,120 +2413,4 @@ eel_labeled_image_radio_button_accessible_class_init (EelLabeledImageRadioButton
 static void
 eel_labeled_image_radio_button_accessible_init (EelLabeledImageRadioButtonAccessible *obj)
 {
-}
-
-static GType
-eel_labeled_image_button_get_type (void)
-{
-    static GType type = 0;
-
-    if (!type)
-    {
-        GTypeInfo info =
-        {
-            sizeof (GtkButtonClass),
-            (GBaseInitFunc) NULL,
-            (GBaseFinalizeFunc) NULL,
-            (GClassInitFunc) eel_labeled_image_button_class_init,
-            NULL, /* class_finalize */
-            NULL, /* class_data */
-            sizeof (GtkButton),
-            0, /* n_preallocs */
-            (GInstanceInitFunc) NULL,
-            NULL /* value_table */
-        };
-
-        type = g_type_register_static
-               (GTK_TYPE_BUTTON,
-                "EelLabeledImageButton", &info, 0);
-    }
-
-    return type;
-}
-
-static GType
-eel_labeled_image_check_button_get_type (void)
-{
-    static GType type = 0;
-
-    if (!type)
-    {
-        GTypeInfo info =
-        {
-            sizeof (GtkCheckButtonClass),
-            (GBaseInitFunc) NULL,
-            (GBaseFinalizeFunc) NULL,
-            (GClassInitFunc) eel_labeled_image_toggle_button_class_init,
-            NULL, /* class_finalize */
-            NULL, /* class_data */
-            sizeof (GtkCheckButton),
-            0, /* n_preallocs */
-            (GInstanceInitFunc) NULL,
-            NULL /* value_table */
-        };
-
-        type = g_type_register_static
-               (GTK_TYPE_CHECK_BUTTON,
-                "EelLabeledImageCheckButton", &info, 0);
-    }
-
-    return type;
-}
-
-static GType
-eel_labeled_image_toggle_button_get_type (void)
-{
-    static GType type = 0;
-
-    if (!type)
-    {
-        GTypeInfo info =
-        {
-            sizeof (GtkToggleButtonClass),
-            (GBaseInitFunc) NULL,
-            (GBaseFinalizeFunc) NULL,
-            (GClassInitFunc) eel_labeled_image_toggle_button_class_init,
-            NULL, /* class_finalize */
-            NULL, /* class_data */
-            sizeof (GtkToggleButton),
-            0, /* n_preallocs */
-            (GInstanceInitFunc) NULL,
-            NULL /* value_table */
-        };
-
-        type = g_type_register_static
-               (GTK_TYPE_TOGGLE_BUTTON,
-                "EelLabeledImageToggleButton", &info, 0);
-    }
-
-    return type;
-}
-
-static GType
-eel_labeled_image_radio_button_get_type (void)
-{
-    static GType type = 0;
-
-    if (!type)
-    {
-        GTypeInfo info =
-        {
-            sizeof (GtkRadioButtonClass),
-            (GBaseInitFunc) NULL,
-            (GBaseFinalizeFunc) NULL,
-            (GClassInitFunc) eel_labeled_image_radio_button_class_init,
-            NULL, /* class_finalize */
-            NULL, /* class_data */
-            sizeof (GtkRadioButton),
-            0, /* n_preallocs */
-            (GInstanceInitFunc) NULL,
-            NULL /* value_table */
-        };
-
-        type = g_type_register_static
-               (GTK_TYPE_RADIO_BUTTON,
-                "EelLabeledImageRadioButton", &info, 0);
-    }
-
-    return type;
 }
