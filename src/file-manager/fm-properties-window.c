@@ -364,11 +364,13 @@ add_prompt_and_separator (GtkWidget *vbox, const char *prompt_text)
 static void
 get_image_for_properties_window (FMPropertiesWindow *window,
 				 char **icon_name,
+				 char **display_name_,
 				 GdkPixbuf **icon_pixbuf)
 {
 	CajaIconInfo *icon, *new_icon;
 	GList *l;
 	gint icon_scale;
+	gchar *display_name = NULL;
 
 	icon = NULL;
 	icon_scale = gtk_widget_get_scale_factor (GTK_WIDGET (window->details->notebook));
@@ -382,6 +384,7 @@ get_image_for_properties_window (FMPropertiesWindow *window,
 			icon = caja_file_get_icon (file, CAJA_ICON_SIZE_STANDARD, icon_scale,
 						   CAJA_FILE_ICON_FLAGS_USE_THUMBNAILS |
 						   CAJA_FILE_ICON_FLAGS_IGNORE_VISITING);
+			display_name = caja_file_get_string_attribute (file, "type");
 		} else {
 			new_icon = caja_file_get_icon (file, CAJA_ICON_SIZE_STANDARD, icon_scale,
 						       CAJA_FILE_ICON_FLAGS_USE_THUMBNAILS |
@@ -390,6 +393,8 @@ get_image_for_properties_window (FMPropertiesWindow *window,
 				g_object_unref (icon);
 				g_object_unref (new_icon);
 				icon = NULL;
+				g_free (display_name);
+				display_name = g_strdup (_("Multiple files"));
 				break;
 			}
 			g_object_unref (new_icon);
@@ -406,11 +411,23 @@ get_image_for_properties_window (FMPropertiesWindow *window,
 		*icon_name = g_strdup (caja_icon_info_get_used_name (icon));
 	}
 
+	if (display_name_ != NULL) {
+		if (! display_name) {
+			display_name = g_strdup (_("No files"));
+		} else if (! caja_icon_info_get_used_name (icon)) {
+			g_free (display_name);
+			display_name = g_strdup (_("User-defined icon"));
+		}
+		*display_name_ = display_name;
+		display_name = NULL;
+	}
+
 	if (icon_pixbuf != NULL) {
 		*icon_pixbuf = caja_icon_info_get_pixbuf_at_size (icon, CAJA_ICON_SIZE_STANDARD);
 	}
 
 	g_object_unref (icon);
+	g_free (display_name);
 }
 
 static void
@@ -419,8 +436,9 @@ update_properties_window_icon (FMPropertiesWindow *window)
 	GdkPixbuf *pixbuf;
 	cairo_surface_t *surface;
 	char *name;
+	char *display_name;
 
-	get_image_for_properties_window (window, &name, &pixbuf);
+	get_image_for_properties_window (window, &name, &display_name, &pixbuf);
 
 	if (name != NULL) {
 		gtk_window_set_icon_name (GTK_WINDOW (window), name);
@@ -432,7 +450,10 @@ update_properties_window_icon (FMPropertiesWindow *window)
 							gtk_widget_get_window (GTK_WIDGET (window)));
 	gtk_image_set_from_surface (GTK_IMAGE (window->details->icon_image), surface);
 
+	atk_object_set_name (gtk_widget_get_accessible (window->details->icon_image), display_name);
+
 	g_free (name);
+	g_free (display_name);
 	g_object_unref (pixbuf);
 	cairo_surface_destroy (surface);
 }
@@ -547,7 +568,8 @@ create_image_widget (FMPropertiesWindow *window,
 	button = NULL;
 	if (is_customizable) {
 		button = gtk_button_new ();
-		gtk_container_add (GTK_CONTAINER (button), image);
+		gtk_widget_set_tooltip_text (button, _("Change associated icon"));
+		gtk_button_set_image (GTK_BUTTON (button), image);
 
 		/* prepare the image to receive dropped objects to assign custom images */
 		gtk_drag_dest_set (GTK_WIDGET (image),
@@ -4223,13 +4245,23 @@ add_permissions_combo_box (FMPropertiesWindow *window, GtkGrid *grid,
 	GtkListStore *store;
 	GtkCellRenderer *cell;
 	GtkTreeIter iter;
+	AtkObject *atk_object;
+	static const gchar *const descriptions[4][3] = {
+		{ N_("Access:"), N_("Folder access:"), N_("File access:") },
+		/* As the UI lacks semantic grouping, provide more context for accessibility */
+		{ N_("User access:"), N_("User folder access:"), N_("User file access:") },
+		{ N_("Group access:"), N_("Group folder access:"), N_("Group file access:") },
+		{ N_("Others access:"), N_("Others folder access:"), N_("Others file access:") }
+	};
+	const guint group = short_label ? 0 : is_folder ? 1 : 2;
 
-	if (short_label) {
-		label = attach_title_field (grid, _("Access:"));
-	} else if (is_folder) {
-		label = attach_title_field (grid, _("Folder access:"));
-	} else {
-		label = attach_title_field (grid, _("File access:"));
+	g_return_if_fail (type + 1 < G_N_ELEMENTS (descriptions));
+
+	label = attach_title_field (grid, _(descriptions[0][group]));
+
+	atk_object = gtk_widget_get_accessible (GTK_WIDGET (label));
+	if (GTK_IS_ACCESSIBLE (atk_object)) {
+		atk_object_set_name (atk_object, _(descriptions[type + 1][group]));
 	}
 
 	store = gtk_list_store_new (3, G_TYPE_STRING, G_TYPE_INT, G_TYPE_BOOLEAN);

@@ -90,6 +90,10 @@ static GType         eel_labeled_image_toggle_button_get_type (void);
 
 /* GtkWidgetClass methods */
 static GType eel_labeled_image_accessible_get_type (void);
+static GType eel_labeled_image_button_accessible_get_type (void);
+static GType eel_labeled_image_check_button_accessible_get_type (void);
+static GType eel_labeled_image_toggle_button_accessible_get_type (void);
+static GType eel_labeled_image_radio_button_accessible_get_type (void);
 
 /* Private EelLabeledImage methods */
 static EelDimensions labeled_image_get_image_dimensions   (const EelLabeledImage *labeled_image);
@@ -2178,17 +2182,6 @@ eel_labeled_image_set_can_focus (EelLabeledImage *labeled_image,
     gtk_widget_set_can_focus (GTK_WIDGET (labeled_image), can_focus);
 }
 
-static AtkObjectClass *a11y_parent_class = NULL;
-
-static void
-eel_labeled_image_accessible_initialize (AtkObject *accessible,
-        gpointer   widget)
-{
-    a11y_parent_class->initialize (accessible, widget);
-    atk_object_set_role (accessible, ATK_ROLE_IMAGE);
-
-}
-
 static EelLabeledImage *
 get_image (gpointer object)
 {
@@ -2248,29 +2241,27 @@ eel_labeled_image_accessible_image_interface_init (AtkImageIface *iface)
     iface->get_image_size = eel_labeled_image_accessible_image_get_size;
 }
 
-typedef struct _EelLabeledImageAccessible EelLabeledImageAccessible;
-typedef struct _EelLabeledImageAccessibleClass EelLabeledImageAccessibleClass;
-
-struct _EelLabeledImageAccessible
-{
-    GtkContainerAccessible parent;
-};
-
-struct _EelLabeledImageAccessibleClass
-{
-    GtkContainerAccessibleClass parent_class;
-};
+typedef GtkContainerAccessible EelLabeledImageAccessible;
+typedef GtkContainerAccessibleClass EelLabeledImageAccessibleClass;
 
 G_DEFINE_TYPE_WITH_CODE (EelLabeledImageAccessible,
                          eel_labeled_image_accessible,
                          GTK_TYPE_CONTAINER_ACCESSIBLE,
                          G_IMPLEMENT_INTERFACE (ATK_TYPE_IMAGE,
                                                 eel_labeled_image_accessible_image_interface_init));
+
+static void
+eel_labeled_image_accessible_initialize (AtkObject *accessible,
+                                         gpointer   widget)
+{
+    ATK_OBJECT_CLASS (eel_labeled_image_accessible_parent_class)->initialize (accessible, widget);
+    atk_object_set_role (accessible, ATK_ROLE_IMAGE);
+}
+
 static void
 eel_labeled_image_accessible_class_init (EelLabeledImageAccessibleClass *klass)
 {
     AtkObjectClass *atk_class = ATK_OBJECT_CLASS (klass);
-    a11y_parent_class = g_type_class_peek_parent (klass);
 
     atk_class->get_name = eel_labeled_image_accessible_get_name;
     atk_class->initialize = eel_labeled_image_accessible_initialize;
@@ -2281,123 +2272,63 @@ eel_labeled_image_accessible_init (EelLabeledImageAccessible *accessible)
 {
 }
 
-static void
-eel_labeled_image_button_class_init (GtkWidgetClass *klass)
-{
-}
+/* Defines GObject types for the various buttons.  This takes care of creating
+ * the related accessible type as well and to plug it to the base
+ * EelLabeledImageAccessible which handles those cases as well -- having
+ * different accessible types for each of those is only required to inherit
+ * from the correct GTK accessible parent. */
 
-static GType
-eel_labeled_image_button_get_type (void)
-{
-    static GType type = 0;
-
-    if (!type)
-    {
-        GTypeInfo info =
-        {
-            sizeof (GtkButtonClass),
-            (GBaseInitFunc) NULL,
-            (GBaseFinalizeFunc) NULL,
-            (GClassInitFunc) eel_labeled_image_button_class_init,
-            NULL, /* class_finalize */
-            NULL, /* class_data */
-            sizeof (GtkButton),
-            0, /* n_preallocs */
-            (GInstanceInitFunc) NULL,
-            NULL /* value_table */
-        };
-
-        type = g_type_register_static
-               (GTK_TYPE_BUTTON,
-                "EelLabeledImageButton", &info, 0);
+#define DEFINE_LABELLED_IMAGE_BUTTON_TYPE(TN, t_n, TP, T_P, ATP, A_T_P)         \
+    typedef TP TN;                                                              \
+    typedef TP##Class TN##Class;                                                \
+    typedef ATP TN##Accessible;                                                 \
+    typedef ATP##Class TN##AccessibleClass;                                     \
+    G_DEFINE_TYPE (TN, t_n, T_P)                                                \
+    G_DEFINE_TYPE_WITH_CODE (TN##Accessible, t_n##_accessible, A_T_P,           \
+                             G_IMPLEMENT_INTERFACE (ATK_TYPE_IMAGE,             \
+                                                    eel_labeled_image_accessible_image_interface_init)) \
+    static void t_n##_class_init(TN##Class *klass)                              \
+    {                                                                           \
+        gtk_widget_class_set_accessible_type (GTK_WIDGET_CLASS (klass),         \
+                                              t_n##_accessible_get_type ());    \
+    }                                                                           \
+    static void t_n##_init (TN *obj)                                            \
+    {                                                                           \
+    }                                                                           \
+    static void t_n##_accessible_class_init(TN##AccessibleClass *klass)         \
+    {                                                                           \
+        AtkObjectClass *atk_class = ATK_OBJECT_CLASS (klass);                   \
+        atk_class->get_name = eel_labeled_image_accessible_get_name;            \
+    }                                                                           \
+    static void t_n##_accessible_init (TN##Accessible *obj)                     \
+    {                                                                           \
     }
 
-    return type;
-}
 
-static GType
-eel_labeled_image_check_button_get_type (void)
-{
-    static GType type = 0;
+DEFINE_LABELLED_IMAGE_BUTTON_TYPE (EelLabeledImageButton,
+                                   eel_labeled_image_button,
+                                   GtkButton,
+                                   GTK_TYPE_BUTTON,
+                                   GtkButtonAccessible,
+                                   GTK_TYPE_BUTTON_ACCESSIBLE)
 
-    if (!type)
-    {
-        GTypeInfo info =
-        {
-            sizeof (GtkCheckButtonClass),
-            (GBaseInitFunc) NULL,
-            (GBaseFinalizeFunc) NULL,
-            (GClassInitFunc) eel_labeled_image_button_class_init,
-            NULL, /* class_finalize */
-            NULL, /* class_data */
-            sizeof (GtkCheckButton),
-            0, /* n_preallocs */
-            (GInstanceInitFunc) NULL,
-            NULL /* value_table */
-        };
+DEFINE_LABELLED_IMAGE_BUTTON_TYPE (EelLabeledImageCheckButton,
+                                   eel_labeled_image_check_button,
+                                   GtkCheckButton,
+                                   GTK_TYPE_CHECK_BUTTON,
+                                   GtkToggleButtonAccessible,
+                                   GTK_TYPE_TOGGLE_BUTTON_ACCESSIBLE)
 
-        type = g_type_register_static
-               (GTK_TYPE_CHECK_BUTTON,
-                "EelLabeledImageCheckButton", &info, 0);
-    }
+DEFINE_LABELLED_IMAGE_BUTTON_TYPE (EelLabeledImageToggleButton,
+                                   eel_labeled_image_toggle_button,
+                                   GtkToggleButton,
+                                   GTK_TYPE_TOGGLE_BUTTON,
+                                   GtkToggleButtonAccessible,
+                                   GTK_TYPE_TOGGLE_BUTTON_ACCESSIBLE)
 
-    return type;
-}
-
-static GType
-eel_labeled_image_toggle_button_get_type (void)
-{
-    static GType type = 0;
-
-    if (!type)
-    {
-        GTypeInfo info =
-        {
-            sizeof (GtkToggleButtonClass),
-            (GBaseInitFunc) NULL,
-            (GBaseFinalizeFunc) NULL,
-            (GClassInitFunc) eel_labeled_image_button_class_init,
-            NULL, /* class_finalize */
-            NULL, /* class_data */
-            sizeof (GtkToggleButton),
-            0, /* n_preallocs */
-            (GInstanceInitFunc) NULL,
-            NULL /* value_table */
-        };
-
-        type = g_type_register_static
-               (GTK_TYPE_TOGGLE_BUTTON,
-                "EelLabeledImageToggleButton", &info, 0);
-    }
-
-    return type;
-}
-
-static GType
-eel_labeled_image_radio_button_get_type (void)
-{
-    static GType type = 0;
-
-    if (!type)
-    {
-        GTypeInfo info =
-        {
-            sizeof (GtkRadioButtonClass),
-            (GBaseInitFunc) NULL,
-            (GBaseFinalizeFunc) NULL,
-            (GClassInitFunc) eel_labeled_image_button_class_init,
-            NULL, /* class_finalize */
-            NULL, /* class_data */
-            sizeof (GtkRadioButton),
-            0, /* n_preallocs */
-            (GInstanceInitFunc) NULL,
-            NULL /* value_table */
-        };
-
-        type = g_type_register_static
-               (GTK_TYPE_RADIO_BUTTON,
-                "EelLabeledImageRadioButton", &info, 0);
-    }
-
-    return type;
-}
+DEFINE_LABELLED_IMAGE_BUTTON_TYPE (EelLabeledImageRadioButton,
+                                   eel_labeled_image_radio_button,
+                                   GtkRadioButton,
+                                   GTK_TYPE_RADIO_BUTTON,
+                                   GtkRadioButtonAccessible,
+                                   GTK_TYPE_RADIO_BUTTON_ACCESSIBLE)
