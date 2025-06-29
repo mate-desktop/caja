@@ -4,80 +4,143 @@ set -ex
 
 ARCH="$(uname -m)"
 VERSION="$(echo "$GITHUB_SHA" | cut -c 1-9)"
-URUNTIME="https://github.com/VHSgunzo/uruntime/releases/latest/download/uruntime-appimage-dwarfs-$ARCH"
-URUNTIME_LITE="https://github.com/VHSgunzo/uruntime/releases/latest/download/uruntime-appimage-dwarfs-lite-$ARCH"
 UPINFO="gh-releases-zsync|$(echo $GITHUB_REPOSITORY | tr '/' '|')|latest|*$ARCH.AppImage.zsync"
-SHARUN="https://github.com/VHSgunzo/sharun/releases/latest/download/sharun-$ARCH-aio"
+RUNTIME="https://github.com/AppImage/type2-runtime/releases/download/continuous/runtime-$ARCH"
 ICON="https://github.com/mate-desktop/mate-icon-theme/raw/master/mate/256x256/apps/system-file-manager.png"
 
 # Add appimage deployment dependencies
-pacman -Syu --noconfirm wget xorg-server-xvfb zsync
+git clone 'https://gitlab.archlinux.org/archlinux/packaging/packages/libxml2.git' ./libxml2 && (
+	cd ./libxml2
+	# Install deps
+	pacman -Syu --noconfirm \
+	base-devel              \
+	binutils                \
+	git                     \
+	meson                   \
+	python                  \
+	squashfs-tools          \
+	wget                    \
+	zsync
 
-# Use libxml2 that doesn't link to 30 MiB libicudata lib
-case "$ARCH" in
-  'x86_64')  PKG_TYPE='x86_64.pkg.tar.zst';;
-  'aarch64') PKG_TYPE='aarch64.pkg.tar.xz';;
-esac
-LIBXML_URL="https://github.com/pkgforge-dev/llvm-libs-debloated/releases/download/continuous/libxml2-iculess-$PKG_TYPE"
-wget --retry-connrefused --tries=30 "$LIBXML_URL" -O ./libxml2.pkg.tar.zst
-pacman -U --noconfirm ./libxml2.pkg.tar.zst
-rm -f ./libxml2.pkg.tar.zst
+	# We need to also edit makepkg to be able to build as root
+	sed -i 's|EUID == 0|EUID == 1|g' /usr/bin/makepkg
+	sed -i 's|MAKEFLAGS=.*|MAKEFLAGS="-j$(nproc)"|; s|#MAKEFLAGS|MAKEFLAGS|' /etc/makepkg.conf
 
-# For some reason mesa gets dlopened during bundling, which is not needed at all for caja to work
-# so we will remove it to prevent all of mesa and its dependencies from being bundled
-pacman -Rsndd --noconfirm mesa || true
+	# build libxml2 without linking to libicudata
+	sed -i -e 's/icu=enabled/icu=disabled/' -e '/--with-icu/d' ./PKGBUILD
+	cat ./PKGBUILD
+	makepkg -f --skippgpcheck
+	pacman -U --noconfirm ./*.pkg.tar.*
+)
+rm -rf ./libxml2
 
 # Prepare AppDir
-mkdir -p ./AppDir/share && (
-	cd ./AppDir
+mkdir -p ./AppDir/shared/bin ./AppDir/shared/lib ./AppDir/share ./AppDir/bin
+cd ./AppDir
 
-	cp -rv /usr/share/caja ./share
+cp -v /lib64/ld-linux*          ./bin/ld-linux.so
+cp -v /usr/bin/caja*            ./shared/bin
+cp -v /usr/lib/libstartup*      ./shared/lib
+cp -v /usr/lib/libX11.so*       ./shared/lib
+cp -v /usr/lib/libwayland-*     ./shared/lib
+cp -rv /usr/lib/gvfs            ./shared/lib
+cp -rv /usr/lib/gio             ./shared/lib
+cp -rv /usr/lib/gtk-3.0         ./shared/lib
+cp -rv /usr/lib/gdk-pixbuf-2.0  ./shared/lib
+cp -rv /usr/share/caja          ./share
+cp -rv /usr/share/glib-2.0      ./share
+cp -rv /usr/share/libthai       ./share
 
-	cp -rv /usr/share/applications/caja.desktop ./
-	wget --retry-connrefused --tries=30 "$ICON" -O ./caja.png
-	cp -v ./caja.png ./.DirIcon
+cp -rv /usr/share/applications/caja.desktop ./
+wget --retry-connrefused --tries=30 "$ICON" -O ./caja.png
+cp -v ./caja.png ./.DirIcon
 
-	# ADD LIBRARIES
-	wget --retry-connrefused --tries=30 "$SHARUN" -O ./sharun-aio
-	chmod +x ./sharun-aio
-	xvfb-run -a \
-		./sharun-aio l -p -v -e -s -k \
-		/usr/bin/caja*                \
-		/usr/lib/gvfs/*               \
-		/usr/lib/gio/modules/*        \
-		/usr/lib/gtk-3.0/*/*          \
-		/usr/lib/gdk-pixbuf-*/*/loaders/*
-	rm -f ./sharun-aio
-	ln ./sharun ./AppRun
-	./sharun -g
+# ADD LIBRARIES
+ldd /usr/bin/caja*  \
+	/usr/lib/gvfs/*  \
+	/usr/lib/gio/modules/* \
+	/usr/lib/gtk-3.0/*/*  \
+	/usr/lib/gdk-pixbuf-2.0/*/loaders/* \
+	| awk -F"[> ]" '{print $4}' | xargs -I {} cp -vn {} ./shared/lib
 
-	# Caja is hardcoded to look in /usr/share/caja
-	# It doesn't check XDG_DATA_DIRS 🥲
-	# So we will fix it with a hack™
-	sed -i 's|/usr/share/caja|././/share/caja|g' ./shared/bin/caja*
-	echo 'SHARUN_WORKING_DIR=${SHARUN_DIR}' > ./.env
-)
+# remove full path from gdk loaders.cache file
+find ./shared/lib -type f -regex '.*gdk.*loaders.cache' \
+	-exec sed -i 's|/.*lib.*/gdk-pixbuf.*/.*/loaders/||g' {} \;
 
-# MAKE APPIAMGE WITH URUNTIME
-wget --retry-connrefused --tries=30 "$URUNTIME"      -O ./uruntime
-wget --retry-connrefused --tries=30 "$URUNTIME_LITE" -O ./uruntime-lite
-chmod +x ./uruntime*
+( cd ./shared/lib && find ./*/* -type f -regex '.*\.so.*' -exec ln -s {} ./ \; )
 
-# Add udpate info to runtime
+# strip libs and bins
+find ./shared -type f -exec strip -s -R .comment --strip-unneeded {} \;
+
+# Caja is hardcoded to look in /usr/share/caja
+# It doesn't check XDG_DATA_DIRS 🥲
+# So we will fix it with a hack™
+sed -i 's|/usr/share/caja|././/share/caja|g' ./shared/bin/caja*
+
+
+# Add dynamic linker wrapper for each binary we bundle
+LD_LINUX_WRAPPER='#!/bin/sh
+CURRENTDIR="$(cd "${0%/*}" && echo "$PWD")"
+exec "$CURRENTDIR"/ld-linux.so \
+	--library-path "$CURRENTDIR"/../shared/lib --argv0 "$0" \
+	"$CURRENTDIR"/../shared/bin/"${0##*/}" "$@"'
+
+for bin in ./shared/bin/*; do
+	echo "$LD_LINUX_WRAPPER" > ./bin/"${bin##*/}"
+done
+
+# Make the AppRun and set the needed env variables
+echo '#!/bin/sh
+
+set -e
+
+CURRENTDIR="$(cd "${0%/*}" && echo "$PWD")"
+BIN="${ARGV0#./}"
+unset ARGV0
+
+# change working dir since we did binary patching
+cd "$CURRENTDIR"
+
+export PATH="$CURRENTDIR/bin:$PATH"
+export GTK_PATH="$CURRENTDIR"/shared/lib/gtk-3.0
+export GTK_EXE_PREFIX="$CURRENTDIR"/shared/lib/gtk-3.0
+export GTK_DATA_PREFIX="$CURRENTDIR"/shared/lib/gtk-3.0
+export GIO_MODULE_DIR="$CURRENTDIR"/shared/lib/gio/modules
+export LIBTHAI_DICTDIR="$CURRENTDIR"/share/libthai
+export GSETTINGS_SCHEMA_DIR="$CURRENTDIR"/share/glib-2.0/schemas
+export GDK_PIXBUF_MODULEDIR="$CURRENTDIR"/shared/lib/gdk-pixbuf-2.0
+export GDK_PIXBUF_MODULE_FILE="$GDK_PIXBUF_MODULEDIR"/2.10.0/loaders.cache
+
+if [ -f ./bin/"$BIN" ]; then
+	exec ./bin/"$BIN" "$@"
+elif [ -f ./bin/"$1" ]; then
+	BIN="$1"
+	shift
+	exec ./bin/"$BIN" "$@"
+else
+	exec ./bin/caja "$@"
+fi' > ./AppRun
+
+chmod +x ./AppRun ./bin/*
+
+# MAKE APPIAMGE MANUALLY
+cd ..
+
+# Turn AppDir into a squashfs image and concatenate the runtime to it
+mksquashfs ./AppDir AppDir.squashfs -comp zstd -Xcompression-level 22
+wget --retry-connrefused --tries=30 "$RUNTIME" -O ./runtime
+
 echo "Adding update information \"$UPINFO\" to runtime..."
-./uruntime-lite --appimage-addupdinfo "$UPINFO"
+printf "$UPINFO" > data.upd_info
+objcopy --update-section=.upd_info=data.upd_info \
+	--set-section-flags=.upd_info=noload,readonly ./runtime
 
-echo "Generating AppImage..."
-./uruntime --appimage-mkdwarfs -f \
-	--set-owner 0 --set-group 0          \
-	--no-history --no-create-timestamp   \
-	--compression zstd:level=22 -S26 -B8 \
-	--header uruntime-lite               \
-	-i ./AppDir -o ./Caja-"$VERSION"-anylinux-"$ARCH".AppImage
-
-echo "Generating zsync file..."
+cat ./AppDir.squashfs >> ./runtime
+printf 'AI\x02' | dd of=./runtime bs=1 count=3 seek=8 conv=notrunc
+mv -v ./runtime ./Caja-"$VERSION"-anylinux-"$ARCH".AppImage
 zsyncmake ./*.AppImage -u ./*.AppImage
 
+echo "Generating zsync file..."
 mkdir ./dist
 mv -v ./*.AppImage* ./dist
 
