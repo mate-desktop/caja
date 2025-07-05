@@ -295,6 +295,72 @@ fm_icon_container_get_icon_text_attribute_names (CajaIconContainer *container,
     return attributes;
 }
 
+/**
+ * Parse a .git directory/file to determine repository branch name
+ **/
+static char *
+get_git_branch (const char *git_path) {
+    gchar *resolved_git_dir = NULL;
+    gchar *head_content = NULL;
+    gchar *branch_name = NULL;
+    gchar *head_path = NULL;
+    gsize len = 0;
+
+    if (g_file_test (git_path, G_FILE_TEST_IS_DIR))
+    {
+        resolved_git_dir = g_strdup (git_path);
+    } else if (g_file_test (git_path, G_FILE_TEST_IS_REGULAR))
+    {
+        /* It's a file, read it and resolve the real git dir */
+        gchar *contents = NULL;
+        if (g_file_get_contents (git_path, &contents, NULL, NULL) && contents)
+        {
+            if (g_str_has_prefix (contents, "gitdir: "))
+            {
+                gchar *relative = g_strstrip (contents + 8);
+                gchar *base = g_path_get_dirname (git_path);
+                resolved_git_dir = g_build_filename (base, relative, NULL);
+                g_free (base);
+            }
+            g_free (contents);
+        }
+    }
+
+    if (resolved_git_dir == NULL)
+    {
+        return NULL;
+    }
+
+    head_path = g_build_filename (resolved_git_dir, "HEAD", NULL);
+
+    if (g_file_get_contents (head_path, &head_content, &len, NULL))
+    {
+        g_strstrip (head_content);
+
+        if (g_str_has_prefix (head_content, "ref: "))
+        {
+            gchar **parts = g_strsplit (head_content, "/", -1);
+            if (parts != NULL)
+            {
+                branch_name = g_strdup (parts[g_strv_length(parts) - 1]);
+                g_strchomp (branch_name);
+                g_strfreev (parts);
+            }
+        }
+        else
+        {
+            /* Repository is in a detached HEAD state */
+            branch_name = g_strdup_printf ("detached: %.7s", head_content);
+        }
+    }
+
+    g_free (head_content);
+    g_free (head_path);
+    g_free (resolved_git_dir);
+
+    return branch_name;
+}
+
 /* This callback returns the text, both the editable part, and the
  * part below that is not editable.
  */
@@ -398,6 +464,29 @@ fm_icon_container_get_icon_text (CajaIconContainer *container,
     if (j == 0)
     {
         *additional_text = NULL;
+        /* If we have a directory, check if it's a git repository or submodule */
+        GFileType file_type = caja_file_get_file_type (file);
+        if (file_type == G_FILE_TYPE_DIRECTORY)
+        {
+            GFile *location = caja_file_get_location (file);
+            char *path = g_file_get_path (location);
+            if (path != NULL)
+            {
+                char *git_path = g_build_path (G_DIR_SEPARATOR_S, path, ".git", NULL);
+                if (git_path != NULL && G_UNLIKELY(g_file_test (git_path, G_FILE_TEST_EXISTS)))
+                {
+                    char *branch = get_git_branch (git_path);
+                    if (branch != NULL)
+                    {
+                        *additional_text = g_strdup_printf ("[%s]", branch);
+                        g_free (branch);
+                    }
+                }
+                g_free (git_path);
+                g_free (path);
+            }
+            g_object_unref (location);
+        }
     }
     else if (j == 1)
     {
