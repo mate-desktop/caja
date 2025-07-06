@@ -34,6 +34,7 @@
 #include <libcaja-private/caja-thumbnails.h>
 #include <libcaja-private/caja-desktop-icon-file.h>
 
+#include <libcaja-private/caja-icon-private.h>
 #include "fm-icon-container.h"
 
 G_DEFINE_TYPE (FMIconContainer, fm_icon_container, CAJA_TYPE_ICON_CONTAINER);
@@ -464,28 +465,31 @@ fm_icon_container_get_icon_text (CajaIconContainer *container,
     if (j == 0)
     {
         *additional_text = NULL;
-        /* If we have a directory, check if it's a git repository or submodule */
-        GFileType file_type = caja_file_get_file_type (file);
-        if (file_type == G_FILE_TYPE_DIRECTORY)
+        if (container->details->display_git_branch == CAJA_DISPLAY_GIT_BRANCH_ENABLED)
         {
-            GFile *location = caja_file_get_location (file);
-            char *path = g_file_get_path (location);
-            if (path != NULL)
+            /* If we have a directory, check if it's a git repository or submodule */
+            GFileType file_type = caja_file_get_file_type (file);
+            if (file_type == G_FILE_TYPE_DIRECTORY)
             {
-                char *git_path = g_build_path (G_DIR_SEPARATOR_S, path, ".git", NULL);
-                if (git_path != NULL && G_UNLIKELY(g_file_test (git_path, G_FILE_TEST_EXISTS)))
+                GFile *location = caja_file_get_location (file);
+                char *path = g_file_get_path (location);
+                if (path != NULL)
                 {
-                    char *branch = get_git_branch (git_path);
-                    if (branch != NULL)
+                    char *git_path = g_build_path (G_DIR_SEPARATOR_S, path, ".git", NULL);
+                    if (git_path != NULL && G_UNLIKELY(g_file_test (git_path, G_FILE_TEST_EXISTS)))
                     {
-                        *additional_text = g_strdup_printf ("[%s]", branch);
-                        g_free (branch);
+                        char *branch = get_git_branch (git_path);
+                        if (branch != NULL)
+                        {
+                            *additional_text = g_strdup_printf ("[%s]", branch);
+                            g_free (branch);
+                        }
                     }
+                    g_free (git_path);
+                    g_free (path);
                 }
-                g_free (git_path);
-                g_free (path);
+                g_object_unref (location);
             }
-            g_object_unref (location);
         }
     }
     else if (j == 1)

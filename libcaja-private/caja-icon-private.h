@@ -231,6 +231,9 @@ struct CajaIconContainerDetails
     /* Label position */
     CajaIconLabelPosition label_position;
 
+    /* Display git branch enable/disable */
+    CajaDisplayGitBranch display_git_branch;
+
     /* Forced icon size, iff greater than 0 */
     int forced_icon_size;
 

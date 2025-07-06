@@ -89,6 +89,7 @@ static gboolean real_supports_auto_layout                         (FMIconView   
 static gboolean real_supports_scaling	                          (FMIconView             *view);
 static gboolean real_supports_keep_aligned                        (FMIconView             *view);
 static gboolean real_supports_labels_beside_icons                 (FMIconView             *view);
+static gboolean real_supports_display_git_branch                  (FMIconView             *view);
 static void     real_merge_menus                                  (FMDirectoryView        *view);
 static void     real_update_menus                                 (FMDirectoryView        *view);
 static gboolean real_supports_zooming                             (FMDirectoryView        *view);
@@ -336,6 +337,7 @@ fm_desktop_icon_view_class_init (FMDesktopIconViewClass *class)
     FM_ICON_VIEW_CLASS (class)->supports_scaling = real_supports_scaling;
     FM_ICON_VIEW_CLASS (class)->supports_keep_aligned = real_supports_keep_aligned;
     FM_ICON_VIEW_CLASS (class)->supports_labels_beside_icons = real_supports_labels_beside_icons;
+    FM_ICON_VIEW_CLASS (class)->supports_display_git_branch = real_supports_display_git_branch;
 }
 
 /*This code is only reached when running on x11*/
@@ -915,6 +917,12 @@ real_supports_keep_aligned (FMIconView *view)
 
 static gboolean
 real_supports_labels_beside_icons (FMIconView *view)
+{
+    return FALSE;
+}
+
+static gboolean
+real_supports_display_git_branch (FMIconView *view)
 {
     return FALSE;
 }
