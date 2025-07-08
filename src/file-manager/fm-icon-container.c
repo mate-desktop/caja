@@ -351,7 +351,7 @@ get_git_branch (const char *git_path) {
         else
         {
             /* Repository is in a detached HEAD state */
-            branch_name = g_strdup_printf ("detached: %.7s", head_content);
+            branch_name = g_strdup_printf (_("detached: %.7s"), head_content);
         }
     }
 
