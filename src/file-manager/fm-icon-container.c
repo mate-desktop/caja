@@ -320,7 +320,7 @@ get_git_branch (const char *git_path) {
             const char *git_dir_prefix = "gitdir: ";
             if (g_str_has_prefix (contents, git_dir_prefix))
             {
-                gsize git_dir_prefix_len = g_ref_string_length (git_dir_prefix);
+                size_t git_dir_prefix_len = strlen (git_dir_prefix);
                 gchar *relative = g_strstrip (contents + git_dir_prefix_len);
                 gchar *base = g_path_get_dirname (git_path);
                 resolved_git_dir = g_build_filename (base, relative, NULL);
