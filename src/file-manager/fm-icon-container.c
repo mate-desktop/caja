@@ -310,15 +310,18 @@ get_git_branch (const char *git_path) {
     if (g_file_test (git_path, G_FILE_TEST_IS_DIR))
     {
         resolved_git_dir = g_strdup (git_path);
-    } else if (g_file_test (git_path, G_FILE_TEST_IS_REGULAR))
+    }
+    else if (g_file_test (git_path, G_FILE_TEST_IS_REGULAR))
     {
         /* It's a file, read it and resolve the real git dir */
         gchar *contents = NULL;
         if (g_file_get_contents (git_path, &contents, NULL, NULL) && contents)
         {
-            if (g_str_has_prefix (contents, "gitdir: "))
+            const char *git_dir_prefix = "gitdir: ";
+            if (g_str_has_prefix (contents, git_dir_prefix))
             {
-                gchar *relative = g_strstrip (contents + 8);
+                gsize git_dir_prefix_len = g_ref_string_length (git_dir_prefix);
+                gchar *relative = g_strstrip (contents + git_dir_prefix_len);
                 gchar *base = g_path_get_dirname (git_path);
                 resolved_git_dir = g_build_filename (base, relative, NULL);
                 g_free (base);
