@@ -2460,6 +2460,9 @@ update_info_internal (CajaFile *file,
 	}
 
 	mime_type = g_file_info_get_content_type (info);
+	if (mime_type == NULL) {
+		mime_type = g_file_info_get_attribute_string (info, G_FILE_ATTRIBUTE_STANDARD_FAST_CONTENT_TYPE);
+	}
 	if (eel_strcmp (file->details->mime_type, mime_type) != 0) {
 		changed = TRUE;
 		g_clear_pointer (&file->details->mime_type, g_ref_string_release);
