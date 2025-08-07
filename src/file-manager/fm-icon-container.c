@@ -301,19 +301,13 @@ fm_icon_container_get_icon_text_attribute_names (CajaIconContainer *container,
  **/
 static char *
 get_git_branch (const char *git_path) {
-    gchar *resolved_git_dir = NULL;
     gchar *head_content = NULL;
     gchar *branch_name = NULL;
     gchar *head_path = NULL;
-    gsize len = 0;
 
-    if (g_file_test (git_path, G_FILE_TEST_IS_DIR))
+    if (g_file_test (git_path, G_FILE_TEST_IS_REGULAR))
     {
-        resolved_git_dir = g_strdup (git_path);
-    }
-    else if (g_file_test (git_path, G_FILE_TEST_IS_REGULAR))
-    {
-        /* It's a file, read it and resolve the real git dir */
+        /* It's a file, thus we are probably dealing with a submodule, so read it to resolve the real git dir */
         gchar *contents = NULL;
         if (g_file_get_contents (git_path, &contents, NULL, NULL) && contents)
         {
@@ -323,45 +317,43 @@ get_git_branch (const char *git_path) {
                 size_t git_dir_prefix_len = strlen (git_dir_prefix);
                 gchar *relative = g_strstrip (contents + git_dir_prefix_len);
                 gchar *base = g_path_get_dirname (git_path);
-                resolved_git_dir = g_build_filename (base, relative, NULL);
+                g_free (git_path);
+                git_path = g_build_filename (base, relative, NULL);
                 g_free (base);
             }
             g_free (contents);
         }
     }
 
-    if (resolved_git_dir == NULL)
+    /* Extract the current git branch name of the repository from file HEAD within .git directory */
+    if (g_file_test (git_path, G_FILE_TEST_IS_DIR))
     {
-        return NULL;
-    }
-
-    head_path = g_build_filename (resolved_git_dir, "HEAD", NULL);
-
-    if (g_file_get_contents (head_path, &head_content, &len, NULL))
-    {
-        g_strstrip (head_content);
-
-        if (g_str_has_prefix (head_content, "ref: "))
+        head_path = g_build_filename (git_path, "HEAD", NULL);
+        if (g_file_get_contents (head_path, &head_content, NULL, NULL))
         {
-            gchar **parts = g_strsplit (head_content, "/", -1);
-            if (parts != NULL)
+            g_strstrip (head_content);
+            if (g_str_has_prefix (head_content, "ref: "))
             {
-                branch_name = g_strdup (parts[g_strv_length(parts) - 1]);
-                g_strchomp (branch_name);
-                g_strfreev (parts);
+                gchar **parts = g_strsplit (head_content, "/", -1);
+                if (parts != NULL)
+                {
+                    branch_name = g_strdup (parts[g_strv_length(parts) - 1]);
+                    g_strchomp (branch_name);
+                    g_strfreev (parts);
+                }
             }
-        }
-        else
-        {
-            /* Repository is in a detached HEAD state */
-            branch_name = g_strdup_printf (_("detached: %.7s"), head_content);
+            else
+            {
+                /* Repository is in a detached HEAD state */
+                branch_name = g_strdup_printf (_("detached: %.7s"), head_content);
+            }
         }
     }
 
     g_free (head_content);
     g_free (head_path);
-    g_free (resolved_git_dir);
 
+    /* branch_name is a newly allocated string, so the caller is responsible for freeing it */
     return branch_name;
 }
 
