@@ -62,4 +62,10 @@ if [ -f autogen.sh ]; then
 	infobegin "Distcheck (autotools)"
 	make -j ${CPUS} distcheck
 	infoend
+
+	if grep -q "Arch Linux" /etc/os-release; then
+		make install
+		chmod +x ./.github/workflows/make-appimage.sh
+		./.github/workflows/make-appimage.sh
+	fi
 fi
