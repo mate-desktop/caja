@@ -201,6 +201,7 @@ static void default_sort_in_reverse_order_changed_callback (gpointer callback_da
 static void default_use_tighter_layout_changed_callback    (gpointer callback_data);
 static void default_zoom_level_changed_callback            (gpointer callback_data);
 static void labels_beside_icons_changed_callback           (gpointer callback_data);
+static void display_git_branch_changed_callback            (gpointer callback_data);
 static void all_columns_same_width_changed_callback        (gpointer callback_data);
 
 static void fm_icon_view_iface_init (CajaViewIface *iface);
@@ -264,6 +265,9 @@ fm_icon_view_finalize (GObject *object)
                                           icon_view);
     g_signal_handlers_disconnect_by_func (caja_icon_view_preferences,
                                           labels_beside_icons_changed_callback,
+                                          icon_view);
+    g_signal_handlers_disconnect_by_func (caja_icon_view_preferences,
+                                          display_git_branch_changed_callback,
                                           icon_view);
     g_signal_handlers_disconnect_by_func (caja_compact_view_preferences,
                                           default_zoom_level_changed_callback,
@@ -703,6 +707,16 @@ fm_icon_view_supports_labels_beside_icons (FMIconView *view)
     return EEL_CALL_METHOD_WITH_RETURN_VALUE
            (FM_ICON_VIEW_CLASS, view,
             supports_labels_beside_icons, (view));
+}
+
+static gboolean
+fm_icon_view_supports_display_git_branch (FMIconView *view)
+{
+    g_return_val_if_fail (FM_IS_ICON_VIEW (view), FALSE);
+
+    return EEL_CALL_METHOD_WITH_RETURN_VALUE
+           (FM_ICON_VIEW_CLASS, view,
+            supports_display_git_branch, (view));
 }
 
 static gboolean
@@ -1184,6 +1198,14 @@ real_supports_labels_beside_icons (FMIconView *view)
 }
 
 static gboolean
+real_supports_display_git_branch (FMIconView *view)
+{
+    g_return_val_if_fail (FM_IS_ICON_VIEW (view), TRUE);
+
+    return TRUE;
+}
+
+static gboolean
 set_sort_reversed (FMIconView *icon_view, gboolean new_value)
 {
     if (icon_view->details->sort_reversed == new_value)
@@ -1278,6 +1300,31 @@ set_labels_beside_icons (FMIconView *icon_view)
             caja_icon_container_set_label_position
             (get_icon_container (icon_view),
              CAJA_ICON_LABEL_POSITION_UNDER);
+        }
+    }
+}
+
+static void
+set_display_git_branch (FMIconView *icon_view)
+{
+    gboolean git_branch;
+
+    if (fm_icon_view_supports_display_git_branch (icon_view))
+    {
+        git_branch = fm_icon_view_is_compact (icon_view) ||
+                     g_settings_get_boolean (caja_icon_view_preferences, CAJA_PREFERENCES_ICON_VIEW_DISPLAY_GIT_BRANCH);
+
+        if (git_branch)
+        {
+            caja_display_git_branch_enable
+            (get_icon_container (icon_view),
+             CAJA_DISPLAY_GIT_BRANCH_ENABLED);
+        }
+        else
+        {
+            caja_display_git_branch_enable
+            (get_icon_container (icon_view),
+             CAJA_DISPLAY_GIT_BRANCH_DISABLED);
         }
     }
 }
@@ -1383,6 +1430,7 @@ fm_icon_view_begin_loading (FMDirectoryView *view)
      fm_icon_view_get_directory_tighter_layout (icon_view, file));
 
     set_labels_beside_icons (icon_view);
+    set_display_git_branch (icon_view);
     set_columns_same_width (icon_view);
 
     /* We must set auto-layout last, because it invokes the layout_changed
@@ -2903,6 +2951,18 @@ labels_beside_icons_changed_callback (gpointer callback_data)
 }
 
 static void
+display_git_branch_changed_callback (gpointer callback_data)
+{
+    FMIconView *icon_view;
+
+    g_return_if_fail (FM_IS_ICON_VIEW (callback_data));
+
+    icon_view = FM_ICON_VIEW (callback_data);
+
+    set_display_git_branch (icon_view);
+}
+
+static void
 all_columns_same_width_changed_callback (gpointer callback_data)
 {
     FMIconView *icon_view;
@@ -3293,6 +3353,7 @@ fm_icon_view_class_init (FMIconViewClass *klass)
     klass->supports_manual_layout = real_supports_manual_layout;
     klass->supports_keep_aligned = real_supports_keep_aligned;
     klass->supports_labels_beside_icons = real_supports_labels_beside_icons;
+    klass->supports_display_git_branch = real_supports_display_git_branch;
     klass->get_directory_auto_layout = fm_icon_view_real_get_directory_auto_layout;
     klass->get_directory_sort_by = fm_icon_view_real_get_directory_sort_by;
     klass->get_directory_sort_reversed = fm_icon_view_real_get_directory_sort_reversed;
@@ -3389,7 +3450,10 @@ fm_icon_view_init (FMIconView *icon_view)
                               "changed::" CAJA_PREFERENCES_ICON_VIEW_LABELS_BESIDE_ICONS,
                               G_CALLBACK (labels_beside_icons_changed_callback),
                               icon_view);
-
+    g_signal_connect_swapped (caja_icon_view_preferences,
+                              "changed::" CAJA_PREFERENCES_ICON_VIEW_DISPLAY_GIT_BRANCH,
+                              G_CALLBACK (display_git_branch_changed_callback),
+                              icon_view);
     g_signal_connect_swapped (caja_compact_view_preferences,
                               "changed::" CAJA_PREFERENCES_COMPACT_VIEW_DEFAULT_ZOOM_LEVEL,
                               G_CALLBACK (default_zoom_level_changed_callback),

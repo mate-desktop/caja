@@ -71,6 +71,12 @@ typedef enum
     CAJA_ICON_LABEL_POSITION_BESIDE
 } CajaIconLabelPosition;
 
+typedef enum
+{
+    CAJA_DISPLAY_GIT_BRANCH_DISABLED,
+    CAJA_DISPLAY_GIT_BRANCH_ENABLED
+} CajaDisplayGitBranch;
+
 #define	CAJA_ICON_CONTAINER_TYPESELECT_FLUSH_DELAY 1000000
 
 typedef struct CajaIconContainerDetails CajaIconContainerDetails;
@@ -286,6 +292,8 @@ void              caja_icon_container_set_layout_mode               (CajaIconCon
         CajaIconLayoutMode  mode);
 void              caja_icon_container_set_label_position            (CajaIconContainer  *container,
         CajaIconLabelPosition pos);
+void              caja_display_git_branch_enable                    (CajaIconContainer  *container,
+        CajaDisplayGitBranch enabled);
 void              caja_icon_container_sort                          (CajaIconContainer  *container);
 void              caja_icon_container_freeze_icon_positions         (CajaIconContainer  *container);
 

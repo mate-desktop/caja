@@ -141,6 +141,7 @@ typedef enum
 #define CAJA_PREFERENCES_ICON_VIEW_DEFAULT_ZOOM_LEVEL		        "default-zoom-level"
 
 #define CAJA_PREFERENCES_ICON_VIEW_LABELS_BESIDE_ICONS      	"labels-beside-icons"
+#define CAJA_PREFERENCES_ICON_VIEW_DISPLAY_GIT_BRANCH       	"display-git-branch"
 
     /* Which text attributes appear beneath icon names */
 #define CAJA_PREFERENCES_ICON_VIEW_CAPTIONS				"captions"

@@ -61,6 +61,7 @@
 #define CAJA_FILE_MANAGEMENT_PROPERTIES_FOLDERS_FIRST_WIDGET "sort_folders_first_checkbutton"
 #define CAJA_FILE_MANAGEMENT_PROPERTIES_COMPACT_LAYOUT_WIDGET "compact_layout_checkbutton"
 #define CAJA_FILE_MANAGEMENT_PROPERTIES_LABELS_BESIDE_ICONS_WIDGET "labels_beside_icons_checkbutton"
+#define CAJA_FILE_MANAGEMENT_PROPERTIES_DISPLAY_GIT_BRANCH_WIDGET "display_git_branch_checkbutton"
 #define CAJA_FILE_MANAGEMENT_PROPERTIES_ALL_COLUMNS_SAME_WIDTH "all_columns_same_width_checkbutton"
 #define CAJA_FILE_MANAGEMENT_PROPERTIES_ALWAYS_USE_BROWSER_WIDGET "always_use_browser_checkbutton"
 #define CAJA_FILE_MANAGEMENT_PROPERTIES_TRASH_CONFIRM_WIDGET "trash_confirm_checkbutton"
@@ -1106,6 +1107,9 @@ caja_file_management_properties_dialog_setup (GtkBuilder *builder, GtkWindow *wi
     bind_builder_bool (builder, caja_icon_view_preferences,
                        CAJA_FILE_MANAGEMENT_PROPERTIES_LABELS_BESIDE_ICONS_WIDGET,
                        CAJA_PREFERENCES_ICON_VIEW_LABELS_BESIDE_ICONS);
+    bind_builder_bool (builder, caja_icon_view_preferences,
+                       CAJA_FILE_MANAGEMENT_PROPERTIES_DISPLAY_GIT_BRANCH_WIDGET,
+                       CAJA_PREFERENCES_ICON_VIEW_DISPLAY_GIT_BRANCH);
     bind_builder_bool (builder, caja_compact_view_preferences,
                        CAJA_FILE_MANAGEMENT_PROPERTIES_ALL_COLUMNS_SAME_WIDTH,
                        CAJA_PREFERENCES_COMPACT_VIEW_ALL_COLUMNS_SAME_WIDTH);

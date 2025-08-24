@@ -8823,6 +8823,23 @@ caja_icon_container_set_label_position (CajaIconContainer *container,
     }
 }
 
+void
+caja_display_git_branch_enable (CajaIconContainer *container,
+                                CajaDisplayGitBranch enable)
+{
+    g_return_if_fail (CAJA_IS_ICON_CONTAINER (container));
+
+    if (container->details->display_git_branch != enable)
+    {
+        container->details->display_git_branch = enable;
+
+        invalidate_labels (container);
+        caja_icon_container_request_update_all (container);
+
+        schedule_redo_layout (container);
+    }
+}
+
 /* Switch from automatic to manual layout, freezing all the icons in their
  * current positions instead of restoring icon positions from the last manual
  * layout as set_auto_layout does.

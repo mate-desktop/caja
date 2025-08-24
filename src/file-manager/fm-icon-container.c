@@ -34,6 +34,7 @@
 #include <libcaja-private/caja-thumbnails.h>
 #include <libcaja-private/caja-desktop-icon-file.h>
 
+#include <libcaja-private/caja-icon-private.h>
 #include "fm-icon-container.h"
 
 G_DEFINE_TYPE (FMIconContainer, fm_icon_container, CAJA_TYPE_ICON_CONTAINER);
@@ -295,6 +296,67 @@ fm_icon_container_get_icon_text_attribute_names (CajaIconContainer *container,
     return attributes;
 }
 
+/**
+ * Parse a .git directory/file to determine repository branch name
+ **/
+static char *
+get_git_branch (const char *git_path) {
+    gchar *head_content = NULL;
+    gchar *branch_name = NULL;
+    gchar *head_path = NULL;
+
+    if (g_file_test (git_path, G_FILE_TEST_IS_REGULAR))
+    {
+        /* It's a file, thus we are probably dealing with a submodule, so read it to resolve the real git dir */
+        gchar *contents = NULL;
+        if (g_file_get_contents (git_path, &contents, NULL, NULL) && contents)
+        {
+            const char *git_dir_prefix = "gitdir: ";
+            if (g_str_has_prefix (contents, git_dir_prefix))
+            {
+                size_t git_dir_prefix_len = strlen (git_dir_prefix);
+                gchar *relative = g_strstrip (contents + git_dir_prefix_len);
+                gchar *base = g_path_get_dirname (git_path);
+                g_free (git_path);
+                git_path = g_build_filename (base, relative, NULL);
+                g_free (base);
+            }
+            g_free (contents);
+        }
+    }
+
+    /* Extract the current git branch name of the repository from file HEAD within .git directory */
+    if (g_file_test (git_path, G_FILE_TEST_IS_DIR))
+    {
+        head_path = g_build_filename (git_path, "HEAD", NULL);
+        if (g_file_get_contents (head_path, &head_content, NULL, NULL))
+        {
+            g_strstrip (head_content);
+            if (g_str_has_prefix (head_content, "ref: "))
+            {
+                gchar **parts = g_strsplit (head_content, "/", -1);
+                if (parts != NULL)
+                {
+                    branch_name = g_strdup (parts[g_strv_length(parts) - 1]);
+                    g_strchomp (branch_name);
+                    g_strfreev (parts);
+                }
+            }
+            else
+            {
+                /* Repository is in a detached HEAD state */
+                branch_name = g_strdup_printf (_("detached: %.7s"), head_content);
+            }
+        }
+    }
+
+    g_free (head_content);
+    g_free (head_path);
+
+    /* branch_name is a newly allocated string, so the caller is responsible for freeing it */
+    return branch_name;
+}
+
 /* This callback returns the text, both the editable part, and the
  * part below that is not editable.
  */
@@ -398,6 +460,32 @@ fm_icon_container_get_icon_text (CajaIconContainer *container,
     if (j == 0)
     {
         *additional_text = NULL;
+        if (container->details->display_git_branch == CAJA_DISPLAY_GIT_BRANCH_ENABLED)
+        {
+            /* If we have a directory, check if it's a git repository or submodule */
+            GFileType file_type = caja_file_get_file_type (file);
+            if (file_type == G_FILE_TYPE_DIRECTORY)
+            {
+                GFile *location = caja_file_get_location (file);
+                char *path = g_file_get_path (location);
+                if (path != NULL)
+                {
+                    char *git_path = g_build_path (G_DIR_SEPARATOR_S, path, ".git", NULL);
+                    if (git_path != NULL && G_UNLIKELY(g_file_test (git_path, G_FILE_TEST_EXISTS)))
+                    {
+                        char *branch = get_git_branch (git_path);
+                        if (branch != NULL)
+                        {
+                            *additional_text = g_strdup_printf ("[%s]", branch);
+                            g_free (branch);
+                        }
+                    }
+                    g_free (git_path);
+                    g_free (path);
+                }
+                g_object_unref (location);
+            }
+        }
     }
     else if (j == 1)
     {
