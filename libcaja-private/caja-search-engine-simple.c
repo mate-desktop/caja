@@ -30,6 +30,7 @@
 #include <eel/eel-gtk-macros.h>
 
 #include "caja-search-engine-simple.h"
+#include "caja-global-preferences.h"
 
 #define BATCH_SIZE 500
 
@@ -51,6 +52,7 @@ typedef struct
     GList *uri_hits;
     gint64 timestamp;
     gint64 size;
+    gboolean search_hidden_files;
 } SearchThreadData;
 
 struct CajaSearchEngineSimpleDetails
@@ -60,6 +62,7 @@ struct CajaSearchEngineSimpleDetails
     SearchThreadData *active_search;
 
     gboolean query_finished;
+    gboolean show_hidden_files;
 };
 
 G_DEFINE_TYPE (CajaSearchEngineSimple,
@@ -125,6 +128,8 @@ search_thread_data_new (CajaSearchEngineSimple *engine,
     data->timestamp = caja_query_get_timestamp (query);
     data->size = caja_query_get_size (query);
     data->contained_text = caja_query_get_contained_text (query);
+
+    data->search_hidden_files = engine->details->show_hidden_files;
 
     data->cancellable = g_cancellable_new ();
 
@@ -483,7 +488,7 @@ visit_directory (GFile *dir, SearchThreadData *data)
 
     while ((info = g_file_enumerator_next_file (enumerator, data->cancellable, NULL)) != NULL)
     {
-        if (g_file_info_get_is_hidden (info))
+        if (g_file_info_get_is_hidden (info) && !data->search_hidden_files)
         {
             goto next;
         }
@@ -721,6 +726,15 @@ caja_search_engine_simple_set_query (CajaSearchEngine *engine, CajaQuery *query)
 }
 
 static void
+caja_search_engine_simple_set_show_hidden_files (CajaSearchEngine *engine, gboolean show_hidden_files)
+{
+    CajaSearchEngineSimple *simple;
+
+    simple = CAJA_SEARCH_ENGINE_SIMPLE (engine);
+    simple->details->show_hidden_files = show_hidden_files;
+}
+
+static void
 caja_search_engine_simple_class_init (CajaSearchEngineSimpleClass *class)
 {
     GObjectClass *gobject_class;
@@ -733,6 +747,7 @@ caja_search_engine_simple_class_init (CajaSearchEngineSimpleClass *class)
 
     engine_class = CAJA_SEARCH_ENGINE_CLASS (class);
     engine_class->set_query = caja_search_engine_simple_set_query;
+    engine_class->set_show_hidden_files = caja_search_engine_simple_set_show_hidden_files;
     engine_class->start = caja_search_engine_simple_start;
     engine_class->stop = caja_search_engine_simple_stop;
     engine_class->is_indexed = caja_search_engine_simple_is_indexed;
@@ -742,6 +757,7 @@ static void
 caja_search_engine_simple_init (CajaSearchEngineSimple *engine)
 {
     engine->details = g_new0 (CajaSearchEngineSimpleDetails, 1);
+    engine->details->show_hidden_files = g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_SHOW_HIDDEN_FILES);
 }
 
 CajaSearchEngine *

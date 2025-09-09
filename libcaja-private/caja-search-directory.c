@@ -846,6 +846,12 @@ caja_search_directory_get_query (CajaSearchDirectory *search)
     return NULL;
 }
 
+CajaSearchEngine *
+caja_search_directory_get_engine (CajaSearchDirectory *search)
+{
+    return search->details->engine;
+}
+
 CajaSearchDirectory *
 caja_search_directory_new_from_saved_search (const char *uri)
 {

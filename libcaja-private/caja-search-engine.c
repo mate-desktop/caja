@@ -125,6 +125,16 @@ caja_search_engine_set_query (CajaSearchEngine *engine, CajaQuery *query)
 }
 
 void
+caja_search_engine_set_show_hidden_files (CajaSearchEngine *engine, gboolean show_hidden_files)
+{
+    g_return_if_fail (CAJA_IS_SEARCH_ENGINE (engine));
+
+    if (CAJA_SEARCH_ENGINE_GET_CLASS (engine)->set_show_hidden_files != NULL) {
+        CAJA_SEARCH_ENGINE_GET_CLASS (engine)->set_show_hidden_files (engine, show_hidden_files);
+    }
+}
+
+void
 caja_search_engine_start (CajaSearchEngine *engine)
 {
     g_return_if_fail (CAJA_IS_SEARCH_ENGINE (engine));

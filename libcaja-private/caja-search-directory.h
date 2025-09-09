@@ -27,6 +27,7 @@
 
 #include "caja-directory.h"
 #include "caja-query.h"
+#include "caja-search-engine.h"
 
 #define CAJA_TYPE_SEARCH_DIRECTORY caja_search_directory_get_type()
 #define CAJA_SEARCH_DIRECTORY(obj) \
@@ -69,5 +70,7 @@ void           caja_search_directory_save_to_file    (CajaSearchDirectory *searc
 CajaQuery *caja_search_directory_get_query       (CajaSearchDirectory *search);
 void           caja_search_directory_set_query       (CajaSearchDirectory *search,
         CajaQuery           *query);
+
+CajaSearchEngine *caja_search_directory_get_engine   (CajaSearchDirectory *search);
 
 #endif /* CAJA_SEARCH_DIRECTORY_H */
