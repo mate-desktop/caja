@@ -149,7 +149,8 @@ static GQuark attribute_name_q,
 	attribute_where_q,
 	attribute_link_target_q,
 	attribute_volume_q,
-	attribute_free_space_q;
+	attribute_free_space_q,
+	attribute_location_q;
 
 static void     caja_file_info_iface_init                (CajaFileInfoIface *iface);
 static char *   caja_file_get_owner_as_string            (CajaFile          *file,
@@ -6504,7 +6505,7 @@ caja_file_get_deep_directory_count_as_string (CajaFile *file)
  * set includes "name", "type", "mime_type", "size", "size_on_disk", "deep_size", "deep_size_on_disk",
  * "deep_directory_count", "deep_file_count", "deep_total_count", "date_modified", "date_changed",
  * "date_accessed", "date_permissions", "owner", "group", "permissions", "octal_permissions", "uri", "where",
- * "link_target", "volume", "free_space", "selinux_context", "trashed_on", "trashed_orig_path"
+ * "link_target", "location", "volume", "free_space", "selinux_context", "trashed_on", "trashed_orig_path"
  *
  * Returns: Newly allocated string ready to display to the user, or NULL
  * if the value is unknown or @attribute_name is not supported.
@@ -6604,6 +6605,9 @@ caja_file_get_string_attribute_q (CajaFile *file, GQuark attribute_q)
 	}
 	if (attribute_q == attribute_link_target_q) {
 		return caja_file_get_symbolic_link_target_path (file);
+	}
+	if (attribute_q == attribute_location_q) {
+		return caja_file_get_parent_uri_for_display (file);
 	}
 	if (attribute_q == attribute_volume_q) {
 		return caja_file_get_volume_name (file);
@@ -8624,6 +8628,7 @@ caja_file_class_init (CajaFileClass *class)
 	attribute_link_target_q = g_quark_from_static_string ("link_target");
 	attribute_volume_q = g_quark_from_static_string ("volume");
 	attribute_free_space_q = g_quark_from_static_string ("free_space");
+	attribute_location_q = g_quark_from_static_string ("location");
 
 	G_OBJECT_CLASS (class)->finalize = finalize;
 	G_OBJECT_CLASS (class)->constructor = caja_file_constructor;
