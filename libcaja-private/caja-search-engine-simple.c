@@ -24,6 +24,7 @@
 #include <config.h>
 #include <string.h>
 #include <glib.h>
+#include <fnmatch.h>
 
 #include <gio/gio.h>
 
@@ -43,6 +44,7 @@ typedef struct
     GList *mime_types;
     GList *tags;
     char **words;
+    gboolean use_globs;
 
     GQueue *directories; /* GFiles */
 
@@ -70,6 +72,18 @@ G_DEFINE_TYPE (CajaSearchEngineSimple,
                CAJA_TYPE_SEARCH_ENGINE);
 
 static CajaSearchEngineClass *parent_class = NULL;
+
+static gboolean
+text_has_glob (const char *text)
+{
+    if (!text)
+        return FALSE;
+
+    return (strchr (text, '*') != NULL ||
+            strchr (text, '?') != NULL ||
+            strchr (text, '[') != NULL ||
+            strchr (text, ']') != NULL);
+}
 
 static void
 finalize (GObject *object)
@@ -116,12 +130,23 @@ search_thread_data_new (CajaSearchEngineSimple *engine,
     g_queue_push_tail (data->directories, location);
 
     text = caja_query_get_text (query);
-    normalized = g_utf8_normalize (text, -1, G_NORMALIZE_NFD);
-    lower = g_utf8_strdown (normalized, -1);
-    data->words = g_strsplit (lower, " ", -1);
+    data->use_globs = text && text_has_glob (text);
+
+    if (data->use_globs)
+    {
+        /* For globs, keep original case and don't normalize */
+        data->words = g_strsplit (text, " ", -1);
+    }
+    else
+    {
+        /* For substring matching, normalize and lowercase */
+        normalized = g_utf8_normalize (text, -1, G_NORMALIZE_NFD);
+        lower = g_utf8_strdown (normalized, -1);
+        data->words = g_strsplit (lower, " ", -1);
+        g_free (lower);
+        g_free (normalized);
+    }
     g_free (text);
-    g_free (lower);
-    g_free (normalized);
 
     data->tags = caja_query_get_tags (query);
     data->mime_types = caja_query_get_mime_types (query);
@@ -504,12 +529,31 @@ visit_directory (GFile *dir, SearchThreadData *data)
         g_free (normalized);
 
         hit = TRUE;
-        for (i = 0; data->words[i] != NULL; i++)
+        if (data->use_globs)
         {
-            if (strstr (lower_name, data->words[i]) == NULL)
+            /* Use glob pattern matching with case-insensitive comparison */
+            for (i = 0; data->words[i] != NULL; i++)
             {
-                hit = FALSE;
-                break;
+                char *lower_pattern = g_utf8_strdown (data->words[i], -1);
+                if (fnmatch (lower_pattern, lower_name, 0) != 0)
+                {
+                    hit = FALSE;
+                    g_free (lower_pattern);
+                    break;
+                }
+                g_free (lower_pattern);
+            }
+        }
+        else
+        {
+            /* Use substring matching */
+            for (i = 0; data->words[i] != NULL; i++)
+            {
+                if (strstr (lower_name, data->words[i]) == NULL)
+                {
+                    hit = FALSE;
+                    break;
+                }
             }
         }
         g_free (lower_name);
