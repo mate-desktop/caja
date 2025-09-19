@@ -239,7 +239,7 @@ caja_desktop_window_new (CajaApplication *application,
         gtk_layer_init_for_window (gtkwin);
 
         /* Order below normal windows */
-        gtk_layer_set_layer (gtkwin, GTK_LAYER_SHELL_LAYER_BOTTOM);
+        gtk_layer_set_layer (gtkwin, GTK_LAYER_SHELL_LAYER_BACKGROUND);
 
         gtk_layer_set_namespace (gtkwin, "desktop");
 
