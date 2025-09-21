@@ -48,6 +48,7 @@
 #include <libcaja-private/caja-column-utilities.h>
 #include <libcaja-private/caja-debug-log.h>
 #include <libcaja-private/caja-directory-background.h>
+#include <libcaja-private/caja-search-directory.h>
 #include <libcaja-private/caja-dnd.h>
 #include <libcaja-private/caja-file-dnd.h>
 #include <libcaja-private/caja-file-utilities.h>
@@ -1640,6 +1641,70 @@ focus_in_event_callback (GtkWidget *widget, GdkEventFocus *event, gpointer user_
     return FALSE;
 }
 
+static gboolean
+tree_view_query_tooltip_callback (GtkWidget *widget,
+                                  gint x,
+                                  gint y,
+                                  gboolean keyboard_tip,
+                                  GtkTooltip *tooltip,
+                                  FMListView *list_view)
+{
+    GtkTreeView *tree_view;
+    GtkTreePath *path;
+    GtkTreeModel *model;
+    GtkTreeIter iter;
+    CajaFile *file;
+    char *location_text;
+
+    /* Only show tooltips in search directories */
+    if (!CAJA_IS_SEARCH_DIRECTORY (fm_directory_view_get_model (FM_DIRECTORY_VIEW (list_view))))
+    {
+        return FALSE;
+    }
+
+    tree_view = GTK_TREE_VIEW (widget);
+
+    /* Get the tree path at the cursor position */
+    if (!gtk_tree_view_get_path_at_pos (tree_view, x, y, &path, NULL, NULL, NULL))
+    {
+        return FALSE;
+    }
+
+    model = gtk_tree_view_get_model (tree_view);
+    if (!gtk_tree_model_get_iter (model, &iter, path))
+    {
+        gtk_tree_path_free (path);
+        return FALSE;
+    }
+
+    /* Get the file from the model */
+    gtk_tree_model_get (model, &iter, FM_LIST_MODEL_FILE_COLUMN, &file, -1);
+    if (file == NULL)
+    {
+        gtk_tree_path_free (path);
+        return FALSE;
+    }
+
+    /* Get the location attribute */
+    location_text = caja_file_get_string_attribute_with_default (file, "location");
+    if (location_text == NULL || location_text[0] == '\0')
+    {
+        g_free (location_text);
+        caja_file_unref (file);
+        gtk_tree_path_free (path);
+        return FALSE;
+    }
+
+    /* Set tooltip text with file location */
+    gtk_tooltip_set_text (tooltip, location_text);
+
+    g_free (location_text);
+    caja_file_unref (file);
+    gtk_tree_path_free (path);
+
+    return TRUE;
+}
+
 static gint
 get_icon_scale_callback (FMListModel *model,
                          FMListView  *view)
@@ -1663,6 +1728,8 @@ create_and_set_up_tree_view (FMListView *view)
                              (GDestroyNotify)g_free,
                              NULL);
     gtk_tree_view_set_enable_search (view->details->tree_view, TRUE);
+
+    gtk_widget_set_has_tooltip (GTK_WIDGET (view->details->tree_view), TRUE);
 
     /* Don't handle backspace key. It's used to open the parent folder. */
     binding_set = gtk_binding_set_by_class (GTK_WIDGET_GET_CLASS (view->details->tree_view));
@@ -1723,6 +1790,8 @@ create_and_set_up_tree_view (FMListView *view)
 
     g_signal_connect_object (view->details->tree_view, "focus_in_event",
                              G_CALLBACK(focus_in_event_callback), view, 0);
+    g_signal_connect_object (view->details->tree_view, "query-tooltip",
+                             G_CALLBACK (tree_view_query_tooltip_callback), view, 0);
 
     view->details->model = g_object_new (FM_TYPE_LIST_MODEL, NULL);
     gtk_tree_view_set_model (view->details->tree_view, GTK_TREE_MODEL (view->details->model));

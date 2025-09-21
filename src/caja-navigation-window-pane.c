@@ -26,6 +26,7 @@
 
 #include <libcaja-private/caja-global-preferences.h>
 #include <libcaja-private/caja-window-slot-info.h>
+#include <libcaja-private/caja-window-info.h>
 #include <libcaja-private/caja-view-factory.h>
 #include <libcaja-private/caja-entry.h>
 
@@ -139,6 +140,31 @@ search_bar_activate_callback (CajaSearchBar *bar,
             caja_query_set_location (query, current_uri);
             g_free (current_uri);
         }
+
+        /* Set hidden files visibility based on current window setting */
+        {
+            CajaWindow *window;
+            CajaWindowShowHiddenFilesMode mode;
+            gboolean show_hidden_files = FALSE;
+
+            window = slot->pane->window;
+            mode = caja_window_info_get_hidden_files_mode (CAJA_WINDOW_INFO (window));
+
+            if (mode == CAJA_WINDOW_SHOW_HIDDEN_FILES_ENABLE)
+            {
+                show_hidden_files = TRUE;
+            }
+            else if (mode == CAJA_WINDOW_SHOW_HIDDEN_FILES_DEFAULT)
+            {
+                show_hidden_files = g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_SHOW_HIDDEN_FILES);
+            }
+
+            CajaSearchEngine *engine = caja_search_directory_get_engine (search_directory);
+            if (engine) {
+                caja_search_engine_set_show_hidden_files (engine, show_hidden_files);
+            }
+        }
+
         caja_search_directory_set_query (search_directory, query);
         g_object_unref (query);
     }

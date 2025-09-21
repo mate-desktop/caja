@@ -46,6 +46,7 @@ typedef struct
 
     /* VTable */
     void (*set_query) (CajaSearchEngine *engine, CajaQuery *query);
+    void (*set_show_hidden_files) (CajaSearchEngine *engine, gboolean show_hidden_files);
     void (*start) (CajaSearchEngine *engine);
     void (*stop) (CajaSearchEngine *engine);
     gboolean (*is_indexed) (CajaSearchEngine *engine);
@@ -63,6 +64,7 @@ gboolean       caja_search_engine_enabled (void);
 CajaSearchEngine* caja_search_engine_new       (void);
 
 void           caja_search_engine_set_query (CajaSearchEngine *engine, CajaQuery *query);
+void           caja_search_engine_set_show_hidden_files (CajaSearchEngine *engine, gboolean show_hidden_files);
 void	       caja_search_engine_start (CajaSearchEngine *engine);
 void	       caja_search_engine_stop (CajaSearchEngine *engine);
 gboolean       caja_search_engine_is_indexed (CajaSearchEngine *engine);

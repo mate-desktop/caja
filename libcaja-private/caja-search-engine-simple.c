@@ -24,12 +24,14 @@
 #include <config.h>
 #include <string.h>
 #include <glib.h>
+#include <fnmatch.h>
 
 #include <gio/gio.h>
 
 #include <eel/eel-gtk-macros.h>
 
 #include "caja-search-engine-simple.h"
+#include "caja-global-preferences.h"
 
 #define BATCH_SIZE 500
 
@@ -42,6 +44,7 @@ typedef struct
     GList *mime_types;
     GList *tags;
     char **words;
+    gboolean use_globs;
 
     GQueue *directories; /* GFiles */
 
@@ -51,6 +54,7 @@ typedef struct
     GList *uri_hits;
     gint64 timestamp;
     gint64 size;
+    gboolean search_hidden_files;
 } SearchThreadData;
 
 struct CajaSearchEngineSimpleDetails
@@ -60,6 +64,7 @@ struct CajaSearchEngineSimpleDetails
     SearchThreadData *active_search;
 
     gboolean query_finished;
+    gboolean show_hidden_files;
 };
 
 G_DEFINE_TYPE (CajaSearchEngineSimple,
@@ -67,6 +72,18 @@ G_DEFINE_TYPE (CajaSearchEngineSimple,
                CAJA_TYPE_SEARCH_ENGINE);
 
 static CajaSearchEngineClass *parent_class = NULL;
+
+static gboolean
+text_has_glob (const char *text)
+{
+    if (!text)
+        return FALSE;
+
+    return (strchr (text, '*') != NULL ||
+            strchr (text, '?') != NULL ||
+            strchr (text, '[') != NULL ||
+            strchr (text, ']') != NULL);
+}
 
 static void
 finalize (GObject *object)
@@ -113,18 +130,31 @@ search_thread_data_new (CajaSearchEngineSimple *engine,
     g_queue_push_tail (data->directories, location);
 
     text = caja_query_get_text (query);
-    normalized = g_utf8_normalize (text, -1, G_NORMALIZE_NFD);
-    lower = g_utf8_strdown (normalized, -1);
-    data->words = g_strsplit (lower, " ", -1);
+    data->use_globs = text && text_has_glob (text);
+
+    if (data->use_globs)
+    {
+        /* For globs, keep original case and don't normalize */
+        data->words = g_strsplit (text, " ", -1);
+    }
+    else
+    {
+        /* For substring matching, normalize and lowercase */
+        normalized = g_utf8_normalize (text, -1, G_NORMALIZE_NFD);
+        lower = g_utf8_strdown (normalized, -1);
+        data->words = g_strsplit (lower, " ", -1);
+        g_free (lower);
+        g_free (normalized);
+    }
     g_free (text);
-    g_free (lower);
-    g_free (normalized);
 
     data->tags = caja_query_get_tags (query);
     data->mime_types = caja_query_get_mime_types (query);
     data->timestamp = caja_query_get_timestamp (query);
     data->size = caja_query_get_size (query);
     data->contained_text = caja_query_get_contained_text (query);
+
+    data->search_hidden_files = engine->details->show_hidden_files;
 
     data->cancellable = g_cancellable_new ();
 
@@ -483,7 +513,7 @@ visit_directory (GFile *dir, SearchThreadData *data)
 
     while ((info = g_file_enumerator_next_file (enumerator, data->cancellable, NULL)) != NULL)
     {
-        if (g_file_info_get_is_hidden (info))
+        if (g_file_info_get_is_hidden (info) && !data->search_hidden_files)
         {
             goto next;
         }
@@ -499,12 +529,31 @@ visit_directory (GFile *dir, SearchThreadData *data)
         g_free (normalized);
 
         hit = TRUE;
-        for (i = 0; data->words[i] != NULL; i++)
+        if (data->use_globs)
         {
-            if (strstr (lower_name, data->words[i]) == NULL)
+            /* Use glob pattern matching with case-insensitive comparison */
+            for (i = 0; data->words[i] != NULL; i++)
             {
-                hit = FALSE;
-                break;
+                char *lower_pattern = g_utf8_strdown (data->words[i], -1);
+                if (fnmatch (lower_pattern, lower_name, 0) != 0)
+                {
+                    hit = FALSE;
+                    g_free (lower_pattern);
+                    break;
+                }
+                g_free (lower_pattern);
+            }
+        }
+        else
+        {
+            /* Use substring matching */
+            for (i = 0; data->words[i] != NULL; i++)
+            {
+                if (strstr (lower_name, data->words[i]) == NULL)
+                {
+                    hit = FALSE;
+                    break;
+                }
             }
         }
         g_free (lower_name);
@@ -721,6 +770,15 @@ caja_search_engine_simple_set_query (CajaSearchEngine *engine, CajaQuery *query)
 }
 
 static void
+caja_search_engine_simple_set_show_hidden_files (CajaSearchEngine *engine, gboolean show_hidden_files)
+{
+    CajaSearchEngineSimple *simple;
+
+    simple = CAJA_SEARCH_ENGINE_SIMPLE (engine);
+    simple->details->show_hidden_files = show_hidden_files;
+}
+
+static void
 caja_search_engine_simple_class_init (CajaSearchEngineSimpleClass *class)
 {
     GObjectClass *gobject_class;
@@ -733,6 +791,7 @@ caja_search_engine_simple_class_init (CajaSearchEngineSimpleClass *class)
 
     engine_class = CAJA_SEARCH_ENGINE_CLASS (class);
     engine_class->set_query = caja_search_engine_simple_set_query;
+    engine_class->set_show_hidden_files = caja_search_engine_simple_set_show_hidden_files;
     engine_class->start = caja_search_engine_simple_start;
     engine_class->stop = caja_search_engine_simple_stop;
     engine_class->is_indexed = caja_search_engine_simple_is_indexed;
@@ -742,6 +801,7 @@ static void
 caja_search_engine_simple_init (CajaSearchEngineSimple *engine)
 {
     engine->details = g_new0 (CajaSearchEngineSimpleDetails, 1);
+    engine->details->show_hidden_files = g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_SHOW_HIDDEN_FILES);
 }
 
 CajaSearchEngine *

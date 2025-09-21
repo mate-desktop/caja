@@ -38,6 +38,7 @@
 #include <sys/wait.h>
 
 #include <eel/eel-background.h>
+#include <eel/eel-canvas.h>
 #include <eel/eel-glib-extensions.h>
 #include <eel/eel-gtk-extensions.h>
 #include <eel/eel-gtk-macros.h>
@@ -48,11 +49,14 @@
 #include <libcaja-private/caja-clipboard-monitor.h>
 #include <libcaja-private/caja-directory-background.h>
 #include <libcaja-private/caja-directory.h>
+#include <libcaja-private/caja-search-directory.h>
 #include <libcaja-private/caja-dnd.h>
 #include <libcaja-private/caja-file-utilities.h>
 #include <libcaja-private/caja-ui-utilities.h>
 #include <libcaja-private/caja-global-preferences.h>
+#include <libcaja-private/caja-icon-canvas-item.h>
 #include <libcaja-private/caja-icon-container.h>
+#include <libcaja-private/caja-icon-private.h>
 #include <libcaja-private/caja-icon-dnd.h>
 #include <libcaja-private/caja-link.h>
 #include <libcaja-private/caja-metadata.h>
@@ -3114,6 +3118,58 @@ focus_in_event_callback (GtkWidget *widget, GdkEventFocus *event, gpointer user_
     return FALSE;
 }
 
+static gboolean
+icon_container_query_tooltip_callback (GtkWidget *widget,
+                                       gint x,
+                                       gint y,
+                                       gboolean keyboard_tip,
+                                       GtkTooltip *tooltip,
+                                       FMIconView *icon_view)
+{
+    CajaIconContainer *icon_container;
+    EelCanvasItem *item;
+    CajaFile *file;
+    char *location_text;
+
+    /* Only show tooltips in search directories */
+    if (!CAJA_IS_SEARCH_DIRECTORY (fm_directory_view_get_model (FM_DIRECTORY_VIEW (icon_view))))
+    {
+        return FALSE;
+    }
+
+    icon_container = CAJA_ICON_CONTAINER (widget);
+
+    /* Get the canvas item at the cursor position */
+    item = eel_canvas_get_item_at (EEL_CANVAS (icon_container), x, y);
+    if (item == NULL || !CAJA_IS_ICON_CANVAS_ITEM (item))
+    {
+        return FALSE;
+    }
+
+    /* Get the file from the canvas item's user_data */
+    CajaIcon *icon = CAJA_ICON_CANVAS_ITEM (item)->user_data;
+    file = CAJA_FILE (icon->data);
+    if (file == NULL)
+    {
+        return FALSE;
+    }
+
+    /* Get the location attribute */
+    location_text = caja_file_get_string_attribute_with_default (file, "location");
+    if (location_text == NULL || location_text[0] == '\0')
+    {
+        g_free (location_text);
+        return FALSE;
+    }
+
+    /* Set tooltip text with file location */
+    gtk_tooltip_set_text (tooltip, location_text);
+
+    g_free (location_text);
+
+    return TRUE;
+}
+
 static CajaIconContainer *
 create_icon_container (FMIconView *icon_view)
 {
@@ -3122,9 +3178,12 @@ create_icon_container (FMIconView *icon_view)
     icon_container = fm_icon_container_new (icon_view);
 
     gtk_widget_set_can_focus (GTK_WIDGET (icon_container), TRUE);
+    gtk_widget_set_has_tooltip (GTK_WIDGET (icon_container), TRUE);
 
     g_signal_connect_object (icon_container, "focus_in_event",
                              G_CALLBACK (focus_in_event_callback), icon_view, 0);
+    g_signal_connect_object (icon_container, "query-tooltip",
+                             G_CALLBACK (icon_container_query_tooltip_callback), icon_view, 0);
     g_signal_connect_object (icon_container, "activate",
                              G_CALLBACK (icon_container_activate_callback), icon_view, 0);
     g_signal_connect_object (icon_container, "activate_alternate",
