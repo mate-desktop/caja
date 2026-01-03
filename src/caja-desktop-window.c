@@ -116,7 +116,6 @@ caja_desktop_window_init (CajaDesktopWindow *window)
 
     gtk_widget_hide (CAJA_WINDOW (window)->details->statusbar);
     gtk_widget_hide (CAJA_WINDOW (window)->details->menubar);
-    gtk_window_set_decorated (GTK_WINDOW (window), FALSE);
 
     /* Don't allow close action on desktop */
     G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
@@ -220,6 +219,7 @@ caja_desktop_window_new (CajaApplication *application,
                               "width_request", width_request,
                               "height_request", height_request,
                               "screen", screen,
+                              "decorated", FALSE,
                               NULL));
     /* Stop wrong desktop window size in GTK 3.20*/
     /* We don't want to set a default size, which the parent does, since this */
