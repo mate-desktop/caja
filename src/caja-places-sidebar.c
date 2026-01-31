@@ -80,6 +80,7 @@ typedef struct
     gboolean  drag_data_received;
     int       drag_data_info;
     gboolean  drop_occured;
+    gboolean  selection;
 
     GtkWidget *popup_menu;
     GtkWidget *popup_menu_open_in_new_tab_item;
@@ -173,7 +174,17 @@ static void  check_unmount_and_eject                   (GMount *mount,
         gboolean *show_unmount,
         gboolean *show_eject);
 
-static void bookmarks_check_popup_sensitivity          (CajaPlacesSidebar *sidebar);
+/* Modified function to handle popup menu sensitivity based on selection */
+static void
+bookmarks_check_popup_sensitivity (CajaPlacesSidebar *sidebar)
+{
+    g_return_if_fail (CAJA_IS_PLACES_SIDEBAR (sidebar));
+
+    if (sidebar->popup_menu != NULL) { /*gboolean has_selection = (sidebar->selection != NULL);*/
+        gboolean has_selection = sidebar->selection;
+        gtk_widget_set_sensitive (sidebar->popup_menu, has_selection);
+    }
+}
 
 /* Identifiers for target types */
 enum
@@ -284,48 +295,43 @@ is_built_in_bookmark (CajaFile *file)
 
 static GtkTreeIter
 add_heading (CajaPlacesSidebar *sidebar,
-         SectionType section_type,
-         const gchar *title)
+             SectionType section_type,
+             const gchar *title)
 {
     GtkTreeIter iter, child_iter;
 
     gtk_list_store_append (sidebar->store, &iter);
     gtk_list_store_set (sidebar->store, &iter,
-                PLACES_SIDEBAR_COLUMN_ROW_TYPE, PLACES_HEADING,
-                PLACES_SIDEBAR_COLUMN_SECTION_TYPE, section_type,
-                PLACES_SIDEBAR_COLUMN_HEADING_TEXT, title,
-                PLACES_SIDEBAR_COLUMN_EJECT, FALSE,
-                PLACES_SIDEBAR_COLUMN_NO_EJECT, TRUE,
-                -1);
+                        PLACES_SIDEBAR_COLUMN_ROW_TYPE, PLACES_HEADING,
+                        PLACES_SIDEBAR_COLUMN_SECTION_TYPE, section_type,
+                        PLACES_SIDEBAR_COLUMN_HEADING_TEXT, title,
+                        PLACES_SIDEBAR_COLUMN_EJECT, FALSE,
+                        PLACES_SIDEBAR_COLUMN_NO_EJECT, TRUE,
+                        -1);
 
     gtk_tree_model_filter_refilter (GTK_TREE_MODEL_FILTER (sidebar->filter_model));
     gtk_tree_model_filter_convert_child_iter_to_iter (GTK_TREE_MODEL_FILTER (sidebar->filter_model),
-                              &child_iter,
-                              &iter);
-
+                                                      &child_iter,
+                                                      &iter);
     return child_iter;
 }
 
 static void
 check_heading_for_section (CajaPlacesSidebar *sidebar,
-               SectionType section_type)
+                           SectionType section_type)
 {
     switch (section_type) {
     case SECTION_DEVICES:
         if (!sidebar->devices_header_added) {
-            add_heading (sidebar, SECTION_DEVICES,
-                     _("Devices"));
+            add_heading (sidebar, SECTION_DEVICES, _("Devices"));
             sidebar->devices_header_added = TRUE;
         }
-
         break;
     case SECTION_BOOKMARKS:
         if (!sidebar->bookmarks_header_added) {
-            add_heading (sidebar, SECTION_BOOKMARKS,
-                     _("Bookmarks"));
+            add_heading (sidebar, SECTION_BOOKMARKS, _("Bookmarks"));
             sidebar->bookmarks_header_added = TRUE;
         }
-
         break;
     default:
         break;
@@ -355,6 +361,7 @@ add_place (CajaPlacesSidebar *sidebar,
     gboolean         show_eject;
     gboolean         show_unmount;
     gboolean         show_eject_button;
+    char            *escaped_tooltip;
 
     check_heading_for_section (sidebar, section_type);
 
@@ -398,6 +405,12 @@ add_place (CajaPlacesSidebar *sidebar,
         eject = NULL;
     }
 
+    if (tooltip) {
+        escaped_tooltip = g_markup_escape_text (tooltip, -1);
+    } else {
+        escaped_tooltip = g_markup_escape_text ("", -1);
+    }
+
     gtk_list_store_append (sidebar->store, &iter);
     gtk_list_store_set (sidebar->store, &iter,
                         PLACES_SIDEBAR_COLUMN_ICON, surface,
@@ -411,7 +424,7 @@ add_place (CajaPlacesSidebar *sidebar,
                         PLACES_SIDEBAR_COLUMN_EJECT, show_eject_button,
                         PLACES_SIDEBAR_COLUMN_NO_EJECT, !show_eject_button,
                         PLACES_SIDEBAR_COLUMN_BOOKMARK, place_type != PLACES_BOOKMARK,
-                        PLACES_SIDEBAR_COLUMN_TOOLTIP, tooltip,
+                        PLACES_SIDEBAR_COLUMN_TOOLTIP, escaped_tooltip,
                         PLACES_SIDEBAR_COLUMN_EJECT_ICON, eject,
                         PLACES_SIDEBAR_COLUMN_SECTION_TYPE, section_type,
                         -1);
@@ -419,6 +432,10 @@ add_place (CajaPlacesSidebar *sidebar,
     if (surface != NULL)
     {
        cairo_surface_destroy (surface);
+    }
+    if (escaped_tooltip != NULL)
+    {
+        g_free (escaped_tooltip);
     }
     gtk_tree_model_filter_refilter (GTK_TREE_MODEL_FILTER (sidebar->filter_model));
     gtk_tree_model_filter_convert_child_iter_to_iter (GTK_TREE_MODEL_FILTER (sidebar->filter_model),
@@ -441,7 +458,6 @@ compare_for_selection (CajaPlacesSidebar *sidebar,
 
     if (res == 0)
     {
-        /* last_uri always comes first */
         if (*path != NULL)
         {
             gtk_tree_path_free (*path);
@@ -575,7 +591,7 @@ update_places (CajaPlacesSidebar *sidebar)
         path = g_get_user_special_dir (index);
 
         /* xdg resets special dirs to the home directory in case
-         * it's not finiding what it expects. We don't want the home
+         * it's not finding what it expects. We don't want the home
          * to be added multiple times in that weird configuration.
          */
         if (path == NULL
@@ -1105,9 +1121,9 @@ loading_uri_callback (CajaWindowInfo *window,
 /* Computes the appropriate row and position for dropping */
 static gboolean
 compute_drop_position (GtkTreeView *tree_view,
-                       int                      x,
-                       int                      y,
-                       GtkTreePath            **path,
+                       int          x,
+                       int          y,
+                       GtkTreePath **path,
                        GtkTreeViewDropPosition *pos,
                        CajaPlacesSidebar *sidebar)
 {
@@ -1347,8 +1363,8 @@ drag_leave_callback (GtkTreeView *tree_view,
 /* Parses a "text/uri-list" string and inserts its URIs as bookmarks */
 static void
 bookmarks_drop_uris (CajaPlacesSidebar *sidebar,
-                     GtkSelectionData      *selection_data,
-                     int                    position)
+                     GtkSelectionData  *selection_data,
+                     int                position)
 {
     CajaBookmark *bookmark;
     char *name;
@@ -1464,7 +1480,6 @@ reorder_bookmarks (CajaPlacesSidebar *sidebar,
     guint list_length;
 
     /* Get the selected path */
-
     if (!get_selected_iter (sidebar, &iter))
         return;
 
@@ -1513,7 +1528,7 @@ drag_data_received_callback (GtkWidget *widget,
         if (gtk_selection_data_get_target (selection_data) != GDK_NONE &&
                 info == TEXT_URI_LIST)
         {
-            sidebar->drag_list = build_selection_list (gtk_selection_data_get_data (selection_data));
+            sidebar->drag_list = build_selection_list ((const char *)gtk_selection_data_get_data (selection_data));
         }
         else
         {
@@ -1609,7 +1624,7 @@ drag_data_received_callback (GtkWidget *widget,
             switch (info)
             {
             case TEXT_URI_LIST:
-                selection_list = build_selection_list (gtk_selection_data_get_data (selection_data));
+                selection_list = build_selection_list ((const char *)gtk_selection_data_get_data (selection_data));
                 uris = uri_list_from_selection (selection_list);
                 caja_file_operations_copy_move (uris, NULL, drop_uri,
                                                 real_action, GTK_WIDGET (tree_view),
@@ -1699,165 +1714,13 @@ check_unmount_and_eject (GMount *mount,
     if (mount != NULL)
     {
         *show_eject |= g_mount_can_eject (mount);
-        *show_unmount = g_mount_can_unmount (mount) && !*show_eject;
+        *show_unmount = g_mount_can_unmount (mount);
     }
-}
-
-static void
-check_visibility (GMount           *mount,
-                  GVolume          *volume,
-                  GDrive           *drive,
-                  gboolean         *show_mount,
-                  gboolean         *show_unmount,
-                  gboolean         *show_eject,
-                  gboolean         *show_rescan,
-                  gboolean         *show_format,
-                  gboolean         *show_start,
-                  gboolean         *show_stop)
-{
-    *show_mount = FALSE;
-    *show_format = FALSE;
-    *show_rescan = FALSE;
-    *show_start = FALSE;
-    *show_stop = FALSE;
-
-    check_unmount_and_eject (mount, volume, drive, show_unmount, show_eject);
-
-    if (drive != NULL)
-    {
-        if (g_drive_is_media_removable (drive) &&
-                !g_drive_is_media_check_automatic (drive) &&
-                g_drive_can_poll_for_media (drive))
-            *show_rescan = TRUE;
-
-        *show_start = g_drive_can_start (drive) || g_drive_can_start_degraded (drive);
-        *show_stop  = g_drive_can_stop (drive);
-
-        if (*show_stop)
-            *show_unmount = FALSE;
-
-        if (volume != NULL)
-        {
-            gchar *unix_device_id;
-            gchar *disks_path;
-
-            unix_device_id = g_volume_get_identifier (volume, G_VOLUME_IDENTIFIER_KIND_UNIX_DEVICE);
-            disks_path = g_find_program_in_path ("gnome-disks");
-            *show_format = (unix_device_id != NULL) && (disks_path != NULL);
-            g_free (unix_device_id);
-            g_free (disks_path);
-        }
-    }
-
-    if (volume != NULL)
-    {
-        if (mount == NULL)
-            *show_mount = g_volume_can_mount (volume);
-    }
-}
-
-static void
-bookmarks_check_popup_sensitivity (CajaPlacesSidebar *sidebar)
-{
-    GtkTreeIter iter;
-    PlaceType type;
-    GDrive *drive = NULL;
-    GVolume *volume = NULL;
-    GMount *mount = NULL;
-    gboolean show_mount;
-    gboolean show_unmount;
-    gboolean show_eject;
-    gboolean show_rescan;
-    gboolean show_format;
-    gboolean show_start;
-    gboolean show_stop;
-    gboolean show_empty_trash;
-    char *uri = NULL;
-
-    type = PLACES_BUILT_IN;
-
-    if (sidebar->popup_menu == NULL)
-    {
-        return;
-    }
-
-    if (get_selected_iter (sidebar, &iter))
-    {
-        gtk_tree_model_get (GTK_TREE_MODEL (sidebar->filter_model), &iter,
-                            PLACES_SIDEBAR_COLUMN_ROW_TYPE, &type,
-                            PLACES_SIDEBAR_COLUMN_DRIVE, &drive,
-                            PLACES_SIDEBAR_COLUMN_VOLUME, &volume,
-                            PLACES_SIDEBAR_COLUMN_MOUNT, &mount,
-                            PLACES_SIDEBAR_COLUMN_URI, &uri,
-                            -1);
-    }
-
-    gtk_widget_show (sidebar->popup_menu_open_in_new_tab_item);
-
-    gtk_widget_set_sensitive (sidebar->popup_menu_remove_item, (type == PLACES_BOOKMARK));
-    gtk_widget_set_sensitive (sidebar->popup_menu_rename_item, (type == PLACES_BOOKMARK));
-    gtk_widget_set_sensitive (sidebar->popup_menu_empty_trash_item, !caja_trash_monitor_is_empty ());
-
-    check_visibility (mount, volume, drive,
-                      &show_mount, &show_unmount, &show_eject, &show_rescan, &show_format, &show_start, &show_stop);
-
-    /* We actually want both eject and unmount since eject will unmount all volumes.
-     * TODO: hide unmount if the drive only has a single mountable volume
-     */
-
-    show_empty_trash = (uri != NULL) &&
-                       (!strcmp (uri, "trash:///"));
-
-    gtk_widget_set_visible (sidebar->popup_menu_separator_item,
-                              show_mount || show_unmount || show_eject || show_format || show_empty_trash);
-    gtk_widget_set_visible (sidebar->popup_menu_mount_item, show_mount);
-    gtk_widget_set_visible (sidebar->popup_menu_unmount_item, show_unmount);
-    gtk_widget_set_visible (sidebar->popup_menu_eject_item, show_eject);
-    gtk_widget_set_visible (sidebar->popup_menu_rescan_item, show_rescan);
-    gtk_widget_set_visible (sidebar->popup_menu_format_item, show_format);
-    gtk_widget_set_visible (sidebar->popup_menu_start_item, show_start);
-    gtk_widget_set_visible (sidebar->popup_menu_stop_item, show_stop);
-    gtk_widget_set_visible (sidebar->popup_menu_empty_trash_item, show_empty_trash);
-
-    /* Adjust start/stop items to reflect the type of the drive */
-    gtk_menu_item_set_label (GTK_MENU_ITEM (sidebar->popup_menu_start_item), _("_Start"));
-    gtk_menu_item_set_label (GTK_MENU_ITEM (sidebar->popup_menu_stop_item), _("_Stop"));
-    if ((show_start || show_stop) && drive != NULL)
-    {
-        switch (g_drive_get_start_stop_type (drive))
-        {
-        case G_DRIVE_START_STOP_TYPE_SHUTDOWN:
-            /* start() for type G_DRIVE_START_STOP_TYPE_SHUTDOWN is normally not used */
-            gtk_menu_item_set_label (GTK_MENU_ITEM (sidebar->popup_menu_start_item), _("_Power On"));
-            gtk_menu_item_set_label (GTK_MENU_ITEM (sidebar->popup_menu_stop_item), _("_Safely Remove Drive"));
-            break;
-        case G_DRIVE_START_STOP_TYPE_NETWORK:
-            gtk_menu_item_set_label (GTK_MENU_ITEM (sidebar->popup_menu_start_item), _("_Connect Drive"));
-            gtk_menu_item_set_label (GTK_MENU_ITEM (sidebar->popup_menu_stop_item), _("_Disconnect Drive"));
-            break;
-        case G_DRIVE_START_STOP_TYPE_MULTIDISK:
-            gtk_menu_item_set_label (GTK_MENU_ITEM (sidebar->popup_menu_start_item), _("_Start Multi-disk Device"));
-            gtk_menu_item_set_label (GTK_MENU_ITEM (sidebar->popup_menu_stop_item), _("_Stop Multi-disk Device"));
-            break;
-        case G_DRIVE_START_STOP_TYPE_PASSWORD:
-            /* stop() for type G_DRIVE_START_STOP_TYPE_PASSWORD is normally not used */
-            gtk_menu_item_set_label (GTK_MENU_ITEM (sidebar->popup_menu_start_item), _("_Unlock Drive"));
-            gtk_menu_item_set_label (GTK_MENU_ITEM (sidebar->popup_menu_stop_item), _("_Lock Drive"));
-            break;
-
-        default:
-        case G_DRIVE_START_STOP_TYPE_UNKNOWN:
-            /* uses defaults set above */
-            break;
-        }
-    }
-
-    g_free (uri);
 }
 
 /* Callback used when the selection in the shortcuts tree changes */
 static void
-bookmarks_selection_changed_cb (GtkTreeSelection      *selection,
+bookmarks_selection_changed_cb (GtkTreeSelection  *selection,
                                 CajaPlacesSidebar *sidebar)
 {
     bookmarks_check_popup_sensitivity (sidebar);
@@ -2269,7 +2132,6 @@ volume_eject_cb (GObject *source_object,
         }
         g_error_free (error);
     }
-
     else {
         caja_application_notify_unmount_show (_("It is now safe to remove the drive"));
     }
@@ -2305,7 +2167,6 @@ mount_eject_cb (GObject *source_object,
         }
         g_error_free (error);
     }
-
     else {
         caja_application_notify_unmount_show (_("It is now safe to remove the drive"));
     }
@@ -2317,7 +2178,6 @@ do_eject (GMount *mount,
           GDrive *drive,
           CajaPlacesSidebar *sidebar)
 {
-
     GMountOperation *mount_op;
 
     mount_op = gtk_mount_operation_new (GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (sidebar))));
@@ -2400,7 +2260,6 @@ eject_or_unmount_bookmark (CajaPlacesSidebar *sidebar,
     ret = FALSE;
 
     check_unmount_and_eject (mount, volume, drive, &can_unmount, &can_eject);
-    /* if we can eject, it has priority over unmount */
     if (can_eject)
     {
         do_eject (mount, volume, drive, sidebar);
@@ -2768,7 +2627,6 @@ bookmarks_build_popup_menu (CajaPlacesSidebar *sidebar)
     gtk_menu_shell_append (GTK_MENU_SHELL (sidebar->popup_menu), item);
 
     /* Mount/Unmount/Eject menu items */
-
     sidebar->popup_menu_separator_item =
         GTK_WIDGET (eel_gtk_menu_append_separator (GTK_MENU (sidebar->popup_menu)));
 
@@ -2822,7 +2680,6 @@ bookmarks_build_popup_menu (CajaPlacesSidebar *sidebar)
     gtk_menu_shell_append (GTK_MENU_SHELL (sidebar->popup_menu), item);
 
     /* Empty Trash menu item */
-
     item = eel_image_menu_item_new_from_icon (CAJA_ICON_TRASH, _("Empty _Trash"));
     sidebar->popup_menu_empty_trash_item = item;
     g_signal_connect (item, "activate",
@@ -2841,7 +2698,7 @@ bookmarks_update_popup_menu (CajaPlacesSidebar *sidebar)
 
 static void
 bookmarks_popup_menu (CajaPlacesSidebar *sidebar,
-                      GdkEventButton        *event)
+                      GdkEventButton    *event)
 {
     bookmarks_update_popup_menu (sidebar);
     eel_pop_up_context_menu (GTK_MENU(sidebar->popup_menu),
@@ -2919,7 +2776,7 @@ bookmarks_button_release_event_cb (GtkWidget *widget,
 
 static void
 update_eject_buttons (CajaPlacesSidebar *sidebar,
-                      GtkTreePath         *path)
+                      GtkTreePath       *path)
 {
     GtkTreeIter iter;
     gboolean icon_visible, path_same;
@@ -2993,8 +2850,8 @@ update_eject_buttons (CajaPlacesSidebar *sidebar,
 }
 
 static gboolean
-bookmarks_motion_event_cb (GtkWidget             *widget,
-                           GdkEventMotion        *event,
+bookmarks_motion_event_cb (GtkWidget         *widget,
+                           GdkEventMotion    *event,
                            CajaPlacesSidebar *sidebar)
 {
     GtkTreePath *path;
@@ -3018,8 +2875,8 @@ bookmarks_motion_event_cb (GtkWidget             *widget,
  * open in a new tab.
  */
 static gboolean
-bookmarks_button_press_event_cb (GtkWidget             *widget,
-                                 GdkEventButton        *event,
+bookmarks_button_press_event_cb (GtkWidget         *widget,
+                                 GdkEventButton    *event,
                                  CajaPlacesSidebar *sidebar)
 {
     if (event->type != GDK_BUTTON_PRESS)
@@ -3182,10 +3039,10 @@ padding_cell_renderer_func (GtkTreeViewColumn *column,
 
 static void
 heading_cell_renderer_func (GtkTreeViewColumn *column,
-                        GtkCellRenderer *cell,
-                        GtkTreeModel *model,
-                        GtkTreeIter *iter,
-                        gpointer user_data)
+                            GtkCellRenderer *cell,
+                            GtkTreeModel *model,
+                            GtkTreeIter *iter,
+                            gpointer user_data)
 {
     PlaceType type;
 
@@ -3473,7 +3330,7 @@ caja_places_sidebar_get_tab_icon (CajaSidebar *sidebar)
 
 static void
 caja_places_sidebar_is_visible_changed (CajaSidebar *sidebar,
-                                        gboolean         is_visible)
+                                        gboolean     is_visible)
 {
     /* Do nothing */
 }
@@ -3490,7 +3347,7 @@ caja_places_sidebar_iface_init (CajaSidebarIface *iface)
 
 static void
 caja_places_sidebar_set_parent_window (CajaPlacesSidebar *sidebar,
-                                       CajaWindowInfo *window)
+                                       CajaWindowInfo    *window)
 {
     CajaWindowSlotInfo *slot;
 
@@ -3543,7 +3400,7 @@ caja_places_sidebar_style_updated (GtkWidget *widget)
 
 static CajaSidebar *
 caja_places_sidebar_create (CajaSidebarProvider *provider,
-                            CajaWindowInfo *window)
+                            CajaWindowInfo      *window)
 {
     CajaPlacesSidebar *sidebar;
 
@@ -3577,7 +3434,6 @@ caja_places_sidebar_register (void)
 }
 
 /* Drag and drop interfaces */
-
 static void
 _caja_shortcuts_model_filter_class_init (CajaShortcutsModelFilterClass *class)
 {
@@ -3622,8 +3478,8 @@ caja_shortcuts_model_filter_drag_source_iface_init (GtkTreeDragSourceIface *ifac
 
 static GtkTreeModel *
 caja_shortcuts_model_filter_new (CajaPlacesSidebar *sidebar,
-                                 GtkTreeModel          *child_model,
-                                 GtkTreePath           *root)
+                                 GtkTreeModel      *child_model,
+                                 GtkTreePath       *root)
 {
     CajaShortcutsModelFilter *model;
 
