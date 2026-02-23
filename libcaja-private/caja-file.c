@@ -4611,13 +4611,8 @@ caja_file_get_icon (CajaFile *file,
 			h = gdk_pixbuf_get_height (raw_pixbuf);
 
 			s = MAX (w, h);
-			/* Don't scale up small thumbnails in the standard view */
-			if (s <= cached_thumbnail_size) {
-				thumb_scale = (double)size / CAJA_ICON_SIZE_STANDARD;
-			}
-			else {
-				thumb_scale = (double)modified_size / s;
-			}
+			/* Scale all thumbnails to the target display size */
+			thumb_scale = (double)modified_size / s;
 			/* Make sure that icons don't get smaller than CAJA_ICON_SIZE_SMALLEST */
 			if (s*thumb_scale <= CAJA_ICON_SIZE_SMALLEST) {
 				thumb_scale = (double) CAJA_ICON_SIZE_SMALLEST / s;
