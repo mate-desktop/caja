@@ -1815,7 +1815,7 @@ map_surface (CajaIconCanvasItem *icon_item)
             && icon_item->details->rendered_is_highlighted_for_selection == icon_item->details->is_highlighted_for_selection
             && icon_item->details->rendered_is_highlighted_for_drop == icon_item->details->is_highlighted_for_drop
             && icon_item->details->rendered_is_highlighted_for_clipboard == icon_item->details->is_highlighted_for_clipboard
-            && (icon_item->details->is_highlighted_for_selection && icon_item->details->rendered_is_focused == gtk_widget_has_focus (GTK_WIDGET (EEL_CANVAS_ITEM (icon_item)->canvas)))))
+            && (!icon_item->details->is_highlighted_for_selection || icon_item->details->rendered_is_focused == gtk_widget_has_focus (GTK_WIDGET (EEL_CANVAS_ITEM (icon_item)->canvas)))))
     {
         if (icon_item->details->rendered_surface != NULL)
         {
