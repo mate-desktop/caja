@@ -48,6 +48,7 @@
 #include "caja-file-utilities.h"
 #include "caja-global-preferences.h"
 #include "caja-icon-private.h"
+#include "caja-file.h"
 
 #define EMBLEM_SPACING 2
 
@@ -1912,6 +1913,7 @@ caja_icon_canvas_item_draw (EelCanvasItem *item,
     GdkPixbuf *emblem_pixbuf;
     cairo_surface_t *temp_surface;
     GtkStyleContext *context;
+    gboolean render_as_hidden = FALSE;
 
     container = CAJA_ICON_CONTAINER (item->canvas);
     gboolean is_rtl;
@@ -1933,9 +1935,34 @@ caja_icon_canvas_item_draw (EelCanvasItem *item,
 
     temp_surface = map_surface (icon_item);
 
-    gtk_render_icon_surface (context, cr,
-                             temp_surface,
-                             icon_rect.x0, icon_rect.y0);
+    /* Check if we should render hidden files as transparent */
+    if (!details->is_highlighted_for_selection && !details->is_highlighted_for_drop)
+    {
+        CajaIcon *icon = (CajaIcon *) icon_item->user_data;
+        if (icon != NULL && icon->data != NULL)
+        {
+            CajaFile *file = CAJA_FILE (icon->data);
+            if (caja_file_is_hidden_file (file))
+            {
+                render_as_hidden = TRUE;
+            }
+        }
+    }
+
+    if (render_as_hidden)
+    {
+        /* Render with 55% opacity for hidden files */
+        cairo_save (cr);
+        cairo_set_source_surface (cr, temp_surface, icon_rect.x0, icon_rect.y0);
+        cairo_paint_with_alpha (cr, 0.55);
+        cairo_restore (cr);
+    }
+    else
+    {
+        gtk_render_icon_surface (context, cr,
+                                 temp_surface,
+                                 icon_rect.x0, icon_rect.y0);
+    }
     cairo_surface_destroy (temp_surface);
 
     draw_embedded_text (icon_item, cr, icon_rect.x0, icon_rect.y0);
