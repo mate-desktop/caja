@@ -5100,6 +5100,7 @@ add_extension_menu_items (FMDirectoryView *view,
 
 			caja_menu_item_list_free (children);
 			g_free (subdir);
+			g_object_unref (menu);
 		}
 	}
 }

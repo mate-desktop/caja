@@ -6097,7 +6097,7 @@ create_job (GIOSchedulerJob *io_job,
 					     &error);
 		// Start UNDO-REDO
 		if (res) {
-			caja_undostack_manager_data_set_create_data(common->undo_redo_data,
+			caja_undostack_manager_data_take_create_data(common->undo_redo_data,
 					g_file_get_uri(dest),
 					NULL);
 		}
@@ -6112,7 +6112,7 @@ create_job (GIOSchedulerJob *io_job,
 					   &error);
 			// Start UNDO-REDO
 			if (res) {
-				caja_undostack_manager_data_set_create_data(common->undo_redo_data,
+				caja_undostack_manager_data_take_create_data(common->undo_redo_data,
 						g_file_get_uri(dest),
 						g_file_get_uri(job->src));
 			}
@@ -6141,7 +6141,7 @@ create_job (GIOSchedulerJob *io_job,
 								     &error);
 					// Start UNDO-REDO
 					if (res) {
-						caja_undostack_manager_data_set_create_data(common->undo_redo_data,
+						caja_undostack_manager_data_take_create_data(common->undo_redo_data,
 								g_file_get_uri(dest),
 								g_strdup(data));
 					}

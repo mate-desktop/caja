@@ -908,6 +908,7 @@ begin_location_change (CajaWindowSlot *slot,
     CajaDirectory *directory;
     gboolean force_reload;
     GFile *parent;
+    gboolean is_need_free_selection = FALSE;
 
     g_assert (slot != NULL);
     g_assert (location != NULL);
@@ -930,6 +931,7 @@ begin_location_change (CajaWindowSlot *slot,
             parent = g_file_get_parent (from_folder);
         }
         if (parent != NULL) {
+            is_need_free_selection = TRUE;
             new_selection = g_list_prepend (NULL, g_object_ref(from_folder));
         }
         g_object_unref (from_folder);
@@ -1016,6 +1018,12 @@ begin_location_change (CajaWindowSlot *slot,
                                got_file_info_for_view_selection_callback,
                                slot);
 
+    // If the externally passed 'new_selection' is NULL, the caller will not unref the content of 'new_selection'.
+    // In this case, it is necessary to manually unref.
+    if (is_need_free_selection)
+    {
+        g_list_free_full (new_selection, g_object_unref);
+    }
     g_object_unref (window);
 }
 
