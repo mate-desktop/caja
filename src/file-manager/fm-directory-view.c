@@ -2896,8 +2896,7 @@ process_new_files (FMDirectoryView *view)
 					new_changed_files = g_list_delete_link (new_changed_files, node);
 					old_added_files = g_list_prepend (old_added_files, pending);
 				}
-			} else if (fm_directory_view_should_show_file (view, pending->file)
-                || (!still_should_show_file (view, pending->file, pending->directory) && caja_directory_are_all_files_seen (view->details->model))) {
+			} else {
 				new_changed_files = g_list_delete_link (new_changed_files, node);
 				old_changed_files = g_list_prepend (old_changed_files, pending);
 			}
