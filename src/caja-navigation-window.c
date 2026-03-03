@@ -634,6 +634,11 @@ caja_navigation_window_destroy (GtkWidget *object)
 
     caja_navigation_window_unset_focus_widget (window);
 
+    if (window->details->header_size_group != NULL)
+    {
+        g_object_unref (window->details->header_size_group);
+        window->details->header_size_group = NULL;
+    }
     window->sidebar = NULL;
     g_list_foreach (window->sidebar_panels, (GFunc)g_object_unref, NULL);
     g_list_free (window->sidebar_panels);

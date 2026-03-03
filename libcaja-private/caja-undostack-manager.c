@@ -1050,18 +1050,20 @@ void caja_undostack_manager_data_set_recursive_permissions
 }
 
 /** ****************************************************************
- * Sets create file information
+ * Takes create file information
+ * Note:
+ * The caller must not free target_uri and template after calling this function.
  ** ****************************************************************/
 void
-caja_undostack_manager_data_set_create_data (CajaUndoStackActionData *
+caja_undostack_manager_data_take_create_data (CajaUndoStackActionData *
     data, char *target_uri, char *template)
 {
 
   if (!data)
     return;
 
-  data->template = g_strdup (template);
-  data->target_uri = g_strdup (target_uri);
+  data->template = template;
+  data->target_uri = target_uri;
 
   data->isValid = TRUE;
 }

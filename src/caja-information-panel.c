@@ -998,7 +998,6 @@ selection_changed_callback (CajaWindowInfo *window,
         GFile *selected;
         CajaFile *file;
 
-        selection = caja_window_info_get_selection (window);
         selected = selection->data;
 
         /* this should never fail here, as we're displaying the file */

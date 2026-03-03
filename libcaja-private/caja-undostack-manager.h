@@ -144,7 +144,7 @@ caja_undostack_manager_data_add_origin_target_pair(
     CajaUndoStackActionData* data, GFile* origin, GFile* target);
 
 void
-caja_undostack_manager_data_set_create_data(
+caja_undostack_manager_data_take_create_data(
     CajaUndoStackActionData* data, char* target_uri, char* template_uri);
 
 void

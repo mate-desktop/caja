@@ -63,13 +63,13 @@ extension_new (gchar *filename, gboolean state, gboolean python, GObject *module
         ext->copyright = g_key_file_get_locale_string (extension_file, CAJA_EXTENSION_GROUP, "Copyright", NULL, NULL);
         ext->version = g_key_file_get_string (extension_file, CAJA_EXTENSION_GROUP, "Version", NULL);
         ext->website = g_key_file_get_string (extension_file, CAJA_EXTENSION_GROUP, "Website", NULL);
-        g_key_file_free (extension_file);
     }
     else
     {
         caja_debug_log (FALSE, CAJA_DEBUG_LOG_DOMAIN_USER, "Error loading keys from file \"%s\": %s\n", extension_filename, error->message);
         g_error_free (error);
     }
+    g_key_file_free (extension_file);
     g_free (extension_filename);
 
     if (python)

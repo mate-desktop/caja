@@ -143,8 +143,6 @@ update_bookmarks (CajaBookmarksSidebar *sidebar)
             continue;
         }
 
-        bookmark_uri = caja_bookmark_get_uri (bookmark);
-
         root = caja_bookmark_get_location (bookmark);
         file = caja_file_get (root);
 
@@ -167,6 +165,7 @@ update_bookmarks (CajaBookmarksSidebar *sidebar)
                             -1);
 
         /* Select the bookmark if we're in the directory the bookmark points to. */
+        bookmark_uri = caja_bookmark_get_uri (bookmark);
         if (g_strcmp0 (bookmark_uri, sidebar->current_uri) == 0)
             gtk_tree_selection_select_iter (selection, &iter);
 
