@@ -1585,6 +1585,66 @@ apply_columns_settings (FMListView *list_view,
 }
 
 static void
+pixbuf_cell_data_func (GtkTreeViewColumn *column,
+                       GtkCellRenderer   *renderer,
+                       GtkTreeModel      *model,
+                       GtkTreeIter       *iter,
+                       FMListView        *view)
+{
+    CajaFile *file;
+    cairo_surface_t *surface;
+
+    gtk_tree_model_get (model, iter,
+                        FM_LIST_MODEL_FILE_COLUMN, &file,
+                        FM_LIST_MODEL_SMALLEST_ICON_COLUMN, &surface,
+                        -1);
+
+    /* Apply transparency to hidden files */
+    if (file != NULL && surface != NULL && caja_file_is_hidden_file (file))
+    {
+        cairo_surface_t *original_surface;
+        cairo_t *cr;
+        int width, height;
+        cairo_format_t format;
+        double scale_x, scale_y;
+
+        width = cairo_image_surface_get_width (surface);
+        height = cairo_image_surface_get_height (surface);
+        format = cairo_image_surface_get_format (surface);
+        cairo_surface_get_device_scale (surface, &scale_x, &scale_y);
+
+        /* Keep reference to original */
+        original_surface = surface;
+
+        /* Create a new transparent surface */
+        surface = cairo_surface_create_similar_image (original_surface, format, width, height);
+        cairo_surface_set_device_scale (surface, scale_x, scale_y);
+
+        cr = cairo_create (surface);
+
+        /* Paint the original surface with 55% opacity */
+        cairo_set_source_surface (cr, original_surface, 0, 0);
+        cairo_paint_with_alpha (cr, 0.55);
+
+        cairo_destroy (cr);
+        cairo_surface_destroy (original_surface);
+    }
+
+    /* Set the surface and clean up */
+    g_object_set (renderer, "surface", surface, NULL);
+
+    if (surface != NULL)
+    {
+        cairo_surface_destroy (surface);
+    }
+
+    if (file != NULL)
+    {
+        caja_file_unref (file);
+    }
+}
+
+static void
 filename_cell_data_func (GtkTreeViewColumn *column,
                          GtkCellRenderer   *renderer,
                          GtkTreeModel      *model,
@@ -1863,10 +1923,9 @@ create_and_set_up_tree_view (FMListView *view)
             gtk_tree_view_column_set_resizable (view->details->file_name_column, TRUE);
 
             gtk_tree_view_column_pack_start (view->details->file_name_column, cell, FALSE);
-            gtk_tree_view_column_set_attributes (view->details->file_name_column,
-                                                 cell,
-                                                 "surface", FM_LIST_MODEL_SMALLEST_ICON_COLUMN,
-                                                 NULL);
+            gtk_tree_view_column_set_cell_data_func (view->details->file_name_column, cell,
+                                                     (GtkTreeCellDataFunc) pixbuf_cell_data_func,
+                                                     view, NULL);
 
             cell = gtk_cell_renderer_text_new ();
             g_object_set (cell,
