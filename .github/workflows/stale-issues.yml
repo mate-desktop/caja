@@ -1,0 +1,44 @@
+name: Stale issue management
+
+on:
+  schedule:
+    - cron: "0 2 * * *"  # run daily
+  workflow_dispatch:
+
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Mark stale issues
+        uses: actions/stale@v9
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+
+          # inactivity thresholds
+          days-before-stale: 90
+          days-before-close: 30
+
+          # labels
+          stale-issue-label: stale
+          stale-pr-label: stale
+
+          # messages
+          stale-issue-message: >
+            This issue has been automatically marked as stale because it has not had
+            recent activity. If this issue still occurs with the latest version of MATE,
+            please comment here with updated information.
+
+            Otherwise, this issue will be closed in 30 days.
+
+          close-issue-message: >
+            This issue has been closed due to inactivity.
+            If the problem persists in the latest version of MATE,
+            please feel free to open a new issue.
+
+          # do not mark issues with these labels
+          exempt-issue-labels: |
+            pinned
+            security
+            regression
+            good first issue
