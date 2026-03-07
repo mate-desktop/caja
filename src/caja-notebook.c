@@ -183,6 +183,7 @@ caja_notebook_init (CajaNotebook *notebook)
     gtk_notebook_set_scrollable (GTK_NOTEBOOK (notebook), TRUE);
     gtk_notebook_set_show_border (GTK_NOTEBOOK (notebook), FALSE);
     gtk_notebook_set_show_tabs (GTK_NOTEBOOK (notebook), FALSE);
+    gtk_notebook_set_group_name (GTK_NOTEBOOK (notebook), "CajaNotebook");
 
     g_signal_connect (notebook, "button-press-event",
                       (GCallback)button_press_cb, NULL);
@@ -373,6 +374,7 @@ caja_notebook_insert_page (GtkNotebook *gnotebook,
     gtk_notebook_set_show_tabs (gnotebook,
                                 gtk_notebook_get_n_pages (gnotebook) > 1);
     gtk_notebook_set_tab_reorderable (gnotebook, tab_widget, TRUE);
+    gtk_notebook_set_tab_detachable (gnotebook, tab_widget, TRUE);
 
     return position;
 }
