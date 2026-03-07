@@ -183,6 +183,7 @@ caja_window_slot_init (CajaWindowSlot *slot)
     content_box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
     slot->content_box = content_box;
     gtk_widget_show (content_box);
+    g_object_set_data (G_OBJECT (content_box), "caja-slot", slot);
 
     frame = gtk_frame_new (NULL);
     gtk_frame_set_shadow_type (GTK_FRAME (frame), GTK_SHADOW_ETCHED_IN);
