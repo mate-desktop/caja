@@ -818,6 +818,8 @@ type_combo_changed (GtkComboBox *combo_box, CajaQueryEditorRow *row)
                                 -1);
 
             type_add_custom_type (row, mimetype, description, &iter);
+            g_free (description);
+            g_free (mimetype);
             gtk_combo_box_set_active_iter  (GTK_COMBO_BOX (row->type_widget),
                                             &iter);
         }

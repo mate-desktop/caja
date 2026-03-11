@@ -162,6 +162,7 @@ open_selected_item (CajaHistorySidebar *sidebar,
      location, CAJA_WINDOW_OPEN_ACCORDING_TO_MODE,
      flags, NULL);
     g_object_unref (location);
+    g_object_unref (bookmark);
 }
 
 static void
