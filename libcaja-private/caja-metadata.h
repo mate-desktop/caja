@@ -53,6 +53,7 @@
 #define CAJA_METADATA_KEY_LIST_VIEW_SORT_REVERSED    	"caja-list-view-sort-reversed"
 #define CAJA_METADATA_KEY_LIST_VIEW_VISIBLE_COLUMNS    	"caja-list-view-visible-columns"
 #define CAJA_METADATA_KEY_LIST_VIEW_COLUMN_ORDER    	"caja-list-view-column-order"
+#define CAJA_METADATA_KEY_LIST_VIEW_COLUMN_WIDTHS    	"caja-list-view-column-widths"
 
 #define CAJA_METADATA_KEY_COMPACT_VIEW_ZOOM_LEVEL		"caja-compact-view-zoom-level"
 
