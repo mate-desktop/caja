@@ -33,6 +33,7 @@
 #include "caja-navigation-window-pane.h"
 #include "caja-window-private.h"
 #include "caja-window-manage-views.h"
+#include "caja-application.h"
 #include "caja-pathbar.h"
 #include "caja-location-bar.h"
 #include "caja-notebook.h"
@@ -496,6 +497,142 @@ notebook_popup_menu_cb (GtkWidget *widget,
     return TRUE;
 }
 
+static void
+notebook_page_removed_cb (GtkNotebook *notebook,
+                           GtkWidget   *page,
+                           guint        page_num,
+                           CajaNavigationWindowPane *pane)
+{
+    CajaWindowPane *wpane = CAJA_WINDOW_PANE (pane);
+    CajaWindowSlot *slot;
+
+    /* This callback is only reached via DnD (blocked during normal removal).
+     * Look up the slot that owns this content_box. */
+    slot = g_object_get_data (G_OBJECT (page), "caja-slot");
+    if (slot == NULL || slot->pane != wpane)
+    {
+        return;
+    }
+
+    /* If this was the active slot, activate another one */
+    if (wpane->active_slot == slot)
+    {
+        CajaWindowSlot *next_slot = NULL;
+        GList *l;
+
+        for (l = wpane->slots; l != NULL; l = l->next)
+        {
+            if (l->data != slot)
+            {
+                next_slot = l->data;
+                break;
+            }
+        }
+        if (next_slot != NULL)
+        {
+            caja_window_set_active_slot (wpane->window, next_slot);
+        }
+        else
+        {
+            wpane->active_slot = NULL;
+        }
+    }
+
+    /* Remove slot from source pane bookkeeping without destroying it */
+    wpane->slots = g_list_remove (wpane->slots, slot);
+    wpane->active_slots = g_list_remove (wpane->active_slots, slot);
+
+    /* If the source window is now empty, close it */
+    if (wpane->slots == NULL)
+    {
+        caja_window_close (wpane->window);
+    }
+}
+
+static void
+notebook_page_added_cb (GtkNotebook *notebook,
+                         GtkWidget   *page,
+                         guint        page_num,
+                         CajaNavigationWindowPane *pane)
+{
+    CajaWindowPane *wpane = CAJA_WINDOW_PANE (pane);
+    CajaWindowSlot *slot;
+    gboolean from_new_window;
+
+    /* This callback is only reached via DnD (blocked during normal addition).
+     * Look up the slot that owns this content_box. */
+    slot = g_object_get_data (G_OBJECT (page), "caja-slot");
+    if (slot == NULL || slot->pane == wpane)
+    {
+        return;
+    }
+
+    /* "caja-dnd-slot" is set only for the create-new-window case */
+    from_new_window = (g_object_get_data (G_OBJECT (page), "caja-dnd-slot") != NULL);
+    g_object_set_data (G_OBJECT (page), "caja-dnd-slot", NULL);
+
+    /* For new-window drops: close the dummy slot the constructor created.
+     * Grab it before we append the DnD slot so we can distinguish them. */
+    CajaWindowSlot *dummy_slot = from_new_window ?
+        g_list_nth_data (wpane->slots, 0) : NULL;
+
+    /* Adopt the slot into this pane */
+    slot->pane = wpane;
+    wpane->slots = g_list_append (wpane->slots, slot);
+
+    caja_window_set_active_slot (wpane->window, slot);
+
+    if (dummy_slot != NULL)
+    {
+        caja_window_close_slot (dummy_slot);
+    }
+
+    gtk_notebook_set_show_tabs (notebook,
+                                gtk_notebook_get_n_pages (notebook) > 1);
+
+    gtk_widget_show (GTK_WIDGET (wpane->window));
+
+    if (from_new_window)
+    {
+        /* Release the extra ref taken in notebook_create_window_cb */
+        g_object_unref (slot);
+    }
+}
+
+static GtkNotebook *
+notebook_create_window_cb (GtkNotebook *notebook,
+                            GtkWidget   *page,
+                            gint         x,
+                            gint         y,
+                            CajaNavigationWindowPane *pane)
+{
+    CajaApplication *app;
+    CajaNavigationWindow *new_window;
+    CajaWindowPane *new_pane;
+    CajaWindowSlot *slot;
+
+    /* Find which slot owns this content_box */
+    slot = caja_window_pane_get_slot_for_content_box (CAJA_WINDOW_PANE (pane), page);
+    if (slot == NULL)
+    {
+        return NULL;
+    }
+
+    /* Tag the content_box so page-removed/added callbacks can identify it */
+    g_object_ref (slot);
+    g_object_set_data (G_OBJECT (page), "caja-dnd-slot", slot);
+
+    app = CAJA_APPLICATION (g_application_get_default ());
+    new_window = CAJA_NAVIGATION_WINDOW (
+        caja_application_create_navigation_window (app,
+            gtk_widget_get_screen (GTK_WIDGET (notebook))));
+
+    new_pane = CAJA_WINDOW_PANE (
+        g_list_first (CAJA_WINDOW (new_window)->details->panes)->data);
+
+    return GTK_NOTEBOOK (CAJA_NAVIGATION_WINDOW_PANE (new_pane)->notebook);
+}
+
 static gboolean
 notebook_switch_page_cb (GtkNotebook *notebook,
                          GtkWidget *page,
@@ -528,7 +665,13 @@ caja_navigation_window_pane_remove_page (CajaNavigationWindowPane *pane, int pag
     g_signal_handlers_block_by_func (notebook,
                                      G_CALLBACK (notebook_switch_page_cb),
                                      pane);
+    g_signal_handlers_block_by_func (notebook,
+                                     G_CALLBACK (notebook_page_removed_cb),
+                                     pane);
     gtk_notebook_remove_page (notebook, page_num);
+    g_signal_handlers_unblock_by_func (notebook,
+                                       G_CALLBACK (notebook_page_removed_cb),
+                                       pane);
     g_signal_handlers_unblock_by_func (notebook,
                                        G_CALLBACK (notebook_switch_page_cb),
                                        pane);
@@ -543,12 +686,18 @@ caja_navigation_window_pane_add_slot_in_tab (CajaNavigationWindowPane *pane, Caj
     g_signal_handlers_block_by_func (notebook,
                                      G_CALLBACK (notebook_switch_page_cb),
                                      pane);
+    g_signal_handlers_block_by_func (notebook,
+                                     G_CALLBACK (notebook_page_added_cb),
+                                     pane);
     caja_notebook_add_tab (notebook,
                            slot,
                            (flags & CAJA_WINDOW_OPEN_SLOT_APPEND) != 0 ?
                            -1 :
                            gtk_notebook_get_current_page (GTK_NOTEBOOK (notebook)) + 1,
                            FALSE);
+    g_signal_handlers_unblock_by_func (notebook,
+                                       G_CALLBACK (notebook_page_added_cb),
+                                       pane);
     g_signal_handlers_unblock_by_func (notebook,
                                        G_CALLBACK (notebook_switch_page_cb),
                                        pane);
@@ -753,6 +902,18 @@ caja_navigation_window_pane_setup (CajaNavigationWindowPane *pane)
     g_signal_connect (pane->notebook,
                       "switch-page",
                       G_CALLBACK (notebook_switch_page_cb),
+                      pane);
+    g_signal_connect (pane->notebook,
+                      "create-window",
+                      G_CALLBACK (notebook_create_window_cb),
+                      pane);
+    g_signal_connect (pane->notebook,
+                      "page-added",
+                      G_CALLBACK (notebook_page_added_cb),
+                      pane);
+    g_signal_connect (pane->notebook,
+                      "page-removed",
+                      G_CALLBACK (notebook_page_removed_cb),
                       pane);
 
     gtk_notebook_set_show_tabs (GTK_NOTEBOOK (pane->notebook), FALSE);
