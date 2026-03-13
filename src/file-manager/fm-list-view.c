@@ -115,6 +115,8 @@ struct FMListViewDetails
     gulong clipboard_handler_id;
 
     GQuark last_sort_attr;
+
+    guint column_width_save_id;
 };
 
 struct SelectionForeachData
@@ -149,6 +151,12 @@ static void   fm_list_view_scale_font_size                 (FMListView        *v
 static void   fm_list_view_scroll_to_file                  (FMListView        *view,
         CajaFile      *file);
 static void   fm_list_view_iface_init                      (CajaViewIface *iface);
+static void   column_width_changed_callback                (GtkTreeViewColumn *column,
+                                                            GParamSpec        *pspec,
+                                                            FMListView        *view);
+static void   block_column_width_signals                   (FMListView        *list_view,
+                                                            gboolean           block);
+static void   apply_column_widths                          (FMListView        *list_view);
 static void   fm_list_view_rename_callback                 (CajaFile      *file,
         GFile             *result_location,
         GError            *error,
@@ -1557,7 +1565,10 @@ apply_columns_settings (FMListView *list_view,
 
     view_columns = g_list_reverse (view_columns);
 
-    /* hide columns that are not present in the configuration */
+    block_column_width_signals (list_view, TRUE);
+
+    /* hide columns that are not present in the configuration and
+     * reset size so the columns auto-expand by default */
     old_view_columns = gtk_tree_view_get_columns (list_view->details->tree_view);
     for (l = old_view_columns; l != NULL; l = l->next)
     {
@@ -1565,6 +1576,7 @@ apply_columns_settings (FMListView *list_view,
         {
             gtk_tree_view_column_set_visible (l->data, FALSE);
         }
+        gtk_tree_view_column_set_fixed_width (l->data, -1);
     }
     g_list_free (old_view_columns);
 
@@ -1582,6 +1594,12 @@ apply_columns_settings (FMListView *list_view,
         prev_view_column = l->data;
     }
     g_list_free (view_columns);
+
+    gtk_tree_view_column_set_expand (list_view->details->file_name_column, TRUE);
+
+    apply_column_widths (list_view);
+
+    block_column_width_signals (list_view, FALSE);
 }
 
 static void
@@ -1882,6 +1900,9 @@ create_and_set_up_tree_view (FMListView *view)
             gtk_tree_view_column_set_cell_data_func (view->details->file_name_column, cell,
                     (GtkTreeCellDataFunc) filename_cell_data_func,
                     view, NULL);
+
+            g_signal_connect (view->details->file_name_column, "notify::fixed-width",
+                              G_CALLBACK (column_width_changed_callback), view);
         }
         else
         {
@@ -1900,6 +1921,9 @@ create_and_set_up_tree_view (FMListView *view)
                                  column);
 
             gtk_tree_view_column_set_resizable (column, TRUE);
+
+            g_signal_connect (column, "notify::fixed-width",
+                              G_CALLBACK (column_width_changed_callback), view);
         }
         g_free (name);
         g_free (label);
@@ -2009,6 +2033,161 @@ get_column_order (FMListView *list_view)
     return caja_file_is_in_trash (file) ?
            g_strdupv ((gchar **) default_trash_columns_order) :
            g_strdupv (default_column_order_auto_value);
+}
+
+/* Column widths are stored as per-directory GIO metadata in a string list of
+ * "column-name:width" entries (e.g. ["name:300", "size:80"]). GIO metadata
+ * only supports string lists, so we encode the name-width pairs this way and
+ * parse them back into a hash table here. */
+static GHashTable *
+get_column_widths (FMListView *list_view)
+{
+    CajaFile *file;
+    GList *column_widths;
+    GHashTable *widths;
+
+    file = fm_directory_view_get_directory_as_file (FM_DIRECTORY_VIEW (list_view));
+
+    column_widths = caja_file_get_metadata_list
+                    (file,
+                     CAJA_METADATA_KEY_LIST_VIEW_COLUMN_WIDTHS);
+
+    widths = g_hash_table_new_full (g_str_hash, g_str_equal, g_free, NULL);
+
+    if (column_widths)
+    {
+        GList *l;
+
+        for (l = column_widths; l != NULL; l = l->next)
+        {
+            char name[256];
+            int width;
+
+            /* Parse "column-name:width" entries */
+            if (sscanf (l->data, "%255[^:]:%d", name, &width) == 2 && width > 0)
+            {
+                g_hash_table_insert (widths,
+                                     g_strdup (name),
+                                     GINT_TO_POINTER (width));
+            }
+            g_free (l->data);
+        }
+        g_list_free (column_widths);
+    }
+
+    return widths;
+}
+
+static gboolean
+save_column_widths_idle (gpointer data)
+{
+    FMListView *list_view = FM_LIST_VIEW (data);
+    CajaFile *file;
+    GHashTableIter iter;
+    gpointer key, value;
+    GList *width_list;
+
+    list_view->details->column_width_save_id = 0;
+
+    file = fm_directory_view_get_directory_as_file (FM_DIRECTORY_VIEW (list_view));
+    if (file == NULL)
+    {
+        return G_SOURCE_REMOVE;
+    }
+
+    width_list = NULL;
+
+    g_hash_table_iter_init (&iter, list_view->details->columns);
+    while (g_hash_table_iter_next (&iter, &key, &value))
+    {
+        GtkTreeViewColumn *column = value;
+        int width;
+
+        if (!gtk_tree_view_column_get_visible (column))
+        {
+            continue;
+        }
+
+        width = gtk_tree_view_column_get_width (column);
+        if (width > 0)
+        {
+            char *entry = g_strdup_printf ("%s:%d", (char *) key, width);
+            width_list = g_list_prepend (width_list, entry);
+        }
+    }
+
+    width_list = g_list_reverse (width_list);
+    caja_file_set_metadata_list (file,
+                                 CAJA_METADATA_KEY_LIST_VIEW_COLUMN_WIDTHS,
+                                 width_list);
+
+    g_list_free_full (width_list, g_free);
+
+    return G_SOURCE_REMOVE;
+}
+
+static void
+block_column_width_signals (FMListView *list_view,
+                            gboolean    block)
+{
+    GHashTableIter iter;
+    gpointer value;
+
+    g_hash_table_iter_init (&iter, list_view->details->columns);
+    while (g_hash_table_iter_next (&iter, NULL, &value))
+    {
+        if (block)
+            g_signal_handlers_block_by_func (value, column_width_changed_callback, list_view);
+        else
+            g_signal_handlers_unblock_by_func (value, column_width_changed_callback, list_view);
+    }
+}
+
+static void
+column_width_changed_callback (GtkTreeViewColumn *column,
+                               GParamSpec *pspec,
+                               FMListView *view)
+{
+    if (view->details->column_width_save_id == 0)
+    {
+        view->details->column_width_save_id =
+            g_idle_add (save_column_widths_idle, view);
+    }
+}
+
+static void
+apply_column_widths (FMListView *list_view)
+{
+    GHashTable *widths;
+    GHashTableIter iter;
+    gpointer key, value;
+
+    widths = get_column_widths (list_view);
+
+    if (g_hash_table_size (widths) == 0)
+    {
+        g_hash_table_destroy (widths);
+        return;
+    }
+
+    g_hash_table_iter_init (&iter, list_view->details->columns);
+    while (g_hash_table_iter_next (&iter, &key, &value))
+    {
+        GtkTreeViewColumn *column = value;
+        gpointer width;
+
+        if (g_hash_table_lookup_extended (widths, key, NULL, &width))
+        {
+            gtk_tree_view_column_set_sizing (column, GTK_TREE_VIEW_COLUMN_FIXED);
+            gtk_tree_view_column_set_fixed_width (column, GPOINTER_TO_INT (width));
+        }
+    }
+
+    /* When we have saved widths, disable expand on the name column
+     * so the saved widths are respected */
+    gtk_tree_view_column_set_expand (list_view->details->file_name_column, FALSE);
+
+    g_hash_table_destroy (widths);
 }
 
 static void
@@ -2574,6 +2753,7 @@ column_chooser_use_default_callback (CajaColumnChooser *chooser,
 
     caja_file_set_metadata_list (file, CAJA_METADATA_KEY_LIST_VIEW_COLUMN_ORDER, NULL);
     caja_file_set_metadata_list (file, CAJA_METADATA_KEY_LIST_VIEW_VISIBLE_COLUMNS, NULL);
+    caja_file_set_metadata_list (file, CAJA_METADATA_KEY_LIST_VIEW_COLUMN_WIDTHS, NULL);
 
     /* set view values ourselves, as new metadata could not have been
      * updated yet.
@@ -2776,6 +2956,7 @@ fm_list_view_reset_to_defaults (FMDirectoryView *view)
     caja_file_set_metadata (file, CAJA_METADATA_KEY_LIST_VIEW_ZOOM_LEVEL, NULL, NULL);
     caja_file_set_metadata_list (file, CAJA_METADATA_KEY_LIST_VIEW_COLUMN_ORDER, NULL);
     caja_file_set_metadata_list (file, CAJA_METADATA_KEY_LIST_VIEW_VISIBLE_COLUMNS, NULL);
+    caja_file_set_metadata_list (file, CAJA_METADATA_KEY_LIST_VIEW_COLUMN_WIDTHS, NULL);
 
     default_sort_order = get_default_sort_order (file, &default_sort_reversed);
 
@@ -2787,6 +2968,12 @@ fm_list_view_reset_to_defaults (FMDirectoryView *view)
 
     fm_list_view_set_zoom_level (FM_LIST_VIEW (view), get_default_zoom_level (), FALSE);
     set_columns_settings_from_metadata_and_preferences (FM_LIST_VIEW (view));
+
+    /* FIXME: Column widths are not visually updated until the next directory
+     * reload. GTK's cell area context retains cached preferred widths and
+     * GtkTreeViewColumn's internal fixed_width (set during user resize)
+     * persists across layout passes, preventing columns from shrinking.
+     * Metadata is cleared anyway, so the next load will use default size. */
 }
 
 static void
@@ -2877,6 +3064,10 @@ fm_list_view_set_zoom_level (FMListView *view,
 
     /* FIXME: https://bugzilla.gnome.org/show_bug.cgi?id=641518 */
     gtk_tree_view_columns_autosize (view->details->tree_view);
+
+    block_column_width_signals (view, TRUE);
+    apply_column_widths (view);
+    block_column_width_signals (view, FALSE);
 
     fm_directory_view_update_menus (FM_DIRECTORY_VIEW (view));
 
@@ -3154,6 +3345,12 @@ fm_list_view_dispose (GObject *object)
     {
         g_object_unref (list_view->details->drag_dest);
         list_view->details->drag_dest = NULL;
+    }
+
+    if (list_view->details->column_width_save_id != 0)
+    {
+        g_source_remove (list_view->details->column_width_save_id);
+        list_view->details->column_width_save_id = 0;
     }
 
     if (list_view->details->renaming_file_activate_timeout != 0)
