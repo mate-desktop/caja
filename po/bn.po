@@ -5,15 +5,15 @@
 # 
 # Translators:
 # Martin Wimpress <code@flexion.org>, 2018
-# Stefano Karapetsas <stefano@karapetsas.com>, 2022
+# Stefano Karapetsas <stefano@karapetsas.com>, 2025
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: caja 1.27.2\n"
+"Project-Id-Version: caja 1.29.0\n"
 "Report-Msgid-Bugs-To: https://github.com/mate-desktop/caja/issues\n"
-"POT-Creation-Date: 2023-08-31 17:54+0200\n"
+"POT-Creation-Date: 2025-07-05 02:05+1000\n"
 "PO-Revision-Date: 2018-03-11 14:48+0000\n"
-"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>, 2022\n"
+"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>, 2025\n"
 "Language-Team: Bengali (https://app.transifex.com/mate/teams/13566/bn/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -297,7 +297,7 @@ msgstr "মুছে ফেলুন"
 
 #: data/caja.appdata.xml.in.in:7 data/caja-browser.desktop.in.in:3
 #: data/caja.desktop.in.in:3 data/caja-folder-handler.desktop.in.in:3
-#: src/caja-spatial-window.c:403 src/caja-window.c:167
+#: src/caja-spatial-window.c:414 src/caja-window.c:167
 #: src/caja-window-menus.c:574
 msgid "Caja"
 msgstr "Caja"
@@ -334,7 +334,7 @@ msgstr "বুকমার্ক সম্পাদন কর"
 #: src/caja-emblem-sidebar.c:555 src/caja-location-dialog.c:192
 #: src/caja-property-browser.c:387 src/caja-window-menus.c:854
 #: src/file-manager/fm-directory-view.c:1206
-#: src/file-manager/fm-properties-window.c:5237
+#: src/file-manager/fm-properties-window.c:5269
 msgid "_Help"
 msgstr "সহায়িকা (_H)"
 
@@ -351,7 +351,7 @@ msgstr "অপসারণ (_R)"
 #: data/caja-bookmarks-window.ui:95
 #: data/caja-file-management-properties.ui:325 src/caja-property-browser.c:395
 #: src/caja-window-menus.c:857 src/file-manager/fm-list-view.c:2551
-#: src/file-manager/fm-properties-window.c:5242
+#: src/file-manager/fm-properties-window.c:5274
 msgid "_Close"
 msgstr "বন্ধ করুন (_C)"
 
@@ -417,12 +417,16 @@ msgstr "ফাইল পরিচালনব্যবস্থার উইন�
 msgid "file;manager;change;properties;behaviour;appearance;windows;MATE;"
 msgstr ""
 
+#: src/file-manager/fm-icon-container.c:354
+msgid "detached: %.7s"
+msgstr ""
+
 #. Translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
 #: data/caja-file-management-properties.ui:44
 #: data/caja-file-management-properties.ui:642
 #: src/file-manager/fm-icon-container.c:620
-#: src/file-manager/fm-icon-view.c:3478
+#: src/file-manager/fm-icon-view.c:3484
 msgid "Icon View"
 msgstr "আইকন অনুসারে প্রদর্শন"
 
@@ -438,7 +442,7 @@ msgstr "তালিকা অনুসারে প্রদর্শন"
 #. * of navigation windows and in the preferences dialog
 #: data/caja-file-management-properties.ui:50
 #: data/caja-file-management-properties.ui:725
-#: src/file-manager/fm-icon-view.c:3493
+#: src/file-manager/fm-icon-view.c:3499
 msgid "Compact View"
 msgstr "সংক্ষিপ্ত প্রদর্শন"
 
@@ -628,6 +632,10 @@ msgstr "সংক্ষিপ্ত বিন্যাস ব্যবহার 
 #: data/caja-file-management-properties.ui:622
 msgid "_Text beside icons"
 msgstr "আইকনের পাশে টেক্সট (_T)"
+
+#: data/caja-file-management-properties.ui:638
+msgid "_Display git branch"
+msgstr ""
 
 #: data/caja-file-management-properties.ui:664
 msgid "_Default zoom level:"
@@ -1015,7 +1023,7 @@ msgstr "বিবরণ প্রদর্শন করা হবে (_d)"
 #: eel/eel-stock-dialogs.c:448 eel/eel-stock-dialogs.c:647
 #: libcaja-private/caja-autorun.c:1156
 #: libcaja-private/caja-file-conflict-dialog.c:644
-#: libcaja-private/caja-file-operations.c:183
+#: libcaja-private/caja-file-operations.c:185
 #: libcaja-private/caja-mime-actions.c:820
 #: libcaja-private/caja-mime-actions.c:1741
 #: libcaja-private/caja-open-with-dialog.c:964
@@ -1289,7 +1297,7 @@ msgid "The group of the file."
 msgstr "ফাইলের দল।"
 
 #: libcaja-private/caja-column-utilities.c:116
-#: src/file-manager/fm-properties-window.c:4794
+#: src/file-manager/fm-properties-window.c:4826
 msgid "Permissions"
 msgstr "অনুমতি"
 
@@ -1400,8 +1408,8 @@ msgid "Set as _Background"
 msgstr "পটভুমি রূপে ধার্য করা হবে (_B)"
 
 #: libcaja-private/caja-dnd.c:841 libcaja-private/caja-dnd.c:894
-#: libcaja-private/caja-progress-info.c:848
-#: libcaja-private/caja-progress-info.c:849
+#: libcaja-private/caja-progress-info.c:850
+#: libcaja-private/caja-progress-info.c:851
 msgid "Cancel"
 msgstr "বাতিল"
 
@@ -1671,7 +1679,7 @@ msgid "unknown MIME type"
 msgstr "অজানা MIME ধরন"
 
 #: libcaja-private/caja-file.c:6721
-#: src/file-manager/fm-properties-window.c:1294
+#: src/file-manager/fm-properties-window.c:1316
 msgid "unknown"
 msgstr "অজানা"
 
@@ -1683,7 +1691,7 @@ msgstr "প্রোগ্রাম"
 msgid "link"
 msgstr "লিংক"
 
-#: libcaja-private/caja-file.c:6799 libcaja-private/caja-file-operations.c:403
+#: libcaja-private/caja-file.c:6799 libcaja-private/caja-file-operations.c:405
 #: src/file-manager/fm-directory-view.c:10711
 #, c-format
 msgid "Link to %s"
@@ -1772,14 +1780,14 @@ msgstr ""
 
 #: libcaja-private/caja-file-conflict-dialog.c:266
 #: libcaja-private/caja-file-conflict-dialog.c:305
-#: src/file-manager/fm-properties-window.c:3305
+#: src/file-manager/fm-properties-window.c:3327
 msgid "Size:"
 msgstr "মাপ:"
 
 #: libcaja-private/caja-file-conflict-dialog.c:271
 #: libcaja-private/caja-file-conflict-dialog.c:310
 #: src/caja-connect-server-dialog.c:933
-#: src/file-manager/fm-properties-window.c:3287
+#: src/file-manager/fm-properties-window.c:3309
 msgid "Type:"
 msgstr "ধরন:"
 
@@ -1814,7 +1822,7 @@ msgid "Apply this action to all files and folders"
 msgstr ""
 
 #: libcaja-private/caja-file-conflict-dialog.c:649
-#: libcaja-private/caja-file-operations.c:184
+#: libcaja-private/caja-file-operations.c:186
 msgid "_Skip"
 msgstr "উপেক্ষা করুন (_S)"
 
@@ -1839,15 +1847,15 @@ msgstr ""
 msgid "File conflict"
 msgstr ""
 
-#: libcaja-private/caja-file-operations.c:185
+#: libcaja-private/caja-file-operations.c:187
 msgid "S_kip All"
 msgstr "সব উপেক্ষা করা হবে (_k)"
 
-#: libcaja-private/caja-file-operations.c:186
+#: libcaja-private/caja-file-operations.c:188
 msgid "_Retry"
 msgstr "পুনঃপ্রচেষ্টা (_R)"
 
-#: libcaja-private/caja-file-operations.c:187 src/caja-emblem-sidebar.c:376
+#: libcaja-private/caja-file-operations.c:189 src/caja-emblem-sidebar.c:376
 #: src/file-manager/fm-directory-view.c:7481
 #: src/file-manager/fm-directory-view.c:7613
 #: src/file-manager/fm-directory-view.c:9114
@@ -1855,52 +1863,52 @@ msgstr "পুনঃপ্রচেষ্টা (_R)"
 msgid "_Delete"
 msgstr "মুছে ফেলুন (_D)"
 
-#: libcaja-private/caja-file-operations.c:188
+#: libcaja-private/caja-file-operations.c:190
 msgid "Delete _All"
 msgstr "সব মুছে ফেলুন (_A)"
 
-#: libcaja-private/caja-file-operations.c:189
+#: libcaja-private/caja-file-operations.c:191
 msgid "Replace _All"
 msgstr "সব প্রতিস্থাপন করা হবে (_A)"
 
-#: libcaja-private/caja-file-operations.c:190
+#: libcaja-private/caja-file-operations.c:192
 msgid "Merge _All"
 msgstr "সমগ্র একত্রিত করুন (_A)"
 
-#: libcaja-private/caja-file-operations.c:191
-msgid "Copy _Anyway"
-msgstr "যেকোনভাবে অনুলিপি করা হবে (_A) "
+#: libcaja-private/caja-file-operations.c:193
+msgid "Continue _Anyway"
+msgstr ""
 
-#: libcaja-private/caja-file-operations.c:303
+#: libcaja-private/caja-file-operations.c:305
 #, c-format
 msgid "%'d second"
 msgid_plural "%'d seconds"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-file-operations.c:308
-#: libcaja-private/caja-file-operations.c:320
+#: libcaja-private/caja-file-operations.c:310
+#: libcaja-private/caja-file-operations.c:322
 #, c-format
 msgid "%'d minute"
 msgid_plural "%'d minutes"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-file-operations.c:319
+#: libcaja-private/caja-file-operations.c:321
 #, c-format
 msgid "%'d hour"
 msgid_plural "%'d hours"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-file-operations.c:327
+#: libcaja-private/caja-file-operations.c:329
 #, c-format
 msgid "approximately %'d hour"
 msgid_plural "approximately %'d hours"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-file-operations.c:407
+#: libcaja-private/caja-file-operations.c:409
 #, c-format
 msgid "Another link to %s"
 msgstr "%s নির্দেশক অপর একটি লিংক"
@@ -1908,22 +1916,22 @@ msgstr "%s নির্দেশক অপর একটি লিংক"
 #. Translators: Feel free to leave out the "st" suffix
 #. * if there's no way to do that nicely for a
 #. * particular language.
-#: libcaja-private/caja-file-operations.c:423
+#: libcaja-private/caja-file-operations.c:425
 #, c-format
 msgid "%'dst link to %s"
 msgstr "%'d সংখ্যক লিংক, %s-এর নির্দেশক "
 
-#: libcaja-private/caja-file-operations.c:427
+#: libcaja-private/caja-file-operations.c:429
 #, c-format
 msgid "%'dnd link to %s"
 msgstr "%'d সংখ্যক লিংক, %s-এর নির্দেশক"
 
-#: libcaja-private/caja-file-operations.c:431
+#: libcaja-private/caja-file-operations.c:433
 #, c-format
 msgid "%'drd link to %s"
 msgstr "%'d সংখ্যক লিংক, %s-এর নির্দেশক"
 
-#: libcaja-private/caja-file-operations.c:435
+#: libcaja-private/caja-file-operations.c:437
 #, c-format
 msgid "%'dth link to %s"
 msgstr "%'d সংখ্যক লিংক, %s-এর নির্দেশক"
@@ -1932,12 +1940,12 @@ msgstr "%'d সংখ্যক লিংক, %s-এর নির্দেশক"
 #. * Feel free to leave out the st, nd, rd and th suffix or
 #. * make some or all of them match.
 #. Translators: tag used to detect the first copy of a file
-#: libcaja-private/caja-file-operations.c:473
+#: libcaja-private/caja-file-operations.c:475
 msgid " (copy)"
 msgstr " (অনুলিপি)"
 
 #. Translators: tag used to detect the second copy of a file
-#: libcaja-private/caja-file-operations.c:475
+#: libcaja-private/caja-file-operations.c:477
 msgid " (another copy)"
 msgstr " (অন্য অনুলিপি)"
 
@@ -1945,36 +1953,36 @@ msgstr " (অন্য অনুলিপি)"
 #. Translators: tag used to detect the x12th copy of a file
 #. Translators: tag used to detect the x13th copy of a file
 #. Translators: tag used to detect the xxth copy of a file
-#: libcaja-private/caja-file-operations.c:478
 #: libcaja-private/caja-file-operations.c:480
 #: libcaja-private/caja-file-operations.c:482
-#: libcaja-private/caja-file-operations.c:492
+#: libcaja-private/caja-file-operations.c:484
+#: libcaja-private/caja-file-operations.c:494
 msgid "th copy)"
 msgstr "তম অনুলিপি)"
 
 #. Translators: tag used to detect the x1st copy of a file
-#: libcaja-private/caja-file-operations.c:485
+#: libcaja-private/caja-file-operations.c:487
 msgid "st copy)"
 msgstr "ম অনুলিপি)"
 
 #. Translators: tag used to detect the x2nd copy of a file
-#: libcaja-private/caja-file-operations.c:487
+#: libcaja-private/caja-file-operations.c:489
 msgid "nd copy)"
 msgstr "য় অনুলিপি)"
 
 #. Translators: tag used to detect the x3rd copy of a file
-#: libcaja-private/caja-file-operations.c:489
+#: libcaja-private/caja-file-operations.c:491
 msgid "rd copy)"
 msgstr "য় অনুলিপি)"
 
 #. Translators: appended to first file copy
-#: libcaja-private/caja-file-operations.c:506
+#: libcaja-private/caja-file-operations.c:508
 #, c-format
 msgid "%s (copy)%s"
 msgstr "%s (অনুলিপি)%s"
 
 #. Translators: appended to second file copy
-#: libcaja-private/caja-file-operations.c:508
+#: libcaja-private/caja-file-operations.c:510
 #, c-format
 msgid "%s (another copy)%s"
 msgstr "%s (অন্য অনুলিপি)%s"
@@ -1983,10 +1991,10 @@ msgstr "%s (অন্য অনুলিপি)%s"
 #. Translators: appended to x12th file copy
 #. Translators: appended to x13th file copy
 #. Translators: appended to xxth file copy
-#: libcaja-private/caja-file-operations.c:511
 #: libcaja-private/caja-file-operations.c:513
 #: libcaja-private/caja-file-operations.c:515
-#: libcaja-private/caja-file-operations.c:529
+#: libcaja-private/caja-file-operations.c:517
+#: libcaja-private/caja-file-operations.c:531
 #, c-format
 msgid "%s (%'dth copy)%s"
 msgstr "%s (%'d সংখ্যক অনুলিপি)%s"
@@ -1997,39 +2005,39 @@ msgstr "%s (%'d সংখ্যক অনুলিপি)%s"
 #. translated
 #. * strings look like "%s (copy %'d)%s".
 #. Translators: appended to x1st file copy
-#: libcaja-private/caja-file-operations.c:523
+#: libcaja-private/caja-file-operations.c:525
 #, c-format
 msgid "%s (%'dst copy)%s"
 msgstr "%s (%'d সংখ্যক অনুলিপি)%s"
 
 #. Translators: appended to x2nd file copy
-#: libcaja-private/caja-file-operations.c:525
+#: libcaja-private/caja-file-operations.c:527
 #, c-format
 msgid "%s (%'dnd copy)%s"
 msgstr "%1$s (%2$'d সংখ্যক অনুলিপি)%3$s"
 
 #. Translators: appended to x3rd file copy
-#: libcaja-private/caja-file-operations.c:527
+#: libcaja-private/caja-file-operations.c:529
 #, c-format
 msgid "%s (%'drd copy)%s"
 msgstr "%1$s (%2$'d সংখ্যক অনুলিপি)%3$s"
 
 #. Translators: opening parentheses to match the "th copy)" string
-#: libcaja-private/caja-file-operations.c:625
+#: libcaja-private/caja-file-operations.c:627
 msgid " ("
 msgstr " ("
 
 #. Translators: opening parentheses of the "th copy)" string
-#: libcaja-private/caja-file-operations.c:633
+#: libcaja-private/caja-file-operations.c:635
 #, c-format
 msgid " (%'d"
 msgstr " (%'d"
 
-#: libcaja-private/caja-file-operations.c:1362
+#: libcaja-private/caja-file-operations.c:1364
 msgid "Are you sure you want to permanently delete \"%B\" from the trash?"
 msgstr "আপনি কি নিশ্চিতরূপে আবর্জনার বাক্স থেকে \"%B\" স্থায়ীভাবে মুছে ফেলতে চান?"
 
-#: libcaja-private/caja-file-operations.c:1365
+#: libcaja-private/caja-file-operations.c:1367
 #, c-format
 msgid ""
 "Are you sure you want to permanently delete the %'d selected item from the "
@@ -2040,30 +2048,30 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-file-operations.c:1375
-#: libcaja-private/caja-file-operations.c:1441
+#: libcaja-private/caja-file-operations.c:1377
+#: libcaja-private/caja-file-operations.c:1443
 msgid "If you delete an item, it will be permanently lost."
 msgstr "কোনো বস্তু মুছে ফেলা হলে তা স্থায়ীরূপে মুছে যাবে।"
 
-#: libcaja-private/caja-file-operations.c:1395
+#: libcaja-private/caja-file-operations.c:1397
 msgid "Empty all items from Trash?"
 msgstr ""
 
-#: libcaja-private/caja-file-operations.c:1399
+#: libcaja-private/caja-file-operations.c:1401
 msgid "All items in the Trash will be permanently deleted."
 msgstr ""
 
-#: libcaja-private/caja-file-operations.c:1402
-#: libcaja-private/caja-file-operations.c:2334 src/caja-places-sidebar.c:2826
+#: libcaja-private/caja-file-operations.c:1404
+#: libcaja-private/caja-file-operations.c:2340 src/caja-places-sidebar.c:2826
 #: src/caja-trash-bar.c:192
 msgid "Empty _Trash"
 msgstr "আবর্জনার বাক্স ফাঁকা করুন (_T)"
 
-#: libcaja-private/caja-file-operations.c:1429
+#: libcaja-private/caja-file-operations.c:1431
 msgid "Are you sure you want to permanently delete \"%B\"?"
 msgstr "আপনি কি নিশ্চিতরূপে \"%B\" স্থায়ীভাবে বর্জন করতে ইচ্ছুক?"
 
-#: libcaja-private/caja-file-operations.c:1432
+#: libcaja-private/caja-file-operations.c:1434
 #, c-format
 msgid "Are you sure you want to permanently delete the %'d selected item?"
 msgid_plural ""
@@ -2071,54 +2079,54 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-file-operations.c:1471
+#: libcaja-private/caja-file-operations.c:1473
 msgid "Are you sure you want to trash \"%B\"?"
 msgstr ""
 
-#: libcaja-private/caja-file-operations.c:1474
+#: libcaja-private/caja-file-operations.c:1476
 #, c-format
 msgid "Are you sure you want to trash the %'d selected item?"
 msgid_plural "Are you sure you want to trash the %'d selected items?"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-file-operations.c:1483
+#: libcaja-private/caja-file-operations.c:1485
 msgid "Items moved to the trash may be recovered until the trash is emptied."
 msgstr ""
 
-#: libcaja-private/caja-file-operations.c:1486
+#: libcaja-private/caja-file-operations.c:1488
 msgid "Move to _Trash"
 msgstr "আবর্জনায় সরিয়ে ফেলুন (_T)"
 
-#: libcaja-private/caja-file-operations.c:1516
+#: libcaja-private/caja-file-operations.c:1518
 #, c-format
 msgid "%'d file left to delete"
 msgid_plural "%'d files left to delete"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-file-operations.c:1522
+#: libcaja-private/caja-file-operations.c:1524
 msgid "Deleting files"
 msgstr "ফাইল মুছে ফেলা হচ্ছে"
 
 #. Translators: %T will expand to a time like "2 minutes".
 #. * The singular/plural form will be used depending on the remaining time
 #. (i.e. the %T argument).
-#: libcaja-private/caja-file-operations.c:1539
+#: libcaja-private/caja-file-operations.c:1545
 msgid "%T left"
 msgid_plural "%T left"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-file-operations.c:1606
-#: libcaja-private/caja-file-operations.c:1640
-#: libcaja-private/caja-file-operations.c:1679
-#: libcaja-private/caja-file-operations.c:1756
-#: libcaja-private/caja-file-operations.c:2579
+#: libcaja-private/caja-file-operations.c:1612
+#: libcaja-private/caja-file-operations.c:1646
+#: libcaja-private/caja-file-operations.c:1685
+#: libcaja-private/caja-file-operations.c:1762
+#: libcaja-private/caja-file-operations.c:2592
 msgid "Error while deleting."
 msgstr "মুছে ফেলতে ত্রুটি।"
 
-#: libcaja-private/caja-file-operations.c:1610
+#: libcaja-private/caja-file-operations.c:1616
 msgid ""
 "Files in the folder \"%B\" cannot be deleted because you do not have "
 "permissions to see them."
@@ -2126,20 +2134,20 @@ msgstr ""
 "পর্যাপ্ত অনুমতি উপস্থিত না থাকার ফলে আপনি \"%B\" ফোল্ডারে উপস্থিত ফাইল মুছে "
 "ফেলতে পারবেন না।"
 
-#: libcaja-private/caja-file-operations.c:1613
-#: libcaja-private/caja-file-operations.c:2639
-#: libcaja-private/caja-file-operations.c:3634
+#: libcaja-private/caja-file-operations.c:1619
+#: libcaja-private/caja-file-operations.c:2652
+#: libcaja-private/caja-file-operations.c:3668
 msgid ""
 "There was an error getting information about the files in the folder \"%B\"."
 msgstr ""
 "\"%B\" ফোল্ডারের মধ্যে উপস্থিত ফাইলগুলি সম্বন্ধে তথ্য প্রাপ্ত করতে ত্রুটি।"
 
-#: libcaja-private/caja-file-operations.c:1622
-#: libcaja-private/caja-file-operations.c:3643
+#: libcaja-private/caja-file-operations.c:1628
+#: libcaja-private/caja-file-operations.c:3677
 msgid "_Skip files"
 msgstr "ফাইল উপেক্ষা করা হবে (_S)"
 
-#: libcaja-private/caja-file-operations.c:1643
+#: libcaja-private/caja-file-operations.c:1649
 msgid ""
 "The folder \"%B\" cannot be deleted because you do not have permissions to "
 "read it."
@@ -2147,71 +2155,71 @@ msgstr ""
 "পড়ার পর্যাপ্ত অনুমতি উপস্থিত না থাকার ফলে আপনি \"%B\" ফোল্ডার মুছে ফেলতে "
 "পারবেন না।"
 
-#: libcaja-private/caja-file-operations.c:1646
-#: libcaja-private/caja-file-operations.c:2678
-#: libcaja-private/caja-file-operations.c:3679
+#: libcaja-private/caja-file-operations.c:1652
+#: libcaja-private/caja-file-operations.c:2691
+#: libcaja-private/caja-file-operations.c:3713
 msgid "There was an error reading the folder \"%B\"."
 msgstr "\"%B\" ফোল্ডার পড়তে ত্রুটি।"
 
-#: libcaja-private/caja-file-operations.c:1680
+#: libcaja-private/caja-file-operations.c:1686
 msgid "Could not remove the folder %B."
 msgstr "%B ফোল্ডার অপসারণ করা যায়নি।"
 
-#: libcaja-private/caja-file-operations.c:1757
+#: libcaja-private/caja-file-operations.c:1763
 msgid "There was an error deleting %B."
 msgstr "%B মুছে ফেলতে ত্রুটি।"
 
-#: libcaja-private/caja-file-operations.c:1837
+#: libcaja-private/caja-file-operations.c:1843
 msgid "Moving files to trash"
 msgstr "আবর্জনার বাক্সে ফাইল স্থানান্তর করা হচ্ছে"
 
-#: libcaja-private/caja-file-operations.c:1839
+#: libcaja-private/caja-file-operations.c:1845
 #, c-format
 msgid "%'d file left to trash"
 msgid_plural "%'d files left to trash"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-file-operations.c:1895
+#: libcaja-private/caja-file-operations.c:1901
 msgid "Cannot move file to trash, do you want to delete immediately?"
 msgstr ""
 "আবর্জনার বাক্সে ফাইল স্থানান্তর করতে ব্যর্থ, আপনি কি এই মুহূর্তে মুছে ফেলতে "
 "ইচ্ছুক?"
 
-#: libcaja-private/caja-file-operations.c:1896
+#: libcaja-private/caja-file-operations.c:1902
 msgid "The file \"%B\" cannot be moved to the trash."
 msgstr "\"%B\" নামক ফাইলটি আবর্জনার বাক্সে স্থানান্তর করতে ব্যর্থ।"
 
-#: libcaja-private/caja-file-operations.c:2081
+#: libcaja-private/caja-file-operations.c:2087
 msgid "Trashing Files"
 msgstr "ট্র্যাশ করা ফাইল"
 
-#: libcaja-private/caja-file-operations.c:2083
+#: libcaja-private/caja-file-operations.c:2089
 msgid "Deleting Files"
 msgstr "ফাইল মুছে ফেলা হচ্ছে"
 
-#: libcaja-private/caja-file-operations.c:2146 src/caja-places-sidebar.c:2274
+#: libcaja-private/caja-file-operations.c:2152 src/caja-places-sidebar.c:2274
 #: src/caja-places-sidebar.c:2310
 msgid "It is now safe to remove the drive"
 msgstr ""
 
-#: libcaja-private/caja-file-operations.c:2159
+#: libcaja-private/caja-file-operations.c:2165
 msgid "Unable to eject %V"
 msgstr "%V বের করতে ব্যর্থ"
 
-#: libcaja-private/caja-file-operations.c:2161
+#: libcaja-private/caja-file-operations.c:2167
 msgid "Unable to unmount %V"
 msgstr "%V আন-মাউন্ট করতে ব্যর্থ"
 
-#: libcaja-private/caja-file-operations.c:2197 src/caja-places-sidebar.c:2344
+#: libcaja-private/caja-file-operations.c:2203 src/caja-places-sidebar.c:2344
 msgid "Writing data to the drive -- do not unplug"
 msgstr ""
 
-#: libcaja-private/caja-file-operations.c:2319
+#: libcaja-private/caja-file-operations.c:2325
 msgid "Do you want to empty the trash before you unmount?"
 msgstr "umount করার পূর্বে আবর্জনার বাক্স কি ফাঁকা করা হবে?"
 
-#: libcaja-private/caja-file-operations.c:2321
+#: libcaja-private/caja-file-operations.c:2327
 msgid ""
 "In order to regain the free space on this volume the trash must be emptied. "
 "All trashed items on the volume will be permanently lost."
@@ -2220,61 +2228,61 @@ msgstr ""
 "চিহ্নিত সামগ্রী মুছে ফেলতে হবে। ভলিউম থেকে মুছে ফেলা আবর্জনাগুলি স্থায়ী রূপে"
 " বর্জন করা হবে।"
 
-#: libcaja-private/caja-file-operations.c:2328
+#: libcaja-private/caja-file-operations.c:2334
 msgid "Do _not Empty Trash"
 msgstr "আবর্জনার বাক্স ফাঁকা করা হবে না (_n)"
 
-#: libcaja-private/caja-file-operations.c:2449
+#: libcaja-private/caja-file-operations.c:2455
 #, c-format
 msgid "Unable to mount %s"
 msgstr "%s মাউন্ট করতে ব্যর্থ"
 
-#: libcaja-private/caja-file-operations.c:2526
+#: libcaja-private/caja-file-operations.c:2536
 #, c-format
 msgid "Preparing to copy %'d file (%S)"
 msgid_plural "Preparing to copy %'d files (%S)"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-file-operations.c:2532
+#: libcaja-private/caja-file-operations.c:2542
 #, c-format
 msgid "Preparing to move %'d file (%S)"
 msgid_plural "Preparing to move %'d files (%S)"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-file-operations.c:2538
+#: libcaja-private/caja-file-operations.c:2548
 #, c-format
 msgid "Preparing to delete %'d file (%S)"
 msgid_plural "Preparing to delete %'d files (%S)"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-file-operations.c:2544
+#: libcaja-private/caja-file-operations.c:2554
 #, c-format
 msgid "Preparing to trash %'d file"
 msgid_plural "Preparing to trash %'d files"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-file-operations.c:2575
-#: libcaja-private/caja-file-operations.c:3486
-#: libcaja-private/caja-file-operations.c:3626
-#: libcaja-private/caja-file-operations.c:3671
+#: libcaja-private/caja-file-operations.c:2588
+#: libcaja-private/caja-file-operations.c:3520
+#: libcaja-private/caja-file-operations.c:3660
+#: libcaja-private/caja-file-operations.c:3705
 msgid "Error while copying."
 msgstr "অনুলিপি করতে ত্রুটি।"
 
-#: libcaja-private/caja-file-operations.c:2577
-#: libcaja-private/caja-file-operations.c:3624
-#: libcaja-private/caja-file-operations.c:3669
+#: libcaja-private/caja-file-operations.c:2590
+#: libcaja-private/caja-file-operations.c:3658
+#: libcaja-private/caja-file-operations.c:3703
 msgid "Error while moving."
 msgstr "স্থানান্তর করতে ত্রুটি।"
 
-#: libcaja-private/caja-file-operations.c:2581
+#: libcaja-private/caja-file-operations.c:2594
 msgid "Error while moving files to trash."
 msgstr "আবর্জনার বাক্সে ফাইল স্থানান্তর করতে ত্রুটি।"
 
-#: libcaja-private/caja-file-operations.c:2636
+#: libcaja-private/caja-file-operations.c:2649
 msgid ""
 "Files in the folder \"%B\" cannot be handled because you do not have "
 "permissions to see them."
@@ -2282,7 +2290,7 @@ msgstr ""
 "পর্যাপ্ত অনুমতি উপস্থিত না থাকার ফলে আপনি \"%B\" ফোল্ডারে উপস্থিত ফাইলগুলি "
 "সংক্রান্ত কোনো কাজ করতে পারবেন না।"
 
-#: libcaja-private/caja-file-operations.c:2675
+#: libcaja-private/caja-file-operations.c:2688
 msgid ""
 "The folder \"%B\" cannot be handled because you do not have permissions to "
 "read it."
@@ -2290,7 +2298,7 @@ msgstr ""
 "পর্যাপ্ত অনুমতি উপস্থিত না থাকার ফলে আপনি \"%B\" ফোল্ডার সংক্রান্ত কোনো কাজ "
 "করতে পারবেন না।"
 
-#: libcaja-private/caja-file-operations.c:2753
+#: libcaja-private/caja-file-operations.c:2766
 msgid ""
 "The file \"%B\" cannot be handled because you do not have permissions to "
 "read it."
@@ -2298,30 +2306,39 @@ msgstr ""
 "পর্যাপ্ত অনুমতি উপস্থিত না থাকার ফলে আপনি \"%B\" ফাইল সংক্রান্ত কোনো কাজ "
 "করতে পারবেন না।"
 
-#: libcaja-private/caja-file-operations.c:2756
+#: libcaja-private/caja-file-operations.c:2769
 msgid "There was an error getting information about \"%B\"."
 msgstr "\"%B\" সংক্রান্ত তথ্য আহরণ করতে ত্রুটি।"
 
-#: libcaja-private/caja-file-operations.c:2856
-#: libcaja-private/caja-file-operations.c:2898
-#: libcaja-private/caja-file-operations.c:2931
-#: libcaja-private/caja-file-operations.c:2961
+#: libcaja-private/caja-file-operations.c:2846
+msgid "Error while creating file/directory in \"%B\"."
+msgstr ""
+
+#: libcaja-private/caja-file-operations.c:2848
+msgid "Error while creating link in \"%B\"."
+msgstr ""
+
+#: libcaja-private/caja-file-operations.c:2850
 msgid "Error while copying to \"%B\"."
 msgstr "\"%B\"-এ অনুলিপি করতে ত্রুটি।"
 
-#: libcaja-private/caja-file-operations.c:2860
+#: libcaja-private/caja-file-operations.c:2852
+msgid "Error while moving to \"%B\"."
+msgstr ""
+
+#: libcaja-private/caja-file-operations.c:2894
 msgid "You do not have permissions to access the destination folder."
 msgstr "গন্তব্যস্থল ব্যবহার করার জন্য পর্যাপ্ত অনুমতি আপনার নেই।"
 
-#: libcaja-private/caja-file-operations.c:2862
+#: libcaja-private/caja-file-operations.c:2896
 msgid "There was an error getting information about the destination."
 msgstr "গন্তব্যস্থল রূপে চিহ্নিত ফোল্ডার সংক্রান্ত তথ্য প্রাপ্ত করতে ত্রুটি।"
 
-#: libcaja-private/caja-file-operations.c:2899
+#: libcaja-private/caja-file-operations.c:2933
 msgid "The destination is not a folder."
 msgstr "গন্তব্যস্থল কোনো ফোল্ডার নয়।"
 
-#: libcaja-private/caja-file-operations.c:2932
+#: libcaja-private/caja-file-operations.c:2966
 msgid ""
 "There is not enough space on the destination. Try to remove files to make "
 "space."
@@ -2329,57 +2346,57 @@ msgstr ""
 "গন্তব্যস্থলে পর্যাপ্ত স্থান ফাঁকা নেই। কয়েকটি ফাইল সরিয়ে ফেলে কিছু স্থান "
 "ফাঁকা করুন।"
 
-#: libcaja-private/caja-file-operations.c:2934
+#: libcaja-private/caja-file-operations.c:2968
 msgid "There is %"
 msgstr ""
 
-#: libcaja-private/caja-file-operations.c:2962
+#: libcaja-private/caja-file-operations.c:2996
 msgid "The destination is read-only."
 msgstr "গন্তব্যস্থল রূপে চিহ্নিত স্থান শুধুমাত্র পাঠযোগ্য।"
 
-#: libcaja-private/caja-file-operations.c:3020
+#: libcaja-private/caja-file-operations.c:3054
 msgid "Moving \"%B\" to \"%B\""
 msgstr "\"%1$B\"-কে \"%2$B\"-এ স্থানান্তর করা হচ্ছে।"
 
-#: libcaja-private/caja-file-operations.c:3021
+#: libcaja-private/caja-file-operations.c:3055
 msgid "Copying \"%B\" to \"%B\""
 msgstr "\"%1$B\"-কে \"%2$B\"-এ অনুলিপি করা হচ্ছে।"
 
-#: libcaja-private/caja-file-operations.c:3026
+#: libcaja-private/caja-file-operations.c:3060
 msgid "Duplicating \"%B\""
 msgstr "\"%B\"-এর অনুলিপি তৈরি করা হচ্ছে"
 
-#: libcaja-private/caja-file-operations.c:3034
+#: libcaja-private/caja-file-operations.c:3068
 msgid "Moving %'d file (in \"%B\") to \"%B\""
 msgid_plural "Moving %'d files (in \"%B\") to \"%B\""
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-file-operations.c:3038
+#: libcaja-private/caja-file-operations.c:3072
 msgid "Copying %'d file (in \"%B\") to \"%B\""
 msgid_plural "Copying %'d files (in \"%B\") to \"%B\""
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-file-operations.c:3046
+#: libcaja-private/caja-file-operations.c:3080
 msgid "Duplicating %'d file (in \"%B\")"
 msgid_plural "Duplicating %'d files (in \"%B\")"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-file-operations.c:3056
+#: libcaja-private/caja-file-operations.c:3090
 msgid "Moving %'d file to \"%B\""
 msgid_plural "Moving %'d files to \"%B\""
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-file-operations.c:3060
+#: libcaja-private/caja-file-operations.c:3094
 msgid "Copying %'d file to \"%B\""
 msgid_plural "Copying %'d files to \"%B\""
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-file-operations.c:3066
+#: libcaja-private/caja-file-operations.c:3100
 #, c-format
 msgid "Duplicating %'d file"
 msgid_plural "Duplicating %'d files"
@@ -2388,7 +2405,7 @@ msgstr[1] ""
 
 #. Translators: %S will expand to a size like "2 bytes" or "3 MB", so
 #. something like "4 kb of 4 MB"
-#: libcaja-private/caja-file-operations.c:3086
+#: libcaja-private/caja-file-operations.c:3120
 #, c-format
 msgid "%S of %S"
 msgstr "%1$S, সর্বমোট %2$S"
@@ -2400,13 +2417,13 @@ msgstr "%1$S, সর্বমোট %2$S"
 #. *
 #. * The singular/plural form will be used depending on the remaining time
 #. (i.e. the %T argument).
-#: libcaja-private/caja-file-operations.c:3099
+#: libcaja-private/caja-file-operations.c:3133
 msgid "%S of %S — %T left (%S/sec)"
 msgid_plural "%S of %S — %T left (%S/sec)"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-file-operations.c:3490
+#: libcaja-private/caja-file-operations.c:3524
 msgid ""
 "The folder \"%B\" cannot be copied because you do not have permissions to "
 "create it in the destination."
@@ -2414,11 +2431,11 @@ msgstr ""
 "গন্তব্যস্থলে পর্যাপ্ত অনুমতি উপস্থিত না থাকার ফলে আপনি \"%B\" ফোল্ডার সেখানে"
 " অনুলিপি করতে পারবেন না।"
 
-#: libcaja-private/caja-file-operations.c:3493
+#: libcaja-private/caja-file-operations.c:3527
 msgid "There was an error creating the folder \"%B\"."
 msgstr "\"%B\" ফোল্ডার নির্মাণ করতে ত্রুটি।"
 
-#: libcaja-private/caja-file-operations.c:3631
+#: libcaja-private/caja-file-operations.c:3665
 msgid ""
 "Files in the folder \"%B\" cannot be copied because you do not have "
 "permissions to see them."
@@ -2426,7 +2443,7 @@ msgstr ""
 "পর্যাপ্ত অনুমতি উপস্থিত না থাকার ফলে আপনি \"%B\" ফোল্ডারে উপস্থিত ফাইল "
 "অনুলিপি করতে পারবেন না।"
 
-#: libcaja-private/caja-file-operations.c:3676
+#: libcaja-private/caja-file-operations.c:3710
 msgid ""
 "The folder \"%B\" cannot be copied because you do not have permissions to "
 "read it."
@@ -2434,157 +2451,157 @@ msgstr ""
 "পর্যাপ্ত অনুমতি উপস্থিত না থাকার ফলে আপনি \"%B\" ফোল্ডার অনুলিপি করতে পারবেন"
 " না।"
 
-#: libcaja-private/caja-file-operations.c:3721
-#: libcaja-private/caja-file-operations.c:4420
-#: libcaja-private/caja-file-operations.c:5011
+#: libcaja-private/caja-file-operations.c:3755
+#: libcaja-private/caja-file-operations.c:4454
+#: libcaja-private/caja-file-operations.c:5046
 msgid "Error while moving \"%B\"."
 msgstr "\"%B\" স্থানান্তর করতে ত্রুটি।"
 
-#: libcaja-private/caja-file-operations.c:3722
+#: libcaja-private/caja-file-operations.c:3756
 msgid "Could not remove the source folder."
 msgstr "মূল ফোল্ডার মুছে ফেলা সম্ভব হয়নি।"
 
-#: libcaja-private/caja-file-operations.c:3807
-#: libcaja-private/caja-file-operations.c:3848
-#: libcaja-private/caja-file-operations.c:4422
-#: libcaja-private/caja-file-operations.c:4494
+#: libcaja-private/caja-file-operations.c:3841
+#: libcaja-private/caja-file-operations.c:3882
+#: libcaja-private/caja-file-operations.c:4456
+#: libcaja-private/caja-file-operations.c:4528
 msgid "Error while copying \"%B\"."
 msgstr "\"%B\" অনুলিপি করতে ত্রুটি।"
 
-#: libcaja-private/caja-file-operations.c:3808
+#: libcaja-private/caja-file-operations.c:3842
 #, c-format
 msgid "Could not remove files from the already existing folder %F."
 msgstr "ইতিমধ্যেই বিদ্যমান %F নামক ফোল্ডার থেকে ফাইল অপসারণ করা যায়নি।"
 
-#: libcaja-private/caja-file-operations.c:3849
+#: libcaja-private/caja-file-operations.c:3883
 #, c-format
 msgid "Could not remove the already existing file %F."
 msgstr "ইতিমধ্যেই বিদ্যমান %F নামক ফাইলটি অপসারণ করা যায়নি।"
 
-#: libcaja-private/caja-file-operations.c:4167
-#: libcaja-private/caja-file-operations.c:4857
+#: libcaja-private/caja-file-operations.c:4201
+#: libcaja-private/caja-file-operations.c:4892
 msgid "You cannot move a folder into itself."
 msgstr "একই ফোল্ডারের মধ্যে সেটিকে স্থানান্তর করা অসম্ভব।"
 
-#: libcaja-private/caja-file-operations.c:4168
-#: libcaja-private/caja-file-operations.c:4858
+#: libcaja-private/caja-file-operations.c:4202
+#: libcaja-private/caja-file-operations.c:4893
 msgid "You cannot copy a folder into itself."
 msgstr "একই ফোল্ডারের মধ্যে সেটিকে অনুলিপি করা অসম্ভব।"
 
-#: libcaja-private/caja-file-operations.c:4169
-#: libcaja-private/caja-file-operations.c:4859
+#: libcaja-private/caja-file-operations.c:4203
+#: libcaja-private/caja-file-operations.c:4894
 msgid "The destination folder is inside the source folder."
 msgstr "গন্তব্য রূপে চিহ্নিত ফোল্ডারটি মূল ফোল্ডারের মধ্যে উপস্থিত রয়েছে।"
 
-#: libcaja-private/caja-file-operations.c:4200
+#: libcaja-private/caja-file-operations.c:4234
 msgid "You cannot move a file over itself."
 msgstr "একই ফাইলের উপর সেটিকে স্থানান্তর করা অসম্ভব।"
 
-#: libcaja-private/caja-file-operations.c:4201
+#: libcaja-private/caja-file-operations.c:4235
 msgid "You cannot copy a file over itself."
 msgstr "একই ফাইলের উপর সেটিকে অনুলিপি করা অসম্ভব।"
 
-#: libcaja-private/caja-file-operations.c:4202
+#: libcaja-private/caja-file-operations.c:4236
 msgid "The source file would be overwritten by the destination."
 msgstr "মূল ফাইলটি মুছে উদ্দিষ্ট ফাইলটি সেটির পরিবর্তে লেখা হবে।"
 
-#: libcaja-private/caja-file-operations.c:4424
+#: libcaja-private/caja-file-operations.c:4458
 #, c-format
 msgid "Could not remove the already existing file with the same name in %F."
 msgstr "%F-র মধ্যে একই নামের একটি ফাইল মুছে ফেলতে ব্যর্থ।"
 
-#: libcaja-private/caja-file-operations.c:4495
+#: libcaja-private/caja-file-operations.c:4529
 #, c-format
 msgid "There was an error copying the file into %F."
 msgstr "ফাইলটিকে %F-র মধ্যে কপি করার সময় ত্রুটি দেখা দিয়েছে।"
 
-#: libcaja-private/caja-file-operations.c:4741
+#: libcaja-private/caja-file-operations.c:4776
 msgid "Copying Files"
 msgstr "ফাইল অনুলিপি করা হচ্ছে"
 
-#: libcaja-private/caja-file-operations.c:4768
+#: libcaja-private/caja-file-operations.c:4803
 msgid "Preparing to Move to \"%B\""
 msgstr "\"%B\"-এর মধ্যে স্থানান্তরের প্রস্তুতি চলছে"
 
-#: libcaja-private/caja-file-operations.c:4772
+#: libcaja-private/caja-file-operations.c:4807
 #, c-format
 msgid "Preparing to move %'d file"
 msgid_plural "Preparing to move %'d files"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-file-operations.c:5012
+#: libcaja-private/caja-file-operations.c:5047
 #, c-format
 msgid "There was an error moving the file into %F."
 msgstr "%F-এর মধ্যে ফাইল স্থানান্তর করতে ত্রুটি।"
 
-#: libcaja-private/caja-file-operations.c:5280
+#: libcaja-private/caja-file-operations.c:5319
 msgid "Moving Files"
 msgstr "ফাইল স্থানান্তর করা হচ্ছে"
 
-#: libcaja-private/caja-file-operations.c:5311
+#: libcaja-private/caja-file-operations.c:5350
 msgid "Creating links in \"%B\""
 msgstr "\"%B\"-এর মধ্যে লিংক তৈরি করা হচ্ছে"
 
-#: libcaja-private/caja-file-operations.c:5315
+#: libcaja-private/caja-file-operations.c:5354
 #, c-format
 msgid "Making link to %'d file"
 msgid_plural "Making links to %'d files"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-file-operations.c:5446
+#: libcaja-private/caja-file-operations.c:5485
 msgid "Error while creating link to %B."
 msgstr "%B-এর লিংক তৈরি করতে ত্রুটি।"
 
-#: libcaja-private/caja-file-operations.c:5448
+#: libcaja-private/caja-file-operations.c:5487
 msgid "Symbolic links only supported for local files"
 msgstr "শুধুমাত্র স্থানীয় ফাইলের ক্ষেত্রে প্রতিকী-লিংক প্রযোগ করা যাবে।"
 
-#: libcaja-private/caja-file-operations.c:5451
+#: libcaja-private/caja-file-operations.c:5490
 msgid "The target doesn't support symbolic links."
 msgstr "উদ্দিষ্ট বস্তু দ্বারা প্রতিকী-লিংক সমর্থিত হয় না।"
 
-#: libcaja-private/caja-file-operations.c:5454
+#: libcaja-private/caja-file-operations.c:5493
 #, c-format
 msgid "There was an error creating the symlink in %F."
 msgstr "%F-এর মধ্যে একটি সিম-লিংক নির্মাণ করতে ত্রুটি"
 
-#: libcaja-private/caja-file-operations.c:5767
+#: libcaja-private/caja-file-operations.c:5807
 msgid "Setting permissions"
 msgstr "অনুমতি নির্ধারণ করা হচ্ছে"
 
 #. Translators: the initial name of a new folder
-#: libcaja-private/caja-file-operations.c:6026
+#: libcaja-private/caja-file-operations.c:6067
 msgid "untitled folder"
 msgstr "শিরোনামবিহীন ফোল্ডাল"
 
 #. Translators: the initial name of a new empty file
-#: libcaja-private/caja-file-operations.c:6034
+#: libcaja-private/caja-file-operations.c:6075
 msgid "new file"
 msgstr "নতুন ফাইল"
 
-#: libcaja-private/caja-file-operations.c:6208
+#: libcaja-private/caja-file-operations.c:6249
 msgid "Error while creating directory %B."
 msgstr "%B ডিরেক্টরি নির্মাণ করতে ত্রুটি।"
 
-#: libcaja-private/caja-file-operations.c:6210
+#: libcaja-private/caja-file-operations.c:6251
 msgid "Error while creating file %B."
 msgstr "%B ফাইল নির্মাণ করতে ত্রুটি।"
 
-#: libcaja-private/caja-file-operations.c:6212
+#: libcaja-private/caja-file-operations.c:6253
 #, c-format
 msgid "There was an error creating the directory in %F."
 msgstr "%F-এর মধ্যে ডিরেক্টরি নির্মাণ করতে ত্রুটি।"
 
-#: libcaja-private/caja-file-operations.c:6489
+#: libcaja-private/caja-file-operations.c:6530
 msgid "Emptying Trash"
 msgstr "আবর্জনার বাক্স ফাঁকা করা হচ্ছে"
 
-#: libcaja-private/caja-file-operations.c:6538
-#: libcaja-private/caja-file-operations.c:6578
-#: libcaja-private/caja-file-operations.c:6613
-#: libcaja-private/caja-file-operations.c:6647
+#: libcaja-private/caja-file-operations.c:6579
+#: libcaja-private/caja-file-operations.c:6619
+#: libcaja-private/caja-file-operations.c:6654
+#: libcaja-private/caja-file-operations.c:6688
 msgid "Unable to mark launcher trusted (executable)"
 msgstr "লঞ্চারকে বিশ্বস্ত রূপে চিহ্নিত করতে ব্যর্থ (এক্সেকিউটেবল)"
 
@@ -2841,7 +2858,7 @@ msgid "Select an Application"
 msgstr "একটি অ্যাপ্লিকেশন বেছে নিন"
 
 #: libcaja-private/caja-open-with-dialog.c:863
-#: src/file-manager/fm-properties-window.c:5128
+#: src/file-manager/fm-properties-window.c:5160
 msgid "Open With"
 msgstr "চিহ্নিত প্রোগ্রাম সহযোগে খুলুন"
 
@@ -3022,13 +3039,13 @@ msgstr[1] ""
 msgid "Process completed"
 msgstr ""
 
-#: libcaja-private/caja-progress-info.c:806
-#: libcaja-private/caja-progress-info.c:807
+#: libcaja-private/caja-progress-info.c:808
+#: libcaja-private/caja-progress-info.c:809
 msgid "Queue"
 msgstr ""
 
-#: libcaja-private/caja-progress-info.c:1006
-#: libcaja-private/caja-progress-info.c:1027
+#: libcaja-private/caja-progress-info.c:1008
+#: libcaja-private/caja-progress-info.c:1029
 msgid "Preparing"
 msgstr "প্রস্তুতি চলছে"
 
@@ -3917,6 +3934,14 @@ msgstr ""
 msgid "Put labels beside icons"
 msgstr "আইকনের পাশে লেবেল স্থাপিত হবে"
 
+#: libcaja-private/org.mate.caja.gschema.xml:323
+msgid "Display the git branch with directory name"
+msgstr ""
+
+#: libcaja-private/org.mate.caja.gschema.xml:324
+msgid "If true, git branch name will be displayed."
+msgstr ""
+
 #: libcaja-private/org.mate.caja.gschema.xml:319
 msgid ""
 "If true, labels will be placed beside icons rather than underneath them."
@@ -4325,71 +4350,71 @@ msgstr ""
 "type-এর তালিকা। এই type-এর শ্রেণীর মিডিয়া ঢোকানো হলে একটি ফোল্ডার উইন্ডো "
 "প্রদর্শন করা হবে।"
 
-#: mate-submodules/libegg/eggdesktopfile.c:169
+#: mate-submodules/libegg/eggdesktopfile.c:168
 msgid "File is not a valid .desktop file"
 msgstr "ফাইলটি সক্রিয় .desktop ফাইল নয়"
 
-#: mate-submodules/libegg/eggdesktopfile.c:194
+#: mate-submodules/libegg/eggdesktopfile.c:193
 #, c-format
 msgid "Unrecognized desktop file Version '%s'"
 msgstr "অপরিচিত ডেক্সটপ ফাইল সংস্করণ '%s'"
 
-#: mate-submodules/libegg/eggdesktopfile.c:984
+#: mate-submodules/libegg/eggdesktopfile.c:975
 #, c-format
 msgid "Starting %s"
 msgstr "আরম্ভ করা হচ্ছে %s"
 
-#: mate-submodules/libegg/eggdesktopfile.c:1126
+#: mate-submodules/libegg/eggdesktopfile.c:1117
 msgid "Application does not accept documents on command line"
 msgstr "অ্যাপ্লিকেশন কমান্ড লাইনের নথি গ্রহন করে না"
 
-#: mate-submodules/libegg/eggdesktopfile.c:1194
+#: mate-submodules/libegg/eggdesktopfile.c:1185
 #, c-format
 msgid "Unrecognized launch option: %d"
 msgstr "অপরিচিত চালুকরণ অপশন: %d"
 
-#: mate-submodules/libegg/eggdesktopfile.c:1410
+#: mate-submodules/libegg/eggdesktopfile.c:1401
 msgid "Can't pass document URIs to a 'Type=Link' desktop entry"
 msgstr "একটি 'Type=Link' ডেস্কটপ এন্ট্রিতে নথি URI পাঠানো যায়নি"
 
-#: mate-submodules/libegg/eggdesktopfile.c:1431
+#: mate-submodules/libegg/eggdesktopfile.c:1422
 msgid "Not a launchable item"
 msgstr "একটি চালুকরণ উপকরণ নয়"
 
-#: mate-submodules/libegg/eggsmclient.c:234
+#: mate-submodules/libegg/eggsmclient.c:233
 msgid "Disable connection to session manager"
 msgstr "সেশন ব্যবস্থাপকের সাথে সংযোগ নিষ্ক্রিয় করুন"
 
-#: mate-submodules/libegg/eggsmclient.c:239
+#: mate-submodules/libegg/eggsmclient.c:238
 msgid "Specify file containing saved configuration"
 msgstr "ফাইলে সংরক্ষিত কনফিগারেশন উল্লেখ করে"
 
-#: mate-submodules/libegg/eggsmclient.c:239
+#: mate-submodules/libegg/eggsmclient.c:238
 msgid "FILE"
 msgstr "FILE"
 
-#: mate-submodules/libegg/eggsmclient.c:244
+#: mate-submodules/libegg/eggsmclient.c:243
 msgid "Specify session management ID"
 msgstr "সেশন ব্যবস্থাপনার ID উল্লেখ করা হয়"
 
-#: mate-submodules/libegg/eggsmclient.c:244
+#: mate-submodules/libegg/eggsmclient.c:243
 msgid "ID"
 msgstr "ID"
 
-#: mate-submodules/libegg/eggsmclient.c:270
+#: mate-submodules/libegg/eggsmclient.c:269
 msgid "Session management options:"
 msgstr "সেশন ব্যবস্থাপনা অপশন:"
 
-#: mate-submodules/libegg/eggsmclient.c:271
+#: mate-submodules/libegg/eggsmclient.c:270
 msgid "Show session management options"
 msgstr "সেশন ব্যবস্থাপনা অপশন প্রদর্শন"
 
-#: src/caja-application.c:556
+#: src/caja-application.c:557
 #, c-format
 msgid "Caja could not create the required folder \"%s\"."
 msgstr "Caja দ্বারা আবশ্যক ফোল্ডার \"%s\" নির্মাণ করা যায়নি।"
 
-#: src/caja-application.c:558
+#: src/caja-application.c:559
 msgid ""
 "Before running Caja, please create the following folder, or set permissions "
 "such that Caja can create it."
@@ -4397,12 +4422,12 @@ msgstr ""
 "Caja আরম্ভ করার পূর্বে নিম্নলিখিত ফোল্ডারটি নির্মাণ করুন অথবা Caja দ্বারা "
 "এটি নির্মাণের উদ্দেশ্যে প্রয়োজনীয় অনুমতি ধার্য করুন।"
 
-#: src/caja-application.c:563
+#: src/caja-application.c:564
 #, c-format
 msgid "Caja could not create the following required folders: %s."
 msgstr "Caja দ্বারা নিম্নলিখিত আবশ্যক ফোল্ডারগুলো নির্মাণ করা যায়নি: %s।"
 
-#: src/caja-application.c:565
+#: src/caja-application.c:566
 msgid ""
 "Before running Caja, please create these folders, or set permissions such "
 "that Caja can create them."
@@ -4410,49 +4435,49 @@ msgstr ""
 "Caja আরম্ভ করার পূর্বে নিম্নলিখিত ফোল্ডারগুলো নির্মাণ করুন অথবা Caja দ্বারা "
 "ফোল্ডারগুলো নির্মাণের উদ্দেশ্যে প্রয়োজনীয় অনুমতি ধার্য করুন।"
 
-#: src/caja-application.c:1174 src/caja-places-sidebar.c:2231
+#: src/caja-application.c:1175 src/caja-places-sidebar.c:2231
 #: src/caja-places-sidebar.c:2263 src/caja-places-sidebar.c:2299
 #, c-format
 msgid "Unable to eject %s"
 msgstr "%s বের করতে ব্যর্থ"
 
-#: src/caja-application.c:1803
+#: src/caja-application.c:1804
 msgid "--check cannot be used with other options."
 msgstr ""
 
-#: src/caja-application.c:1809
+#: src/caja-application.c:1810
 msgid "--quit cannot be used with URIs."
 msgstr ""
 
-#: src/caja-application.c:1816
+#: src/caja-application.c:1817
 msgid "--geometry cannot be used with more than one URI."
 msgstr ""
 
-#: src/caja-application.c:1822
+#: src/caja-application.c:1823
 msgid "--select must be used with at least an URI."
 msgstr ""
 
-#: src/caja-application.c:1936
+#: src/caja-application.c:1937
 msgid "Perform a quick set of self-check tests."
 msgstr "স্বয়ং পরীক্ষণের জন্য দ্রুত কয়েকটি পরীক্ষা করা হবে।"
 
-#: src/caja-application.c:1939
+#: src/caja-application.c:1940
 msgid "Show the version of the program."
 msgstr "প্রোগ্রামের সংস্করণ সংখ্যা প্রদর্শন করা হবে।"
 
-#: src/caja-application.c:1941
+#: src/caja-application.c:1942
 msgid "Create the initial window with the given geometry."
 msgstr "উল্লিখিত জ্যামিতি সহ একটি প্রারম্ভিক উইন্ডো গঠন করা হবে।"
 
-#: src/caja-application.c:1941
+#: src/caja-application.c:1942
 msgid "GEOMETRY"
 msgstr "জ্যামিতি"
 
-#: src/caja-application.c:1943
+#: src/caja-application.c:1944
 msgid "Only create windows for explicitly specified URIs."
 msgstr "শুধুমাত্র সুনির্দিষ্ট URI-এর জন্য উইন্ডো নির্মাণ করা হবে।"
 
-#: src/caja-application.c:1945
+#: src/caja-application.c:1946
 msgid ""
 "Do not manage the desktop (ignore the preference set in the preferences "
 "dialog)."
@@ -4460,33 +4485,33 @@ msgstr ""
 "ডেস্কটপ পরিচালনা করা হবে না (পছন্দ সংক্রান্ত ডায়লগের মধ্যে নির্ধারিত পছন্দসই"
 " মান উপেক্ষা করা হবে)।"
 
-#: src/caja-application.c:1947
+#: src/caja-application.c:1948
 msgid ""
 "Manage the desktop regardless of set preferences or environment (on new "
 "startup only)"
 msgstr ""
 
-#: src/caja-application.c:1949
+#: src/caja-application.c:1950
 msgid "Open URIs in tabs."
 msgstr ""
 
-#: src/caja-application.c:1951
+#: src/caja-application.c:1952
 msgid "Open a browser window."
 msgstr ""
 
-#: src/caja-application.c:1953
+#: src/caja-application.c:1954
 msgid "Quit Caja."
 msgstr "Caja থেকে প্রস্থান।"
 
-#: src/caja-application.c:1955
+#: src/caja-application.c:1956
 msgid "Select specified URI in parent folder."
 msgstr ""
 
-#: src/caja-application.c:1956
+#: src/caja-application.c:1957
 msgid "[URI...]"
 msgstr "[URI...]"
 
-#: src/caja-application.c:1966
+#: src/caja-application.c:1967
 msgid ""
 "\n"
 "\n"
@@ -4612,7 +4637,7 @@ msgstr ""
 
 #: src/caja-connect-server-dialog.c:723 src/caja-location-dialog.c:105
 #: src/file-manager/fm-directory-view.c:1180
-#: src/file-manager/fm-properties-window.c:5476
+#: src/file-manager/fm-properties-window.c:5508
 msgid "There was an error displaying help."
 msgstr "সহায়িকা প্রদর্শনে সমস্যা।"
 
@@ -4684,7 +4709,7 @@ msgstr ""
 "\n"
 "সার্ভার মাউন্টের সাথে সংযোগ করা হবে"
 
-#: src/caja-desktop-window.c:131 src/caja-desktop-window.c:277
+#: src/caja-desktop-window.c:132 src/caja-desktop-window.c:278
 #: src/caja-pathbar.c:1445 src/caja-places-sidebar.c:541
 msgid "Desktop"
 msgstr "ডেস্কটপ"
@@ -4764,7 +4789,7 @@ msgstr "টেনে আনা ফাইলটি সম্ভবত বৈধ �
 msgid "The emblem cannot be added."
 msgstr "প্রতীক যোগ করা সম্ভব নয়।"
 
-#: src/caja-emblem-sidebar.c:1094 src/file-manager/fm-properties-window.c:3473
+#: src/caja-emblem-sidebar.c:1094 src/file-manager/fm-properties-window.c:3495
 msgid "Emblems"
 msgstr "প্রতীকচিহ্ন"
 
@@ -4776,8 +4801,8 @@ msgstr "প্রতীক প্রদর্শন করা হবে"
 #. Translators: this is referred to the permissions
 #. * the user has in a directory.
 #: src/caja-file-management-properties.c:318
-#: src/file-manager/fm-properties-window.c:4247
-#: src/file-manager/fm-properties-window.c:4258
+#: src/file-manager/fm-properties-window.c:4279
+#: src/file-manager/fm-properties-window.c:4290
 msgid "None"
 msgstr "একটিও নয়"
 
@@ -4915,26 +4940,26 @@ msgid "You cannot assign more than one custom icon at a time."
 msgstr "একই সময়ে একাধিক স্বনির্ধারিত আইকন নির্ধারণ করা যাবে না!"
 
 #: src/caja-information-panel.c:525
-#: src/file-manager/fm-properties-window.c:507
+#: src/file-manager/fm-properties-window.c:528
 msgid "Please drag just one image to set a custom icon."
 msgstr ""
 "স্বনির্বাচিত আইকন নির্ধারণের জন্য অনুগ্রহ করে শুধুমাত্র একটি ছবি টেনে আনুন।"
 
 #: src/caja-information-panel.c:552
-#: src/file-manager/fm-properties-window.c:518
+#: src/file-manager/fm-properties-window.c:539
 msgid "The file that you dropped is not local."
 msgstr "টেনে আনা ফাইলটি স্থানীয় নয়।"
 
 #: src/caja-information-panel.c:553
-#: src/file-manager/fm-properties-window.c:519
-#: src/file-manager/fm-properties-window.c:525
+#: src/file-manager/fm-properties-window.c:540
+#: src/file-manager/fm-properties-window.c:546
 msgid "You can only use local images as custom icons."
 msgstr ""
 "স্বনির্বাচিত আইকন তৈরির জন্য শুধুমাত্র স্থানীয় ফাইল সিস্টেমে অবস্থিত ছবি "
 "ব্যবহার করা যাবে।"
 
 #: src/caja-information-panel.c:560
-#: src/file-manager/fm-properties-window.c:524
+#: src/file-manager/fm-properties-window.c:545
 msgid "The file that you dropped is not an image."
 msgstr "টেনে আনা ফাইলটি ছবির ফাইল নয়।"
 
@@ -4947,7 +4972,7 @@ msgstr "স্বনির্বাচিত আইকন রূপ শুধু
 msgid "Open With %s"
 msgstr ""
 
-#: src/caja-location-bar.c:60 src/file-manager/fm-properties-window.c:3318
+#: src/caja-location-bar.c:60 src/file-manager/fm-properties-window.c:3340
 msgid "Location:"
 msgstr "অবস্থান:"
 
@@ -5036,7 +5061,7 @@ msgstr "সব ন্যাভিগেশন উইন্ডো বন্ধ �
 msgid "_Location..."
 msgstr "অবস্থান... (_L)"
 
-#: src/caja-navigation-window-menus.c:849 src/caja-spatial-window.c:929
+#: src/caja-navigation-window-menus.c:849 src/caja-spatial-window.c:940
 msgid "Specify a location to open"
 msgstr "খোলার উদ্দেশ্যে একটি অবস্থান নির্ধারণ করুন"
 
@@ -5064,19 +5089,19 @@ msgstr ""
 msgid "Go to the same location as in the extra pane"
 msgstr "অতিরিক্ত পেনের অনুরূপ অবস্থানে যান"
 
-#: src/caja-navigation-window-menus.c:864 src/caja-spatial-window.c:942
+#: src/caja-navigation-window-menus.c:864 src/caja-spatial-window.c:953
 msgid "_Add Bookmark"
 msgstr "বুকমার্ক যোগ করো (_A)"
 
-#: src/caja-navigation-window-menus.c:865 src/caja-spatial-window.c:943
+#: src/caja-navigation-window-menus.c:865 src/caja-spatial-window.c:954
 msgid "Add a bookmark for the current location to this menu"
 msgstr "বর্তমান অবস্থান নির্দেশক একটি বুকমার্ক এই মেনুর মধ্যে যোগ করুন"
 
-#: src/caja-navigation-window-menus.c:868 src/caja-spatial-window.c:946
+#: src/caja-navigation-window-menus.c:868 src/caja-spatial-window.c:957
 msgid "_Edit Bookmarks..."
 msgstr "বুকমার্ক সম্পাদনা... (_E)"
 
-#: src/caja-navigation-window-menus.c:869 src/caja-spatial-window.c:947
+#: src/caja-navigation-window-menus.c:869 src/caja-spatial-window.c:958
 msgid "Display a window that allows editing the bookmarks in this menu"
 msgstr ""
 "বর্তমান মেনুর মধ্যে উপস্থিত বুকমার্ক সম্পাদনার সুবিধা উপলব্ধকারী একটি উইন্ডো"
@@ -5156,7 +5181,7 @@ msgstr "স্ট্যাটাস-বার (_a)"
 msgid "Change the visibility of this window's statusbar"
 msgstr "বর্তমান উইন্ডোর অবস্থাসূচক বার প্রদর্শন অথবা আড়াল করুন"
 
-#: src/caja-navigation-window-menus.c:926 src/caja-spatial-window.c:950
+#: src/caja-navigation-window-menus.c:926 src/caja-spatial-window.c:961
 msgid "_Search for Files..."
 msgstr "ফাইল অনুসন্ধান...(_S)"
 
@@ -5759,37 +5784,37 @@ msgstr "অনুসন্ধান:"
 msgid "Close the side pane"
 msgstr "পার্শ্ববর্তী পেইন বন্ধ করা হবে"
 
-#: src/caja-spatial-window.c:924
+#: src/caja-spatial-window.c:935
 msgid "_Places"
 msgstr "অবস্থান (_P)"
 
-#: src/caja-spatial-window.c:928
+#: src/caja-spatial-window.c:939
 msgid "Open _Location..."
 msgstr "চিহ্নিত অবস্থান খুলুন... (_L)"
 
-#: src/caja-spatial-window.c:933
+#: src/caja-spatial-window.c:944
 msgid "Close P_arent Folders"
 msgstr "উর্ধ্বস্থ উইন্ডো বন্ধ করুন (_a)"
 
-#: src/caja-spatial-window.c:934
+#: src/caja-spatial-window.c:945
 msgid "Close this folder's parents"
 msgstr "বর্তমান ফোল্ডারের উর্ধ্বস্থ ফোল্ডার বন্ধ করুন"
 
-#: src/caja-spatial-window.c:938
+#: src/caja-spatial-window.c:949
 msgid "Clos_e All Folders"
 msgstr "সব ফোল্ডার বন্ধ করুন (_e)"
 
-#: src/caja-spatial-window.c:939
+#: src/caja-spatial-window.c:950
 msgid "Close all folder windows"
 msgstr "সব ফোল্ডার উইন্ডো বন্ধ করুন"
 
-#: src/caja-spatial-window.c:951
+#: src/caja-spatial-window.c:962
 msgid "Locate documents and folders on this computer by name or content"
 msgstr ""
 "নাম অথবা অন্তর্ভুক্ত বিষয় অনুসারে এই কম্পিউটারে ফাইল অথবা ফোল্ডার অনুসন্ধান "
 "করুন"
 
-#: src/caja-trash-bar.c:199 src/file-manager/fm-desktop-icon-view.c:831
+#: src/caja-trash-bar.c:199 src/file-manager/fm-desktop-icon-view.c:856
 #: src/file-manager/fm-directory-view.c:7424
 msgid "Delete all items in the Trash"
 msgstr "আবর্জনার বাক্সে উপস্থিত সব সামগ্রী মুছে ফেলা হবে"
@@ -6182,59 +6207,59 @@ msgstr "বড় করে দেখা"
 msgid "Set the zoom level of the current view"
 msgstr "বর্তমান প্রদর্শন ব্যবস্থার আকার নির্ধারণ করুন"
 
-#: src/file-manager/fm-desktop-icon-view.c:712
+#: src/file-manager/fm-desktop-icon-view.c:736
 msgid "Background"
 msgstr "পটভূমি"
 
-#: src/file-manager/fm-desktop-icon-view.c:795
+#: src/file-manager/fm-desktop-icon-view.c:820
 #: src/file-manager/fm-directory-view.c:7423
 #: src/file-manager/fm-directory-view.c:9163
 msgid "E_mpty Trash"
 msgstr "আবর্জনার বাক্স ফাঁকা করুন (_m)"
 
-#: src/file-manager/fm-desktop-icon-view.c:811
+#: src/file-manager/fm-desktop-icon-view.c:836
 #: src/file-manager/fm-directory-view.c:7387
 msgid "Create L_auncher..."
 msgstr "লঞ্চার তৈরি করুন... (_a)"
 
-#: src/file-manager/fm-desktop-icon-view.c:813
+#: src/file-manager/fm-desktop-icon-view.c:838
 #: src/file-manager/fm-directory-view.c:7388
 msgid "Create a new launcher"
 msgstr "নতুন লঞ্চার তৈরি করা হবে"
 
-#: src/file-manager/fm-desktop-icon-view.c:820
+#: src/file-manager/fm-desktop-icon-view.c:845
 msgid "Change Desktop _Background"
 msgstr "ডেস্কটপের পটভূমি পরিবর্তন করুন (_B)"
 
-#: src/file-manager/fm-desktop-icon-view.c:822
+#: src/file-manager/fm-desktop-icon-view.c:847
 msgid ""
 "Show a window that lets you set your desktop background's pattern or color"
 msgstr ""
 "ডেস্কটপ পটভূমির বিন্যাস অথবা রং নির্ধারণে সহায়ক উইন্ডো প্রদর্শন করা হবে"
 
-#: src/file-manager/fm-desktop-icon-view.c:829
+#: src/file-manager/fm-desktop-icon-view.c:854
 msgid "Empty Trash"
 msgstr "আবর্জনার বাক্স ফাঁকা করুন"
 
-#: src/file-manager/fm-desktop-icon-view.c:933
+#: src/file-manager/fm-desktop-icon-view.c:958
 msgid "Desktop View"
 msgstr ""
 
-#: src/file-manager/fm-desktop-icon-view.c:934
+#: src/file-manager/fm-desktop-icon-view.c:959
 #: src/file-manager/fm-directory-view.c:7669
 #: src/file-manager/fm-directory-view.c:7673
 msgid "_Desktop"
 msgstr "ডেস্কটপ (_D)"
 
-#: src/file-manager/fm-desktop-icon-view.c:935
+#: src/file-manager/fm-desktop-icon-view.c:960
 msgid "The desktop view encountered an error."
 msgstr "ডেস্কটপ অনুসারে প্রদর্শন ব্যবস্থায় ত্রুটি।"
 
-#: src/file-manager/fm-desktop-icon-view.c:936
+#: src/file-manager/fm-desktop-icon-view.c:961
 msgid "The desktop view encountered an error while starting up."
 msgstr "ডেস্কটপ অনুসারে প্রদর্শন ব্যবস্থা আরম্ভ করার সময় ত্রুটি।"
 
-#: src/file-manager/fm-desktop-icon-view.c:937
+#: src/file-manager/fm-desktop-icon-view.c:962
 msgid "Display this location with the desktop view."
 msgstr ""
 
@@ -7327,188 +7352,188 @@ msgstr "\"%1$s\"-এর নাম পরিবর্তন করে \"%2$s\" �
 msgid "_Organize Desktop by Name"
 msgstr ""
 
-#: src/file-manager/fm-icon-view.c:1757
+#: src/file-manager/fm-icon-view.c:1763
 msgid "Arran_ge Items"
 msgstr "বস্তুর ক্রমবিন্যাস (_g)"
 
-#: src/file-manager/fm-icon-view.c:1760
+#: src/file-manager/fm-icon-view.c:1766
 msgid "Resize Icon..."
 msgstr ""
 
-#: src/file-manager/fm-icon-view.c:1761
+#: src/file-manager/fm-icon-view.c:1767
 msgid "Make the selected icon resizable"
 msgstr ""
 
-#: src/file-manager/fm-icon-view.c:1764 src/file-manager/fm-icon-view.c:1995
+#: src/file-manager/fm-icon-view.c:1770 src/file-manager/fm-icon-view.c:2001
 msgid "Restore Icons' Original Si_zes"
 msgstr "আইকনগুলোর প্রকৃত আকার পুনরায় স্থাপন করা হবে (_z)"
 
-#: src/file-manager/fm-icon-view.c:1765
+#: src/file-manager/fm-icon-view.c:1771
 msgid "Restore each selected icon to its original size"
 msgstr "প্রতিটি চিহ্নিত আইকন মূল আকারে প্রত্যাবর্তন করা হবে"
 
-#: src/file-manager/fm-icon-view.c:1768
+#: src/file-manager/fm-icon-view.c:1774
 msgid "_Organize by Name"
 msgstr ""
 
-#: src/file-manager/fm-icon-view.c:1769
+#: src/file-manager/fm-icon-view.c:1775
 msgid "Reposition icons to better fit in the window and avoid overlapping"
 msgstr ""
 "উইন্ডোর মধ্যে সঠিকরূপে ধারণ করার জন্য ও একে অপরের উপর স্থাপনা এড়ানোর "
 "উদ্দেশ্যে আইকনের স্থান পরিবর্তন"
 
-#: src/file-manager/fm-icon-view.c:1776
+#: src/file-manager/fm-icon-view.c:1782
 msgid "Compact _Layout"
 msgstr "কমপ্যাক্ট বহির্বিন্যাস (_L)"
 
-#: src/file-manager/fm-icon-view.c:1777
+#: src/file-manager/fm-icon-view.c:1783
 msgid "Toggle using a tighter layout scheme"
 msgstr "ঘন বিন্যাসের স্কিম ব্যবহার করে টগল করুন"
 
-#: src/file-manager/fm-icon-view.c:1782
+#: src/file-manager/fm-icon-view.c:1788
 msgid "Re_versed Order"
 msgstr "বিপরীত বিন্যাস (_v)"
 
-#: src/file-manager/fm-icon-view.c:1783
+#: src/file-manager/fm-icon-view.c:1789
 msgid "Display icons in the opposite order"
 msgstr "আইকনগুলো বিপরীত ক্রমবিন্যাসে প্রদর্শন করা হবে"
 
-#: src/file-manager/fm-icon-view.c:1788
+#: src/file-manager/fm-icon-view.c:1794
 msgid "_Keep Aligned"
 msgstr "সারিবদ্ধ করে সাজানো হবে (_K)"
 
-#: src/file-manager/fm-icon-view.c:1789
+#: src/file-manager/fm-icon-view.c:1795
 msgid "Keep icons lined up on a grid"
 msgstr "আইকনগুলো গ্রিডের মধ্যে সুবিন্যস্ত করা হবে"
 
-#: src/file-manager/fm-icon-view.c:1794
+#: src/file-manager/fm-icon-view.c:1800
 msgid "_Lock Icons Position"
 msgstr ""
 
-#: src/file-manager/fm-icon-view.c:1795
+#: src/file-manager/fm-icon-view.c:1801
 msgid "Prevent repositioning icons"
 msgstr ""
 
-#: src/file-manager/fm-icon-view.c:1805
+#: src/file-manager/fm-icon-view.c:1811
 msgid "_Manually"
 msgstr "ব্যবহারকারী দ্বারা (_M)"
 
-#: src/file-manager/fm-icon-view.c:1806
+#: src/file-manager/fm-icon-view.c:1812
 msgid "Leave icons wherever they are dropped"
 msgstr "যেখানে আইকন রাখা হবে সেখানেই তা থাকবে"
 
-#: src/file-manager/fm-icon-view.c:1811
+#: src/file-manager/fm-icon-view.c:1817
 msgid "By _Name"
 msgstr "নাম অনুসারে (_N)"
 
-#: src/file-manager/fm-icon-view.c:1812
+#: src/file-manager/fm-icon-view.c:1818
 msgid "Keep icons sorted by name in rows"
 msgstr "আইকনগুলো নাম অনুসারে সারিবদ্ধ করা হবে"
 
-#: src/file-manager/fm-icon-view.c:1817
+#: src/file-manager/fm-icon-view.c:1823
 msgid "By _Size"
 msgstr "আকার অনুসারে (_S)"
 
-#: src/file-manager/fm-icon-view.c:1818
+#: src/file-manager/fm-icon-view.c:1824
 msgid "Keep icons sorted by size in rows"
 msgstr "আইকনগুলো আকার অনুসারে সারিবদ্ধ করা হবে"
 
-#: src/file-manager/fm-icon-view.c:1823
+#: src/file-manager/fm-icon-view.c:1829
 msgid "By S_ize on Disk"
 msgstr ""
 
-#: src/file-manager/fm-icon-view.c:1824
+#: src/file-manager/fm-icon-view.c:1830
 msgid "Keep icons sorted by disk usage in rows"
 msgstr ""
 
-#: src/file-manager/fm-icon-view.c:1829
+#: src/file-manager/fm-icon-view.c:1835
 msgid "By _Type"
 msgstr "ধরন অনুসারে (_T)"
 
-#: src/file-manager/fm-icon-view.c:1830
+#: src/file-manager/fm-icon-view.c:1836
 msgid "Keep icons sorted by type in rows"
 msgstr "আইকনগুলো ধরন অনুসারে সারিবদ্ধ করা হবে"
 
-#: src/file-manager/fm-icon-view.c:1835
+#: src/file-manager/fm-icon-view.c:1841
 msgid "By Modification _Date"
 msgstr "সর্বশেষ পরিবর্তনের তারিখ অনুসারে (_D)"
 
-#: src/file-manager/fm-icon-view.c:1836
+#: src/file-manager/fm-icon-view.c:1842
 msgid "Keep icons sorted by modification date in rows"
 msgstr "আইকনগুলো সর্বশেষ পরিবর্তনের তারিখ অনুসারে সারিবদ্ধ করা হবে"
 
-#: src/file-manager/fm-icon-view.c:1841
+#: src/file-manager/fm-icon-view.c:1847
 msgid "By _Creation Date"
 msgstr ""
 
-#: src/file-manager/fm-icon-view.c:1842
+#: src/file-manager/fm-icon-view.c:1848
 msgid "Keep icons sorted by creation date in rows"
 msgstr ""
 
-#: src/file-manager/fm-icon-view.c:1847
+#: src/file-manager/fm-icon-view.c:1853
 msgid "By _Emblems"
 msgstr "প্রতীক অনুসারে (_E)"
 
-#: src/file-manager/fm-icon-view.c:1848
+#: src/file-manager/fm-icon-view.c:1854
 msgid "Keep icons sorted by emblems in rows"
 msgstr "আইকনগুলি প্রতীক অনুসারে সারিবদ্ধ করা হবে"
 
-#: src/file-manager/fm-icon-view.c:1853
+#: src/file-manager/fm-icon-view.c:1859
 msgid "By T_rash Time"
 msgstr ""
 
-#: src/file-manager/fm-icon-view.c:1854
+#: src/file-manager/fm-icon-view.c:1860
 msgid "Keep icons sorted by trash time in rows"
 msgstr ""
 
-#: src/file-manager/fm-icon-view.c:1859
+#: src/file-manager/fm-icon-view.c:1865
 msgid "By E_xtension"
 msgstr ""
 
-#: src/file-manager/fm-icon-view.c:1860
+#: src/file-manager/fm-icon-view.c:1866
 msgid "Keep icons sorted by reverse extension segments in rows"
 msgstr ""
 
-#: src/file-manager/fm-icon-view.c:1996
+#: src/file-manager/fm-icon-view.c:2002
 msgid "Restore Icon's Original Si_ze"
 msgstr "আইকনের প্রকৃত আকার পুনরায় স্থাপন করা হবে (_z)"
 
-#: src/file-manager/fm-icon-view.c:2467
+#: src/file-manager/fm-icon-view.c:2473
 #, c-format
 msgid "pointing at \"%s\""
 msgstr "\"%s\" নির্দেশকারী"
 
 #. Translators: this is used in the view menu
-#: src/file-manager/fm-icon-view.c:3480
+#: src/file-manager/fm-icon-view.c:3486
 msgid "_Icons"
 msgstr "আইকন (_I)"
 
-#: src/file-manager/fm-icon-view.c:3481
+#: src/file-manager/fm-icon-view.c:3487
 msgid "The icon view encountered an error."
 msgstr "আইকন অনুসারে প্রদর্শনে ত্রুটি।"
 
-#: src/file-manager/fm-icon-view.c:3482
+#: src/file-manager/fm-icon-view.c:3488
 msgid "The icon view encountered an error while starting up."
 msgstr "আইকন অনুসারে প্রদর্শন ব্যবস্থা আরম্ভ করার সময় ত্রুটি।"
 
-#: src/file-manager/fm-icon-view.c:3483
+#: src/file-manager/fm-icon-view.c:3489
 msgid "Display this location with the icon view."
 msgstr "বর্তমান অবস্থানটি আইকন দৃশ্যের সাহায্যে প্রদর্শন করা হবে।"
 
 #. Translators: this is used in the view menu
-#: src/file-manager/fm-icon-view.c:3495
+#: src/file-manager/fm-icon-view.c:3501
 msgid "_Compact"
 msgstr "কমপ্যাক্ট (_C)"
 
-#: src/file-manager/fm-icon-view.c:3496
+#: src/file-manager/fm-icon-view.c:3502
 msgid "The compact view encountered an error."
 msgstr "সংক্ষিপ্ত প্রদর্শনের ক্ষেত্রে কিছু ত্রুটি দেখা দিয়েছে।"
 
-#: src/file-manager/fm-icon-view.c:3497
+#: src/file-manager/fm-icon-view.c:3503
 msgid "The compact view encountered an error while starting up."
 msgstr "সংক্ষিপ্ত প্রদর্শন আরম্ভের সময় একটি ত্রুটি দেখা দিয়েছে।"
 
-#: src/file-manager/fm-icon-view.c:3498
+#: src/file-manager/fm-icon-view.c:3504
 msgid "Display this location with the compact view."
 msgstr "সংক্ষিপ্ত প্রদর্শন সহযোগে চিহ্নিত অবস্থান প্রদর্শন করা হবে।"
 
@@ -7550,281 +7575,333 @@ msgstr "তালিকা অনুসারে প্রদর্শন ব্
 msgid "Display this location with the list view."
 msgstr "বর্তমান অবস্থান তালিকা অনুসারে প্রদর্শন করা হবে।"
 
-#: src/file-manager/fm-properties-window.c:506
+#: src/file-manager/fm-properties-window.c:397
+msgid "Multiple files"
+msgstr ""
+
+#: src/file-manager/fm-properties-window.c:416
+msgid "No files"
+msgstr ""
+
+#: src/file-manager/fm-properties-window.c:419
+msgid "User-defined icon"
+msgstr ""
+
+#: src/file-manager/fm-properties-window.c:527
 msgid "You cannot assign more than one custom icon at a time!"
 msgstr "একই সময়ে একাধিক স্বনির্ধারিত আইকন নির্ধারণ করা যাবে না!"
 
-#: src/file-manager/fm-properties-window.c:640
+#: src/file-manager/fm-properties-window.c:571
+msgid "Change associated icon"
+msgstr ""
+
+#: src/file-manager/fm-properties-window.c:662
 msgid "_Name:"
 msgid_plural "_Names:"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/file-manager/fm-properties-window.c:996
+#: src/file-manager/fm-properties-window.c:1018
 msgid "Properties"
 msgstr "বৈশিষ্ট্য"
 
-#: src/file-manager/fm-properties-window.c:1008
+#: src/file-manager/fm-properties-window.c:1030
 #, c-format
 msgid "%s Properties"
 msgstr "%s-এর বৈশিষ্ট্যাবলী"
 
-#: src/file-manager/fm-properties-window.c:1337
+#: src/file-manager/fm-properties-window.c:1359
 #, c-format
 msgctxt "MIME type description (MIME type)"
 msgid "%s (%s)"
 msgstr "%1$s (%2$s)"
 
-#: src/file-manager/fm-properties-window.c:1545
+#: src/file-manager/fm-properties-window.c:1567
 msgid "Cancel Group Change?"
 msgstr "দল পরিবর্তনের প্রচেষ্টা কি বাতিল করা হবে?"
 
-#: src/file-manager/fm-properties-window.c:1959
+#: src/file-manager/fm-properties-window.c:1981
 msgid "Cancel Owner Change?"
 msgstr "মালিকানা পরিবর্তনের প্রচেষ্টা কি বাতিল করা হবে?"
 
-#: src/file-manager/fm-properties-window.c:2286
+#: src/file-manager/fm-properties-window.c:2308
 msgid "nothing"
 msgstr "কিছু না"
 
-#: src/file-manager/fm-properties-window.c:2288
+#: src/file-manager/fm-properties-window.c:2310
 msgid "unreadable"
 msgstr "পাঠযোগ্য নয়"
 
-#: src/file-manager/fm-properties-window.c:2307
+#: src/file-manager/fm-properties-window.c:2329
 #, c-format
 msgid "%'d item, with size %s (%s on disk)"
 msgid_plural "%'d items, totalling %s (%s on disk)"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/file-manager/fm-properties-window.c:2317
+#: src/file-manager/fm-properties-window.c:2339
 msgid "(some contents unreadable)"
 msgstr "(কিছু অংশ পড়ার অযোগ্য)"
 
-#: src/file-manager/fm-properties-window.c:2334
+#: src/file-manager/fm-properties-window.c:2356
 msgid "Contents:"
 msgstr "বিষয়বস্তু:"
 
 #. Translators: "used" refers to the capacity of the filesystem
-#: src/file-manager/fm-properties-window.c:3119
+#: src/file-manager/fm-properties-window.c:3141
 msgid "used"
 msgstr "ব্যবহৃত"
 
 #. Translators: "free" refers to the capacity of the filesystem
-#: src/file-manager/fm-properties-window.c:3130
+#: src/file-manager/fm-properties-window.c:3152
 msgid "free"
 msgstr "মুক্ত"
 
-#: src/file-manager/fm-properties-window.c:3134
+#: src/file-manager/fm-properties-window.c:3156
 msgid "Total capacity:"
 msgstr "সর্বমোট ধারণ ক্ষমতা:"
 
-#: src/file-manager/fm-properties-window.c:3148
+#: src/file-manager/fm-properties-window.c:3170
 msgid "Filesystem type:"
 msgstr "ফাইল-সিস্টেমের ধরন:"
 
-#: src/file-manager/fm-properties-window.c:3233
+#: src/file-manager/fm-properties-window.c:3255
 msgid "Basic"
 msgstr "প্রাথমিক"
 
-#: src/file-manager/fm-properties-window.c:3295
+#: src/file-manager/fm-properties-window.c:3317
 msgid "Link target:"
 msgstr "লিংক দ্বারা চিহ্নিত বস্তু:"
 
-#: src/file-manager/fm-properties-window.c:3309
+#: src/file-manager/fm-properties-window.c:3331
 msgid "Size on Disk:"
 msgstr ""
 
-#: src/file-manager/fm-properties-window.c:3324
+#: src/file-manager/fm-properties-window.c:3346
 msgid "Volume:"
 msgstr "ভলিউম:"
 
-#: src/file-manager/fm-properties-window.c:3338
+#: src/file-manager/fm-properties-window.c:3360
 msgid "Accessed:"
 msgstr "সর্বশেষ ব্যবহার:"
 
-#: src/file-manager/fm-properties-window.c:3346
+#: src/file-manager/fm-properties-window.c:3368
 msgid "Modified:"
 msgstr "পরিবর্তিত:"
 
-#: src/file-manager/fm-properties-window.c:3350
+#: src/file-manager/fm-properties-window.c:3372
 msgid "Created:"
 msgstr "তৈরি করা হয়েছে:"
 
-#: src/file-manager/fm-properties-window.c:3359
+#: src/file-manager/fm-properties-window.c:3381
 msgid "Free space:"
 msgstr "ফাঁকা স্থান:"
 
-#: src/file-manager/fm-properties-window.c:3884
+#: src/file-manager/fm-properties-window.c:3906
 msgid "_Read"
 msgstr "পড়া (_R)"
 
-#: src/file-manager/fm-properties-window.c:3886
+#: src/file-manager/fm-properties-window.c:3908
 msgid "_Write"
 msgstr "লেখা (_W)"
 
-#: src/file-manager/fm-properties-window.c:3888
+#: src/file-manager/fm-properties-window.c:3910
 msgid "E_xecute"
 msgstr "সঞ্চালন (_x)"
 
 #. Translators: this gets concatenated to "no read",
 #. * "no access", etc. (see following strings)
-#: src/file-manager/fm-properties-window.c:4155
-#: src/file-manager/fm-properties-window.c:4166
-#: src/file-manager/fm-properties-window.c:4178
+#: src/file-manager/fm-properties-window.c:4177
+#: src/file-manager/fm-properties-window.c:4188
+#: src/file-manager/fm-properties-window.c:4200
 msgid "no "
 msgstr "না "
 
-#: src/file-manager/fm-properties-window.c:4158
+#: src/file-manager/fm-properties-window.c:4180
 msgid "list"
 msgstr "তালিকা"
 
-#: src/file-manager/fm-properties-window.c:4160
+#: src/file-manager/fm-properties-window.c:4182
 msgid "read"
 msgstr "পড়া"
 
-#: src/file-manager/fm-properties-window.c:4169
+#: src/file-manager/fm-properties-window.c:4191
 msgid "create/delete"
 msgstr "নির্মাণ/অপসারণ"
 
-#: src/file-manager/fm-properties-window.c:4171
+#: src/file-manager/fm-properties-window.c:4193
 msgid "write"
 msgstr "লেখা"
 
-#: src/file-manager/fm-properties-window.c:4180
+#: src/file-manager/fm-properties-window.c:4202
 msgid "access"
 msgstr "ব্যবহারের অধিকার"
 
-#: src/file-manager/fm-properties-window.c:4228
+#: src/file-manager/fm-properties-window.c:4250
 msgid "Access:"
 msgstr "ব্যবহারের অধিকার:"
 
-#: src/file-manager/fm-properties-window.c:4230
+#: src/file-manager/fm-properties-window.c:4250
 msgid "Folder access:"
 msgstr "ফোল্ডার ব্যবহারের অধিকার:"
 
-#: src/file-manager/fm-properties-window.c:4232
+#: src/file-manager/fm-properties-window.c:4250
 msgid "File access:"
 msgstr "ফাইল ব্যবহারের অধিকার:"
 
-#: src/file-manager/fm-properties-window.c:4250
+#: src/file-manager/fm-properties-window.c:4252
+msgid "User access:"
+msgstr ""
+
+#: src/file-manager/fm-properties-window.c:4252
+msgid "User folder access:"
+msgstr ""
+
+#: src/file-manager/fm-properties-window.c:4252
+msgid "User file access:"
+msgstr ""
+
+#: src/file-manager/fm-properties-window.c:4253
+msgid "Group access:"
+msgstr ""
+
+#: src/file-manager/fm-properties-window.c:4253
+msgid "Group folder access:"
+msgstr ""
+
+#: src/file-manager/fm-properties-window.c:4253
+msgid "Group file access:"
+msgstr ""
+
+#: src/file-manager/fm-properties-window.c:4254
+msgid "Others access:"
+msgstr ""
+
+#: src/file-manager/fm-properties-window.c:4254
+msgid "Others folder access:"
+msgstr ""
+
+#: src/file-manager/fm-properties-window.c:4254
+msgid "Others file access:"
+msgstr ""
+
+#: src/file-manager/fm-properties-window.c:4282
 msgid "List files only"
 msgstr "ফাইল শুধুমাত্র তালিকাভুক্ত করা হবে"
 
-#: src/file-manager/fm-properties-window.c:4252
+#: src/file-manager/fm-properties-window.c:4284
 msgid "Access files"
 msgstr "ফাইল ব্যবহার:"
 
-#: src/file-manager/fm-properties-window.c:4254
+#: src/file-manager/fm-properties-window.c:4286
 msgid "Create and delete files"
 msgstr "ফাইল নির্মাণ ও অপসারণ করুন"
 
-#: src/file-manager/fm-properties-window.c:4261
+#: src/file-manager/fm-properties-window.c:4293
 msgid "Read-only"
 msgstr "শুধুমাত্র পাঠযোগ্য"
 
-#: src/file-manager/fm-properties-window.c:4263
+#: src/file-manager/fm-properties-window.c:4295
 msgid "Read and write"
 msgstr "পড়া ও লেখা"
 
-#: src/file-manager/fm-properties-window.c:4327
+#: src/file-manager/fm-properties-window.c:4359
 msgid "Special flags:"
 msgstr "বিশেষ ফ্ল্যাগ:"
 
-#: src/file-manager/fm-properties-window.c:4329
+#: src/file-manager/fm-properties-window.c:4361
 msgid "Set _user ID"
 msgstr "ব্যবহারকারীর ID নির্ধারণ (_u)"
 
-#: src/file-manager/fm-properties-window.c:4330
+#: src/file-manager/fm-properties-window.c:4362
 msgid "Set gro_up ID"
 msgstr "গ্রুপ ID নির্ধারণ (_u)"
 
-#: src/file-manager/fm-properties-window.c:4331
+#: src/file-manager/fm-properties-window.c:4363
 msgid "_Sticky"
 msgstr "স্টিকি (_S)"
 
-#: src/file-manager/fm-properties-window.c:4406
-#: src/file-manager/fm-properties-window.c:4598
+#: src/file-manager/fm-properties-window.c:4438
+#: src/file-manager/fm-properties-window.c:4630
 msgid "_Owner:"
 msgstr "মালিক (_O):"
 
-#: src/file-manager/fm-properties-window.c:4414
-#: src/file-manager/fm-properties-window.c:4504
-#: src/file-manager/fm-properties-window.c:4607
+#: src/file-manager/fm-properties-window.c:4446
+#: src/file-manager/fm-properties-window.c:4536
+#: src/file-manager/fm-properties-window.c:4639
 msgid "Owner:"
 msgstr "মালিক:"
 
-#: src/file-manager/fm-properties-window.c:4438
-#: src/file-manager/fm-properties-window.c:4622
+#: src/file-manager/fm-properties-window.c:4470
+#: src/file-manager/fm-properties-window.c:4654
 msgid "_Group:"
 msgstr "দল (_G):"
 
-#: src/file-manager/fm-properties-window.c:4446
-#: src/file-manager/fm-properties-window.c:4505
-#: src/file-manager/fm-properties-window.c:4630
+#: src/file-manager/fm-properties-window.c:4478
+#: src/file-manager/fm-properties-window.c:4537
+#: src/file-manager/fm-properties-window.c:4662
 msgid "Group:"
 msgstr "দল:"
 
-#: src/file-manager/fm-properties-window.c:4470
+#: src/file-manager/fm-properties-window.c:4502
 msgid "Others"
 msgstr "অন্যান্য"
 
-#: src/file-manager/fm-properties-window.c:4485
+#: src/file-manager/fm-properties-window.c:4517
 msgid "Execute:"
 msgstr "সঞ্চালন:"
 
-#: src/file-manager/fm-properties-window.c:4488
+#: src/file-manager/fm-properties-window.c:4520
 msgid "Allow _executing file as program"
 msgstr "প্রোগ্রাম রূপে ফাইল সঞ্চালন করা যাবে (_e)"
 
-#: src/file-manager/fm-properties-window.c:4506
+#: src/file-manager/fm-properties-window.c:4538
 msgid "Others:"
 msgstr "অন্যান্য:"
 
-#: src/file-manager/fm-properties-window.c:4646
+#: src/file-manager/fm-properties-window.c:4678
 msgid "Folder Permissions:"
 msgstr "ফোল্ডারের অনুমতি:"
 
-#: src/file-manager/fm-properties-window.c:4653
+#: src/file-manager/fm-properties-window.c:4685
 msgid "File Permissions:"
 msgstr "ফাইলের অনুমতি:"
 
-#: src/file-manager/fm-properties-window.c:4662
+#: src/file-manager/fm-properties-window.c:4694
 msgid "Text view:"
 msgstr "টেক্সট প্রদর্শন:"
 
-#: src/file-manager/fm-properties-window.c:4809
+#: src/file-manager/fm-properties-window.c:4841
 msgid "You are not the owner, so you cannot change these permissions."
 msgstr ""
 "আপনার মালিকানাধীন না হওয়ার ফলে এই অনুমতিগুলি আপনি পরিবর্তন করতে পারবেন না।"
 
-#: src/file-manager/fm-properties-window.c:4829
+#: src/file-manager/fm-properties-window.c:4861
 msgid "SELinux context:"
 msgstr "SELinux কনটেক্সট:"
 
-#: src/file-manager/fm-properties-window.c:4834
+#: src/file-manager/fm-properties-window.c:4866
 msgid "Last changed:"
 msgstr "সর্বশেষ পরিবর্তন:"
 
-#: src/file-manager/fm-properties-window.c:4847
+#: src/file-manager/fm-properties-window.c:4879
 msgid "Apply Permissions to Enclosed Files"
 msgstr "সংযুক্ত ফাইলগুলোর জন্য অনুমতি প্রদান করুন"
 
-#: src/file-manager/fm-properties-window.c:4861
+#: src/file-manager/fm-properties-window.c:4893
 #, c-format
 msgid "The permissions of \"%s\" could not be determined."
 msgstr "\"%s\"-এর অনুমতি নির্ধারণ করতে ব্যর্থ।"
 
-#: src/file-manager/fm-properties-window.c:4864
+#: src/file-manager/fm-properties-window.c:4896
 msgid "The permissions of the selected file could not be determined."
 msgstr "নির্বাচিত ফাইলের অনুমতি নির্ধারণ করা যায়নি।"
 
-#: src/file-manager/fm-properties-window.c:5450
+#: src/file-manager/fm-properties-window.c:5482
 msgid "Creating Properties window."
 msgstr "বৈশিষ্ট্যাবলী প্রদর্শনকারী উইন্ডো তৈরি করা হচ্ছে।"
 
-#: src/file-manager/fm-properties-window.c:5748
+#: src/file-manager/fm-properties-window.c:5780
 msgid "Select Custom Icon"
 msgstr "স্বনির্বাচিত আইকন বেছে নিন"
 
@@ -7855,15 +7932,3 @@ msgstr ""
 #: src/file-manager/fm-widget-view.c:446
 msgid "Display this location with the widget view."
 msgstr ""
-
-#: data/caja-file-management-properties.ui:638
-msgid "_Display git branch"
-msgstr "গিট শাখা প্রদর্শন করুন"
-
-#: libcaja-private/org.mate.caja.gschema.xml:323
-msgid "Display the git branch with directory name"
-msgstr "ডিরেক্টরি নাম সহ গিট শাখা প্রদর্শন করুন"
-
-#: libcaja-private/org.mate.caja.gschema.xml:324
-msgid "If true, git branch name will be displayed."
-msgstr "যদি সত্য হয়, গিট শাখার নাম প্রদর্শিত হবে।"

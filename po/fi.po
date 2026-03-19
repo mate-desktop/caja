@@ -6,7 +6,7 @@
 # Translators:
 # Mikko Harhanen <gitti@mikkoharhanen.fi>, 2018
 # Riku Viitanen <riisseli4@gmail.com>, 2018
-# Lasse Liehu <larso@gmx.com>, 2018
+# Lasse Liehu-Inui <larso@gmx.com>, 2018
 # Tommi A Vasarainen <tommi.vasarainen@gmail.com>, 2018
 # Eslam Ali <talvikahvi@gmail.com>, 2018
 # Ammuu5, 2018
@@ -14,15 +14,16 @@
 # Teemu Piippo <crimsondusk64@gmail.com>, 2019
 # Jiri Grönroos <jiri.gronroos@iki.fi>, 2019
 # Kimmo Kujansuu <mrkujansuu@gmail.com>, 2020
-# Stefano Karapetsas <stefano@karapetsas.com>, 2022
+# Stefano Karapetsas <stefano@karapetsas.com>, 2025
+# Tommi Nieminen <translator@legisign.org>, 2026
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: caja 1.27.2\n"
+"Project-Id-Version: caja 1.29.0\n"
 "Report-Msgid-Bugs-To: https://github.com/mate-desktop/caja/issues\n"
-"POT-Creation-Date: 2023-08-31 17:54+0200\n"
+"POT-Creation-Date: 2025-07-05 02:05+1000\n"
 "PO-Revision-Date: 2018-03-11 14:48+0000\n"
-"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>, 2022\n"
+"Last-Translator: Tommi Nieminen <translator@legisign.org>, 2026\n"
 "Language-Team: Finnish (https://app.transifex.com/mate/teams/13566/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -76,7 +77,7 @@ msgstr "Pöydän päällys"
 
 #: data/browser.xml:13
 msgid "Dark GNOME"
-msgstr ""
+msgstr "Tumma GNOME"
 
 #: data/browser.xml:14
 msgid "Dots"
@@ -100,7 +101,7 @@ msgstr "Fossiili"
 
 #: data/browser.xml:19
 msgid "GNOME"
-msgstr ""
+msgstr "GNOME"
 
 #: data/browser.xml:20
 msgid "Green Weave"
@@ -301,7 +302,7 @@ msgstr "Poista"
 
 #: data/caja.appdata.xml.in.in:7 data/caja-browser.desktop.in.in:3
 #: data/caja.desktop.in.in:3 data/caja-folder-handler.desktop.in.in:3
-#: src/caja-spatial-window.c:403 src/caja-window.c:167
+#: src/caja-spatial-window.c:414 src/caja-window.c:167
 #: src/caja-window-menus.c:574
 msgid "Caja"
 msgstr "Caja"
@@ -317,12 +318,19 @@ msgid ""
 " associated with them. It is also responsible for handling the icons on the "
 "MATE desktop. It works on local and remote file systems."
 msgstr ""
+"Caja on MATE-työpöydän virallinen tiedostonhallinta. Se mahdollistaa "
+"kansioiden selauksen samoin kuin tiedostojen esikatselun ja niihin "
+"kytkettyjen ohjelmien käynnistämisen. Se vastaa myös MATE-työpöydän "
+"kuvakkeiden käsittelystä. Se toimii niin paikallisissa kuin "
+"etätiedostojärjestelmissä."
 
 #: data/caja.appdata.xml.in.in:16
 msgid ""
 "Caja is extensible through a plugin system, similar to that of GNOME "
 "Nautilus, of which Caja is a fork."
 msgstr ""
+"Caja on liitännäisin laajennettavissa GNOMEn Nautiluksen tapaan, josta Caja "
+"on haarautettu."
 
 #: data/caja-autorun-software.desktop.in.in:3
 msgid "Autorun Prompt"
@@ -338,13 +346,13 @@ msgstr "Muokkaa kirjanmerkkejä"
 #: src/caja-emblem-sidebar.c:555 src/caja-location-dialog.c:192
 #: src/caja-property-browser.c:387 src/caja-window-menus.c:854
 #: src/file-manager/fm-directory-view.c:1206
-#: src/file-manager/fm-properties-window.c:5237
+#: src/file-manager/fm-properties-window.c:5269
 msgid "_Help"
 msgstr "_Ohje"
 
 #: data/caja-bookmarks-window.ui:63
 msgid "_Jump to"
-msgstr ""
+msgstr "Sii_rry"
 
 #: data/caja-bookmarks-window.ui:79
 #: libcaja-private/caja-mime-application-chooser.c:430
@@ -355,7 +363,7 @@ msgstr "_Poista"
 #: data/caja-bookmarks-window.ui:95
 #: data/caja-file-management-properties.ui:325 src/caja-property-browser.c:395
 #: src/caja-window-menus.c:857 src/file-manager/fm-list-view.c:2551
-#: src/file-manager/fm-properties-window.c:5242
+#: src/file-manager/fm-properties-window.c:5274
 msgid "_Close"
 msgstr "_Sulje"
 
@@ -365,11 +373,11 @@ msgstr "_Kirjanmerkit"
 
 #: data/caja-bookmarks-window.ui:196
 msgid "_Name"
-msgstr ""
+msgstr "_Nimi"
 
 #: data/caja-bookmarks-window.ui:241
 msgid "_Location"
-msgstr ""
+msgstr "Si_jainti"
 
 #: data/caja-browser.desktop.in.in:4
 msgid "File Browser"
@@ -383,7 +391,7 @@ msgstr "Selaa tiedostojärjestelmää tiedostonhallinnasta"
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/caja-browser.desktop.in.in:15
 msgid "files;browser;manager;MATE;"
-msgstr ""
+msgstr "tiedostot;selain;selaus;hallinta;hallinnointi;MATE;"
 
 #: data/caja-computer.desktop.in.in:3 libcaja-private/caja-desktop-link.c:114
 #: src/caja-places-sidebar.c:512
@@ -399,7 +407,7 @@ msgstr "Selaa käytettävissä olevia paikallis- ja etäkansioita"
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/caja-computer.desktop.in.in:14
 msgid "browse;disks;folders;local;remote;computer;MATE;"
-msgstr ""
+msgstr "selaa;levyt;asemat;kansiot;hakemistot;paikallinen;etä;tietokone;MATE;"
 
 #: data/caja.desktop.in.in:4
 msgid "File Manager"
@@ -418,13 +426,18 @@ msgstr "Muuta tiedostonhallinnan ikkunoiden toimintaa ja ulkoasua"
 #: data/caja-file-management-properties.desktop.in.in:13
 msgid "file;manager;change;properties;behaviour;appearance;windows;MATE;"
 msgstr ""
+"tiedosto;hallinta;hallinnointi;muuta;ominaisuudet;toiminta;ulkoasu;ikkunat;MATE;"
+
+#: src/file-manager/fm-icon-container.c:354
+msgid "detached: %.7s"
+msgstr ""
 
 #. Translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
 #: data/caja-file-management-properties.ui:44
 #: data/caja-file-management-properties.ui:642
 #: src/file-manager/fm-icon-container.c:620
-#: src/file-manager/fm-icon-view.c:3478
+#: src/file-manager/fm-icon-view.c:3484
 msgid "Icon View"
 msgstr "Kuvakenäkymä"
 
@@ -440,7 +453,7 @@ msgstr "Luettelonäkymä"
 #. * of navigation windows and in the preferences dialog
 #: data/caja-file-management-properties.ui:50
 #: data/caja-file-management-properties.ui:725
-#: src/file-manager/fm-icon-view.c:3493
+#: src/file-manager/fm-icon-view.c:3499
 msgid "Compact View"
 msgstr "Tiivis näkymä"
 
@@ -479,7 +492,7 @@ msgstr "Koon mukaan"
 
 #: data/caja-file-management-properties.ui:87
 msgid "By Size on Disk"
-msgstr ""
+msgstr "Levykoon mukaan"
 
 #: data/caja-file-management-properties.ui:90
 msgid "By Type"
@@ -491,11 +504,11 @@ msgstr "Muokkauspäivämäärän mukaan"
 
 #: data/caja-file-management-properties.ui:96
 msgid "By Creation Date"
-msgstr ""
+msgstr "Luontipäivän mukaan"
 
 #: data/caja-file-management-properties.ui:99
 msgid "By Access Date"
-msgstr ""
+msgstr "Käyttöpäivän mukaan"
 
 #: data/caja-file-management-properties.ui:102
 msgid "By Emblems"
@@ -507,7 +520,7 @@ msgstr "Päätteen mukaan"
 
 #: data/caja-file-management-properties.ui:108
 msgid "By Trashed Date"
-msgstr ""
+msgstr "Roskakoriin vientipäivän mukaan"
 
 #: data/caja-file-management-properties.ui:119
 #: data/caja-file-management-properties.ui:148
@@ -617,7 +630,7 @@ msgstr "Näytä piilotetut tiedostot"
 
 #: data/caja-file-management-properties.ui:510
 msgid "Show backup files"
-msgstr ""
+msgstr "Näytä varmuuskopiotiedostot"
 
 #: data/caja-file-management-properties.ui:568
 msgid "Default _zoom level:"
@@ -630,6 +643,10 @@ msgstr "_Tiivis asettelu"
 #: data/caja-file-management-properties.ui:622
 msgid "_Text beside icons"
 msgstr "T_eksti kuvakkeiden vierellä"
+
+#: data/caja-file-management-properties.ui:638
+msgid "_Display git branch"
+msgstr ""
 
 #: data/caja-file-management-properties.ui:664
 msgid "_Default zoom level:"
@@ -653,11 +670,11 @@ msgstr "Nä_ytä vain kansiot"
 
 #: data/caja-file-management-properties.ui:848
 msgid "Tree View"
-msgstr ""
+msgstr "Puunäkymä"
 
 #: data/caja-file-management-properties.ui:862
 msgid "Defaults"
-msgstr ""
+msgstr "Oletukset"
 
 #: data/caja-file-management-properties.ui:881
 msgid "Views"
@@ -705,7 +722,7 @@ msgstr "Kysy ennen roskakorin _tyhjennystä tai tiedostojen poistoa"
 
 #: data/caja-file-management-properties.ui:1120
 msgid "Ask before moving files to the _Trash"
-msgstr ""
+msgstr "K_ysy ennen tiedostojen siirtämistä roskakoriin"
 
 #: data/caja-file-management-properties.ui:1136
 msgid "I_nclude a Delete command that bypasses Trash"
@@ -878,7 +895,7 @@ msgstr "_Tied.päätt.tiedot"
 
 #: data/caja-file-management-properties.ui:2477
 msgid "C_onfigure Extension"
-msgstr ""
+msgstr "P_äätteen asetukset"
 
 #: data/caja-file-management-properties.ui:2507
 msgid "Extensions"
@@ -901,7 +918,7 @@ msgstr "Avaa henkilökohtaisen kansiosi"
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/caja-home.desktop.in.in:14
 msgid "home;personal;folder;open;MATE;"
-msgstr ""
+msgstr "koti;oma;henkilökohtainen;kansio;avaa;MATE;"
 
 #: data/caja.xml.in:5
 msgid "Saved search"
@@ -919,7 +936,7 @@ msgstr "Selaa kirjanmerkittyjä ja paikallisia verkkosijainteja"
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/mate-network-scheme.desktop.in.in:14
 msgid "bookmarks;browse;local;network;locations;MATE;"
-msgstr ""
+msgstr "kirjanmerkit;selaa;paikallinen;verkko;sijainnit;MATE;"
 
 #: eel/eel-canvas.c:1290 eel/eel-canvas.c:1291
 msgid "X"
@@ -1006,7 +1023,7 @@ msgstr "N_äytä lisätietoja"
 #: eel/eel-stock-dialogs.c:448 eel/eel-stock-dialogs.c:647
 #: libcaja-private/caja-autorun.c:1156
 #: libcaja-private/caja-file-conflict-dialog.c:644
-#: libcaja-private/caja-file-operations.c:183
+#: libcaja-private/caja-file-operations.c:185
 #: libcaja-private/caja-mime-actions.c:820
 #: libcaja-private/caja-mime-actions.c:1741
 #: libcaja-private/caja-open-with-dialog.c:964
@@ -1249,11 +1266,11 @@ msgstr "Hetki, jona tiedostoa viimeksi muokattiin."
 
 #: libcaja-private/caja-column-utilities.c:84
 msgid "Date Created"
-msgstr ""
+msgstr "Luontipäivä"
 
 #: libcaja-private/caja-column-utilities.c:85
 msgid "The date the file was created."
-msgstr ""
+msgstr "Päivä, jolloin tiedosto luotiin."
 
 #: libcaja-private/caja-column-utilities.c:92
 msgid "Date Accessed"
@@ -1280,7 +1297,7 @@ msgid "The group of the file."
 msgstr "Tiedoston ryhmä."
 
 #: libcaja-private/caja-column-utilities.c:116
-#: src/file-manager/fm-properties-window.c:4794
+#: src/file-manager/fm-properties-window.c:4826
 msgid "Permissions"
 msgstr "Oikeudet"
 
@@ -1392,8 +1409,8 @@ msgid "Set as _Background"
 msgstr "Aseta _taustaksi"
 
 #: libcaja-private/caja-dnd.c:841 libcaja-private/caja-dnd.c:894
-#: libcaja-private/caja-progress-info.c:848
-#: libcaja-private/caja-progress-info.c:849
+#: libcaja-private/caja-progress-info.c:850
+#: libcaja-private/caja-progress-info.c:851
 msgid "Cancel"
 msgstr "Peru"
 
@@ -1620,22 +1637,22 @@ msgstr "Annettua ryhmää ”%s” ei ole olemassa"
 #, c-format
 msgid "%'u item"
 msgid_plural "%'u items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%u – kohde"
+msgstr[1] "%u – kohteet"
 
 #: libcaja-private/caja-file.c:6216
 #, c-format
 msgid "%'u folder"
 msgid_plural "%'u folders"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%u kansio"
+msgstr[1] "%u kansiota"
 
 #: libcaja-private/caja-file.c:6217
 #, c-format
 msgid "%'u file"
 msgid_plural "%'u files"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'u tiedosto"
+msgstr[1] "%'u tiedostoa"
 
 #: libcaja-private/caja-file.c:6321
 msgid "%"
@@ -1663,7 +1680,7 @@ msgid "unknown MIME type"
 msgstr "tuntematon MIME-tyyppi"
 
 #: libcaja-private/caja-file.c:6721
-#: src/file-manager/fm-properties-window.c:1294
+#: src/file-manager/fm-properties-window.c:1316
 msgid "unknown"
 msgstr "tuntematon"
 
@@ -1675,7 +1692,7 @@ msgstr "ohjelma"
 msgid "link"
 msgstr "linkki"
 
-#: libcaja-private/caja-file.c:6799 libcaja-private/caja-file-operations.c:403
+#: libcaja-private/caja-file.c:6799 libcaja-private/caja-file-operations.c:405
 #: src/file-manager/fm-directory-view.c:10711
 #, c-format
 msgid "Link to %s"
@@ -1766,14 +1783,14 @@ msgstr "Alkuperäinen tiedosto"
 
 #: libcaja-private/caja-file-conflict-dialog.c:266
 #: libcaja-private/caja-file-conflict-dialog.c:305
-#: src/file-manager/fm-properties-window.c:3305
+#: src/file-manager/fm-properties-window.c:3327
 msgid "Size:"
 msgstr "Koko:"
 
 #: libcaja-private/caja-file-conflict-dialog.c:271
 #: libcaja-private/caja-file-conflict-dialog.c:310
 #: src/caja-connect-server-dialog.c:933
-#: src/file-manager/fm-properties-window.c:3287
+#: src/file-manager/fm-properties-window.c:3309
 msgid "Type:"
 msgstr "Tyyppi:"
 
@@ -1797,7 +1814,7 @@ msgstr "Yhdistä"
 
 #: libcaja-private/caja-file-conflict-dialog.c:599
 msgid "Select a new name for the _destination"
-msgstr ""
+msgstr "Valitse _kohteelle uusi nimi"
 
 #: libcaja-private/caja-file-conflict-dialog.c:624
 msgid "Differences..."
@@ -1805,10 +1822,10 @@ msgstr "Eroavaisuudet..."
 
 #: libcaja-private/caja-file-conflict-dialog.c:634
 msgid "Apply this action to all files and folders"
-msgstr ""
+msgstr "Tee tämä toimenpide kaikille tiedostoille ja kansioille"
 
 #: libcaja-private/caja-file-conflict-dialog.c:649
-#: libcaja-private/caja-file-operations.c:184
+#: libcaja-private/caja-file-operations.c:186
 msgid "_Skip"
 msgstr "_Ohita"
 
@@ -1833,15 +1850,15 @@ msgstr "Ristiriita tiedoston ja kansion kanssa"
 msgid "File conflict"
 msgstr "Tiedostoristiriita"
 
-#: libcaja-private/caja-file-operations.c:185
+#: libcaja-private/caja-file-operations.c:187
 msgid "S_kip All"
 msgstr "_Ohita kaikki"
 
-#: libcaja-private/caja-file-operations.c:186
+#: libcaja-private/caja-file-operations.c:188
 msgid "_Retry"
 msgstr "_Yritä uudelleen"
 
-#: libcaja-private/caja-file-operations.c:187 src/caja-emblem-sidebar.c:376
+#: libcaja-private/caja-file-operations.c:189 src/caja-emblem-sidebar.c:376
 #: src/file-manager/fm-directory-view.c:7481
 #: src/file-manager/fm-directory-view.c:7613
 #: src/file-manager/fm-directory-view.c:9114
@@ -1849,52 +1866,52 @@ msgstr "_Yritä uudelleen"
 msgid "_Delete"
 msgstr "_Poista"
 
-#: libcaja-private/caja-file-operations.c:188
+#: libcaja-private/caja-file-operations.c:190
 msgid "Delete _All"
 msgstr "Poista k_aikki"
 
-#: libcaja-private/caja-file-operations.c:189
+#: libcaja-private/caja-file-operations.c:191
 msgid "Replace _All"
 msgstr "Korvaa _Kaikki"
 
-#: libcaja-private/caja-file-operations.c:190
+#: libcaja-private/caja-file-operations.c:192
 msgid "Merge _All"
 msgstr "Yhdistä k_aikki"
 
-#: libcaja-private/caja-file-operations.c:191
-msgid "Copy _Anyway"
-msgstr "Kopioi kaikesta _huolimatta"
+#: libcaja-private/caja-file-operations.c:193
+msgid "Continue _Anyway"
+msgstr ""
 
-#: libcaja-private/caja-file-operations.c:303
+#: libcaja-private/caja-file-operations.c:305
 #, c-format
 msgid "%'d second"
 msgid_plural "%'d seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'d sekunti"
+msgstr[1] "%'d sekuntia"
 
-#: libcaja-private/caja-file-operations.c:308
-#: libcaja-private/caja-file-operations.c:320
+#: libcaja-private/caja-file-operations.c:310
+#: libcaja-private/caja-file-operations.c:322
 #, c-format
 msgid "%'d minute"
 msgid_plural "%'d minutes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'d minuutti"
+msgstr[1] "%'d minuuttia"
 
-#: libcaja-private/caja-file-operations.c:319
+#: libcaja-private/caja-file-operations.c:321
 #, c-format
 msgid "%'d hour"
 msgid_plural "%'d hours"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'d tunti"
+msgstr[1] "%'d tuntia"
 
-#: libcaja-private/caja-file-operations.c:327
+#: libcaja-private/caja-file-operations.c:329
 #, c-format
 msgid "approximately %'d hour"
 msgid_plural "approximately %'d hours"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "noin %'d tunti"
+msgstr[1] "noin %'d tuntia"
 
-#: libcaja-private/caja-file-operations.c:407
+#: libcaja-private/caja-file-operations.c:409
 #, c-format
 msgid "Another link to %s"
 msgstr "Toinen linkki kohteeseen %s"
@@ -1902,22 +1919,22 @@ msgstr "Toinen linkki kohteeseen %s"
 #. Translators: Feel free to leave out the "st" suffix
 #. * if there's no way to do that nicely for a
 #. * particular language.
-#: libcaja-private/caja-file-operations.c:423
+#: libcaja-private/caja-file-operations.c:425
 #, c-format
 msgid "%'dst link to %s"
 msgstr "%d'd. linkki kohteeseen %s"
 
-#: libcaja-private/caja-file-operations.c:427
+#: libcaja-private/caja-file-operations.c:429
 #, c-format
 msgid "%'dnd link to %s"
 msgstr "%'d. linkki kohteeseen %s"
 
-#: libcaja-private/caja-file-operations.c:431
+#: libcaja-private/caja-file-operations.c:433
 #, c-format
 msgid "%'drd link to %s"
 msgstr "%'d. linkki kohteeseen %s"
 
-#: libcaja-private/caja-file-operations.c:435
+#: libcaja-private/caja-file-operations.c:437
 #, c-format
 msgid "%'dth link to %s"
 msgstr "%'d. linkki kohteeseen %s"
@@ -1926,12 +1943,12 @@ msgstr "%'d. linkki kohteeseen %s"
 #. * Feel free to leave out the st, nd, rd and th suffix or
 #. * make some or all of them match.
 #. Translators: tag used to detect the first copy of a file
-#: libcaja-private/caja-file-operations.c:473
+#: libcaja-private/caja-file-operations.c:475
 msgid " (copy)"
 msgstr " (kopio)"
 
 #. Translators: tag used to detect the second copy of a file
-#: libcaja-private/caja-file-operations.c:475
+#: libcaja-private/caja-file-operations.c:477
 msgid " (another copy)"
 msgstr " (toinen kopio)"
 
@@ -1939,36 +1956,36 @@ msgstr " (toinen kopio)"
 #. Translators: tag used to detect the x12th copy of a file
 #. Translators: tag used to detect the x13th copy of a file
 #. Translators: tag used to detect the xxth copy of a file
-#: libcaja-private/caja-file-operations.c:478
 #: libcaja-private/caja-file-operations.c:480
 #: libcaja-private/caja-file-operations.c:482
-#: libcaja-private/caja-file-operations.c:492
+#: libcaja-private/caja-file-operations.c:484
+#: libcaja-private/caja-file-operations.c:494
 msgid "th copy)"
 msgstr ". kopio"
 
 #. Translators: tag used to detect the x1st copy of a file
-#: libcaja-private/caja-file-operations.c:485
+#: libcaja-private/caja-file-operations.c:487
 msgid "st copy)"
 msgstr ". kopio)"
 
 #. Translators: tag used to detect the x2nd copy of a file
-#: libcaja-private/caja-file-operations.c:487
+#: libcaja-private/caja-file-operations.c:489
 msgid "nd copy)"
 msgstr ". kopio"
 
 #. Translators: tag used to detect the x3rd copy of a file
-#: libcaja-private/caja-file-operations.c:489
+#: libcaja-private/caja-file-operations.c:491
 msgid "rd copy)"
 msgstr ". kopio"
 
 #. Translators: appended to first file copy
-#: libcaja-private/caja-file-operations.c:506
+#: libcaja-private/caja-file-operations.c:508
 #, c-format
 msgid "%s (copy)%s"
 msgstr "%s (kopio)%s"
 
 #. Translators: appended to second file copy
-#: libcaja-private/caja-file-operations.c:508
+#: libcaja-private/caja-file-operations.c:510
 #, c-format
 msgid "%s (another copy)%s"
 msgstr "%s (toinen kopio)%s"
@@ -1977,10 +1994,10 @@ msgstr "%s (toinen kopio)%s"
 #. Translators: appended to x12th file copy
 #. Translators: appended to x13th file copy
 #. Translators: appended to xxth file copy
-#: libcaja-private/caja-file-operations.c:511
 #: libcaja-private/caja-file-operations.c:513
 #: libcaja-private/caja-file-operations.c:515
-#: libcaja-private/caja-file-operations.c:529
+#: libcaja-private/caja-file-operations.c:517
+#: libcaja-private/caja-file-operations.c:531
 #, c-format
 msgid "%s (%'dth copy)%s"
 msgstr "%s (%'d. kopio)%s"
@@ -1991,39 +2008,39 @@ msgstr "%s (%'d. kopio)%s"
 #. translated
 #. * strings look like "%s (copy %'d)%s".
 #. Translators: appended to x1st file copy
-#: libcaja-private/caja-file-operations.c:523
+#: libcaja-private/caja-file-operations.c:525
 #, c-format
 msgid "%s (%'dst copy)%s"
 msgstr "%s (%'d. kopio)%s"
 
 #. Translators: appended to x2nd file copy
-#: libcaja-private/caja-file-operations.c:525
+#: libcaja-private/caja-file-operations.c:527
 #, c-format
 msgid "%s (%'dnd copy)%s"
 msgstr "%s (%'d. kopio)%s"
 
 #. Translators: appended to x3rd file copy
-#: libcaja-private/caja-file-operations.c:527
+#: libcaja-private/caja-file-operations.c:529
 #, c-format
 msgid "%s (%'drd copy)%s"
 msgstr "%s (%'d. kopio)%s"
 
 #. Translators: opening parentheses to match the "th copy)" string
-#: libcaja-private/caja-file-operations.c:625
+#: libcaja-private/caja-file-operations.c:627
 msgid " ("
 msgstr " ("
 
 #. Translators: opening parentheses of the "th copy)" string
-#: libcaja-private/caja-file-operations.c:633
+#: libcaja-private/caja-file-operations.c:635
 #, c-format
 msgid " (%'d"
 msgstr " (%'d."
 
-#: libcaja-private/caja-file-operations.c:1362
+#: libcaja-private/caja-file-operations.c:1364
 msgid "Are you sure you want to permanently delete \"%B\" from the trash?"
 msgstr "Haluatko varmasti poistaa pysyvästi ”%B” roskakorista?"
 
-#: libcaja-private/caja-file-operations.c:1365
+#: libcaja-private/caja-file-operations.c:1367
 #, c-format
 msgid ""
 "Are you sure you want to permanently delete the %'d selected item from the "
@@ -2031,88 +2048,91 @@ msgid ""
 msgid_plural ""
 "Are you sure you want to permanently delete the %'d selected items from the "
 "trash?"
-msgstr[0] ""
+msgstr[0] "Haluatko varmasti pysyvästi poistaa valitun kohteen roskakorista?"
 msgstr[1] ""
+"Haluatko varmasti pysyvästi poistaa valitut %'d kohdetta roskakorista?"
 
-#: libcaja-private/caja-file-operations.c:1375
-#: libcaja-private/caja-file-operations.c:1441
+#: libcaja-private/caja-file-operations.c:1377
+#: libcaja-private/caja-file-operations.c:1443
 msgid "If you delete an item, it will be permanently lost."
 msgstr "Jos poistat kohteen, se häviää pysyvästi."
 
-#: libcaja-private/caja-file-operations.c:1395
+#: libcaja-private/caja-file-operations.c:1397
 msgid "Empty all items from Trash?"
 msgstr "Tyhjennetäänkö kaikki kohteet roskakorista?"
 
-#: libcaja-private/caja-file-operations.c:1399
+#: libcaja-private/caja-file-operations.c:1401
 msgid "All items in the Trash will be permanently deleted."
 msgstr "Kaikki roskakorin kohteet poistetaan pysyvästi."
 
-#: libcaja-private/caja-file-operations.c:1402
-#: libcaja-private/caja-file-operations.c:2334 src/caja-places-sidebar.c:2826
+#: libcaja-private/caja-file-operations.c:1404
+#: libcaja-private/caja-file-operations.c:2340 src/caja-places-sidebar.c:2826
 #: src/caja-trash-bar.c:192
 msgid "Empty _Trash"
 msgstr "Tyhjennä _roskakori"
 
-#: libcaja-private/caja-file-operations.c:1429
+#: libcaja-private/caja-file-operations.c:1431
 msgid "Are you sure you want to permanently delete \"%B\"?"
 msgstr "Haluatko varmasti poistaa kohteen ”%B”?"
 
-#: libcaja-private/caja-file-operations.c:1432
+#: libcaja-private/caja-file-operations.c:1434
 #, c-format
 msgid "Are you sure you want to permanently delete the %'d selected item?"
 msgid_plural ""
 "Are you sure you want to permanently delete the %'d selected items?"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Haluatko varmasti pysyvästi poistaa valitun kohteen?"
+msgstr[1] "Haluatko varmasti pysyvästi poistaa valitut %'d kohdetta?"
 
-#: libcaja-private/caja-file-operations.c:1471
+#: libcaja-private/caja-file-operations.c:1473
 msgid "Are you sure you want to trash \"%B\"?"
 msgstr "Haluatko varmasti siirtää kohteen \"%B\" roskakoriin?"
 
-#: libcaja-private/caja-file-operations.c:1474
+#: libcaja-private/caja-file-operations.c:1476
 #, c-format
 msgid "Are you sure you want to trash the %'d selected item?"
 msgid_plural "Are you sure you want to trash the %'d selected items?"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Haluatko varmasti viedä valitun kohteen roskakoriin?"
+msgstr[1] "Haluatko varmasti viedä valitut %'d kohdetta roskakoriin?"
 
-#: libcaja-private/caja-file-operations.c:1483
+#: libcaja-private/caja-file-operations.c:1485
 msgid "Items moved to the trash may be recovered until the trash is emptied."
 msgstr ""
+"Roskakoriin siirretyt kohteet ovat palautettavissa, kunnes roskakori "
+"tyhjennetään."
 
-#: libcaja-private/caja-file-operations.c:1486
+#: libcaja-private/caja-file-operations.c:1488
 msgid "Move to _Trash"
 msgstr "Siirrä _roskakoriin"
 
-#: libcaja-private/caja-file-operations.c:1516
+#: libcaja-private/caja-file-operations.c:1518
 #, c-format
 msgid "%'d file left to delete"
 msgid_plural "%'d files left to delete"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Jäljellä %'d poistettava tiedosto"
+msgstr[1] "Jäljellä %'d poistettavaa tiedostoa"
 
-#: libcaja-private/caja-file-operations.c:1522
+#: libcaja-private/caja-file-operations.c:1524
 msgid "Deleting files"
 msgstr "Poistetaan tiedostoja"
 
 #. Translators: %T will expand to a time like "2 minutes".
 #. * The singular/plural form will be used depending on the remaining time
 #. (i.e. the %T argument).
-#: libcaja-private/caja-file-operations.c:1539
+#: libcaja-private/caja-file-operations.c:1545
 msgid "%T left"
 msgid_plural "%T left"
 msgstr[0] "%T jäljellä"
 msgstr[1] "%T jäljellä"
 
-#: libcaja-private/caja-file-operations.c:1606
-#: libcaja-private/caja-file-operations.c:1640
-#: libcaja-private/caja-file-operations.c:1679
-#: libcaja-private/caja-file-operations.c:1756
-#: libcaja-private/caja-file-operations.c:2579
+#: libcaja-private/caja-file-operations.c:1612
+#: libcaja-private/caja-file-operations.c:1646
+#: libcaja-private/caja-file-operations.c:1685
+#: libcaja-private/caja-file-operations.c:1762
+#: libcaja-private/caja-file-operations.c:2592
 msgid "Error while deleting."
 msgstr "Virhe poistaessa."
 
-#: libcaja-private/caja-file-operations.c:1610
+#: libcaja-private/caja-file-operations.c:1616
 msgid ""
 "Files in the folder \"%B\" cannot be deleted because you do not have "
 "permissions to see them."
@@ -2120,88 +2140,88 @@ msgstr ""
 "Tiedostoja kansiossa ”%B” ei voi poistaa, koska sinulla ei ole oikeutta "
 "niiden lukemiseen."
 
-#: libcaja-private/caja-file-operations.c:1613
-#: libcaja-private/caja-file-operations.c:2639
-#: libcaja-private/caja-file-operations.c:3634
+#: libcaja-private/caja-file-operations.c:1619
+#: libcaja-private/caja-file-operations.c:2652
+#: libcaja-private/caja-file-operations.c:3668
 msgid ""
 "There was an error getting information about the files in the folder \"%B\"."
 msgstr "Virhe haettaessa tietoja tiedostoista kansiossa ”%B”."
 
-#: libcaja-private/caja-file-operations.c:1622
-#: libcaja-private/caja-file-operations.c:3643
+#: libcaja-private/caja-file-operations.c:1628
+#: libcaja-private/caja-file-operations.c:3677
 msgid "_Skip files"
 msgstr "_Ohita tiedostot"
 
-#: libcaja-private/caja-file-operations.c:1643
+#: libcaja-private/caja-file-operations.c:1649
 msgid ""
 "The folder \"%B\" cannot be deleted because you do not have permissions to "
 "read it."
 msgstr ""
 "Kansiota ”%B” ei voi poistaa, koska sinulla ei ole oikeutta sen lukemiseen."
 
-#: libcaja-private/caja-file-operations.c:1646
-#: libcaja-private/caja-file-operations.c:2678
-#: libcaja-private/caja-file-operations.c:3679
+#: libcaja-private/caja-file-operations.c:1652
+#: libcaja-private/caja-file-operations.c:2691
+#: libcaja-private/caja-file-operations.c:3713
 msgid "There was an error reading the folder \"%B\"."
 msgstr "Virhe luettaessa kansiota ”%B”."
 
-#: libcaja-private/caja-file-operations.c:1680
+#: libcaja-private/caja-file-operations.c:1686
 msgid "Could not remove the folder %B."
 msgstr "Kansiota %B ei voitu poistaa."
 
-#: libcaja-private/caja-file-operations.c:1757
+#: libcaja-private/caja-file-operations.c:1763
 msgid "There was an error deleting %B."
 msgstr "Virhe poistettaessa kohdetta %B."
 
-#: libcaja-private/caja-file-operations.c:1837
+#: libcaja-private/caja-file-operations.c:1843
 msgid "Moving files to trash"
 msgstr "Siirretään tiedostoja roskakoriin"
 
-#: libcaja-private/caja-file-operations.c:1839
+#: libcaja-private/caja-file-operations.c:1845
 #, c-format
 msgid "%'d file left to trash"
 msgid_plural "%'d files left to trash"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Jäljellä %'d tiedosto vietäväksi roskakoriin"
+msgstr[1] "Jäljellä %'d tiedostoa vietäväksi roskakoriin"
 
-#: libcaja-private/caja-file-operations.c:1895
+#: libcaja-private/caja-file-operations.c:1901
 msgid "Cannot move file to trash, do you want to delete immediately?"
 msgstr "Kohdetta ei voi siirtää roskakoriin. Haluatko poistaa sen heti?"
 
-#: libcaja-private/caja-file-operations.c:1896
+#: libcaja-private/caja-file-operations.c:1902
 msgid "The file \"%B\" cannot be moved to the trash."
 msgstr "Tiedostoa ”%B” ei voi siirtää roskakoriin."
 
-#: libcaja-private/caja-file-operations.c:2081
+#: libcaja-private/caja-file-operations.c:2087
 msgid "Trashing Files"
 msgstr "Siirretään tiedostoja roskakoriin"
 
-#: libcaja-private/caja-file-operations.c:2083
+#: libcaja-private/caja-file-operations.c:2089
 msgid "Deleting Files"
 msgstr "Poistetaan tiedostoja"
 
-#: libcaja-private/caja-file-operations.c:2146 src/caja-places-sidebar.c:2274
+#: libcaja-private/caja-file-operations.c:2152 src/caja-places-sidebar.c:2274
 #: src/caja-places-sidebar.c:2310
 msgid "It is now safe to remove the drive"
-msgstr ""
+msgstr "Aseman voi nyt turvallisesti poistaa"
 
-#: libcaja-private/caja-file-operations.c:2159
+#: libcaja-private/caja-file-operations.c:2165
 msgid "Unable to eject %V"
 msgstr "Asemaa %V ei voi avata"
 
-#: libcaja-private/caja-file-operations.c:2161
+#: libcaja-private/caja-file-operations.c:2167
 msgid "Unable to unmount %V"
 msgstr "Osiota %V ei voi irrottaa"
 
-#: libcaja-private/caja-file-operations.c:2197 src/caja-places-sidebar.c:2344
+#: libcaja-private/caja-file-operations.c:2203 src/caja-places-sidebar.c:2344
 msgid "Writing data to the drive -- do not unplug"
-msgstr ""
+msgstr "Asemalle kirjoitetaan tietoa – älä irrota"
 
-#: libcaja-private/caja-file-operations.c:2319
+#: libcaja-private/caja-file-operations.c:2325
 msgid "Do you want to empty the trash before you unmount?"
 msgstr "Haluatko tyhjentää roskakorin ennen irrottamista?"
 
-#: libcaja-private/caja-file-operations.c:2321
+#: libcaja-private/caja-file-operations.c:2327
 msgid ""
 "In order to regain the free space on this volume the trash must be emptied. "
 "All trashed items on the volume will be permanently lost."
@@ -2209,61 +2229,61 @@ msgstr ""
 "Jotta vapaa tila laitteella oikeasti vapautuisi, täytyy sen roskakori "
 "tyhjentää. Kaikki aseman roskakorissa olevat tiedostot hukataan pysyvästi."
 
-#: libcaja-private/caja-file-operations.c:2328
+#: libcaja-private/caja-file-operations.c:2334
 msgid "Do _not Empty Trash"
 msgstr "Älä tyhje_nnä roskakoria"
 
-#: libcaja-private/caja-file-operations.c:2449
+#: libcaja-private/caja-file-operations.c:2455
 #, c-format
 msgid "Unable to mount %s"
 msgstr "Ei voi liittää %s"
 
-#: libcaja-private/caja-file-operations.c:2526
+#: libcaja-private/caja-file-operations.c:2536
 #, c-format
 msgid "Preparing to copy %'d file (%S)"
 msgid_plural "Preparing to copy %'d files (%S)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Valmistaudutaan kopioimaan %'d tiedosto (%S)"
+msgstr[1] "Valmistaudutaan kopioimaan %'d tiedostoa (%S)"
 
-#: libcaja-private/caja-file-operations.c:2532
+#: libcaja-private/caja-file-operations.c:2542
 #, c-format
 msgid "Preparing to move %'d file (%S)"
 msgid_plural "Preparing to move %'d files (%S)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Valmistaudutaan siirtämään tiedosto (%S)"
+msgstr[1] "Valmistaudutaan siirtämään %'d tiedostoa (%S)"
 
-#: libcaja-private/caja-file-operations.c:2538
+#: libcaja-private/caja-file-operations.c:2548
 #, c-format
 msgid "Preparing to delete %'d file (%S)"
 msgid_plural "Preparing to delete %'d files (%S)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Valmistaudutaan poistamaan tiedosto (%S)"
+msgstr[1] "Valmistaudutaan poistamaan %'d tiedostoa (%S)"
 
-#: libcaja-private/caja-file-operations.c:2544
+#: libcaja-private/caja-file-operations.c:2554
 #, c-format
 msgid "Preparing to trash %'d file"
 msgid_plural "Preparing to trash %'d files"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Valmistaudutaan viemään tiedosto roskakoriin"
+msgstr[1] "Valmistaudutaan viemään %'d tiedostoa roskakoriin"
 
-#: libcaja-private/caja-file-operations.c:2575
-#: libcaja-private/caja-file-operations.c:3486
-#: libcaja-private/caja-file-operations.c:3626
-#: libcaja-private/caja-file-operations.c:3671
+#: libcaja-private/caja-file-operations.c:2588
+#: libcaja-private/caja-file-operations.c:3520
+#: libcaja-private/caja-file-operations.c:3660
+#: libcaja-private/caja-file-operations.c:3705
 msgid "Error while copying."
 msgstr "Virhe kopioidessa."
 
-#: libcaja-private/caja-file-operations.c:2577
-#: libcaja-private/caja-file-operations.c:3624
-#: libcaja-private/caja-file-operations.c:3669
+#: libcaja-private/caja-file-operations.c:2590
+#: libcaja-private/caja-file-operations.c:3658
+#: libcaja-private/caja-file-operations.c:3703
 msgid "Error while moving."
 msgstr "Virhe siirtäessä."
 
-#: libcaja-private/caja-file-operations.c:2581
+#: libcaja-private/caja-file-operations.c:2594
 msgid "Error while moving files to trash."
 msgstr "Virhe siirrettäessä tiedostoja roskakoriin."
 
-#: libcaja-private/caja-file-operations.c:2636
+#: libcaja-private/caja-file-operations.c:2649
 msgid ""
 "Files in the folder \"%B\" cannot be handled because you do not have "
 "permissions to see them."
@@ -2271,44 +2291,53 @@ msgstr ""
 "Tiedostoja kansiossa ”%B” ei voi käsitellä, koska sinulla ei ole oikeutta "
 "nähdä niitä."
 
-#: libcaja-private/caja-file-operations.c:2675
+#: libcaja-private/caja-file-operations.c:2688
 msgid ""
 "The folder \"%B\" cannot be handled because you do not have permissions to "
 "read it."
 msgstr ""
 "Kansiota ”%B” ei voi käsitellä, koska sinulla ei ole oikeutta lukea sitä."
 
-#: libcaja-private/caja-file-operations.c:2753
+#: libcaja-private/caja-file-operations.c:2766
 msgid ""
 "The file \"%B\" cannot be handled because you do not have permissions to "
 "read it."
 msgstr ""
 "Tiedostoa ”%B” ei voi käsitellä, koska sinulla ei ole oikeutta lukea sitä."
 
-#: libcaja-private/caja-file-operations.c:2756
+#: libcaja-private/caja-file-operations.c:2769
 msgid "There was an error getting information about \"%B\"."
 msgstr "Virhe haettaessa tietoja kohteesta ”%B”."
 
-#: libcaja-private/caja-file-operations.c:2856
-#: libcaja-private/caja-file-operations.c:2898
-#: libcaja-private/caja-file-operations.c:2931
-#: libcaja-private/caja-file-operations.c:2961
+#: libcaja-private/caja-file-operations.c:2846
+msgid "Error while creating file/directory in \"%B\"."
+msgstr ""
+
+#: libcaja-private/caja-file-operations.c:2848
+msgid "Error while creating link in \"%B\"."
+msgstr ""
+
+#: libcaja-private/caja-file-operations.c:2850
 msgid "Error while copying to \"%B\"."
 msgstr "Virhe kohteeseen ”%B” kopioinnissa."
 
-#: libcaja-private/caja-file-operations.c:2860
+#: libcaja-private/caja-file-operations.c:2852
+msgid "Error while moving to \"%B\"."
+msgstr ""
+
+#: libcaja-private/caja-file-operations.c:2894
 msgid "You do not have permissions to access the destination folder."
 msgstr "Sinulla ei ole oikeuksia avata kohdekansiota."
 
-#: libcaja-private/caja-file-operations.c:2862
+#: libcaja-private/caja-file-operations.c:2896
 msgid "There was an error getting information about the destination."
 msgstr "Virhe haettaessa tietoja kohteesta."
 
-#: libcaja-private/caja-file-operations.c:2899
+#: libcaja-private/caja-file-operations.c:2933
 msgid "The destination is not a folder."
 msgstr "Kohde ei ole kansio."
 
-#: libcaja-private/caja-file-operations.c:2932
+#: libcaja-private/caja-file-operations.c:2966
 msgid ""
 "There is not enough space on the destination. Try to remove files to make "
 "space."
@@ -2316,66 +2345,66 @@ msgstr ""
 "Kohteessa ei ole tarpeeksi levytilaa jäljellä. Yritä tehdä tilaa poistamalla"
 " tiedostoja."
 
-#: libcaja-private/caja-file-operations.c:2934
+#: libcaja-private/caja-file-operations.c:2968
 msgid "There is %"
 msgstr ""
 
-#: libcaja-private/caja-file-operations.c:2962
+#: libcaja-private/caja-file-operations.c:2996
 msgid "The destination is read-only."
 msgstr "Kohdetta voi vain lukea."
 
-#: libcaja-private/caja-file-operations.c:3020
+#: libcaja-private/caja-file-operations.c:3054
 msgid "Moving \"%B\" to \"%B\""
 msgstr "Siirretään ”%B” paikkaan ”%B”."
 
-#: libcaja-private/caja-file-operations.c:3021
+#: libcaja-private/caja-file-operations.c:3055
 msgid "Copying \"%B\" to \"%B\""
 msgstr "Kopioidaan ”%B” paikkaan ”%B”."
 
-#: libcaja-private/caja-file-operations.c:3026
+#: libcaja-private/caja-file-operations.c:3060
 msgid "Duplicating \"%B\""
 msgstr "Kahdennetaan ”%B”"
 
-#: libcaja-private/caja-file-operations.c:3034
+#: libcaja-private/caja-file-operations.c:3068
 msgid "Moving %'d file (in \"%B\") to \"%B\""
 msgid_plural "Moving %'d files (in \"%B\") to \"%B\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Siirretään tiedosto (kansiosta ”%B”) kansioon ”%B”"
+msgstr[1] "Siirretään %'d tiedostoa (kansiosta ”%B”) kansioon ”%B”"
 
-#: libcaja-private/caja-file-operations.c:3038
+#: libcaja-private/caja-file-operations.c:3072
 msgid "Copying %'d file (in \"%B\") to \"%B\""
 msgid_plural "Copying %'d files (in \"%B\") to \"%B\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Kopioidaan tiedosto (kansiosta ”%B”) kansioon ”%B”"
+msgstr[1] "Kopioidaan %'d tiedostoa (kansiosta ”%B”) kansioon ”%B”"
 
-#: libcaja-private/caja-file-operations.c:3046
+#: libcaja-private/caja-file-operations.c:3080
 msgid "Duplicating %'d file (in \"%B\")"
 msgid_plural "Duplicating %'d files (in \"%B\")"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Monistetaan tiedosto (kansiossa ”%B”)"
+msgstr[1] "Monistetaan %'d tiedostoa (kansiossa ”%B”)"
 
-#: libcaja-private/caja-file-operations.c:3056
+#: libcaja-private/caja-file-operations.c:3090
 msgid "Moving %'d file to \"%B\""
 msgid_plural "Moving %'d files to \"%B\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Siirretään tiedosto kansioon ”%B”"
+msgstr[1] "Siirretään %'d tiedostoa kansioon ”%B”"
 
-#: libcaja-private/caja-file-operations.c:3060
+#: libcaja-private/caja-file-operations.c:3094
 msgid "Copying %'d file to \"%B\""
 msgid_plural "Copying %'d files to \"%B\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Kopioidaan tiedosto kansioon ”%B”"
+msgstr[1] "Kopioidaan %'d tiedostoa kansioon ”%B”"
 
-#: libcaja-private/caja-file-operations.c:3066
+#: libcaja-private/caja-file-operations.c:3100
 #, c-format
 msgid "Duplicating %'d file"
 msgid_plural "Duplicating %'d files"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Monistetaan tiedosto"
+msgstr[1] "Monistetaan %'d tiedostoa"
 
 #. Translators: %S will expand to a size like "2 bytes" or "3 MB", so
 #. something like "4 kb of 4 MB"
-#: libcaja-private/caja-file-operations.c:3086
+#: libcaja-private/caja-file-operations.c:3120
 #, c-format
 msgid "%S of %S"
 msgstr "%S / %S"
@@ -2387,13 +2416,13 @@ msgstr "%S / %S"
 #. *
 #. * The singular/plural form will be used depending on the remaining time
 #. (i.e. the %T argument).
-#: libcaja-private/caja-file-operations.c:3099
+#: libcaja-private/caja-file-operations.c:3133
 msgid "%S of %S — %T left (%S/sec)"
 msgid_plural "%S of %S — %T left (%S/sec)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%S/%S – jäljellä %T (%S/s)"
+msgstr[1] "%S/%S – jäljellä %T (%S/s)"
 
-#: libcaja-private/caja-file-operations.c:3490
+#: libcaja-private/caja-file-operations.c:3524
 msgid ""
 "The folder \"%B\" cannot be copied because you do not have permissions to "
 "create it in the destination."
@@ -2401,11 +2430,11 @@ msgstr ""
 "Kansiota ”%B” ei voida kopioida, koska sinulla ei ole oikeutta luoda sitä "
 "kohteeseen."
 
-#: libcaja-private/caja-file-operations.c:3493
+#: libcaja-private/caja-file-operations.c:3527
 msgid "There was an error creating the folder \"%B\"."
 msgstr "Virhe luotaessa kansiota ”%B”."
 
-#: libcaja-private/caja-file-operations.c:3631
+#: libcaja-private/caja-file-operations.c:3665
 msgid ""
 "Files in the folder \"%B\" cannot be copied because you do not have "
 "permissions to see them."
@@ -2413,165 +2442,165 @@ msgstr ""
 "Tiedostoja kansiossa ”%B” ei voi kopioida, koska sinulla ei ole oikeutta "
 "nähdä niitä."
 
-#: libcaja-private/caja-file-operations.c:3676
+#: libcaja-private/caja-file-operations.c:3710
 msgid ""
 "The folder \"%B\" cannot be copied because you do not have permissions to "
 "read it."
 msgstr ""
 "Kansiota ”%B” ei voi kopioida, koska sinulla ei ole oikeutta sen lukemiseen."
 
-#: libcaja-private/caja-file-operations.c:3721
-#: libcaja-private/caja-file-operations.c:4420
-#: libcaja-private/caja-file-operations.c:5011
+#: libcaja-private/caja-file-operations.c:3755
+#: libcaja-private/caja-file-operations.c:4454
+#: libcaja-private/caja-file-operations.c:5046
 msgid "Error while moving \"%B\"."
 msgstr "Virhe siirettäessä ”%B”."
 
-#: libcaja-private/caja-file-operations.c:3722
+#: libcaja-private/caja-file-operations.c:3756
 msgid "Could not remove the source folder."
 msgstr "Lähdekansiota ei voitu poistaa."
 
-#: libcaja-private/caja-file-operations.c:3807
-#: libcaja-private/caja-file-operations.c:3848
-#: libcaja-private/caja-file-operations.c:4422
-#: libcaja-private/caja-file-operations.c:4494
+#: libcaja-private/caja-file-operations.c:3841
+#: libcaja-private/caja-file-operations.c:3882
+#: libcaja-private/caja-file-operations.c:4456
+#: libcaja-private/caja-file-operations.c:4528
 msgid "Error while copying \"%B\"."
 msgstr "Virhe kopioitaessa ”%B”."
 
-#: libcaja-private/caja-file-operations.c:3808
+#: libcaja-private/caja-file-operations.c:3842
 #, c-format
 msgid "Could not remove files from the already existing folder %F."
 msgstr "Tiedostoja ei voitu poistaa jo olemassa olevasta kansiosta %F."
 
-#: libcaja-private/caja-file-operations.c:3849
+#: libcaja-private/caja-file-operations.c:3883
 #, c-format
 msgid "Could not remove the already existing file %F."
 msgstr "Ei voitu poistaa jo olemassa olevaa tiedostoa %F."
 
-#: libcaja-private/caja-file-operations.c:4167
-#: libcaja-private/caja-file-operations.c:4857
+#: libcaja-private/caja-file-operations.c:4201
+#: libcaja-private/caja-file-operations.c:4892
 msgid "You cannot move a folder into itself."
 msgstr "Et voi siirtää kansiota itseensä."
 
-#: libcaja-private/caja-file-operations.c:4168
-#: libcaja-private/caja-file-operations.c:4858
+#: libcaja-private/caja-file-operations.c:4202
+#: libcaja-private/caja-file-operations.c:4893
 msgid "You cannot copy a folder into itself."
 msgstr "Et voi kopioida kansiota itseensä."
 
-#: libcaja-private/caja-file-operations.c:4169
-#: libcaja-private/caja-file-operations.c:4859
+#: libcaja-private/caja-file-operations.c:4203
+#: libcaja-private/caja-file-operations.c:4894
 msgid "The destination folder is inside the source folder."
 msgstr "Kohdekansio on lähdekansion sisällä."
 
-#: libcaja-private/caja-file-operations.c:4200
+#: libcaja-private/caja-file-operations.c:4234
 msgid "You cannot move a file over itself."
 msgstr "Et voi siirtää tiedostoa itseensä."
 
-#: libcaja-private/caja-file-operations.c:4201
+#: libcaja-private/caja-file-operations.c:4235
 msgid "You cannot copy a file over itself."
 msgstr "Et voi kopioida tiedostoa itseensä."
 
-#: libcaja-private/caja-file-operations.c:4202
+#: libcaja-private/caja-file-operations.c:4236
 msgid "The source file would be overwritten by the destination."
 msgstr "Kohde kirjoittaisi lähdetiedoston päälle."
 
-#: libcaja-private/caja-file-operations.c:4424
+#: libcaja-private/caja-file-operations.c:4458
 #, c-format
 msgid "Could not remove the already existing file with the same name in %F."
 msgstr "Aiempaa samannimistä tiedostoa kohteessa %F ei voitu poistaa."
 
-#: libcaja-private/caja-file-operations.c:4495
+#: libcaja-private/caja-file-operations.c:4529
 #, c-format
 msgid "There was an error copying the file into %F."
 msgstr "Virhe kopioitaessa tiedostoja kohteeseen %F."
 
-#: libcaja-private/caja-file-operations.c:4741
+#: libcaja-private/caja-file-operations.c:4776
 msgid "Copying Files"
 msgstr "Kopioidaan tiedostoja"
 
-#: libcaja-private/caja-file-operations.c:4768
+#: libcaja-private/caja-file-operations.c:4803
 msgid "Preparing to Move to \"%B\""
 msgstr "Valmistellaan ”%B” siirtoa"
 
-#: libcaja-private/caja-file-operations.c:4772
+#: libcaja-private/caja-file-operations.c:4807
 #, c-format
 msgid "Preparing to move %'d file"
 msgid_plural "Preparing to move %'d files"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Valmistaudutaan siirtämään tiedosto"
+msgstr[1] "Valmistaudutaan siirtämään %'d tiedostoa"
 
-#: libcaja-private/caja-file-operations.c:5012
+#: libcaja-private/caja-file-operations.c:5047
 #, c-format
 msgid "There was an error moving the file into %F."
 msgstr "Tapahtui virhe siirrettäessä tiedostoa kohteeseen %F."
 
-#: libcaja-private/caja-file-operations.c:5280
+#: libcaja-private/caja-file-operations.c:5319
 msgid "Moving Files"
 msgstr "Siirretään tiedostoja"
 
-#: libcaja-private/caja-file-operations.c:5311
+#: libcaja-private/caja-file-operations.c:5350
 msgid "Creating links in \"%B\""
 msgstr "Luodaan linkkejä kohteeseen ”%B”"
 
-#: libcaja-private/caja-file-operations.c:5315
+#: libcaja-private/caja-file-operations.c:5354
 #, c-format
 msgid "Making link to %'d file"
 msgid_plural "Making links to %'d files"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Tehdään linkit %'d tiedostoon."
+msgstr[1] "Tehdään linkit %'d tiedostoon."
 
-#: libcaja-private/caja-file-operations.c:5446
+#: libcaja-private/caja-file-operations.c:5485
 msgid "Error while creating link to %B."
 msgstr "Virhe luotaessa linkkiä kohteeseen %B."
 
-#: libcaja-private/caja-file-operations.c:5448
+#: libcaja-private/caja-file-operations.c:5487
 msgid "Symbolic links only supported for local files"
 msgstr ""
 "Paikallisia linkkejä voi käyttää vain paikallisten tiedostojen kanssa."
 
-#: libcaja-private/caja-file-operations.c:5451
+#: libcaja-private/caja-file-operations.c:5490
 msgid "The target doesn't support symbolic links."
 msgstr "Kohde ei tue symbolisia linkkejä."
 
-#: libcaja-private/caja-file-operations.c:5454
+#: libcaja-private/caja-file-operations.c:5493
 #, c-format
 msgid "There was an error creating the symlink in %F."
 msgstr "Virhe luotaessa symbolista linkkiä kohteeseen %F."
 
-#: libcaja-private/caja-file-operations.c:5767
+#: libcaja-private/caja-file-operations.c:5807
 msgid "Setting permissions"
 msgstr "Asetetaan oikeuksia"
 
 #. Translators: the initial name of a new folder
-#: libcaja-private/caja-file-operations.c:6026
+#: libcaja-private/caja-file-operations.c:6067
 msgid "untitled folder"
 msgstr "nimetön kansio"
 
 #. Translators: the initial name of a new empty file
-#: libcaja-private/caja-file-operations.c:6034
+#: libcaja-private/caja-file-operations.c:6075
 msgid "new file"
 msgstr "uusi tiedosto"
 
-#: libcaja-private/caja-file-operations.c:6208
+#: libcaja-private/caja-file-operations.c:6249
 msgid "Error while creating directory %B."
 msgstr "Virhe luotaessa kansiota %B."
 
-#: libcaja-private/caja-file-operations.c:6210
+#: libcaja-private/caja-file-operations.c:6251
 msgid "Error while creating file %B."
 msgstr "Virhe luotaessa tiedostoa %B."
 
-#: libcaja-private/caja-file-operations.c:6212
+#: libcaja-private/caja-file-operations.c:6253
 #, c-format
 msgid "There was an error creating the directory in %F."
 msgstr "Virhe luotaessa kansiota kohteeseen %F."
 
-#: libcaja-private/caja-file-operations.c:6489
+#: libcaja-private/caja-file-operations.c:6530
 msgid "Emptying Trash"
 msgstr "Tyhjennetään roskakoria"
 
-#: libcaja-private/caja-file-operations.c:6538
-#: libcaja-private/caja-file-operations.c:6578
-#: libcaja-private/caja-file-operations.c:6613
-#: libcaja-private/caja-file-operations.c:6647
+#: libcaja-private/caja-file-operations.c:6579
+#: libcaja-private/caja-file-operations.c:6619
+#: libcaja-private/caja-file-operations.c:6654
+#: libcaja-private/caja-file-operations.c:6688
 msgid "Unable to mark launcher trusted (executable)"
 msgstr "Suoritettavaa käynnistintä ei voi merkitä luotetuksi"
 
@@ -2647,15 +2676,15 @@ msgstr "Haluatko varmasti avata kaikki tiedostot?"
 #, c-format
 msgid "This will open %d separate tab."
 msgid_plural "This will open %d separate tabs."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Tämä avaa erillisen välilehden."
+msgstr[1] "Tämä avaa %d erillistä välilehteä."
 
 #: libcaja-private/caja-mime-actions.c:1189 src/caja-location-bar.c:194
 #, c-format
 msgid "This will open %d separate window."
 msgid_plural "This will open %d separate windows."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Tämä avaa erillisen ikkunan."
+msgstr[1] "Tämä avaa %d erillistä ikkunaa."
 
 #: libcaja-private/caja-mime-actions.c:1268
 #: src/caja-window-manage-views.c:2139 src/caja-window-manage-views.c:2147
@@ -2736,8 +2765,8 @@ msgstr "”%s” avautuu."
 #, c-format
 msgid "Opening %d item."
 msgid_plural "Opening %d items."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Avataan %d kohde."
+msgstr[1] "Avataan %d kohdetta."
 
 #: libcaja-private/caja-mime-application-chooser.c:162
 #: libcaja-private/caja-open-with-dialog.c:304
@@ -2824,7 +2853,7 @@ msgid "Select an Application"
 msgstr "Valitse ohjelma"
 
 #: libcaja-private/caja-open-with-dialog.c:863
-#: src/file-manager/fm-properties-window.c:5128
+#: src/file-manager/fm-properties-window.c:5160
 msgid "Open With"
 msgstr "Avaa ohjelmalla"
 
@@ -2917,12 +2946,16 @@ msgid ""
 "No other applications are available to view this file. If you copy this file"
 " onto your computer, you may be able to open it."
 msgstr ""
+"Tämän tiedoston katseluun ei ole saatavilla muita sovelluksia. Sen saattaa "
+"voida avata, jos kopioit sen koneelle."
 
 #: libcaja-private/caja-program-choosing.c:132
 msgid ""
 "No other actions are available to view this file. If you copy this file onto"
 " your computer, you may be able to open it."
 msgstr ""
+"Tämän tiedoston katseluun ei ole saatavilla muita toimintoja. Sen saattaa "
+"voida avata, jos kopioit sen koneelle."
 
 #: libcaja-private/caja-program-choosing.c:463
 msgid "Sorry, but you cannot execute commands from a remote site."
@@ -2985,31 +3018,31 @@ msgstr "jonoutetaan"
 #: libcaja-private/caja-progress-info.c:415
 #: libcaja-private/caja-progress-info.c:416
 msgid "Pause"
-msgstr ""
+msgstr "Keskeytä"
 
 #: libcaja-private/caja-progress-info.c:421
 #: libcaja-private/caja-progress-info.c:422
 msgid "Resume"
-msgstr ""
+msgstr "Jatka"
 
 #: libcaja-private/caja-progress-info.c:609
 #, c-format
 msgid "%'d file operation active"
 msgid_plural "%'d file operations active"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Tiedostotoimenpide meneillään"
+msgstr[1] "%'d tiedostotoimenpidettä meneillään"
 
 #: libcaja-private/caja-progress-info.c:631
 msgid "Process completed"
 msgstr "Prosessi valmis"
 
-#: libcaja-private/caja-progress-info.c:806
-#: libcaja-private/caja-progress-info.c:807
+#: libcaja-private/caja-progress-info.c:808
+#: libcaja-private/caja-progress-info.c:809
 msgid "Queue"
-msgstr ""
+msgstr "Jono"
 
-#: libcaja-private/caja-progress-info.c:1006
-#: libcaja-private/caja-progress-info.c:1027
+#: libcaja-private/caja-progress-info.c:1008
+#: libcaja-private/caja-progress-info.c:1029
 msgid "Preparing"
 msgstr "Valmistellaan"
 
@@ -3067,27 +3100,27 @@ msgstr "Palauta %d kohdetta roskakorista"
 #: libcaja-private/caja-undostack-manager.c:1274
 #, c-format
 msgid "Restore '%s' to '%s'"
-msgstr ""
+msgstr "Palautetaan ”%s” kansioon ”%s”"
 
 #: libcaja-private/caja-undostack-manager.c:1285
 #, c-format
 msgid "Move %d items back to trash"
-msgstr ""
+msgstr "Siirretään %d kohdetta takaisin roskakoriin"
 
 #: libcaja-private/caja-undostack-manager.c:1288
 #, c-format
 msgid "Move '%s' back to trash"
-msgstr ""
+msgstr "Siirrä ”%s” takaisin roskakoriin"
 
 #: libcaja-private/caja-undostack-manager.c:1297
 #, c-format
 msgid "Delete links to %d items"
-msgstr ""
+msgstr "Poista linkit %d kohteeseen"
 
 #: libcaja-private/caja-undostack-manager.c:1300
 #, c-format
 msgid "Delete link to '%s'"
-msgstr ""
+msgstr "Poista linkki kohteeseen ”%s”"
 
 #: libcaja-private/caja-undostack-manager.c:1310
 #, c-format
@@ -3117,57 +3150,57 @@ msgstr ""
 #: libcaja-private/caja-undostack-manager.c:1380
 #, c-format
 msgid "Copy '%s' to '%s'"
-msgstr ""
+msgstr "Kopioi ”%s” nimelle ”%s”"
 
 #: libcaja-private/caja-undostack-manager.c:1388
 #, c-format
 msgid "Duplicate of %d items in '%s'"
-msgstr ""
+msgstr "%d kohteen moniste kansiossa ”%s”"
 
 #: libcaja-private/caja-undostack-manager.c:1393
 #, c-format
 msgid "Duplicate '%s' in '%s'"
-msgstr ""
+msgstr "Monista ”%s” kansioon ”%s”"
 
 #: libcaja-private/caja-undostack-manager.c:1401
 #, c-format
 msgid "Move %d items to '%s'"
-msgstr ""
+msgstr "Siirrä %d kohdetta kansioon ”%s”"
 
 #: libcaja-private/caja-undostack-manager.c:1405
 #, c-format
 msgid "Move '%s' to '%s'"
-msgstr ""
+msgstr "Siirrä ”%s” kansioon ”%s”"
 
 #: libcaja-private/caja-undostack-manager.c:1423
 #, c-format
 msgid "Create new file '%s' from template "
-msgstr ""
+msgstr "Luo mallipohjasta uusi tiedosto ”%s”"
 
 #: libcaja-private/caja-undostack-manager.c:1430
 #, c-format
 msgid "Create an empty file '%s'"
-msgstr ""
+msgstr "Luo tyhjä tiedosto ”%s”"
 
 #: libcaja-private/caja-undostack-manager.c:1437
 #, c-format
 msgid "Create a new folder '%s'"
-msgstr ""
+msgstr "Luo uusi kansio ”%s”"
 
 #: libcaja-private/caja-undostack-manager.c:1445
 #, c-format
 msgid "Move %d items to trash"
-msgstr ""
+msgstr "Siirrä %d kohdetta roskakoriin"
 
 #: libcaja-private/caja-undostack-manager.c:1451
 #, c-format
 msgid "Move '%s' to trash"
-msgstr ""
+msgstr "Siirrä ”%s” roskakoriin"
 
 #: libcaja-private/caja-undostack-manager.c:1464
 #, c-format
 msgid "Restore '%s' from trash"
-msgstr ""
+msgstr "Palauta ”%s” roskakorista"
 
 #: libcaja-private/caja-undostack-manager.c:1473
 #, c-format
@@ -3548,7 +3581,7 @@ msgstr ""
 
 #: libcaja-private/org.mate.caja.gschema.xml:139
 msgid "Show the package installer for unknown MIME types"
-msgstr ""
+msgstr "Näytä tuntemattomille MIME-tyypeille pakettiasennin"
 
 #: libcaja-private/org.mate.caja.gschema.xml:140
 msgid ""
@@ -3844,25 +3877,27 @@ msgstr ""
 
 #: libcaja-private/org.mate.caja.gschema.xml:286
 msgid "Whether to show file sizes with IEC units"
-msgstr ""
+msgstr "Näytetäänkö tiedostokoot IEC-yksiköin"
 
 #: libcaja-private/org.mate.caja.gschema.xml:287
 msgid ""
 "If set to true, file sizes are shown using IEC (base 1024) units with "
 "\"KiB\" style suffixes, instead of default with SI units."
 msgstr ""
+"Jos asetettu todeksi, tiedostokoot näytetään (1024-kantaisin) IEC-yksiköin "
+"”KiB”-tyyliin SI-oletusyksiköiden sijaan."
 
 #: libcaja-private/org.mate.caja.gschema.xml:291
 msgid "Whether to show icons in list view"
-msgstr ""
+msgstr "Näytetään luettelonäkymässä kuvakkeet."
 
 #: libcaja-private/org.mate.caja.gschema.xml:292
 msgid "If set to true, show file icons in list view."
-msgstr ""
+msgstr "Jos asetettu todeksi, luettelonäkymässä näytetään tiedostokuvakkeet."
 
 #: libcaja-private/org.mate.caja.gschema.xml:296
 msgid "Whether to show desktop notifications"
-msgstr ""
+msgstr "Näytetäänkö työpöytäilmoitukset"
 
 #: libcaja-private/org.mate.caja.gschema.xml:297
 msgid "If set to true, Caja will show desktop notifications."
@@ -3894,6 +3929,14 @@ msgstr ""
 #: libcaja-private/org.mate.caja.gschema.xml:318
 msgid "Put labels beside icons"
 msgstr "Näytä nimiöt kuvakkeiden vierellä"
+
+#: libcaja-private/org.mate.caja.gschema.xml:323
+msgid "Display the git branch with directory name"
+msgstr ""
+
+#: libcaja-private/org.mate.caja.gschema.xml:324
+msgid "If true, git branch name will be displayed."
+msgstr ""
 
 #: libcaja-private/org.mate.caja.gschema.xml:319
 msgid ""
@@ -4131,7 +4174,7 @@ msgstr ""
 
 #: libcaja-private/org.mate.caja.gschema.xml:460
 msgid "The geometry string for a navigation window."
-msgstr ""
+msgstr "Navigointi-ikkunan geometriajono."
 
 #: libcaja-private/org.mate.caja.gschema.xml:461
 msgid ""
@@ -4288,72 +4331,72 @@ msgstr ""
 "kansio” asetusohjelmasta. Selainikkuna avataan kohteeseen liitettäessä näitä"
 " tiedostoja sisältävä media."
 
-#: mate-submodules/libegg/eggdesktopfile.c:169
+#: mate-submodules/libegg/eggdesktopfile.c:168
 msgid "File is not a valid .desktop file"
 msgstr "Tiedosto ei ole kelvollinen .desktop-tiedosto"
 
-#: mate-submodules/libegg/eggdesktopfile.c:194
+#: mate-submodules/libegg/eggdesktopfile.c:193
 #, c-format
 msgid "Unrecognized desktop file Version '%s'"
 msgstr "Tuntematon työpöytätiedoston versio ”%s”"
 
-#: mate-submodules/libegg/eggdesktopfile.c:984
+#: mate-submodules/libegg/eggdesktopfile.c:975
 #, c-format
 msgid "Starting %s"
 msgstr "Käynnistetään %s"
 
-#: mate-submodules/libegg/eggdesktopfile.c:1126
+#: mate-submodules/libegg/eggdesktopfile.c:1117
 msgid "Application does not accept documents on command line"
 msgstr "Sovellus ei hyväksy asiakirjoja komentoriviltä"
 
-#: mate-submodules/libegg/eggdesktopfile.c:1194
+#: mate-submodules/libegg/eggdesktopfile.c:1185
 #, c-format
 msgid "Unrecognized launch option: %d"
 msgstr "Tuntematon käynnistysvalitsin: %d"
 
-#: mate-submodules/libegg/eggdesktopfile.c:1410
+#: mate-submodules/libegg/eggdesktopfile.c:1401
 msgid "Can't pass document URIs to a 'Type=Link' desktop entry"
 msgstr ""
 "Asiakirjojen URI:a ei voi antaa ”Type=Link”-muotoisille työpöytälinkeille"
 
-#: mate-submodules/libegg/eggdesktopfile.c:1431
+#: mate-submodules/libegg/eggdesktopfile.c:1422
 msgid "Not a launchable item"
 msgstr "Ei käynnistettävä kohde"
 
-#: mate-submodules/libegg/eggsmclient.c:234
+#: mate-submodules/libegg/eggsmclient.c:233
 msgid "Disable connection to session manager"
 msgstr "Estä yhteys istunnonhallintaan"
 
-#: mate-submodules/libegg/eggsmclient.c:239
+#: mate-submodules/libegg/eggsmclient.c:238
 msgid "Specify file containing saved configuration"
 msgstr "Anna tallennetun määrittelyn sisältävä tiedosto"
 
-#: mate-submodules/libegg/eggsmclient.c:239
+#: mate-submodules/libegg/eggsmclient.c:238
 msgid "FILE"
 msgstr "TIEDOSTO"
 
-#: mate-submodules/libegg/eggsmclient.c:244
+#: mate-submodules/libegg/eggsmclient.c:243
 msgid "Specify session management ID"
 msgstr "Anna istunnonhallinan tunniste"
 
-#: mate-submodules/libegg/eggsmclient.c:244
+#: mate-submodules/libegg/eggsmclient.c:243
 msgid "ID"
 msgstr "ID"
 
-#: mate-submodules/libegg/eggsmclient.c:270
+#: mate-submodules/libegg/eggsmclient.c:269
 msgid "Session management options:"
 msgstr "Istunnonhallinan valitsimet:"
 
-#: mate-submodules/libegg/eggsmclient.c:271
+#: mate-submodules/libegg/eggsmclient.c:270
 msgid "Show session management options"
 msgstr "Näytä istunnonhallinan valitsimet"
 
-#: src/caja-application.c:556
+#: src/caja-application.c:557
 #, c-format
 msgid "Caja could not create the required folder \"%s\"."
 msgstr "Vaaditun kansion ”%s” luominen epäonnistui."
 
-#: src/caja-application.c:558
+#: src/caja-application.c:559
 msgid ""
 "Before running Caja, please create the following folder, or set permissions "
 "such that Caja can create it."
@@ -4361,12 +4404,12 @@ msgstr ""
 "Ennen Cajan käynnistämistä luo seuraava kansio tai aseta oikeudet siten, "
 "että Caja voi luoda sen."
 
-#: src/caja-application.c:563
+#: src/caja-application.c:564
 #, c-format
 msgid "Caja could not create the following required folders: %s."
 msgstr "Caja ei voinut luoda seuraavia vaadittuja kansioita: %s."
 
-#: src/caja-application.c:565
+#: src/caja-application.c:566
 msgid ""
 "Before running Caja, please create these folders, or set permissions such "
 "that Caja can create them."
@@ -4374,81 +4417,81 @@ msgstr ""
 "Ennen Cajan käynnistämistä luo nämä kansiot tai aseta oikeudet siten, että "
 "Caja voi luoda ne."
 
-#: src/caja-application.c:1174 src/caja-places-sidebar.c:2231
+#: src/caja-application.c:1175 src/caja-places-sidebar.c:2231
 #: src/caja-places-sidebar.c:2263 src/caja-places-sidebar.c:2299
 #, c-format
 msgid "Unable to eject %s"
 msgstr "Asemaa %s ei voi avata"
 
-#: src/caja-application.c:1803
+#: src/caja-application.c:1804
 msgid "--check cannot be used with other options."
 msgstr ""
 
-#: src/caja-application.c:1809
+#: src/caja-application.c:1810
 msgid "--quit cannot be used with URIs."
 msgstr ""
 
-#: src/caja-application.c:1816
+#: src/caja-application.c:1817
 msgid "--geometry cannot be used with more than one URI."
 msgstr ""
 
-#: src/caja-application.c:1822
+#: src/caja-application.c:1823
 msgid "--select must be used with at least an URI."
 msgstr ""
 
-#: src/caja-application.c:1936
+#: src/caja-application.c:1937
 msgid "Perform a quick set of self-check tests."
 msgstr "Suorita nopeita itsetarkistuksia."
 
-#: src/caja-application.c:1939
+#: src/caja-application.c:1940
 msgid "Show the version of the program."
 msgstr "Näytä ohjelman versio."
 
-#: src/caja-application.c:1941
+#: src/caja-application.c:1942
 msgid "Create the initial window with the given geometry."
 msgstr "Aseta luotavan ikkunan mitat annetuiksi."
 
-#: src/caja-application.c:1941
+#: src/caja-application.c:1942
 msgid "GEOMETRY"
 msgstr "MITAT"
 
-#: src/caja-application.c:1943
+#: src/caja-application.c:1944
 msgid "Only create windows for explicitly specified URIs."
 msgstr "Luo Caja-ikkunoita vain erikseen annetuille URI:lle."
 
-#: src/caja-application.c:1945
+#: src/caja-application.c:1946
 msgid ""
 "Do not manage the desktop (ignore the preference set in the preferences "
 "dialog)."
 msgstr "Älä käytä työpöytää (sivuuta asetusikkunassa annettu oletus)"
 
-#: src/caja-application.c:1947
+#: src/caja-application.c:1948
 msgid ""
 "Manage the desktop regardless of set preferences or environment (on new "
 "startup only)"
 msgstr ""
 
-#: src/caja-application.c:1949
+#: src/caja-application.c:1950
 msgid "Open URIs in tabs."
-msgstr ""
+msgstr "Avaa URIt välilehtiin."
 
-#: src/caja-application.c:1951
+#: src/caja-application.c:1952
 msgid "Open a browser window."
-msgstr ""
+msgstr "Avaa selainikkuna."
 
-#: src/caja-application.c:1953
+#: src/caja-application.c:1954
 msgid "Quit Caja."
 msgstr "Lopeta Caja."
 
-#: src/caja-application.c:1955
+#: src/caja-application.c:1956
 msgid "Select specified URI in parent folder."
 msgstr ""
 
-#: src/caja-application.c:1956
+#: src/caja-application.c:1957
 msgid "[URI...]"
 msgstr "[URI…]"
 
-#: src/caja-application.c:1966
+#: src/caja-application.c:1967
 msgid ""
 "\n"
 "\n"
@@ -4500,7 +4543,7 @@ msgstr "Kirjanmerkit"
 
 #: src/caja-bookmarks-sidebar.c:487
 msgid "Show a list of your personal bookmarks"
-msgstr ""
+msgstr "Näytä omien kirjanmerkkiesi luettelo"
 
 #: src/caja-bookmarks-window.c:163 src/caja-file-management-properties.c:226
 #: src/caja-property-browser.c:1685 src/caja-window-menus.c:629
@@ -4538,7 +4581,7 @@ msgstr "Salattu WebDAV (HTTPS)"
 
 #: src/caja-connect-server-dialog.c:156
 msgid "Apple Filing Protocol (AFP)"
-msgstr ""
+msgstr "AFP (Apple Filing Protocol)"
 
 #: src/caja-connect-server-dialog.c:202
 msgid "Connecting..."
@@ -4553,12 +4596,12 @@ msgstr ""
 #: src/caja-connect-server-dialog.c:304
 #, c-format
 msgid "The folder \"%s\" cannot be opened on \"%s\"."
-msgstr ""
+msgstr "Kansiota ”%s” ei voi avata ohjelmaan ”%s”."
 
 #: src/caja-connect-server-dialog.c:314
 #, c-format
 msgid "The server at \"%s\" cannot be found."
-msgstr ""
+msgstr "Osoitteesta ”%s” ei löytynyt palvelinta."
 
 #: src/caja-connect-server-dialog.c:349
 msgid "Try Again"
@@ -4566,7 +4609,7 @@ msgstr "Yritä uudelleen"
 
 #: src/caja-connect-server-dialog.c:414
 msgid "Please verify your user details."
-msgstr ""
+msgstr "Tarkista käyttäjätiedot."
 
 #: src/caja-connect-server-dialog.c:444
 msgid "Continue"
@@ -4574,7 +4617,7 @@ msgstr "Jatka"
 
 #: src/caja-connect-server-dialog.c:723 src/caja-location-dialog.c:105
 #: src/file-manager/fm-directory-view.c:1180
-#: src/file-manager/fm-properties-window.c:5476
+#: src/file-manager/fm-properties-window.c:5508
 msgid "There was an error displaying help."
 msgstr "Ohjeen näyttämisessä tapahtui virhe."
 
@@ -4588,7 +4631,7 @@ msgstr "Yhdistä palvelimeen"
 
 #: src/caja-connect-server-dialog.c:877
 msgid "Server Details"
-msgstr ""
+msgstr "Palvelimen tiedot"
 
 #: src/caja-connect-server-dialog.c:897
 msgid "_Server:"
@@ -4600,7 +4643,7 @@ msgstr "Po_rtti:"
 
 #: src/caja-connect-server-dialog.c:1008
 msgid "Share:"
-msgstr ""
+msgstr "Jaa:"
 
 #: src/caja-connect-server-dialog.c:1020
 msgid "Folder:"
@@ -4608,11 +4651,11 @@ msgstr "Kansio:"
 
 #: src/caja-connect-server-dialog.c:1033
 msgid "User Details"
-msgstr ""
+msgstr "Käyttäjätiedot"
 
 #: src/caja-connect-server-dialog.c:1053
 msgid "Domain Name:"
-msgstr ""
+msgstr "Verkkoaluenimi:"
 
 #: src/caja-connect-server-dialog.c:1065
 msgid "User Name:"
@@ -4646,7 +4689,7 @@ msgstr ""
 "\n"
 "Lisää ”yhdistä palvelimeen”-liitoskohta"
 
-#: src/caja-desktop-window.c:131 src/caja-desktop-window.c:277
+#: src/caja-desktop-window.c:132 src/caja-desktop-window.c:278
 #: src/caja-pathbar.c:1445 src/caja-places-sidebar.c:541
 msgid "Desktop"
 msgstr "Työpöytä"
@@ -4723,7 +4766,7 @@ msgstr "Pudotettu tiedosto ei vaikuta olevan kelvollinen kuvatiedosto."
 msgid "The emblem cannot be added."
 msgstr "Tunnusmerkin lisääminen epäonnistui."
 
-#: src/caja-emblem-sidebar.c:1094 src/file-manager/fm-properties-window.c:3473
+#: src/caja-emblem-sidebar.c:1094 src/file-manager/fm-properties-window.c:3495
 msgid "Emblems"
 msgstr "Tunnusmerkit"
 
@@ -4735,14 +4778,14 @@ msgstr "Näytä tunnusmerkit"
 #. Translators: this is referred to the permissions
 #. * the user has in a directory.
 #: src/caja-file-management-properties.c:318
-#: src/file-manager/fm-properties-window.c:4247
-#: src/file-manager/fm-properties-window.c:4258
+#: src/file-manager/fm-properties-window.c:4279
+#: src/file-manager/fm-properties-window.c:4290
 msgid "None"
 msgstr "Ei mitään"
 
 #: src/caja-file-management-properties.c:615
 msgid "About Extension"
-msgstr ""
+msgstr "Tietoa päätteestä"
 
 #: src/caja-history-sidebar.c:333
 msgid "History"
@@ -4874,23 +4917,23 @@ msgid "You cannot assign more than one custom icon at a time."
 msgstr "Voit asettaa vain yhden oman kuvakkeen kerrallaan."
 
 #: src/caja-information-panel.c:525
-#: src/file-manager/fm-properties-window.c:507
+#: src/file-manager/fm-properties-window.c:528
 msgid "Please drag just one image to set a custom icon."
 msgstr "Pudota vain yksi asettaaksesi sen kuvakkeeksi."
 
 #: src/caja-information-panel.c:552
-#: src/file-manager/fm-properties-window.c:518
+#: src/file-manager/fm-properties-window.c:539
 msgid "The file that you dropped is not local."
 msgstr "Pudottamasi tiedosto ei ole paikallinen."
 
 #: src/caja-information-panel.c:553
-#: src/file-manager/fm-properties-window.c:519
-#: src/file-manager/fm-properties-window.c:525
+#: src/file-manager/fm-properties-window.c:540
+#: src/file-manager/fm-properties-window.c:546
 msgid "You can only use local images as custom icons."
 msgstr "Vain paikallisia tiedostoja voi käyttää omina kuvakkeina."
 
 #: src/caja-information-panel.c:560
-#: src/file-manager/fm-properties-window.c:524
+#: src/file-manager/fm-properties-window.c:545
 msgid "The file that you dropped is not an image."
 msgstr "Pudottamasi tiedosto ei ole kuva."
 
@@ -4903,7 +4946,7 @@ msgstr "Vain kuvia voi käyttää omina kuvakkeina."
 msgid "Open With %s"
 msgstr "Avaa sovelluksella %s"
 
-#: src/caja-location-bar.c:60 src/file-manager/fm-properties-window.c:3318
+#: src/caja-location-bar.c:60 src/file-manager/fm-properties-window.c:3340
 msgid "Location:"
 msgstr "Sijainti:"
 
@@ -4915,8 +4958,8 @@ msgstr "Siirry:"
 #, c-format
 msgid "Do you want to view %d location?"
 msgid_plural "Do you want to view %d locations?"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Haluatko katsella sijaintia?"
+msgstr[1] "Haluatko katsella %d sijaintia?"
 
 #: src/caja-location-dialog.c:160
 msgid "Open Location"
@@ -4928,7 +4971,7 @@ msgstr "_Sijainti:"
 
 #: src/caja-navigation-action.c:147
 msgid "folder removed"
-msgstr ""
+msgstr "kansio poistettu"
 
 #: src/caja-navigation-window.c:800
 #, c-format
@@ -4992,7 +5035,7 @@ msgstr "Sulje kaikki ikkunat"
 msgid "_Location..."
 msgstr "_Sijainti…"
 
-#: src/caja-navigation-window-menus.c:849 src/caja-spatial-window.c:929
+#: src/caja-navigation-window-menus.c:849 src/caja-spatial-window.c:940
 msgid "Specify a location to open"
 msgstr "Anna avattava sijainti"
 
@@ -5022,19 +5065,19 @@ msgstr "Sam_a sijainti kuin toisessa paneelissa"
 msgid "Go to the same location as in the extra pane"
 msgstr "Siirry samaan sijaintiin kuin lisäpaneelissa"
 
-#: src/caja-navigation-window-menus.c:864 src/caja-spatial-window.c:942
+#: src/caja-navigation-window-menus.c:864 src/caja-spatial-window.c:953
 msgid "_Add Bookmark"
 msgstr "_Lisää kirjanmerkki"
 
-#: src/caja-navigation-window-menus.c:865 src/caja-spatial-window.c:943
+#: src/caja-navigation-window-menus.c:865 src/caja-spatial-window.c:954
 msgid "Add a bookmark for the current location to this menu"
 msgstr "Lisää nykyisen sijainnin kirjanmerkki tähän valikkoon"
 
-#: src/caja-navigation-window-menus.c:868 src/caja-spatial-window.c:946
+#: src/caja-navigation-window-menus.c:868 src/caja-spatial-window.c:957
 msgid "_Edit Bookmarks..."
 msgstr "_Muokkaa kirjanmerkkejä…"
 
-#: src/caja-navigation-window-menus.c:869 src/caja-spatial-window.c:947
+#: src/caja-navigation-window-menus.c:869 src/caja-spatial-window.c:958
 msgid "Display a window that allows editing the bookmarks in this menu"
 msgstr "Näytä ikkuna, jossa voi muokata tämän valikon kirjanmerkkejä"
 
@@ -5112,7 +5155,7 @@ msgstr "_Tilarivi"
 msgid "Change the visibility of this window's statusbar"
 msgstr "Näytä tai piilota tämän ikkunan tilarivi"
 
-#: src/caja-navigation-window-menus.c:926 src/caja-spatial-window.c:950
+#: src/caja-navigation-window-menus.c:926 src/caja-spatial-window.c:961
 msgid "_Search for Files..."
 msgstr "Et_si tiedostoja…"
 
@@ -5166,7 +5209,7 @@ msgstr "_Etsi"
 
 #: src/caja-navigation-window-pane.c:257
 msgid "Toggle between button and text-based location bar"
-msgstr ""
+msgstr "Vaihda painike- ja tekstipohjaisen sijaintirivin välillä"
 
 #: src/caja-navigation-window-pane.c:378
 msgid "_New Tab"
@@ -5510,11 +5553,11 @@ msgstr "Tageja"
 
 #: src/caja-query-editor.c:191
 msgid "Modification Time"
-msgstr ""
+msgstr "Muokkausaika"
 
 #: src/caja-query-editor.c:205
 msgid "Contained text"
-msgstr ""
+msgstr "Sisältää tekstin"
 
 #: src/caja-query-editor.c:351
 msgid "Select folder to search in"
@@ -5524,6 +5567,8 @@ msgstr "Valitse kansio, johon haku kohdistetaan"
 msgid ""
 "Tags separated by spaces. Matches files that contains ALL specified tags."
 msgstr ""
+"Välilyönnein erotettuja luokituksia. Täsmää tiedostoihin, joilla on KAIKKi "
+"annetut luokitukset."
 
 #: src/caja-query-editor.c:553
 msgid "Documents"
@@ -5575,27 +5620,27 @@ msgstr "Muu tyyppi…"
 
 #: src/caja-query-editor.c:1074 src/caja-query-editor.c:1212
 msgid "Less than or equal to"
-msgstr ""
+msgstr "Pienempi tai yhtä suuri kuin"
 
 #: src/caja-query-editor.c:1076 src/caja-query-editor.c:1214
 msgid "Greater than or equal to"
-msgstr ""
+msgstr "Suurempi tai yhtä suuri kuin"
 
 #: src/caja-query-editor.c:1089
 msgid "1 Hour"
-msgstr ""
+msgstr "1 tunti"
 
 #: src/caja-query-editor.c:1091
 msgid "1 Day"
-msgstr ""
+msgstr "1 päivä"
 
 #: src/caja-query-editor.c:1093
 msgid "1 Week"
-msgstr ""
+msgstr "1 viikko"
 
 #: src/caja-query-editor.c:1095
 msgid "1 Month"
-msgstr ""
+msgstr "1 kuukausi"
 
 #: src/caja-query-editor.c:1097
 msgid "6 Months"
@@ -5607,55 +5652,55 @@ msgstr "1 vuosi"
 
 #: src/caja-query-editor.c:1229
 msgid "10 KiB"
-msgstr ""
+msgstr "10 KiB"
 
 #: src/caja-query-editor.c:1231
 msgid "100 KiB"
-msgstr ""
+msgstr "100 KiB"
 
 #: src/caja-query-editor.c:1233
 msgid "500 KiB"
-msgstr ""
+msgstr "500 KiB"
 
 #: src/caja-query-editor.c:1235
 msgid "1 MiB"
-msgstr ""
+msgstr "1 MiB"
 
 #: src/caja-query-editor.c:1237
 msgid "5 MiB"
-msgstr ""
+msgstr "5 MiB"
 
 #: src/caja-query-editor.c:1239
 msgid "10 MiB"
-msgstr ""
+msgstr "10 MiB"
 
 #: src/caja-query-editor.c:1241
 msgid "100 MiB"
-msgstr ""
+msgstr "100 MiB"
 
 #: src/caja-query-editor.c:1243
 msgid "500 MiB"
-msgstr ""
+msgstr "500 MiB"
 
 #: src/caja-query-editor.c:1245
 msgid "1 GiB"
-msgstr ""
+msgstr "1 GiB"
 
 #: src/caja-query-editor.c:1247
 msgid "2 GiB"
-msgstr ""
+msgstr "2 GiB"
 
 #: src/caja-query-editor.c:1249
 msgid "4 GiB"
-msgstr ""
+msgstr "4 GiB"
 
 #: src/caja-query-editor.c:1252
 msgid "10 KB"
-msgstr ""
+msgstr "10 kt"
 
 #: src/caja-query-editor.c:1266
 msgid "500 MB"
-msgstr ""
+msgstr "500 Mt"
 
 #: src/caja-query-editor.c:1337 src/caja-query-editor.c:1340
 msgid "Matches files that contains specified text."
@@ -5709,36 +5754,36 @@ msgstr "Haku:"
 msgid "Close the side pane"
 msgstr "Sulje sivupaneeli"
 
-#: src/caja-spatial-window.c:924
+#: src/caja-spatial-window.c:935
 msgid "_Places"
 msgstr "_Sijainnit"
 
-#: src/caja-spatial-window.c:928
+#: src/caja-spatial-window.c:939
 msgid "Open _Location..."
 msgstr "Avaa _sijainti…"
 
-#: src/caja-spatial-window.c:933
+#: src/caja-spatial-window.c:944
 msgid "Close P_arent Folders"
 msgstr "Sulje _yläkansiot"
 
-#: src/caja-spatial-window.c:934
+#: src/caja-spatial-window.c:945
 msgid "Close this folder's parents"
 msgstr "Sulje tämän kansion yläkansiot"
 
-#: src/caja-spatial-window.c:938
+#: src/caja-spatial-window.c:949
 msgid "Clos_e All Folders"
 msgstr "Sulje _kaikki kansiot"
 
-#: src/caja-spatial-window.c:939
+#: src/caja-spatial-window.c:950
 msgid "Close all folder windows"
 msgstr "Sulje kaikki kansioikkunat"
 
-#: src/caja-spatial-window.c:951
+#: src/caja-spatial-window.c:962
 msgid "Locate documents and folders on this computer by name or content"
 msgstr ""
 "Etsi asiakirjoja tai kansioita tietokoneelta nimen tai sisällön perusteella"
 
-#: src/caja-trash-bar.c:199 src/file-manager/fm-desktop-icon-view.c:831
+#: src/caja-trash-bar.c:199 src/file-manager/fm-desktop-icon-view.c:856
 #: src/file-manager/fm-directory-view.c:7424
 msgid "Delete all items in the Trash"
 msgstr "Poista kaikki roskakorin sisältö"
@@ -5869,7 +5914,7 @@ msgstr ""
 
 #: src/caja-window-menus.c:575
 msgid "About Caja"
-msgstr ""
+msgstr "Tietoa Cajasta"
 
 #: src/caja-window-menus.c:577
 msgid ""
@@ -5883,6 +5928,8 @@ msgid ""
 "Copyright © 1999-2009 The Nautilus authors\n"
 "Copyright © 2011-2021 The Caja authors"
 msgstr ""
+"Tekijänoikeudet © 1999–2009 Nautiluksen tekijät\n"
+"Tekijänoikeudet © 2011–2021 Cajan tekijät"
 
 #: src/caja-window-menus.c:586
 msgid "translator-credits"
@@ -5895,7 +5942,7 @@ msgstr ""
 
 #: src/caja-window-menus.c:589
 msgid "Website"
-msgstr ""
+msgstr "Sivusto"
 
 #: src/caja-window-menus.c:848
 msgid "_File"
@@ -6042,7 +6089,7 @@ msgstr "Näyttää tai piilottaa piilotiedostot nykyisessä ikkunassa"
 
 #: src/caja-window-menus.c:972
 msgid "Show Bac_kup Files"
-msgstr ""
+msgstr "Näytä _varmuuskopiotiedostot"
 
 #: src/caja-window-menus.c:973
 msgid "Toggle the display of backup files in the current window"
@@ -6126,74 +6173,74 @@ msgstr "Kuvasuhde"
 msgid "Set the zoom level of the current view"
 msgstr "Aseta nykyisen näkymän mittakaava"
 
-#: src/file-manager/fm-desktop-icon-view.c:712
+#: src/file-manager/fm-desktop-icon-view.c:736
 msgid "Background"
 msgstr "Tausta"
 
-#: src/file-manager/fm-desktop-icon-view.c:795
+#: src/file-manager/fm-desktop-icon-view.c:820
 #: src/file-manager/fm-directory-view.c:7423
 #: src/file-manager/fm-directory-view.c:9163
 msgid "E_mpty Trash"
 msgstr "T_yhjennä roskakori"
 
-#: src/file-manager/fm-desktop-icon-view.c:811
+#: src/file-manager/fm-desktop-icon-view.c:836
 #: src/file-manager/fm-directory-view.c:7387
 msgid "Create L_auncher..."
 msgstr "Luo _käynnistin…"
 
-#: src/file-manager/fm-desktop-icon-view.c:813
+#: src/file-manager/fm-desktop-icon-view.c:838
 #: src/file-manager/fm-directory-view.c:7388
 msgid "Create a new launcher"
 msgstr "Luo uusi käynnistin"
 
-#: src/file-manager/fm-desktop-icon-view.c:820
+#: src/file-manager/fm-desktop-icon-view.c:845
 msgid "Change Desktop _Background"
 msgstr "Muuta työpöydän _taustaa"
 
-#: src/file-manager/fm-desktop-icon-view.c:822
+#: src/file-manager/fm-desktop-icon-view.c:847
 msgid ""
 "Show a window that lets you set your desktop background's pattern or color"
 msgstr "Näytä ikkuna, josta voit valita työpöydän taustakuvion tai -värin."
 
-#: src/file-manager/fm-desktop-icon-view.c:829
+#: src/file-manager/fm-desktop-icon-view.c:854
 msgid "Empty Trash"
 msgstr "Tyhjennä roskakori"
 
-#: src/file-manager/fm-desktop-icon-view.c:933
+#: src/file-manager/fm-desktop-icon-view.c:958
 msgid "Desktop View"
-msgstr ""
+msgstr "Työpöytänäkymä"
 
-#: src/file-manager/fm-desktop-icon-view.c:934
+#: src/file-manager/fm-desktop-icon-view.c:959
 #: src/file-manager/fm-directory-view.c:7669
 #: src/file-manager/fm-directory-view.c:7673
 msgid "_Desktop"
 msgstr "_Työpöytä"
 
-#: src/file-manager/fm-desktop-icon-view.c:935
+#: src/file-manager/fm-desktop-icon-view.c:960
 msgid "The desktop view encountered an error."
 msgstr "Työpöytänäkymässä tapahtui virhe."
 
-#: src/file-manager/fm-desktop-icon-view.c:936
+#: src/file-manager/fm-desktop-icon-view.c:961
 msgid "The desktop view encountered an error while starting up."
 msgstr "Työpöytänäkymää käynnistettäessä tapahtui virhe."
 
-#: src/file-manager/fm-desktop-icon-view.c:937
+#: src/file-manager/fm-desktop-icon-view.c:962
 msgid "Display this location with the desktop view."
-msgstr ""
+msgstr "Näytä tämä sijainti työpöytänäkymässä."
 
 #: src/file-manager/fm-directory-view.c:654
 #, c-format
 msgid "This will open %'d separate tab."
 msgid_plural "This will open %'d separate tabs."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Tämä avaa erillisen välilehden."
+msgstr[1] "Tämä avaa %'d erillistä välilehteä."
 
 #: src/file-manager/fm-directory-view.c:657
 #, c-format
 msgid "This will open %'d separate window."
 msgid_plural "This will open %'d separate windows."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Tämä avaa erillisen ikkunan."
+msgstr[1] "Tämä avaa %'d erillistä ikkunaa."
 
 #: src/file-manager/fm-directory-view.c:1201
 msgid "Select Items Matching"
@@ -6237,15 +6284,15 @@ msgstr "”%s” valittu"
 #, c-format
 msgid "%'d folder selected"
 msgid_plural "%'d folders selected"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'d kansio valittu"
+msgstr[1] "%'d kansiota valittu"
 
 #: src/file-manager/fm-directory-view.c:2309
 #, c-format
 msgid " (containing %'d item)"
 msgid_plural " (containing %'d items)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "(sisältää 1 kohteen)"
+msgstr[1] "(sisältää %'d kohdetta)"
 
 #. Translators: this is preceded with a string of form 'N folders' (N more
 #. than 1)
@@ -6253,22 +6300,22 @@ msgstr[1] ""
 #, c-format
 msgid " (containing a total of %'d item)"
 msgid_plural " (containing a total of %'d items)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "(sisältää kaikkiaan 1 kohteen)"
+msgstr[1] "(sisältää kaikkiaan %'d kohdetta)"
 
 #: src/file-manager/fm-directory-view.c:2337
 #, c-format
 msgid "%'d item selected"
 msgid_plural "%'d items selected"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Valittu 1 kohde"
+msgstr[1] "Valittu %'d kohdetta"
 
 #: src/file-manager/fm-directory-view.c:2344
 #, c-format
 msgid "%'d other item selected"
 msgid_plural "%'d other items selected"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Valittu %'d muu kohde"
+msgstr[1] "Valittu %'d muuta kohdetta"
 
 #. Translators: This is marked for translation in case a localiser
 #. * needs to use something other than parentheses. The
@@ -6303,14 +6350,14 @@ msgstr "%s%s, %s"
 #: src/file-manager/fm-directory-view.c:2448
 #, c-format
 msgid "%s%s, %s, %s"
-msgstr ""
+msgstr "%s%s, %s, %s"
 
 #: src/file-manager/fm-directory-view.c:4494
 #, c-format
 msgid "Use \"%s\" to open the selected item"
 msgid_plural "Use \"%s\" to open the selected items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Avaa valittu kohde ohjelmalla ”%s”"
+msgstr[1] "Avaa valitut kohteet ohjelmalla ”%s”"
 
 #: src/file-manager/fm-directory-view.c:4589
 msgid "Open parent location"
@@ -6411,8 +6458,8 @@ msgstr[1] ""
 msgid "The %'d selected item will be copied if you select the Paste command"
 msgid_plural ""
 "The %'d selected items will be copied if you select the Paste command"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'d valittu kohde kopioidaan, jos valitset Liitä-komennon"
+msgstr[1] "%'d valittua kohdetta kopioidaan, jos valitset Liitä-komennon"
 
 #: src/file-manager/fm-directory-view.c:6253
 #: src/file-manager/fm-tree-view.c:1050
@@ -6610,8 +6657,8 @@ msgstr "Monista valitut kohteet"
 #: src/file-manager/fm-directory-view.c:9133
 msgid "Ma_ke Link"
 msgid_plural "Ma_ke Links"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "T_ee linkki"
+msgstr[1] "T_ee linkkejä"
 
 #: src/file-manager/fm-directory-view.c:7466
 msgid "Create a symbolic link for each selected item"
@@ -6861,8 +6908,8 @@ msgstr "Siirrä avoin kansio roskakorista kohteeseen ”%s”"
 #, c-format
 msgid "Move the selected folder out of the trash to \"%s\""
 msgid_plural "Move the selected folders out of the trash to \"%s\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Siirrä valittu kansio roskakorista kansioon ”%s”"
+msgstr[1] "Siirrä valitut kansiot roskakorista kansioon ”%s”"
 
 #: src/file-manager/fm-directory-view.c:8190
 msgid "Move the selected folder out of the trash"
@@ -6893,8 +6940,8 @@ msgstr[1] ""
 #: src/file-manager/fm-directory-view.c:8210
 msgid "Move the selected item out of the trash"
 msgid_plural "Move the selected items out of the trash"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Poista valittu kohde roskakorista"
+msgstr[1] "Poista valitut kohteet roskakorista"
 
 #: src/file-manager/fm-directory-view.c:8339
 #: src/file-manager/fm-directory-view.c:8343
@@ -7010,8 +7057,8 @@ msgstr "Selaa uudessa _ikkunassa"
 #: src/file-manager/fm-directory-view.c:9012
 msgid "_Browse Folder"
 msgid_plural "_Browse Folders"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Selaa kansiota"
+msgstr[1] "_Selaa kansioita"
 
 #: src/file-manager/fm-directory-view.c:8689
 #: src/file-manager/fm-directory-view.c:9043
@@ -7040,29 +7087,29 @@ msgstr "_Avaa sovelluksella %s"
 #, c-format
 msgid "Open in %'d New _Window"
 msgid_plural "Open in %'d New _Windows"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Avaa uuteen _ikkunaan"
+msgstr[1] "Avaa %'d uuteen _ikkunaan"
 
 #: src/file-manager/fm-directory-view.c:9004
 #, c-format
 msgid "Browse in %'d New _Window"
 msgid_plural "Browse in %'d New _Windows"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Selaa uudessa ikkunassa"
+msgstr[1] "Selaa %'d uudessa ikkunassa"
 
 #: src/file-manager/fm-directory-view.c:9036
 #, c-format
 msgid "Open in %'d New _Tab"
 msgid_plural "Open in %'d New _Tabs"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Avaa uuteen välilehteen"
+msgstr[1] "Avaa %'d uuteen välilehteen"
 
 #: src/file-manager/fm-directory-view.c:9045
 #, c-format
 msgid "Browse in %'d New _Tab"
 msgid_plural "Browse in %'d New _Tabs"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Selaa uudella välilehdellä"
+msgstr[1] "Selaa %'d uudella välilehdellä"
 
 #: src/file-manager/fm-directory-view.c:9089
 msgid "Delete all selected items permanently"
@@ -7106,7 +7153,7 @@ msgstr "Vetotyyppi oli väärä."
 #: src/file-manager/fm-directory-view.c:10734
 #: src/file-manager/fm-directory-view.c:10739
 msgid "Link Creation Failed"
-msgstr ""
+msgstr "Linkin luominen epäonnistui"
 
 #: src/file-manager/fm-directory-view.c:10738
 #, c-format
@@ -7146,7 +7193,7 @@ msgstr "Komento"
 
 #: src/file-manager/fm-empty-view.c:391 src/file-manager/fm-empty-view.c:393
 msgid "Empty View"
-msgstr ""
+msgstr "Tyhjä näkymä"
 
 #: src/file-manager/fm-empty-view.c:392
 msgid "_Empty"
@@ -7154,11 +7201,11 @@ msgstr ""
 
 #: src/file-manager/fm-empty-view.c:394
 msgid "The empty view encountered an error."
-msgstr ""
+msgstr "Tyhjässä näkymässä tapahtui virhe."
 
 #: src/file-manager/fm-empty-view.c:395
 msgid "Display this location with the empty view."
-msgstr ""
+msgstr "Näytä tämä sijainti tyhjässä näkymässä."
 
 #: src/file-manager/fm-error-reporting.c:72
 #, c-format
@@ -7260,188 +7307,188 @@ msgstr "Nimetään kohde ”%s” kohteeksi ”%s”."
 msgid "_Organize Desktop by Name"
 msgstr "_Järjestä kohteet nimen mukaan"
 
-#: src/file-manager/fm-icon-view.c:1757
+#: src/file-manager/fm-icon-view.c:1763
 msgid "Arran_ge Items"
 msgstr "_Järjestä"
 
-#: src/file-manager/fm-icon-view.c:1760
+#: src/file-manager/fm-icon-view.c:1766
 msgid "Resize Icon..."
 msgstr "Muuta kuvakkeen kokoa..."
 
-#: src/file-manager/fm-icon-view.c:1761
+#: src/file-manager/fm-icon-view.c:1767
 msgid "Make the selected icon resizable"
 msgstr "Tee valitun kuvakkeen koosta muutettava"
 
-#: src/file-manager/fm-icon-view.c:1764 src/file-manager/fm-icon-view.c:1995
+#: src/file-manager/fm-icon-view.c:1770 src/file-manager/fm-icon-view.c:2001
 msgid "Restore Icons' Original Si_zes"
 msgstr "Palauta kuvakkeiden alkuper_äiset koot"
 
-#: src/file-manager/fm-icon-view.c:1765
+#: src/file-manager/fm-icon-view.c:1771
 msgid "Restore each selected icon to its original size"
 msgstr "Palauta jokaisen valitun kuvakkeen alkuperäinen koko"
 
-#: src/file-manager/fm-icon-view.c:1768
+#: src/file-manager/fm-icon-view.c:1774
 msgid "_Organize by Name"
 msgstr "_Järjestä nimen mukaan"
 
-#: src/file-manager/fm-icon-view.c:1769
+#: src/file-manager/fm-icon-view.c:1775
 msgid "Reposition icons to better fit in the window and avoid overlapping"
 msgstr ""
 "Sijoittele kuvakkeet niin, että ne mahtuvat paremmin ikkunaan ja välttävät "
 "päällekkäin olemista"
 
-#: src/file-manager/fm-icon-view.c:1776
+#: src/file-manager/fm-icon-view.c:1782
 msgid "Compact _Layout"
 msgstr "Tiivis _asettelu"
 
-#: src/file-manager/fm-icon-view.c:1777
+#: src/file-manager/fm-icon-view.c:1783
 msgid "Toggle using a tighter layout scheme"
 msgstr "Valitse, käytetäänkö tiheämpää asettelutapaa"
 
-#: src/file-manager/fm-icon-view.c:1782
+#: src/file-manager/fm-icon-view.c:1788
 msgid "Re_versed Order"
 msgstr "_Käänteinen järjestys"
 
-#: src/file-manager/fm-icon-view.c:1783
+#: src/file-manager/fm-icon-view.c:1789
 msgid "Display icons in the opposite order"
 msgstr "Näytä kuvakkeet käänteisessä järjestyksessä"
 
-#: src/file-manager/fm-icon-view.c:1788
+#: src/file-manager/fm-icon-view.c:1794
 msgid "_Keep Aligned"
 msgstr "Pi_dä tasattuna"
 
-#: src/file-manager/fm-icon-view.c:1789
+#: src/file-manager/fm-icon-view.c:1795
 msgid "Keep icons lined up on a grid"
 msgstr "Pidä kuvakkeet ruudukossa"
 
-#: src/file-manager/fm-icon-view.c:1794
+#: src/file-manager/fm-icon-view.c:1800
 msgid "_Lock Icons Position"
-msgstr ""
+msgstr "L_ukitse kuvakkeiden sijainnit"
 
-#: src/file-manager/fm-icon-view.c:1795
+#: src/file-manager/fm-icon-view.c:1801
 msgid "Prevent repositioning icons"
-msgstr ""
+msgstr "Estä kuvakkeiden siirtäminen"
 
-#: src/file-manager/fm-icon-view.c:1805
+#: src/file-manager/fm-icon-view.c:1811
 msgid "_Manually"
 msgstr "_Käsin"
 
-#: src/file-manager/fm-icon-view.c:1806
+#: src/file-manager/fm-icon-view.c:1812
 msgid "Leave icons wherever they are dropped"
 msgstr "Jätä kuvakkeet sinne, mihin ne pudotetaan"
 
-#: src/file-manager/fm-icon-view.c:1811
+#: src/file-manager/fm-icon-view.c:1817
 msgid "By _Name"
 msgstr "_Nimen mukaan"
 
-#: src/file-manager/fm-icon-view.c:1812
+#: src/file-manager/fm-icon-view.c:1818
 msgid "Keep icons sorted by name in rows"
 msgstr "Pidä kuvakkeet riveissä nimen mukaisessa järjestyksessä"
 
-#: src/file-manager/fm-icon-view.c:1817
+#: src/file-manager/fm-icon-view.c:1823
 msgid "By _Size"
 msgstr "_Koon mukaan"
 
-#: src/file-manager/fm-icon-view.c:1818
+#: src/file-manager/fm-icon-view.c:1824
 msgid "Keep icons sorted by size in rows"
 msgstr "Pidä kuvakkeet riveissä koon mukaisessa järjestyksessä"
 
-#: src/file-manager/fm-icon-view.c:1823
+#: src/file-manager/fm-icon-view.c:1829
 msgid "By S_ize on Disk"
-msgstr ""
+msgstr "K_oon mukaan"
 
-#: src/file-manager/fm-icon-view.c:1824
+#: src/file-manager/fm-icon-view.c:1830
 msgid "Keep icons sorted by disk usage in rows"
 msgstr ""
 
-#: src/file-manager/fm-icon-view.c:1829
+#: src/file-manager/fm-icon-view.c:1835
 msgid "By _Type"
 msgstr "_Tyypin mukaan"
 
-#: src/file-manager/fm-icon-view.c:1830
+#: src/file-manager/fm-icon-view.c:1836
 msgid "Keep icons sorted by type in rows"
 msgstr "Pidä kuvakkeet riveissä tyypin mukaisessa järjestyksessä"
 
-#: src/file-manager/fm-icon-view.c:1835
+#: src/file-manager/fm-icon-view.c:1841
 msgid "By Modification _Date"
 msgstr "Muokkaus_päivämäärän mukaan"
 
-#: src/file-manager/fm-icon-view.c:1836
+#: src/file-manager/fm-icon-view.c:1842
 msgid "Keep icons sorted by modification date in rows"
 msgstr "Pidä kuvakkeet riveissä muokkauspäivämäärän mukaisessa järjestyksessä"
 
-#: src/file-manager/fm-icon-view.c:1841
+#: src/file-manager/fm-icon-view.c:1847
 msgid "By _Creation Date"
-msgstr ""
+msgstr "_Luontipäivän mukaan"
 
-#: src/file-manager/fm-icon-view.c:1842
+#: src/file-manager/fm-icon-view.c:1848
 msgid "Keep icons sorted by creation date in rows"
 msgstr ""
 
-#: src/file-manager/fm-icon-view.c:1847
+#: src/file-manager/fm-icon-view.c:1853
 msgid "By _Emblems"
 msgstr "Tunnus_merkkien mukaan"
 
-#: src/file-manager/fm-icon-view.c:1848
+#: src/file-manager/fm-icon-view.c:1854
 msgid "Keep icons sorted by emblems in rows"
 msgstr "Pidä kuvakkeet riveissä tunnusmerkkien mukaisessa järjestyksessä"
 
-#: src/file-manager/fm-icon-view.c:1853
+#: src/file-manager/fm-icon-view.c:1859
 msgid "By T_rash Time"
 msgstr "_Roskakoriin siirron ajan mukaan"
 
-#: src/file-manager/fm-icon-view.c:1854
+#: src/file-manager/fm-icon-view.c:1860
 msgid "Keep icons sorted by trash time in rows"
 msgstr "Pidä kuvakkeet lajiteltuna roskakoriin siirron ajan mukaan riveittäin"
 
-#: src/file-manager/fm-icon-view.c:1859
+#: src/file-manager/fm-icon-view.c:1865
 msgid "By E_xtension"
-msgstr ""
+msgstr "_Päätteen mukaan"
 
-#: src/file-manager/fm-icon-view.c:1860
+#: src/file-manager/fm-icon-view.c:1866
 msgid "Keep icons sorted by reverse extension segments in rows"
 msgstr ""
 
-#: src/file-manager/fm-icon-view.c:1996
+#: src/file-manager/fm-icon-view.c:2002
 msgid "Restore Icon's Original Si_ze"
 msgstr "Palauta kuvakkeen alkuper_äinen koko"
 
-#: src/file-manager/fm-icon-view.c:2467
+#: src/file-manager/fm-icon-view.c:2473
 #, c-format
 msgid "pointing at \"%s\""
 msgstr "viittaa kohteeseen ”%s”"
 
 #. Translators: this is used in the view menu
-#: src/file-manager/fm-icon-view.c:3480
+#: src/file-manager/fm-icon-view.c:3486
 msgid "_Icons"
 msgstr "_Kuvakkeet"
 
-#: src/file-manager/fm-icon-view.c:3481
+#: src/file-manager/fm-icon-view.c:3487
 msgid "The icon view encountered an error."
 msgstr "Kuvakenäkymässä tapahtui virhe."
 
-#: src/file-manager/fm-icon-view.c:3482
+#: src/file-manager/fm-icon-view.c:3488
 msgid "The icon view encountered an error while starting up."
 msgstr "Kuvakenäkymän käynnistyksessä tapahtui virhe."
 
-#: src/file-manager/fm-icon-view.c:3483
+#: src/file-manager/fm-icon-view.c:3489
 msgid "Display this location with the icon view."
 msgstr "Näytä tämä sijainti kuvakenäkymässä."
 
 #. Translators: this is used in the view menu
-#: src/file-manager/fm-icon-view.c:3495
+#: src/file-manager/fm-icon-view.c:3501
 msgid "_Compact"
 msgstr "_Tiivis"
 
-#: src/file-manager/fm-icon-view.c:3496
+#: src/file-manager/fm-icon-view.c:3502
 msgid "The compact view encountered an error."
 msgstr "Tiivisnäkymässä tapahtui virhe."
 
-#: src/file-manager/fm-icon-view.c:3497
+#: src/file-manager/fm-icon-view.c:3503
 msgid "The compact view encountered an error while starting up."
 msgstr "Tiivisnäkymän käynnistyksessä tapahtui virhe."
 
-#: src/file-manager/fm-icon-view.c:3498
+#: src/file-manager/fm-icon-view.c:3504
 msgid "Display this location with the compact view."
 msgstr "Näytä tämä sijainti tiivisnäkymässä."
 
@@ -7484,280 +7531,332 @@ msgstr "Listanäkymää käynnistettäessä tapahtui virhe."
 msgid "Display this location with the list view."
 msgstr "Näytä tämä sijainti listanäkymässä."
 
-#: src/file-manager/fm-properties-window.c:506
+#: src/file-manager/fm-properties-window.c:397
+msgid "Multiple files"
+msgstr ""
+
+#: src/file-manager/fm-properties-window.c:416
+msgid "No files"
+msgstr ""
+
+#: src/file-manager/fm-properties-window.c:419
+msgid "User-defined icon"
+msgstr ""
+
+#: src/file-manager/fm-properties-window.c:527
 msgid "You cannot assign more than one custom icon at a time!"
 msgstr "Voit asettaa vain yhden oman kuvakkeen kerrallaan!"
 
-#: src/file-manager/fm-properties-window.c:640
+#: src/file-manager/fm-properties-window.c:571
+msgid "Change associated icon"
+msgstr ""
+
+#: src/file-manager/fm-properties-window.c:662
 msgid "_Name:"
 msgid_plural "_Names:"
 msgstr[0] "_Nimi:"
 msgstr[1] "_Nimet:"
 
-#: src/file-manager/fm-properties-window.c:996
+#: src/file-manager/fm-properties-window.c:1018
 msgid "Properties"
 msgstr "Ominaisuudet"
 
-#: src/file-manager/fm-properties-window.c:1008
+#: src/file-manager/fm-properties-window.c:1030
 #, c-format
 msgid "%s Properties"
 msgstr "%s-ominaisuudet"
 
-#: src/file-manager/fm-properties-window.c:1337
+#: src/file-manager/fm-properties-window.c:1359
 #, c-format
 msgctxt "MIME type description (MIME type)"
 msgid "%s (%s)"
 msgstr "%s (%s)"
 
-#: src/file-manager/fm-properties-window.c:1545
+#: src/file-manager/fm-properties-window.c:1567
 msgid "Cancel Group Change?"
 msgstr "Haluatko perua ryhmän vaihdon?"
 
-#: src/file-manager/fm-properties-window.c:1959
+#: src/file-manager/fm-properties-window.c:1981
 msgid "Cancel Owner Change?"
 msgstr "Haluatko perua omistajan vaihdon?"
 
-#: src/file-manager/fm-properties-window.c:2286
+#: src/file-manager/fm-properties-window.c:2308
 msgid "nothing"
 msgstr "ei mitään"
 
-#: src/file-manager/fm-properties-window.c:2288
+#: src/file-manager/fm-properties-window.c:2310
 msgid "unreadable"
 msgstr "ei luettavissa"
 
-#: src/file-manager/fm-properties-window.c:2307
+#: src/file-manager/fm-properties-window.c:2329
 #, c-format
 msgid "%'d item, with size %s (%s on disk)"
 msgid_plural "%'d items, totalling %s (%s on disk)"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/file-manager/fm-properties-window.c:2317
+#: src/file-manager/fm-properties-window.c:2339
 msgid "(some contents unreadable)"
 msgstr "(sisältö ei kokonaan luettavissa)"
 
-#: src/file-manager/fm-properties-window.c:2334
+#: src/file-manager/fm-properties-window.c:2356
 msgid "Contents:"
 msgstr "Sisältö:"
 
 #. Translators: "used" refers to the capacity of the filesystem
-#: src/file-manager/fm-properties-window.c:3119
+#: src/file-manager/fm-properties-window.c:3141
 msgid "used"
 msgstr "käytössä"
 
 #. Translators: "free" refers to the capacity of the filesystem
-#: src/file-manager/fm-properties-window.c:3130
+#: src/file-manager/fm-properties-window.c:3152
 msgid "free"
 msgstr "vapaana"
 
-#: src/file-manager/fm-properties-window.c:3134
+#: src/file-manager/fm-properties-window.c:3156
 msgid "Total capacity:"
 msgstr "Kokonaistila:"
 
-#: src/file-manager/fm-properties-window.c:3148
+#: src/file-manager/fm-properties-window.c:3170
 msgid "Filesystem type:"
 msgstr "Tiedostojärjestelmän tyyppi:"
 
-#: src/file-manager/fm-properties-window.c:3233
+#: src/file-manager/fm-properties-window.c:3255
 msgid "Basic"
 msgstr "Perustiedot"
 
-#: src/file-manager/fm-properties-window.c:3295
+#: src/file-manager/fm-properties-window.c:3317
 msgid "Link target:"
 msgstr "Linkin kohde:"
 
-#: src/file-manager/fm-properties-window.c:3309
+#: src/file-manager/fm-properties-window.c:3331
 msgid "Size on Disk:"
 msgstr "Koko levyllä:"
 
-#: src/file-manager/fm-properties-window.c:3324
+#: src/file-manager/fm-properties-window.c:3346
 msgid "Volume:"
 msgstr "Asema:"
 
-#: src/file-manager/fm-properties-window.c:3338
+#: src/file-manager/fm-properties-window.c:3360
 msgid "Accessed:"
 msgstr "Käytetty:"
 
-#: src/file-manager/fm-properties-window.c:3346
+#: src/file-manager/fm-properties-window.c:3368
 msgid "Modified:"
 msgstr "Muokattu:"
 
-#: src/file-manager/fm-properties-window.c:3350
+#: src/file-manager/fm-properties-window.c:3372
 msgid "Created:"
 msgstr "Luotu:"
 
-#: src/file-manager/fm-properties-window.c:3359
+#: src/file-manager/fm-properties-window.c:3381
 msgid "Free space:"
 msgstr "Tilaa vapaana:"
 
-#: src/file-manager/fm-properties-window.c:3884
+#: src/file-manager/fm-properties-window.c:3906
 msgid "_Read"
 msgstr "_Luku"
 
-#: src/file-manager/fm-properties-window.c:3886
+#: src/file-manager/fm-properties-window.c:3908
 msgid "_Write"
 msgstr "_Kirjoitus"
 
-#: src/file-manager/fm-properties-window.c:3888
+#: src/file-manager/fm-properties-window.c:3910
 msgid "E_xecute"
 msgstr "_Suoritus"
 
 #. Translators: this gets concatenated to "no read",
 #. * "no access", etc. (see following strings)
-#: src/file-manager/fm-properties-window.c:4155
-#: src/file-manager/fm-properties-window.c:4166
-#: src/file-manager/fm-properties-window.c:4178
+#: src/file-manager/fm-properties-window.c:4177
+#: src/file-manager/fm-properties-window.c:4188
+#: src/file-manager/fm-properties-window.c:4200
 msgid "no "
 msgstr "ei "
 
-#: src/file-manager/fm-properties-window.c:4158
+#: src/file-manager/fm-properties-window.c:4180
 msgid "list"
 msgstr "listaa"
 
-#: src/file-manager/fm-properties-window.c:4160
+#: src/file-manager/fm-properties-window.c:4182
 msgid "read"
 msgstr "luku"
 
-#: src/file-manager/fm-properties-window.c:4169
+#: src/file-manager/fm-properties-window.c:4191
 msgid "create/delete"
 msgstr "luo/poista"
 
-#: src/file-manager/fm-properties-window.c:4171
+#: src/file-manager/fm-properties-window.c:4193
 msgid "write"
 msgstr "kirjoitus"
 
-#: src/file-manager/fm-properties-window.c:4180
+#: src/file-manager/fm-properties-window.c:4202
 msgid "access"
 msgstr "pääsy"
 
-#: src/file-manager/fm-properties-window.c:4228
+#: src/file-manager/fm-properties-window.c:4250
 msgid "Access:"
 msgstr "Pääsyoikeudet:"
 
-#: src/file-manager/fm-properties-window.c:4230
+#: src/file-manager/fm-properties-window.c:4250
 msgid "Folder access:"
 msgstr "Kansion oikeudet:"
 
-#: src/file-manager/fm-properties-window.c:4232
+#: src/file-manager/fm-properties-window.c:4250
 msgid "File access:"
 msgstr "Tiedoston oikeudet:"
 
-#: src/file-manager/fm-properties-window.c:4250
+#: src/file-manager/fm-properties-window.c:4252
+msgid "User access:"
+msgstr ""
+
+#: src/file-manager/fm-properties-window.c:4252
+msgid "User folder access:"
+msgstr ""
+
+#: src/file-manager/fm-properties-window.c:4252
+msgid "User file access:"
+msgstr ""
+
+#: src/file-manager/fm-properties-window.c:4253
+msgid "Group access:"
+msgstr ""
+
+#: src/file-manager/fm-properties-window.c:4253
+msgid "Group folder access:"
+msgstr ""
+
+#: src/file-manager/fm-properties-window.c:4253
+msgid "Group file access:"
+msgstr ""
+
+#: src/file-manager/fm-properties-window.c:4254
+msgid "Others access:"
+msgstr ""
+
+#: src/file-manager/fm-properties-window.c:4254
+msgid "Others folder access:"
+msgstr ""
+
+#: src/file-manager/fm-properties-window.c:4254
+msgid "Others file access:"
+msgstr ""
+
+#: src/file-manager/fm-properties-window.c:4282
 msgid "List files only"
 msgstr "Listaa ainoastaan tiedostot"
 
-#: src/file-manager/fm-properties-window.c:4252
+#: src/file-manager/fm-properties-window.c:4284
 msgid "Access files"
 msgstr "Avaa tiedostoja"
 
-#: src/file-manager/fm-properties-window.c:4254
+#: src/file-manager/fm-properties-window.c:4286
 msgid "Create and delete files"
 msgstr "Luo ja poista tiedostoja"
 
-#: src/file-manager/fm-properties-window.c:4261
+#: src/file-manager/fm-properties-window.c:4293
 msgid "Read-only"
 msgstr "Vain luku"
 
-#: src/file-manager/fm-properties-window.c:4263
+#: src/file-manager/fm-properties-window.c:4295
 msgid "Read and write"
 msgstr "Luku ja kirjoitus"
 
-#: src/file-manager/fm-properties-window.c:4327
+#: src/file-manager/fm-properties-window.c:4359
 msgid "Special flags:"
 msgstr "Erikoisliput:"
 
-#: src/file-manager/fm-properties-window.c:4329
+#: src/file-manager/fm-properties-window.c:4361
 msgid "Set _user ID"
 msgstr "Käyttäjän _asettaminen (SUID)"
 
-#: src/file-manager/fm-properties-window.c:4330
+#: src/file-manager/fm-properties-window.c:4362
 msgid "Set gro_up ID"
 msgstr "_Ryhmän asettaminen (SGID)"
 
-#: src/file-manager/fm-properties-window.c:4331
+#: src/file-manager/fm-properties-window.c:4363
 msgid "_Sticky"
 msgstr "_Sticky"
 
-#: src/file-manager/fm-properties-window.c:4406
-#: src/file-manager/fm-properties-window.c:4598
+#: src/file-manager/fm-properties-window.c:4438
+#: src/file-manager/fm-properties-window.c:4630
 msgid "_Owner:"
 msgstr "_Omistaja:"
 
-#: src/file-manager/fm-properties-window.c:4414
-#: src/file-manager/fm-properties-window.c:4504
-#: src/file-manager/fm-properties-window.c:4607
+#: src/file-manager/fm-properties-window.c:4446
+#: src/file-manager/fm-properties-window.c:4536
+#: src/file-manager/fm-properties-window.c:4639
 msgid "Owner:"
 msgstr "Omistaja:"
 
-#: src/file-manager/fm-properties-window.c:4438
-#: src/file-manager/fm-properties-window.c:4622
+#: src/file-manager/fm-properties-window.c:4470
+#: src/file-manager/fm-properties-window.c:4654
 msgid "_Group:"
 msgstr "_Ryhmä:"
 
-#: src/file-manager/fm-properties-window.c:4446
-#: src/file-manager/fm-properties-window.c:4505
-#: src/file-manager/fm-properties-window.c:4630
+#: src/file-manager/fm-properties-window.c:4478
+#: src/file-manager/fm-properties-window.c:4537
+#: src/file-manager/fm-properties-window.c:4662
 msgid "Group:"
 msgstr "Ryhmä:"
 
-#: src/file-manager/fm-properties-window.c:4470
+#: src/file-manager/fm-properties-window.c:4502
 msgid "Others"
 msgstr "Muut"
 
-#: src/file-manager/fm-properties-window.c:4485
+#: src/file-manager/fm-properties-window.c:4517
 msgid "Execute:"
 msgstr "Suorita:"
 
-#: src/file-manager/fm-properties-window.c:4488
+#: src/file-manager/fm-properties-window.c:4520
 msgid "Allow _executing file as program"
 msgstr "Salli tiedoston suoritus ohjelmana"
 
-#: src/file-manager/fm-properties-window.c:4506
+#: src/file-manager/fm-properties-window.c:4538
 msgid "Others:"
 msgstr "Muut:"
 
-#: src/file-manager/fm-properties-window.c:4646
+#: src/file-manager/fm-properties-window.c:4678
 msgid "Folder Permissions:"
 msgstr "Kansion oikeudet:"
 
-#: src/file-manager/fm-properties-window.c:4653
+#: src/file-manager/fm-properties-window.c:4685
 msgid "File Permissions:"
 msgstr "Tiedoston oikeudet:"
 
-#: src/file-manager/fm-properties-window.c:4662
+#: src/file-manager/fm-properties-window.c:4694
 msgid "Text view:"
 msgstr "Tekstinäkymä:"
 
-#: src/file-manager/fm-properties-window.c:4809
+#: src/file-manager/fm-properties-window.c:4841
 msgid "You are not the owner, so you cannot change these permissions."
 msgstr "Et ole kohteen omistaja, joten et voi muuttaa sen oikeuksia."
 
-#: src/file-manager/fm-properties-window.c:4829
+#: src/file-manager/fm-properties-window.c:4861
 msgid "SELinux context:"
 msgstr "SELinux-konteksti:"
 
-#: src/file-manager/fm-properties-window.c:4834
+#: src/file-manager/fm-properties-window.c:4866
 msgid "Last changed:"
 msgstr "Viimeksi muuttunut:"
 
-#: src/file-manager/fm-properties-window.c:4847
+#: src/file-manager/fm-properties-window.c:4879
 msgid "Apply Permissions to Enclosed Files"
 msgstr "Toteuta oikeudet alikansioiden tiedostoille"
 
-#: src/file-manager/fm-properties-window.c:4861
+#: src/file-manager/fm-properties-window.c:4893
 #, c-format
 msgid "The permissions of \"%s\" could not be determined."
 msgstr "Kohteen ”%s” oikeuksia ei saatu selville."
 
-#: src/file-manager/fm-properties-window.c:4864
+#: src/file-manager/fm-properties-window.c:4896
 msgid "The permissions of the selected file could not be determined."
 msgstr "Valitun tiedoston oikeudet eivät selvinneet."
 
-#: src/file-manager/fm-properties-window.c:5450
+#: src/file-manager/fm-properties-window.c:5482
 msgid "Creating Properties window."
 msgstr "Ominaisuusikkuna avautuu."
 
-#: src/file-manager/fm-properties-window.c:5748
+#: src/file-manager/fm-properties-window.c:5780
 msgid "Select Custom Icon"
 msgstr "Valitse oma kuvake"
 
@@ -7788,19 +7887,3 @@ msgstr ""
 #: src/file-manager/fm-widget-view.c:446
 msgid "Display this location with the widget view."
 msgstr ""
-
-#: data/caja-file-management-properties.ui:638
-msgid "_Display git branch"
-msgstr "Näytä git-haara"
-
-#: libcaja-private/org.mate.caja.gschema.xml:323
-msgid "Display the git branch with directory name"
-msgstr "Näytä git-haara hakemiston nimellä"
-
-#: libcaja-private/org.mate.caja.gschema.xml:324
-msgid "If true, git branch name will be displayed."
-msgstr "Jos tosi, git-haaran nimi näytetään."
-
-#: src/file-manager/fm-icon-container.c:354
-msgid "detached: %.7s"
-msgstr "irtautunut: %.7s"
