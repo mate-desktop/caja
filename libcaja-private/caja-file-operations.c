@@ -3393,6 +3393,28 @@ get_target_file (GFile *src,
 		char *basename;
 
 		basename = g_file_get_basename (src);
+
+		/* if file is being restored from trash make sure it uses its original name */
+		if (g_file_has_uri_scheme (src, "trash")) {
+			GFileInfo *info;
+
+			info = g_file_query_info (src,
+						  G_FILE_ATTRIBUTE_TRASH_ORIG_PATH,
+						  0, NULL, NULL);
+
+			if (info) {
+				const char *orig_path;
+
+				orig_path = g_file_info_get_attribute_byte_string (info, G_FILE_ATTRIBUTE_TRASH_ORIG_PATH);
+				if (orig_path != NULL) {
+					g_free (basename);
+					basename = g_path_get_basename (orig_path);
+				}
+
+				g_object_unref (info);
+			}
+		}
+
 		make_file_name_valid_for_dest_fs (basename, dest_fs_type);
 		dest = g_file_get_child (dest_dir, basename);
 		g_free (basename);
