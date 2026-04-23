@@ -338,6 +338,8 @@ caja_notes_viewer_init (CajaNotesViewer *sidebar)
     /* create the text container */
     details->text_buffer = gtk_text_buffer_new (NULL);
     details->note_text_field = gtk_text_view_new_with_buffer (details->text_buffer);
+    // gtk_text_view_new_with_buffer will add reference to text buffer
+    g_object_unref (details->text_buffer);
 
     gtk_text_view_set_editable (GTK_TEXT_VIEW (details->note_text_field), TRUE);
     gtk_text_view_set_wrap_mode (GTK_TEXT_VIEW (details->note_text_field),
