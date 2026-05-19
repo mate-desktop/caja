@@ -579,6 +579,17 @@ caja_location_bar_set_location (CajaLocationBar *bar,
         g_object_unref (file);
         caja_location_entry_update_current_location (CAJA_LOCATION_ENTRY (bar->details->entry),
                 formatted_location);
+
+        /* Add trailing slash in display only so users can immediately type a subfolder */
+        if (!g_str_has_suffix (formatted_location, G_DIR_SEPARATOR_S))
+        {
+            char *display_location;
+
+            display_location = g_strconcat (formatted_location, G_DIR_SEPARATOR_S, NULL);
+            caja_entry_set_text (CAJA_ENTRY (bar->details->entry), display_location);
+            g_free (display_location);
+        }
+
         g_free (formatted_location);
     }
 
