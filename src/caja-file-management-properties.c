@@ -77,6 +77,7 @@
 
 /* int enums */
 #define CAJA_FILE_MANAGEMENT_PROPERTIES_THUMBNAIL_LIMIT_WIDGET "preview_image_size_combobox"
+#define CAJA_FILE_MANAGEMENT_PROPERTIES_THUMBNAIL_DIRECTORY_LIMIT_WIDGET "preview_image_directory_limit_combobox"
 
 static const char * const default_view_values[] =
 {
@@ -178,6 +179,16 @@ static const guint64 thumbnail_limit_values[] =
     1073741824,
     2147483648U,
     4294967295U
+};
+
+static const guint64 thumbnail_directory_limit_values[] =
+{
+    100,
+    500,
+    1000,
+    5000,
+    10000,
+    G_MAXUINT64
 };
 
 static const char * const icon_captions_components[] =
@@ -1210,6 +1221,12 @@ caja_file_management_properties_dialog_setup (GtkBuilder *builder, GtkWindow *wi
                             CAJA_PREFERENCES_IMAGE_FILE_THUMBNAIL_LIMIT,
                             thumbnail_limit_values,
                             G_N_ELEMENTS (thumbnail_limit_values));
+
+    bind_builder_uint_enum (builder, caja_preferences,
+                            CAJA_FILE_MANAGEMENT_PROPERTIES_THUMBNAIL_DIRECTORY_LIMIT_WIDGET,
+                            CAJA_PREFERENCES_IMAGE_FILE_THUMBNAIL_DIRECTORY_LIMIT,
+                            thumbnail_directory_limit_values,
+                            G_N_ELEMENTS (thumbnail_directory_limit_values));
 
     caja_file_management_properties_dialog_setup_icon_caption_page (builder);
     caja_file_management_properties_dialog_setup_list_column_page (builder);

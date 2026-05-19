@@ -4338,6 +4338,7 @@ get_custom_icon (CajaFile *file)
 }
 
 static guint64 cached_thumbnail_limit;
+static guint64 cached_thumbnail_directory_limit;
 int cached_thumbnail_size;
 static int show_image_thumbs;
 
@@ -4365,6 +4366,12 @@ caja_file_should_show_thumbnail (CajaFile *file)
 	GFilesystemPreviewType use_preview;
 
 	use_preview = caja_file_get_filesystem_use_preview (file);
+
+	if (file->details->directory != NULL &&
+	    file->details->directory->details->confirmed_file_count > 0 &&
+	    (guint64) file->details->directory->details->confirmed_file_count > cached_thumbnail_directory_limit) {
+		return FALSE;
+	}
 
 	mime_type = file->details->mime_type;
 	if (mime_type == NULL) {
@@ -8535,6 +8542,16 @@ thumbnail_limit_changed_callback (gpointer user_data)
 }
 
 static void
+thumbnail_directory_limit_changed_callback (gpointer user_data)
+{
+	g_settings_get (caja_preferences,
+	                CAJA_PREFERENCES_IMAGE_FILE_THUMBNAIL_DIRECTORY_LIMIT,
+	                "t", &cached_thumbnail_directory_limit);
+
+	emit_change_signals_for_all_files_in_all_directories ();
+}
+
+static void
 thumbnail_size_changed_callback (gpointer user_data)
 {
 	cached_thumbnail_size = g_settings_get_int (caja_icon_view_preferences, CAJA_PREFERENCES_ICON_VIEW_THUMBNAIL_SIZE);
@@ -8654,6 +8671,11 @@ caja_file_class_init (CajaFileClass *class)
 	g_signal_connect_swapped (caja_preferences,
 							  "changed::" CAJA_PREFERENCES_IMAGE_FILE_THUMBNAIL_LIMIT,
 							  G_CALLBACK (thumbnail_limit_changed_callback),
+							  NULL);
+	thumbnail_directory_limit_changed_callback (NULL);
+	g_signal_connect_swapped (caja_preferences,
+							  "changed::" CAJA_PREFERENCES_IMAGE_FILE_THUMBNAIL_DIRECTORY_LIMIT,
+							  G_CALLBACK (thumbnail_directory_limit_changed_callback),
 							  NULL);
 	thumbnail_size_changed_callback (NULL);
 	g_signal_connect_swapped (caja_icon_view_preferences,

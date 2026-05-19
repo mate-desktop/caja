@@ -186,6 +186,7 @@ typedef enum
 #define CAJA_PREFERENCES_SHOW_DIRECTORY_ITEM_COUNTS "show-directory-item-counts"
 #define CAJA_PREFERENCES_SHOW_IMAGE_FILE_THUMBNAILS	"show-image-thumbnails"
 #define CAJA_PREFERENCES_IMAGE_FILE_THUMBNAIL_LIMIT	"thumbnail-limit"
+#define CAJA_PREFERENCES_IMAGE_FILE_THUMBNAIL_DIRECTORY_LIMIT	"thumbnail-directory-limit"
 #define CAJA_PREFERENCES_PREVIEW_SOUND		        "preview-sound"
 
     typedef enum
