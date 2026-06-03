@@ -1,8 +1,175 @@
 Hacking on Caja
+===============
+
+Source and releases
 -------------------
 
-The Caja source tree is available from MATE git
-(https://github.com/mate-desktop/caja) and
-in releases on the MATE FTP site (https://pub.mate-desktop.org/).
+The Caja source tree is maintained at:
 
-See also https://wiki.mate-desktop.org/#!pages/applications-caja.md .
+    https://github.com/mate-desktop/caja
+
+Releases are published on the MATE FTP site:
+
+    https://pub.mate-desktop.org/releases/caja/
+
+Additional developer notes are available on the MATE wiki:
+
+    https://wiki.mate-desktop.org/#!pages/applications-caja.md
+
+
+A note on the project's situation
+----------------------------------
+
+Caja and the broader MATE Desktop project are maintained by a small volunteer
+community. Development activity is modest: many open issues and outstanding
+translation gaps have remained unresolved for extended periods, and the number
+of active contributors is low. This is worth stating plainly — not to
+discourage new contributors, but because it means the opposite is true: a
+small amount of effort goes a long way, and new contributors have real
+influence over the project's direction.
+
+If you are considering contributing — whether code, bug reports, or
+documentation — your work will be noticed and appreciated. Patches do not
+disappear into a large organisation; they are reviewed by the handful of
+people keeping the project alive.
+
+
+Why building from source matters
+---------------------------------
+
+Most Debian-based distributions (Debian stable, Ubuntu LTS, Linux Mint, and
+their derivatives) ship packaged versions of Caja that are one to two major
+releases behind the current development branch. This lag is structural: stable
+distribution releases are cut infrequently, and Caja is not a priority for
+rapid updates through the backports channels.
+
+The practical consequence is that users of these distributions are running
+versions that may predate significant bug fixes and improvements. Bug reports
+filed against old packaged versions are difficult to act on: the reported
+behaviour may already be fixed, or may not be reproducible from current
+source.
+
+Building from source is therefore the most useful thing a Debian-based user
+can do to support the project:
+
+  - Bug reports filed against a current source build are actionable.
+  - Confirmed fixes can be tested and verified in the same environment.
+  - Once a release is proven stable through this kind of feedback, it is
+    more likely to make its way into distribution packages.
+
+
+Building from source on Debian-based distributions
+----------------------------------------------------
+
+The following community-maintained script automates the full build and
+installation of Caja (plus its immediate build-time dependencies) on
+Debian-based systems:
+
+    https://gist.github.com/Inspirati/b6698451dbcd6ec191851222c65ca6f0
+
+The script handles:
+
+  - Installing all apt build dependencies
+  - Building mate-common from source (the distribution package is frequently
+    too old to satisfy Caja's autoconf macro requirements)
+  - Building and installing Caja core
+  - Building and installing caja-extensions
+  - Restarting the running Caja process to pick up the new installation
+
+Caveats and known limitations:
+
+  - Debian-based distributions only. The script uses apt-get and
+    dpkg-architecture and will not work on RPM-based or other systems.
+
+  - Tested on Debian 13 (Trixie). Behaviour on older releases is not
+    guaranteed: dependency versions on Ubuntu 22.04 (Jammy) are known to
+    cause build failures that require manual intervention.
+
+  - The library path is derived from dpkg-architecture and should be correct
+    for x86_64 (amd64) and ARM64 systems. Other architectures are untested.
+
+  - The script installs to the system prefix (/usr) and requires sudo. It is
+    not suitable for isolated or virtualenv-style builds.
+
+  - This script will not age indefinitely. As upstream dependencies evolve
+    the required apt package names, configure flags, and build steps will
+    change. Treat it as a working starting point rather than a permanent
+    reference.
+
+It is a considerably better starting point than the generic instructions in
+README.md, which omit the mate-common dependency and the autogen.sh quirks
+described below. Contributions of equivalent scripts for Fedora, Arch,
+openSUSE, and other distributions are welcome.
+
+
+Building manually (all distributions)
+---------------------------------------
+
+Generic build instructions are in README.md. The following notes supplement
+them with details that are not obvious from the source tree alone.
+
+mate-common:
+
+    Caja's autogen.sh requires MATE-specific autoconf macros provided by
+    mate-common. The version shipped by most distributions is older than what
+    current Caja source expects. If autogen.sh fails with errors about missing
+    or unknown MATE macros, build mate-common from source first:
+
+        git clone https://github.com/mate-desktop/mate-common.git
+        cd mate-common && ./autogen.sh --prefix=/usr && make && sudo make install
+
+The double autogen.sh invocation:
+
+    It is normal to run autogen.sh twice. The first run discovers and caches
+    the MATE autoconf macros; it may exit non-zero if the aclocal cache is
+    stale. The second run completes successfully using the primed cache. The
+    || true on the first invocation is intentional, not an oversight.
+
+GLib schemas:
+
+    After installation, run:
+
+        sudo glib-compile-schemas /usr/share/glib-2.0/schemas
+
+    This registers Caja's GSettings schema with the system. Without it,
+    Caja's preferences may not load correctly.
+
+
+Reporting bugs
+--------------
+
+File bug reports at:
+
+    https://github.com/mate-desktop/caja/issues
+
+Bug reports are most useful when filed against a build from current master.
+Reports against distribution-packaged versions are accepted but may be
+closed as already fixed if the behaviour cannot be reproduced from source.
+
+When reporting a crash, please include:
+  - The output of `caja --version`
+  - The git commit hash if built from source (`git -C /path/to/caja-src log -1 --format=%H`)
+  - A backtrace if one is available (run Caja under gdb or retrieve one from
+    a core dump)
+
+
+Contributing
+------------
+
+Pull requests are welcome at the GitHub repository. The project has a small
+reviewer pool, so keeping changes focused and well-described helps. When
+adding or modifying behaviour:
+
+  - Limit each pull request to one logical change.
+  - Describe the problem being solved in the PR body, not just what the code
+    does.
+  - Autoconf and build system changes tend to be the most fragile; test on
+    more than one distribution if you can.
+
+Translations are managed through Transifex:
+
+    https://www.transifex.com/mate/MATE/
+
+Translation coverage has gaps in several languages that have not been updated
+for some time. If you are fluent in an underserved language and are willing
+to contribute translations, even partial updates are a meaningful improvement.
