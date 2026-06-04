@@ -316,7 +316,7 @@ get_git_branch (const char *git_path) {
 
     if (g_file_test (git_path, G_FILE_TEST_IS_REGULAR))
     {
-        /* It's a file — submodule or worktree. Read it to resolve the real git dir. */
+        /* It's a file, thus we are probably dealing with a submodule, so read it to resolve the real git dir */
         gchar *contents = NULL;
         if (g_file_get_contents (git_path, &contents, NULL, NULL) && contents)
         {
@@ -357,9 +357,9 @@ get_git_branch (const char *git_path) {
     if (effective_gitdir != NULL && g_file_test (effective_gitdir, G_FILE_TEST_IS_DIR))
     {
         GitdirType gitdir_type;
-        if (strstr (effective_gitdir, ".git/worktrees/") != NULL)
+        if (strstr (effective_gitdir, "/.git/worktrees/") != NULL)
             gitdir_type = GITDIR_WORKTREE;
-        else if (strstr (effective_gitdir, ".git/modules/") != NULL)
+        else if (strstr (effective_gitdir, "/.git/modules/") != NULL)
             gitdir_type = GITDIR_SUBMODULE;
         else
             gitdir_type = GITDIR_STANDARD;
