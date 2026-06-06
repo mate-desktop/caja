@@ -22,7 +22,6 @@
    Author: Michael Meeks <michael@ximian.com>
 */
 #include <config.h>
-#include <stdlib.h>
 #include <string.h>
 
 #include <glib/gi18n.h>
@@ -327,17 +326,9 @@ get_git_branch (const char *git_path) {
                 gchar *relative = g_strstrip (contents + git_dir_prefix_len);
                 if (!g_path_is_absolute (relative))
                 {
-                    gchar *base   = g_path_get_dirname (git_path);
-                    gchar *joined = g_build_filename (base, relative, NULL);
+                    gchar *base = g_path_get_dirname (git_path);
+                    resolved_gitdir = g_canonicalize_filename (relative, base);
                     g_free (base);
-                    /* realpath resolves ../ components; returns NULL if path does not exist */
-                    char *rp = realpath (joined, NULL);
-                    g_free (joined);
-                    if (rp != NULL)
-                    {
-                        resolved_gitdir = g_strdup (rp);
-                        free (rp);
-                    }
                 }
                 else
                 {
