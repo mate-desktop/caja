@@ -360,6 +360,10 @@ create_popup_menu (CajaEmblemSidebar *emblem_sidebar)
 
     popup = gtk_menu_new ();
 
+    gtk_menu_attach_to_widget (GTK_MENU (popup),
+                               GTK_WIDGET (emblem_sidebar),
+                               NULL);
+
     gtk_menu_set_reserve_toggle_size (GTK_MENU (popup), FALSE);
 
     /* add the "rename" menu item */

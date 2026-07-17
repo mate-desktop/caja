@@ -165,6 +165,11 @@
       <summary>Maximum image size for thumbnailing</summary>
       <description>Images over this size (in bytes) won't be  thumbnailed. The purpose of this setting is to  avoid thumbnailing large images that may take a long time to load or use lots of memory.</description>
     </key>
+    <key name="thumbnail-directory-limit" type="t">
+      <default>5000</default>
+      <summary>Maximum number of files in a directory for thumbnailing</summary>
+      <description>Directories with more than this number of files won't show thumbnails. The purpose of this setting is to avoid the performance penalty of generating thumbnails in very large directories. The file count includes hidden files regardless of whether they are displayed.</description>
+    </key>
     <key name="preview-sound" enum="org.mate.caja.SpeedTradeoff">
       <aliases><alias value='local_only' target='local-only'/></aliases>
       <default>'local-only'</default>

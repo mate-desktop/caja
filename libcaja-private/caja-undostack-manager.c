@@ -748,6 +748,9 @@ caja_undostack_manager_add_action (CajaUndoStackManager * manager,
     return;
   }
 
+  action->sources = g_list_reverse (action->sources);
+  action->destinations = g_list_reverse (action->destinations);
+
   action->manager = manager;
 
   g_mutex_lock (&priv->mutex);
@@ -922,9 +925,9 @@ void caja_undostack_manager_data_add_origin_target_pair
     return;
 
   char *src_relative = g_file_get_relative_path (data->src_dir, origin);
-  data->sources = g_list_append (data->sources, src_relative);
+  data->sources = g_list_prepend (data->sources, src_relative);
   char *dest_relative = g_file_get_relative_path (data->dest_dir, target);
-  data->destinations = g_list_append (data->destinations, dest_relative);
+  data->destinations = g_list_prepend (data->destinations, dest_relative);
 
   data->isValid = TRUE;
 }

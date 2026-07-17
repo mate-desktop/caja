@@ -68,6 +68,32 @@
       </row>
     </data>
   </object>
+  <object class="GtkListStore" id="model11">
+    <columns>
+      <!-- column-name gchararray -->
+      <column type="gchararray"/>
+    </columns>
+    <data>
+      <row>
+        <col id="0" translatable="yes">100 files</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">500 files</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">1,000 files</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">5,000 files</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">10,000 files</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">No limit</col>
+      </row>
+    </data>
+  </object>
   <object class="GtkListStore" id="model2">
     <columns>
       <!-- column-name gchararray -->
@@ -1770,6 +1796,51 @@
                             <property name="position">1</property>
                           </packing>
                         </child>
+                        <child>
+                          <object class="GtkBox" id="hbox_thumbnail_directory_limit">
+                            <property name="visible">True</property>
+                            <property name="can-focus">False</property>
+                            <property name="spacing">12</property>
+                            <child>
+                              <object class="GtkLabel" id="preview_label_directory_limit">
+                                <property name="visible">True</property>
+                                <property name="can-focus">False</property>
+                                <property name="label" translatable="yes">Only in _folders with fewer than:</property>
+                                <property name="use-underline">True</property>
+                                <property name="mnemonic-widget">preview_image_directory_limit_combobox</property>
+                                <property name="xalign">0</property>
+                              </object>
+                              <packing>
+                                <property name="expand">False</property>
+                                <property name="fill">False</property>
+                                <property name="position">0</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkComboBox" id="preview_image_directory_limit_combobox">
+                                <property name="visible">True</property>
+                                <property name="can-focus">False</property>
+                                <property name="model">model11</property>
+                                <child>
+                                  <object class="GtkCellRendererText" id="renderer11"/>
+                                  <attributes>
+                                    <attribute name="text">0</attribute>
+                                  </attributes>
+                                </child>
+                              </object>
+                              <packing>
+                                <property name="expand">False</property>
+                                <property name="fill">True</property>
+                                <property name="position">1</property>
+                              </packing>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">True</property>
+                            <property name="position">2</property>
+                          </packing>
+                        </child>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -2564,6 +2635,7 @@
       <widget name="preview_label_0"/>
       <widget name="preview_label_1"/>
       <widget name="preview_label_2"/>
+      <widget name="preview_label_directory_limit"/>
       <widget name="preview_label_3"/>
       <widget name="preview_label_4"/>
     </widgets>

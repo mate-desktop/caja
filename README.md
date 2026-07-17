@@ -1,1 +1,70 @@
-README
+[![Translation status](https://translate.fedoraproject.org/widget/mate-desktop/svg-badge.svg)](https://translate.fedoraproject.org/engage/mate-desktop/)
+
+[![Build Status](https://github.com/mate-desktop/caja/actions/workflows/builds.yml/badge.svg?branch=master)](https://github.com/mate-desktop/caja/actions/workflows/builds.yml)
+[![Release](https://img.shields.io/github/v/release/mate-desktop/caja)](https://github.com/mate-desktop/caja/releases)
+[![IRC Network](https://img.shields.io/badge/irc-freenode-blue.svg "IRC Freenode")](https://webchat.freenode.net/?channels=mate)
+
+<h1 align="center">
+  <img src="https://github.com/mate-desktop/mate-icon-theme/raw/master/mate/256x256/apps/system-file-manager.png"  alt="Caja" width="128" height="128">
+  <br />
+  Caja
+</h1>
+
+<p align="center"><b>The file manager for the MATE desktop</b></p>
+<div align="center"><img src="https://mate-desktop.org/gallery/1.24/english/007.png" alt="Caja Screenshot"></div>
+
+## Installation
+
+### Ubuntu
+
+```bash
+sudo apt install caja
+```
+
+### Fedora
+
+```bash
+sudo dnf install caja
+```
+
+## Building
+
+### Source
+
+You'll need the following dependencies:
+
+  * `exempi`
+  * `gobject-introspection`
+  * `libnotify`
+  * `libexif`
+  * `gvfs`
+  * `mate-common`
+  * `mate-desktop`
+
+### Building
+
+```bash
+git clone --recurse-submodules https://github.com/mate-desktop/caja.git
+cd caja
+./autogen.sh --prefix=/usr
+make
+make install
+```
+
+## Hacking on Caja
+
+Please see the HACKING file for information about hacking on caja.
+
+## How to report bugs / errors in translations
+
+Bugs should be reported in GitHub
+
+https://github.com/mate-desktop/caja/issues
+
+We are using transifex for translations. https://www.transifex.com/mate/MATE/dashboard/
+
+Please create an account, become a member of your language team and fix it there.
+
+## Package status
+
+[![Packaging status](https://repology.org/badge/vertical-allrepos/caja.svg)](https://repology.org/project/caja/versions)

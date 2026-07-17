@@ -642,6 +642,12 @@ screen_size_changed (GdkScreen *screen, EelBackground *background)
 }
 
 static void
+screen_monitors_changed (GdkScreen *screen, EelBackground *background)
+{
+    g_signal_emit (background, signals[APPEARANCE_CHANGED], 0);
+}
+
+static void
 widget_realized_setup (GtkWidget     *widget,
                        EelBackground *self)
 {
@@ -664,7 +670,7 @@ widget_realized_setup (GtkWidget     *widget,
         g_signal_handler_disconnect (screen, self->details->screen_monitors_handler);
     }
     self->details->screen_monitors_handler =
-        g_signal_connect (screen, "monitors-changed", G_CALLBACK (screen_size_changed), self);
+        g_signal_connect (screen, "monitors-changed", G_CALLBACK (screen_monitors_changed), self);
 
     if (GDK_IS_X11_DISPLAY (display))
     {
