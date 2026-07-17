@@ -229,7 +229,7 @@ create_chip (CajaTagsViewer *self, const gchar *tag)
     ctx = gtk_widget_get_style_context (row);
     gtk_style_context_add_class (ctx, "caja-tag-chip");
 
-    markup = g_strdup_printf ("<small>%s</small>", tag);
+    markup = g_markup_printf_escaped ("<small>%s</small>", tag);
     gtk_label_set_markup (GTK_LABEL (label), markup);
     g_free (markup);
 
