@@ -119,6 +119,8 @@ caja_directory_init (CajaDirectory *directory)
     directory->details->high_priority_queue = caja_file_queue_new ();
     directory->details->low_priority_queue = caja_file_queue_new ();
     directory->details->extension_queue = caja_file_queue_new ();
+    directory->details->call_when_ready_hash.unsatisfied = g_hash_table_new (NULL, NULL);
+    directory->details->call_when_ready_hash.ready = g_hash_table_new (NULL, NULL);
     directory->details->free_space = (guint64)-1;
 }
 
@@ -194,6 +196,8 @@ caja_directory_finalize (GObject *object)
     caja_file_queue_destroy (directory->details->high_priority_queue);
     caja_file_queue_destroy (directory->details->low_priority_queue);
     caja_file_queue_destroy (directory->details->extension_queue);
+    g_clear_pointer (&directory->details->call_when_ready_hash.unsatisfied, g_hash_table_unref);
+    g_clear_pointer (&directory->details->call_when_ready_hash.ready, g_hash_table_unref);
     g_assert (directory->details->directory_load_in_progress == NULL);
     g_assert (directory->details->count_in_progress == NULL);
     g_assert (directory->details->dequeue_pending_idle_id == 0);

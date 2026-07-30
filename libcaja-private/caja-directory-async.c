@@ -1379,6 +1379,7 @@ caja_directory_call_when_ready_internal (CajaDirectory *directory,
         gpointer callback_data)
 {
     ReadyCallback callback;
+    GList *node;
 
     g_assert (directory == NULL || CAJA_IS_DIRECTORY (directory));
     g_assert (file == NULL || CAJA_IS_FILE (file));
@@ -1409,9 +1410,9 @@ caja_directory_call_when_ready_internal (CajaDirectory *directory,
     }
 
     /* Check if the callback is already there. */
-    GList *unsatisfied_list = directory->details->call_when_ready_lists.unsatisfied;
+    node = g_hash_table_lookup (directory->details->call_when_ready_hash.unsatisfied, callback.file);
 
-    if (g_list_find_custom (unsatisfied_list, &callback, ready_callback_key_compare) != NULL)
+    if (g_list_find_custom (node, &callback, ready_callback_key_compare) != NULL)
     {
         if (file_callback != NULL && directory_callback != NULL)
         {
@@ -1422,9 +1423,8 @@ caja_directory_call_when_ready_internal (CajaDirectory *directory,
     }
 
     /* Add the new callback to the list. */
-    unsatisfied_list = g_list_prepend (unsatisfied_list, g_memdup (&callback, sizeof (callback)));
-    directory->details->call_when_ready_lists.unsatisfied = unsatisfied_list;
-
+    node = g_list_prepend (node, g_memdup (&callback, sizeof (callback)));
+    g_hash_table_replace (directory->details->call_when_ready_hash.unsatisfied, callback.file, node);
     request_counter_add_request (directory->details->call_when_ready_counters,
                                  callback.request);
 
@@ -1454,23 +1454,39 @@ caja_directory_check_if_ready_internal (CajaDirectory *directory,
     return request_is_satisfied (directory, file, request);
 }
 
-static void
+static GList *
 remove_callback_link_keep_data (CajaDirectory *directory,
                                 GList *link,
                                 gboolean ready)
 {
     ReadyCallback *callback = link->data;
-    GList **list = ready ? &directory->details->call_when_ready_lists.ready :
-                           &directory->details->call_when_ready_lists.unsatisfied;
+    GList *list = g_list_first (link);
+    gboolean is_first_link = (list == link);
 
-    *list = g_list_remove_link (*list, link);
+    list = g_list_delete_link (list, link);
+
+    if (is_first_link)
+    {
+        GHashTable *hash = ready ? directory->details->call_when_ready_hash.ready :
+                                   directory->details->call_when_ready_hash.unsatisfied;
+
+        if (list != NULL)
+        {
+            g_hash_table_replace (hash, callback->file, list);
+        }
+        else
+        {
+            g_hash_table_remove (hash, callback->file);
+        }
+    }
 
     request_counter_remove_request (directory->details->call_when_ready_counters,
                                     callback->request);
-    g_list_free_1 (link);
+
+    return list;
 }
 
-static void
+static GList *
 remove_callback_link (CajaDirectory *directory,
                       GList *link,
                       gboolean ready)
@@ -1478,22 +1494,24 @@ remove_callback_link (CajaDirectory *directory,
     ReadyCallback *callback;
 
     callback = link->data;
-    remove_callback_link_keep_data (directory, link, ready);
+    link = remove_callback_link_keep_data (directory, link, ready);
     g_free (callback);
+
+    return link;
 }
 
 static void
 remove_similar_callbacks (CajaDirectory *directory,
                           ReadyCallback *callback)
 {
-    GList *node;
+    GList *list, *node;
 
     /* Remove all queued callback from the list (including ready). */
     do
     {
-        node = g_list_find_custom (directory->details->call_when_ready_lists.ready,
-                                   callback,
-                                   ready_callback_key_compare);
+        list = g_hash_table_lookup (directory->details->call_when_ready_hash.ready, callback->file);
+        node = g_list_find_custom (list, callback, ready_callback_key_compare);
+
         if (node != NULL)
         {
             remove_callback_link (directory, node, TRUE);
@@ -1505,9 +1523,9 @@ remove_similar_callbacks (CajaDirectory *directory,
 
     do
     {
-        node = g_list_find_custom (directory->details->call_when_ready_lists.unsatisfied,
-                                   callback,
-                                   ready_callback_key_compare);
+        list = g_hash_table_lookup (directory->details->call_when_ready_hash.unsatisfied,
+                                    callback->file);
+        node = g_list_find_custom (list, callback, ready_callback_key_compare);
         if (node != NULL)
         {
             remove_callback_link (directory, node, FALSE);
@@ -1647,45 +1665,28 @@ caja_async_destroying_file (CajaFile *file)
     CajaDirectory *directory;
     gboolean changed;
     GList *node, *next;
-    ReadyCallback *callback = NULL;
     Monitor *monitor = NULL;
 
     directory = file->details->directory;
     changed = FALSE;
 
     /* Check for callbacks. */
-    node = directory->details->call_when_ready_lists.unsatisfied;
+    node = g_hash_table_lookup (directory->details->call_when_ready_hash.unsatisfied, file);
 
+    /* Client should have cancelled callback. */
     for (; node != NULL; node = next)
     {
-        next = node->next;
-        callback = node->data;
-
-        if (callback->file != file)
-        {
-            continue;
-        }
-
-        /* Client should have cancelled callback. */
         g_warning ("destroyed file has call_when_ready pending");
 
-        remove_callback_link (directory, node, FALSE);
+        next = remove_callback_link (directory, node, FALSE);
         changed = TRUE;
     }
 
-    node = directory->details->call_when_ready_lists.ready;
+    node = g_hash_table_lookup (directory->details->call_when_ready_hash.ready, file);
 
     for (; node != NULL; node = next)
     {
-        next = node->next;
-        callback = node->data;
-
-        if (callback->file != file)
-        {
-            continue;
-        }
-
-        remove_callback_link (directory, node, TRUE);
+        next = remove_callback_link (directory, node, TRUE);
         changed = TRUE;
     }
 
@@ -2020,9 +2021,11 @@ call_ready_callbacks_at_idle (gpointer callback_data)
 
     caja_directory_ref (directory);
 
-    callback = NULL;
+    GHashTableIter hash_iter;
+    g_hash_table_iter_init (&hash_iter, directory->details->call_when_ready_hash.ready);
+
     /* Check if any callbacks are ready and call them if they are. */
-    while ((node = directory->details->call_when_ready_lists.ready) != NULL)
+    while (g_hash_table_iter_next (&hash_iter, NULL, (gpointer *) &node))
     {
         callback = node->data;
 
@@ -2032,6 +2035,10 @@ call_ready_callbacks_at_idle (gpointer callback_data)
         /* Call the callback. */
         ready_callback_call (directory, callback);
         g_free (callback);
+
+        /* Need to parse the node from the hash table again because it might
+        * have been freed */
+        g_hash_table_iter_init (&hash_iter, directory->details->call_when_ready_hash.ready);
     }
 
     caja_directory_async_state_changed (directory);
@@ -2058,26 +2065,50 @@ static gboolean
 call_ready_callbacks (CajaDirectory *directory)
 {
     gboolean found_any;
-    GList *node, *next;
-    GList **unsatisfied_list, **ready_list;
+    GList *unsatisfied_list, *ready_list, *node, *next;
+    GList *values, *v;
 
-    unsatisfied_list = &directory->details->call_when_ready_lists.unsatisfied;
-    ready_list = &directory->details->call_when_ready_lists.ready;
+    /* g_hash_table_get_values returns a freshly-allocated list that is
+     * safe to iterate even if the hash table is modified during the loop. */
+    values = g_hash_table_get_values (directory->details->call_when_ready_hash.unsatisfied);
 
     found_any = FALSE;
 
-    /* Check if any callbacks are satisifed and mark them for call them if they are. */
-    for (node = *unsatisfied_list; node != NULL; node = next)
+    /* Check if any callbacks are satisfied and mark them for call them if they are. */
+    for (v = values; v != NULL; v = v->next)
     {
-        next = node->next;
-        ReadyCallback *callback = node->data;
-        if (request_is_satisfied (directory, callback->file, callback->request))
+        unsatisfied_list = v->data;
+        for (node = unsatisfied_list; node != NULL; node = next)
         {
-            *unsatisfied_list = g_list_delete_link (*unsatisfied_list, node);
-            *ready_list = g_list_prepend (*ready_list, callback);
-            found_any = TRUE;
+            next = node->next;
+            ReadyCallback *callback = node->data;
+            if (request_is_satisfied (directory, callback->file, callback->request))
+            {
+                unsatisfied_list = g_list_delete_link (unsatisfied_list, node);
+
+                if (unsatisfied_list != NULL)
+                {
+                    g_hash_table_replace (directory->details->call_when_ready_hash.unsatisfied,
+                                          callback->file, unsatisfied_list);
+                }
+                else
+                {
+                    g_hash_table_remove (directory->details->call_when_ready_hash.unsatisfied,
+                                         callback->file);
+                }
+
+                ready_list = g_hash_table_lookup (directory->details->call_when_ready_hash.ready,
+                                                  callback->file);
+                ready_list = g_list_prepend (ready_list, callback);
+                g_hash_table_replace (directory->details->call_when_ready_hash.ready,
+                                      callback->file, ready_list);
+
+                found_any = TRUE;
+            }
         }
     }
+
+    g_list_free (values);
 
     if (found_any)
     {
@@ -2092,28 +2123,14 @@ caja_directory_has_active_request_for_file (CajaDirectory *directory,
         CajaFile *file)
 {
     GList *node;
-    ReadyCallback *callback = NULL;
     Monitor *monitor = NULL;
 
-    for (node = directory->details->call_when_ready_lists.unsatisfied;
-            node != NULL; node = node->next)
+    if (g_hash_table_lookup (directory->details->call_when_ready_hash.unsatisfied, NULL) != NULL ||
+        g_hash_table_lookup (directory->details->call_when_ready_hash.unsatisfied, file) != NULL ||
+        g_hash_table_lookup (directory->details->call_when_ready_hash.ready, NULL) != NULL ||
+        g_hash_table_lookup (directory->details->call_when_ready_hash.ready, file) != NULL)
     {
-        callback = node->data;
-        if (callback->file == file ||
-                callback->file == NULL)
-        {
-            return TRUE;
-        }
-    }
-    for (node = directory->details->call_when_ready_lists.ready;
-            node != NULL; node = node->next)
-    {
-        callback = node->data;
-        if (callback->file == file ||
-                callback->file == NULL)
-        {
-            return TRUE;
-        }
+        return TRUE;
     }
 
     for (node = directory->details->monitor_list;
@@ -2482,18 +2499,23 @@ is_needy (CajaFile *file,
     {
         ReadyCallback *callback = NULL;
 
-        for (node = directory->details->call_when_ready_lists.unsatisfied;
-                node != NULL; node = node->next)
+        node = g_hash_table_lookup (directory->details->call_when_ready_hash.unsatisfied, file);
+        for (; node != NULL; node = node->next)
         {
             callback = node->data;
             if (REQUEST_WANTS_TYPE (callback->request, request_type_wanted))
             {
-                if (callback->file == file)
-                {
-                    return TRUE;
-                }
-                if (callback->file == NULL
-                        && file != directory->details->as_file)
+                return TRUE;
+            }
+        }
+
+        if (file != directory->details->as_file)
+        {
+            node = g_hash_table_lookup (directory->details->call_when_ready_hash.unsatisfied, NULL);
+            for (; node != NULL; node = node->next)
+            {
+                callback = node->data;
+                if (REQUEST_WANTS_TYPE (callback->request, request_type_wanted))
                 {
                     return TRUE;
                 }
