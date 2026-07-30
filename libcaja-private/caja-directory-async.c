@@ -161,11 +161,6 @@ typedef struct
     } callback;
     gpointer callback_data;
     Request request;
-    gboolean active; /* Set to FALSE when the callback is triggered and
-			  * scheduled to be called at idle, its still kept
-			  * in the list so we can kill it when the file
-			  * goes away.
-			  */
 } ReadyCallback;
 
 typedef struct
@@ -335,7 +330,7 @@ caja_directory_verify_request_counts (CajaDirectory *directory)
     {
         counters[i] = 0;
     }
-    for (l = directory->details->call_when_ready_list; l != NULL; l = l->next)
+    for (l = directory->details->call_when_ready_lists.unsatisfied; l != NULL; l = l->next)
     {
         ReadyCallback *callback = l->data;
         request_counter_add_request (counters, callback->request);
@@ -1338,22 +1333,6 @@ ready_callback_key_compare (gconstpointer a, gconstpointer b)
     return 0;
 }
 
-static int
-ready_callback_key_compare_only_active (gconstpointer a, gconstpointer b)
-{
-    const ReadyCallback *callback_a;
-
-    callback_a = a;
-
-    /* Non active callbacks never match */
-    if (!callback_a->active)
-    {
-        return -1;
-    }
-
-    return ready_callback_key_compare (a, b);
-}
-
 static void
 ready_callback_call (CajaDirectory *directory,
                      const ReadyCallback *callback)
@@ -1406,7 +1385,6 @@ caja_directory_call_when_ready_internal (CajaDirectory *directory,
     g_assert (file != NULL || directory_callback != NULL);
 
     /* Construct a callback object. */
-    callback.active = TRUE;
     callback.file = file;
     if (file == NULL)
     {
@@ -1431,9 +1409,9 @@ caja_directory_call_when_ready_internal (CajaDirectory *directory,
     }
 
     /* Check if the callback is already there. */
-    if (g_list_find_custom (directory->details->call_when_ready_list,
-                            &callback,
-                            ready_callback_key_compare_only_active) != NULL)
+    GList *unsatisfied_list = directory->details->call_when_ready_lists.unsatisfied;
+
+    if (g_list_find_custom (unsatisfied_list, &callback, ready_callback_key_compare) != NULL)
     {
         if (file_callback != NULL && directory_callback != NULL)
         {
@@ -1444,9 +1422,9 @@ caja_directory_call_when_ready_internal (CajaDirectory *directory,
     }
 
     /* Add the new callback to the list. */
-    directory->details->call_when_ready_list = g_list_prepend
-            (directory->details->call_when_ready_list,
-             g_memdup (&callback, sizeof (callback)));
+    unsatisfied_list = g_list_prepend (unsatisfied_list, g_memdup (&callback, sizeof (callback)));
+    directory->details->call_when_ready_lists.unsatisfied = unsatisfied_list;
+
     request_counter_add_request (directory->details->call_when_ready_counters,
                                  callback.request);
 
@@ -1478,14 +1456,14 @@ caja_directory_check_if_ready_internal (CajaDirectory *directory,
 
 static void
 remove_callback_link_keep_data (CajaDirectory *directory,
-                                GList *link)
+                                GList *link,
+                                gboolean ready)
 {
-    ReadyCallback *callback;
+    ReadyCallback *callback = link->data;
+    GList **list = ready ? &directory->details->call_when_ready_lists.ready :
+                           &directory->details->call_when_ready_lists.unsatisfied;
 
-    callback = link->data;
-
-    directory->details->call_when_ready_list = g_list_remove_link
-            (directory->details->call_when_ready_list, link);
+    *list = g_list_remove_link (*list, link);
 
     request_counter_remove_request (directory->details->call_when_ready_counters,
                                     callback->request);
@@ -1494,13 +1472,50 @@ remove_callback_link_keep_data (CajaDirectory *directory,
 
 static void
 remove_callback_link (CajaDirectory *directory,
-                      GList *link)
+                      GList *link,
+                      gboolean ready)
 {
     ReadyCallback *callback;
 
     callback = link->data;
-    remove_callback_link_keep_data (directory, link);
+    remove_callback_link_keep_data (directory, link, ready);
     g_free (callback);
+}
+
+static void
+remove_similar_callbacks (CajaDirectory *directory,
+                          ReadyCallback *callback)
+{
+    GList *node;
+
+    /* Remove all queued callback from the list (including ready). */
+    do
+    {
+        node = g_list_find_custom (directory->details->call_when_ready_lists.ready,
+                                   callback,
+                                   ready_callback_key_compare);
+        if (node != NULL)
+        {
+            remove_callback_link (directory, node, TRUE);
+
+            caja_directory_async_state_changed (directory);
+        }
+    }
+    while (node != NULL);
+
+    do
+    {
+        node = g_list_find_custom (directory->details->call_when_ready_lists.unsatisfied,
+                                   callback,
+                                   ready_callback_key_compare);
+        if (node != NULL)
+        {
+            remove_callback_link (directory, node, FALSE);
+
+            caja_directory_async_state_changed (directory);
+        }
+    }
+    while (node != NULL);
 }
 
 void
@@ -1511,7 +1526,6 @@ caja_directory_cancel_callback_internal (CajaDirectory *directory,
         gpointer callback_data)
 {
     ReadyCallback callback;
-    GList *node;
 
     if (directory == NULL)
     {
@@ -1535,20 +1549,7 @@ caja_directory_cancel_callback_internal (CajaDirectory *directory,
     }
     callback.callback_data = callback_data;
 
-    /* Remove all queued callback from the list (including non-active). */
-    do
-    {
-        node = g_list_find_custom (directory->details->call_when_ready_list,
-                                   &callback,
-                                   ready_callback_key_compare);
-        if (node != NULL)
-        {
-            remove_callback_link (directory, node);
-
-            caja_directory_async_state_changed (directory);
-        }
-    }
-    while (node != NULL);
+    remove_similar_callbacks (directory, &callback);
 }
 
 static void
@@ -1653,21 +1654,39 @@ caja_async_destroying_file (CajaFile *file)
     changed = FALSE;
 
     /* Check for callbacks. */
-    for (node = directory->details->call_when_ready_list; node != NULL; node = next)
+    node = directory->details->call_when_ready_lists.unsatisfied;
+
+    for (; node != NULL; node = next)
     {
         next = node->next;
         callback = node->data;
 
-        if (callback->file == file)
+        if (callback->file != file)
         {
-            /* Client should have cancelled callback. */
-            if (callback->active)
-            {
-                g_warning ("destroyed file has call_when_ready pending");
-            }
-            remove_callback_link (directory, node);
-            changed = TRUE;
+            continue;
         }
+
+        /* Client should have cancelled callback. */
+        g_warning ("destroyed file has call_when_ready pending");
+
+        remove_callback_link (directory, node, FALSE);
+        changed = TRUE;
+    }
+
+    node = directory->details->call_when_ready_lists.ready;
+
+    for (; node != NULL; node = next)
+    {
+        next = node->next;
+        callback = node->data;
+
+        if (callback->file != file)
+        {
+            continue;
+        }
+
+        remove_callback_link (directory, node, TRUE);
+        changed = TRUE;
     }
 
     /* Check for monitors. */
@@ -1993,7 +2012,7 @@ static gboolean
 call_ready_callbacks_at_idle (gpointer callback_data)
 {
     CajaDirectory *directory;
-    GList *node, *next;
+    GList *node;
     ReadyCallback *callback;
 
     directory = CAJA_DIRECTORY (callback_data);
@@ -2002,27 +2021,13 @@ call_ready_callbacks_at_idle (gpointer callback_data)
     caja_directory_ref (directory);
 
     callback = NULL;
-    while (1)
+    /* Check if any callbacks are ready and call them if they are. */
+    while ((node = directory->details->call_when_ready_lists.ready) != NULL)
     {
-        /* Check if any callbacks are non-active and call them if they are. */
-        for (node = directory->details->call_when_ready_list;
-                node != NULL; node = next)
-        {
-            next = node->next;
-            callback = node->data;
-            if (!callback->active)
-            {
-                /* Non-active, remove and call */
-                break;
-            }
-        }
-        if (node == NULL)
-        {
-            break;
-        }
+        callback = node->data;
 
         /* Callbacks are one-shots, so remove it now. */
-        remove_callback_link_keep_data (directory, node);
+        remove_callback_link_keep_data (directory, node, TRUE);
 
         /* Call the callback. */
         ready_callback_call (directory, callback);
@@ -2046,7 +2051,7 @@ schedule_call_ready_callbacks (CajaDirectory *directory)
     }
 }
 
-/* Marks all callbacks that are ready as non-active and
+/* Moves all the callbacks that are ready and
  * calls them at idle time, unless they are removed
  * before then */
 static gboolean
@@ -2054,20 +2059,22 @@ call_ready_callbacks (CajaDirectory *directory)
 {
     gboolean found_any;
     GList *node, *next;
-    ReadyCallback *callback = NULL;
+    GList **unsatisfied_list, **ready_list;
+
+    unsatisfied_list = &directory->details->call_when_ready_lists.unsatisfied;
+    ready_list = &directory->details->call_when_ready_lists.ready;
 
     found_any = FALSE;
 
     /* Check if any callbacks are satisifed and mark them for call them if they are. */
-    for (node = directory->details->call_when_ready_list;
-            node != NULL; node = next)
+    for (node = *unsatisfied_list; node != NULL; node = next)
     {
         next = node->next;
-        callback = node->data;
-        if (callback->active &&
-                request_is_satisfied (directory, callback->file, callback->request))
+        ReadyCallback *callback = node->data;
+        if (request_is_satisfied (directory, callback->file, callback->request))
         {
-            callback->active = FALSE;
+            *unsatisfied_list = g_list_delete_link (*unsatisfied_list, node);
+            *ready_list = g_list_prepend (*ready_list, callback);
             found_any = TRUE;
         }
     }
@@ -2088,7 +2095,17 @@ caja_directory_has_active_request_for_file (CajaDirectory *directory,
     ReadyCallback *callback = NULL;
     Monitor *monitor = NULL;
 
-    for (node = directory->details->call_when_ready_list;
+    for (node = directory->details->call_when_ready_lists.unsatisfied;
+            node != NULL; node = node->next)
+    {
+        callback = node->data;
+        if (callback->file == file ||
+                callback->file == NULL)
+        {
+            return TRUE;
+        }
+    }
+    for (node = directory->details->call_when_ready_lists.ready;
             node != NULL; node = node->next)
     {
         callback = node->data;
@@ -2465,12 +2482,11 @@ is_needy (CajaFile *file,
     {
         ReadyCallback *callback = NULL;
 
-        for (node = directory->details->call_when_ready_list;
+        for (node = directory->details->call_when_ready_lists.unsatisfied;
                 node != NULL; node = node->next)
         {
             callback = node->data;
-            if (callback->active &&
-                    REQUEST_WANTS_TYPE (callback->request, request_type_wanted))
+            if (REQUEST_WANTS_TYPE (callback->request, request_type_wanted))
             {
                 if (callback->file == file)
                 {

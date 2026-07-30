@@ -89,10 +89,15 @@ struct _CajaDirectoryPrivate
     CajaFileQueue *low_priority_queue;
     CajaFileQueue *extension_queue;
 
-    /* These lists are going to be pretty short.  If we think they
-     * are going to get big, we can use hash tables instead.
+    /* Callbacks are inserted into ready when the callback is triggered and
+     * scheduled to be called at idle. It's still kept in the list so we
+     * can kill it when the file goes away before being called.
      */
-    GList *call_when_ready_list;
+    struct
+    {
+            GList *unsatisfied;
+            GList *ready;
+    } call_when_ready_lists;
     RequestCounter call_when_ready_counters;
     GList *monitor_list;
     RequestCounter monitor_counters;
