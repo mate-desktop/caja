@@ -1774,17 +1774,15 @@ void
 fm_tree_model_remove_root_uri (FMTreeModel *model, const char *uri)
 {
     TreeNode *node;
-    CajaFile *file;
 
-    file = caja_file_get_by_uri (uri);
     for (node = model->details->root_node; node != NULL; node = node->next)
     {
-        if (file == node->file)
+        /* compare by URI, as file entry may already have been deleted */
+        if (caja_file_matches_uri(node->file, uri))
         {
             break;
         }
     }
-    caja_file_unref (file);
 
     if (node)
     {
