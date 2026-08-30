@@ -1306,7 +1306,7 @@ eel_labeled_image_new (const char *text,
 /**
  * eel_labeled_image_new_from_file_name:
  * @text: Text to use for label or NULL.
- * @file_name: File name of picture to use for pixbuf.  Cannot be NULL.
+ * @pixbuf_file_name: File name of picture to use for pixbuf.  Cannot be NULL.
  *
  * Returns A newly allocated EelLabeledImage.  If the &text parameter is not
  * NULL then the LabeledImage will show a label.
@@ -1384,7 +1384,7 @@ eel_labeled_image_get_label_position (const EelLabeledImage *labeled_image)
 /**
  * eel_labeled_image_set_show_label:
  * @labeled_image: A EelLabeledImage.
- * @show_image: A boolean value indicating whether the label should be shown.
+ * @show_label: A boolean value indicating whether the label should be shown.
  *
  * Update the labeled image to either show or hide the internal label widget.
  * This function doesnt have any effect if the LabeledImage doesnt already
@@ -1639,7 +1639,7 @@ eel_labeled_image_get_x_padding (const EelLabeledImage *labeled_image)
 /**
  * eel_labeled_image_set_y_padding:
  * @labeled_image: A EelLabeledImage.
- * @x_padding: The new vertical padding.
+ * @y_padding: The new vertical padding.
  *
  * Set vertical padding for the EelLabeledImage.  The padding
  * attribute work just like that in GtkMisc.
@@ -2083,7 +2083,7 @@ eel_labeled_image_check_button_new_from_file_name (const char *text,
 
 /**
  * eel_labeled_image_set_pixbuf:
- * @labaled_image: A EelLabeledImage.
+ * @labeled_image: A EelLabeledImage.
  * @pixbuf: New pixbuf to use or NULL.
  *
  * Change the pixbuf displayed by the LabeledImage.  Note that the widget display
@@ -2128,7 +2128,7 @@ eel_labeled_image_set_pixbuf_from_file_name (EelLabeledImage *labeled_image,
 
 /**
  * eel_labeled_image_set_text:
- * @labaled_image: A EelLabeledImage.
+ * @labeled_image: A EelLabeledImage.
  * @text: New text (with mnemnonic) to use or NULL.
  *
  * Change the text displayed by the LabeledImage.  Note that the widget display
