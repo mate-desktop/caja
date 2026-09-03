@@ -47,6 +47,7 @@
 #include <eel/eel-canvas.h>
 #include <eel/eel-canvas-rect-ellipse.h>
 
+#include "caja-file-utilities.h"
 #include "caja-icon-container.h"
 #include "caja-debug-log.h"
 #include "caja-global-preferences.h"
@@ -9124,15 +9125,7 @@ caja_icon_container_start_renaming_selected_item (CajaIconContainer *container,
                                  width, -1);
     eel_editable_label_set_text (EEL_EDITABLE_LABEL (details->rename_widget),
                                  editable_text);
-    if (select_all)
-    {
-        start_offset = 0;
-        end_offset = -1;
-    }
-    else
-    {
-        eel_filename_get_rename_region (editable_text, &start_offset, &end_offset);
-    }
+    caja_filename_get_rename_region (select_all, editable_text, &start_offset, &end_offset);
     gtk_widget_show (details->rename_widget);
     gtk_widget_grab_focus (details->rename_widget);
 
