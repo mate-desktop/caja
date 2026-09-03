@@ -9007,9 +9007,14 @@ caja_icon_container_start_renaming_selected_item (CajaIconContainer *container,
     details = container->details;
     if (details->renaming)
     {
+        details->rename_select_all = !details->rename_select_all;
+
+        editable_text = eel_editable_label_get_text (EEL_EDITABLE_LABEL (details->rename_widget));
+        caja_filename_get_rename_region (details->rename_select_all, editable_text, &start_offset, &end_offset);
+
         eel_editable_label_select_region (EEL_EDITABLE_LABEL (details->rename_widget),
-                                          0,
-                                          -1);
+                                          start_offset,
+                                          end_offset);
         return;
     }
 
@@ -9125,6 +9130,7 @@ caja_icon_container_start_renaming_selected_item (CajaIconContainer *container,
                                  width, -1);
     eel_editable_label_set_text (EEL_EDITABLE_LABEL (details->rename_widget),
                                  editable_text);
+    details->rename_select_all = select_all;
     caja_filename_get_rename_region (select_all, editable_text, &start_offset, &end_offset);
     gtk_widget_show (details->rename_widget);
     gtk_widget_grab_focus (details->rename_widget);
