@@ -186,6 +186,7 @@ struct CajaIconContainerDetails
 
     /* Renaming Details */
     gboolean renaming;
+    gboolean rename_select_all;
     GtkWidget *rename_widget;	/* Editable text item */
     char *original_text;			/* Copy of editable text for later compare */
 
