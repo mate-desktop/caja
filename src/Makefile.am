@@ -118,6 +118,8 @@ caja_SOURCES = \
 	caja-notebook.h \
 	caja-notes-viewer.c \
 	caja-notes-viewer.h \
+	caja-tags-viewer.c \
+	caja-tags-viewer.h \
 	caja-pathbar.c \
 	caja-pathbar.h \
 	caja-places-sidebar.c \
