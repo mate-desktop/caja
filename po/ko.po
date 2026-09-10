@@ -1,9 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR MATE Desktop Environment team
 # This file is distributed under the same license as the caja package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
-# Translators:
 # 한영빈 (Youngbin Han) <sukso96100@gmail.com>, 2018
 # jaekwon.park <jaekwon.park@rockplace.co.kr>, 2018
 # Seong-ho Cho <darkcircle.0426@gmail.com>, 2018
@@ -12,20 +9,25 @@
 # Junghee Lee <daemul72@gmail.com>, 2021
 # 1763f4a4329a2376c933c5e919a36cbc_341ca53 <1f851310383599d03339229d772e1290_119292>, 2021
 # Stefano Karapetsas <stefano@karapetsas.com>, 2025
-# 
+# 김인수 <simmon@nplob.com>, 2026.
+#
+# Translators:
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: caja 1.29.0\n"
 "Report-Msgid-Bugs-To: https://github.com/mate-desktop/caja/issues\n"
 "POT-Creation-Date: 2025-07-05 02:05+1000\n"
-"PO-Revision-Date: 2018-03-11 14:48+0000\n"
-"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>, 2025\n"
-"Language-Team: Korean (https://app.transifex.com/mate/teams/13566/ko/)\n"
+"PO-Revision-Date: 2026-06-16 08:10+0000\n"
+"Last-Translator: 김인수 <simmon@nplob.com>\n"
+"Language-Team: Korean <https://translate.fedoraproject.org/projects/mate-"
+"desktop/caja/ko/>\n"
+"Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ko\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 2026.6.1\n"
 
 #: data/browser.xml:3
 msgid "_Patterns"
@@ -1750,7 +1752,7 @@ msgstr "원본 폴더"
 #: libcaja-private/caja-file-conflict-dialog.c:262
 #: libcaja-private/caja-file-conflict-dialog.c:301
 msgid "Items:"
-msgstr "항목"
+msgstr "항목:"
 
 #: libcaja-private/caja-file-conflict-dialog.c:265
 msgid "Original file"
@@ -3087,7 +3089,7 @@ msgstr "항목 '%s'을(를) '%s'에 이동"
 #: libcaja-private/caja-undostack-manager.c:1423
 #, c-format
 msgid "Create new file '%s' from template "
-msgstr " 새 파일 '%s'을(를) 양식으로 만들기"
+msgstr "템플릿트에서 새로운 파일 '%s' 부분을 생성 "
 
 #: libcaja-private/caja-undostack-manager.c:1430
 #, c-format
@@ -4368,9 +4370,10 @@ msgid ""
 "\n"
 "If in doubt, press Cancel."
 msgstr ""
-" \"%s\" 미디어에서 소프트웨어를 바로 실행합니다. 믿을 수 없는 소프트웨어라면 절대로 실행하지 마십시오.\n"
+"소프트웨어는 매체 \"%s\" 에서 직접 실행합니다. 신뢰 할 수 없는 "
+"소프트웨어라면 절대 실행하지 마세요.\n"
 "\n"
-"의심되면 취소를 누르십시오."
+"만약 의심되면, 취소를 누르세요."
 
 #: src/caja-bookmarks-sidebar.c:193 src/caja-bookmarks-window.c:199
 msgid "No bookmarks defined"
@@ -4504,11 +4507,11 @@ msgstr "사용자 이름:"
 
 #: src/caja-connect-server-dialog.c:1077
 msgid "Password:"
-msgstr "암호:"
+msgstr "비밀번호:"
 
 #: src/caja-connect-server-dialog.c:1090
 msgid "Remember this password"
-msgstr "이 암호 기억"
+msgstr "이 비밀번호 기억"
 
 #: src/caja-connect-server-dialog.c:1101
 msgid "Add _bookmark"
@@ -5759,14 +5762,7 @@ msgstr ""
 
 #: src/caja-window-menus.c:586
 msgid "translator-credits"
-msgstr ""
-"Elex https://launchpad.net/~mysticzizone\n"
-"Valmantas Palikša https://launchpad.net/~walmis\n"
-"Yoo Duk Nam https://launchpad.net/~yoo2001818\n"
-"onlyeriko https://launchpad.net/~onlyeriko\n"
-"Seong-ho Cho <darkcircle.0426@gmail.com>\n"
-"JungHee Lee <daemul72@gmail.com>\n"
-"MATE Desktop Environment Team <https://www.transifex.com/mate/teams/13566/ko/>"
+msgstr "김인수 <simmon@nplob.com>"
 
 #: src/caja-window-menus.c:589
 msgid "Website"
@@ -6115,7 +6111,7 @@ msgstr[0] "%'d개 폴더 선택함"
 #, c-format
 msgid " (containing %'d item)"
 msgid_plural " (containing %'d items)"
-msgstr[0] "(항목 %'d개 포함)"
+msgstr[0] " (%'d 항목에 포함하기)"
 
 #. Translators: this is preceded with a string of form 'N folders' (N more
 #. than 1)
@@ -6123,7 +6119,7 @@ msgstr[0] "(항목 %'d개 포함)"
 #, c-format
 msgid " (containing a total of %'d item)"
 msgid_plural " (containing a total of %'d items)"
-msgstr[0] "(전체 %'d개 항목 포함)"
+msgstr[0] " (총 %'d 항목에 포함하기)"
 
 #: src/file-manager/fm-directory-view.c:2337
 #, c-format
@@ -6204,7 +6200,7 @@ msgstr "이 폴더의 모든 실행 파일은 스크립트 메뉴에 나타납�
 msgid ""
 "Choosing a script from the menu will run that script with any selected items"
 " as input."
-msgstr " 메뉴에서 스크립트를 선택하면 선택한 어떤 항목을 입력으로 하여 스크립트를 실행합니다."
+msgstr "메뉴에서 스크립트를 선택하면 모든 선택한 항목을 입력으로 실행합니다."
 
 #: src/file-manager/fm-directory-view.c:5985
 msgid ""
