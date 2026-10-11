@@ -102,6 +102,7 @@ typedef enum
 
 /* Spatial or browser mode */
 #define CAJA_PREFERENCES_ALWAYS_USE_BROWSER       		"always-use-browser"
+#define CAJA_PREFERENCES_ALWAYS_START_DUAL_PANE 		"always-start-dual-pane"
 #define CAJA_PREFERENCES_NEW_TAB_POSITION       		"tabs-open-position"
 #define CAJA_PREFERENCES_ALWAYS_USE_LOCATION_ENTRY			"always-use-location-entry"
 
