@@ -103,8 +103,6 @@ caja_desktop_window_init (CajaDesktopWindow *window)
     context = gtk_widget_get_style_context (GTK_WIDGET (window));
     gtk_style_context_add_class (context, "caja-desktop-window");
 
-    gtk_window_move (GTK_WINDOW (window), 0, 0);
-
     /* shouldn't really be needed given our semantic type
      * of _NET_WM_TYPE_DESKTOP, but why not
      */
@@ -221,6 +219,9 @@ caja_desktop_window_new (CajaApplication *application,
                               "screen", screen,
                               "decorated", FALSE,
                               NULL));
+
+    gtk_window_move (GTK_WINDOW (window), 0, 0);
+
     /* Stop wrong desktop window size in GTK 3.20*/
     /* We don't want to set a default size, which the parent does, since this */
     /* will cause the desktop window to open at the wrong size in gtk 3.20 */
