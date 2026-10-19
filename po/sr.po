@@ -1,26 +1,29 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR MATE Desktop Environment team
 # This file is distributed under the same license as the caja package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
-# Translators:
 # Stefano Karapetsas <stefano@karapetsas.com>, 2025
 # Мирослав Николић <miroslavnikolic@rocketmail.com>, 2025
 # Peter Piotr, 2025
-# 
+# "Марко Костић (Marko Kostić)" <marko.m.kostic@gmail.com>, 2026.
+#
+# Translators:
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: caja 1.29.0\n"
 "Report-Msgid-Bugs-To: https://github.com/mate-desktop/caja/issues\n"
 "POT-Creation-Date: 2025-07-05 02:05+1000\n"
-"PO-Revision-Date: 2018-03-11 14:48+0000\n"
-"Last-Translator: Peter Piotr, 2025\n"
-"Language-Team: Serbian (https://app.transifex.com/mate/teams/13566/sr/)\n"
+"PO-Revision-Date: 2026-07-10 09:18+0000\n"
+"Last-Translator: \"Марко Костић (Marko Kostić)\" <marko.m.kostic@gmail.com>\n"
+"Language-Team: Serbian <https://translate.fedoraproject.org/projects/mate-"
+"desktop/applications/caja/sr/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sr\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 2026.7.1.dev0\n"
 
 #: data/browser.xml:3
 msgid "_Patterns"
@@ -421,7 +424,7 @@ msgstr "датотека;управник;измени;својства;пона
 
 #: src/file-manager/fm-icon-container.c:354
 msgid "detached: %.7s"
-msgstr ""
+msgstr "откачено: %.7s"
 
 #. Translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
@@ -637,7 +640,7 @@ msgstr "_Текст поред иконица"
 
 #: data/caja-file-management-properties.ui:638
 msgid "_Display git branch"
-msgstr ""
+msgstr "При_кажи Гит грану"
 
 #: data/caja-file-management-properties.ui:664
 msgid "_Default zoom level:"
@@ -1310,7 +1313,7 @@ msgstr "МИМЕ врста"
 
 #: libcaja-private/caja-column-utilities.c:133
 msgid "The mime type of the file."
-msgstr "МИМЕ врста датотеке."
+msgstr "Миме врста датотеке."
 
 #: libcaja-private/caja-column-utilities.c:140
 msgid "SELinux Context"
@@ -1371,7 +1374,7 @@ msgstr "на радној површи"
 #: libcaja-private/caja-desktop-link.c:111
 #, c-format
 msgid "%s's Home"
-msgstr "Лична фасцикла (%.0s)"
+msgstr "Лична (%.0s)"
 
 #: libcaja-private/caja-desktop-link.c:117
 msgid "Network Servers"
@@ -1681,7 +1684,7 @@ msgstr "програм"
 
 #: libcaja-private/caja-file.c:6793
 msgid "link"
-msgstr "веза"
+msgstr "вези"
 
 #: libcaja-private/caja-file.c:6799 libcaja-private/caja-file-operations.c:405
 #: src/file-manager/fm-directory-view.c:10711
@@ -1871,7 +1874,7 @@ msgstr "Споји _све"
 
 #: libcaja-private/caja-file-operations.c:193
 msgid "Continue _Anyway"
-msgstr ""
+msgstr "Ипак н_астави"
 
 #: libcaja-private/caja-file-operations.c:305
 #, c-format
@@ -2323,7 +2326,7 @@ msgstr "Грешка приликом креирања датотеке/дире
 
 #: libcaja-private/caja-file-operations.c:2848
 msgid "Error while creating link in \"%B\"."
-msgstr ""
+msgstr "Грешка при стварању везе у „%B“."
 
 #: libcaja-private/caja-file-operations.c:2850
 msgid "Error while copying to \"%B\"."
@@ -2962,15 +2965,15 @@ msgid ""
 "No other applications are available to view this file. If you copy this file"
 " onto your computer, you may be able to open it."
 msgstr ""
-"Нема других програма који могу да прегледају ову датотеку.  Ако је пребаците"
-" на ваш рачунар, можда ћете моћи да је отворите."
+"Нема других програма који могу да прегледају ову датотеку. Ако је пребаците "
+"на ваш рачунар, можда ћете моћи да је отворите."
 
 #: libcaja-private/caja-program-choosing.c:132
 msgid ""
 "No other actions are available to view this file. If you copy this file onto"
 " your computer, you may be able to open it."
 msgstr ""
-"Нема других радњи за ову врсту датотеке.  Ако је пребаците на ваш рачунар, "
+"Нема других радњи за ову врсту датотеке. Ако је пребаците на ваш рачунар, "
 "можда ћете моћи да је отворите."
 
 #: libcaja-private/caja-program-choosing.c:463
@@ -4130,8 +4133,8 @@ msgstr ""
 "датотека ако прелазе пет редова на најмањем увећању, четири реда на мањем "
 "увећању, а за остале степене увећања не скраћује их. Доступни степени "
 "увећања су: „smallest“ (33%) — најмање, „smaller“ (50%) — мање, „small“ "
-"(66%) — мало, „standard“ (100%) — уобичајено, „large“ (150%) — велико, "
-"„larger“ (200%) — веће и „largest“ (400%) — највеће."
+"(66%) — мало, „standard“ (100%) — уобичајено, „large“ (150%) — велико, „"
+"larger“ (200%) — веће и „largest“ (400%) — највеће"
 
 #: libcaja-private/org.mate.caja.gschema.xml:359
 msgid "Default compact view zoom level"
@@ -5761,7 +5764,7 @@ msgstr "Презентација"
 
 #: src/caja-query-editor.c:674
 msgid "Pdf / Postscript"
-msgstr "ПДФ / Постскрипт"
+msgstr "Пдф / Постскрипт"
 
 #: src/caja-query-editor.c:684
 msgid "Text File"
@@ -6050,10 +6053,9 @@ msgid ""
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version."
 msgstr ""
-"Цаја је слободан софтвер; можете га расподељивати и/или\n"
-"мењати под условима Гнуове опште јавне лиценце коју је\n"
-"објавила Задужбина слободног софтвера; издања 3 лиценце\n"
-"или (по вашем избору) било којег новијег издања."
+"Цаја је слободан софтвер; можете га расподељивати и/или мењати под условима "
+"Гнуове опште јавне лиценце коју је објавила Задужбина слободног софтвера; "
+"издања 3 лиценце или (по вашем избору) било којег новијег издања."
 
 #: src/caja-window-menus.c:539
 msgid ""
@@ -6062,10 +6064,9 @@ msgid ""
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details."
 msgstr ""
-"Цаја се расподељује у нади да ће бити користан,\n"
-"али БЕЗ ИКАКВЕ ГАРАНЦИЈЕ; чак и без примењене гаранције\n"
-"ТРЖИШНЕ ВРЕДНОСТИ или ПРИЛАГОЂЕНОСТИ ОДРЕЂЕНОЈ НАМЕНИ.\n"
-"Погледајте Гнуову Општу јавну лиценцу за више детаља."
+"Цаја се расподељује у нади да ће бити користан, али БЕЗ ИКАКВЕ ГАРАНЦИЈЕ; "
+"чак и без примењене гаранције ТРЖИШНЕ ВРЕДНОСТИ или ПРИЛАГОЂЕНОСТИ ОДРЕЂЕНОЈ "
+"НАМЕНИ.  Погледајте Гнуову Општу јавну лиценцу за више детаља."
 
 #: src/caja-window-menus.c:543
 msgid ""
@@ -6073,10 +6074,9 @@ msgid ""
 " Caja; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301 USA"
 msgstr ""
-"Требали сте да примите примерак Гнуове Опште јавне лиценце\n"
-"уз овај програм. Ако нисте, пишите Задужбини слободног\n"
-"софтвера на адресу: „Free Software Foundation, Inc.,\n"
-"51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA“"
+"Требали сте да примите примерак Гнуове Опште јавне лиценце уз овај програм. "
+"Ако нисте, пишите Задужбини слободног софтвера на адресу: „Free Software "
+"Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA“"
 
 #: src/caja-window-menus.c:575
 msgid "About Caja"
@@ -6333,7 +6333,7 @@ msgstr "Увеличајте"
 
 #: src/caja-zoom-control.c:853
 msgid "Set the zoom level of the current view"
-msgstr "Подесите степен увећања за текући приказ."
+msgstr "Подесите степен увећања за текући приказ"
 
 #: src/file-manager/fm-desktop-icon-view.c:736
 msgid "Background"
@@ -7723,11 +7723,11 @@ msgstr "Више датотека"
 
 #: src/file-manager/fm-properties-window.c:416
 msgid "No files"
-msgstr ""
+msgstr "Нема датотека"
 
 #: src/file-manager/fm-properties-window.c:419
 msgid "User-defined icon"
-msgstr ""
+msgstr "Корисничком опредељена иконица"
 
 #: src/file-manager/fm-properties-window.c:527
 msgid "You cannot assign more than one custom icon at a time!"
@@ -7735,7 +7735,7 @@ msgstr "Не можете у исто време доделити више од 
 
 #: src/file-manager/fm-properties-window.c:571
 msgid "Change associated icon"
-msgstr ""
+msgstr "Промени повезану иконицу"
 
 #: src/file-manager/fm-properties-window.c:662
 msgid "_Name:"
@@ -7899,11 +7899,11 @@ msgstr "Дозволе за власника:"
 
 #: src/file-manager/fm-properties-window.c:4252
 msgid "User folder access:"
-msgstr ""
+msgstr "Приступ корисничкој фасцикли:"
 
 #: src/file-manager/fm-properties-window.c:4252
 msgid "User file access:"
-msgstr ""
+msgstr "Приступ корисничким датотекама:"
 
 #: src/file-manager/fm-properties-window.c:4253
 msgid "Group access:"
@@ -7911,11 +7911,11 @@ msgstr "Дозволе за групу:"
 
 #: src/file-manager/fm-properties-window.c:4253
 msgid "Group folder access:"
-msgstr ""
+msgstr "Приступ фасцикли групе:"
 
 #: src/file-manager/fm-properties-window.c:4253
 msgid "Group file access:"
-msgstr ""
+msgstr "Приступ датотекама групе:"
 
 #: src/file-manager/fm-properties-window.c:4254
 msgid "Others access:"
@@ -7923,11 +7923,11 @@ msgstr "Дозволе за остале:"
 
 #: src/file-manager/fm-properties-window.c:4254
 msgid "Others folder access:"
-msgstr ""
+msgstr "Приступ фасцикли осталих:"
 
 #: src/file-manager/fm-properties-window.c:4254
 msgid "Others file access:"
-msgstr ""
+msgstr "Приступ датотекама осталих:"
 
 #: src/file-manager/fm-properties-window.c:4282
 msgid "List files only"
