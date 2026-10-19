@@ -1,0 +1,53 @@
+option('xmp',
+  type: 'feature',
+  value: 'auto',
+  description: 'XMP metadata support (via exempi)'
+)
+
+option('wayland',
+  type: 'feature',
+  value: 'auto',
+  description: 'Wayland support via gtk-layer-shell'
+)
+
+option('empty-view',
+  type: 'boolean',
+  value: false,
+  description: 'Enable empty view for performance measurement'
+)
+
+option('self-check',
+  type: 'boolean',
+  value: true,
+  description: 'Build with Eel/Caja self check'
+)
+
+option('packagekit',
+  type: 'boolean',
+  value: true,
+  description: 'Build with PackageKit support'
+)
+
+option('introspection',
+  type: 'boolean',
+  value: false,
+  description: 'Enable GObject Introspection for libcaja-extension'
+)
+
+option('gtk-doc',
+  type: 'boolean',
+  value: false,
+  description: 'Use gtk-doc to build documentation'
+)
+
+option('update-mimedb',
+  type: 'boolean',
+  value: true,
+  description: 'Update mime-database after install'
+)
+
+option('icon-update',
+  type: 'boolean',
+  value: true,
+  description: 'Update icon cache after install'
+)
