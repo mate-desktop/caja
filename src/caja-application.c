@@ -226,6 +226,26 @@ caja_empty_callback_to_ensure_read (CajaApplication *self) {
 }
 
 static void
+maybe_start_dual_pane (CajaWindow *window)
+{
+    CajaNavigationWindow *nav_window;
+
+    if (!CAJA_IS_NAVIGATION_WINDOW (window))
+        return;
+
+    nav_window = CAJA_NAVIGATION_WINDOW (window);
+
+    if (g_settings_get_boolean (caja_preferences,
+                                CAJA_PREFERENCES_ALWAYS_START_DUAL_PANE) &&
+        !caja_navigation_window_split_view_showing (nav_window))
+    {
+        caja_navigation_window_split_view_on (nav_window);
+        caja_navigation_window_update_show_hide_menu_items (nav_window);
+        caja_navigation_window_update_split_view_actions_sensitivity (nav_window);
+    }
+}
+
+static void
 open_window (CajaApplication *application,
              GFile *location,
              GdkScreen *screen,
@@ -258,6 +278,7 @@ open_window (CajaApplication *application,
     }
 
     caja_window_go_to (window, location);
+    maybe_start_dual_pane (window);
 
     if (geometry != NULL && !gtk_widget_get_visible (GTK_WIDGET (window))) {
         /* never maximize windows opened from shell if a
@@ -318,6 +339,7 @@ open_tabs (CajaApplication *application,
         caja_window_go_to_tab (window, locations[tab]);
         g_free (uri);
     }
+    maybe_start_dual_pane (window);
 
     if (geometry != NULL && !gtk_widget_get_visible (GTK_WIDGET (window))) {
         /* never maximize windows opened from shell if a
