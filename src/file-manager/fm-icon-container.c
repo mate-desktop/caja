@@ -22,6 +22,7 @@
    Author: Michael Meeks <michael@ximian.com>
 */
 #include <config.h>
+#include <stdlib.h>
 #include <string.h>
 
 #include <glib/gi18n.h>
@@ -301,13 +302,15 @@ fm_icon_container_get_icon_text_attribute_names (CajaIconContainer *container,
  **/
 static char *
 get_git_branch (const char *git_path) {
+    gchar *resolved_gitdir = NULL;
     gchar *head_content = NULL;
     gchar *branch_name = NULL;
     gchar *head_path = NULL;
+    const gchar *effective_gitdir;
 
     if (g_file_test (git_path, G_FILE_TEST_IS_REGULAR))
     {
-        /* It's a file, thus we are probably dealing with a submodule, so read it to resolve the real git dir */
+        /* It's a file — submodule or worktree. Read it to resolve the real git dir. */
         gchar *contents = NULL;
         if (g_file_get_contents (git_path, &contents, NULL, NULL) && contents)
         {
@@ -316,19 +319,38 @@ get_git_branch (const char *git_path) {
             {
                 size_t git_dir_prefix_len = strlen (git_dir_prefix);
                 gchar *relative = g_strstrip (contents + git_dir_prefix_len);
-                gchar *base = g_path_get_dirname (git_path);
-                g_free (git_path);
-                git_path = g_build_filename (base, relative, NULL);
-                g_free (base);
+                if (!g_path_is_absolute (relative))
+                {
+                    gchar *base   = g_path_get_dirname (git_path);
+                    gchar *joined = g_build_filename (base, relative, NULL);
+                    g_free (base);
+                    /* realpath resolves ../ components; returns NULL if path does not exist */
+                    char *rp = realpath (joined, NULL);
+                    g_free (joined);
+                    if (rp != NULL)
+                    {
+                        resolved_gitdir = g_strdup (rp);
+                        free (rp);
+                    }
+                }
+                else
+                {
+                    resolved_gitdir = g_strdup (relative);
+                }
             }
             g_free (contents);
         }
+        effective_gitdir = resolved_gitdir;   /* may be NULL if path absent on disk */
+    }
+    else
+    {
+        effective_gitdir = git_path;
     }
 
     /* Extract the current git branch name of the repository from file HEAD within .git directory */
-    if (g_file_test (git_path, G_FILE_TEST_IS_DIR))
+    if (effective_gitdir != NULL && g_file_test (effective_gitdir, G_FILE_TEST_IS_DIR))
     {
-        head_path = g_build_filename (git_path, "HEAD", NULL);
+        head_path = g_build_filename (effective_gitdir, "HEAD", NULL);
         if (g_file_get_contents (head_path, &head_content, NULL, NULL))
         {
             g_strstrip (head_content);
@@ -350,6 +372,7 @@ get_git_branch (const char *git_path) {
         }
     }
 
+    g_free (resolved_gitdir);
     g_free (head_content);
     g_free (head_path);
 
