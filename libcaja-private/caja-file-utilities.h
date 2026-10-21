@@ -27,6 +27,7 @@
 
 #include <gio/gio.h>
 #include <gtk/gtk.h>
+#include "caja-global-preferences.h"
 
 #define CAJA_SAVED_SEARCH_EXTENSION ".savedSearch"
 #define CAJA_SAVED_SEARCH_MIMETYPE "application/x-mate-saved-search"
@@ -96,5 +97,10 @@ void caja_restore_files_from_trash (GList *files,
                                     GtkWindow *parent_window);
 char * caja_get_filesystem_id_by_location (GFile *location, gboolean follow);
 char * caja_get_filesystem_id_by_uri (const char *uri, gboolean follow);
+
+void caja_filename_get_rename_region(gboolean        select_all,
+                                     const char     *filename,
+                                     int            *start_offset,
+                                     int            *end_offset);
 
 #endif /* CAJA_FILE_UTILITIES_H */

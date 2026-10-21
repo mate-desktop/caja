@@ -32,6 +32,7 @@
 #include <eel/eel-glib-extensions.h>
 #include <eel/eel-stock-dialogs.h>
 #include <eel/eel-string.h>
+#include <eel/eel-vfs-extensions.h>
 #include <eel/eel-debug.h>
 
 #include "caja-file-utilities.h"
@@ -1327,6 +1328,36 @@ caja_get_filesystem_id_by_uri (const char *uri, gboolean follow)
     filesystem_id = caja_get_filesystem_id_by_location (location, follow);
     g_object_unref (location);
     return filesystem_id;
+}
+
+static void
+get_rename_region_full (const char *filename, int *start_offset, int *end_offset)
+{
+    g_return_if_fail (start_offset != NULL);
+    g_return_if_fail (end_offset != NULL);
+
+    *start_offset = 0;
+    *end_offset = 0;
+
+    g_return_if_fail (filename != NULL);
+
+    *end_offset = g_utf8_strlen (filename, -1);
+}
+
+void
+caja_filename_get_rename_region (gboolean    select_all,
+                                 const char *filename,
+                                 int        *start_offset,
+                                 int        *end_offset)
+{
+    if (select_all)
+    {
+        get_rename_region_full (filename, start_offset, end_offset);
+    }
+    else
+    {
+        eel_filename_get_rename_region (filename, start_offset, end_offset);
+    }
 }
 
 #if !defined (CAJA_OMIT_SELF_CHECK)
