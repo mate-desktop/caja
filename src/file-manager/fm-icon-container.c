@@ -296,14 +296,22 @@ fm_icon_container_get_icon_text_attribute_names (CajaIconContainer *container,
     return attributes;
 }
 
+typedef enum {
+    GITDIR_STANDARD,
+    GITDIR_WORKTREE,
+    GITDIR_SUBMODULE,
+} GitdirType;
+
 /**
  * Parse a .git directory/file to determine repository branch name
  **/
 static char *
 get_git_branch (const char *git_path) {
+    gchar *resolved_gitdir = NULL;
     gchar *head_content = NULL;
     gchar *branch_name = NULL;
     gchar *head_path = NULL;
+    const gchar *effective_gitdir;
 
     if (g_file_test (git_path, G_FILE_TEST_IS_REGULAR))
     {
@@ -316,19 +324,41 @@ get_git_branch (const char *git_path) {
             {
                 size_t git_dir_prefix_len = strlen (git_dir_prefix);
                 gchar *relative = g_strstrip (contents + git_dir_prefix_len);
-                gchar *base = g_path_get_dirname (git_path);
-                g_free (git_path);
-                git_path = g_build_filename (base, relative, NULL);
-                g_free (base);
+                if (!g_path_is_absolute (relative))
+                {
+                    gchar *base = g_path_get_dirname (git_path);
+                    resolved_gitdir = g_canonicalize_filename (relative, base);
+                    g_free (base);
+                }
+                else
+                {
+                    resolved_gitdir = g_strdup (relative);
+                }
             }
             g_free (contents);
         }
+        effective_gitdir = resolved_gitdir;   /* may be NULL if path absent on disk */
+    }
+    else
+    {
+        effective_gitdir = git_path;
     }
 
-    /* Extract the current git branch name of the repository from file HEAD within .git directory */
-    if (g_file_test (git_path, G_FILE_TEST_IS_DIR))
+    /* Classify the git context, then extract branch name from HEAD */
+    if (effective_gitdir != NULL && g_file_test (effective_gitdir, G_FILE_TEST_IS_DIR))
     {
-        head_path = g_build_filename (git_path, "HEAD", NULL);
+        GitdirType gitdir_type;
+        if (strstr (effective_gitdir, "/.git/worktrees/") != NULL)
+            gitdir_type = GITDIR_WORKTREE;
+        else if (strstr (effective_gitdir, "/.git/modules/") != NULL)
+            gitdir_type = GITDIR_SUBMODULE;
+        else
+            gitdir_type = GITDIR_STANDARD;
+
+        const char *suffix = (gitdir_type == GITDIR_WORKTREE) ? " ⎇" :
+                             (gitdir_type == GITDIR_SUBMODULE) ? " ⊂" : "";
+
+        head_path = g_build_filename (effective_gitdir, "HEAD", NULL);
         if (g_file_get_contents (head_path, &head_content, NULL, NULL))
         {
             g_strstrip (head_content);
@@ -337,19 +367,24 @@ get_git_branch (const char *git_path) {
                 gchar **parts = g_strsplit (head_content, "/", -1);
                 if (parts != NULL)
                 {
-                    branch_name = g_strdup (parts[g_strv_length(parts) - 1]);
-                    g_strchomp (branch_name);
+                    gchar *raw = g_strdup (parts[g_strv_length(parts) - 1]);
+                    g_strchomp (raw);
+                    branch_name = g_strdup_printf ("%s%s", raw, suffix);
+                    g_free (raw);
                     g_strfreev (parts);
                 }
             }
             else
             {
                 /* Repository is in a detached HEAD state */
-                branch_name = g_strdup_printf (_("detached: %.7s"), head_content);
+                gchar *base_name = g_strdup_printf (_("detached: %.7s"), head_content);
+                branch_name = g_strdup_printf ("%s%s", base_name, suffix);
+                g_free (base_name);
             }
         }
     }
 
+    g_free (resolved_gitdir);
     g_free (head_content);
     g_free (head_path);
 
