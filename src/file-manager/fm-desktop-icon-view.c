@@ -456,6 +456,25 @@ realized_callback (GtkWidget *widget, FMDesktopIconView *desktop_icon_view)
         root_window = gdk_screen_get_root_window (screen);
         desktop_icon_view->priv->root_window = root_window;
 
+        /* Subpixel text leaves colored fringes on a transparent
+         * desktop, so draw the labels with grayscale antialiasing */
+        if (gtk_widget_get_visual (gtk_widget_get_toplevel (widget)) ==
+            gdk_screen_get_rgba_visual (screen))
+        {
+            const cairo_font_options_t *screen_options;
+            cairo_font_options_t *options;
+
+            screen_options = gdk_screen_get_font_options (screen);
+            options = screen_options != NULL ?
+                      cairo_font_options_copy (screen_options) :
+                      cairo_font_options_create ();
+            if (cairo_font_options_get_antialias (options) != CAIRO_ANTIALIAS_NONE)
+                cairo_font_options_set_antialias (options, CAIRO_ANTIALIAS_GRAY);
+            gtk_widget_set_font_options (GTK_WIDGET (get_icon_container (desktop_icon_view)),
+                                         options);
+            cairo_font_options_destroy (options);
+        }
+
         /* Read out the workarea geometry and update the icon container accordingly */
         net_workarea_changed (desktop_icon_view, root_window);
 

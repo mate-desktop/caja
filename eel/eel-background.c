@@ -436,7 +436,11 @@ set_root_surface (EelBackground *self,
                                                                 width, height, TRUE);
     }
     if ((GDK_IS_X11_DISPLAY (display)) && (self->details->bg_surface != NULL))
+    {
         mate_bg_set_surface_as_root (screen, self->details->bg_surface);
+        /* The root window owns the pixmap now, don't kill it */
+        self->details->unset_root_surface = FALSE;
+    }
 }
 
 static void
