@@ -1204,6 +1204,7 @@ got_file_info_for_view_selection_callback (CajaFile *file,
     CajaWindowSlot *slot;
     GFile *location;
     MountNotMountedData *data;
+    char* uri;
     slot = callback_data;
     g_assert (CAJA_IS_WINDOW_SLOT (slot));
     g_assert (slot->determine_view_file == file);
@@ -1248,6 +1249,8 @@ got_file_info_for_view_selection_callback (CajaFile *file,
 
     location = slot->pending_location;
 
+    uri = caja_file_get_uri (file);
+
     view_id = NULL;
 
     if (error == NULL ||
@@ -1279,9 +1282,6 @@ got_file_info_for_view_selection_callback (CajaFile *file,
         /* Otherwise, use default */
         if (view_id == NULL)
         {
-            char *uri;
-            uri = caja_file_get_uri (file);
-
             /* Use same view settings for search results as the current folder */
             if (eel_uri_is_search (uri))
             {
@@ -1291,8 +1291,6 @@ got_file_info_for_view_selection_callback (CajaFile *file,
             {
                 view_id = caja_global_preferences_get_default_folder_viewer_preference_as_iid ();
             }
-
-            g_free (uri);
 
             if (view_id != NULL &&
                     !caja_view_factory_view_supports_uri (view_id,
@@ -1317,6 +1315,11 @@ got_file_info_for_view_selection_callback (CajaFile *file,
         }
         create_content_view (slot, view_id);
         g_free (view_id);
+
+        if (eel_uri_is_search (uri))
+        {
+            caja_navigation_window_show_search (CAJA_NAVIGATION_WINDOW (window));
+        }
 
         report_callback (slot, NULL);
     }
@@ -1406,6 +1409,7 @@ got_file_info_for_view_selection_callback (CajaFile *file,
         }
     }
 
+    g_free (uri);
     caja_file_unref (file);
 }
 
