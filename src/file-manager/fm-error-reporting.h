@@ -33,7 +33,7 @@
 void fm_report_error_loading_directory	 (CajaFile   *file,
         GError         *error,
         GtkWindow	 *parent_window);
-void fm_report_error_renaming_file       (CajaFile   *file,
+GtkDialog *fm_report_error_renaming_file (CajaFile   *file,
         const char     *new_name,
         GError         *error,
         GtkWindow	 *parent_window);
@@ -46,6 +46,19 @@ void fm_report_error_setting_owner       (CajaFile   *file,
 void fm_report_error_setting_group       (CajaFile   *file,
         GError         *error,
         GtkWindow	 *parent_window);
+
+/* Caller-owned context, valid until the completion callback. The returned
+ * error dialog is borrowed and remains valid until destroyed. */
+typedef struct {
+    GtkWindow *parent_window;
+    GtkDialog *error_dialog;
+    gboolean wait_for_activation;
+} FMRenameContext;
+void fm_rename_file_with_context (CajaFile *file,
+                                  const char *new_name,
+                                  CajaFileOperationCallback callback,
+                                  gpointer callback_data,
+                                  FMRenameContext *context);
 
 /* FIXME bugzilla.gnome.org 42394: Should this file be renamed or should this function be moved? */
 void fm_rename_file                      (CajaFile   *file,

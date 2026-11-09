@@ -77,6 +77,11 @@
       <summary>Where to position newly open tabs in browser windows.</summary>
       <description>If set to "after-current-tab", then new tabs are inserted after the current tab. If set to "end", then new tabs are appended to the end of the tab list.</description>
     </key>
+    <key name="tab-to-rename-next-file" type="b">
+      <default>false</default>
+      <summary>Rename adjacent files with Tab</summary>
+      <description>When enabled, Tab commits an inline rename and starts renaming the next file in display order. Shift+Tab starts renaming the previous file. Navigation wraps at either end of the view.</description>
+    </key>
     <key name="ctrl-tab-switch-tabs" type="b">
       <default>false</default>
       <summary>Switch tabs with [ctrl] + [tab]</summary>

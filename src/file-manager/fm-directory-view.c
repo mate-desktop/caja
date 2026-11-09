@@ -3964,6 +3964,188 @@ start_renaming_file (FMDirectoryView *view,
 	}
 }
 
+/* One owner at a time: rename callback, dialog/activation handlers, or idle
+ * source. Like the existing list-view rename callback, retain the view until
+ * completion; a destroyed or inactive view is never reopened. */
+typedef struct {
+    FMDirectoryView *view;
+    CajaDirectory *directory;
+    CajaFile *file;
+    CajaFile *next_file;
+    FMRenameContext context;
+    gboolean updates_flushed;
+} RenameNavigationData;
+
+static void
+rename_navigation_data_free (RenameNavigationData *data)
+{
+    g_object_unref (data->view);
+    g_object_unref (data->directory);
+    caja_file_unref (data->file);
+    caja_file_unref (data->next_file);
+    g_free (data);
+}
+
+static void schedule_rename_navigation (gpointer user_data);
+
+static void
+rename_window_destroyed (GtkWidget *window, gpointer user_data)
+{
+    g_signal_handlers_disconnect_by_data (window, user_data);
+    rename_navigation_data_free (user_data);
+}
+
+static void
+rename_window_activated (GtkWindow *window, GParamSpec *pspec,
+                          gpointer user_data)
+{
+    RenameNavigationData *data = user_data;
+
+    if (gtk_window_is_active (window))
+    {
+        g_signal_handlers_disconnect_by_data (window, data);
+        data->context.wait_for_activation = FALSE;
+        schedule_rename_navigation (data);
+    }
+}
+
+static gboolean
+continue_rename (gpointer user_data)
+{
+    RenameNavigationData *data = user_data;
+    FMDirectoryView *view = data->view;
+    GtkWidget *window = gtk_widget_get_toplevel (GTK_WIDGET (view));
+    GtkWidget *focus = GTK_IS_WINDOW (window)
+        ? gtk_window_get_focus (GTK_WINDOW (window)) : NULL;
+    GList *selection;
+
+    /* Check both idle passes: user interaction cancels the handoff. */
+    if (!fm_directory_view_get_active (view) ||
+        !gtk_widget_get_mapped (GTK_WIDGET (view)) ||
+        fm_directory_view_get_model (view) != data->directory ||
+        view->details->updates_frozen ||
+        focus == NULL ||
+        (focus != GTK_WIDGET (view) &&
+         !gtk_widget_is_ancestor (focus, GTK_WIDGET (view))))
+        goto done;
+
+    if (!gtk_window_is_active (GTK_WINDOW (window)))
+    {
+        if (!data->context.wait_for_activation)
+            goto done;
+        /* A rename dialog held focus. Transfer ownership to the window
+         * handlers until activation restores focus or the window closes. */
+        g_signal_connect (window, "notify::is-active",
+                           G_CALLBACK (rename_window_activated), data);
+        g_signal_connect (window, "destroy",
+                           G_CALLBACK (rename_window_destroyed), data);
+        return G_SOURCE_REMOVE;
+    }
+    data->context.wait_for_activation = FALSE;
+
+    /* Flush display changes, then yield to layout before opening an editor:
+     * moving an icon during layout closes its active rename editor. */
+    if (!data->updates_flushed)
+    {
+        data->updates_flushed = TRUE;
+        unschedule_display_of_pending_files (view);
+        display_pending_files (view);
+        return G_SOURCE_CONTINUE;
+    }
+
+    selection = fm_directory_view_get_selection (view);
+    if (selection != NULL && selection->next == NULL &&
+        selection->data == data->file &&
+        !caja_file_is_gone (data->next_file) &&
+        fm_directory_view_should_show_file (view, data->next_file) &&
+        fm_directory_view_can_rename_file (view, data->next_file))
+    {
+        fm_directory_view_select_file (view, data->next_file);
+        EEL_CALL_METHOD (FM_DIRECTORY_VIEW_CLASS, view, start_renaming_file,
+                         (view, data->next_file,
+                          caja_file_is_directory (data->next_file)));
+    }
+    caja_file_list_free (selection);
+done:
+    rename_navigation_data_free (data);
+    return G_SOURCE_REMOVE;
+}
+
+static void
+schedule_rename_navigation (gpointer user_data)
+{
+    /* The callback consumes the state or transfers it to window handlers. */
+    g_idle_add_full (G_PRIORITY_DEFAULT_IDLE + 20, continue_rename,
+                     user_data, NULL);
+}
+
+static void
+rename_error_dialog_destroyed (GtkWidget *dialog, gpointer user_data)
+{
+    schedule_rename_navigation (user_data);
+}
+
+static void
+rename_navigation_done (CajaFile *file, GFile *location, GError *error,
+                        gpointer user_data)
+{
+    RenameNavigationData *data = user_data;
+
+    if (g_error_matches (error, G_IO_ERROR, G_IO_ERROR_CANCELLED))
+        rename_navigation_data_free (data);
+    else if (error != NULL)
+    {
+        g_set_object (&data->next_file, data->file);
+        if (data->context.error_dialog != NULL)
+            g_signal_connect (data->context.error_dialog, "destroy",
+                               G_CALLBACK (rename_error_dialog_destroyed), data);
+        else
+            schedule_rename_navigation (data);
+    }
+    else
+        schedule_rename_navigation (data);
+}
+
+gboolean
+fm_directory_view_is_rename_navigation_key (GdkEventKey *event)
+{
+    GdkModifierType modifiers;
+
+    modifiers = event->state & gtk_accelerator_get_default_mod_mask ();
+    return (event->keyval == GDK_KEY_Tab ||
+            event->keyval == GDK_KEY_ISO_Left_Tab) &&
+           (modifiers & ~GDK_SHIFT_MASK) == 0 &&
+           g_settings_get_boolean (caja_preferences,
+                                   CAJA_PREFERENCES_TAB_TO_RENAME_NEXT_FILE);
+}
+
+void
+fm_directory_view_rename_and_continue (FMDirectoryView *view,
+                                       CajaFile *file,
+                                       CajaFile *next_file,
+                                       const char *new_name)
+{
+    RenameNavigationData *data;
+    char *old_name;
+
+    data = g_new0 (RenameNavigationData, 1);
+    data->view = g_object_ref (view);
+    data->context.parent_window =
+        GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (view)));
+    data->directory = g_object_ref (fm_directory_view_get_model (view));
+    data->file = caja_file_ref (file);
+    data->next_file = caja_file_ref (next_file);
+    old_name = caja_file_get_display_name (file);
+    if (new_name[0] == '\0')
+        g_set_object (&data->next_file, file);
+    if (new_name[0] != '\0' && strcmp (old_name, new_name) != 0)
+        fm_rename_file_with_context (file, new_name, rename_navigation_done,
+                                     data, &data->context);
+    else
+        schedule_rename_navigation (data);
+    g_free (old_name);
+}
+
 typedef struct {
 	FMDirectoryView *view;
 	CajaFile *new_file;

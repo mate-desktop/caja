@@ -92,12 +92,13 @@ fm_report_error_loading_directory (CajaFile *file,
     g_free (message);
 }
 
-void
+GtkDialog *
 fm_report_error_renaming_file (CajaFile *file,
                                const char *new_name,
                                GError *error,
                                GtkWindow *parent_window)
 {
+    GtkDialog *dialog;
     char *original_name, *original_name_truncated;
     char *new_name_truncated;
     char *message;
@@ -163,8 +164,9 @@ fm_report_error_renaming_file (CajaFile *file,
     g_free (original_name_truncated);
     g_free (new_name_truncated);
 
-    eel_show_error_dialog (_("The item could not be renamed."), message, parent_window);
+    dialog = eel_show_error_dialog (_("The item could not be renamed."), message, parent_window);
     g_free (message);
+    return dialog;
 }
 
 void
@@ -262,6 +264,8 @@ typedef struct _FMRenameData
 {
     char *name;
     CajaFileOperationCallback callback;
+    FMRenameContext *context;
+    GtkWindow *parent_window;
     gpointer callback_data;
 } FMRenameData;
 
@@ -269,6 +273,7 @@ static void
 fm_rename_data_free (FMRenameData *data)
 {
     g_free (data->name);
+    g_clear_object (&data->parent_window);
     g_free (data);
 }
 
@@ -288,7 +293,10 @@ rename_callback (CajaFile *file, GFile *result_location,
             !(error->domain == G_IO_ERROR && error->code == G_IO_ERROR_CANCELLED))
     {
         /* If rename failed, notify the user. */
-        fm_report_error_renaming_file (file, data->name, error, NULL);
+        GtkDialog *dialog = fm_report_error_renaming_file
+            (file, data->name, error, data->parent_window);
+        if (data->context != NULL)
+            data->context->error_dialog = dialog;
     }
 
     finish_rename (file, TRUE, error);
@@ -308,11 +316,35 @@ static void
 finish_rename (CajaFile *file, gboolean stop_timer, GError *error)
 {
     FMRenameData *data;
+    gboolean wait_for_activation = FALSE;
+    GList *windows, *node;
 
     data = g_object_get_data (G_OBJECT (file), NEW_NAME_TAG);
     if (data == NULL)
     {
         return;
+    }
+
+    /* Record whether one of this operation's dialogs owns focus before
+     * stopping the timed wait destroys it (possibly after a short delay). */
+    if (data->parent_window != NULL)
+    {
+        windows = gtk_window_list_toplevels ();
+        for (node = windows; node != NULL; node = node->next)
+        {
+            GtkWindow *window = GTK_WINDOW (node->data);
+            if (window != data->parent_window &&
+                gtk_window_get_transient_for (window) == data->parent_window &&
+                gtk_window_is_active (window))
+            {
+                wait_for_activation = TRUE;
+                break;
+            }
+        }
+        g_list_free (windows);
+        if (data->context->error_dialog != NULL &&
+            gtk_window_is_active (data->parent_window))
+            wait_for_activation = TRUE;
     }
 
     /* Cancel both the rename and the timed wait. */
@@ -322,6 +354,8 @@ finish_rename (CajaFile *file, gboolean stop_timer, GError *error)
         eel_timed_wait_stop (cancel_rename_callback, file);
     }
 
+    if (data->context != NULL)
+        data->context->wait_for_activation = wait_for_activation;
     if (data->callback != NULL)
     {
         data->callback (file, NULL, error, data->callback_data);
@@ -332,10 +366,11 @@ finish_rename (CajaFile *file, gboolean stop_timer, GError *error)
 }
 
 void
-fm_rename_file (CajaFile *file,
-                const char *new_name,
-                CajaFileOperationCallback callback,
-                gpointer callback_data)
+fm_rename_file_with_context (CajaFile *file,
+                             const char *new_name,
+                             CajaFileOperationCallback callback,
+                             gpointer callback_data,
+                             FMRenameContext *context)
 {
     char *old_name, *wait_message;
     FMRenameData *data;
@@ -353,6 +388,14 @@ fm_rename_file (CajaFile *file,
     data = g_new0 (FMRenameData, 1);
     data->name = g_strdup (new_name);
     data->callback = callback;
+    data->context = context;
+    if (context != NULL)
+    {
+        context->error_dialog = NULL;
+        context->wait_for_activation = FALSE;
+        if (context->parent_window != NULL)
+            data->parent_window = g_object_ref (context->parent_window);
+    }
     data->callback_data = callback_data;
 
     /* Attach the new name to the file. */
@@ -367,7 +410,7 @@ fm_rename_file (CajaFile *file,
                                     new_name);
     g_free (old_name);
     eel_timed_wait_start (cancel_rename_callback, file, wait_message,
-                          NULL); /* FIXME bugzilla.gnome.org 42395: Parent this? */
+                          data->parent_window);
     g_free (wait_message);
 
     uri = caja_file_get_uri (file);
@@ -379,4 +422,13 @@ fm_rename_file (CajaFile *file,
     /* Start the rename. */
     caja_file_rename (file, new_name,
                       rename_callback, NULL);
+}
+
+void
+fm_rename_file (CajaFile *file,
+                const char *new_name,
+                CajaFileOperationCallback callback,
+                gpointer callback_data)
+{
+    fm_rename_file_with_context (file, new_name, callback, callback_data, NULL);
 }
