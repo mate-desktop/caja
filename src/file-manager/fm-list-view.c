@@ -1334,6 +1334,89 @@ sort_column_changed_callback (GtkTreeSortable *sortable,
     view->details->last_sort_attr = sort_attr;
 }
 
+typedef struct {
+    GtkTreeView *tree_view;
+    GList *files;
+} RenameVisibleFiles;
+
+static gboolean
+collect_visible_rename_file (GtkTreeModel *model, GtkTreePath *path,
+                             GtkTreeIter *iter, gpointer user_data)
+{
+    RenameVisibleFiles *data = user_data;
+    GtkTreePath *parent = gtk_tree_path_copy (path);
+    CajaFile *file;
+
+    while (gtk_tree_path_up (parent) && gtk_tree_path_get_depth (parent) > 0)
+    {
+        if (!gtk_tree_view_row_expanded (data->tree_view, parent))
+        {
+            gtk_tree_path_free (parent);
+            return FALSE;
+        }
+    }
+    gtk_tree_path_free (parent);
+    gtk_tree_model_get (model, iter, FM_LIST_MODEL_FILE_COLUMN, &file, -1);
+    if (file != NULL)
+        data->files = g_list_prepend (data->files, file);
+    return FALSE;
+}
+
+static gboolean
+rename_entry_key_press (GtkWidget *widget, GdkEventKey *event, FMListView *view)
+{
+    RenameVisibleFiles visible = { view->details->tree_view, NULL };
+    GtkTreeModel *model = GTK_TREE_MODEL (view->details->model);
+    GtkTreePath *path;
+    GtkTreeIter iter;
+    GList *current, *neighbor;
+    CajaFile *file;
+    char *new_name;
+    gboolean backwards;
+
+    if (!fm_directory_view_is_rename_navigation_key (event))
+        return FALSE;
+
+    path = gtk_tree_path_new_from_string
+        (g_object_get_data (G_OBJECT (widget), "caja-rename-path"));
+    if (!gtk_tree_model_get_iter (model, &iter, path))
+    {
+        gtk_tree_path_free (path);
+        return FALSE;
+    }
+    gtk_tree_path_free (path);
+    gtk_tree_model_get (model, &iter, FM_LIST_MODEL_FILE_COLUMN, &file, -1);
+    gtk_tree_model_foreach (model, collect_visible_rename_file, &visible);
+    visible.files = g_list_reverse (visible.files);
+    current = g_list_find (visible.files, file);
+    if (current == NULL)
+    {
+        caja_file_unref (file);
+        caja_file_list_free (visible.files);
+        return FALSE;
+    }
+    backwards = event->keyval == GDK_KEY_ISO_Left_Tab ||
+                (event->state & GDK_SHIFT_MASK) != 0;
+    neighbor = backwards ? current->prev : current->next;
+    if (neighbor == NULL)
+        neighbor = backwards ? g_list_last (visible.files) : visible.files;
+
+    new_name = gtk_editable_get_chars (GTK_EDITABLE (widget), 0, -1);
+    g_object_ref (widget);
+    g_object_set (widget, "editing-canceled", TRUE, NULL);
+    gtk_cell_editable_editing_done (GTK_CELL_EDITABLE (widget));
+    gtk_cell_editable_remove_widget (GTK_CELL_EDITABLE (widget));
+    g_object_unref (widget);
+    g_object_set (view->details->file_name_cell, "editable", FALSE, NULL);
+    gtk_widget_grab_focus (GTK_WIDGET (view->details->tree_view));
+    fm_directory_view_rename_and_continue (FM_DIRECTORY_VIEW (view),
+                                           file, neighbor->data, new_name);
+    g_free (new_name);
+    caja_file_unref (file);
+    caja_file_list_free (visible.files);
+    return TRUE;
+}
+
 static void
 cell_renderer_editing_started_cb (GtkCellRenderer *renderer,
                                   GtkCellEditable *editable,
@@ -1344,6 +1427,10 @@ cell_renderer_editing_started_cb (GtkCellRenderer *renderer,
 
     entry = GTK_ENTRY (editable);
     list_view->details->editable_widget = editable;
+    g_object_set_data_full (G_OBJECT (editable), "caja-rename-path",
+                            g_strdup (path_str), g_free);
+    g_signal_connect_object (editable, "key-press-event",
+                             G_CALLBACK (rename_entry_key_press), list_view, 0);
 
     /* Free a previously allocated original_name */
     g_free (list_view->details->original_name);
