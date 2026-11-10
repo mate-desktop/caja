@@ -9150,6 +9150,64 @@ caja_icon_container_start_renaming_selected_item (CajaIconContainer *container,
     caja_icon_canvas_item_set_renaming (icon->item, TRUE);
 }
 
+static gint
+compare_rename_order (gconstpointer a, gconstpointer b, gpointer user_data)
+{
+    CajaIconContainer *container = user_data;
+    CajaIcon *icon_a = (CajaIcon *) a;
+    CajaIcon *icon_b = (CajaIcon *) b;
+    int horizontal, vertical;
+
+    horizontal = compare_icons_horizontal (container, icon_a, icon_b);
+    vertical = compare_icons_vertical (container, icon_a, icon_b);
+    if (caja_icon_container_is_layout_rtl (container))
+        horizontal = -horizontal;
+
+    /* Compact views run down columns; icon views run along rows.
+     * Reverse only the horizontal direction in right-to-left layouts. */
+    if (caja_icon_container_is_layout_vertical (container) && horizontal != 0)
+        return horizontal;
+    if (vertical != 0)
+        return vertical;
+    if (horizontal != 0)
+        return horizontal;
+    return compare_icons_by_uri (container, icon_a, icon_b);
+}
+
+CajaIconData *
+caja_icon_container_get_rename_neighbor (CajaIconContainer *container,
+                                         gboolean backwards)
+{
+    GList *icons, *current, *neighbor;
+    CajaIconData *result = NULL;
+    CajaIcon *icon = get_icon_being_renamed (container);
+
+    if (icon == NULL)
+        return NULL;
+
+    icons = g_list_copy (container->details->icons);
+    if (container->details->auto_layout)
+        sort_icons (container, &icons);
+    else
+        icons = g_list_sort_with_data (icons, compare_rename_order, container);
+    current = g_list_find (icons, icon);
+    if (current != NULL)
+    {
+        neighbor = backwards ? current->prev : current->next;
+        if (neighbor == NULL)
+            neighbor = backwards ? g_list_last (icons) : icons;
+        result = ((CajaIcon *) neighbor->data)->data;
+    }
+    g_list_free (icons);
+    return result;
+}
+
+void
+caja_icon_container_end_renaming (CajaIconContainer *container, gboolean commit)
+{
+    end_renaming_mode (container, commit);
+}
+
 static void
 end_renaming_mode (CajaIconContainer *container, gboolean commit)
 {
