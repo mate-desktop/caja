@@ -102,6 +102,7 @@ G_BEGIN_DECLS
     EelDRect    caja_icon_canvas_item_get_icon_rectangle       (const CajaIconCanvasItem *item);
     EelDRect    caja_icon_canvas_item_get_text_rectangle       (CajaIconCanvasItem       *item,
             gboolean                      for_layout);
+    EelDRect    caja_icon_canvas_item_get_editable_text_rectangle (CajaIconCanvasItem *item);
     void        caja_icon_canvas_item_get_bounds_for_layout    (CajaIconCanvasItem       *item,
             double *x1, double *y1, double *x2, double *y2);
     void        caja_icon_canvas_item_get_bounds_for_entire_item (CajaIconCanvasItem       *item,

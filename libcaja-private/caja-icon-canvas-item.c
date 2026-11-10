@@ -2535,6 +2535,18 @@ caja_icon_canvas_item_get_icon_rectangle (const CajaIconCanvasItem *item)
     return rectangle;
 }
 
+/* Exclude caption lines from the area used to initiate renaming. */
+EelDRect
+caja_icon_canvas_item_get_editable_text_rectangle (CajaIconCanvasItem *item)
+{
+    EelDRect rect = caja_icon_canvas_item_get_text_rectangle (item, FALSE);
+    double height = item->details->editable_text_height /
+                    EEL_CANVAS_ITEM (item)->canvas->pixels_per_unit;
+
+    rect.y1 = MIN (rect.y1, rect.y0 + height);
+    return rect;
+}
+
 EelDRect
 caja_icon_canvas_item_get_text_rectangle (CajaIconCanvasItem *item,
         gboolean for_layout)

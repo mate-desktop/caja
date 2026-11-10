@@ -100,6 +100,10 @@ struct FMListViewDetails
     gboolean ignore_button_release;
 
     gboolean row_selected_on_button_down;
+    gboolean rename_on_release;
+    gint64 rename_last_click;
+    guint click_rename_timeout;
+    CajaFile *click_rename_file;
 
     gboolean menus_ready;
 
@@ -211,11 +215,64 @@ get_default_sort_order (CajaFile *file, gboolean *reversed)
 }
 
 static void
+cancel_click_rename (FMListView *view)
+{
+    if (view->details->click_rename_timeout != 0)
+    {
+        g_source_remove (view->details->click_rename_timeout);
+        view->details->click_rename_timeout = 0;
+    }
+    g_clear_object (&view->details->click_rename_file);
+}
+
+static gboolean
+click_rename_event (GtkWidget *widget, GdkEvent *event, FMListView *view)
+{
+    if (event->type == GDK_BUTTON_PRESS ||
+        event->type == GDK_2BUTTON_PRESS ||
+        event->type == GDK_3BUTTON_PRESS ||
+        event->type == GDK_KEY_PRESS || event->type == GDK_SCROLL ||
+        (event->type == GDK_FOCUS_CHANGE && !event->focus_change.in))
+    {
+        cancel_click_rename (view);
+        view->details->rename_on_release = FALSE;
+    }
+    return FALSE;
+}
+
+static gboolean
+click_rename_timeout (gpointer user_data)
+{
+    FMListView *list_view = user_data;
+    FMDirectoryView *view = FM_DIRECTORY_VIEW (list_view);
+    GtkWidget *tree = GTK_WIDGET (list_view->details->tree_view);
+    CajaFile *file = list_view->details->click_rename_file;
+    GList *selection = fm_directory_view_get_selection (view);
+
+    list_view->details->click_rename_timeout = 0;
+    list_view->details->click_rename_file = NULL;
+    if (selection != NULL && selection->next == NULL &&
+        selection->data == file && gtk_widget_has_focus (tree) &&
+        gtk_window_is_active (GTK_WINDOW (gtk_widget_get_toplevel (tree))) &&
+        list_view->details->editable_widget == NULL &&
+        click_policy_auto_value == CAJA_CLICK_POLICY_DOUBLE &&
+        g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_SLOW_CLICK_RENAME) &&
+        FM_DIRECTORY_VIEW_GET_CLASS (view)->can_rename_file (view, file))
+    {
+        FM_DIRECTORY_VIEW_GET_CLASS (view)->start_renaming_file (view, file, FALSE);
+    }
+    caja_file_list_free (selection);
+    caja_file_unref (file);
+    return G_SOURCE_REMOVE;
+}
+
+static void
 list_selection_changed_callback (GtkTreeSelection *selection, gpointer user_data)
 {
     FMDirectoryView *view;
 
     view = FM_DIRECTORY_VIEW (user_data);
+    cancel_click_rename (FM_LIST_VIEW (view));
 
     fm_directory_view_notify_selection_changed (view);
 }
@@ -340,6 +397,10 @@ fm_list_view_did_not_drag (FMListView *view,
     if (gtk_tree_view_get_path_at_pos (tree_view, event->x, event->y,
                                        &path, NULL, NULL, NULL))
     {
+        /* Releasing over another row must not rename that row. */
+        if (!gtk_tree_selection_path_is_selected (selection, path))
+            view->details->rename_on_release = FALSE;
+
         if ((event->button == 1 || event->button == 2)
                 && ((event->state & GDK_CONTROL_MASK) != 0 ||
                     (event->state & GDK_SHIFT_MASK) == 0)
@@ -368,6 +429,18 @@ fm_list_view_did_not_drag (FMListView *view,
                 activate_selected_items_alternate (view, NULL, TRUE);
             }
         }
+        if (view->details->rename_on_release)
+        {
+            gint interval;
+
+            g_object_get (gtk_widget_get_settings (GTK_WIDGET (tree_view)),
+                          "gtk-double-click-time", &interval, NULL);
+            view->details->click_rename_file =
+                fm_list_model_file_for_path (view->details->model, path);
+            view->details->click_rename_timeout = g_timeout_add
+                (MAX (500, interval), click_rename_timeout, view);
+        }
+        view->details->rename_on_release = FALSE;
         gtk_tree_path_free (path);
     }
 
@@ -676,6 +749,7 @@ button_press_callback (GtkWidget *widget, GdkEventButton *event, gpointer callba
     gboolean on_expander;
 
     view = FM_LIST_VIEW (callback_data);
+    view->details->rename_on_release = FALSE;
     tree_view = GTK_TREE_VIEW (widget);
     tree_view_class = GTK_WIDGET_GET_CLASS (tree_view);
     selection = gtk_tree_view_get_selection (tree_view);
@@ -736,6 +810,47 @@ button_press_callback (GtkWidget *widget, GdkEventButton *event, gpointer callba
         expander_size += 4;
         on_expander = (event->x <= horizontal_separator / 2 +
                        gtk_tree_path_get_depth (path) * expander_size);
+
+        if (event->button == 1 && event->type == GDK_BUTTON_PRESS &&
+            click_policy_auto_value == CAJA_CLICK_POLICY_DOUBLE &&
+            g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_SLOW_CLICK_RENAME))
+        {
+            GtkTreeViewColumn *column;
+            gint cell_x, text_start, text_width, natural_width;
+            GtkTreeIter iter;
+            gfloat xalign;
+
+            gtk_tree_view_get_path_at_pos (tree_view, event->x, event->y,
+                                           NULL, &column, &cell_x, NULL);
+            gtk_tree_model_get_iter (GTK_TREE_MODEL (view->details->model), &iter, path);
+            gtk_tree_view_column_cell_set_cell_data
+                (view->details->file_name_column,
+                 GTK_TREE_MODEL (view->details->model), &iter, FALSE, FALSE);
+            gtk_tree_view_column_cell_get_position
+                (view->details->file_name_column,
+                 GTK_CELL_RENDERER (view->details->file_name_cell),
+                 &text_start, &text_width);
+            gtk_cell_renderer_get_preferred_width
+                (GTK_CELL_RENDERER (view->details->file_name_cell), widget,
+                 NULL, &natural_width);
+            gtk_cell_renderer_get_alignment
+                (GTK_CELL_RENDERER (view->details->file_name_cell), &xalign, NULL);
+            if (gtk_widget_get_direction (widget) == GTK_TEXT_DIR_RTL)
+                xalign = 1.0 - xalign;
+            text_start += MAX (0, text_width - natural_width) * xalign;
+            text_width = MIN (text_width, natural_width);
+            view->details->rename_on_release =
+                !on_expander && !button_event_modifies_selection (event) &&
+                gtk_widget_has_focus (widget) &&
+                click_policy_auto_value == CAJA_CLICK_POLICY_DOUBLE &&
+                gtk_tree_selection_count_selected_rows (selection) == 1 &&
+                gtk_tree_selection_path_is_selected (selection, path) &&
+                column == view->details->file_name_column &&
+                cell_x >= text_start && cell_x < text_start + text_width &&
+                current_time - view->details->rename_last_click > double_click_time * 1000 &&
+                g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_SLOW_CLICK_RENAME);
+            view->details->rename_last_click = current_time;
+        }
 
         /* Keep track of path of last click so double clicks only happen
          * on the same item */
@@ -1851,6 +1966,8 @@ create_and_set_up_tree_view (FMListView *view)
                              G_CALLBACK (enter_notify_callback), view, 0);
     g_signal_connect_object (view->details->tree_view, "leave_notify_event",
                              G_CALLBACK (leave_notify_callback), view, 0);
+    g_signal_connect_object (view->details->tree_view, "event",
+                             G_CALLBACK (click_rename_event), view, 0);
     g_signal_connect_object (view->details->tree_view, "button_press_event",
                              G_CALLBACK (button_press_callback), view, 0);
     g_signal_connect_object (view->details->tree_view, "button_release_event",
@@ -3392,6 +3509,7 @@ fm_list_view_dispose (GObject *object)
     FMListView *list_view;
 
     list_view = FM_LIST_VIEW (object);
+    cancel_click_rename (list_view);
 
     if (list_view->details->model)
     {

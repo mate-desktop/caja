@@ -168,6 +168,10 @@ struct CajaIconContainerDetails
 
     /* Remembered information about the start of the current event. */
     guint32 button_down_time;
+    gint64 rename_last_click;
+    gboolean rename_on_release;
+    guint click_rename_timeout;
+    CajaIcon *click_rename_icon;
 
     /* Drag state. Valid only if drag_button is non-zero. */
     guint drag_button;
