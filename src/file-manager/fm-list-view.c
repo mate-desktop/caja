@@ -259,7 +259,8 @@ click_rename_timeout (gpointer user_data)
         g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_SLOW_CLICK_RENAME) &&
         FM_DIRECTORY_VIEW_GET_CLASS (view)->can_rename_file (view, file))
     {
-        FM_DIRECTORY_VIEW_GET_CLASS (view)->start_renaming_file (view, file, FALSE);
+        FM_DIRECTORY_VIEW_GET_CLASS (view)->start_renaming_file
+            (view, file, caja_file_is_directory (file));
     }
     caja_file_list_free (selection);
     caja_file_unref (file);
@@ -3370,8 +3371,16 @@ fm_list_view_start_renaming_file (FMDirectoryView *view,
 
     /* set cursor also triggers editing-started, where we save the editable widget */
     if (list_view->details->editable_widget != NULL) {
-            eel_filename_get_rename_region (list_view->details->original_name,
-                                            &start_offset, &end_offset);
+            if (select_all)
+            {
+                start_offset = 0;
+                end_offset = -1;
+            }
+            else
+            {
+                eel_filename_get_rename_region (list_view->details->original_name,
+                                                &start_offset, &end_offset);
+            }
 
             gtk_editable_select_region (GTK_EDITABLE (list_view->details->editable_widget),
                                         start_offset, end_offset);

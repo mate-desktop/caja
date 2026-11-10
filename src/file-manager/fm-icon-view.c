@@ -2574,7 +2574,8 @@ click_rename_selected (CajaIconContainer *container, FMIconView *icon_view)
         FM_DIRECTORY_VIEW_GET_CLASS (view)->can_rename_file (view, selection->data))
     {
         FM_DIRECTORY_VIEW_GET_CLASS (view)->start_renaming_file
-            (view, selection->data, FALSE);
+            (view, selection->data,
+             caja_file_is_directory (selection->data));
     }
     caja_file_list_free (selection);
 }
