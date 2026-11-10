@@ -2564,6 +2564,21 @@ fm_icon_view_compare_files (FMIconView   *icon_view,
             icon_view->details->sort_reversed);
 }
 
+static void
+click_rename_selected (CajaIconContainer *container, FMIconView *icon_view)
+{
+    FMDirectoryView *view = FM_DIRECTORY_VIEW (icon_view);
+    GList *selection = fm_directory_view_get_selection (view);
+
+    if (selection != NULL && selection->next == NULL &&
+        FM_DIRECTORY_VIEW_GET_CLASS (view)->can_rename_file (view, selection->data))
+    {
+        FM_DIRECTORY_VIEW_GET_CLASS (view)->start_renaming_file
+            (view, selection->data, FALSE);
+    }
+    caja_file_list_free (selection);
+}
+
 static int
 compare_files (FMDirectoryView   *icon_view,
                CajaFile *a,
@@ -3184,6 +3199,8 @@ create_icon_container (FMIconView *icon_view)
                              G_CALLBACK (focus_in_event_callback), icon_view, 0);
     g_signal_connect_object (icon_container, "query-tooltip",
                              G_CALLBACK (icon_container_query_tooltip_callback), icon_view, 0);
+    g_signal_connect_object (icon_container, "rename_selected",
+                             G_CALLBACK (click_rename_selected), icon_view, 0);
     g_signal_connect_object (icon_container, "activate",
                              G_CALLBACK (icon_container_activate_callback), icon_view, 0);
     g_signal_connect_object (icon_container, "activate_alternate",
