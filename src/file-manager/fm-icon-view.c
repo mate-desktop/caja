@@ -2539,6 +2539,17 @@ icon_container_preview_callback (CajaIconContainer *container,
 }
 
 static gboolean
+rename_navigation_key_press_callback (GtkWidget *widget, GdkEventKey *event,
+                                      FMIconView *icon_view)
+{
+    FMDirectoryView *view = FM_DIRECTORY_VIEW (icon_view);
+
+    /* Key repeat can reach the container while the next editor is pending. */
+    return fm_directory_view_is_rename_navigation_pending (view) &&
+           fm_directory_view_is_rename_navigation_key (event);
+}
+
+static gboolean
 rename_key_press_callback (GtkWidget *widget, GdkEventKey *event,
                            FMIconView *view)
 {
@@ -3224,6 +3235,9 @@ create_icon_container (FMIconView *icon_view)
     gtk_widget_set_can_focus (GTK_WIDGET (icon_container), TRUE);
     gtk_widget_set_has_tooltip (GTK_WIDGET (icon_container), TRUE);
 
+    g_signal_connect_object (icon_container, "key-press-event",
+                             G_CALLBACK (rename_navigation_key_press_callback),
+                             icon_view, 0);
     g_signal_connect_object (icon_container, "focus_in_event",
                              G_CALLBACK (focus_in_event_callback), icon_view, 0);
     g_signal_connect_object (icon_container, "query-tooltip",
