@@ -230,6 +230,7 @@ struct FMDirectoryViewDetails
 	 * losing focus when the underlying GtkTreeView is updated.
 	 */
 	gboolean updates_frozen;
+    guint rename_navigation_pending;
 	guint	 updates_queued;
 	gboolean needs_reload;
 
@@ -3979,6 +3980,7 @@ typedef struct {
 static void
 rename_navigation_data_free (RenameNavigationData *data)
 {
+    data->view->details->rename_navigation_pending--;
     g_object_unref (data->view);
     g_object_unref (data->directory);
     caja_file_unref (data->file);
@@ -4061,6 +4063,7 @@ continue_rename (gpointer user_data)
         fm_directory_view_can_rename_file (view, data->next_file))
     {
         fm_directory_view_select_file (view, data->next_file);
+        fm_directory_view_reveal_selection (view);
         EEL_CALL_METHOD (FM_DIRECTORY_VIEW_CLASS, view, start_renaming_file,
                          (view, data->next_file,
                           caja_file_is_directory (data->next_file)));
@@ -4107,6 +4110,12 @@ rename_navigation_done (CajaFile *file, GFile *location, GError *error,
 }
 
 gboolean
+fm_directory_view_is_rename_navigation_pending (FMDirectoryView *view)
+{
+    return view->details->rename_navigation_pending != 0;
+}
+
+gboolean
 fm_directory_view_is_rename_navigation_key (GdkEventKey *event)
 {
     GdkModifierType modifiers;
@@ -4130,6 +4139,7 @@ fm_directory_view_rename_and_continue (FMDirectoryView *view,
 
     data = g_new0 (RenameNavigationData, 1);
     data->view = g_object_ref (view);
+    view->details->rename_navigation_pending++;
     data->context.parent_window =
         GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (view)));
     data->directory = g_object_ref (fm_directory_view_get_model (view));

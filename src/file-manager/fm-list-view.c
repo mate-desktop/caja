@@ -1120,6 +1120,12 @@ key_press_callback (GtkWidget *widget, GdkEventKey *event, gpointer callback_dat
     listview = FM_LIST_VIEW (view);
     handled = FALSE;
 
+    /* Key repeat may arrive between closing one editor and opening the next.
+     * Keep those Tabs out of the tree view's normal focus traversal. */
+    if (fm_directory_view_is_rename_navigation_pending (view) &&
+        fm_directory_view_is_rename_navigation_key (event))
+        return TRUE;
+
     switch (event->keyval)
     {
     case GDK_KEY_F10:
@@ -3291,6 +3297,31 @@ fm_list_view_can_zoom_out (FMDirectoryView *view)
     return FM_LIST_VIEW (view)->details->zoom_level > CAJA_ZOOM_LEVEL_SMALLEST;
 }
 
+/* Finish vertical scrolling before creating the editor. GtkTreeView's
+ * scroll-to-cell animation otherwise moves the row underneath its editor. */
+static void
+scroll_to_rename_row (GtkTreeView *tree_view, GtkTreePath *path)
+{
+    GtkAdjustment *adjustment;
+    GdkRectangle rect;
+    gint row_y;
+    gdouble value, page_size;
+
+    adjustment = gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (tree_view));
+    gtk_tree_view_get_background_area (tree_view, path, NULL, &rect);
+    gtk_tree_view_convert_bin_window_to_tree_coords
+        (tree_view, 0, rect.y, NULL, &row_y);
+    value = gtk_adjustment_get_value (adjustment);
+    page_size = gtk_adjustment_get_page_size (adjustment);
+    if (row_y < value || rect.height > page_size)
+        value = row_y;
+    else if (row_y + rect.height > value + page_size)
+        value = row_y + rect.height - page_size;
+
+    /* Also stop any animation started by reveal_selection. */
+    gtk_adjustment_set_value (adjustment, value);
+}
+
 static void
 fm_list_view_start_renaming_file (FMDirectoryView *view,
                                   CajaFile *file,
@@ -3328,10 +3359,11 @@ fm_list_view_start_renaming_file (FMDirectoryView *view,
                   "editable", TRUE,
                   NULL);
 
+    scroll_to_rename_row (list_view->details->tree_view, path);
     gtk_tree_view_scroll_to_cell (list_view->details->tree_view,
-                                  NULL,
+                                  path,
                                   list_view->details->file_name_column,
-                                  TRUE, 0.0, 0.0);
+                                  FALSE, 0.0, 0.0);
     gtk_tree_view_set_cursor_on_cell (list_view->details->tree_view,
                               path,
                               list_view->details->file_name_column,
