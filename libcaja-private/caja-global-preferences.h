@@ -92,6 +92,8 @@ typedef enum
 #define CAJA_PREFERENCES_TREE_SHOW_ONLY_DIRECTORIES         "show-only-directories"
 
 /* Single/Double click preference  */
+#define CAJA_PREFERENCES_SLOW_CLICK_RENAME "slow-click-to-rename"
+
 #define CAJA_PREFERENCES_CLICK_POLICY			"click-policy"
 
 /* Activating executable text files */

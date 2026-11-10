@@ -4369,12 +4369,59 @@ select_previous_or_next_icon (CajaIconContainer *container,
 #endif
 
 static void
+cancel_click_rename (CajaIconContainer *container)
+{
+    if (container->details->click_rename_timeout != 0)
+    {
+        g_source_remove (container->details->click_rename_timeout);
+        container->details->click_rename_timeout = 0;
+    }
+    container->details->click_rename_icon = NULL;
+}
+
+static gboolean
+click_rename_event (GtkWidget *widget, GdkEvent *event, gpointer unused)
+{
+    if (event->type == GDK_BUTTON_PRESS ||
+        event->type == GDK_2BUTTON_PRESS ||
+        event->type == GDK_3BUTTON_PRESS ||
+        event->type == GDK_KEY_PRESS || event->type == GDK_SCROLL ||
+        (event->type == GDK_FOCUS_CHANGE && !event->focus_change.in))
+    {
+        cancel_click_rename (CAJA_ICON_CONTAINER (widget));
+        CAJA_ICON_CONTAINER (widget)->details->rename_on_release = FALSE;
+    }
+    return FALSE;
+}
+
+static gboolean
+click_rename_timeout (gpointer user_data)
+{
+    CajaIconContainer *container = user_data;
+    CajaIcon *icon = container->details->click_rename_icon;
+
+    container->details->click_rename_timeout = 0;
+    container->details->click_rename_icon = NULL;
+    if (icon != NULL && icon == get_first_selected_icon (container) &&
+        !has_multiple_selection (container) &&
+        gtk_widget_has_focus (GTK_WIDGET (container)) &&
+        gtk_window_is_active (GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (container)))) &&
+        !container->details->single_click_mode &&
+        g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_SLOW_CLICK_RENAME))
+    {
+        g_signal_emit_by_name (container, "rename_selected");
+    }
+    return G_SOURCE_REMOVE;
+}
+
+static void
 destroy (GtkWidget *object)
 {
     CajaIconContainer *container;
 
     container = CAJA_ICON_CONTAINER (object);
 
+    cancel_click_rename (container);
     caja_icon_container_clear (container);
 
     if (container->details->rubberband_info.timer_id != 0)
@@ -4828,6 +4875,27 @@ caja_icon_container_did_not_drag (CajaIconContainer *container,
             }
         }
     }
+
+
+    if (details->rename_on_release && details->drag_icon != NULL &&
+        !has_multiple_selection (container))
+    {
+        EelDRect rect;
+        double x, y;
+
+        eel_canvas_window_to_world (EEL_CANVAS (container), event->x, event->y,
+                                    &x, &y);
+        rect = caja_icon_canvas_item_get_editable_text_rectangle (details->drag_icon->item);
+        if (x >= rect.x0 && x <= rect.x1 && y >= rect.y0 && y <= rect.y1)
+        {
+            g_object_get (gtk_widget_get_settings (GTK_WIDGET (container)),
+                          "gtk-double-click-time", &double_click_time, NULL);
+            details->click_rename_icon = details->drag_icon;
+            details->click_rename_timeout = g_timeout_add
+                (MAX (500, double_click_time), click_rename_timeout, container);
+        }
+    }
+    details->rename_on_release = FALSE;
 
     if (details->drag_icon != NULL &&
             (details->single_click_mode ||
@@ -6252,6 +6320,9 @@ caja_icon_container_class_init (CajaIconContainerClass *class)
                         NULL, NULL,
                         g_cclosure_marshal_VOID__VOID,
                         G_TYPE_NONE, 0);
+    g_signal_new ("rename_selected", G_TYPE_FROM_CLASS (class),
+                  G_SIGNAL_RUN_LAST, 0, NULL, NULL,
+                  g_cclosure_marshal_VOID__VOID, G_TYPE_NONE, 0);
     signals[BUTTON_PRESS]
         = g_signal_new ("button_press",
                         G_TYPE_FROM_CLASS (class),
@@ -6783,6 +6854,9 @@ caja_icon_container_init (CajaIconContainer *container)
     static gboolean setup_prefs = FALSE;
 
     details = g_new0 (CajaIconContainerDetails, 1);
+    g_signal_connect (container, "event", G_CALLBACK (click_rename_event), NULL);
+    g_signal_connect (container, "selection_changed",
+                      G_CALLBACK (cancel_click_rename), NULL);
 
     details->icon_set = g_hash_table_new (g_direct_hash, g_direct_equal);
     details->layout_timestamp = UNDEFINED_TIME;
@@ -6890,6 +6964,7 @@ handle_icon_button_press (CajaIconContainer *container,
     CajaIconContainerDetails *details;
 
     details = container->details;
+    details->rename_on_release = FALSE;
 
     if (event->type == GDK_2BUTTON_PRESS || event->type == GDK_3BUTTON_PRESS)
     {
@@ -6906,6 +6981,28 @@ handle_icon_button_press (CajaIconContainer *container,
     if ((event->button == DRAG_BUTTON) &&
             event->type == GDK_BUTTON_PRESS)
     {
+        EelDRect text_rect;
+        double world_x, world_y;
+        gint interval;
+        gint64 now = g_get_monotonic_time ();
+
+        g_object_get (gtk_widget_get_settings (GTK_WIDGET (container)),
+                      "gtk-double-click-time", &interval, NULL);
+        /* Item events have already been converted to world coordinates. */
+        world_x = event->x;
+        world_y = event->y;
+        text_rect = caja_icon_canvas_item_get_editable_text_rectangle (icon->item);
+        details->rename_on_release =
+            !details->single_click_mode && icon->is_selected &&
+            gtk_widget_has_focus (GTK_WIDGET (container)) &&
+            !has_multiple_selection (container) &&
+            !button_event_modifies_selection (event) &&
+            now - details->rename_last_click > interval * 1000 &&
+            world_x >= text_rect.x0 && world_x <= text_rect.x1 &&
+            world_y >= text_rect.y0 && world_y <= text_rect.y1 &&
+            g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_SLOW_CLICK_RENAME);
+        details->rename_last_click = now;
+
         /* The next double click has to be on this icon */
         details->double_click_icon[1] = details->double_click_icon[0];
         details->double_click_icon[0] = icon;
@@ -7284,6 +7381,10 @@ icon_destroy (CajaIconContainer *container,
     GList *item;
 
     details = container->details;
+    if (details->click_rename_icon == icon)
+    {
+        cancel_click_rename (container);
+    }
 
     item = g_list_find (details->icons, icon);
     item = item->next ? item->next : item->prev;

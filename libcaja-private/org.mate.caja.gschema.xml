@@ -124,6 +124,11 @@
       <summary>When to show number of items in a folder</summary>
       <description>Speed tradeoff for when to show the number of items in a  folder. If set to "always" then always show item counts,  even if the folder is on a remote server.  If set to "local-only" then only show counts for local file systems. If set to "never" then never bother to compute item counts.</description>
     </key>
+    <key name="slow-click-to-rename" type="b">
+      <default>false</default>
+      <summary>Rename files by clicking a selected filename</summary>
+      <description>When enabled with double-click activation, clicking the name of an already selected file starts renaming after a short delay.</description>
+    </key>
     <key name="click-policy" enum="org.mate.caja.ClickPolicy">
       <default>'double'</default>
       <summary>Type of click used to launch/open files</summary>
