@@ -1283,7 +1283,7 @@ got_file_info_for_view_selection_callback (CajaFile *file,
             uri = caja_file_get_uri (file);
 
             /* Use same view settings for search results as the current folder */
-            if (eel_uri_is_search (uri))
+            if (eel_uri_is_search (uri) && slot->content_view != NULL)
             {
                 view_id = g_strdup (caja_view_get_view_id (slot->content_view));
             }
