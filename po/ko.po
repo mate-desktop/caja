@@ -1,9 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR MATE Desktop Environment team
 # This file is distributed under the same license as the caja package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
-# Translators:
 # 한영빈 (Youngbin Han) <sukso96100@gmail.com>, 2018
 # jaekwon.park <jaekwon.park@rockplace.co.kr>, 2018
 # Seong-ho Cho <darkcircle.0426@gmail.com>, 2018
@@ -12,20 +9,25 @@
 # Junghee Lee <daemul72@gmail.com>, 2021
 # 1763f4a4329a2376c933c5e919a36cbc_341ca53 <1f851310383599d03339229d772e1290_119292>, 2021
 # Stefano Karapetsas <stefano@karapetsas.com>, 2025
-# 
+# 김인수 <simmon@nplob.com>, 2026.
+#
+# Translators:
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: caja 1.29.0\n"
 "Report-Msgid-Bugs-To: https://github.com/mate-desktop/caja/issues\n"
 "POT-Creation-Date: 2025-07-05 02:05+1000\n"
-"PO-Revision-Date: 2018-03-11 14:48+0000\n"
-"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>, 2025\n"
-"Language-Team: Korean (https://app.transifex.com/mate/teams/13566/ko/)\n"
+"PO-Revision-Date: 2026-10-16 08:18+0000\n"
+"Last-Translator: 김인수 <simmon@nplob.com>\n"
+"Language-Team: Korean <https://translate.fedoraproject.org/projects/mate-"
+"desktop/applications/caja/ko/>\n"
+"Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ko\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 2026.10.1\n"
 
 #: data/browser.xml:3
 msgid "_Patterns"
@@ -1169,7 +1171,7 @@ msgstr "꺼내기(_E)"
 #: src/file-manager/fm-directory-view.c:7625
 #: src/file-manager/fm-tree-view.c:1349
 msgid "_Unmount"
-msgstr "마운트 해제(_U)"
+msgstr "적재 해제(_U)"
 
 #: libcaja-private/caja-clipboard.c:464
 msgid "Cut the selected text to the clipboard"
@@ -1441,11 +1443,11 @@ msgstr "사용자 꼬리표 이름을 저장할 수 없습니다."
 
 #: libcaja-private/caja-file.c:1221 libcaja-private/caja-vfs-file.c:451
 msgid "This file cannot be mounted"
-msgstr "이 파일은 마운트할 수 없습니다"
+msgstr "이 파일은 적재 할 수 없습니다"
 
 #: libcaja-private/caja-file.c:1266
 msgid "This file cannot be unmounted"
-msgstr "이 파일은 마운트 해제할 수 없습니다"
+msgstr "이 파일은 적재를 해제 할 수 없습니다"
 
 #: libcaja-private/caja-file.c:1300
 msgid "This file cannot be ejected"
@@ -1549,7 +1551,7 @@ msgstr "0000년 10월 00일(월) 오후 00:00:00"
 
 #: libcaja-private/caja-file.c:4818
 msgid "%a, %b %-d %Y at %-I:%M:%S %p"
-msgstr "%Y년 %b %-d일(%a)  %p %-I:%M:%S"
+msgstr "%-I:%M:%S %p에서 %a, %b %-d %Y"
 
 #: libcaja-private/caja-file.c:4820
 msgid "Mon, Oct 00 0000 at 00:00 PM"
@@ -1557,7 +1559,7 @@ msgstr "0000년 10월 00일(월) 오후 00:00"
 
 #: libcaja-private/caja-file.c:4821
 msgid "%a, %b %-d %Y at %-I:%M %p"
-msgstr "%Y년 %b %-d일(%a)  %p %-I:%M"
+msgstr "%-I:%M %p에서 %a, %b %-d %Y"
 
 #: libcaja-private/caja-file.c:4823
 msgid "Oct 00 0000 at 00:00 PM"
@@ -1750,7 +1752,7 @@ msgstr "원본 폴더"
 #: libcaja-private/caja-file-conflict-dialog.c:262
 #: libcaja-private/caja-file-conflict-dialog.c:301
 msgid "Items:"
-msgstr "항목"
+msgstr "항목:"
 
 #: libcaja-private/caja-file-conflict-dialog.c:265
 msgid "Original file"
@@ -1893,22 +1895,22 @@ msgstr "%s에 또다른 링크"
 #: libcaja-private/caja-file-operations.c:425
 #, c-format
 msgid "%'dst link to %s"
-msgstr "%2$s에 %1$'d번째 링크"
+msgstr "%s에 대한 %'dst 연결"
 
 #: libcaja-private/caja-file-operations.c:429
 #, c-format
 msgid "%'dnd link to %s"
-msgstr "%2$s에 %1$'d번째 링크"
+msgstr "%s에 대한 %'dnd 연결"
 
 #: libcaja-private/caja-file-operations.c:433
 #, c-format
 msgid "%'drd link to %s"
-msgstr "%2$s에 %1$'d번째 링크"
+msgstr "%s에 대한 %'drd 연결"
 
 #: libcaja-private/caja-file-operations.c:437
 #, c-format
 msgid "%'dth link to %s"
-msgstr "%2$s에 %1$'d번째 링크"
+msgstr "%s에 대한 %'dth 연결"
 
 #. Translators:
 #. * Feel free to leave out the st, nd, rd and th suffix or
@@ -2170,7 +2172,7 @@ msgstr "%V을(를) 꺼낼 수 없음"
 
 #: libcaja-private/caja-file-operations.c:2167
 msgid "Unable to unmount %V"
-msgstr "%V의 마운트를 해제할 수 없음"
+msgstr "%V 로 적재 할 수 없음"
 
 #: libcaja-private/caja-file-operations.c:2203 src/caja-places-sidebar.c:2344
 msgid "Writing data to the drive -- do not unplug"
@@ -2178,7 +2180,7 @@ msgstr "드라이브에 데이터 쓰기 - 플러그를 뽑지 마십시오"
 
 #: libcaja-private/caja-file-operations.c:2325
 msgid "Do you want to empty the trash before you unmount?"
-msgstr "마운트를 해제하기 전에 휴지통을 비우겠습니까?"
+msgstr "당신이 적재를 해제하기 전에 휴지통을 비울까요?"
 
 #: libcaja-private/caja-file-operations.c:2327
 msgid ""
@@ -2193,7 +2195,7 @@ msgstr "휴지통 비우지 않기(_N)"
 #: libcaja-private/caja-file-operations.c:2455
 #, c-format
 msgid "Unable to mount %s"
-msgstr "%s 장치를 마운트할 수 없습니다"
+msgstr "%s 를 적재 할 수 없습니다"
 
 #: libcaja-private/caja-file-operations.c:2536
 #, c-format
@@ -2539,7 +2541,7 @@ msgstr "실행 아이콘을 신뢰한다고(실행 가능) 표시할 수 없습�
 #: libcaja-private/caja-file-utilities.c:1255
 #, c-format
 msgid "Could not determine original location of \"%s\" "
-msgstr "\"%s\"의 원래 위치를 알 수 없습니다"
+msgstr "\"%s\"의 원래 위치를 특정 할 수 없습니다 "
 
 #: libcaja-private/caja-file-utilities.c:1259
 msgid "The item cannot be restored from trash"
@@ -2677,7 +2679,7 @@ msgstr "신뢰한다고 표시(_T)"
 #: libcaja-private/caja-mime-actions.c:2341
 #: src/file-manager/fm-directory-view.c:6450
 msgid "Unable to mount location"
-msgstr "위치를 마운트할 수 없습니다"
+msgstr "위치를 적재 할 수 없습니다"
 
 #: libcaja-private/caja-mime-actions.c:2427
 #: src/file-manager/fm-directory-view.c:6624
@@ -3087,7 +3089,7 @@ msgstr "항목 '%s'을(를) '%s'에 이동"
 #: libcaja-private/caja-undostack-manager.c:1423
 #, c-format
 msgid "Create new file '%s' from template "
-msgstr " 새 파일 '%s'을(를) 양식으로 만들기"
+msgstr "템플릿트에서 새로운 파일 '%s' 부분을 생성 "
 
 #: libcaja-private/caja-undostack-manager.c:1430
 #, c-format
@@ -3349,8 +3351,10 @@ msgid ""
 "the default setting. If set to false, it can be started without any window, "
 "so Caja can serve as a daemon to monitor media automount, or similar tasks."
 msgstr ""
-"참으로 설정하면, 모든 창이 제거될 때 Caja가 종료됩니다. 기본 설정입니다. 거짓으로 설정하면, 별도의 창 없이 시작할 수 있으므로 "
-"Caja는 미디어 자동 마운트 또는 이와 유사한 작업을 모니터링하는 데몬 역할을 할 수 있습니다."
+"만약 참으로 설정하면, 이후에 모든 창이 닫아질 때에 Caja는 종료됩니다. 이 "
+"부분은 기본 설정입니다. 만약 거짓으로 설정하면, 창이 없이 시작 할 수 있고, "
+"따라서 Caja는 미디어 자동 적재 또는 이와 유사한 작업을 관리하는 데몬으로 "
+"제공 될 수 있습니다."
 
 #: libcaja-private/org.mate.caja.gschema.xml:92
 msgid "Enables the classic Caja behavior, where all windows are browsers"
@@ -3420,9 +3424,11 @@ msgid ""
 "previews for local file systems. If set to \"never\" then never bother to "
 "read preview data."
 msgstr ""
-"파일 아이콘의 텍스트 파일 내용을 미리보기로 보여줄 때 경우에 따라 빠르게 합니다. \"always\"로 설정하면 폴더가 원격 서버에 "
-"있다 하더라도 항상 미리 보기를 보여줍니다.  \"local-only\"를 설정하면 로컬 파일 시스템의 파일만 미리 보기를 보여줍니다. "
-"\"never\"로 설정하면 미리 보기 데이터를 읽느라 귀찮게 하지 않습니다."
+"파일 형상의 텍스트 파일 내용을 미리보기로 표시 할 때에 속도를 절충합니다. "
+"만약 \"always\"로 설정 한 후에는 심지어 폴더가 원격 서버에 있다 하더라도 "
+"항상 미리 보기를 표시합니다. 만약 \"local-only\"를 설정한 후에는 로컬 파일 "
+"시스템의 파일만 미리 보기를 표시합니다. 만약 \"never\"로 설정한 후에는 미리 "
+"보기 자료를 읽지 않아도 됩니다."
 
 #: libcaja-private/org.mate.caja.gschema.xml:124
 msgid "When to show number of items in a folder"
@@ -3958,13 +3964,13 @@ msgstr "참으로 설정하면, 휴지통 아이콘을 바탕 화면에 만듭�
 
 #: libcaja-private/org.mate.caja.gschema.xml:422
 msgid "Show mounted volumes on the desktop"
-msgstr "바탕 화면에 마운트한 볼륨을 표시합니다"
+msgstr "데스크탑에 적재된 공간을 표시합니다"
 
 #: libcaja-private/org.mate.caja.gschema.xml:423
 msgid ""
 "If this is set to true, icons linking to mounted volumes will be put on the "
 "desktop."
-msgstr "참으로 설정하면, 마운트한 볼륨에 연결된 아이콘을 바탕 화면에 만듭니다."
+msgstr "만약 참으로 설정하면, 적재한 공간으로 연결된 기호가 데스크탑에 표시됩니다."
 
 #: libcaja-private/org.mate.caja.gschema.xml:427
 msgid "Network Servers icon visible on the desktop"
@@ -4103,19 +4109,19 @@ msgstr "이 목록에는 지금 사용 중이지 않은 확장 프로그램들�
 
 #: libcaja-private/org.mate.media-handling.gschema.xml:5
 msgid "Whether to automatically mount media"
-msgstr "자동으로 미디어를 마운트할지 여부"
+msgstr "자동으로 미디어를 적재 할지 여부"
 
 #: libcaja-private/org.mate.media-handling.gschema.xml:6
 msgid ""
 "If set to true, then Caja will automatically mount media such as user-"
 "visible hard disks and removable media on start-up and media insertion."
 msgstr ""
-"참으로 설정하면, Caja는 시작 및 미디어 삽입 시 사용자가 볼 수 있는 하드 디스크와 이동식 미디어와 같은 미디어를 자동으로 "
-"마운트합니다."
+"만약 참으로 설정하면, 이후에 Caja는 시작 및 미디어를 넣을 때에 사용자-식별 "
+"가능 하드 디스크 및 이동식 미디어와 같은 미디어를 자동으로 적재합니다."
 
 #: libcaja-private/org.mate.media-handling.gschema.xml:10
 msgid "Whether to automatically open a folder for automounted media"
-msgstr "자동 마운트한 미디어의 폴더를 자동으로 열 지 여부"
+msgstr "자동 적재한 미디어용 폴더를 자동으로 열 지 여부"
 
 #: libcaja-private/org.mate.media-handling.gschema.xml:11
 msgid ""
@@ -4124,8 +4130,10 @@ msgid ""
 "detected; for media where a known x-content type is detected, the user "
 "configurable action will be taken instead."
 msgstr ""
-"참으로 설정하면, Caja는 미디어를 자동으로 마운트할 때 폴더를 자동으로 엽니다. 이는 알려진 x-content/* 유형이 감지되지 "
-"않은 미디어에만 적용됩니다. 알려진 x-content 유형이 탐지된 미디어의 경우 사용자가 구성할 수 있는 작업이 대신 수행됩니다."
+"만약 참으로 설정하면, 이후에 Caja는 미디어가 자동으로 적재되었을 때에 폴더를 "
+"자동으로 엽니다. 이는 알려진 x-content/* 유형이 감지되지 않은 미디어에만 "
+"적용됩니다; 알려진 x-content 유형이 탐지된 미디어용은, 사용자가 구성 할 수 "
+"있는 조치가 대신 수행됩니다."
 
 #: libcaja-private/org.mate.media-handling.gschema.xml:15
 msgid "Never prompt or autorun/autostart programs when media are inserted"
@@ -4368,9 +4376,10 @@ msgid ""
 "\n"
 "If in doubt, press Cancel."
 msgstr ""
-" \"%s\" 미디어에서 소프트웨어를 바로 실행합니다. 믿을 수 없는 소프트웨어라면 절대로 실행하지 마십시오.\n"
+"소프트웨어는 매체 \"%s\" 에서 직접 실행합니다. 신뢰 할 수 없는 "
+"소프트웨어라면 절대 실행하지 마세요.\n"
 "\n"
-"의심되면 취소를 누르십시오."
+"만약 의심되면, 취소를 누르세요."
 
 #: src/caja-bookmarks-sidebar.c:193 src/caja-bookmarks-window.c:199
 msgid "No bookmarks defined"
@@ -4504,11 +4513,11 @@ msgstr "사용자 이름:"
 
 #: src/caja-connect-server-dialog.c:1077
 msgid "Password:"
-msgstr "암호:"
+msgstr "비밀번호:"
 
 #: src/caja-connect-server-dialog.c:1090
 msgid "Remember this password"
-msgstr "이 암호 기억"
+msgstr "이 비밀번호 기억"
 
 #: src/caja-connect-server-dialog.c:1101
 msgid "Add _bookmark"
@@ -4528,7 +4537,7 @@ msgid ""
 msgstr ""
 "\n"
 "\n"
-"연결을 서버 마운트에 추가합니다"
+"연견을 서버 적재에 추가합니다"
 
 #: src/caja-desktop-window.c:132 src/caja-desktop-window.c:278
 #: src/caja-pathbar.c:1445 src/caja-places-sidebar.c:541
@@ -4594,7 +4603,7 @@ msgstr "파일에 꼬리표를 붙여 넣을 수 업습니다."
 #: src/caja-emblem-sidebar.c:860 src/caja-emblem-sidebar.c:922
 #, c-format
 msgid "The file '%s' does not appear to be a valid image."
-msgstr "파일 '%s'(이)가  올바른 그림파일이 아닌것 같습니다."
+msgstr "파일 '%s' 부분은 유효한 사진으로 보이지 않습니다."
 
 #: src/caja-emblem-sidebar.c:864
 msgid "The dragged file does not appear to be a valid image."
@@ -5088,7 +5097,7 @@ msgstr "휴지통 열기"
 #: src/caja-places-sidebar.c:672 src/caja-places-sidebar.c:700
 #, c-format
 msgid "Mount and open %s"
-msgstr "%s을(를) 마운트하고 엽니다"
+msgstr "%s 부분을 적재하고 열기"
 
 #: src/caja-places-sidebar.c:884
 msgid "Browse Network"
@@ -5199,7 +5208,7 @@ msgstr "이름 바꾸기..."
 #: src/file-manager/fm-directory-view.c:7540
 #: src/file-manager/fm-directory-view.c:7621
 msgid "_Mount"
-msgstr "마운트(_M)"
+msgstr "적재(_M)"
 
 #: src/caja-places-sidebar.c:2796 src/file-manager/fm-directory-view.c:7536
 #: src/file-manager/fm-directory-view.c:7564
@@ -5681,7 +5690,7 @@ msgstr "Caja에서 이러한 형식의 위치를 처리할 수 없습니다."
 
 #: src/caja-window-manage-views.c:2183
 msgid "Unable to mount the location."
-msgstr "위치를 마운트할 수 없습니다."
+msgstr "위치를 적재 할 수 없습니다."
 
 #: src/caja-window-manage-views.c:2189
 msgid "Access was denied."
@@ -5759,14 +5768,7 @@ msgstr ""
 
 #: src/caja-window-menus.c:586
 msgid "translator-credits"
-msgstr ""
-"Elex https://launchpad.net/~mysticzizone\n"
-"Valmantas Palikša https://launchpad.net/~walmis\n"
-"Yoo Duk Nam https://launchpad.net/~yoo2001818\n"
-"onlyeriko https://launchpad.net/~onlyeriko\n"
-"Seong-ho Cho <darkcircle.0426@gmail.com>\n"
-"JungHee Lee <daemul72@gmail.com>\n"
-"MATE Desktop Environment Team <https://www.transifex.com/mate/teams/13566/ko/>"
+msgstr "김인수 <simmon@nplob.com>"
 
 #: src/caja-window-menus.c:589
 msgid "Website"
@@ -6115,7 +6117,7 @@ msgstr[0] "%'d개 폴더 선택함"
 #, c-format
 msgid " (containing %'d item)"
 msgid_plural " (containing %'d items)"
-msgstr[0] "(항목 %'d개 포함)"
+msgstr[0] " (%'d 항목에 포함하기)"
 
 #. Translators: this is preceded with a string of form 'N folders' (N more
 #. than 1)
@@ -6123,7 +6125,7 @@ msgstr[0] "(항목 %'d개 포함)"
 #, c-format
 msgid " (containing a total of %'d item)"
 msgid_plural " (containing a total of %'d items)"
-msgstr[0] "(전체 %'d개 항목 포함)"
+msgstr[0] " (총 %'d 항목에 포함하기)"
 
 #: src/file-manager/fm-directory-view.c:2337
 #, c-format
@@ -6204,7 +6206,7 @@ msgstr "이 폴더의 모든 실행 파일은 스크립트 메뉴에 나타납�
 msgid ""
 "Choosing a script from the menu will run that script with any selected items"
 " as input."
-msgstr " 메뉴에서 스크립트를 선택하면 선택한 어떤 항목을 입력으로 하여 스크립트를 실행합니다."
+msgstr "메뉴에서 스크립트를 선택하면 모든 선택한 항목을 입력으로 실행합니다."
 
 #: src/file-manager/fm-directory-view.c:5985
 msgid ""
@@ -6281,7 +6283,7 @@ msgstr "클립보드에서 붙여 넣을 것이 없습니다."
 
 #: src/file-manager/fm-directory-view.c:6471
 msgid "Unable to unmount location"
-msgstr "위치를 마운트 해제할 수 없습니다"
+msgstr "위치에 적재를 해제 할 수 없습니다"
 
 #: src/file-manager/fm-directory-view.c:6492
 msgid "Unable to eject location"
@@ -6528,11 +6530,11 @@ msgstr "이 서버와 연결합니다"
 
 #: src/file-manager/fm-directory-view.c:7513
 msgid "Mount the selected volume"
-msgstr "선택한 볼륨을 마운트합니다"
+msgstr "선택한 용량을 적재합니다"
 
 #: src/file-manager/fm-directory-view.c:7517
 msgid "Unmount the selected volume"
-msgstr "선택한 볼륨을 마운트 해제합니다"
+msgstr "선택한 용량을 적재 해제합니다"
 
 #: src/file-manager/fm-directory-view.c:7521
 msgid "Eject the selected volume"
@@ -6559,11 +6561,11 @@ msgstr "선택한 드라이브에서 미디어를 검색합니다"
 
 #: src/file-manager/fm-directory-view.c:7541
 msgid "Mount the volume associated with the open folder"
-msgstr "연 폴더에 연결된 볼륨을 마운트합니다"
+msgstr "열린 폴더와 연관된 공간을 적재합니다"
 
 #: src/file-manager/fm-directory-view.c:7545
 msgid "Unmount the volume associated with the open folder"
-msgstr "연 폴더에 연결된 볼륨을 마운트 해제합니다"
+msgstr "열린 폴더와 연결된 공간을 적재 해제합니다"
 
 #: src/file-manager/fm-directory-view.c:7549
 msgid "Eject the volume associated with the open folder"
@@ -6637,11 +6639,11 @@ msgstr "이 폴더를 휴지통에 버리지 않고 지웁니다"
 
 #: src/file-manager/fm-directory-view.c:7622
 msgid "Mount the volume associated with this folder"
-msgstr "이 폴더에 연결된 볼륨을 마운트합니다"
+msgstr "이 폴더에 연관된 공간을 적재합니다"
 
 #: src/file-manager/fm-directory-view.c:7626
 msgid "Unmount the volume associated with this folder"
-msgstr "이 폴더에 연결된 볼륨을 마운트 해제합니다"
+msgstr "이 폴더에 연관된 공간을 적재 해제합니다"
 
 #: src/file-manager/fm-directory-view.c:7630
 msgid "Eject the volume associated with this folder"
@@ -6913,11 +6915,11 @@ msgstr "열린 폴더의 속성을 보거나 고칩니다"
 
 #: src/file-manager/fm-directory-view.c:10454
 msgid "Download location?"
-msgstr "위치를 다운로드하시겠습니까?"
+msgstr "위치를 내려받을까요?"
 
 #: src/file-manager/fm-directory-view.c:10457
 msgid "You can download it or make a link to it."
-msgstr "다운로드하거나 링크를 만들 수 있습니다."
+msgstr "내려받거나 연결을 만들 수 있습니다."
 
 #: src/file-manager/fm-directory-view.c:10460
 msgid "Make a _Link"
@@ -6925,7 +6927,7 @@ msgstr "링크 만들기(_L)"
 
 #: src/file-manager/fm-directory-view.c:10467
 msgid "_Download"
-msgstr "다운로드(_D)"
+msgstr "내려받기(_D)"
 
 #: src/file-manager/fm-directory-view.c:10624
 #: src/file-manager/fm-directory-view.c:10683
