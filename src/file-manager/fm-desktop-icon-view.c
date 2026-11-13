@@ -194,6 +194,38 @@ real_owns_file (FMIconView *view, CajaFile *file)
     return owner == mine;
 }
 
+static gboolean
+real_keeps_stored_position (FMIconView *view, CajaFile *file)
+{
+    GdkDisplay *display;
+    char *position_string, c;
+    int x, y, i, n;
+    gboolean has_position;
+
+    if (desktop_view_get_monitor (view) == NULL)
+        return FALSE;
+
+    display = gtk_widget_get_display (GTK_WIDGET (view));
+    position_string = caja_file_get_metadata (file, CAJA_METADATA_KEY_ICON_POSITION, "");
+    has_position = sscanf (position_string, " %d , %d %c", &x, &y, &c) == 2;
+    g_free (position_string);
+
+    if (!has_position)
+        return FALSE;
+
+    n = gdk_display_get_n_monitors (display);
+    for (i = 0; i < n; i++)
+    {
+        GdkRectangle r;
+
+        desktop_get_monitor_rect (display, gdk_display_get_monitor (display, i), &r);
+        if (x >= r.x && x < r.x + r.width && y >= r.y && y < r.y + r.height)
+            return FALSE;
+    }
+
+    return TRUE;
+}
+
 static void
 real_position_to_view (FMIconView *view, int *x, int *y)
 {
@@ -463,6 +495,7 @@ fm_desktop_icon_view_class_init (FMDesktopIconViewClass *class)
     FM_ICON_VIEW_CLASS (class)->supports_labels_beside_icons = real_supports_labels_beside_icons;
     FM_ICON_VIEW_CLASS (class)->supports_display_git_branch = real_supports_display_git_branch;
     FM_ICON_VIEW_CLASS (class)->owns_file = real_owns_file;
+    FM_ICON_VIEW_CLASS (class)->keeps_stored_position = real_keeps_stored_position;
     FM_ICON_VIEW_CLASS (class)->position_to_view = real_position_to_view;
     FM_ICON_VIEW_CLASS (class)->position_from_view = real_position_from_view;
 }

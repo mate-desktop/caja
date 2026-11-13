@@ -2765,7 +2765,10 @@ icon_position_changed_callback (CajaIconContainer *container,
     }
 
     /* Store the new position of the icon in the metadata. */
-    if (!fm_icon_view_using_auto_layout (icon_view))
+    if (!fm_icon_view_using_auto_layout (icon_view) &&
+            !(caja_icon_container_is_position_change_automatic (container) &&
+              FM_ICON_VIEW_GET_CLASS (icon_view)->keeps_stored_position != NULL &&
+              FM_ICON_VIEW_GET_CLASS (icon_view)->keeps_stored_position (icon_view, file)))
     {
         char *position_string;
         int x = position->x, y = position->y;

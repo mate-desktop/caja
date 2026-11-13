@@ -120,12 +120,9 @@ struct FMIconViewClass
      */
     gboolean (* supports_display_git_branch)	 (FMIconView *view);
 
-    /* Views that show only part of a directory (the desktop, one monitor
-     * per window) may override these. Stored icon positions are in the
-     * directory's own coordinates; position_to_view / position_from_view
-     * convert them to and from this view's canvas coordinates.
-     */
     gboolean (* owns_file)                (FMIconView *view,
+                                           CajaFile   *file);
+    gboolean (* keeps_stored_position)    (FMIconView *view,
                                            CajaFile   *file);
     void     (* position_to_view)         (FMIconView *view,
                                            int        *x,

@@ -7808,8 +7808,10 @@ finish_adding_new_icons (CajaIconContainer *container)
             position.y = icon->y;
             position.scale = icon->scale;
             placement_grid_mark_icon (grid, icon);
+            container->details->position_change_automatic = TRUE;
             g_signal_emit (container, signals[ICON_POSITION_CHANGED], 0,
                            icon->data, &position);
+            container->details->position_change_automatic = FALSE;
             g_signal_emit (container, signals[STORE_LAYOUT_TIMESTAMP], 0,
                            icon->data, &now, &dummy);
 
@@ -10230,4 +10232,12 @@ caja_icon_container_set_store_layout_timestamps (CajaIconContainer *container,
                                                  gboolean           store_layout_timestamps)
 {
     container->details->store_layout_timestamps = (store_layout_timestamps != FALSE);
+}
+
+gboolean
+caja_icon_container_is_position_change_automatic (CajaIconContainer *container)
+{
+    g_return_val_if_fail (CAJA_IS_ICON_CONTAINER (container), FALSE);
+
+    return container->details->position_change_automatic;
 }
