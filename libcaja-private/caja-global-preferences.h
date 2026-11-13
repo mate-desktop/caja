@@ -27,6 +27,7 @@
 #define CAJA_GLOBAL_PREFERENCES_H
 
 #include <gio/gio.h>
+#include <gdk/gdk.h>
 
 G_BEGIN_DECLS
 
@@ -222,6 +223,8 @@ extern GSettings *caja_list_view_preferences;
 extern GSettings *caja_extension_preferences;
 
 extern GSettings *mate_background_preferences;
+
+GSettings *caja_preferences_get_monitor_settings (GdkMonitor *monitor);
 extern GSettings *mate_lockdown_preferences;
 
 G_END_DECLS

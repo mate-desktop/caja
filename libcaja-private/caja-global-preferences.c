@@ -24,6 +24,9 @@
 */
 
 #include <config.h>
+
+#define MATE_DESKTOP_USE_UNSTABLE_API
+#include <libmate-desktop/mate-bg.h>
 #include <glib/gi18n.h>
 
 #include <eel/eel-glib-extensions.h>
@@ -100,4 +103,33 @@ caja_global_preferences_init (void)
 
     mate_background_preferences = g_settings_new("org.mate.background");
     mate_lockdown_preferences = g_settings_new("org.mate.lockdown");
+}
+
+GSettings *
+caja_preferences_get_monitor_settings (GdkMonitor *monitor)
+{
+    static GHashTable *cache = NULL;
+    GSettings *settings;
+    gchar *id;
+
+    g_return_val_if_fail (GDK_IS_MONITOR (monitor), NULL);
+
+    if (cache == NULL)
+    {
+        cache = g_hash_table_new_full (g_str_hash, g_str_equal, g_free, g_object_unref);
+    }
+
+    id = mate_bg_get_monitor_id (monitor);
+    settings = g_hash_table_lookup (cache, id);
+    if (settings == NULL)
+    {
+        settings = mate_bg_get_monitor_settings (monitor);
+        if (settings != NULL)
+        {
+            g_hash_table_insert (cache, g_strdup (id), settings);
+        }
+    }
+    g_free (id);
+
+    return settings;
 }
