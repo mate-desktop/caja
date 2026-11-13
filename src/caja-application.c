@@ -704,11 +704,12 @@ selection_clear_event_cb (GtkWidget	        *widget,
 
 static GtkWidget *wayland_selection_widget = NULL;
 static guint desktop_monitors_idle_id = 0;
+static gboolean desktop_enabled = FALSE;
 static gulong monitor_added_id = 0;
 static gulong monitor_removed_id = 0;
 
 static void
-caja_application_close_desktop (void);
+caja_application_destroy_desktop_windows (void);
 
 static void
 caja_application_open_desktop (CajaApplication *application);
@@ -720,9 +721,9 @@ desktop_monitors_changed_idle (gpointer data)
 
     desktop_monitors_idle_id = 0;
 
-    if (caja_application_desktop_windows != NULL)
+    if (desktop_enabled)
     {
-        caja_application_close_desktop ();
+        caja_application_destroy_desktop_windows ();
         caja_application_open_desktop (application);
     }
 
@@ -850,6 +851,8 @@ caja_application_create_desktop_windows (CajaApplication *application)
 static void
 caja_application_open_desktop (CajaApplication *application)
 {
+    desktop_enabled = TRUE;
+
     if (caja_application_desktop_windows == NULL)
     {
         caja_application_create_desktop_windows (application);
@@ -857,13 +860,20 @@ caja_application_open_desktop (CajaApplication *application)
 }
 
 static void
-caja_application_close_desktop (void)
+caja_application_destroy_desktop_windows (void)
 {
     if (caja_application_desktop_windows != NULL)
     {
         g_list_free_full (caja_application_desktop_windows, (GDestroyNotify) gtk_widget_destroy);
         caja_application_desktop_windows = NULL;
     }
+}
+
+static void
+caja_application_close_desktop (void)
+{
+    desktop_enabled = FALSE;
+    caja_application_destroy_desktop_windows ();
 }
 
 void
