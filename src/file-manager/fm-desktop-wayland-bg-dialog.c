@@ -38,6 +38,9 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 
+#define MATE_DESKTOP_USE_UNSTABLE_API
+#include <libmate-desktop/mate-bg.h>
+
 #include <eel/eel-glib-extensions.h>
 #include <eel/eel-gtk-extensions.h>
 #include <eel/eel-vfs-extensions.h>
@@ -52,6 +55,29 @@
 #ifdef HAVE_WAYLAND
 
 GSettings   *background_settings;
+
+static GSettings *shared_settings;
+static GSettings *monitor_target;
+static GtkWidget *style_widget;
+static GtkWidget *color_widget;
+static GtkWidget *primary_widget;
+static GtkWidget *secondary_widget;
+static GtkWidget *file_widget;
+static GtkWidget *monitor_widget;
+static GtkWidget *shared_check_widget;
+
+static const gchar *copied_keys[] = {
+    "draw-background",
+    "show-desktop-icons",
+    "background-fade",
+    "picture-options",
+    "picture-filename",
+    "picture-opacity",
+    "primary-color",
+    "secondary-color",
+    "color-shading-type",
+    NULL
+};
 
 static void
 update_preview (gboolean starting, GtkWidget *box, gchar *filename,
@@ -263,6 +289,203 @@ update_background_image (GtkWidget *filebutton)
     g_free (filename);
 }
 
+static void update_image_background_options (GtkWidget *stylebox);
+static void update_color_background_options (GtkWidget *colorbox);
+static void update_background_image (GtkWidget *filebutton);
+
+static void
+refresh_widgets_from_settings (void)
+{
+    gchar *filename, *options, *shading_type, *primary_color_str, *secondary_color_str;
+    GdkRGBA color1, color2;
+
+    filename = g_settings_get_string (background_settings, "picture-filename");
+    options = g_settings_get_string (background_settings, "picture-options");
+    shading_type = g_settings_get_string (background_settings, "color-shading-type");
+    primary_color_str = g_settings_get_string (background_settings, "primary-color");
+    secondary_color_str = g_settings_get_string (background_settings, "secondary-color");
+
+    g_signal_handlers_block_by_func (style_widget, update_image_background_options, style_widget);
+    g_signal_handlers_block_by_func (color_widget, update_color_background_options, color_widget);
+    g_signal_handlers_block_by_func (file_widget, update_background_image, NULL);
+
+    gtk_combo_box_set_active_id (GTK_COMBO_BOX (style_widget), options);
+    gtk_combo_box_set_active_id (GTK_COMBO_BOX (color_widget), shading_type);
+
+    if (gdk_rgba_parse (&color1, primary_color_str))
+        gtk_color_chooser_set_rgba (GTK_COLOR_CHOOSER (primary_widget), &color1);
+    if (gdk_rgba_parse (&color2, secondary_color_str))
+        gtk_color_chooser_set_rgba (GTK_COLOR_CHOOSER (secondary_widget), &color2);
+
+    if (filename != NULL && *filename != '\0')
+        gtk_file_chooser_set_filename (GTK_FILE_CHOOSER (file_widget), filename);
+    else
+        gtk_file_chooser_unselect_all (GTK_FILE_CHOOSER (file_widget));
+
+    g_signal_handlers_unblock_by_func (style_widget, update_image_background_options, style_widget);
+    g_signal_handlers_unblock_by_func (color_widget, update_color_background_options, color_widget);
+    g_signal_handlers_unblock_by_func (file_widget, update_background_image, NULL);
+
+    update_preview (FALSE, NULL, filename, shading_type, primary_color_str, secondary_color_str);
+
+    g_free (filename);
+    g_free (options);
+    g_free (shading_type);
+    g_free (primary_color_str);
+    g_free (secondary_color_str);
+}
+
+static GdkMonitor *
+selected_monitor (void)
+{
+    GdkDisplay *display = gdk_display_get_default ();
+    gint index = gtk_combo_box_get_active (GTK_COMBO_BOX (monitor_widget));
+
+    if (index < 0 || index >= gdk_display_get_n_monitors (display))
+        return NULL;
+
+    return gdk_display_get_monitor (display, index);
+}
+
+static void
+select_monitor_target (void)
+{
+    GdkMonitor *monitor = selected_monitor ();
+    GSettings *settings;
+    gint i;
+
+    if (monitor == NULL)
+        return;
+
+    settings = mate_bg_get_monitor_settings (monitor);
+    if (settings == NULL)
+        return;
+
+    if (g_settings_get_boolean (settings, MATE_BG_KEY_USE_SHARED))
+    {
+        for (i = 0; copied_keys[i] != NULL; i++)
+        {
+            GVariant *value = g_settings_get_value (shared_settings, copied_keys[i]);
+
+            g_settings_set_value (settings, copied_keys[i], value);
+            g_variant_unref (value);
+        }
+        g_settings_set_boolean (settings, MATE_BG_KEY_USE_SHARED, FALSE);
+    }
+
+    g_clear_object (&monitor_target);
+    monitor_target = settings;
+    background_settings = monitor_target;
+    refresh_widgets_from_settings ();
+}
+
+static void
+monitor_selection_changed (GtkWidget *combo)
+{
+    select_monitor_target ();
+}
+
+static void
+shared_toggled (GtkWidget *check)
+{
+    gboolean shared = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (check));
+
+    gtk_widget_set_sensitive (monitor_widget, !shared);
+
+    if (shared)
+    {
+        GdkDisplay *display = gdk_display_get_default ();
+        gint i, n = gdk_display_get_n_monitors (display);
+
+        for (i = 0; i < n; i++)
+        {
+            GSettings *settings = mate_bg_get_monitor_settings (gdk_display_get_monitor (display, i));
+
+            if (settings != NULL)
+            {
+                g_settings_set_boolean (settings, MATE_BG_KEY_USE_SHARED, TRUE);
+                g_object_unref (settings);
+            }
+        }
+        g_clear_object (&monitor_target);
+        background_settings = shared_settings;
+        refresh_widgets_from_settings ();
+    }
+    else
+    {
+        select_monitor_target ();
+    }
+}
+
+static gboolean
+all_monitors_use_shared (void)
+{
+    GdkDisplay *display = gdk_display_get_default ();
+    gint i, n = gdk_display_get_n_monitors (display);
+
+    for (i = 0; i < n; i++)
+    {
+        GSettings *settings = mate_bg_get_monitor_settings (gdk_display_get_monitor (display, i));
+        gboolean shared = TRUE;
+
+        if (settings != NULL)
+        {
+            shared = g_settings_get_boolean (settings, MATE_BG_KEY_USE_SHARED);
+            g_object_unref (settings);
+        }
+        if (!shared)
+            return FALSE;
+    }
+
+    return TRUE;
+}
+
+static GtkWidget *
+build_monitor_selector (void)
+{
+    GtkWidget *hbox, *label;
+    GdkDisplay *display = gdk_display_get_default ();
+    gint i, n = gdk_display_get_n_monitors (display);
+    GSettingsSchemaSource *source = g_settings_schema_source_get_default ();
+    GSettingsSchema *schema;
+
+    schema = source != NULL ? g_settings_schema_source_lookup (source, MATE_BG_MONITOR_SCHEMA, TRUE) : NULL;
+    if (schema == NULL)
+        return NULL;
+    g_settings_schema_unref (schema);
+
+    hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 5);
+    label = gtk_label_new (_("Monitor:"));
+    monitor_widget = gtk_combo_box_text_new ();
+
+    for (i = 0; i < n; i++)
+    {
+        GdkMonitor *monitor = gdk_display_get_monitor (display, i);
+        const gchar *manufacturer = gdk_monitor_get_manufacturer (monitor);
+        const gchar *model = gdk_monitor_get_model (monitor);
+        gchar *text = g_strdup_printf ("%d: %s %s", i + 1,
+                                       manufacturer != NULL ? manufacturer : "",
+                                       model != NULL ? model : "");
+
+        gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (monitor_widget), g_strstrip (text));
+        g_free (text);
+    }
+    gtk_combo_box_set_active (GTK_COMBO_BOX (monitor_widget), 0);
+
+    shared_check_widget = gtk_check_button_new_with_mnemonic (_("_Same for all monitors"));
+    gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (shared_check_widget), all_monitors_use_shared ());
+    gtk_widget_set_sensitive (monitor_widget, !all_monitors_use_shared ());
+
+    g_signal_connect (monitor_widget, "changed", G_CALLBACK (monitor_selection_changed), NULL);
+    g_signal_connect (shared_check_widget, "toggled", G_CALLBACK (shared_toggled), NULL);
+
+    gtk_box_pack_start (GTK_BOX (hbox), label, FALSE, FALSE, 7);
+    gtk_box_pack_start (GTK_BOX (hbox), monitor_widget, FALSE, FALSE, 0);
+    gtk_box_pack_end (GTK_BOX (hbox), shared_check_widget, FALSE, FALSE, 5);
+
+    return hbox;
+}
+
 void
 wayland_bg_dialog_new (void)
 {
@@ -270,12 +493,13 @@ wayland_bg_dialog_new (void)
     GtkWidget *close_button, *colorlabel, *stylelabel;
     GtkWidget *filelabel, *stylebox;
     GtkWidget *colorbox, *colorbutton1, *colorbutton2;
-    GtkWidget *filebutton;
+    GtkWidget *filebutton, *monitor_row;
     GdkRGBA    color1, color2;
     gchar *filename, *options;
     gchar *shading_type, *primary_color_str, *secondary_color_str;
 
-    background_settings = g_settings_new ("org.mate.background");
+    shared_settings = g_settings_new ("org.mate.background");
+    background_settings = shared_settings;
 
     filename = g_settings_get_string (background_settings,
                                       "picture-filename");
@@ -398,6 +622,12 @@ wayland_bg_dialog_new (void)
     g_signal_connect (filebutton, "file-set",
               G_CALLBACK (update_background_image), NULL);
 
+    style_widget = stylebox;
+    color_widget = colorbox;
+    primary_widget = colorbutton1;
+    secondary_widget = colorbutton2;
+    file_widget = filebutton;
+
     /*Apply and Cancel buttons */
     close_button = gtk_button_new_with_mnemonic (_("_Close"));
 
@@ -433,6 +663,14 @@ wayland_bg_dialog_new (void)
 
     gtk_box_pack_start (GTK_BOX (vbox2), hbox1, FALSE, FALSE, 0);
 
+    monitor_row = build_monitor_selector ();
+    if (monitor_row != NULL)
+    {
+        gtk_box_pack_start (GTK_BOX (vbox1), monitor_row, FALSE, FALSE, 5);
+        if (!gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (shared_check_widget)))
+            select_monitor_target ();
+    }
+
     /*Pack the other boxes into the final vertical box*/
     gtk_box_pack_start (GTK_BOX (vbox1), vbox2, FALSE, FALSE, 20);
     gtk_box_pack_start (GTK_BOX (vbox1), hbox2, FALSE, FALSE, 5);
@@ -464,7 +702,12 @@ wayland_bg_dialog_new (void)
     g_signal_handlers_disconnect_by_func (colorbutton2, update_primary_color, colorbutton2);
     g_signal_handlers_disconnect_by_func (filebutton, update_background_image, NULL);
 
-    g_object_unref (background_settings);
+    g_clear_object (&monitor_target);
+    g_object_unref (shared_settings);
+    shared_settings = NULL;
+    background_settings = NULL;
+    monitor_widget = NULL;
+    shared_check_widget = NULL;
     gtk_widget_destroy (dialog);
 }
 #endif
