@@ -8873,8 +8873,10 @@ caja_icon_container_freeze_icon_positions (CajaIconContainer *container)
         position.x = icon->saved_ltr_x;
         position.y = icon->y;
         position.scale = icon->scale;
+        container->details->position_change_automatic = TRUE;
         g_signal_emit (container, signals[ICON_POSITION_CHANGED], 0,
                        icon->data, &position);
+        container->details->position_change_automatic = FALSE;
     }
 
     if (changed)
