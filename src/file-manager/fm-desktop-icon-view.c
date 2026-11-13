@@ -165,9 +165,30 @@ desktop_monitor_for_position (GdkDisplay *display, int x, int y)
 static GdkMonitor *
 desktop_default_monitor (GdkDisplay *display)
 {
-    GdkMonitor *m = gdk_display_get_primary_monitor (display);
+    GdkMonitor *best = gdk_display_get_primary_monitor (display);
+    GdkRectangle best_rect;
+    int i, n;
 
-    return m != NULL ? m : gdk_display_get_monitor (display, 0);
+    if (best != NULL)
+        return best;
+
+    n = gdk_display_get_n_monitors (display);
+    best = gdk_display_get_monitor (display, 0);
+    gdk_monitor_get_geometry (best, &best_rect);
+    for (i = 1; i < n; i++)
+    {
+        GdkMonitor *m = gdk_display_get_monitor (display, i);
+        GdkRectangle r;
+
+        gdk_monitor_get_geometry (m, &r);
+        if (r.x < best_rect.x || (r.x == best_rect.x && r.y < best_rect.y))
+        {
+            best = m;
+            best_rect = r;
+        }
+    }
+
+    return best;
 }
 
 static gboolean
