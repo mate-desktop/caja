@@ -207,6 +207,13 @@ caja_desktop_window_new (CajaApplication *application,
 
     if (!GDK_IS_X11_DISPLAY (display))
     {
+        GdkVisual *rgba_visual = gdk_screen_get_rgba_visual (screen);
+
+        if (rgba_visual != NULL)
+        {
+            gtk_widget_set_visual (GTK_WIDGET (window), rgba_visual);
+        }
+
         window->details->monitor = monitor;
         g_object_set_data (G_OBJECT (window), "caja-desktop-monitor", monitor);
     }

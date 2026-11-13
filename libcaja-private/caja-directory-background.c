@@ -323,6 +323,7 @@ typedef struct
     gulong shared_handler;
     gulong monitor_handler;
     gboolean reload_pending;
+    gboolean last_draw;
 } DesktopBackgroundState;
 
 static void     desktop_background_monitor_changed_cb    (GSettings *settings,
@@ -435,6 +436,7 @@ static gboolean
 desktop_background_prefs_change_event_idle_cb (EelBackground *background)
 {
     gchar *desktop_color = NULL;
+    gboolean draw_now;
     DesktopBackgroundState *state = desktop_background_get_state (background);
 
     if (state != NULL)
@@ -448,6 +450,14 @@ desktop_background_prefs_change_event_idle_cb (EelBackground *background)
 
     desktop_color = eel_bg_get_desktop_color (background);
     eel_background_set_color (background, desktop_color);
+
+    draw_now = g_settings_get_boolean (desktop_background_effective_settings (background),
+                                       MATE_BG_KEY_DRAW_BACKGROUND);
+    if (state != NULL && state->last_draw != draw_now)
+    {
+        state->last_draw = draw_now;
+        g_signal_emit_by_name (background, "appearance_changed");
+    }
 
     g_free(desktop_color);
     g_object_unref (background);
@@ -536,6 +546,8 @@ caja_connect_desktop_background_to_settings (CajaIconContainer *icon_container)
                              G_CALLBACK (desktop_background_reset_cb), NULL, 0);
 
     desktop_background_resolve_settings (background);
+    state->last_draw = g_settings_get_boolean (desktop_background_effective_settings (background),
+                                               MATE_BG_KEY_DRAW_BACKGROUND);
     eel_bg_load_from_gsettings (background,
                                 desktop_background_effective_settings (background));
 
