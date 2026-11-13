@@ -671,7 +671,6 @@ fm_icon_view_file_changed (FMDirectoryView *view, CajaFile *file, CajaDirectory 
     }
     else
     {
-        /* The file may have just moved onto this view (another monitor) */
         if (caja_icon_container_add (get_icon_container (icon_view),
                                      CAJA_ICON_CONTAINER_ICON_DATA (file)))
         {

@@ -84,7 +84,6 @@ struct _CajaDesktopWindowPrivate
 {
     gulong size_changed_id;
 
-    /* Wayland only */
     GdkMonitor *monitor;
 
     gboolean loaded;
@@ -236,10 +235,8 @@ caja_desktop_window_new (CajaApplication *application,
 
         gtk_layer_set_namespace (gtkwin, "desktop");
 
-        /* Show this window on its own output */
         gtk_layer_set_monitor (gtkwin, monitor);
 
-        /* Anchor the desktop to all four corners of its output */
         gtk_layer_set_anchor (gtkwin, GTK_LAYER_SHELL_EDGE_TOP, TRUE);
         gtk_layer_set_anchor (gtkwin, GTK_LAYER_SHELL_EDGE_BOTTOM, TRUE);
         gtk_layer_set_anchor (gtkwin, GTK_LAYER_SHELL_EDGE_LEFT, TRUE);
