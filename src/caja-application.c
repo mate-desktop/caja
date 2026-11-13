@@ -752,9 +752,30 @@ desktop_monitor_property_changed_cb (GObject    *monitor,
 }
 
 static void
+desktop_monitor_settings_changed_cb (GSettings *settings,
+                                     gchar     *key,
+                                     gpointer   user_data)
+{
+    desktop_monitors_changed_cb (NULL, NULL, user_data);
+}
+
+static void
 watch_monitor (CajaApplication *application,
                GdkMonitor      *monitor)
 {
+    GSettings *settings;
+
+    settings = caja_preferences_get_monitor_settings (monitor);
+    if (settings != NULL &&
+        g_object_get_data (G_OBJECT (settings), "caja-desktop-watched") == NULL)
+    {
+        g_object_set_data (G_OBJECT (settings), "caja-desktop-watched", GINT_TO_POINTER (1));
+        g_signal_connect (settings, "changed::" MATE_BG_KEY_USE_SHARED,
+                          G_CALLBACK (desktop_monitor_settings_changed_cb), application);
+        g_signal_connect (settings, "changed::" MATE_BG_KEY_SHOW_DESKTOP,
+                          G_CALLBACK (desktop_monitor_settings_changed_cb), application);
+    }
+
     if (g_object_get_data (G_OBJECT (monitor), "caja-desktop-watched") != NULL)
     {
         return;

@@ -39,6 +39,9 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 
+#define MATE_DESKTOP_USE_UNSTABLE_API
+#include <libmate-desktop/mate-bg.h>
+
 #include <eel/eel-glib-extensions.h>
 #include <eel/eel-gtk-extensions.h>
 #include <eel/eel-vfs-extensions.h>
@@ -106,6 +109,43 @@ desktop_view_get_monitor (FMIconView *view)
     return g_object_get_data (G_OBJECT (window), "caja-desktop-monitor");
 }
 
+static gboolean
+desktop_monitor_shows_icons (GdkMonitor *monitor)
+{
+    GSettings *settings;
+    gboolean shows = TRUE;
+
+    settings = caja_preferences_get_monitor_settings (monitor);
+    if (settings == NULL)
+        return TRUE;
+
+    if (!g_settings_get_boolean (settings, MATE_BG_KEY_USE_SHARED))
+        shows = g_settings_get_boolean (settings, MATE_BG_KEY_SHOW_DESKTOP);
+
+    return shows;
+}
+
+static gboolean
+desktop_any_monitor_shows_icons (GdkDisplay *display)
+{
+    int i, n = gdk_display_get_n_monitors (display);
+
+    for (i = 0; i < n; i++)
+    {
+        if (desktop_monitor_shows_icons (gdk_display_get_monitor (display, i)))
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
+static gboolean
+desktop_monitor_is_candidate (GdkDisplay *display, GdkMonitor *monitor)
+{
+    return !desktop_any_monitor_shows_icons (display) ||
+           desktop_monitor_shows_icons (monitor);
+}
+
 static void
 desktop_get_origin (GdkDisplay *display, int *ox, int *oy)
 {
@@ -149,6 +189,9 @@ desktop_monitor_for_position (GdkDisplay *display, int x, int y)
         GdkRectangle r;
         gint64 dx, dy, dist;
 
+        if (!desktop_monitor_is_candidate (display, m))
+            continue;
+
         desktop_get_monitor_rect (display, m, &r);
         dx = x < r.x ? r.x - x : (x >= r.x + r.width ? x - (r.x + r.width - 1) : 0);
         dy = y < r.y ? r.y - y : (y >= r.y + r.height ? y - (r.y + r.height - 1) : 0);
@@ -165,23 +208,25 @@ desktop_monitor_for_position (GdkDisplay *display, int x, int y)
 static GdkMonitor *
 desktop_default_monitor (GdkDisplay *display)
 {
-    GdkMonitor *best = gdk_display_get_primary_monitor (display);
-    GdkRectangle best_rect;
+    GdkMonitor *best = NULL;
+    GdkMonitor *primary = gdk_display_get_primary_monitor (display);
+    GdkRectangle best_rect = { 0 };
     int i, n;
 
-    if (best != NULL)
-        return best;
+    if (primary != NULL && desktop_monitor_is_candidate (display, primary))
+        return primary;
 
     n = gdk_display_get_n_monitors (display);
-    best = gdk_display_get_monitor (display, 0);
-    gdk_monitor_get_geometry (best, &best_rect);
-    for (i = 1; i < n; i++)
+    for (i = 0; i < n; i++)
     {
         GdkMonitor *m = gdk_display_get_monitor (display, i);
         GdkRectangle r;
 
+        if (!desktop_monitor_is_candidate (display, m))
+            continue;
+
         gdk_monitor_get_geometry (m, &r);
-        if (r.x < best_rect.x || (r.x == best_rect.x && r.y < best_rect.y))
+        if (best == NULL || r.x < best_rect.x || (r.x == best_rect.x && r.y < best_rect.y))
         {
             best = m;
             best_rect = r;
@@ -205,6 +250,9 @@ real_owns_file (FMIconView *view, CajaFile *file)
         return TRUE;
 
     display = gtk_widget_get_display (GTK_WIDGET (view));
+    if (!desktop_monitor_is_candidate (display, mine))
+        return FALSE;
+
     position_string = caja_file_get_metadata (file, CAJA_METADATA_KEY_ICON_POSITION, "");
     has_position = sscanf (position_string, " %d , %d %c", &x, &y, &c) == 2;
     g_free (position_string);
@@ -237,9 +285,13 @@ real_keeps_stored_position (FMIconView *view, CajaFile *file)
     n = gdk_display_get_n_monitors (display);
     for (i = 0; i < n; i++)
     {
+        GdkMonitor *m = gdk_display_get_monitor (display, i);
         GdkRectangle r;
 
-        desktop_get_monitor_rect (display, gdk_display_get_monitor (display, i), &r);
+        if (!desktop_monitor_is_candidate (display, m))
+            continue;
+
+        desktop_get_monitor_rect (display, m, &r);
         if (x >= r.x && x < r.x + r.width && y >= r.y && y < r.y + r.height)
             return FALSE;
     }
