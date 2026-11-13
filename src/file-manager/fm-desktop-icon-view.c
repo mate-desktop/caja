@@ -98,6 +98,133 @@ static void     font_changed_callback                             (gpointer     
 
 G_DEFINE_TYPE_WITH_PRIVATE (FMDesktopIconView, fm_desktop_icon_view, FM_TYPE_ICON_VIEW)
 
+static GdkMonitor *
+desktop_view_get_monitor (FMIconView *view)
+{
+    GtkWidget *toplevel = gtk_widget_get_toplevel (GTK_WIDGET (view));
+
+    if (toplevel == NULL)
+        return NULL;
+
+    return g_object_get_data (G_OBJECT (toplevel), "caja-desktop-monitor");
+}
+
+static void
+desktop_get_origin (GdkDisplay *display, int *ox, int *oy)
+{
+    int i, n = gdk_display_get_n_monitors (display);
+
+    *ox = G_MAXINT;
+    *oy = G_MAXINT;
+    for (i = 0; i < n; i++)
+    {
+        GdkRectangle r;
+
+        gdk_monitor_get_geometry (gdk_display_get_monitor (display, i), &r);
+        *ox = MIN (*ox, r.x);
+        *oy = MIN (*oy, r.y);
+    }
+    if (n == 0)
+        *ox = *oy = 0;
+}
+
+static void
+desktop_get_monitor_rect (GdkDisplay *display, GdkMonitor *monitor, GdkRectangle *rect)
+{
+    int ox, oy;
+
+    desktop_get_origin (display, &ox, &oy);
+    gdk_monitor_get_geometry (monitor, rect);
+    rect->x -= ox;
+    rect->y -= oy;
+}
+
+static GdkMonitor *
+desktop_monitor_for_position (GdkDisplay *display, int x, int y)
+{
+    GdkMonitor *best = NULL;
+    gint64 best_dist = G_MAXINT64;
+    int i, n = gdk_display_get_n_monitors (display);
+
+    for (i = 0; i < n; i++)
+    {
+        GdkMonitor *m = gdk_display_get_monitor (display, i);
+        GdkRectangle r;
+        gint64 dx, dy, dist;
+
+        desktop_get_monitor_rect (display, m, &r);
+        dx = x < r.x ? r.x - x : (x >= r.x + r.width ? x - (r.x + r.width - 1) : 0);
+        dy = y < r.y ? r.y - y : (y >= r.y + r.height ? y - (r.y + r.height - 1) : 0);
+        dist = dx * dx + dy * dy;
+        if (dist < best_dist)
+        {
+            best_dist = dist;
+            best = m;
+        }
+    }
+    return best;
+}
+
+static GdkMonitor *
+desktop_default_monitor (GdkDisplay *display)
+{
+    GdkMonitor *m = gdk_display_get_primary_monitor (display);
+
+    return m != NULL ? m : gdk_display_get_monitor (display, 0);
+}
+
+static gboolean
+real_owns_file (FMIconView *view, CajaFile *file)
+{
+    GdkMonitor *mine = desktop_view_get_monitor (view);
+    GdkDisplay *display;
+    char *position_string, c;
+    int x, y;
+    gboolean has_position;
+    GdkMonitor *owner;
+
+    if (mine == NULL)
+        return TRUE;
+
+    display = gtk_widget_get_display (GTK_WIDGET (view));
+    position_string = caja_file_get_metadata (file, CAJA_METADATA_KEY_ICON_POSITION, "");
+    has_position = sscanf (position_string, " %d , %d %c", &x, &y, &c) == 2;
+    g_free (position_string);
+
+    owner = has_position ? desktop_monitor_for_position (display, x, y)
+                         : desktop_default_monitor (display);
+
+    return owner == mine;
+}
+
+static void
+real_position_to_view (FMIconView *view, int *x, int *y)
+{
+    GdkMonitor *mine = desktop_view_get_monitor (view);
+    GdkRectangle r;
+
+    if (mine == NULL)
+        return;
+
+    desktop_get_monitor_rect (gtk_widget_get_display (GTK_WIDGET (view)), mine, &r);
+    *x = CLAMP (*x - r.x, 0, MAX (r.width - 1, 0));
+    *y = CLAMP (*y - r.y, 0, MAX (r.height - 1, 0));
+}
+
+static void
+real_position_from_view (FMIconView *view, int *x, int *y)
+{
+    GdkMonitor *mine = desktop_view_get_monitor (view);
+    GdkRectangle r;
+
+    if (mine == NULL)
+        return;
+
+    desktop_get_monitor_rect (gtk_widget_get_display (GTK_WIDGET (view)), mine, &r);
+    *x += r.x;
+    *y += r.y;
+}
+
 static char *desktop_directory;
 static time_t desktop_dir_modify_time;
 
@@ -338,6 +465,9 @@ fm_desktop_icon_view_class_init (FMDesktopIconViewClass *class)
     FM_ICON_VIEW_CLASS (class)->supports_keep_aligned = real_supports_keep_aligned;
     FM_ICON_VIEW_CLASS (class)->supports_labels_beside_icons = real_supports_labels_beside_icons;
     FM_ICON_VIEW_CLASS (class)->supports_display_git_branch = real_supports_display_git_branch;
+    FM_ICON_VIEW_CLASS (class)->owns_file = real_owns_file;
+    FM_ICON_VIEW_CLASS (class)->position_to_view = real_position_to_view;
+    FM_ICON_VIEW_CLASS (class)->position_from_view = real_position_from_view;
 }
 
 /*This code is only reached when running on x11*/
@@ -441,8 +571,10 @@ realized_callback (GtkWidget *widget, FMDesktopIconView *desktop_icon_view)
     {
         /*No real root window or primary monitor in wayland unless compositors add it back*/
         GdkRectangle geometry = {0};
-        GdkMonitor *monitor;
-        monitor = gdk_display_get_monitor (display, 0);
+        GdkMonitor *monitor = desktop_view_get_monitor (FM_ICON_VIEW (desktop_icon_view));
+
+        if (monitor == NULL)
+            monitor = gdk_display_get_monitor (display, 0);
         gdk_monitor_get_geometry (monitor, &geometry);
         allocation.width = geometry.width;
         allocation.height = geometry.height;

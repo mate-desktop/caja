@@ -62,7 +62,9 @@ typedef struct
 
 GType                  caja_desktop_window_get_type            (void);
 CajaDesktopWindow *caja_desktop_window_new                 (CajaApplication *application,
-        GdkScreen           *screen);
+                                                            GdkScreen       *screen,
+                                                            GdkMonitor      *monitor);
+GdkMonitor            *caja_desktop_window_get_monitor         (CajaDesktopWindow *window);
 void                   caja_desktop_window_update_directory    (CajaDesktopWindow *window);
 gboolean               caja_desktop_window_loaded              (CajaDesktopWindow *window);
 

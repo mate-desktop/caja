@@ -700,6 +700,59 @@ selection_clear_event_cb (GtkWidget	        *widget,
     return TRUE;
 }
 
+static GtkWidget *wayland_selection_widget = NULL;
+static guint desktop_monitors_idle_id = 0;
+static gulong monitor_added_id = 0;
+static gulong monitor_removed_id = 0;
+
+static void
+caja_application_close_desktop (void);
+
+static void
+caja_application_open_desktop (CajaApplication *application);
+
+static gboolean
+desktop_monitors_changed_idle (gpointer data)
+{
+    CajaApplication *application = data;
+
+    desktop_monitors_idle_id = 0;
+
+    if (caja_application_desktop_windows != NULL)
+    {
+        caja_application_close_desktop ();
+        caja_application_open_desktop (application);
+    }
+
+    return G_SOURCE_REMOVE;
+}
+
+static void
+desktop_monitors_changed_cb (GdkDisplay *display,
+                             GdkMonitor *monitor,
+                             gpointer    user_data)
+{
+    if (desktop_monitors_idle_id == 0)
+    {
+        desktop_monitors_idle_id = g_idle_add (desktop_monitors_changed_idle,
+                                               user_data);
+    }
+}
+
+static void
+caja_application_realize_desktop_window (CajaApplication  *application,
+                                         CajaDesktopWindow *window,
+                                         GdkDisplay        *display)
+{
+    gtk_widget_realize (GTK_WIDGET (window));
+    gdk_display_flush (display);
+
+    caja_application_desktop_windows =
+        g_list_prepend (caja_application_desktop_windows, window);
+    gtk_application_add_window (GTK_APPLICATION (application),
+                                GTK_WINDOW (window));
+}
+
 static void
 caja_application_create_desktop_windows (CajaApplication *application)
 {
@@ -710,13 +763,50 @@ caja_application_create_desktop_windows (CajaApplication *application)
     g_return_if_fail (CAJA_IS_APPLICATION (application));
     display = gdk_display_get_default ();
 
+    if (!GDK_IS_X11_DISPLAY (display))
+    {
+        int i, n_monitors;
+
+        if (wayland_selection_widget == NULL)
+        {
+            wayland_selection_widget = get_desktop_manager_selection (display);
+            if (wayland_selection_widget == NULL)
+                return;
+        }
+
+        if (monitor_added_id == 0)
+        {
+            monitor_added_id = g_signal_connect (display, "monitor-added",
+                                                 G_CALLBACK (desktop_monitors_changed_cb),
+                                                 application);
+            monitor_removed_id = g_signal_connect (display, "monitor-removed",
+                                                   G_CALLBACK (desktop_monitors_changed_cb),
+                                                   application);
+        }
+
+        n_monitors = gdk_display_get_n_monitors (display);
+        for (i = 0; i < n_monitors; i++)
+        {
+            GdkMonitor *monitor = gdk_display_get_monitor (display, i);
+            CajaDesktopWindow *window;
+
+            window = caja_desktop_window_new (application,
+                                              gdk_display_get_default_screen (display),
+                                              monitor);
+            caja_application_realize_desktop_window (application, window, display);
+        }
+        return;
+    }
+
     selection_widget = get_desktop_manager_selection (display);
 
     if (selection_widget != NULL)
     {
         CajaDesktopWindow *window;
 
-        window = caja_desktop_window_new (application, gdk_display_get_default_screen (display));
+        window = caja_desktop_window_new (application,
+                                          gdk_display_get_default_screen (display),
+                                          NULL);
 
         g_signal_connect (selection_widget, "selection_clear_event",
                           G_CALLBACK (selection_clear_event_cb), window);
@@ -724,16 +814,7 @@ caja_application_create_desktop_windows (CajaApplication *application)
         g_signal_connect (window, "unrealize",
                           G_CALLBACK (desktop_unrealize_cb), selection_widget);
 
-        /* We realize it immediately so that the CAJA_DESKTOP_WINDOW_ID
-           property is set so mate-settings-daemon doesn't try to set the
-           background. And we do a gdk_display_flush() to be sure X gets it. */
-        gtk_widget_realize (GTK_WIDGET (window));
-        gdk_display_flush (display);
-
-        caja_application_desktop_windows =
-            g_list_prepend (caja_application_desktop_windows, window);
-            gtk_application_add_window (GTK_APPLICATION (application),
-							    GTK_WINDOW (window));
+        caja_application_realize_desktop_window (application, window, display);
     }
 }
 
@@ -745,6 +826,7 @@ caja_application_open_desktop (CajaApplication *application)
         caja_application_create_desktop_windows (application);
     }
 }
+
 static void
 caja_application_close_desktop (void)
 {

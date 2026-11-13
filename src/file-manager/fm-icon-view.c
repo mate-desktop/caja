@@ -317,6 +317,13 @@ get_stored_icon_position_callback (CajaIconContainer *container,
                      &position->x, &position->y, &c) == 2;
     g_free (position_string);
 
+    if (position_good && FM_ICON_VIEW_GET_CLASS (icon_view)->position_to_view != NULL)
+    {
+        FM_ICON_VIEW_GET_CLASS (icon_view)->position_to_view (icon_view,
+                                                              &position->x,
+                                                              &position->y);
+    }
+
     /* If it is the desktop directory, maybe the mate-libs metadata has information about it */
 
     /* Disable scaling if not on the desktop */
@@ -547,7 +554,15 @@ fm_icon_view_clear (FMDirectoryView *view)
 static gboolean
 should_show_file_on_screen (FMDirectoryView *view, CajaFile *file)
 {
+    FMIconViewClass *klass = FM_ICON_VIEW_GET_CLASS (view);
+
     if (!fm_directory_view_should_show_file (view, file))
+    {
+        return FALSE;
+    }
+
+    if (klass->owns_file != NULL &&
+            !klass->owns_file (FM_ICON_VIEW (view), file))
     {
         return FALSE;
     }
@@ -656,6 +671,12 @@ fm_icon_view_file_changed (FMDirectoryView *view, CajaFile *file, CajaDirectory 
     }
     else
     {
+        /* The file may have just moved onto this view (another monitor) */
+        if (caja_icon_container_add (get_icon_container (icon_view),
+                                     CAJA_ICON_CONTAINER_ICON_DATA (file)))
+        {
+            caja_file_ref (file);
+        }
 
         caja_icon_container_request_update
         (get_icon_container (icon_view),
@@ -2747,9 +2768,15 @@ icon_position_changed_callback (CajaIconContainer *container,
     if (!fm_icon_view_using_auto_layout (icon_view))
     {
         char *position_string;
+        int x = position->x, y = position->y;
+
+        if (FM_ICON_VIEW_GET_CLASS (icon_view)->position_from_view != NULL)
+        {
+            FM_ICON_VIEW_GET_CLASS (icon_view)->position_from_view (icon_view, &x, &y);
+        }
 
         position_string = g_strdup_printf
-                          ("%d,%d", position->x, position->y);
+                          ("%d,%d", x, y);
         caja_file_set_metadata
         (file, CAJA_METADATA_KEY_ICON_POSITION,
          NULL, position_string);
