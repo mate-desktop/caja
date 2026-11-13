@@ -155,30 +155,19 @@ caja_desktop_window_update_directory (CajaDesktopWindow *window)
 }
 
 static void
-caja_desktop_window_screen_size_changed (GdkScreen             *screen,
-        CajaDesktopWindow *window)
+caja_desktop_window_screen_size_changed (GdkScreen         *screen,
+                                         CajaDesktopWindow *window)
 {
     int width_request, height_request;
-
     GdkDisplay *display = gdk_screen_get_display (screen);
-    if (GDK_IS_X11_DISPLAY (display))
-    {
-        GdkWindow *root_window;
-        root_window = gdk_screen_get_root_window (screen);
-        gdk_window_get_geometry (root_window, NULL, NULL, &width_request, &height_request);
-    }
-    else
-    {
-        /*No root window or primary monitor in wayland unless compositors add it back*/
-        GdkRectangle geometry = {0};
-        GdkMonitor *monitor = window->details->monitor;
 
-        if (monitor == NULL)
-            monitor = gdk_display_get_monitor (display, 0);
-        gdk_monitor_get_geometry (monitor, &geometry);
-        width_request = geometry.width;
-        height_request = geometry.height;
+    if (!GDK_IS_X11_DISPLAY (display))
+    {
+        return;
     }
+
+    gdk_window_get_geometry (gdk_screen_get_root_window (screen), NULL, NULL,
+                             &width_request, &height_request);
 
     g_object_set (window,
                   "width_request", width_request,
@@ -204,15 +193,8 @@ caja_desktop_window_new (CajaApplication *application,
     }
     else
     {
-        /* One desktop window per monitor on Wayland. Without a monitor
-         * (callers that do not care), cover the first one. */
-        GdkRectangle geometry = {0};
-
-        if (monitor == NULL)
-            monitor = gdk_display_get_monitor (display, 0);
-        gdk_monitor_get_geometry (monitor, &geometry);
-        width_request = geometry.width;
-        height_request = geometry.height;
+        width_request = -1;
+        height_request = -1;
     }
 
     window = CAJA_DESKTOP_WINDOW
