@@ -101,12 +101,9 @@ G_DEFINE_TYPE_WITH_PRIVATE (FMDesktopIconView, fm_desktop_icon_view, FM_TYPE_ICO
 static GdkMonitor *
 desktop_view_get_monitor (FMIconView *view)
 {
-    GtkWidget *toplevel = gtk_widget_get_toplevel (GTK_WIDGET (view));
+    CajaWindowInfo *window = fm_directory_view_get_caja_window (FM_DIRECTORY_VIEW (view));
 
-    if (toplevel == NULL)
-        return NULL;
-
-    return g_object_get_data (G_OBJECT (toplevel), "caja-desktop-monitor");
+    return g_object_get_data (G_OBJECT (window), "caja-desktop-monitor");
 }
 
 static void
