@@ -700,6 +700,8 @@ selection_clear_event_cb (GtkWidget	        *widget,
     return TRUE;
 }
 
+#define DESKTOP_MONITORS_SETTLE_MS 250
+
 static GtkWidget *wayland_selection_widget = NULL;
 static guint desktop_monitors_idle_id = 0;
 static gulong monitor_added_id = 0;
@@ -734,9 +736,34 @@ desktop_monitors_changed_cb (GdkDisplay *display,
 {
     if (desktop_monitors_idle_id == 0)
     {
-        desktop_monitors_idle_id = g_idle_add (desktop_monitors_changed_idle,
-                                               user_data);
+        desktop_monitors_idle_id = g_timeout_add (DESKTOP_MONITORS_SETTLE_MS,
+                                                  desktop_monitors_changed_idle,
+                                                  user_data);
     }
+}
+
+static void
+desktop_monitor_property_changed_cb (GObject    *monitor,
+                                     GParamSpec *pspec,
+                                     gpointer    user_data)
+{
+    desktop_monitors_changed_cb (NULL, GDK_MONITOR (monitor), user_data);
+}
+
+static void
+watch_monitor (CajaApplication *application,
+               GdkMonitor      *monitor)
+{
+    if (g_object_get_data (G_OBJECT (monitor), "caja-desktop-watched") != NULL)
+    {
+        return;
+    }
+
+    g_object_set_data (G_OBJECT (monitor), "caja-desktop-watched", GINT_TO_POINTER (1));
+    g_signal_connect (monitor, "notify::geometry",
+                      G_CALLBACK (desktop_monitor_property_changed_cb), application);
+    g_signal_connect (monitor, "notify::scale-factor",
+                      G_CALLBACK (desktop_monitor_property_changed_cb), application);
 }
 
 static void
@@ -789,6 +816,8 @@ caja_application_create_desktop_windows (CajaApplication *application)
         {
             GdkMonitor *monitor = gdk_display_get_monitor (display, i);
             CajaDesktopWindow *window;
+
+            watch_monitor (application, monitor);
 
             window = caja_desktop_window_new (application,
                                               gdk_display_get_default_screen (display),
