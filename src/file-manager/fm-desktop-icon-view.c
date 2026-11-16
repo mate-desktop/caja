@@ -41,6 +41,9 @@
 
 #define MATE_DESKTOP_USE_UNSTABLE_API
 #include <libmate-desktop/mate-bg.h>
+#ifdef HAVE_MATE_MONITOR_INFO
+#include <libmate-desktop/mate-monitor-info.h>
+#endif
 
 #include <eel/eel-glib-extensions.h>
 #include <eel/eel-gtk-extensions.h>
@@ -85,6 +88,7 @@ struct _FMDesktopIconViewPrivate
     gulong delayed_init_signal;
     guint reload_desktop_timeout;
     gboolean pending_rescan;
+    gboolean workarea_watched;
 };
 
 static void     default_zoom_level_changed                        (gpointer                user_data);
@@ -174,6 +178,37 @@ desktop_get_monitor_rect (GdkDisplay *display, GdkMonitor *monitor, GdkRectangle
     gdk_monitor_get_geometry (monitor, rect);
     rect->x -= ox;
     rect->y -= oy;
+}
+
+static void
+desktop_get_view_rect (FMIconView *view, GdkMonitor *monitor, GdkRectangle *rect)
+{
+    GdkDisplay *display = gtk_widget_get_display (GTK_WIDGET (view));
+
+    desktop_get_monitor_rect (display, monitor, rect);
+#ifdef HAVE_MATE_MONITOR_INFO
+    {
+        MateMonitorInfo *info = mate_monitor_info_get_for_display (display);
+        GtkWidget *toplevel = gtk_widget_get_toplevel (GTK_WIDGET (view));
+        GdkRectangle workarea;
+        int ox, oy;
+
+        if (!mate_monitor_info_has_protocol (info))
+            return;
+
+        mate_monitor_info_get_workarea (info, monitor, &workarea);
+        if (workarea.width <= 0 || workarea.height <= 0 ||
+            gtk_widget_get_allocated_width (toplevel) != workarea.width ||
+            gtk_widget_get_allocated_height (toplevel) != workarea.height)
+            return;
+
+        desktop_get_origin (display, &ox, &oy);
+        rect->x = workarea.x - ox;
+        rect->y = workarea.y - oy;
+        rect->width = workarea.width;
+        rect->height = workarea.height;
+    }
+#endif
 }
 
 static GdkMonitor *
@@ -308,7 +343,7 @@ real_position_to_view (FMIconView *view, int *x, int *y)
     if (mine == NULL)
         return;
 
-    desktop_get_monitor_rect (gtk_widget_get_display (GTK_WIDGET (view)), mine, &r);
+    desktop_get_view_rect (view, mine, &r);
     *x = CLAMP (*x - r.x, 0, MAX (r.width - 1, 0));
     *y = CLAMP (*y - r.y, 0, MAX (r.height - 1, 0));
 }
@@ -322,7 +357,7 @@ real_position_from_view (FMIconView *view, int *x, int *y)
     if (mine == NULL)
         return;
 
-    desktop_get_monitor_rect (gtk_widget_get_display (GTK_WIDGET (view)), mine, &r);
+    desktop_get_view_rect (view, mine, &r);
     *x += r.x;
     *y += r.y;
 }
@@ -627,6 +662,65 @@ fm_desktop_icon_view_handle_middle_click (CajaIconContainer *icon_container,
                 ButtonPressMask, (XEvent *) &x_event);
 }
 
+#ifdef HAVE_MATE_MONITOR_INFO
+static void
+desktop_update_workarea_margins (FMDesktopIconView *icon_view)
+{
+    static gboolean reported = FALSE;
+    GdkMonitor *monitor = desktop_view_get_monitor (FM_ICON_VIEW (icon_view));
+    GtkWidget *toplevel = gtk_widget_get_toplevel (GTK_WIDGET (icon_view));
+    MateMonitorInfo *info;
+    GdkRectangle geometry, workarea;
+    int width, height;
+    int left = 0, right = 0, top = 0, bottom = 0;
+
+    if (monitor == NULL)
+        return;
+
+    info = mate_monitor_info_get_for_display (gdk_monitor_get_display (monitor));
+    if (!mate_monitor_info_has_protocol (info))
+        return;
+
+    width = gtk_widget_get_allocated_width (toplevel);
+    height = gtk_widget_get_allocated_height (toplevel);
+    gdk_monitor_get_geometry (monitor, &geometry);
+    mate_monitor_info_get_workarea (info, monitor, &workarea);
+    if (width < 100 || height < 100 || workarea.width <= 0 || workarea.height <= 0)
+        return;
+
+    if (width != workarea.width || height != workarea.height)
+    {
+        if (!reported)
+        {
+            g_message ("The desktop window is %dx%d, but the work area of its monitor is %dx%d",
+                       width, height, workarea.width, workarea.height);
+            reported = TRUE;
+        }
+        if (width == geometry.width && height == geometry.height)
+        {
+            left = MAX (workarea.x - geometry.x, 0);
+            top = MAX (workarea.y - geometry.y, 0);
+            right = MAX (geometry.x + geometry.width - workarea.x - workarea.width, 0);
+            bottom = MAX (geometry.y + geometry.height - workarea.y - workarea.height, 0);
+        }
+    }
+
+    caja_icon_container_set_margins (get_icon_container (icon_view), left, right, top, bottom);
+}
+
+static void
+desktop_toplevel_size_allocate (GtkWidget *toplevel, GdkRectangle *allocation, FMDesktopIconView *icon_view)
+{
+    desktop_update_workarea_margins (icon_view);
+}
+
+static void
+desktop_monitor_info_changed (MateMonitorInfo *info, GdkMonitor *monitor, FMDesktopIconView *icon_view)
+{
+    desktop_update_workarea_margins (icon_view);
+}
+#endif
+
 static void
 unrealized_callback (GtkWidget *widget, FMDesktopIconView *desktop_icon_view)
 {
@@ -685,6 +779,18 @@ realized_callback (GtkWidget *widget, FMDesktopIconView *desktop_icon_view)
 
     gtk_widget_size_allocate (GTK_WIDGET(get_icon_container(desktop_icon_view)),
                               &allocation);
+
+#ifdef HAVE_MATE_MONITOR_INFO
+    if (!GDK_IS_X11_DISPLAY (display) && !desktop_icon_view->priv->workarea_watched)
+    {
+        desktop_icon_view->priv->workarea_watched = TRUE;
+        g_signal_connect_object (gtk_widget_get_toplevel (widget), "size-allocate",
+                                 G_CALLBACK (desktop_toplevel_size_allocate), desktop_icon_view, 0);
+        g_signal_connect_object (mate_monitor_info_get_for_display (display), "changed",
+                                 G_CALLBACK (desktop_monitor_info_changed), desktop_icon_view, 0);
+        desktop_update_workarea_margins (desktop_icon_view);
+    }
+#endif
 
     if (GDK_IS_X11_DISPLAY (display))
     {
