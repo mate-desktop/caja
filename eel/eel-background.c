@@ -328,11 +328,14 @@ drawable_get_adjusted_size (EelBackground *self,
                 workarea.width = gtk_widget_get_allocated_width (toplevel);
                 workarea.height = gtk_widget_get_allocated_height (toplevel);
                 if (workarea.width < EEL_MIN_DESKTOP_ALLOCATION || workarea.height < EEL_MIN_DESKTOP_ALLOCATION) {
-                        if (monitor == NULL) {
+                        GdkWindow *window = gtk_widget_get_window (self->details->widget);
+
+                        if (monitor == NULL && window != NULL) {
                                 monitor = gdk_display_get_monitor_at_window (gdk_display_get_default(),
-                                                                             gtk_widget_get_window (self->details->widget));
+                                                                             window);
                         }
-                        gdk_monitor_get_workarea (monitor, &workarea);
+                        if (monitor != NULL)
+                                gdk_monitor_get_workarea (monitor, &workarea);
                 }
                 *width = workarea.width;
                 *height = workarea.height;

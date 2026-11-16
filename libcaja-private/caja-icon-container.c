@@ -367,8 +367,10 @@ icon_set_position_full (CajaIcon *icon,
             if (workarea.width < MIN_DESKTOP_ALLOCATION || workarea.height < MIN_DESKTOP_ALLOCATION)
             {
                 window  = gtk_widget_get_window (GTK_WIDGET(container));
-                monitor = gdk_display_get_monitor_at_window (gdk_display_get_default(), window);
-                gdk_monitor_get_workarea(monitor, &workarea);
+                monitor = window != NULL ?
+                          gdk_display_get_monitor_at_window (gdk_display_get_default(), window) : NULL;
+                if (monitor != NULL)
+                    gdk_monitor_get_workarea(monitor, &workarea);
             }
             container_x = 0;
             container_y = 0;
