@@ -350,9 +350,61 @@ drawable_get_adjusted_size (EelBackground *self,
 }
 
 static gboolean
+eel_background_get_span (EelBackground *self,
+                         int           *surface_width,
+                         int           *surface_height,
+                         int           *offset_x,
+                         int           *offset_y)
+{
+    GtkWidget *toplevel;
+    GdkMonitor *monitor;
+    GdkDisplay *display;
+    GdkRectangle box = { 0 }, rect;
+    gint i, n;
+
+    if (!self->details->is_desktop ||
+        GDK_IS_X11_DISPLAY (gdk_display_get_default ()) ||
+        mate_bg_get_placement (self->details->bg) != MATE_BG_PLACEMENT_SPANNED)
+    {
+        return FALSE;
+    }
+
+    toplevel = gtk_widget_get_toplevel (self->details->widget);
+    monitor = g_object_get_data (G_OBJECT (toplevel), "caja-desktop-monitor");
+    if (monitor == NULL)
+    {
+        return FALSE;
+    }
+
+    display = gdk_monitor_get_display (monitor);
+    n = gdk_display_get_n_monitors (display);
+    for (i = 0; i < n; i++)
+    {
+        gdk_monitor_get_geometry (gdk_display_get_monitor (display, i), &rect);
+        if (i == 0)
+        {
+            box = rect;
+        }
+        else
+        {
+            gdk_rectangle_union (&box, &rect, &box);
+        }
+    }
+
+    gdk_monitor_get_geometry (monitor, &rect);
+    *surface_width = box.width;
+    *surface_height = box.height;
+    *offset_x = rect.x - box.x;
+    *offset_y = rect.y - box.y;
+
+    return box.width > 0 && box.height > 0;
+}
+
+static gboolean
 eel_background_ensure_realized (EelBackground *self)
 {
     int width, height;
+    int span_x, span_y;
     GdkWindow *window;
     GtkStyleContext *style;
     GdkRGBA *c;
@@ -374,7 +426,10 @@ eel_background_ensure_realized (EelBackground *self)
     gtk_style_context_restore (style);
 
     /* If the window size is the same as last time, don't update */
-    drawable_get_adjusted_size (self, &width, &height);
+    if (!eel_background_get_span (self, &width, &height, &span_x, &span_y))
+    {
+        drawable_get_adjusted_size (self, &width, &height);
+    }
     if (width == self->details->bg_entire_width &&
         height == self->details->bg_entire_height)
     {
@@ -388,7 +443,8 @@ eel_background_ensure_realized (EelBackground *self)
     window = gtk_widget_get_window (self->details->widget);
     self->details->bg_surface = mate_bg_create_surface (self->details->bg,
         						window, width, height,
-        						self->details->is_desktop);
+        						self->details->is_desktop &&
+        						GDK_IS_X11_DISPLAY (gdk_display_get_default ()));
     self->details->unset_root_surface = self->details->is_desktop;
 
     self->details->bg_entire_width = width;
@@ -421,7 +477,13 @@ eel_background_draw (GtkWidget *widget,
 
     if (self->details->bg_surface != NULL)
     {
-        cairo_set_source_surface (cr, self->details->bg_surface, 0, 0);
+        int span_w, span_h, span_x = 0, span_y = 0;
+
+        if (!eel_background_get_span (self, &span_w, &span_h, &span_x, &span_y))
+        {
+            span_x = span_y = 0;
+        }
+        cairo_set_source_surface (cr, self->details->bg_surface, -span_x, -span_y);
         cairo_pattern_set_extend (cairo_get_source (cr), CAIRO_EXTEND_REPEAT);
     } else {
         gdk_cairo_set_source_rgba (cr, &color);
