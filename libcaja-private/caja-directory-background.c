@@ -28,6 +28,9 @@
 */
 
 #include <config.h>
+
+#define MATE_DESKTOP_USE_UNSTABLE_API
+#include <libmate-desktop/mate-bg.h>
 #include <gtk/gtk.h>
 #include <string.h>
 
@@ -311,6 +314,112 @@ caja_connect_background_to_file_metadata (GtkWidget     *widget,
  * DESKTOP BACKGROUND HANDLING
  */
 
+typedef struct
+{
+    GtkWidget *container;
+    GSettings *monitor;
+    GdkMonitor *monitor_object;
+    GSettings *effective;
+    gulong shared_handler;
+    gulong monitor_handler;
+    gboolean reload_pending;
+} DesktopBackgroundState;
+
+static void     desktop_background_monitor_changed_cb    (GSettings *settings,
+                                                          gchar     *key,
+                                                          gpointer   user_data);
+
+static void
+desktop_background_state_drop_monitor (DesktopBackgroundState *state)
+{
+    if (state->monitor != NULL)
+    {
+        if (state->monitor_handler != 0)
+        {
+            g_signal_handler_disconnect (state->monitor, state->monitor_handler);
+        }
+        state->monitor = NULL;
+        state->monitor_handler = 0;
+    }
+    state->monitor_object = NULL;
+}
+
+static void
+desktop_background_state_free (gpointer data)
+{
+    DesktopBackgroundState *state = data;
+
+    desktop_background_state_drop_monitor (state);
+    if (state->shared_handler != 0)
+    {
+        g_signal_handler_disconnect (mate_background_preferences, state->shared_handler);
+    }
+    g_free (state);
+}
+
+static DesktopBackgroundState *
+desktop_background_get_state (EelBackground *background)
+{
+    return g_object_get_data (G_OBJECT (background), "caja-desktop-background-state");
+}
+
+static GSettings *
+desktop_background_effective_settings (EelBackground *background)
+{
+    DesktopBackgroundState *state = desktop_background_get_state (background);
+
+    if (state == NULL || state->effective == NULL)
+    {
+        return mate_background_preferences;
+    }
+
+    return state->effective;
+}
+
+static void
+desktop_background_resolve_settings (EelBackground *background)
+{
+    DesktopBackgroundState *state = desktop_background_get_state (background);
+    GtkWidget *toplevel;
+    GdkMonitor *monitor;
+
+    if (state == NULL)
+    {
+        return;
+    }
+
+    state->effective = mate_background_preferences;
+
+    toplevel = gtk_widget_get_toplevel (state->container);
+    monitor = toplevel != NULL ?
+              g_object_get_data (G_OBJECT (toplevel), "caja-desktop-monitor") : NULL;
+    if (monitor == NULL)
+    {
+        desktop_background_state_drop_monitor (state);
+        return;
+    }
+
+    if (state->monitor == NULL || state->monitor_object != monitor)
+    {
+        desktop_background_state_drop_monitor (state);
+        state->monitor = caja_preferences_get_monitor_settings (monitor);
+        if (state->monitor == NULL)
+        {
+            return;
+        }
+
+        state->monitor_object = monitor;
+        state->monitor_handler = g_signal_connect (state->monitor, "changed",
+                                                   G_CALLBACK (desktop_background_monitor_changed_cb),
+                                                   background);
+    }
+
+    if (!g_settings_get_boolean (state->monitor, MATE_BG_KEY_USE_SHARED))
+    {
+        state->effective = state->monitor;
+    }
+}
+
 /* handle the desktop background "settings_changed" signal */
 static void
 desktop_background_changed_cb (EelBackground *background,
@@ -318,7 +427,7 @@ desktop_background_changed_cb (EelBackground *background,
                                gpointer       user_data)
 {
     eel_bg_save_to_gsettings (background,
-                              mate_background_preferences);
+                              desktop_background_effective_settings (background));
 }
 
 /* delayed initializor of desktop background after GSettings changes */
@@ -326,9 +435,16 @@ static gboolean
 desktop_background_prefs_change_event_idle_cb (EelBackground *background)
 {
     gchar *desktop_color = NULL;
+    DesktopBackgroundState *state = desktop_background_get_state (background);
 
+    if (state != NULL)
+    {
+        state->reload_pending = FALSE;
+    }
+
+    desktop_background_resolve_settings (background);
     eel_bg_load_from_gsettings (background,
-                                mate_background_preferences);
+                                desktop_background_effective_settings (background));
 
     desktop_color = eel_bg_get_desktop_color (background);
     eel_background_set_color (background, desktop_color);
@@ -346,7 +462,7 @@ desktop_background_reset_cb (EelBackground *background,
 {
     /* Reset to defaults, and save */
     eel_bg_load_from_system_gsettings (background,
-                                       mate_background_preferences,
+                                       desktop_background_effective_settings (background),
                                        TRUE);
     /* Reload from saved settings */
     g_idle_add ((GSourceFunc) desktop_background_prefs_change_event_idle_cb,
@@ -372,22 +488,46 @@ desktop_background_prefs_change_event_cb (GSettings *settings,
 }
 
 static void
-desktop_background_weak_notify (gpointer data,
-                                GObject *object)
+desktop_background_monitor_changed_cb (GSettings *settings,
+                                       gchar     *key,
+                                       gpointer   user_data)
 {
-    g_signal_handlers_disconnect_by_func (mate_background_preferences,
-                                          G_CALLBACK (desktop_background_prefs_change_event_cb),
-                                          object);
+    EelBackground *background = user_data;
+    DesktopBackgroundState *state = desktop_background_get_state (background);
+
+    if (state == NULL || state->reload_pending)
+    {
+        return;
+    }
+
+    state->reload_pending = TRUE;
+    g_idle_add ((GSourceFunc) desktop_background_prefs_change_event_idle_cb,
+                g_object_ref (background));
+}
+
+static void
+desktop_background_container_realized_cb (GtkWidget     *container,
+                                          EelBackground *background)
+{
+    g_idle_add ((GSourceFunc) desktop_background_prefs_change_event_idle_cb,
+                g_object_ref (background));
 }
 
 void
 caja_connect_desktop_background_to_settings (CajaIconContainer *icon_container)
 {
     EelBackground *background;
+    DesktopBackgroundState *state;
 
     background = eel_get_widget_background (GTK_WIDGET (icon_container));
 
     eel_background_set_desktop (background, TRUE);
+
+    state = g_new0 (DesktopBackgroundState, 1);
+    state->container = GTK_WIDGET (icon_container);
+    state->effective = mate_background_preferences;
+    g_object_set_data_full (G_OBJECT (background), "caja-desktop-background-state",
+                            state, desktop_background_state_free);
 
     g_signal_connect_object (background, "settings_changed",
                              G_CALLBACK (desktop_background_changed_cb), NULL, 0);
@@ -395,16 +535,21 @@ caja_connect_desktop_background_to_settings (CajaIconContainer *icon_container)
     g_signal_connect_object (background, "reset",
                              G_CALLBACK (desktop_background_reset_cb), NULL, 0);
 
+    desktop_background_resolve_settings (background);
     eel_bg_load_from_gsettings (background,
-                                mate_background_preferences);
+                                desktop_background_effective_settings (background));
 
     /* Connect to "change-event" signal to receive *groups of changes* before
      * they are split out into multiple emissions of the "changed" signal.
      */
-    g_signal_connect (mate_background_preferences, "change-event",
-                      G_CALLBACK (desktop_background_prefs_change_event_cb),
-                      background);
+    state->shared_handler = g_signal_connect (mate_background_preferences, "change-event",
+                                              G_CALLBACK (desktop_background_prefs_change_event_cb),
+                                              background);
 
-    g_object_weak_ref (G_OBJECT (background),
-                       desktop_background_weak_notify, NULL);
+    if (!gtk_widget_get_realized (GTK_WIDGET (icon_container)))
+    {
+        g_signal_connect_object (icon_container, "realize",
+                                 G_CALLBACK (desktop_background_container_realized_cb),
+                                 background, 0);
+    }
 }
