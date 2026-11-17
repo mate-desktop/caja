@@ -79,6 +79,8 @@ struct EelBackgroundPrivate
     gboolean is_active;
 };
 
+#define EEL_MIN_DESKTOP_ALLOCATION 100
+
 static GList *desktop_bg_objects = NULL;
 
 G_DEFINE_TYPE_WITH_PRIVATE (EelBackground, eel_background, G_TYPE_OBJECT)
@@ -319,9 +321,19 @@ drawable_get_adjusted_size (EelBackground *self,
                *height = HeightOfScreen (gdk_x11_screen_get_xscreen (screen)) / scale;
         }
         else {
+                GtkWidget *toplevel = gtk_widget_get_toplevel (self->details->widget);
+                GdkMonitor *monitor = g_object_get_data (G_OBJECT (toplevel), "caja-desktop-monitor");
                 GdkRectangle workarea = {0};
-                gdk_monitor_get_workarea(gdk_display_get_monitor_at_window(gdk_display_get_default(),
-                                        gtk_widget_get_window (self->details->widget)), &workarea);
+
+                workarea.width = gtk_widget_get_allocated_width (toplevel);
+                workarea.height = gtk_widget_get_allocated_height (toplevel);
+                if (workarea.width < EEL_MIN_DESKTOP_ALLOCATION || workarea.height < EEL_MIN_DESKTOP_ALLOCATION) {
+                        if (monitor == NULL) {
+                                monitor = gdk_display_get_monitor_at_window (gdk_display_get_default(),
+                                                                             gtk_widget_get_window (self->details->widget));
+                        }
+                        gdk_monitor_get_workarea (monitor, &workarea);
+                }
                 *width = workarea.width;
                 *height = workarea.height;
         }
