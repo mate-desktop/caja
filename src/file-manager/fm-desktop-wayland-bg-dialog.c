@@ -40,6 +40,9 @@
 
 #define MATE_DESKTOP_USE_UNSTABLE_API
 #include <libmate-desktop/mate-bg.h>
+#ifdef HAVE_MATE_MONITOR_INFO
+#include <libmate-desktop/mate-monitor-info.h>
+#endif
 
 #include <eel/eel-glib-extensions.h>
 #include <eel/eel-gtk-extensions.h>
@@ -65,6 +68,7 @@ static GtkWidget *secondary_widget;
 static GtkWidget *file_widget;
 static GtkWidget *monitor_widget;
 static GtkWidget *shared_check_widget;
+static GtkWidget *compositor_check_widget;
 
 static const gchar *copied_keys[] = {
     "draw-background",
@@ -298,6 +302,13 @@ refresh_widgets_from_settings (void)
 {
     gchar *filename, *options, *shading_type, *primary_color_str, *secondary_color_str;
     GdkRGBA color1, color2;
+
+    if (compositor_check_widget != NULL)
+    {
+        g_settings_unbind (compositor_check_widget, "active");
+        g_settings_bind (background_settings, "draw-background", compositor_check_widget, "active",
+                         G_SETTINGS_BIND_DEFAULT | G_SETTINGS_BIND_INVERT_BOOLEAN);
+    }
 
     filename = g_settings_get_string (background_settings, "picture-filename");
     options = g_settings_get_string (background_settings, "picture-options");
@@ -675,6 +686,18 @@ wayland_bg_dialog_new (void)
     gtk_box_pack_start (GTK_BOX (vbox1), vbox2, FALSE, FALSE, 20);
     gtk_box_pack_start (GTK_BOX (vbox1), hbox2, FALSE, FALSE, 5);
 
+#ifdef HAVE_MATE_MONITOR_INFO
+    if (mate_monitor_info_has_capability (mate_monitor_info_get_default (),
+                                          MATE_MONITOR_CAPABILITY_WALLPAPER))
+    {
+        compositor_check_widget =
+            gtk_check_button_new_with_mnemonic (_("Let the _compositor draw the wallpaper"));
+        g_settings_bind (background_settings, "draw-background", compositor_check_widget, "active",
+                         G_SETTINGS_BIND_DEFAULT | G_SETTINGS_BIND_INVERT_BOOLEAN);
+        gtk_box_pack_start (GTK_BOX (vbox1), compositor_check_widget, FALSE, FALSE, 5);
+    }
+#endif
+
     /*Pack the final vertical box into the content area*/
     gtk_box_pack_start (GTK_BOX (box), vbox1, FALSE, FALSE, 0);
 
@@ -696,6 +719,11 @@ wayland_bg_dialog_new (void)
     g_free(primary_color_str);
     g_free(secondary_color_str);
 
+    if (compositor_check_widget != NULL)
+    {
+        g_settings_unbind (compositor_check_widget, "active");
+        compositor_check_widget = NULL;
+    }
     g_signal_handlers_disconnect_by_func (stylebox, update_image_background_options, stylebox);
     g_signal_handlers_disconnect_by_func (colorbox, update_color_background_options, colorbox);
     g_signal_handlers_disconnect_by_func (colorbutton1, update_primary_color, colorbutton1);
