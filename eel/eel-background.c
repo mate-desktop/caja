@@ -350,6 +350,39 @@ drawable_get_adjusted_size (EelBackground *self,
 }
 
 static gboolean
+eel_background_monitor_has_own (GdkMonitor *monitor)
+{
+    static GHashTable *settings_by_id = NULL;
+    GSettings *settings;
+    gchar *id;
+
+    if (settings_by_id == NULL)
+    {
+        settings_by_id = g_hash_table_new_full (g_str_hash, g_str_equal, g_free, g_object_unref);
+    }
+
+    id = mate_bg_get_monitor_id (monitor);
+    if (id == NULL)
+    {
+        return FALSE;
+    }
+    settings = g_hash_table_lookup (settings_by_id, id);
+    if (settings == NULL)
+    {
+        settings = mate_bg_get_monitor_settings (monitor);
+        if (settings == NULL)
+        {
+            g_free (id);
+            return FALSE;
+        }
+        g_hash_table_insert (settings_by_id, g_strdup (id), settings);
+    }
+    g_free (id);
+
+    return !g_settings_get_boolean (settings, MATE_BG_KEY_USE_SHARED);
+}
+
+static gboolean
 eel_background_get_span (EelBackground *self,
                          int           *surface_width,
                          int           *surface_height,
@@ -378,17 +411,17 @@ eel_background_get_span (EelBackground *self,
 
     display = gdk_monitor_get_display (monitor);
     n = gdk_display_get_n_monitors (display);
+    gdk_monitor_get_geometry (monitor, &box);
     for (i = 0; i < n; i++)
     {
-        gdk_monitor_get_geometry (gdk_display_get_monitor (display, i), &rect);
-        if (i == 0)
+        GdkMonitor *other = gdk_display_get_monitor (display, i);
+
+        if (other == monitor || eel_background_monitor_has_own (other))
         {
-            box = rect;
+            continue;
         }
-        else
-        {
-            gdk_rectangle_union (&box, &rect, &box);
-        }
+        gdk_monitor_get_geometry (other, &rect);
+        gdk_rectangle_union (&box, &rect, &box);
     }
 
     gdk_monitor_get_geometry (monitor, &rect);
