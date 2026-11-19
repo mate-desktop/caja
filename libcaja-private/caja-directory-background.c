@@ -387,6 +387,19 @@ caja_connect_desktop_background_to_settings (CajaIconContainer *icon_container)
 
     background = eel_get_widget_background (GTK_WIDGET (icon_container));
 
+    /* Check if the desktop background is already connected to avoid
+     * accumulating duplicate signal handlers. This function is called
+     * on every begin_loading signal (e.g. during desktop rescans);
+     * without this guard, the "change-event" handler on the global
+     * mate_background_preferences object accumulates on each call,
+     * causing memory growth and CPU spikes when wallpaper settings change.
+     */
+    if (g_object_get_data (G_OBJECT (background),
+                           "desktop_bg_connected") != NULL)
+    {
+        return;
+    }
+
     eel_background_set_desktop (background, TRUE);
 
     g_signal_connect_object (background, "settings_changed",
@@ -407,4 +420,8 @@ caja_connect_desktop_background_to_settings (CajaIconContainer *icon_container)
 
     g_object_weak_ref (G_OBJECT (background),
                        desktop_background_weak_notify, NULL);
+
+    g_object_set_data (G_OBJECT (background),
+                       "desktop_bg_connected",
+                       GINT_TO_POINTER (1));
 }
