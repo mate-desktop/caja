@@ -986,6 +986,7 @@ handle_local_move (CajaIconContainer *container,
                                          CAJA_METADATA_KEY_ICON_POSITION_TIMESTAMP, now);
 
             caja_icon_container_add (container, CAJA_ICON_CONTAINER_ICON_DATA (file));
+            caja_icon_container_layout_now (container);
 
             icon = caja_icon_container_get_icon_by_uri
                    (container, item->uri);

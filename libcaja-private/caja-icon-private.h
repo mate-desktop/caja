@@ -242,6 +242,7 @@ struct CajaIconContainerDetails
 
     /* Should the container not allow manual icon position */
     gboolean lock_icons_position;
+    gboolean position_change_automatic;
 
     /* Set to TRUE after first allocation has been done */
     gboolean has_been_allocated;

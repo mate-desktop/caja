@@ -119,6 +119,17 @@ struct FMIconViewClass
     /*
      */
     gboolean (* supports_display_git_branch)	 (FMIconView *view);
+
+    gboolean (* owns_file)                (FMIconView *view,
+                                           CajaFile   *file);
+    gboolean (* keeps_stored_position)    (FMIconView *view,
+                                           CajaFile   *file);
+    void     (* position_to_view)         (FMIconView *view,
+                                           int        *x,
+                                           int        *y);
+    void     (* position_from_view)       (FMIconView *view,
+                                           int        *x,
+                                           int        *y);
 };
 
 /* GObject support */

@@ -84,6 +84,8 @@ struct _CajaDesktopWindowPrivate
 {
     gulong size_changed_id;
 
+    GdkMonitor *monitor;
+
     gboolean loaded;
 };
 
@@ -152,28 +154,19 @@ caja_desktop_window_update_directory (CajaDesktopWindow *window)
 }
 
 static void
-caja_desktop_window_screen_size_changed (GdkScreen             *screen,
-        CajaDesktopWindow *window)
+caja_desktop_window_screen_size_changed (GdkScreen         *screen,
+                                         CajaDesktopWindow *window)
 {
     int width_request, height_request;
-
     GdkDisplay *display = gdk_screen_get_display (screen);
-    if (GDK_IS_X11_DISPLAY (display))
+
+    if (!GDK_IS_X11_DISPLAY (display))
     {
-        GdkWindow *root_window;
-        root_window = gdk_screen_get_root_window (screen);
-        gdk_window_get_geometry (root_window, NULL, NULL, &width_request, &height_request);
+        return;
     }
-    else
-    {
-        /*No root window or primary monitor in wayland unless compositors add it back*/
-        GdkRectangle geometry = {0};
-        GdkMonitor *monitor;
-        monitor = gdk_display_get_monitor (display, 0);
-        gdk_monitor_get_geometry (monitor, &geometry);
-        width_request = geometry.width;
-        height_request = geometry.height;
-    }
+
+    gdk_window_get_geometry (gdk_screen_get_root_window (screen), NULL, NULL,
+                             &width_request, &height_request);
 
     g_object_set (window,
                   "width_request", width_request,
@@ -183,7 +176,8 @@ caja_desktop_window_screen_size_changed (GdkScreen             *screen,
 
 CajaDesktopWindow *
 caja_desktop_window_new (CajaApplication *application,
-                         GdkScreen           *screen)
+                         GdkScreen       *screen,
+                         GdkMonitor      *monitor)
 {
     CajaDesktopWindow *window;
     int width_request, height_request;
@@ -198,17 +192,8 @@ caja_desktop_window_new (CajaApplication *application,
     }
     else
     {
-        /*FIXME: There is no primary monitor in wayland itself
-        *compositors can implement this but as this is written
-        *only a few wayland compositors allow setting a primary monitor
-        *and they all do it differently. For now, use the first monitor
-        */
-        GdkRectangle geometry = {0};
-        GdkMonitor *monitor;
-        monitor = gdk_display_get_monitor (display, 0);
-        gdk_monitor_get_geometry (monitor, &geometry);
-        width_request = geometry.width;
-        height_request = geometry.height;
+        width_request = -1;
+        height_request = -1;
     }
 
     window = CAJA_DESKTOP_WINDOW
@@ -219,6 +204,19 @@ caja_desktop_window_new (CajaApplication *application,
                               "screen", screen,
                               "decorated", FALSE,
                               NULL));
+
+    if (!GDK_IS_X11_DISPLAY (display))
+    {
+        GdkVisual *rgba_visual = gdk_screen_get_rgba_visual (screen);
+
+        if (rgba_visual != NULL)
+        {
+            gtk_widget_set_visual (GTK_WIDGET (window), rgba_visual);
+        }
+
+        window->details->monitor = monitor;
+        g_object_set_data (G_OBJECT (window), "caja-desktop-monitor", monitor);
+    }
 
     gtk_window_move (GTK_WINDOW (window), 0, 0);
 
@@ -244,11 +242,8 @@ caja_desktop_window_new (CajaApplication *application,
 
         gtk_layer_set_namespace (gtkwin, "desktop");
 
-        /*Anchor the desktop to all four corners
-         *This is much simpler than on x11 and
-         *should always render the desktop across
-         *all of the screen
-         */
+        gtk_layer_set_monitor (gtkwin, monitor);
+
         gtk_layer_set_anchor (gtkwin, GTK_LAYER_SHELL_EDGE_TOP, TRUE);
         gtk_layer_set_anchor (gtkwin, GTK_LAYER_SHELL_EDGE_BOTTOM, TRUE);
         gtk_layer_set_anchor (gtkwin, GTK_LAYER_SHELL_EDGE_LEFT, TRUE);
@@ -429,6 +424,14 @@ caja_desktop_window_class_init (CajaDesktopWindowClass *klass)
 
     nclass->window_type = CAJA_WINDOW_DESKTOP;
     nclass->get_icon = real_get_icon;
+}
+
+GdkMonitor *
+caja_desktop_window_get_monitor (CajaDesktopWindow *window)
+{
+    g_return_val_if_fail (CAJA_IS_DESKTOP_WINDOW (window), NULL);
+
+    return window->details->monitor;
 }
 
 gboolean

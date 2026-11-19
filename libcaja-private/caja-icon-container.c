@@ -295,6 +295,8 @@ icon_is_positioned (const CajaIcon *icon)
 }
 
 /* x, y are the top-left coordinates of the icon. */
+#define MIN_DESKTOP_ALLOCATION 100
+
 static void
 icon_set_position_full (CajaIcon *icon,
                         double x, double y,
@@ -354,13 +356,22 @@ icon_set_position_full (CajaIcon *icon,
         }
         else
         {
+            GtkWidget *toplevel;
             GdkWindow *window;
             GdkMonitor *monitor;
             GdkRectangle workarea = {0};
 
-            window  = gtk_widget_get_window (GTK_WIDGET(container));
-            monitor = gdk_display_get_monitor_at_window (gdk_display_get_default(), window);
-            gdk_monitor_get_workarea(monitor, &workarea);
+            toplevel = gtk_widget_get_toplevel (GTK_WIDGET (container));
+            workarea.width = gtk_widget_get_allocated_width (toplevel);
+            workarea.height = gtk_widget_get_allocated_height (toplevel);
+            if (workarea.width < MIN_DESKTOP_ALLOCATION || workarea.height < MIN_DESKTOP_ALLOCATION)
+            {
+                window  = gtk_widget_get_window (GTK_WIDGET(container));
+                monitor = window != NULL ?
+                          gdk_display_get_monitor_at_window (gdk_display_get_default(), window) : NULL;
+                if (monitor != NULL)
+                    gdk_monitor_get_workarea(monitor, &workarea);
+            }
             container_x = 0;
             container_y = 0;
             container_width = workarea.width  - container_x
@@ -7808,8 +7819,10 @@ finish_adding_new_icons (CajaIconContainer *container)
             position.y = icon->y;
             position.scale = icon->scale;
             placement_grid_mark_icon (grid, icon);
+            container->details->position_change_automatic = TRUE;
             g_signal_emit (container, signals[ICON_POSITION_CHANGED], 0,
                            icon->data, &position);
+            container->details->position_change_automatic = FALSE;
             g_signal_emit (container, signals[STORE_LAYOUT_TIMESTAMP], 0,
                            icon->data, &now, &dummy);
 
@@ -8862,8 +8875,10 @@ caja_icon_container_freeze_icon_positions (CajaIconContainer *container)
         position.x = icon->saved_ltr_x;
         position.y = icon->y;
         position.scale = icon->scale;
+        container->details->position_change_automatic = TRUE;
         g_signal_emit (container, signals[ICON_POSITION_CHANGED], 0,
                        icon->data, &position);
+        container->details->position_change_automatic = FALSE;
     }
 
     if (changed)
@@ -10230,4 +10245,12 @@ caja_icon_container_set_store_layout_timestamps (CajaIconContainer *container,
                                                  gboolean           store_layout_timestamps)
 {
     container->details->store_layout_timestamps = (store_layout_timestamps != FALSE);
+}
+
+gboolean
+caja_icon_container_is_position_change_automatic (CajaIconContainer *container)
+{
+    g_return_val_if_fail (CAJA_IS_ICON_CONTAINER (container), FALSE);
+
+    return container->details->position_change_automatic;
 }
