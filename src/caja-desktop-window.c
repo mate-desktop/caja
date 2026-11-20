@@ -37,6 +37,7 @@
 #include <eel/eel-vfs-extensions.h>
 
 #include <libcaja-private/caja-file-utilities.h>
+#include <libcaja-private/caja-global-preferences.h>
 #include <libcaja-private/caja-icon-names.h>
 
 #include "caja-desktop-window.h"
@@ -278,6 +279,17 @@ caja_desktop_window_new (CajaApplication *application,
 
     gdk_window_set_title (gdkwin, _("Desktop"));
 
+    if (GDK_IS_X11_DISPLAY (display))
+    {
+        g_signal_connect_object (screen, "composited-changed",
+                                 G_CALLBACK (gtk_widget_queue_draw), window,
+                                 G_CONNECT_SWAPPED);
+        g_signal_connect_object (caja_desktop_preferences,
+                                 "changed::" CAJA_PREFERENCES_DESKTOP_TRANSPARENT_BACKGROUND,
+                                 G_CALLBACK (gtk_widget_queue_draw), window,
+                                 G_CONNECT_SWAPPED);
+    }
+
     g_signal_connect (window, "delete_event", G_CALLBACK (caja_desktop_window_delete_event), NULL);
 
     /* Point window at the desktop folder.
@@ -376,6 +388,18 @@ realize (GtkWidget *widget)
         gtk_widget_set_events (widget, gtk_widget_get_events (widget)
                                | GDK_KEY_PRESS_MASK | GDK_KEY_RELEASE_MASK);
 
+    /* An RGBA visual lets a window below the desktop show through */
+    if (GDK_IS_X11_DISPLAY (display) &&
+        g_settings_get_boolean (caja_desktop_preferences,
+                                CAJA_PREFERENCES_DESKTOP_TRANSPARENT_BACKGROUND))
+    {
+        GdkVisual *visual;
+
+        visual = gdk_screen_get_rgba_visual (gtk_widget_get_screen (widget));
+        if (visual != NULL)
+            gtk_widget_set_visual (widget, visual);
+    }
+
     /*Do the work of realizing. */
     GTK_WIDGET_CLASS (caja_desktop_window_parent_class)->realize (widget);
 
@@ -392,13 +416,34 @@ realize (GtkWidget *widget)
                           G_CALLBACK (caja_desktop_window_screen_size_changed), window);
 }
 
+static gboolean
+background_is_transparent (GtkWidget *widget)
+{
+    GdkScreen *screen = gtk_widget_get_screen (widget);
+
+    return g_settings_get_boolean (caja_desktop_preferences,
+                                   CAJA_PREFERENCES_DESKTOP_TRANSPARENT_BACKGROUND) &&
+           gdk_screen_is_composited (screen) &&
+           gtk_widget_get_visual (widget) == gdk_screen_get_rgba_visual (screen);
+}
+
 /* Should only reached in x11*/
 static gboolean
 draw (GtkWidget *widget,
       cairo_t   *cr)
 {
     g_assert (GDK_IS_X11_DISPLAY (gdk_display_get_default()));
-    eel_background_draw (widget, cr);
+    if (background_is_transparent (widget))
+    {
+        /* Also clears a background crossfade painted before us */
+        cairo_save (cr);
+        cairo_set_operator (cr, CAIRO_OPERATOR_SOURCE);
+        cairo_set_source_rgba (cr, 0, 0, 0, 0);
+        cairo_paint (cr);
+        cairo_restore (cr);
+    }
+    else
+        eel_background_draw (widget, cr);
     return GTK_WIDGET_CLASS (caja_desktop_window_parent_class)->draw (widget, cr);
 }
 

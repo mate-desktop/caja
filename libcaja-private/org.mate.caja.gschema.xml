@@ -462,6 +462,11 @@
       <summary>Text Ellipsis Limit</summary>
       <description>An integer specifying how parts of overlong file names should be replaced by ellipses on the desktop. If the number is larger than 0, the file name will not exceed the given number of lines. If the number is 0 or smaller, no limit is imposed on the number of displayed lines.</description>
     </key>
+    <key name="transparent-background" type="b">
+      <default>false</default>
+      <summary>Keep the desktop background transparent</summary>
+      <description>If set to true and a compositing manager is running, Caja does not paint the desktop background, so that a window placed below the desktop (for example an animated wallpaper) shows through between the icons. Without a compositing manager the background is drawn as usual. Only used on X11. Enabling it takes effect the next time Caja creates the desktop window.</description>
+    </key>
   </schema>
 
   <schema id="org.mate.caja.window-state" path="/org/mate/caja/window-state/" gettext-domain="caja">
