@@ -61,6 +61,13 @@ In rename mode:
 Escape - Cancel rename
 Return, Keypad Return - Finish rename
 
+When org.mate.caja.preferences tab-to-rename-next-file is enabled:
+Tab - Finish rename and start renaming the next file in display order.
+Shift Tab - Finish rename and start renaming the previous file.
+Both directions wrap at the ends. This applies to icon, compact and list
+views. The adjacent file is chosen before the rename changes the sort order.
+A failed rename does not advance to another file.
+
 Mouse:
 ======
 

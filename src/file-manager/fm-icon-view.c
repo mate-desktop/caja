@@ -2538,6 +2538,55 @@ icon_container_preview_callback (CajaIconContainer *container,
     return result;
 }
 
+static gboolean
+rename_navigation_key_press_callback (GtkWidget *widget, GdkEventKey *event,
+                                      FMIconView *icon_view)
+{
+    FMDirectoryView *view = FM_DIRECTORY_VIEW (icon_view);
+
+    /* Key repeat can reach the container while the next editor is pending. */
+    return fm_directory_view_is_rename_navigation_pending (view) &&
+           fm_directory_view_is_rename_navigation_key (event);
+}
+
+static gboolean
+rename_key_press_callback (GtkWidget *widget, GdkEventKey *event,
+                           FMIconView *view)
+{
+    CajaIconContainer *container;
+    GList *selection;
+    CajaFile *file, *next_file;
+    char *new_name;
+
+    if (!fm_directory_view_is_rename_navigation_key (event))
+        return FALSE;
+
+    container = get_icon_container (view);
+    next_file = (CajaFile *) caja_icon_container_get_rename_neighbor
+        (container, event->keyval == GDK_KEY_ISO_Left_Tab ||
+                    (event->state & GDK_SHIFT_MASK) != 0);
+    if (next_file == NULL)
+        return FALSE;
+
+    selection = fm_directory_view_get_selection (FM_DIRECTORY_VIEW (view));
+    if (selection == NULL || selection->next != NULL)
+    {
+        caja_file_list_free (selection);
+        return FALSE;
+    }
+    file = selection->data;
+    caja_file_ref (next_file);
+    new_name = gtk_editable_get_chars (GTK_EDITABLE (widget), 0, -1);
+    /* Close without committing; the shared helper owns the rename callback. */
+    caja_icon_container_end_renaming (container, FALSE);
+    fm_directory_view_rename_and_continue (FM_DIRECTORY_VIEW (view),
+                                           file, next_file, new_name);
+    g_free (new_name);
+    caja_file_unref (next_file);
+    caja_file_list_free (selection);
+    return TRUE;
+}
+
 static void
 renaming_icon_callback (CajaIconContainer *container,
                         GtkWidget *widget,
@@ -2546,6 +2595,12 @@ renaming_icon_callback (CajaIconContainer *container,
     FMDirectoryView *directory_view;
 
     directory_view = FM_DIRECTORY_VIEW (callback_data);
+    /* The icon container reuses its editor between renames. */
+    g_signal_handlers_disconnect_by_func (widget, rename_key_press_callback,
+                                          callback_data);
+    g_signal_connect_object (widget, "key-press-event",
+                             G_CALLBACK (rename_key_press_callback),
+                             callback_data, 0);
     caja_clipboard_set_up_editable
     (GTK_EDITABLE (widget),
      fm_directory_view_get_ui_manager (directory_view),
@@ -3180,6 +3235,9 @@ create_icon_container (FMIconView *icon_view)
     gtk_widget_set_can_focus (GTK_WIDGET (icon_container), TRUE);
     gtk_widget_set_has_tooltip (GTK_WIDGET (icon_container), TRUE);
 
+    g_signal_connect_object (icon_container, "key-press-event",
+                             G_CALLBACK (rename_navigation_key_press_callback),
+                             icon_view, 0);
     g_signal_connect_object (icon_container, "focus_in_event",
                              G_CALLBACK (focus_in_event_callback), icon_view, 0);
     g_signal_connect_object (icon_container, "query-tooltip",

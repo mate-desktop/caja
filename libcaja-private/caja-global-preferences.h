@@ -100,6 +100,9 @@ typedef enum
 /* Installing new packages when unknown mime type activated */
 #define CAJA_PREFERENCES_INSTALL_MIME_ACTIVATION		"install-mime-activation"
 
+/* Inline rename navigation */
+#define CAJA_PREFERENCES_TAB_TO_RENAME_NEXT_FILE "tab-to-rename-next-file"
+
 /* Spatial or browser mode */
 #define CAJA_PREFERENCES_ALWAYS_USE_BROWSER       		"always-use-browser"
 #define CAJA_PREFERENCES_NEW_TAB_POSITION       		"tabs-open-position"

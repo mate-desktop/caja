@@ -307,6 +307,12 @@ void              caja_icon_container_set_highlighted_for_clipboard (CajaIconCon
 void              caja_icon_container_unselect_all                  (CajaIconContainer  *view);
 void              caja_icon_container_select_all                    (CajaIconContainer  *view);
 
+/* The returned neighbour is borrowed and must be retained before ending a rename. */
+CajaIconData *caja_icon_container_get_rename_neighbor (CajaIconContainer *container,
+                                                       gboolean backwards);
+void caja_icon_container_end_renaming (CajaIconContainer *container,
+                                       gboolean commit);
+
 /* operations on the selection */
 GList     *       caja_icon_container_get_selection                 (CajaIconContainer  *view);
 void			  caja_icon_container_invert_selection				(CajaIconContainer  *view);
