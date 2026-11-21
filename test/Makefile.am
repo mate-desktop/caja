@@ -45,3 +45,11 @@ EXTRA_DIST = \
 	$(NULL)
 
 -include $(top_srcdir)/git.mk
+
+check_PROGRAMS = test-caja-location-expansion
+TESTS = $(check_PROGRAMS)
+test_caja_location_expansion_SOURCES = \
+	test-caja-location-expansion.c \
+	$(top_srcdir)/src/caja-location-expansion.c \
+	$(top_srcdir)/src/caja-location-expansion.h
+test_caja_location_expansion_LDADD = $(CORE_LIBS)

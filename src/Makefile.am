@@ -104,6 +104,8 @@ caja_SOURCES = \
 	caja-location-dialog.h \
 	caja-location-entry.c \
 	caja-location-entry.h \
+	caja-location-expansion.c \
+	caja-location-expansion.h \
 	caja-main.c \
 	caja-navigation-action.c \
 	caja-navigation-action.h \
