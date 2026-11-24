@@ -6223,8 +6223,6 @@ create_job (GIOSchedulerJob *io_job,
 			g_assert (dest_fs_type == NULL);
 			dest_fs_type = query_fs_type (job->dest_dir, common->cancellable);
 
-			g_object_unref (dest);
-
 			if (count == 1) {
 				new_filename = g_strdup (filename);
 			} else if (job->make_dir) {
@@ -6248,6 +6246,7 @@ create_job (GIOSchedulerJob *io_job,
 
 			if (make_file_name_valid_for_dest_fs (new_filename, dest_fs_type)) {
 				g_object_unref (dest);
+				dest = NULL;
 
 				if (filename_is_utf8) {
 					dest = g_file_get_child_for_display_name (job->dest_dir, new_filename, NULL);
@@ -6261,7 +6260,9 @@ create_job (GIOSchedulerJob *io_job,
 				goto retry;
 			}
 			g_free (new_filename);
-		} else if (IS_IO_ERROR (error, EXISTS)) {
+		}
+
+		if (IS_IO_ERROR (error, EXISTS)) {
 			g_object_unref (dest);
 			dest = NULL;
 			if (job->make_dir) {
