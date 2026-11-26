@@ -571,6 +571,10 @@ caja_connect_desktop_background_to_settings (CajaIconContainer *icon_container)
                                               G_CALLBACK (desktop_background_prefs_change_event_cb),
                                               background);
 
+    g_object_set_data (G_OBJECT (background),
+                       "desktop_bg_connected",
+                       GINT_TO_POINTER (1));
+
     if (!gtk_widget_get_realized (GTK_WIDGET (icon_container)))
     {
         g_signal_connect_object (icon_container, "realize",
