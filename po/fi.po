@@ -1,9 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR MATE Desktop Environment team
 # This file is distributed under the same license as the caja package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
-# Translators:
 # Mikko Harhanen <gitti@mikkoharhanen.fi>, 2018
 # Riku Viitanen <riisseli4@gmail.com>, 2018
 # Lasse Liehu-Inui <larso@gmx.com>, 2018
@@ -12,25 +9,29 @@
 # Ammuu5, 2018
 # nomen omen, 2018
 # Teemu Piippo <crimsondusk64@gmail.com>, 2019
-# Jiri Grönroos <jiri.gronroos@iki.fi>, 2019
+# Jiri Grönroos <jiri.gronroos@iki.fi>, 2019, 2026.
 # Kimmo Kujansuu <mrkujansuu@gmail.com>, 2020
 # Stefano Karapetsas <stefano@karapetsas.com>, 2025
 # Tommi Nieminen <translator@legisign.org>, 2026
 # Wolfgang Ulbrich <raveit65.sun@gmail.com>, 2026
-# 
+#
+# Translators:
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: caja 1.29.0\n"
 "Report-Msgid-Bugs-To: https://github.com/mate-desktop/caja/issues\n"
 "POT-Creation-Date: 2025-07-05 02:05+1000\n"
-"PO-Revision-Date: 2018-03-11 14:48+0000\n"
-"Last-Translator: Wolfgang Ulbrich <raveit65.sun@gmail.com>, 2026\n"
-"Language-Team: Finnish (https://app.transifex.com/mate/teams/13566/fi/)\n"
+"PO-Revision-Date: 2026-07-02 08:17+0000\n"
+"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
+"Language-Team: Finnish <https://translate.fedoraproject.org/projects/mate-"
+"desktop/applications/caja/fi/>\n"
+"Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fi\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2026.7\n"
 
 #: data/browser.xml:3
 msgid "_Patterns"
@@ -647,7 +648,7 @@ msgstr "T_eksti kuvakkeiden vierellä"
 
 #: data/caja-file-management-properties.ui:638
 msgid "_Display git branch"
-msgstr ""
+msgstr "_Näytä git-haara"
 
 #: data/caja-file-management-properties.ui:664
 msgid "_Default zoom level:"
@@ -1881,7 +1882,7 @@ msgstr "Yhdistä k_aikki"
 
 #: libcaja-private/caja-file-operations.c:193
 msgid "Continue _Anyway"
-msgstr ""
+msgstr "Jatka _silti"
 
 #: libcaja-private/caja-file-operations.c:305
 #, c-format
@@ -2255,10 +2256,9 @@ msgstr[1] "Valmistaudutaan siirtämään %'d tiedostoa (%S)"
 
 #: libcaja-private/caja-file-operations.c:2548
 #, c-format
-#, fuzzy
 msgid "Preparing to delete %'d file (%S)"
 msgid_plural "Preparing to delete %'d files (%S)"
-msgstr[0] "Valmistaudutaan poistamaan tiedosto (%S)"
+msgstr[0] "Valmistaudutaan poistamaan %'d tiedosto (%S)"
 msgstr[1] "Valmistaudutaan poistamaan %'d tiedostoa (%S)"
 
 #: libcaja-private/caja-file-operations.c:2554
@@ -3934,7 +3934,7 @@ msgstr "Näytä nimiöt kuvakkeiden vierellä"
 
 #: libcaja-private/org.mate.caja.gschema.xml:323
 msgid "Display the git branch with directory name"
-msgstr ""
+msgstr "Näytä git-haara hakemiston nimen kanssa"
 
 #: libcaja-private/org.mate.caja.gschema.xml:324
 msgid "If true, git branch name will be displayed."
@@ -4800,7 +4800,7 @@ msgstr "Näytä kansiohistoria"
 #: src/caja-image-properties-page.c:170
 #, c-format
 msgid "<b>%s:</b>"
-msgstr ""
+msgstr "<b>%s:</b>"
 
 #: src/caja-image-properties-page.c:292
 msgid "Camera Brand"
@@ -4873,14 +4873,14 @@ msgstr "Arvostelu"
 
 #: src/caja-image-properties-page.c:420
 msgid "Image Type"
-msgstr ""
+msgstr "Kuvan tyyppi"
 
 #: src/caja-image-properties-page.c:422 src/caja-image-properties-page.c:428
 #, c-format
 msgid "%d pixel"
 msgid_plural "%d pixels"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d kuvapiste"
+msgstr[1] "%d kuvapistettä"
 
 #: src/caja-image-properties-page.c:426
 msgid "Width"
@@ -6363,11 +6363,11 @@ msgstr[1] "Avaa valitut kohteet ohjelmalla ”%s”"
 
 #: src/file-manager/fm-directory-view.c:4589
 msgid "Open parent location"
-msgstr ""
+msgstr "Avaa ylätason sijainti"
 
 #: src/file-manager/fm-directory-view.c:4590
 msgid "Open parent location for the selected item"
-msgstr ""
+msgstr "Avaa valitun kohteen ylätason sijainti"
 
 #: src/file-manager/fm-directory-view.c:5468
 #, c-format
@@ -6916,8 +6916,8 @@ msgstr[1] "Siirrä valitut kansiot roskakorista kansioon ”%s”"
 #: src/file-manager/fm-directory-view.c:8190
 msgid "Move the selected folder out of the trash"
 msgid_plural "Move the selected folders out of the trash"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Siirrä valittu kansio pois roskakorista"
+msgstr[1] "Siirrä valitut kansiot pois roskakorista"
 
 #: src/file-manager/fm-directory-view.c:8196
 #, c-format
@@ -6929,8 +6929,8 @@ msgstr[1] ""
 #: src/file-manager/fm-directory-view.c:8200
 msgid "Move the selected file out of the trash"
 msgid_plural "Move the selected files out of the trash"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Siirrä valittu tiedosto pois roskakorista"
+msgstr[1] "Siirrä valitut tiedostot pois roskakorista"
 
 #: src/file-manager/fm-directory-view.c:8206
 #, c-format
@@ -7199,7 +7199,7 @@ msgstr "Tyhjä näkymä"
 
 #: src/file-manager/fm-empty-view.c:392
 msgid "_Empty"
-msgstr ""
+msgstr "_Tyhjennä"
 
 #: src/file-manager/fm-empty-view.c:394
 msgid "The empty view encountered an error."
@@ -7535,15 +7535,15 @@ msgstr "Näytä tämä sijainti listanäkymässä."
 
 #: src/file-manager/fm-properties-window.c:397
 msgid "Multiple files"
-msgstr ""
+msgstr "Useita tiedostoja"
 
 #: src/file-manager/fm-properties-window.c:416
 msgid "No files"
-msgstr ""
+msgstr "Ei tiedostoja"
 
 #: src/file-manager/fm-properties-window.c:419
 msgid "User-defined icon"
-msgstr ""
+msgstr "Käyttäjän määrittämä kuvake"
 
 #: src/file-manager/fm-properties-window.c:527
 msgid "You cannot assign more than one custom icon at a time!"
