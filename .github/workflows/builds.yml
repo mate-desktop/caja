@@ -75,5 +75,16 @@ jobs:
         with:
           key: ${{ env.DISTRO }}-${{ matrix.cc }}
 
+      # INFO: caja depends mate-desktop 1.29.3+, so we should install it from source.
+      - name: Cache mate-desktop binary packages
+        uses: actions/cache@v6
+        id: cache-mate-desktop
+        with:
+          path: ${{ env.CACHE_PATH }}
+          key: ${{ env.DISTRO }}-build-mate-desktop-${{env.MATE_DESKTOP_VERSION}}
+      - name: Built and install mate-desktop from source
+        run: .github/workflows/mate-desktop.sh ${{env.MATE_DESKTOP_VERSION}} ${{ env.CACHE_PATH }}
+      # INFO: caja depends mate-desktop 1.29.3+, install finished.
+
       - name: Build the source code
         run: .github/workflows/builds.sh
