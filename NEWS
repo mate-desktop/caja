@@ -1,3 +1,72 @@
+### caja 1.29.2
+
+  * release 1.29.2
+  * ci: define MATE_DESKTOP_VERSION and CACHE_PATH
+  * desktop: Show what is below on X11 when draw-background is off (#1916)
+  * Apply scrollbar oscillation fix from compact view to icon view too
+  * Fix scrollbar oscillation in compact view
+  * caja-file-operations: fix double-free on G_IO_ERROR_INVALID_FILENAME
+  * ci: include mate-desktop.sh in workflows
+  * CI: depend on mate-desktop 1.29.3
+  * Finish Resolving conflict with fix for missing wallpaper
+  * Merge branch 'master' into caja-wayland-desktop-3
+  * Fix desktop background feedback loop causing memory growth and CPU spikes
+  * window-manage: search: fix newly opened search windows
+  * Wayland: let the compositor draw the wallpaper from the background dialog
+  * Wayland: draw only icons when the compositor draws the wallpaper
+  * Wayland: icons-only desktop when draw-background is false
+  * Wayland: leave monitors with their own picture out of a spanned wallpaper
+  * Wayland: place desktop icons in the monitor's work area
+  * Wayland background dialog: add a monitor selector
+  * Wayland: per-monitor desktop wallpaper
+  * Wayland: show desktop icons per monitor
+  * Cache per-monitor background settings
+  * Wayland: span a spanned wallpaper across all monitors
+  * Wayland: don't look up a monitor's work area without a window or monitor
+  * Wayland: size the desktop background from its window
+  * Keep stored icon positions when freezing the desktop layout
+  * Wayland: rebuild the desktop when monitors return after all were gone
+  * Remove comments from the per-monitor desktop code
+  * Wayland: size desktop icon layout to the layer surface so panels are respected
+  * Wayland: place unplaced icons on the top-left monitor when there is no primary
+  * Lay out an icon dropped from another monitor before moving it
+  * Keep stored positions of icons that sit off every monitor
+  * Wayland: find the desktop monitor through the window, not the toplevel
+  * Wayland: wait for monitor geometry before rebuilding desktop windows
+  * Wayland: create one desktop window per monitor
+  * search-bar: Use standard icon name
+  * desktop: Fix desktop window position with client-side decorations
+  * directory-async: Use hash set instead of an array
+  *  directory-async: Use hash tables for ready callbacks 
+  * directory-async: Use 2 lists for call_when_ready callbacks
+  * labeled-image: fix gtk-doc parameter names
+  * fm-tree-model: compare removed mount root by URI
+  * undostack: use g_list_prepend instead of g_list_append
+  * background: always redraw when monitor configuration changes
+  * location-bar: add trailing slash to displayed location path
+  * file-operations: Use correct filename when restoring from Trash
+  * list-view: Display hidden files with transparency
+  * icon-view: Display hidden files with transparency
+  * preferences: add option to disable thumbnails in large directories
+  * fm-list-view: Remember column widths per directory
+  * Fix duplicate conflict dialog when moving files across volumes
+  * notes-viewer: fix memory leak of text buffer
+  * icon-info: fix cache key mismatch for loadable icons
+  * emblem-sidebar: fix memory leak of popup menu widget
+  * fix invalid po files
+  * remove invalid po files
+  * retrieve last transifex translations
+  * remove transifex config
+  * update pot files
+  * remove duplicated spanish translation
+  * prevent po updates when generating pot files
+  * allow detachable tabs
+  * fix(*): fix some memory leak problem
+  * fix memleaks
+  * caja-file: fix thumbnails shrinking when loaded on select
+  * caja-icon-canvas-item: fix map_surface cache always missing for unselected icons
+  * fm-directory-view: add file to old_changed_file when it shouldn't show
+    
 ### caja 1.29.1
 
   * ci: remove redundant GH CLI installation step
