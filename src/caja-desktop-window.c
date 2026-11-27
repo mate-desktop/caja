@@ -37,6 +37,7 @@
 #include <eel/eel-vfs-extensions.h>
 
 #include <libcaja-private/caja-file-utilities.h>
+#include <libcaja-private/caja-global-preferences.h>
 #include <libcaja-private/caja-icon-names.h>
 
 #include "caja-desktop-window.h"
@@ -273,6 +274,13 @@ caja_desktop_window_new (CajaApplication *application,
 
     gdk_window_set_title (gdkwin, _("Desktop"));
 
+    if (GDK_IS_X11_DISPLAY (display))
+    {
+        g_signal_connect_object (screen, "composited-changed",
+                                 G_CALLBACK (gtk_widget_queue_draw), window,
+                                 G_CONNECT_SWAPPED);
+    }
+
     g_signal_connect (window, "delete_event", G_CALLBACK (caja_desktop_window_delete_event), NULL);
 
     /* Point window at the desktop folder.
@@ -370,6 +378,20 @@ realize (GtkWidget *widget)
     if (GDK_IS_X11_DISPLAY (display))
         gtk_widget_set_events (widget, gtk_widget_get_events (widget)
                                | GDK_KEY_PRESS_MASK | GDK_KEY_RELEASE_MASK);
+
+    /* When something else draws the wallpaper, an RGBA visual lets
+     * it show through between the icons (see eel_background_draw) */
+    if (GDK_IS_X11_DISPLAY (display) &&
+        !g_settings_get_boolean (mate_background_preferences,
+                                 MATE_BG_KEY_DRAW_BACKGROUND) &&
+        gdk_screen_is_composited (gtk_widget_get_screen (widget)))
+    {
+        GdkVisual *visual;
+
+        visual = gdk_screen_get_rgba_visual (gtk_widget_get_screen (widget));
+        if (visual != NULL)
+            gtk_widget_set_visual (widget, visual);
+    }
 
     /*Do the work of realizing. */
     GTK_WIDGET_CLASS (caja_desktop_window_parent_class)->realize (widget);

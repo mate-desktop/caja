@@ -29,6 +29,7 @@
 #include <gtk/gtk.h>
 #include <cairo-xlib.h>
 #include <gdk/gdkx.h>
+#include <X11/Xatom.h>
 #include <gio/gio.h>
 #include <math.h>
 #include <stdio.h>
@@ -86,6 +87,9 @@ struct EelBackgroundPrivate
 #define EEL_MIN_DESKTOP_ALLOCATION 100
 
 static GList *desktop_bg_objects = NULL;
+
+/* The pixmap the desktop last put on the X11 root window */
+static Pixmap desktop_root_pixmap = None;
 
 G_DEFINE_TYPE_WITH_PRIVATE (EelBackground, eel_background, G_TYPE_OBJECT)
 
@@ -490,15 +494,32 @@ eel_background_ensure_realized (EelBackground *self)
     return TRUE;
 }
 
+/* With draw-background off something else draws the wallpaper. On X11
+ * the desktop only leaves it to that when a compositing manager runs and
+ * the desktop window has an RGBA visual; on Wayland only when the
+ * compositor says it draws one. Otherwise the desktop paints as before. */
 static gboolean
 eel_background_icons_only (EelBackground *self)
 {
     static gboolean reported = FALSE;
     GdkDisplay *display = gdk_display_get_default ();
 
-    if (!self->details->is_desktop || GDK_IS_X11_DISPLAY (display) ||
+    if (!self->details->is_desktop ||
         mate_bg_get_draw_background (self->details->bg))
         return FALSE;
+
+    if (GDK_IS_X11_DISPLAY (display))
+    {
+        GdkScreen *screen;
+
+        if (self->details->widget == NULL)
+            return FALSE;
+
+        screen = gtk_widget_get_screen (self->details->widget);
+        return gdk_screen_is_composited (screen) &&
+               gtk_widget_get_visual (self->details->widget) ==
+               gdk_screen_get_rgba_visual (screen);
+    }
 
 #ifdef HAVE_MATE_MONITOR_INFO
     if (mate_monitor_info_has_capability (mate_monitor_info_get_for_display (display),
@@ -514,6 +535,34 @@ eel_background_icons_only (EelBackground *self)
     return FALSE;
 }
 
+/* Whether the root window shows a pixmap that the desktop did not set,
+ * e.g. one from feh or nitrogen */
+static gboolean
+root_has_foreign_pixmap (GdkScreen *screen)
+{
+    GdkDisplay *display = gdk_screen_get_display (screen);
+    Atom type;
+    int format;
+    unsigned long nitems, after;
+    unsigned char *data = NULL;
+    gboolean foreign = FALSE;
+
+    gdk_x11_display_error_trap_push (display);
+    if (XGetWindowProperty (GDK_DISPLAY_XDISPLAY (display),
+                            GDK_WINDOW_XID (gdk_screen_get_root_window (screen)),
+                            gdk_x11_get_xatom_by_name_for_display (display, "_XROOTPMAP_ID"),
+                            0L, 1L, False, XA_PIXMAP, &type, &format, &nitems,
+                            &after, &data) == Success && data != NULL)
+    {
+        if (type == XA_PIXMAP && format == 32 && nitems == 1)
+            foreign = *(Pixmap *) data != None &&
+                      *(Pixmap *) data != desktop_root_pixmap;
+        XFree (data);
+    }
+    gdk_x11_display_error_trap_pop_ignored (display);
+
+    return foreign;
+}
 
 void
 eel_background_draw (GtkWidget *widget,
@@ -584,7 +633,16 @@ set_root_surface (EelBackground *self,
                                                                 width, height, TRUE);
     }
     if ((GDK_IS_X11_DISPLAY (display)) && (self->details->bg_surface != NULL))
+    {
+        /* Keep a wallpaper someone else put on the root window */
+        if (eel_background_icons_only (self) && root_has_foreign_pixmap (screen))
+            return;
+
         mate_bg_set_surface_as_root (screen, self->details->bg_surface);
+        desktop_root_pixmap = cairo_xlib_surface_get_drawable (self->details->bg_surface);
+        /* The root window owns the pixmap now, don't kill it */
+        self->details->unset_root_surface = FALSE;
+    }
 }
 
 static void
