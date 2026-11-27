@@ -91,7 +91,9 @@ Control-click on unselected icon selects it on BUTTON_PRESS
 Control-click on selected icon de-selects it on BUTTON_RELEASE
 Control-double click on a folder opens only that folder in a new background
 tab, even when other items are selected. This applies to icon, compact and
-list views in double-click mode. Control-double click on regular files does
+list views in double-click mode. The folder's selection state before the
+first click is restored when the double click is recognized. Single-click
+selection remains immediate. Control-double click on regular files does
 not activate them.
 Control can be held down while starting a drag
 

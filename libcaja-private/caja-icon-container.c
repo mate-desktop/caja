@@ -6984,6 +6984,12 @@ handle_icon_double_click (CajaIconContainer *container,
 
             if (is_directory)
             {
+                /* Undo the first Ctrl-click's selection toggle. */
+                if (icon_set_selected (container, icon,
+                                       details->double_click_selected[1]))
+                {
+                    g_signal_emit (container, signals[SELECTION_CHANGED], 0);
+                }
                 /* Open only the clicked folder, regardless of selection. */
                 activate_selected_items_alternate (container, icon);
                 return TRUE;
@@ -7064,6 +7070,9 @@ handle_icon_button_press (CajaIconContainer *container,
 
         details->double_click_button[1] = details->double_click_button[0];
         details->double_click_button[0] = event->button;
+
+        details->double_click_selected[1] = details->double_click_selected[0];
+        details->double_click_selected[0] = icon->is_selected;
     }
 
     if (handle_icon_double_click (container, icon, event))

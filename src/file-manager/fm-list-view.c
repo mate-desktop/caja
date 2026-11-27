@@ -86,6 +86,7 @@ struct FMListViewDetails
     CajaTreeViewDragDest *drag_dest;
 
     GtkTreePath *double_click_path[2]; /* Both clicks in a double click need to be on the same row */
+    gboolean double_click_selected[2];
 
     GtkTreePath *new_selection_path;   /* Path of the new selection after removing a file */
 
@@ -864,6 +865,8 @@ button_press_callback (GtkWidget *widget, GdkEventButton *event, gpointer callba
             }
             view->details->double_click_path[1] = view->details->double_click_path[0];
             view->details->double_click_path[0] = gtk_tree_path_copy (path);
+            view->details->double_click_selected[1] = view->details->double_click_selected[0];
+            view->details->double_click_selected[0] = gtk_tree_selection_path_is_selected (selection, path);
         }
         if (event->type == GDK_2BUTTON_PRESS)
         {
@@ -897,6 +900,15 @@ button_press_callback (GtkWidget *widget, GdkEventButton *event, gpointer callba
                         if (caja_file_is_directory (file))
                         {
                             view->details->ignore_button_release = TRUE;
+                            /* Undo the first Ctrl-click's selection toggle. */
+                            if (view->details->double_click_selected[1])
+                            {
+                                gtk_tree_selection_select_path (selection, path);
+                            }
+                            else
+                            {
+                                gtk_tree_selection_unselect_path (selection, path);
+                            }
                             activate_selected_items_alternate (view, file, TRUE);
                         }
                         caja_file_unref (file);
