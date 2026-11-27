@@ -110,6 +110,7 @@ struct FMListViewDetails
 
     CajaFile *renaming_file;
     gboolean rename_done;
+    gboolean rename_select_all;
     guint renaming_file_activate_timeout;
 
     gulong clipboard_handler_id;
@@ -3219,10 +3220,19 @@ fm_list_view_start_renaming_file (FMDirectoryView *view,
     /* Select all if we are in renaming mode already */
     if (list_view->details->file_name_column && list_view->details->editable_widget)
     {
+        char *current_text = gtk_editable_get_chars (GTK_EDITABLE (list_view->details->editable_widget), 0, -1);
+        list_view->details->rename_select_all = !list_view->details->rename_select_all;
+        caja_filename_get_rename_region (
+            list_view->details->rename_select_all,
+            current_text,
+            &start_offset,
+            &end_offset);
+        g_free (current_text);
+
         gtk_editable_select_region (
             GTK_EDITABLE (list_view->details->editable_widget),
-            0,
-            -1);
+            start_offset,
+            end_offset);
         return;
     }
 
@@ -3253,8 +3263,10 @@ fm_list_view_start_renaming_file (FMDirectoryView *view,
 
     /* set cursor also triggers editing-started, where we save the editable widget */
     if (list_view->details->editable_widget != NULL) {
-            eel_filename_get_rename_region (list_view->details->original_name,
-                                            &start_offset, &end_offset);
+            list_view->details->rename_select_all = select_all;
+            caja_filename_get_rename_region (select_all,
+                                             list_view->details->original_name,
+                                             &start_offset, &end_offset);
 
             gtk_editable_select_region (GTK_EDITABLE (list_view->details->editable_widget),
                                         start_offset, end_offset);
