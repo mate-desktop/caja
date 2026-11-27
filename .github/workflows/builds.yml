@@ -14,6 +14,10 @@ concurrency:
   group: ci-${{ github.workflow }}-${{ github.event.pull_request.number || github.head_ref || github.sha }}
   cancel-in-progress: true
 
+env:
+  MATE_DESKTOP_VERSION: 1.29.3
+  CACHE_PATH: /tmp/.cache
+
 jobs:
   build:
     name: Build on ${{matrix.container}} (using ${{matrix.cc}})

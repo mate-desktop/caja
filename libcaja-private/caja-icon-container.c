@@ -4573,6 +4573,17 @@ get_prefered_width (GtkWidget *widget,
     int cx1, cx2;
     int width;
 
+    guint size;
+    /* Both the Icon and Compact layouts needs the scrollable extent, including padding,
+     * so scrollbar visibility agrees with the canvas allocation.
+     */
+    gtk_layout_get_size (GTK_LAYOUT (widget), &size, NULL);
+    if (minimum_size != NULL)
+        *minimum_size = size;
+    if (natural_size != NULL)
+        *natural_size = size;
+    return;
+
     root = eel_canvas_root (EEL_CANVAS (widget));
     eel_canvas_item_get_bounds (EEL_CANVAS_ITEM (root),
                     &x1, NULL, &x2, NULL);
@@ -4597,6 +4608,17 @@ get_prefered_height (GtkWidget *widget,
     double y1, y2;
     int cy1, cy2;
     int height;
+
+    guint size;
+    /* Both the Icon and Compact layouts needs the scrollable extent, including padding,
+     * so scrollbar visibility agrees with the canvas allocation.
+     */
+    gtk_layout_get_size (GTK_LAYOUT (widget), NULL, &size);
+    if (minimum_size != NULL)
+        *minimum_size = size;
+    if (natural_size != NULL)
+        *natural_size = size;
+    return;
 
     root = eel_canvas_root (EEL_CANVAS (widget));
     eel_canvas_item_get_bounds (EEL_CANVAS_ITEM (root),
