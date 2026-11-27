@@ -886,6 +886,23 @@ button_press_callback (GtkWidget *widget, GdkEventButton *event, gpointer callba
                     }
                 }
                 else if (event->button == 1 &&
+                         (event->state & GDK_CONTROL_MASK) != 0 &&
+                         (event->state & GDK_SHIFT_MASK) == 0)
+                {
+                    CajaFile *file;
+
+                    file = fm_list_model_file_for_path (view->details->model, path);
+                    if (file != NULL)
+                    {
+                        if (caja_file_is_directory (file))
+                        {
+                            view->details->ignore_button_release = TRUE;
+                            activate_selected_items_alternate (view, file, TRUE);
+                        }
+                        caja_file_unref (file);
+                    }
+                }
+                else if (event->button == 1 &&
                          (event->state & GDK_SHIFT_MASK) != 0)
                 {
                     CajaFile *file;
