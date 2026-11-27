@@ -185,6 +185,7 @@ struct CajaIconContainerDetails
     gboolean icon_selected_on_button_down;
     CajaIcon *double_click_icon[2]; /* Both clicks in a double click need to be on the same icon */
     guint double_click_button[2];
+    gboolean double_click_selected[2];
 
     CajaIcon *range_selection_base_icon;
 

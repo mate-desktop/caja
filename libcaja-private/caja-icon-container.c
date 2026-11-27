@@ -49,6 +49,7 @@
 
 #include "caja-icon-container.h"
 #include "caja-debug-log.h"
+#include "caja-file.h"
 #include "caja-global-preferences.h"
 #include "caja-icon-private.h"
 #include "caja-lib-self-check-functions.h"
@@ -6967,6 +6968,33 @@ handle_icon_double_click (CajaIconContainer *container,
             activate_selected_items (container);
             return TRUE;
         }
+        else if ((event->state & GDK_CONTROL_MASK) != 0 &&
+                 (event->state & GDK_SHIFT_MASK) == 0)
+        {
+            CajaFile *file;
+            char *uri;
+            gboolean is_directory;
+
+            /* Use cached information; do not query the filesystem on click. */
+            uri = caja_icon_container_get_icon_uri (container, icon);
+            file = uri != NULL ? caja_file_get_existing_by_uri (uri) : NULL;
+            g_free (uri);
+            is_directory = file != NULL && caja_file_is_directory (file);
+            caja_file_unref (file);
+
+            if (is_directory)
+            {
+                /* Undo the first Ctrl-click's selection toggle. */
+                if (icon_set_selected (container, icon,
+                                       details->double_click_selected[1]))
+                {
+                    g_signal_emit (container, signals[SELECTION_CHANGED], 0);
+                }
+                /* Open only the clicked folder, regardless of selection. */
+                activate_selected_items_alternate (container, icon);
+                return TRUE;
+            }
+        }
         else if ((event->state & GDK_CONTROL_MASK) == 0 &&
                  (event->state & GDK_SHIFT_MASK) != 0)
         {
@@ -7042,6 +7070,9 @@ handle_icon_button_press (CajaIconContainer *container,
 
         details->double_click_button[1] = details->double_click_button[0];
         details->double_click_button[0] = event->button;
+
+        details->double_click_selected[1] = details->double_click_selected[0];
+        details->double_click_selected[0] = icon->is_selected;
     }
 
     if (handle_icon_double_click (container, icon, event))
