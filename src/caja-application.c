@@ -225,8 +225,8 @@ caja_empty_callback_to_ensure_read (CajaApplication *self) {
     (void) self;
 }
 
-static void
-maybe_start_dual_pane (CajaWindow *window)
+void
+caja_window_maybe_start_dual_pane (CajaWindow *window)
 {
     CajaNavigationWindow *nav_window;
 
@@ -278,7 +278,6 @@ open_window (CajaApplication *application,
     }
 
     caja_window_go_to (window, location);
-    maybe_start_dual_pane (window);
 
     if (geometry != NULL && !gtk_widget_get_visible (GTK_WIDGET (window))) {
         /* never maximize windows opened from shell if a
@@ -339,7 +338,6 @@ open_tabs (CajaApplication *application,
         caja_window_go_to_tab (window, locations[tab]);
         g_free (uri);
     }
-    maybe_start_dual_pane (window);
 
     if (geometry != NULL && !gtk_widget_get_visible (GTK_WIDGET (window))) {
         /* never maximize windows opened from shell if a
