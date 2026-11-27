@@ -62,16 +62,25 @@ should_open_in_new_tab (void)
 {
     /* FIXME this is duplicated */
     GdkEvent *event;
+    gboolean new_tab;
 
     event = gtk_get_current_event ();
+    if (event == NULL)
+    {
+        return FALSE;
+    }
+
+    new_tab = FALSE;
     if (event->type == GDK_BUTTON_PRESS || event->type == GDK_BUTTON_RELEASE)
     {
-        return event->button.button == 2;
+        new_tab = event->button.button == 2 ||
+                  (event->button.button == 1 &&
+                   (event->button.state & GDK_CONTROL_MASK) != 0);
     }
 
     gdk_event_free (event);
 
-    return FALSE;
+    return new_tab;
 }
 
 static void
