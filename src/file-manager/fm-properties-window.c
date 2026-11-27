@@ -4918,7 +4918,8 @@ append_extension_pages (FMPropertiesWindow *window)
 	for (p = module_providers; p != NULL; p = p->next) {
 		const gchar *type_name = G_OBJECT_TYPE_NAME (G_OBJECT (p->data));
 		if (g_strcmp0 (type_name, "CajaNotesViewerProvider") == 0 ||
-		    g_strcmp0 (type_name, "CajaImagePropertiesPageProvider") == 0) {
+		    g_strcmp0 (type_name, "CajaImagePropertiesPageProvider") == 0 ||
+		    g_strcmp0 (type_name, "CajaTagsViewerProvider") == 0) {
 			providers = g_list_prepend (providers, p->data);
 		}
 	}
