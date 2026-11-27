@@ -24,6 +24,21 @@ EXTRA_DIST = \
 	COPYING.EXTENSIONS \
 	HACKING \
 	Makefile.shared \
+	meson.build \
+	meson_options.txt \
+	data/meson.build \
+	data/icons/meson.build \
+	data/patterns/meson.build \
+	docs/meson.build \
+	docs/reference/meson.buil \
+	eel/meson.build \
+	icons/meson.build \
+	libcaja-extension/meson.build \
+	libcaja-private/meson.build \
+	po/meson.build \
+	src/meson.build \
+	src/file-manager/meson.build \
+	test/meson.build \
 	$(NULL)
 
 DISTCHECK_CONFIGURE_FLAGS = \
