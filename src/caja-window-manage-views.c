@@ -696,8 +696,24 @@ caja_window_slot_open_location_full (CajaWindowSlot *slot,
         return;
     }
 
+    gboolean fresh_window = TRUE;
+    for (l = target_window->details->panes; l != NULL; l = l->next)
+    {
+        GList *s;
+        pane = l->data;
+        for (s = pane->slots; s != NULL; s = s->next)
+        {
+            CajaWindowSlot *ws = s->data;
+            if (ws->location != NULL || ws->pending_location != NULL)
+                fresh_window = FALSE;
+        }
+    }
+
     begin_location_change (target_slot, location, old_location, new_selection,
                            (is_desktop && target_same) ? CAJA_LOCATION_CHANGE_RELOAD : CAJA_LOCATION_CHANGE_STANDARD, 0, NULL, callback, user_data);
+
+    if (fresh_window)
+        caja_window_maybe_start_dual_pane (target_window);
 
     /* Additionally, load this in all slots that have no location, this means
        we load both panes in e.g. a newly opened dual pane window. */

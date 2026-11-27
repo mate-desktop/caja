@@ -64,6 +64,7 @@
 #define CAJA_FILE_MANAGEMENT_PROPERTIES_DISPLAY_GIT_BRANCH_WIDGET "display_git_branch_checkbutton"
 #define CAJA_FILE_MANAGEMENT_PROPERTIES_ALL_COLUMNS_SAME_WIDTH "all_columns_same_width_checkbutton"
 #define CAJA_FILE_MANAGEMENT_PROPERTIES_ALWAYS_USE_BROWSER_WIDGET "always_use_browser_checkbutton"
+#define CAJA_FILE_MANAGEMENT_PROPERTIES_ALWAYS_START_DUAL_PANE_WIDGET "always_start_dual_pane_checkbutton"
 #define CAJA_FILE_MANAGEMENT_PROPERTIES_TRASH_CONFIRM_WIDGET "trash_confirm_checkbutton"
 #define CAJA_FILE_MANAGEMENT_PROPERTIES_TRASH_CONFIRM_TRASH_WIDGET "trash_confirm_trash_checkbutton"
 #define CAJA_FILE_MANAGEMENT_PROPERTIES_TRASH_DELETE_WIDGET "trash_delete_checkbutton"
@@ -1130,6 +1131,9 @@ caja_file_management_properties_dialog_setup (GtkBuilder *builder, GtkWindow *wi
     bind_builder_bool_inverted (builder, caja_preferences,
                                 CAJA_FILE_MANAGEMENT_PROPERTIES_ALWAYS_USE_BROWSER_WIDGET,
                                 CAJA_PREFERENCES_ALWAYS_USE_BROWSER);
+    bind_builder_bool (builder, caja_preferences,
+                       CAJA_FILE_MANAGEMENT_PROPERTIES_ALWAYS_START_DUAL_PANE_WIDGET,
+                       CAJA_PREFERENCES_ALWAYS_START_DUAL_PANE);
 
     bind_builder_bool (builder, caja_media_preferences,
                        CAJA_FILE_MANAGEMENT_PROPERTIES_MEDIA_AUTOMOUNT_OPEN,

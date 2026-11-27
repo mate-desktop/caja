@@ -96,6 +96,7 @@ CajaWindow *     caja_application_create_navigation_window     (CajaApplication 
 void caja_application_close_all_navigation_windows (CajaApplication *self);
 void caja_application_close_parent_windows     (CajaSpatialWindow *window);
 void caja_application_close_all_spatial_windows  (void);
+void caja_window_maybe_start_dual_pane (CajaWindow *window);
 
 void caja_application_open_location (CajaApplication *application,
         GFile *location,
