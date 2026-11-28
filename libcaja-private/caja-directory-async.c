@@ -4960,28 +4960,34 @@ extension_info_start (CajaDirectory *directory,
 static gboolean
 start_file_metadata_requests (CajaDirectory *directory)
 {
-    GList *node;
+    GHashTableIter iter;
+    gpointer value;
     gboolean doing_io;
 
     doing_io = FALSE;
-    for (node = directory->details->call_when_ready_lists.unsatisfied;
-         node != NULL;
-         node = node->next)
+    g_hash_table_iter_init (&iter,
+                           directory->details->call_when_ready_hash.unsatisfied);
+    while (g_hash_table_iter_next (&iter, NULL, &value))
     {
-        ReadyCallback *callback = node->data;
+        GList *node;
 
-        if (callback->file == NULL)
+        for (node = value; node != NULL; node = node->next)
         {
-            continue;
-        }
+            ReadyCallback *callback = node->data;
 
-        if (REQUEST_WANTS_TYPE (callback->request, REQUEST_MOUNT))
-        {
-            mount_start (directory, callback->file, &doing_io);
-        }
-        if (REQUEST_WANTS_TYPE (callback->request, REQUEST_FILESYSTEM_INFO))
-        {
-            filesystem_info_start (directory, callback->file, &doing_io);
+            if (callback->file == NULL)
+            {
+                continue;
+            }
+
+            if (REQUEST_WANTS_TYPE (callback->request, REQUEST_MOUNT))
+            {
+                mount_start (directory, callback->file, &doing_io);
+            }
+            if (REQUEST_WANTS_TYPE (callback->request, REQUEST_FILESYSTEM_INFO))
+            {
+                filesystem_info_start (directory, callback->file, &doing_io);
+            }
         }
     }
 
