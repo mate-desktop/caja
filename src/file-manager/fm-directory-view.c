@@ -9879,9 +9879,12 @@ load_directory (FMDirectoryView *view,
 		(view->details->directory_as_file,
 		 attributes,
 		 metadata_for_directory_as_file_ready_callback, view);
+	/* Child previews use the displayed directory's filesystem policy.
+	 * Do not wait for a separate filesystem query for every child.
+	 */
 	caja_directory_call_when_ready
 		(view->details->model,
-		 attributes,
+		 CAJA_FILE_ATTRIBUTE_INFO | CAJA_FILE_ATTRIBUTE_MOUNT,
 		 FALSE,
 		 metadata_for_files_in_directory_ready_callback, view);
 
