@@ -4954,6 +4954,46 @@ extension_info_start (CajaDirectory *directory,
     }
 }
 
+/* Serve individual metadata requests before background directory counts.
+ * An open parent view must not delay opening one of its children.
+ */
+static gboolean
+start_file_metadata_requests (CajaDirectory *directory)
+{
+    GHashTableIter iter;
+    gpointer value;
+    gboolean doing_io;
+
+    doing_io = FALSE;
+    g_hash_table_iter_init (&iter,
+                           directory->details->call_when_ready_hash.unsatisfied);
+    while (g_hash_table_iter_next (&iter, NULL, &value))
+    {
+        GList *node;
+
+        for (node = value; node != NULL; node = node->next)
+        {
+            ReadyCallback *callback = node->data;
+
+            if (callback->file == NULL)
+            {
+                continue;
+            }
+
+            if (REQUEST_WANTS_TYPE (callback->request, REQUEST_MOUNT))
+            {
+                mount_start (directory, callback->file, &doing_io);
+            }
+            if (REQUEST_WANTS_TYPE (callback->request, REQUEST_FILESYSTEM_INFO))
+            {
+                filesystem_info_start (directory, callback->file, &doing_io);
+            }
+        }
+    }
+
+    return doing_io;
+}
+
 static void
 start_or_stop_io (CajaDirectory *directory)
 {
@@ -4991,6 +5031,11 @@ start_or_stop_io (CajaDirectory *directory)
         }
 
         move_file_to_low_priority_queue (directory, file);
+    }
+
+    if (start_file_metadata_requests (directory))
+    {
+        return;
     }
 
     /* High priority queue must be empty */
