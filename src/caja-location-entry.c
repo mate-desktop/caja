@@ -50,8 +50,15 @@
 #include <libcaja-private/caja-clipboard.h>
 
 #include "caja-location-entry.h"
+#include "caja-location-expansion.h"
 #include "caja-window-private.h"
 #include "caja-window.h"
+
+typedef struct
+{
+    CajaLocationEntry *entry;
+    GCancellable *cancellable;
+} LocationCompletion;
 
 struct CajaLocationEntryDetails
 {
@@ -61,6 +68,11 @@ struct CajaLocationEntryDetails
     GFilenameCompleter *completer;
 
     guint idle_id;
+    GCancellable *expansion;
+    gboolean expansion_done;
+    LocationCompletion *completion_lookup;
+    char *completion_variable;
+    char *completion_value;
 
     gboolean has_special_text;
     gboolean setting_special_text;
@@ -74,6 +86,77 @@ static void  caja_location_entry_init             (CajaLocationEntry      *entry
 EEL_CLASS_BOILERPLATE (CajaLocationEntry,
                        caja_location_entry,
                        CAJA_TYPE_ENTRY)
+
+static gboolean try_to_expand_path (gpointer callback_data);
+static gboolean position_and_selection_are_at_end (GtkEditable *editable);
+
+static void
+clear_variable_completion (CajaLocationEntry *entry)
+{
+    if (entry->details->completion_lookup != NULL)
+    {
+        g_cancellable_cancel (entry->details->completion_lookup->cancellable);
+        entry->details->completion_lookup = NULL;
+    }
+    g_clear_pointer (&entry->details->completion_variable, g_free);
+    g_clear_pointer (&entry->details->completion_value, g_free);
+}
+
+static void
+completion_variable_ready (GObject *source, GAsyncResult *result, gpointer data)
+{
+    LocationCompletion *lookup = data;
+    CajaLocationEntry *entry = lookup->entry;
+    char *value = caja_location_expand_finish (result, NULL);
+
+    if (entry->details->completion_lookup == lookup)
+    {
+        entry->details->completion_lookup = NULL;
+        if (value != NULL &&
+            g_strcmp0 (value, entry->details->completion_variable) != 0)
+        {
+            entry->details->completion_value = g_steal_pointer (&value);
+            if (gtk_widget_has_focus (GTK_WIDGET (entry)) &&
+                position_and_selection_are_at_end (GTK_EDITABLE (entry)) &&
+                entry->details->idle_id == 0)
+                entry->details->idle_id = g_idle_add (try_to_expand_path, entry);
+        }
+    }
+    g_free (value);
+    g_object_unref (lookup->cancellable);
+    g_object_unref (entry);
+    g_free (lookup);
+}
+
+static char *
+expand_completion_location (CajaLocationEntry *entry, const char *text)
+{
+    char *expanded = caja_location_expand_environment (text);
+    const char *slash = strchr (text, '/');
+    char *variable;
+
+    if (expanded != NULL || slash == NULL || !caja_location_has_variable (text))
+        return expanded;
+
+    /* Resolve the variable once while its path suffix is being edited.
+     * Retain the variable spelling in the entry and complete its real path. */
+    variable = g_strndup (text, slash - text);
+    if (g_strcmp0 (variable, entry->details->completion_variable) != 0)
+    {
+        LocationCompletion *lookup = g_new0 (LocationCompletion, 1);
+        clear_variable_completion (entry);
+        entry->details->completion_variable = g_strdup (variable);
+        lookup->entry = g_object_ref (entry);
+        lookup->cancellable = g_cancellable_new ();
+        entry->details->completion_lookup = lookup;
+        caja_location_expand_async (variable, lookup->cancellable,
+                                     completion_variable_ready, lookup);
+    }
+    if (entry->details->completion_value != NULL)
+        expanded = g_strconcat (entry->details->completion_value, slash, NULL);
+    g_free (variable);
+    return expanded;
+}
 
 /* routine that performs the tab expansion.  Extract the directory name and
    incomplete basename, then iterate through the directory trying to complete it.  If we
@@ -89,9 +172,29 @@ try_to_expand_path (gpointer callback_data)
 
     entry = CAJA_LOCATION_ENTRY (callback_data);
     editable = GTK_EDITABLE (entry);
-    user_location = gtk_editable_get_chars (editable, 0, -1);
-    user_location_length = g_utf8_strlen (user_location, -1);
     entry->details->idle_id = 0;
+    user_location = gtk_editable_get_chars (editable, 0, -1);
+    if (caja_location_has_variable (user_location) &&
+        (!gtk_widget_has_focus (GTK_WIDGET (entry)) ||
+         !position_and_selection_are_at_end (editable)))
+    {
+        g_free (user_location);
+        return FALSE;
+    }
+    user_location_length = g_utf8_strlen (user_location, -1);
+    {
+        char *expanded = expand_completion_location (entry, user_location);
+        if (expanded != NULL)
+        {
+            g_free (user_location);
+            user_location = expanded;
+        }
+        else if (caja_location_has_variable (user_location))
+        {
+            g_free (user_location);
+            return FALSE;
+        }
+    }
 
     uri_scheme = g_uri_parse_scheme (user_location);
 
@@ -296,6 +399,11 @@ destroy (GtkWidget *object)
 
     entry = CAJA_LOCATION_ENTRY (object);
 
+    if (entry->details->expansion != NULL)
+        g_cancellable_cancel (entry->details->expansion);
+
+    clear_variable_completion (entry);
+
     /* cancel the pending idle call, if any */
     if (entry->details->idle_id != 0)
     {
@@ -313,6 +421,18 @@ static void
 caja_location_entry_text_changed (CajaLocationEntry *entry,
                                   GParamSpec            *pspec)
 {
+    if (entry->details->expansion != NULL)
+        g_cancellable_cancel (entry->details->expansion);
+
+    if (entry->details->completion_variable != NULL)
+    {
+        const char *text = gtk_entry_get_text (GTK_ENTRY (entry));
+        gsize length = strlen (entry->details->completion_variable);
+        if (!g_str_has_prefix (text, entry->details->completion_variable) ||
+            (text[length] != '/' && text[length] != '\0'))
+            clear_variable_completion (entry);
+    }
+
     if (entry->details->setting_special_text)
     {
         return;
@@ -357,6 +477,41 @@ caja_location_entry_focus_in (GtkWidget     *widget,
 }
 
 static void
+location_expanded (GObject *source, GAsyncResult *result, gpointer data)
+{
+    CajaLocationEntry *entry = data;
+    GError *error = NULL;
+    char *path;
+
+    path = caja_location_expand_finish (result, &error);
+    g_clear_object (&entry->details->expansion);
+    if (!gtk_widget_in_destruction (GTK_WIDGET (entry)) &&
+        entry->details->current_directory != NULL)
+    {
+        if (g_error_matches (error, G_IO_ERROR, G_IO_ERROR_NOT_FOUND))
+        {
+            GtkWidget *toplevel = gtk_widget_get_toplevel (GTK_WIDGET (entry));
+            char *message = g_strdup_printf (_("Could not find \"%s\"."),
+                                              error->message);
+            eel_show_error_dialog (message,
+                                   _("Please check the spelling and try again."),
+                                   GTK_IS_WINDOW (toplevel) ? GTK_WINDOW (toplevel) : NULL);
+            g_free (message);
+        }
+        else if (path != NULL)
+        {
+            gtk_entry_set_text (GTK_ENTRY (entry), path);
+            entry->details->expansion_done = TRUE;
+            g_signal_emit_by_name (entry, "activate");
+            entry->details->expansion_done = FALSE;
+        }
+    }
+    g_clear_error (&error);
+    g_free (path);
+    g_object_unref (entry);
+}
+
+static void
 caja_location_entry_activate (GtkEntry *entry)
 {
     CajaLocationEntry *loc_entry;
@@ -365,6 +520,21 @@ caja_location_entry_activate (GtkEntry *entry)
 
     loc_entry = CAJA_LOCATION_ENTRY (entry);
     entry_text = gtk_entry_get_text (entry);
+
+    if (!loc_entry->details->expansion_done &&
+        caja_location_has_variable (entry_text))
+    {
+        g_signal_stop_emission_by_name (entry, "activate");
+        if (loc_entry->details->expansion == NULL)
+        {
+            loc_entry->details->expansion = g_cancellable_new ();
+            caja_location_expand_async (entry_text,
+                                         loc_entry->details->expansion,
+                                         location_expanded,
+                                         g_object_ref (loc_entry));
+        }
+        return;
+    }
 
     if (entry_text != NULL && *entry_text != '\0')
     {
